@@ -1,0 +1,70 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "strictFunctionTypes": false,
+    "allowJs": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "noLib": false,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "vite/client",
+      "webpack-env",
+      "mocha",
+      "chai"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "/@/*": ["src/*"],
+      "/#/*": ["class/*"]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "noImplicitAny": false,
+    "removeComments": true
+  },
+  "plugins": [
+    {
+      "name": "@vuedx/typescript-plugin-vue"
+    }
+  ],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
+    "mock/**/*.ts",
+    "vite.config.ts",
+    "node_modules/@types/jest/index.d.ts",
+    "node_modules/@types/jest/index.d.ts"
+  ],
+  "exclude": [
+    "node_modules", "dist", "**/*.js", "tests/server/**/*.ts"
+  ]
+}

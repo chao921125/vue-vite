@@ -1,0 +1,16 @@
+*.sh
+*.md
+*.woff
+*.ttf
+.vscode
+.idea
+.husky
+.local
+node_modules
+dist
+/public
+/docs
+/bin
+/src/mock/*
+.eslintrc.js
+prettier.config.js

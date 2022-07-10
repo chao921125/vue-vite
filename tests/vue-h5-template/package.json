@@ -1,0 +1,73 @@
+{
+  "name": "vue-h5-template",
+  "version": "3.0.0",
+  "author": "Ewall熊猫",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "dev": "cross-env NODE_ENV=development vue-cli-service serve",
+    "local": "cross-env NODE_ENV=local vue-cli-service serve",
+    "mock": "cross-env NODE_ENV=mock vue-cli-service serve"
+  },
+  "dependencies": {
+    "@better-scroll/core": "^2.1.1",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "js-cookie": "^2.2.1",
+    "uuid": "^8.3.2",
+    "vant": "^3.0.3",
+    "vue": "^3.2.2",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@types/js-cookie": "^2.2.6",
+    "@types/uuid": "^8.3.0",
+    "@types/webpack-env": "^1.16.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "@vue/babel-plugin-jsx": "^1.0.2",
+    "@vue/cli-plugin-babel": "~5.0.0-beta.3",
+    "@vue/cli-plugin-eslint": "~5.0.0-beta.3",
+    "@vue/cli-plugin-router": "~5.0.0-beta.3",
+    "@vue/cli-plugin-typescript": "~5.0.0-beta.3",
+    "@vue/cli-plugin-unit-jest": "~5.0.0-beta.3",
+    "@vue/cli-plugin-vuex": "~5.0.0-beta.3",
+    "@vue/cli-service": "~5.0.0-beta.3",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "@vue/test-utils": "^2.0.0-0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.20.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.6.0",
+    "jest": "^26.6.3",
+    "postcss": "^8.2.3",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-px-to-viewport": "^1.1.1",
+    "prettier": "^2.2.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "svg-sprite-loader": "^6.0.0",
+    "ts-import-plugin": "^1.6.7",
+    "ts-jest": "^26.5.3",
+    "typescript": "~4.1.5",
+    "vue-jest": "^5.0.0-0",
+    "webpack-merge": "^5.8.0"
+  },
+  "keywords": [
+    "vue",
+    "vant",
+    "vue3.0",
+    "typescript",
+    "vue-h5-template"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ewall1106/mall"
+  }
+}
