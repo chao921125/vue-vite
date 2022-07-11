@@ -4,8 +4,8 @@ module.exports = {
   singleQuote: true,
   printWidth: 100,
   tabWidth: 2,
-  endOfLine:"auto",
+  endOfLine: "auto",
   vueIndentScriptAndStyle: true,
-  proseWrap: 'never',
-  htmlWhitespaceSensitivity: 'strict',
+  proseWrap: "never",
+  htmlWhitespaceSensitivity: "strict",
 };

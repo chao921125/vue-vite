@@ -6,7 +6,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "experimentalDecorators": true,
-    "incremental": true,
+    "incremental": false,
     "isolatedModules": true,
     "target": "esnext",
     "module": "esnext",
@@ -23,8 +23,6 @@
     "baseUrl": ".",
     "types": [
       "vite/client",
-      "webpack-env",
-      "mocha",
       "chai"
     ],
     "paths": {
@@ -65,6 +63,6 @@
     "node_modules/@types/jest/index.d.ts"
   ],
   "exclude": [
-    "node_modules", "dist", "**/*.js", "tests/server/**/*.ts"
+    "node_modules", "dist", "**/*.js", "tests/server/**/*.ts", "./tsconfig.node.json"
   ]
 }

@@ -5,66 +5,66 @@ module.exports = {
     node: true,
     es6: true,
   },
-  parser: 'vue-eslint-parser',
+  parser: "vue-eslint-parser",
   extends: [
-    'plugin:vue/recommended',
-    'plugin:prettier/recommended',
-    'plugin:vue/vue3-recommended',
-    'prettier/@typescript-eslint',
-    'plugin:@typescript-eslint/recommended',
+    "plugin:vue/recommended",
+    "plugin:prettier/recommended",
+    "plugin:vue/vue3-recommended",
+    "prettier/@typescript-eslint",
+    "plugin:@typescript-eslint/recommended",
   ],
   plugins: [
-    '@typescript-eslint'
+    "@typescript-eslint"
   ],
   parserOptions: {
-    parser: '@typescript-eslint/parser',
+    parser: "@typescript-eslint/parser",
     ecmaVersion: 2020,
-    sourceType: 'module',
+    sourceType: "module",
     ecmaFeatures: {
       jsx: true,
     },
   },
   rules: {
-    '@typescript-eslint/ban-ts-ignore': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/no-empty-function': 'off',
-    'vue/custom-event-name-casing': 'off',
-    'no-use-before-define': 'off',
-    // 'no-setting-before-define': [
-    //   'error',
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "vue/custom-event-name-casing": "off",
+    "no-use-before-define": "off",
+    // "no-setting-before-define": [
+    //   "error",
     //   {
     //     functions: false,
     //     classes: true,
     //   },
     // ],
-    '@typescript-eslint/no-use-before-define': 'off',
-    // '@typescript-eslint/no-setting-before-define': [
-    //   'error',
+    "@typescript-eslint/no-use-before-define": "off",
+    // "@typescript-eslint/no-setting-before-define": [
+    //   "error",
     //   {
     //     functions: false,
     //     classes: true,
     //   },
     // ],
-    '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/ban-types': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
       {
-        argsIgnorePattern: '^h$',
-        varsIgnorePattern: '^h$',
+        argsIgnorePattern: "^h$",
+        varsIgnorePattern: "^h$",
       },
     ],
-    'no-unused-vars': [
-      'error',
+    "no-unused-vars": [
+      "error",
       {
-        argsIgnorePattern: '^h$',
-        varsIgnorePattern: '^h$',
+        argsIgnorePattern: "^h$",
+        varsIgnorePattern: "^h$",
       },
     ],
-    'space-before-function-paren': 'off',
+    "space-before-function-paren": "off",
   },
 };

@@ -1,11 +1,11 @@
-<template>Home</template>
+<template>
+  <RouterView />
+</template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "Home",
+  name: "App",
 });
 </script>
-
-<style scope lang="less"></style>

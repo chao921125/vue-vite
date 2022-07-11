@@ -6,6 +6,42 @@ https://github.com/antfu/vitesse
 vue-meta \
 @vueuse/head
 ## 旧版本浏览器支持
+
+## 日期库
+
+dayjs https://day.js.org/
+
+Moment https://momentjs.com/
+
+date-fns https://date-fns.org
+## UI Style
+unocss
+
+windcss
+
+## 图标 SVG
+
+svg
+
+svg-sprite-loader
+
+
+https://fontawesome.com/
+
+@fortawesome/fontawesome-svg-core
+
+@fortawesome/free-solid-svg-icons
+
+https://iconify.design/
+
+@iconify/iconify
+
+阿里图标库 https://www.iconfont.cn/
+
+字节图标库 https://iconpark.oceanengine.com/official
+
+
+
 ## eslint + prettier 语法校验支持
 
     "@typescript-eslint/eslint-plugin": "^5.14.0",

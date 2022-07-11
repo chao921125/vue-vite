@@ -1,9 +1,12 @@
 export function getEnvConfig(env: Recordable): ViteEnv {
-  let rel: any = {};
-  for (const envKey of Object.keys(env)) {
-    let envName = env[envKey].replace(/\\n/g, '\n');
-    envName = envName === 'true' ? true : envName === 'false' ? false : envName;
-    console.log(envName);
+  let envConfig: any = {};
+  for (const envName of Object.keys(env)) {
+    let envValue = env[envName].replace(/\\n/g, '\n');
+    envValue = envValue === "true" ? true : envValue === "false" ? false : envValue;
+    if (envName === "VITE_CONFIG_PORT") {
+      envValue = Number(envValue);
+    }
+    envConfig[envName] = envValue;
   }
-  return rel;
+  return envConfig;
 }
