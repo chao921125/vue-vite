@@ -17,11 +17,3 @@ lib
 /build
 /config
 Dockerfile
-vue.config.js
-commit-lint.js
-postcss.config.js
-stylelint.config.js
-commitlint.config.js
-
-babel.config.js
-vite.config.ts

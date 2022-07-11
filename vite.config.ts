@@ -4,7 +4,7 @@ import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue"
 import pkg from './package.json';
 import dayjs from 'dayjs';
-import path from 'path';
+import path from 'path'; 
 import { getEnvConfig } from "./config";
 import { createHtmlPlugin } from "vite-plugin-html";
 import ViteRestart from "vite-plugin-restart";
@@ -16,19 +16,18 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   const envConfig = getEnvConfig(env);
   console.log(envConfig);
   console.log(command === 'build', dayjs.locale(), pkg.name);
-  // let dynamicConfig = {};
-  // if (command === 'serve') {
-  //   dynamicConfig = {
-  //     // dev specific config
-  //   }
-  // } else {
-  //   // command === 'build'
-  //   dynamicConfig = {
-  //     // build specific config
-  //   }
-  // }
-  // const defaultConfig = {
-  return {
+  let dynamicConfig: UserConfig = {};
+  if (command === 'serve') {
+    dynamicConfig = {
+      // dev specific config
+    }
+  } else {
+    // command === 'build'
+    dynamicConfig = {
+      // build specific config
+    }
+  }
+  const defaultConfig: UserConfig =  {
     // root: './public/index.html', // 入口，可以指定到public文件夹
     base: './', // 公共基础路径
     // mode: 'development', // 指令覆盖构建模式 --mode
@@ -209,5 +208,5 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     //   target: '',
     // },
   };
-  // return Object.assign(defaultConfig, dynamicConfig);
+  return Object.assign(defaultConfig, dynamicConfig);
 });

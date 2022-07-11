@@ -9,7 +9,7 @@ declare interface ViteEnv {
   VITE_APP_DROP_CONSOLE: boolean,
   VITE_CONFIG_PUBLIC_PATH: string,
   VITE_CONFIG_PORT: number,
-  VITE_CONFIG_PROXY: [],
+  VITE_CONFIG_PROXY: string[],
   VITE_APP_API_URL: string,
   VITE_APP_UPLOAD_URL: string,
   VITE_APP_API_URL_PREFIX: string,

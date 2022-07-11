@@ -6,6 +6,13 @@ export function getEnvConfig(env: Recordable): ViteEnv {
     if (envName === "VITE_CONFIG_PORT") {
       envValue = Number(envValue);
     }
+    if (envName === "VITE_CONFIG_PROXY:") {
+      try {
+        envValue = JSON.parse(envValue);
+      } catch (e) {
+        console.log("VITE_CONFIG_PROXY error");
+      }
+    }
     envConfig[envName] = envValue;
   }
   return envConfig;
