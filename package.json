@@ -33,8 +33,9 @@
     "test:gzip": "http-server dist --cors --gzip -c-1",
     "test:br": "http-server dist --cors --brotli -c-1",
     "install:husky": "is-ci || husky install",
-    "gen:icon": "esno ./build/generate/icon/index.ts",
-    "postinstall": "npm run install:husky"
+    "postinstall": "npm run install:husky",
+    "release": "standard-version",
+    "commit": "git pull && git add -A && git-cz && git push"
   },
   "dependencies": {
     "@babel/runtime": "^7.18.6",
