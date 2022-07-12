@@ -9,7 +9,7 @@ const app = createApp(App);
 import Vant from "vant";
 import "vant/lib/index.css";
 import "amfe-flexible/index.js";
-import "@/plugins/px2rem";
+import "@/libs/px2rem";
 
 // @ts-ignore
 import Video from "video.js";

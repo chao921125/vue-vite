@@ -59,6 +59,7 @@
     "build/**/*.d.ts",
     "mock/**/*.ts",
     "vite.config.ts",
+		"./auto-imports.d.ts",
     "node_modules/@types/jest/index.d.ts",
     "node_modules/@types/jest/index.d.ts"
   ],

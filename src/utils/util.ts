@@ -5,12 +5,11 @@
  * */
 export function UrlToObj(params: string) {
 	let obj = {
-		id: ""
+		id: "",
 	};
 	// @ts-ignore
-	params.replace(/([^?=&#]+)=([^?=&#]+)/g, (_, key, value) => obj[key] = value);
+	params.replace(/([^?=&#]+)=([^?=&#]+)/g, (_, key, value) => (obj[key] = value));
 	// @ts-ignore
-	params.replace(/#([^?=&#]+)/g, (_, hash) => obj["HASH"] = hash);
+	params.replace(/#([^?=&#]+)/g, (_, hash) => (obj["HASH"] = hash));
 	return obj;
 }
-

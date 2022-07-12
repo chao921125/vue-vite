@@ -4,8 +4,8 @@ import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue"
 import pkg from "./package.json";
 import dayjs from "dayjs";
-import path from "path"; 
-import { getEnvConfig } from "./config";
+import path from "path";
+import { getEnvConfig } from "./build";
 import { createHtmlPlugin } from "vite-plugin-html";
 import ViteRestart from "vite-plugin-restart";
 import { visualizer } from "rollup-plugin-visualizer";
@@ -197,9 +197,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
         // 别名必须以 / 开头、结尾
         // "/@/": root, -- vite 内部在用，这里不能用了
         // "/root/": __dirname, -- vite 内部在用，这里不能用了
-        "/@/": path.resolve(__dirname, "./src"),
+        "@": path.resolve(__dirname, "./src"),
 				"vue-i18n": "vue-i18n/dist/vue-i18n.cjs.js",
-				"/#/": path.resolve(__dirname, "./types"),
+				"#": path.resolve(__dirname, "./types"),
       },
       // dedupe: "", // 一般SSR+ESM使用
       // conditions: "",
