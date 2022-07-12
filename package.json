@@ -6,7 +6,6 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "install": "yarn install",
     "reinstall": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
     "serve": "npm run dev",
     "dev": "vite --mode development --host",
