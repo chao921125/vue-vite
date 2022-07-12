@@ -3,14 +3,14 @@ export function getEnvConfig(env: Recordable): ViteEnv {
   for (const envName of Object.keys(env)) {
     let envValue = env[envName].replace(/\\n/g, '\n');
     envValue = envValue === "true" ? true : envValue === "false" ? false : envValue;
-    if (envName === "VITE_CONFIG_PORT") {
+    if (envName === "VITE_APP_PORT") {
       envValue = Number(envValue);
     }
-    if (envName === "VITE_CONFIG_PROXY:") {
+    if (envName === "VITE_APP_PROXY:") {
       try {
         envValue = JSON.parse(envValue);
       } catch (e) {
-        console.log("VITE_CONFIG_PROXY error");
+        console.log("VITE_APP_PROXY error");
       }
     }
     envConfig[envName] = envValue;
