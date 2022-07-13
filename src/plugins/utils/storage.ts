@@ -59,12 +59,28 @@ storage.getSessionStorage = (key: string = "default") => {
 	}
 };
 
-storage.remove = (key: string = "default") => {
+storage.removeLocalStorage = (key: string = "default") => {
+	window.localStorage.removeItem(key);
+};
+
+storage.clearLocalStorage = () => {
+	window.localStorage.clear();
+};
+
+storage.removeSessionStorage = (key: string = "default") => {
+	window.sessionStorage.removeItem(key);
+};
+
+storage.clearSessionStorage = () => {
+	window.sessionStorage.clear();
+};
+
+storage.removeStorage = (key: string = "default") => {
 	window.localStorage.removeItem(key);
 	window.sessionStorage.removeItem(key);
 };
 
-storage.clear = () => {
+storage.clearStorage = () => {
 	window.localStorage.clear();
 	window.sessionStorage.clear();
 };

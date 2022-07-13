@@ -14,39 +14,43 @@ export function formatDate(date: Date, format: string): string {
 	let z = getWeek(date); // 周
 	let qut = Math.floor((date.getMonth() + 3) / 3).toString(); // 季度
 	const opt: { [key: string]: string } = {
-		'Y+': date.getFullYear().toString(), // 年
-		'm+': (date.getMonth() + 1).toString(), // 月(月份从0开始，要+1)
-		'd+': date.getDate().toString(), // 日
-		'H+': date.getHours().toString(), // 时
-		'M+': date.getMinutes().toString(), // 分
-		'S+': date.getSeconds().toString(), // 秒
-		'q+': qut, // 季度
+		"Y+": date.getFullYear().toString(), // 年
+		"m+": (date.getMonth() + 1).toString(), // 月(月份从0开始，要+1)
+		"d+": date.getDate().toString(), // 日
+		"H+": date.getHours().toString(), // 时
+		"M+": date.getMinutes().toString(), // 分
+		"S+": date.getSeconds().toString(), // 秒
+		"q+": qut, // 季度
 	};
 	// 中文数字 (星期)
 	const week: { [key: string]: string } = {
-		'0': '日',
-		'1': '一',
-		'2': '二',
-		'3': '三',
-		'4': '四',
-		'5': '五',
-		'6': '六',
+		"0": "日",
+		"1": "一",
+		"2": "二",
+		"3": "三",
+		"4": "四",
+		"5": "五",
+		"6": "六",
 	};
 	// 中文数字（季度）
 	const quarter: { [key: string]: string } = {
-		'1': '一',
-		'2': '二',
-		'3': '三',
-		'4': '四',
+		"1": "一",
+		"2": "二",
+		"3": "三",
+		"4": "四",
 	};
 	if (/(W+)/.test(format))
-		format = format.replace(RegExp.$1, RegExp.$1.length > 1 ? (RegExp.$1.length > 2 ? '星期' + week[we] : '周' + week[we]) : week[we]);
-	if (/(Q+)/.test(format)) format = format.replace(RegExp.$1, RegExp.$1.length == 4 ? '第' + quarter[qut] + '季度' : quarter[qut]);
-	if (/(Z+)/.test(format)) format = format.replace(RegExp.$1, RegExp.$1.length == 3 ? '第' + z + '周' : z + '');
+		format = format.replace(
+			RegExp.$1,
+			RegExp.$1.length > 1 ? (RegExp.$1.length > 2 ? "星期" + week[we] : "周" + week[we]) : week[we]
+		);
+	if (/(Q+)/.test(format))
+		format = format.replace(RegExp.$1, RegExp.$1.length == 4 ? "第" + quarter[qut] + "季度" : quarter[qut]);
+	if (/(Z+)/.test(format)) format = format.replace(RegExp.$1, RegExp.$1.length == 3 ? "第" + z + "周" : z + "");
 	for (let k in opt) {
-		let r = new RegExp('(' + k + ')').exec(format);
+		let r = new RegExp("(" + k + ")").exec(format);
 		// 若输入的长度不为1，则前面补零
-		if (r) format = format.replace(r[1], RegExp.$1.length == 1 ? opt[k] : opt[k].padStart(RegExp.$1.length, '0'));
+		if (r) format = format.replace(r[1], RegExp.$1.length == 1 ? opt[k] : opt[k].padStart(RegExp.$1.length, "0"));
 	}
 	return format;
 }
@@ -83,18 +87,18 @@ export function getWeek(dateTime: Date): number {
  * @description param 3天：   60 * 60* 24 * 1000 * 3
  * @returns 返回拼接后的时间字符串
  */
-export function formatPast(param: string | Date, format: string = 'YYYY-mm-dd'): string {
+export function formatPast(param: string | Date, format: string = "YYYY-mm-dd"): string {
 	// 传入格式处理、存储转换值
 	let t: any, s: number;
 	// 获取js 时间戳
 	let time: number = new Date().getTime();
 	// 是否是对象
-	typeof param === 'string' || 'object' ? (t = new Date(param).getTime()) : (t = param);
+	typeof param === "string" || "object" ? (t = new Date(param).getTime()) : (t = param);
 	// 当前时间戳 - 传入时间戳
 	time = Number.parseInt(`${time - t}`);
 	if (time < 10000) {
 		// 10秒内
-		return '刚刚';
+		return "刚刚";
 	} else if (time < 60000 && time >= 10000) {
 		// 超过10秒少于1分钟内
 		s = Math.floor(time / 1000);
@@ -113,7 +117,7 @@ export function formatPast(param: string | Date, format: string = 'YYYY-mm-dd'):
 		return `${s}天前`;
 	} else {
 		// 超过3天
-		let date = typeof param === 'string' || 'object' ? new Date(param) : param;
+		let date = typeof param === "string" || "object" ? new Date(param) : param;
 		return formatDate(date, format);
 	}
 }
@@ -126,12 +130,12 @@ export function formatPast(param: string | Date, format: string = 'YYYY-mm-dd'):
  */
 export function formatAxis(param: Date): string {
 	let hour: number = new Date(param).getHours();
-	if (hour < 6) return '凌晨好';
-	else if (hour < 9) return '早上好';
-	else if (hour < 12) return '上午好';
-	else if (hour < 14) return '中午好';
-	else if (hour < 17) return '下午好';
-	else if (hour < 19) return '傍晚好';
-	else if (hour < 22) return '晚上好';
-	else return '夜里好';
+	if (hour < 6) return "凌晨好";
+	else if (hour < 9) return "早上好";
+	else if (hour < 12) return "上午好";
+	else if (hour < 14) return "中午好";
+	else if (hour < 17) return "下午好";
+	else if (hour < 19) return "傍晚好";
+	else if (hour < 22) return "晚上好";
+	else return "夜里好";
 }

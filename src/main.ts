@@ -8,7 +8,7 @@ import router from "@/router";
 import pinia from "@/store";
 
 // vue i18n
-import I18n from "@/config/language";
+import I18n from "@/plugins/language";
 
 import mitt from "mitt";
 

@@ -30,11 +30,11 @@ cookie.getCookieAll = () => {
 	return Cookies.get();
 };
 
-cookie.remove = (key: string = "default") => {
+cookie.removeCookie = (key: string = "default") => {
 	Cookies.remove(key);
 };
 
-cookie.clear = () => {
+cookie.clearCookie = () => {
 	let keys = Cookies.get();
 	if (!keys || keys.length === 0) return false;
 	for (let key in keys) {

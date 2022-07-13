@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import Cookies from "js-cookie";
 import { UserInfosStates } from "../interface";
-import utils from "@/plugins/utils";
+import Utils from "@/plugins/utils";
 
 /**
  * 用户信息
@@ -52,10 +52,10 @@ export const useUserInfo = defineStore("userInfo", {
 				authBtnList: defaultAuthBtnList,
 			};
 			// 存储用户信息到浏览器缓存
-			utils.setSessionStorage("userInfo", userInfos);
+			Utils.setSessionStorage("userInfo", userInfos);
 
-			if (utils.getSessionStorage("userInfo")) {
-				this.userInfos = utils.getSessionStorage("userInfo");
+			if (Utils.getSessionStorage("userInfo")) {
+				this.userInfos = Utils.getSessionStorage("userInfo");
 			} else {
 				this.userInfos = userInfos;
 			}

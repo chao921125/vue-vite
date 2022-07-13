@@ -33,7 +33,7 @@ log.capsule = function (title: string, info: string, type: string = "primary") {
 	);
 };
 
-function colorful (textArr: any) {
+function colorful(textArr: any) {
 	console.log(`%c${textArr.map((t) => t.text || "").join("%c")}`, ...textArr.map((t) => `color: ${typeColor(t.type)};`));
 }
 
