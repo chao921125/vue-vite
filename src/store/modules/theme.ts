@@ -3,16 +3,12 @@ import { ThemeConfigStates, ThemeConfigState } from "../interface";
 
 /**
  * 布局配置
- * 修改配置时：
- * 1、需要每次都清理 `window.localStorage` 浏览器永久缓存
- * 2、或者点击布局配置最底部 `一键恢复默认` 按钮即可看到效果
  */
 export const useThemeConfig = defineStore("themeConfig", {
 	state: (): ThemeConfigStates => ({
 		themeConfig: {
 			// 是否开启布局配置抽屉
 			isDrawer: false,
-
 			/**
 			 * 全局主题
 			 */

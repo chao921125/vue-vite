@@ -1,0 +1,81 @@
+$prefix: re;
+// 禁止用户选中 鼠标变为手形
+%unable-select {
+	user-select: none;
+	cursor: pointer;
+}
+
+// 填满父元素
+// 组要父元素 position: relative | absolute;
+%full {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+// 文字居中
+%text-center {
+	text-align: center;
+}
+%text-left {
+	text-align: left;
+}
+%text-right {
+	text-align: right;
+}
+%wh-full {
+	width: 100vw;
+	height: 100vh;
+}
+%width-full {
+	width: 100vw;
+}
+%height-full {
+	height: 100vh;
+}
+%wh-fill {
+	width: 100%;
+	height: 100%;
+}
+%width-fill {
+	width: 100%;
+}
+%height-fill {
+	height: 100%;
+}
+
+// flex 垂直水平居中 两端对齐
+%flex-base {
+	display: flex;
+	display: -webkit-flex;
+}
+%flex-row {
+	justify-content: center;
+}
+%flex-col {
+	align-items: center;
+}
+%flex-center-row {
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+%flex-center-col {
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+%flex-space-between {
+	justify-content: space-between;
+}
+
+// 将元素模拟成卡片外观
+%card {
+	//border: 1px solid $color-border-white;
+	background: #fff;
+	border-radius: 4px;
+	font-size: 14px;
+	position: relative;
+}

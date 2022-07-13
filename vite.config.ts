@@ -100,6 +100,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// * vite 可以使用 jsx/tsx 语法
 			vueJsx(),
 			WindiCSS(),
+			// * name 可以写在 script 标签上
+			VueSetupExtend(),
 			legacy({
 				targets: ["defaults", "not IE 11"],
 			}),
@@ -118,8 +120,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				dts: true,
 				resolvers: [ElementPlusResolver(), VantResolver()],
 			}),
-			// * name 可以写在 script 标签上
-			VueSetupExtend(),
 			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
 			// AutoImport({
 			// 	resolvers: [ElementPlusResolver()]
@@ -221,7 +221,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
         },
         scss: {
 					javascriptEnabled: true,
-					// additionalData: `$injectedColor: orange`
+					additionalData: `@import "@/assets/styles/global.scss";`
         }
       },
     },
