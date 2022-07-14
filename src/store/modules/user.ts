@@ -52,10 +52,11 @@ export const useUserInfo = defineStore("userInfo", {
 				authBtnList: defaultAuthBtnList,
 			};
 			// 存储用户信息到浏览器缓存
-			Utils.setSessionStorage("userInfo", userInfos);
+			Utils.Storages.setSessionStorage("userInfo", userInfos);
+			Utils.Cookies.setCookie("userInfo", userInfos);
 
-			if (Utils.getSessionStorage("userInfo")) {
-				this.userInfos = Utils.getSessionStorage("userInfo");
+			if (Utils.Storages.getSessionStorage("userInfo")) {
+				this.userInfos = Utils.Storages.getSessionStorage("userInfo");
 			} else {
 				this.userInfos = userInfos;
 			}

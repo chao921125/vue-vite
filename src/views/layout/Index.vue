@@ -1,12 +1,23 @@
 <template>
-	<template v-if="isAdmin">
-		<router-view></router-view>
-	</template>
-	<template v-else>
-		<div>header</div>
-		<div><router-view></router-view></div>
-		<div>footer</div>
-	</template>
+	<div v-if="isAdmin" class="common-layout">
+		<el-container>
+			<el-header>Header</el-header>
+			<el-container>
+				<el-aside width="200px">Aside</el-aside>
+				<el-container>
+					<el-main><router-view></router-view></el-main>
+					<el-footer>Footer</el-footer>
+				</el-container>
+			</el-container>
+		</el-container>
+	</div>
+	<div v-else class="common-layout">
+		<el-container>
+			<el-header>Header</el-header>
+			<el-main><router-view></router-view></el-main>
+			<el-footer>Footer</el-footer>
+		</el-container>
+	</div>
 </template>
 
 <script lang="ts">
@@ -21,7 +32,7 @@ export default defineComponent({
 
 		return {
 			isAdmin,
-		}
+		};
 	},
 });
 </script>

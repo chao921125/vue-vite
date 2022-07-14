@@ -1,3 +1,3 @@
-export default {
-	url: "",
-};
+const api = {};
+
+export default api;

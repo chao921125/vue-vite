@@ -10,6 +10,7 @@ import pinia from "@/store";
 // vue i18n
 import I18n from "@/plugins/language";
 
+// mitt 总线
 import mitt from "mitt";
 
 // styles

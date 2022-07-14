@@ -4,32 +4,46 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import pinia from "@/store";
 import { storeToRefs } from "pinia";
+import pinia from "@/store";
+import { useRoutesList } from "@/store/modules/routerMeta";
 import Utils from "@/plugins/utils";
-import { staticRoutes } from "./route";
+import { baseRoutes } from "./route";
+import Config from "./config";
+import { getDynamicRouter } from "./dynamicRoute";
+import { getStaticRouter } from "./staticRoute";
 
-const router = createRouter({
+// 配置文件修改是否从后端获取路由
+// 动态路由需要后端按照数据格式返回，静态数据直接填充即可
+const isRequestRoutes = Config.isRequestRoutes;
+
+export const router = createRouter({
 	history: createWebHashHistory(),
-	routes: staticRoutes,
+	routes: baseRoutes,
+	strict: false,
+	// 切换页面，滚动到最顶部
+	scrollBehavior: () => ({ left: 0, top: 0 }),
 });
+
+if (!isRequestRoutes) await getStaticRouter();
 
 // 路由加载前
 router.beforeEach(async (to, from, next) => {
-	console.log("router", from, to, next);
+	console.log("router from", from.path, to.path);
 	NProgress.configure({ showSpinner: false });
 	if (to.meta.title) NProgress.start();
-	const token = Utils.getSessionStorage("token");
-	if (to.path === "/login" && !token) {
+	const token = Utils.Storages.getSessionStorage("token") || Utils.Cookies.getCookie("token");
+	if (Config.whiteList.includes(to.path) && !token) {
 		next();
 		NProgress.done();
 	} else {
-		if (!token) {
-			next(`/login?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
-			Utils.clearSessionStorage();
+		if (!token || token === "undefined") {
+			next(`${Config.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
+			Utils.Storages.removeSessionStorage("token");
+			Utils.Cookies.removeCookie("token");
 			NProgress.done();
-		} else if (token && to.path === "/login") {
-			next("/home");
+		} else if (token && (Config.whiteList.includes(to.path) || to.path === Config.routeRoot)) {
+			next(Config.routeHome);
 			NProgress.done();
 		} else {
 			const storesRoutesList = useRoutesList(pinia);
@@ -37,13 +51,18 @@ router.beforeEach(async (to, from, next) => {
 			if (routesList.value.length === 0) {
 				if (isRequestRoutes) {
 					// 后端控制路由：路由数据初始化，防止刷新时丢失
-					await initBackEndControlRoutes();
+					await getDynamicRouter();
 					// 动态添加路由：防止非首页刷新时跳转回首页的问题
 					// 确保 addRoute() 时动态添加的路由已经被完全加载上去
 					next({ ...to, replace: true });
+					NProgress.done();
+				} else {
+					next();
+					NProgress.done();
 				}
 			} else {
 				next();
+				NProgress.done();
 			}
 		}
 	}
