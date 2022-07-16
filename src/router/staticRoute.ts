@@ -1,5 +1,6 @@
 /**
- * 动态读取
+ * 静态数据
+ * TODO 后续再添加前端控制权限
  */
 import { RouteRecordRaw } from "vue-router";
 import pinia from "@/store";
@@ -37,18 +38,17 @@ export const staticRoutes: Array<RouteRecordRaw> = [
 ];
 
 export async function getStaticRouter() {
-	if (!(Utils.Storages.getSessionStorage("token") || Utils.Cookies.getCookie("token"))) return false;
-	await useUserInfo(pinia).setUserInfos();
+	if (!(Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token))) return false;
+	await useUserInfo(pinia).setUserInfo();
 	await setAddRoute();
 }
 
 export async function setAddRoute() {
-	await Config.getRouter(requestData.menus).forEach((route: RouteRecordRaw) => {
+	// add filter roles
+	// const menus = filterMenus(requestData.menus);
+	// const routerList = Config.getRouter(menus);
+	const routerList = Config.getRouter(requestData.menus);
+	await routerList.forEach((route: RouteRecordRaw) => {
 		router.addRoute(route);
 	});
 }
-
-// function filterRoles(data: any) {
-// 	if (!data) return [];
-// 	let menu = [];
-// }

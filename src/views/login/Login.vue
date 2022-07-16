@@ -15,8 +15,8 @@ export default defineComponent({
 		const router = useRouter();
 
 		const loginUser = () => {
-			Utils.Cookies.setCookie("token", "token");
-			Utils.Storages.setSessionStorage("token", "token");
+			Utils.Cookies.setCookie(Utils.Constants.cookieKeys.token, Math.random().toString(36));
+			Utils.Storages.setSessionStorage(Utils.Constants.storageKeys.token, Math.random().toString(36));
 			if (route.query?.redirect !== "/") {
 				router.push({
 					path: <string>route.query?.redirect,

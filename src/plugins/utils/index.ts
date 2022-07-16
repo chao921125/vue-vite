@@ -1,3 +1,4 @@
+import Constants from "./constants";
 import Cookies from "./cookie";
 import Storages from "./storage";
 import DB from "./db";
@@ -5,6 +6,7 @@ import Date from "./date";
 import Log from "./log";
 
 const util: any = {
+	Constants,
 	Cookies,
 	Storages,
 	DB,

@@ -57,8 +57,8 @@ export const useUserInfo = defineStore("userInfo", {
 			Utils.Storages.setSessionStorage("userInfo", userInfo);
 			Utils.Cookies.setCookie("userInfo", userInfo);
 
-			if (Utils.Storages.getSessionStorage("userInfo")) {
-				this.userInfo = Utils.Storages.getSessionStorage("userInfo");
+			if (Utils.Storages.getSessionStorage("userInfo") || Utils.Cookies.getCookie("userInfo")) {
+				this.userInfo = Utils.Storages.getSessionStorage("userInfo") || Utils.Cookies.getCookie("userInfo");
 			} else {
 				this.userInfo = userInfo;
 			}
