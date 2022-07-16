@@ -10,10 +10,10 @@ module.exports = {
   /* 继承某些已有的规则 */
   extends: [
     "plugin:vue/vue3-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
     "prettier",
-    "plugin:prettier/recommended"
+		"plugin:prettier/recommended",
+		"prettier/@typescript-eslint",
+		"plugin:@typescript-eslint/recommended"
   ],
   plugins: [
     "@typescript-eslint"
