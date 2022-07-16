@@ -4,15 +4,16 @@
  */
 
 // 用户信息
-export interface UserInfosState {
+export interface UserInfoState {
 	authBtnList: string[];
-	photo: string;
+	avatar: string;
 	roles: string[];
 	time: number;
 	userName: string;
+	id: string;
 }
-export interface UserInfosStates {
-	userInfos: UserInfosState;
+export interface UserInfoStates {
+	userInfo: UserInfoState
 }
 
 // 路由缓存列表

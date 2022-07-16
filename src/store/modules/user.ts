@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import Cookies from "js-cookie";
-import { UserInfosStates } from "../interface";
+import { UserInfoStates } from "../interface";
 import Utils from "@/plugins/utils";
 
 /**
@@ -8,17 +8,18 @@ import Utils from "@/plugins/utils";
  * @methods setUserInfos 设置用户信息
  */
 export const useUserInfo = defineStore("userInfo", {
-	state: (): UserInfosStates => ({
-		userInfos: {
+	state: (): UserInfoStates => ({
+		userInfo: {
+			id: "",
 			userName: "",
-			photo: "",
+			avatar: "",
 			time: 0,
 			roles: [],
 			authBtnList: [],
-		},
+		}
 	}),
 	actions: {
-		async setUserInfos() {
+		async setUserInfo() {
 			// 模拟数据，请求接口时，记得删除多余代码及对应依赖的引入
 			const userName = Cookies.get("userName");
 			// 模拟数据
@@ -41,9 +42,10 @@ export const useUserInfo = defineStore("userInfo", {
 				defaultAuthBtnList = testAuthBtnList;
 			}
 			// 用户信息模拟数据
-			const userInfos = {
+			const userInfo = {
+				id: "",
 				userName: userName,
-				photo:
+				avatar:
 					userName === "admin"
 						? "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1813762643,1914315241&fm=26&gp=0.jpg"
 						: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=317673774,2961727727&fm=26&gp=0.jpg",
@@ -52,13 +54,13 @@ export const useUserInfo = defineStore("userInfo", {
 				authBtnList: defaultAuthBtnList,
 			};
 			// 存储用户信息到浏览器缓存
-			Utils.Storages.setSessionStorage("userInfo", userInfos);
-			Utils.Cookies.setCookie("userInfo", userInfos);
+			Utils.Storages.setSessionStorage("userInfo", userInfo);
+			Utils.Cookies.setCookie("userInfo", userInfo);
 
 			if (Utils.Storages.getSessionStorage("userInfo")) {
-				this.userInfos = Utils.Storages.getSessionStorage("userInfo");
+				this.userInfo = Utils.Storages.getSessionStorage("userInfo");
 			} else {
-				this.userInfos = userInfos;
+				this.userInfo = userInfo;
 			}
 		},
 	},
