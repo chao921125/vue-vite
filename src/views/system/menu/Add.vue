@@ -1,13 +1,9 @@
-<template>
-menu add
-</template>
+<template>menu add</template>
 
 <script>
 export default {
-	name: "MenuAdd"
+	name: "MenuAdd",
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

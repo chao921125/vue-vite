@@ -1,40 +1,40 @@
-import { RouteRecordRaw } from 'vue-router';
+import { RouteRecordRaw } from "vue-router";
 import { errorRoutes } from "./route";
 
 interface Menu {
-	path: string,
-	component: string,
-	name: string,
-	title: string,
-	icon: string,
-	isLink: boolean | number,
-	isIframe: boolean | number,
-	address: string,
-	isAffix: boolean | number,
-	isKeepAlive: boolean | number,
-	isDisable: boolean | number,
-	isHide: boolean | number,
-	isHideSubMenu: boolean | number,
-	roles: string[],
-	children: any[]
+	path: string;
+	component: string;
+	name: string;
+	title: string;
+	icon: string;
+	isLink: boolean | number;
+	isIframe: boolean | number;
+	address: string;
+	isAffix: boolean | number;
+	isKeepAlive: boolean | number;
+	isDisable: boolean | number;
+	isHide: boolean | number;
+	isHideSubMenu: boolean | number;
+	roles: string[];
+	children: any[];
 }
 
-const viewsModules: any = import.meta.glob('../views/**/*.{vue,tsx}');
+const viewsModules: any = import.meta.glob("../views/**/*.{vue,tsx}");
 const dynamicViewsModules: Record<string, Function> = Object.assign({}, { ...viewsModules });
 
 function routeToComponent(routes: any[]) {
 	if (!routes) return [];
 	return routes.map((item: any) => {
-		if (item.component) item.component = dynamicImport(dynamicViewsModules, item.component as string);
+		if (item.component) item.component = componentImport(dynamicViewsModules, item.component as string);
 		item.children && routeToComponent(item.children);
 		return item;
-	})
+	});
 }
 
-function dynamicImport(dynamicViewsModules: Record<string, Function>, component: string) {
+function componentImport(dynamicViewsModules: Record<string, Function>, component: string) {
 	const keys = Object.keys(dynamicViewsModules);
 	const matchKeys = keys.filter((key) => {
-		const k = key.replace(/..\/views|../, '');
+		const k = key.replace(/..\/views|../, "");
 		return k.startsWith(`${component}`) || k.startsWith(`/${component}`);
 	});
 	if (matchKeys?.length === 1) {
@@ -48,14 +48,16 @@ function dynamicImport(dynamicViewsModules: Record<string, Function>, component:
 
 function setRouter(data: Menu[] = []) {
 	if (data.length === 0) return [];
-	let rootRouter: Array<RouteRecordRaw> = [{
-		path: "/",
-		name: "/",
-		redirect: { name: "home" },
-		component: () => import("@/views/layout/Index.vue"),
-		meta: { title: "message.router.login" },
-		children: [],
-	}];
+	let rootRouter: Array<RouteRecordRaw> = [
+		{
+			path: "/",
+			name: "/",
+			redirect: { name: "home" },
+			component: () => import("@/views/layout/Index.vue"),
+			meta: { title: "message.router.login" },
+			children: [],
+		},
+	];
 	let addRouters = [];
 	setRouterItem(addRouters, data, "");
 	rootRouter[0].children = routeToComponent(addRouters);
@@ -79,7 +81,7 @@ function setRouterItem(routerList: any, data: Menu[] = [], parentPath: string = 
 			name = tempName;
 		}
 
-		let route = {
+		let route: RouteRecordRaw = {
 			path: path,
 			name: name,
 			component: item.component,
@@ -93,7 +95,7 @@ function setRouterItem(routerList: any, data: Menu[] = [], parentPath: string = 
 				isIframe: item.isIframe,
 				roles: item.roles,
 			},
-		}
+		};
 		if (item.children && item.children.length > 0) {
 			// 当访问的路由是含有子节点的路由，并且子节点非菜单，那么重定向
 			// if (!o.isHideSubMenu) {
@@ -112,7 +114,7 @@ export default {
 	// 是否是管理端
 	isAdminIframe: true,
 	// 是否为动态路由方式
-	isRequestRoutes: false,
+	isRequestRoutes: true,
 	routeLogin: "/login",
 	routeRoot: "/",
 	routeHome: "/home",
@@ -121,7 +123,6 @@ export default {
 	rolesAdmin: ["admin"],
 	rolesUser: ["common"],
 	getRouter: (data: any[]) => {
-		console.log(data);
 		return setRouter(data);
 	},
 };

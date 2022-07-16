@@ -13,7 +13,7 @@ export interface UserInfoState {
 	id: string;
 }
 export interface UserInfoStates {
-	userInfo: UserInfoState
+	userInfo: UserInfoState;
 }
 
 // 路由缓存列表

@@ -9,6 +9,6 @@ user.queryUserInfo = (data: any = {}) => {
 		method: "POST",
 		data,
 	});
-}
+};
 
 export default user;

@@ -16,7 +16,7 @@ export const useUserInfo = defineStore("userInfo", {
 			time: 0,
 			roles: [],
 			authBtnList: [],
-		}
+		},
 	}),
 	actions: {
 		async setUserInfo() {

@@ -31,7 +31,7 @@ export default {
 			isHide: false,
 			isHideSubMenu: false,
 			roles: ["admin", "system"],
-			children: []
+			children: [],
 		},
 		{
 			id: 99,
@@ -83,9 +83,9 @@ export default {
 							isHide: true,
 							isHideSubMenu: false,
 							roles: ["admin", "system"],
-							children: []
-						}
-					]
+							children: [],
+						},
+					],
 				},
 				{
 					id: 992,
@@ -120,11 +120,11 @@ export default {
 							isHide: true,
 							isHideSubMenu: false,
 							roles: ["admin", "system"],
-							children: []
-						}
-					]
+							children: [],
+						},
+					],
 				},
-			]
-		}
-	]
-}
+			],
+		},
+	],
+};

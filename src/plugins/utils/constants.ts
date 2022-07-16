@@ -1,8 +1,8 @@
 export default {
 	storageKeys: {
-		token: "token"
+		token: "token",
 	},
 	cookieKeys: {
-		token: "token"
-	}
-}
+		token: "token",
+	},
+};

@@ -23,9 +23,14 @@ import { RouteRecordRaw } from "vue-router";
  * 定义404、401界面
  * @link 参考：https://next.router.vuejs.org/zh/guide/essentials/history-mode.html#netlify
  */
-export const errorRoutes = [
+export const errorRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/:path(.*)*",
+		name: "redirect",
+		redirect: "/404",
+	},
+	{
+		path: "/:pathMatch(.*)*",
 		name: "redirect",
 		redirect: "/404",
 	},

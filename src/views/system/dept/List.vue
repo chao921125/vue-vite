@@ -1,13 +1,9 @@
-<template>
-dept list
-</template>
+<template>dept list</template>
 
 <script>
 export default {
-	name: "DeptList"
+	name: "DeptList",
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

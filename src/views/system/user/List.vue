@@ -1,13 +1,9 @@
-<template>
-user list
-</template>
+<template>user list</template>
 
 <script>
 export default {
-	name: "UserList"
+	name: "UserList",
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

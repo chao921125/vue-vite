@@ -17,6 +17,8 @@ import { getStaticRouter } from "./staticRoute";
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可
 const isRequestRoutes = Config.isRequestRoutes;
 
+// baseRoutes[0].children = [];
+
 export const router = createRouter({
 	history: createWebHashHistory(),
 	routes: baseRoutes,
@@ -32,7 +34,9 @@ router.beforeEach(async (to, from, next) => {
 	console.log("router from", from.path, to.path);
 	NProgress.configure({ showSpinner: false });
 	if (to.meta.title) NProgress.start();
-	const token = Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token);
+	const token =
+		Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) ||
+		Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token);
 	if (Config.whiteList.includes(to.path) && !token) {
 		next();
 		NProgress.done();
