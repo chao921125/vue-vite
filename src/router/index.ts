@@ -12,7 +12,6 @@ import { baseRoutes } from "./route";
 import Config from "./config";
 import { getDynamicRouter } from "./dynamicRoute";
 import { getStaticRouter } from "./staticRoute";
-import Constants from "@/plugins/utils/constants";
 
 // 配置文件修改是否从后端获取路由
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可
