@@ -41,7 +41,27 @@ export interface RoutesListState {
 }
 
 // 布局配置
-export interface ThemeConfigState {}
+export interface ThemeConfigState {
+	primary: string;
+	isIsDark: boolean;
+	isGrayscale: boolean;
+	isInvert: boolean;
+	isCollapse: boolean;
+	isUniqueOpened: boolean;
+	isFixedHeader: boolean;
+	isFixedHeaderChange: boolean;
+	isFooter: boolean;
+	isWatermark: boolean;
+	watermarkText: string;
+	isBreadcrumb: boolean;
+	isBreadcrumbIcon: boolean;
+	isTagsView: boolean;
+	isTagsViewIcon: boolean;
+	isCacheTagsView: boolean;
+	isSortableTagsView: boolean;
+	globalI18n: string;
+	globalComponentSize: string;
+}
 export interface ThemeConfigStates {
 	themeConfig: ThemeConfigState;
 }

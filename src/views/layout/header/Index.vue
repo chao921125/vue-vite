@@ -1,6 +1,11 @@
 <template>
 	<el-row :gutter="10" justify="space-between">
-		<el-col :xs="24" :sm="12" class="test-a">nav<label class="test-b">123</label></el-col>
+		<el-col :xs="24" :sm="12" class="test-a">
+			<el-icon @click="changeCollapse">
+				<ArrowLeftBold v-if="isColl" />
+				<ArrowRightBold v-else />
+			</el-icon>
+		</el-col>
 		<el-col :xs="24" :sm="12">
 			<el-button @click="isShowDrawer = true">setting</el-button>
 			<el-button @click="logout">logout</el-button>
@@ -12,9 +17,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import Utils from "@/plugins/utils";
+import { useThemeConfig } from "@/store/modules/theme";
+import { storeToRefs } from "pinia";
 
 export default defineComponent({
 	name: "Index",
@@ -27,10 +34,23 @@ export default defineComponent({
 			Utils.Cookies.removeCookie(Utils.Constants.cookieKeys.token);
 			router.push({ path: "/login" });
 		}
+
+		const storeThemeConfig = useThemeConfig();
+		const { themeConfig } = storeToRefs(storeThemeConfig);
+		const isColl = computed(() => {
+			let { isCollapse } = themeConfig.value;
+			return !isCollapse;
+		});
+		const changeCollapse = () => {
+			themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
+		};
+
 		return {
+			isColl,
 			isShowDrawer,
+			changeCollapse,
 			logout,
-		}
+		};
 	},
 });
 </script>

@@ -1,13 +1,35 @@
 <template>
-	<div>Menu</div>
+	<div v-if="isColl" class="logo-full" @click="changeCollapse">Logo Full</div>
+	<div v-else class="logo-only" @click="changeCollapse">Logo</div>
+	<el-scrollbar>
+		<el-menu></el-menu>
+	</el-scrollbar>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
+import { storeToRefs } from "pinia";
+import { useThemeConfig } from "@/store/modules/theme";
 
 export default defineComponent({
 	name: "Index",
-	setup() {},
+	setup() {
+		const storeThemeConfig = useThemeConfig();
+		const { themeConfig } = storeToRefs(storeThemeConfig);
+
+		const isColl = computed(() => {
+			let { isCollapse } = themeConfig.value;
+			return !isCollapse;
+		});
+		const changeCollapse = () => {
+			themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
+		};
+
+		return {
+			isColl,
+			changeCollapse,
+		};
+	},
 });
 </script>
 
