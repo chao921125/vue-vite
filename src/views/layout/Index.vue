@@ -1,23 +1,17 @@
 <template>
-	<div v-if="isAdmin" class="common-layout">
-		<el-container>
-			<el-header>Header</el-header>
-			<el-container>
-				<el-aside width="200px">Aside</el-aside>
-				<el-container>
-					<el-main><router-view></router-view></el-main>
-					<el-footer>Footer</el-footer>
-				</el-container>
-			</el-container>
-		</el-container>
-	</div>
-	<div v-else class="common-layout">
+	<el-container v-if="isAdmin" class="">
+		<el-aside width="200px">Aside</el-aside>
 		<el-container>
 			<el-header>Header</el-header>
 			<el-main><router-view></router-view></el-main>
 			<el-footer>Footer</el-footer>
 		</el-container>
-	</div>
+	</el-container>
+	<el-container v-else class="">
+		<el-header>Header</el-header>
+		<el-main><router-view></router-view></el-main>
+		<el-footer>Footer</el-footer>
+	</el-container>
 </template>
 
 <script lang="ts">

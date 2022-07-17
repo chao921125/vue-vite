@@ -15,8 +15,8 @@ import importToCDN from "vite-plugin-cdn-import";
 import VueSetupExtend from "vite-plugin-vue-setup-extend";
 import viteCompression from "vite-plugin-compression";
 import WindiCSS from "vite-plugin-windicss";
-import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
 import AutoImport from "unplugin-auto-import/vite";
+import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
 import Components from "unplugin-vue-components/vite";
 
 const __APP_INFO__ = {
@@ -31,6 +31,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   const envConfig = getEnvConfig(env);
 	const isBuild = command.includes("build");
   let dynamicConfig: UserConfig;
+	// 动态添加的一些配置
   if (isBuild) {
     dynamicConfig = {
       // dev specific config
@@ -114,19 +115,13 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					/\.md$/, // .md
 				],
 				dts: true,
-				imports: ["vue", "vue-router"],
+				imports: ["vue", "vue-router", "pinia"],
 			}),
 			Components({
 				dts: true,
 				resolvers: [ElementPlusResolver(), VantResolver()],
 			}),
 			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
-			// AutoImport({
-			// 	resolvers: [ElementPlusResolver()]
-			// }),
-			// Components({
-			// 	resolvers: [ElementPlusResolver()]
-			// }),
 			// * cdn 引入（vue、element-plus）
 			importToCDN({
 				modules: [
