@@ -17,6 +17,7 @@ import { getStaticRouter } from "./staticRoute";
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可
 const isRequestRoutes = Config.isRequestRoutes;
 
+// 动态路由刷新404，所以先行去掉匹配不存在路由重定向至404页
 if (isRequestRoutes) baseRoutes[0].children = [];
 
 export const router = createRouter({
