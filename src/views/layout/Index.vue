@@ -4,13 +4,13 @@
 		<el-container>
 			<el-header><AdminHeader></AdminHeader></el-header>
 			<el-main><router-view></router-view></el-main>
-			<el-footer>Footer</el-footer>
+			<el-footer><AdminFooter></AdminFooter></el-footer>
 		</el-container>
 	</el-container>
 	<el-container v-else class="">
-		<el-header>Header</el-header>
+		<el-header>Web 下因需求不同，请重写</el-header>
 		<el-main><router-view></router-view></el-main>
-		<el-footer>Footer</el-footer>
+		<el-footer>Web 下因需求不同，请重写</el-footer>
 	</el-container>
 </template>
 
@@ -18,10 +18,11 @@
 import { defineComponent, ref } from "vue";
 import Settings from "@/router/common";
 import AdminHeader from "./header/Index.vue";
+import AdminFooter from "./footer/Index.vue";
 
 export default defineComponent({
 	name: "Layout",
-	components: { AdminHeader },
+	components: { AdminHeader, AdminFooter },
 	setup() {
 		const isAdmin = ref(true);
 		isAdmin.value = Settings.isAdminIframe;
