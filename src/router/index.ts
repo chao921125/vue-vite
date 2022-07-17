@@ -17,7 +17,7 @@ import { getStaticRouter } from "./staticRoute";
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可
 const isRequestRoutes = Config.isRequestRoutes;
 
-// baseRoutes[0].children = [];
+if (isRequestRoutes) baseRoutes[0].children = [];
 
 export const router = createRouter({
 	history: createWebHashHistory(),
@@ -59,9 +59,6 @@ router.beforeEach(async (to, from, next) => {
 					// 动态添加路由：防止非首页刷新时跳转回首页的问题
 					// 确保 addRoute() 时动态添加的路由已经被完全加载上去
 					next({ ...to, replace: true });
-					NProgress.done();
-				} else {
-					next();
 					NProgress.done();
 				}
 			} else {
