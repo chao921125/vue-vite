@@ -2,7 +2,7 @@
 	<el-container v-if="isAdmin" class="">
 		<el-aside width="200px">Aside</el-aside>
 		<el-container>
-			<el-header>Header</el-header>
+			<el-header><AdminHeader></AdminHeader></el-header>
 			<el-main><router-view></router-view></el-main>
 			<el-footer>Footer</el-footer>
 		</el-container>
@@ -17,9 +17,11 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import Settings from "@/router/common";
+import AdminHeader from "./header/Index.vue";
 
 export default defineComponent({
 	name: "Layout",
+	components: { AdminHeader },
 	setup() {
 		const isAdmin = ref(true);
 		isAdmin.value = Settings.isAdminIframe;

@@ -41,9 +41,7 @@ export interface RoutesListState {
 }
 
 // 布局配置
-export interface ThemeConfigState {
-
-}
+export interface ThemeConfigState {}
 export interface ThemeConfigStates {
 	themeConfig: ThemeConfigState;
 }

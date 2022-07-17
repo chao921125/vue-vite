@@ -1,6 +1,5 @@
 <template>
 	Home
-	<el-button @click="logout">logout</el-button>
 </template>
 
 <script lang="ts">

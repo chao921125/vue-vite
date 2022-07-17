@@ -18,18 +18,24 @@ export const useThemeConfig = defineStore("themeConfig", {
 			isGrayscale: false,
 			// 是否开启色弱模式
 			isInvert: false,
-
 			/**
 			 * 界面设置
 			 */
 			// 是否开启菜单水平折叠效果
 			isCollapse: false,
 			// 是否开启菜单手风琴效果
-			isUniqueOpened: false,
+			isUniqueOpened: true,
 			// 是否开启固定 Header
 			isFixedHeader: false,
 			// 初始化变量，用于更新菜单 el-scrollbar 的高度，请勿删除
 			isFixedHeaderChange: false,
+			// 是否开启 Footer 底部版权信息
+			isFooter: false,
+			// 是否开启水印
+			isWartermark: false,
+			// 水印文案
+			wartermarkText: "shuiyin",
+
 			/**
 			 * 界面显示
 			 */
@@ -39,10 +45,10 @@ export const useThemeConfig = defineStore("themeConfig", {
 			isShowLogoChange: false,
 			// 是否开启 Breadcrumb，强制经典、横向布局不显示
 			isBreadcrumb: true,
-			// 是否开启 Tagsview
-			isTagsview: true,
 			// 是否开启 Breadcrumb 图标
 			isBreadcrumbIcon: false,
+			// 是否开启 Tagsview
+			isTagsview: true,
 			// 是否开启 Tagsview 图标
 			isTagsviewIcon: false,
 			// 是否开启 TagsView 缓存
@@ -51,13 +57,6 @@ export const useThemeConfig = defineStore("themeConfig", {
 			isSortableTagsView: true,
 			// 是否开启 TagsView 共用
 			isShareTagsView: false,
-			// 是否开启 Footer 底部版权信息
-			isFooter: false,
-			// 是否开启水印
-			isWartermark: false,
-			// 水印文案
-			wartermarkText: "shuiyin",
-
 			/**
 			 * 其它设置
 			 */
@@ -66,7 +65,6 @@ export const useThemeConfig = defineStore("themeConfig", {
 			tagsStyle: "tags-style-five",
 			// 主页面切换动画：可选值"<slide-right|slide-left|opacitys>"，默认 slide-right
 			animation: "slide-right",
-
 			/**
 			 * 全局网站标题 / 副标题
 			 */
