@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import Settings from "@/settings";
+import Settings from "@/router/common";
 
 export default defineComponent({
 	name: "Layout",

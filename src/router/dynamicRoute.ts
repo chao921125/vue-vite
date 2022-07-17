@@ -2,7 +2,7 @@
  * 动态读取
  */
 import { RouteRecordName, RouteRecordRaw } from "vue-router";
-import Config from "./methods";
+import Config from "./common";
 import router from "./index";
 import requestData from "@/router/dataRouter";
 import Utils from "@/plugins/utils";

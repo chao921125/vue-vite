@@ -9,7 +9,7 @@ import pinia from "@/store";
 import { useRoutesList } from "@/store/modules/routerMeta";
 import Utils from "@/plugins/utils";
 import { baseRoutes } from "./route";
-import Settings from "@/settings";
+import Settings from "./common";
 import { getDynamicRouter } from "./dynamicRoute";
 import { getStaticRouter } from "./staticRoute";
 
