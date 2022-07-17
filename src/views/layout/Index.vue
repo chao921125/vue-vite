@@ -16,13 +16,13 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import Config from "@/router/config";
+import Settings from "@/settings";
 
 export default defineComponent({
 	name: "Layout",
 	setup() {
 		const isAdmin = ref(true);
-		isAdmin.value = Config.isAdminIframe;
+		isAdmin.value = Settings.isAdminIframe;
 
 		return {
 			isAdmin,

@@ -111,17 +111,6 @@ function setRouterItem(routerList: any, data: Menu[] = [], parentPath: string = 
 
 // 静态路由配置参数
 export default {
-	// 是否是管理端
-	isAdminIframe: true,
-	// 是否为动态路由方式
-	isRequestRoutes: true,
-	routeLogin: "/login",
-	routeRoot: "/",
-	routeHome: "/home",
-	whiteList: ["/login", "/register", "/auth"],
-	rolesSuper: ["admin", "common"],
-	rolesAdmin: ["admin"],
-	rolesUser: ["common"],
 	getRouter: (data: any[]) => {
 		return setRouter(data);
 	},

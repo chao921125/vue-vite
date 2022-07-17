@@ -7,7 +7,7 @@ import pinia from "@/store";
 import { router } from "@/router";
 import Utils from "@/plugins/utils";
 import { useUserInfo } from "@/store/modules/user";
-import Config from "./config";
+import Config from "./methods";
 import requestData from "./dataRouter";
 
 export async function getStaticRouter() {
