@@ -87,6 +87,7 @@ function setRouterItem(routerList: any, data: Menu[] = [], parentPath: string = 
 			component: item.component,
 			meta: {
 				title: item.title,
+				name: item.name,
 				icon: item.icon,
 				isLink: item.isLink,
 				isHide: item.isHide,
