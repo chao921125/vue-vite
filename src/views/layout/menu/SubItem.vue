@@ -3,21 +3,16 @@
 		<template v-if="!item.isHide">
 			<el-sub-menu v-if="!item.isHideSubMenu && item.children && item.children.length > 0" :key="item.id" :index="item.path" v-bind="$attrs">
 				<template #title>
-					<span>{{ item.title }}</span>
+					<span>{{ $t(item.title) }}</span>
 				</template>
-				<SubMenu :sub-menu-list="item.children" :base-path="item.path + '/'"></SubMenu>
+				<SubItem :menuList="item.children" :basePath="item.path + '/'"></SubItem>
 			</el-sub-menu>
 			<el-menu-item v-else :key="item.id" :index="resolvePath(item.path)">
 				<!-- 此处图标可以自定义 -->
-				<template #title>{{ item.title }}</template>
+				<template #title>{{ $t(item.title) }}</template>
 			</el-menu-item>
 		</template>
 	</template>
-			<el-sub-menu index="1-4">
-				<template #title>item four</template>
-				<el-menu-item index="1-4-1">item one</el-menu-item>
-			</el-sub-menu>
-<!--		<SubItem v-if="item === 6"></SubItem>-->
 </template>
 
 <script lang="ts">
@@ -27,16 +22,25 @@ export default defineComponent({
 	name: "SubItem",
 	props: {
 		menuList: {
-			type: Array,
+			type: Object,
 			default: () => [],
+		},
+		basePath: {
+			type: String,
+			default: ""
 		}
 	},
 	setup(props) {
 		const menuList = computed(() => {
 			return <any>props.menuList || [];
 		});
+
+		const resolvePath = (path: string) => {
+			return props.basePath + path;
+		};
 		return {
 			menuList,
+			resolvePath
 		}
 	},
 });

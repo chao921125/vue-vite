@@ -1,4 +1,12 @@
 export default {
+	menu: {
+		home: "首页",
+		system: "系统管理",
+		systemUser: "用户管理",
+		systemRole: "角色管理",
+		systemDept: "部门管理",
+		systemMenu: "菜单管理",
+	},
 	home: {
 		welcome: "欢迎使用",
 	},
