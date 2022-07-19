@@ -1,4 +1,4 @@
-// https://vitejs.dev/config/
+// https://vitejs.dev/config/ 中文文档 https://cn.vitejs.dev/
 import type { UserConfig, ConfigEnv } from "vite";
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue"
@@ -75,8 +75,13 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				//      // proxy http-proxy
 				//   },
 				// },
+				// '/socket.io': {
+				// 	target: 'ws://localhost:3000',
+				// 	ws: true
+				// }
 			},
 			cors: true, // boolean | CorsOptions
+			// headers: false, // OutgoingHttpHeaders 指定服务器响应的 header
 			// force: false, // boolean 依赖构建
 			// hmr: false, // boolean | { protocol?: string, host?: string, port?: number, path?: string, timeout?: number, overlay?: boolean }
 			// watch: "", // object
@@ -272,7 +277,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			},
       // write: true,
       // emptyOutDir: "", // outDiroutDir--emptyOutDir
-      brotliSize: true, // 压缩大小报告
       chunkSizeWarningLimit: 2048,
       // watch: 1024,
     },

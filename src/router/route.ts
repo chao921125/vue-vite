@@ -28,11 +28,17 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 		path: "/:path(.*)*",
 		name: "redirect",
 		redirect: "/404",
+		meta: {
+			isHide: true,
+		}
 	},
 	{
 		path: "/:pathMatch(.*)*",
 		name: "redirect",
 		redirect: "/404",
+		meta: {
+			isHide: true,
+		}
 	},
 	{
 		path: "/401",
@@ -78,19 +84,28 @@ export const baseRoutes: Array<RouteRecordRaw> = [
 		path: "/login",
 		name: "login",
 		component: () => import("@/views/login/Login.vue"),
-		meta: { title: "message.router.login" },
+		meta: {
+			title: "message.router.login",
+			isHide: true,
+		},
 	},
 	{
 		path: "/register",
 		name: "register",
 		component: () => import("@/views/login/Register.vue"),
-		meta: { title: "message.router.register" },
+		meta: {
+			title: "message.router.register",
+			isHide: true,
+		},
 	},
 	{
 		path: "/auth",
 		name: "auth",
 		component: () => import("@/views/login/Auth.vue"),
-		meta: { title: "message.router.auth" },
+		meta: {
+			title: "message.router.auth",
+			isHide: true,
+		},
 	},
 ];
 

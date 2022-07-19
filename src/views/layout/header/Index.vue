@@ -20,8 +20,9 @@
 import { defineComponent, ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import Utils from "@/plugins/utils";
-import { useThemeConfig } from "@/store/modules/theme";
 import { storeToRefs } from "pinia";
+import pinia from "@/store";
+import { useThemeConfig } from "@/store/modules/theme";
 
 export default defineComponent({
 	name: "Index",
@@ -35,7 +36,7 @@ export default defineComponent({
 			router.push({ path: "/login" });
 		}
 
-		const storeThemeConfig = useThemeConfig();
+		const storeThemeConfig = useThemeConfig(pinia);
 		const { themeConfig } = storeToRefs(storeThemeConfig);
 		const isColl = computed(() => {
 			let { isCollapse } = themeConfig.value;
