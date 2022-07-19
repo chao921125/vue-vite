@@ -6,7 +6,7 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { storeToRefs } from "pinia";
 import pinia from "@/store";
-import { useRoutesList } from "@/store/modules/routerMeta";
+import { useRouterList } from "@/store/modules/routerMeta";
 import Utils from "@/plugins/utils";
 import { baseRoutes } from "./route";
 import Settings from "./common";
@@ -51,9 +51,9 @@ router.beforeEach(async (to, from, next) => {
 			next(Settings.routeHome);
 			NProgress.done();
 		} else {
-			const storesRoutesList = useRoutesList(pinia);
-			const { routesList } = storeToRefs(storesRoutesList);
-			if (routesList.value.length === 0) {
+			const storesRouterList = useRouterList(pinia);
+			const { routerList } = storeToRefs(storesRouterList);
+			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {
 					// 后端控制路由：路由数据初始化，防止刷新时丢失
 					await getDynamicRouter();
