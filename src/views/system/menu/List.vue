@@ -1,9 +1,23 @@
-<template>menu list</template>
+<template>menu list
+	<el-button @click="toAdd">to add</el-button>
+</template>
 
-<script>
-export default {
-	name: "MenuList",
-};
+<script lang="ts">
+import { defineComponent } from "vue";
+import { useRouter } from "vue-router";
+
+export default defineComponent({
+	name: "Template",
+	setup() {
+		const router = useRouter();
+		const toAdd = () => {
+			router.push({path: "/system/menu/add"})
+		};
+		return {
+			toAdd,
+		}
+	},
+});
 </script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>
