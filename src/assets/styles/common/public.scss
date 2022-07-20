@@ -31,14 +31,12 @@ $z-index-7: 7000;
 $z-index-8: 8000;
 $z-index-9: 9000;
 
-// 禁止用户选中 鼠标变为手形
+// 禁止用户选中
 %unable-select {
 	user-select: none;
-	cursor: pointer;
 }
 
-// 填满父元素
-// 组要父元素 position: relative | absolute;
+// 填满父元素 position: relative | absolute;
 %full {
 	position: absolute;
 	top: 0;
@@ -47,7 +45,7 @@ $z-index-9: 9000;
 	left: 0;
 }
 
-// 文字居中
+// 文字 居中 左 右
 %text-center {
 	text-align: center;
 }
@@ -57,6 +55,8 @@ $z-index-9: 9000;
 %text-right {
 	text-align: right;
 }
+
+// 填充 宽高
 %wh-full {
 	width: 100vw;
 	height: 100vh;
@@ -83,12 +83,6 @@ $z-index-9: 9000;
 	display: flex;
 	display: -webkit-flex;
 }
-%flex-row {
-	justify-content: center;
-}
-%flex-col {
-	align-items: center;
-}
 %flex-center-row {
 	justify-content: center;
 	align-items: center;
@@ -98,9 +92,6 @@ $z-index-9: 9000;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-}
-%flex-space-between {
-	justify-content: space-between;
 }
 
 // 将元素模拟成卡片外观
