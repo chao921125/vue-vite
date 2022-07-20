@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1441627",
+      "name": "logo",
+      "font_class": "shouye",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "2678581",
+      "name": "常用示例",
+      "font_class": "changyongshili",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
       "icon_id": "2472132",
       "name": "500",
       "font_class": "icon-test",

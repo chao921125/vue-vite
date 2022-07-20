@@ -1,6 +1,14 @@
 <template>
-	<div v-if="isColl" class="logo-full" @click="changeCollapse">Logo Full</div>
-	<div v-else class="logo-only" @click="changeCollapse">Logo</div>
+	<div v-if="isColl" class="logo-full" @click="changeCollapse">
+		<el-link :underline="false" @click="toHome">
+			<i class="iconfont icon-shouye"></i> Name
+		</el-link>
+	</div>
+	<div v-else class="logo-only" @click="changeCollapse">
+		<el-link :underline="false" @click="toHome">
+			<i class="iconfont icon-shouye"></i> Name
+		</el-link>
+	</div>
 	<el-scrollbar>
 		<el-menu
 			class="el-menu-vertical-demo"
@@ -64,8 +72,12 @@
 				return path.toString();
 			});
 
-			const toMenu = index => {
+			const toMenu = (index) => {
 				router.push({ path: "/" + index });
+			};
+
+			const toHome = () => {
+				router.push({ path: "/" });
 			};
 
 			watch(
@@ -87,6 +99,7 @@
 				changeMenuKey,
 				state,
 				changeCollapse,
+				toHome,
 				toMenu,
 			};
 		},

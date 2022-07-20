@@ -21,6 +21,8 @@
 		2、使用 import 导入 import { Icon } from '@iconify/vue'; &lt;Icon icon="mdi-light:home"&gt;&lt;/Icon&gt;
 		<Icon icon="mdi-light:home"></Icon>
 	</code>
+	<p>iconfont 示例 <el-link :underline="false" type="primary" target="_blank" href="https://www.iconfont.cn/">官网</el-link></p>
+	<code>iconfont &lt;i class="iconfont icon-detail"&gt;&lt;/i&gt; <i class="iconfont icon-detail"></i></code>
 </template>
 
 <script lang="ts">
