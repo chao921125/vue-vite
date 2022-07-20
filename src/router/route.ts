@@ -45,7 +45,8 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 		name: "noPower",
 		component: () => import("@/views/error/401.vue"),
 		meta: {
-			title: "message.staticRoutes.noPower",
+			title: "message.title.noPower",
+			name: "message.title.noPower",
 			isHide: true,
 		},
 	},
@@ -54,7 +55,8 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 		name: "notFound",
 		component: () => import("@/views/error/404.vue"),
 		meta: {
-			title: "message.staticRoutes.noPower",
+			title: "message.title.notFound",
+			name: "message.title.notFound",
 			isHide: true,
 		},
 	},
@@ -63,7 +65,8 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 		name: "serverError",
 		component: () => import("@/views/error/500.vue"),
 		meta: {
-			title: "message.staticRoutes.noPower",
+			title: "message.title.serverError",
+			name: "message.title.serverError",
 			isHide: true,
 		},
 	},
@@ -85,7 +88,8 @@ export const baseRoutes: Array<RouteRecordRaw> = [
 		name: "login",
 		component: () => import("@/views/login/Login.vue"),
 		meta: {
-			title: "message.router.login",
+			title: "message.title.login",
+			name: "message.title.login",
 			isHide: true,
 		},
 	},
@@ -94,7 +98,8 @@ export const baseRoutes: Array<RouteRecordRaw> = [
 		name: "register",
 		component: () => import("@/views/login/Register.vue"),
 		meta: {
-			title: "message.router.register",
+			title: "message.title.register",
+			name: "message.title.register",
 			isHide: true,
 		},
 	},
@@ -103,7 +108,8 @@ export const baseRoutes: Array<RouteRecordRaw> = [
 		name: "auth",
 		component: () => import("@/views/login/Auth.vue"),
 		meta: {
-			title: "message.router.auth",
+			title: "message.title.auth",
+			name: "message.title.auth",
 			isHide: true,
 		},
 	},

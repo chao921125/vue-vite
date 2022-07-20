@@ -3,14 +3,12 @@
 	<div v-else class="logo-only" @click="changeCollapse">Logo</div>
 	<el-scrollbar>
 		<el-menu
-			active-text-color="#ffd04b"
-			background-color="#545c64"
 			class="el-menu-vertical-demo"
-			default-active="2"
-			text-color="#fff"
+			:default-active="changeMenuKey"
+			mode="vertical"
 			:collapse="!isColl"
-			@open="handleOpen"
-			@close="handleClose"
+			:unique-opened="true"
+			@select="toMenu"
 		>
 			<SubItem v-if="state.menuList && state.menuList.length > 0" :menuList="state.menuList"></SubItem>
 		</el-menu>
@@ -19,6 +17,7 @@
 
 <script lang="ts">
 import { defineComponent, computed, reactive, onBeforeMount, watch } from "vue";
+import { useRouter, useRoute } from "vue-router";
 import SubItem from "./SubItem.vue";
 import { storeToRefs } from "pinia";
 import pinia from "@/store";
@@ -41,19 +40,34 @@ export default defineComponent({
 
 		const storeRouterList = useRouterList(pinia);
 		const { menuList } = storeToRefs(storeRouterList);
-		let state = reactive({
+		const state = reactive({
 			menuList: Array<any>
 		});
 		const setMenu = () => {
 			(state.menuList as any) = menuList.value || [];
 		}
 
-		const handleOpen = (key: string, keyPath: string[]) => {
-			console.log("ig", key, keyPath)
-		}
-		const handleClose = (key: string, keyPath: string[]) => {
-			console.log("ig",  	key, keyPath)
-		}
+		const router = useRouter();
+		const route = useRoute();
+
+
+		const changeMenuKey = computed(() => {
+			let menuHierarchy = 2;
+			let path = route.path.replace("/", "");
+			let pathArray = path.split("/");
+			if (pathArray.length > menuHierarchy) {
+				let returnPath = "";
+				for (let i = 0; i < menuHierarchy; i++) {
+					returnPath += `/${pathArray[i]}`;
+				}
+				return returnPath.replace("/", "");
+			}
+			return path.toString();
+		});
+
+		const toMenu = (index) => {
+			router.push({path: "/" + index});
+		};
 
 		watch(pinia.state, (value) => {
 			console.log(value);
@@ -67,10 +81,10 @@ export default defineComponent({
 
 		return {
 			isColl,
+			changeMenuKey,
 			state,
-			handleOpen,
-			handleClose,
 			changeCollapse,
+			toMenu,
 		};
 	},
 });
