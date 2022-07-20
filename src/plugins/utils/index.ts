@@ -1,3 +1,9 @@
+import { nextTick } from "@vue/runtime-core";
+import router from "@/router";
+import SettingsRouter from "@/router/common";
+import i18n from "@/plugins/language";
+import SettingsI18n from "@/plugins/language/common";
+
 import Constants from "./constants";
 import Cookies from "./cookie";
 import Storages from "./storage";
@@ -18,10 +24,44 @@ const util: any = {
  * @description 更新标题
  * @param titleText
  */
-util.title = titleText => {
+util.title = async (titleText: any) => {
 	const processTitle = process.env.VITE_APP_TITLE || "";
+	await nextTick(() => {
+		let title: any = "";
+		let globalTitle: string = processTitle;
+		const { path, meta } = router.currentRoute.value;
+		if (SettingsRouter.whiteList.includes(path)) {
+			title = <any>meta.title;
+		} else {
+			setTitleI18n(router.currentRoute.value);
+		}
+		return title || globalTitle;
+	});
 	window.document.title = `${processTitle}${titleText ? ` | ${titleText}` : ""}`;
 };
+
+util.tagsName = (value: any) => {
+	return setTitleI18n(value);
+}
+
+export const setTitleI18n = (value: any) => {
+	let tagsViewName: any = "";
+	const { query, params, meta } = value;
+	if (query?.tagsViewName || params?.tagsViewName) {
+		if (SettingsI18n.key.test(query?.tagsViewName) || SettingsI18n.key.test(params?.tagsViewName)) {
+			// 国际化
+			const urlTagsParams = (query?.tagsViewName && JSON.parse(query?.tagsViewName)) || (params?.tagsViewName && JSON.parse(params?.tagsViewName));
+			tagsViewName = urlTagsParams[i18n.global.locale];
+		} else {
+			// 非国际化
+			tagsViewName = query?.tagsViewName || params?.tagsViewName;
+		}
+	} else {
+		// 非自定义 tagsView 名称
+		tagsViewName = i18n.global.t(<any>meta.title);
+	}
+	return tagsViewName;
+}
 
 /**
  * @description 打开新页面

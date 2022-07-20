@@ -90,7 +90,7 @@ export default {
 				{
 					id: 991,
 					path: "menu",
-					component: "system/menu/List",
+					component: "system/menu/MenuList",
 					name: "message.menu.systemMenu",
 					title: "message.title.systemMenu",
 					icon: "icon-layout",
@@ -107,7 +107,7 @@ export default {
 						{
 							id: 9911,
 							path: "add",
-							component: "system/menu/Add",
+							component: "system/menu/MenuAdd",
 							name: "message.menu.systemMenuAdd",
 							title: "message.title.systemMenuAdd",
 							icon: "icon-layout",
@@ -127,7 +127,7 @@ export default {
 				{
 					id: 992,
 					path: "user",
-					component: "system/user/List",
+					component: "system/user/UserList",
 					name: "message.menu.systemUser",
 					title: "message.title.systemUser",
 					icon: "icon-user",
@@ -144,7 +144,7 @@ export default {
 						{
 							id: 9921,
 							path: "add",
-							component: "system/user/Add",
+							component: "system/user/UserAdd",
 							name: "message.menu.systemUserAdd",
 							title: "message.title.systemUserAdd",
 							icon: "icon-user",

@@ -1,17 +1,18 @@
 <template>
-	<div v-if="isColl" class="logo-full" @click="changeCollapse">
+	<div v-if="isColl" class="logo-full re-flex-center-row" @click="changeCollapse">
 		<el-link :underline="false" @click="toHome">
-			<i class="iconfont icon-shouye"></i> Name
+			<i class="iconfont icon-shouye"></i>
+			<span>Name</span>
 		</el-link>
 	</div>
-	<div v-else class="logo-only" @click="changeCollapse">
+	<div v-else class="logo-only re-flex-center-row" @click="changeCollapse">
 		<el-link :underline="false" @click="toHome">
-			<i class="iconfont icon-shouye"></i> Name
+			<i class="iconfont icon-shouye"></i>
 		</el-link>
 	</div>
 	<el-scrollbar>
 		<el-menu
-			class="el-menu-vertical-demo"
+			background-color="transparent"
 			:default-active="changeMenuKey"
 			mode="vertical"
 			:collapse="!isColl"
@@ -82,7 +83,7 @@
 
 			watch(
 				pinia.state,
-				value => {
+				(value) => {
 					console.log(value);
 					setMenu();
 				},

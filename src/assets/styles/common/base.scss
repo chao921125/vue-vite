@@ -63,7 +63,7 @@ body {
 	width: 100%;
 	height: 100%;
 	.layout-aside {
-		background: var(--next-bg-menuBar);
+		background: var(--re-bg-menuBar);
 		box-shadow: 2px 0 6px rgb(0 21 41 / 1%);
 		height: inherit;
 		position: relative;
@@ -74,6 +74,48 @@ body {
 		.el-scrollbar__view {
 			overflow: hidden;
 		}
+
+		.logo-full {
+			width: 220px;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: rgb(0 21 41 / 2%) 0px 1px 4px;
+			color: var(--el-color-primary);
+			font-size: 16px;
+			cursor: pointer;
+			animation: logoAnimation 0.3s ease-in-out;
+			span {
+				white-space: nowrap;
+				display: inline-block;
+			}
+			&:hover {
+				span {
+					color: var(--color-primary-light-2);
+				}
+			}
+			&-medium-img {
+				width: 20px;
+				margin-right: 5px;
+			}
+		}
+		.logo-only {
+			width: 100%;
+			height: 60px;
+			display: flex;
+			cursor: pointer;
+			animation: logoAnimation 0.3s ease-in-out;
+			&-img {
+				width: 20px;
+				margin: auto;
+			}
+			&:hover {
+				img {
+					animation: logoAnimation 0.3s ease-in-out;
+				}
+			}
+		}
 	}
 	.layout-header {
 		padding: 0 !important;
@@ -82,7 +124,7 @@ body {
 		padding: 0 !important;
 		overflow: hidden;
 		width: 100%;
-		background-color: var(--next-bg-main-color);
+		background-color: var(--re-bg-main-color);
 	}
 	.el-scrollbar {
 		width: 100%;

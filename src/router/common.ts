@@ -19,7 +19,7 @@ interface Menu {
 	children: any[];
 }
 
-const viewsModules: any = import.meta.glob("../views/**/*.{vue,tsx}");
+const viewsModules: any = import.meta.glob("../views/**/**.{vue,tsx}");
 const dynamicViewsModules: Record<string, Function> = Object.assign({}, { ...viewsModules });
 
 function routeToComponent(routes: any[]) {
@@ -52,7 +52,7 @@ function setRouter(data: Menu[] = []) {
 		{
 			path: "/",
 			name: "/",
-			redirect: { name: "home" },
+			redirect: { path: "/" },
 			component: () => import("@/views/layout/Index.vue"),
 			meta: { title: "message.router.login" },
 			children: [],
@@ -70,17 +70,6 @@ function setRouterItem(routerList: any, data: Menu[] = [], parentPath: string = 
 	data.forEach((item: any) => {
 		let path = parentPath + "/" + item.path;
 		let name = item.component.slice(item.component.lastIndexOf("/") + 1);
-		if (item.component.lastIndexOf("/") > 0) {
-			let names = item.component.split("/");
-			let tempName = "";
-			for (let i = 1; i < names.length; i++) {
-				let temp = [...names[i]];
-				temp[0] = temp[0].toUpperCase();
-				tempName += temp.join("");
-			}
-			name = tempName;
-		}
-
 		let route: RouteRecordRaw = {
 			path: path,
 			name: name,

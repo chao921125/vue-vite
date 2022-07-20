@@ -8,7 +8,7 @@
 	import { useRouter } from "vue-router";
 
 	export default defineComponent({
-		name: "Template",
+		name: "MenuList",
 		setup() {
 			const router = useRouter();
 			const toAdd = () => {

@@ -77,7 +77,6 @@ export const baseRoutes: Array<RouteRecordRaw> = [
 		path: "",
 		name: "",
 		component: () => import("@/views/layout/Index.vue"),
-		meta: { title: "message.router.login" },
 		children: [
 			// 请不要往这里 `children` 中添加内容，此内容为了防止 No match found for location with path "xxx" 问题
 			...errorRoutes,
