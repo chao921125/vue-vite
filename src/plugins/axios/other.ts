@@ -5,7 +5,7 @@ axios.defaults.timeout = 100000;
 axios.defaults.baseURL = process.env.REACT_APP_HTTP;
 
 axios.interceptors.request.use(
-	(config) => {
+	config => {
 		config.data = JSON.stringify(config.data);
 		config.headers = {
 			"Content-Type": "application/json",
@@ -13,21 +13,21 @@ axios.interceptors.request.use(
 		};
 		return config;
 	},
-	(error) => {
+	error => {
 		return Promise.reject(error);
-	}
+	},
 );
 
 axios.interceptors.response.use(
-	(response) => {
+	response => {
 		// if (response.data.errCode === 2) {
 		// console.log("过期");
 		// }
 		return response;
 	},
-	(error) => {
+	error => {
 		console.log("request error：", error);
-	}
+	},
 );
 
 export function get(url: string, params = {}) {
@@ -36,10 +36,10 @@ export function get(url: string, params = {}) {
 			.get(url, {
 				params: params,
 			})
-			.then((response) => {
+			.then(response => {
 				resolve(response.data);
 			})
-			.catch((error) => {
+			.catch(error => {
 				reject(error);
 			});
 	});
@@ -48,12 +48,12 @@ export function get(url: string, params = {}) {
 export function post(url: string, data: any) {
 	return new Promise((resolve, reject) => {
 		axios.post(url, data).then(
-			(response) => {
+			response => {
 				resolve(response.data);
 			},
-			(error) => {
+			error => {
 				reject(error);
-			}
+			},
 		);
 	});
 }
@@ -61,13 +61,13 @@ export function post(url: string, data: any) {
 export function patch(url: string, data = {}) {
 	return new Promise((resolve, reject) => {
 		axios.patch(url, data).then(
-			(response) => {
+			response => {
 				resolve(response.data);
 			},
-			(error) => {
+			error => {
 				mssage(error);
 				reject(error);
-			}
+			},
 		);
 	});
 }
@@ -75,13 +75,13 @@ export function patch(url: string, data = {}) {
 export function put(url: string, data = {}) {
 	return new Promise((resolve, reject) => {
 		axios.put(url, data).then(
-			(response) => {
+			response => {
 				resolve(response.data);
 			},
-			(error) => {
+			error => {
 				mssage(error);
 				reject(error);
-			}
+			},
 		);
 	});
 }

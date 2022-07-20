@@ -1,9 +1,22 @@
+.*
 /dist/*
-.local
-.output.js
 /node_modules/**
+/public/*
+/docs
+node_modules
+/node_modules
+/src/libs/
+/assets
 
+/.vscode
+/.idea
+/.git
+
+*.local
+*.output.js
 **/*.svg
 **/*.sh
-
-/public/*
+*.conf
+*.conf.js
+*.md
+*.json

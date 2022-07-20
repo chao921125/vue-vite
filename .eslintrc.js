@@ -9,11 +9,12 @@ module.exports = {
   parser: "vue-eslint-parser",
   /* 继承某些已有的规则 */
   extends: [
+    "eslint:recommended",
     "plugin:vue/vue3-recommended",
+		"plugin:@typescript-eslint/recommended",
     "prettier",
 		"plugin:prettier/recommended",
-		"prettier/@typescript-eslint",
-		"plugin:@typescript-eslint/recommended"
+		"prettier/@typescript-eslint"
   ],
   plugins: [
     "@typescript-eslint"
@@ -82,6 +83,7 @@ module.exports = {
     "vue/singleline-html-element-content-newline": "off", // 在单行元素的内容之前和之后需要换行符
     "vue/attribute-hyphenation": "off", // 对模板中的自定义组件强制执行属性命名样式
     "vue/require-default-prop": "off", // 此规则要求为每个 prop 为必填时，必须提供默认值
-    "vue/multi-word-component-names": "off" // 要求组件名称始终为 “-” 链接的单词
+    "vue/multi-word-component-names": "off", // 要求组件名称始终为 “-” 链接的单词
+    "vue/no-multiple-template-root": "off" // 关闭多根节点的校验
   },
 };

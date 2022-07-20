@@ -1,9 +1,9 @@
 <template>role list</template>
 
 <script>
-export default {
-	name: "RoleList",
-};
+	export default {
+		name: "RoleList",
+	};
 </script>
 
 <style scoped></style>
