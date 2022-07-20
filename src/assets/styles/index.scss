@@ -1,2 +1,9 @@
-@import "./public.scss";
-@import "./reset.scss";
+@import "./fonts/font.css";
+@import "./icon/iconfont.css";
+
+@import "./reset/reset.scss";
+@import "./common/color.scss";
+@import "./common/size.scss";
+@import "./common/public.scss";
+@import "./common/base.scss";
+@import "./animate/n-progress.scss";

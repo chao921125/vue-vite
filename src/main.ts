@@ -13,14 +13,14 @@ import I18n from "@/plugins/language";
 // mitt 总线
 import mitt from "mitt";
 
-// styles
-import "@/assets/styles/index.scss";
-
 // UI element
 import ElementPlus from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
+
+// styles
+import "@/assets/styles/index.scss";
 
 // icon
 import "@purge-icons/generated";

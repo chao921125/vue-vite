@@ -1,0 +1,23 @@
+// bootstrap font
+@font-face {
+  font-family: 'Glyphicons Halflings';  /* Project id 2596500 */
+  src: url('./iconfont.eot?t=1623045237170'); /* IE9 */
+  src: url('./iconfont.eot?t=1623045237170#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./iconfont.woff2?t=1623045237170') format('woff2'),
+  url('./iconfont.woff?t=1623045237170') format('woff'),
+  url('./iconfont.ttf?t=1623045237170') format('truetype'),
+  url('./iconfont.svg?t=1623045237170#iconfont') format('svg');
+}
+.glyphicon {
+  position: relative;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  z-index: 99;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-detail            { &:before { content: "\e7a1"; } }

@@ -1,0 +1,37 @@
+// 优化显示
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "PingFangSC-Regular", "PingFang", "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  #app {
+    @extend %full;
+    background: #f2f6fa;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1rem;
+}
+@media only screen and (min-width: 1366px){
+  html {
+    font-size: 94%!important;
+  }
+}
+@media only screen and (min-width: 1600px){
+  html {
+    font-size: 109%!important;
+  }
+}
+@media only screen and (min-width: 1920px){
+  html {
+    font-size: 125%!important;
+  }
+}
