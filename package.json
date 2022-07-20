@@ -95,6 +95,7 @@
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@iconify/json": "^2.1.80",
+    "@iconify/vue": "^3.2.1",
     "@types/codemirror": "^5.60.5",
     "@types/crypto-js": "^4.1.1",
     "@types/fs-extra": "^9.0.13",

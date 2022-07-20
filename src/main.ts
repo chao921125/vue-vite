@@ -22,6 +22,9 @@ import * as Icons from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
 
+// icon
+import "@purge-icons/generated";
+
 const app = createApp(App);
 
 // 注册element Icons组件

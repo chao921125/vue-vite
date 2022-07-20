@@ -2,22 +2,30 @@
 import type { UserConfig, ConfigEnv } from "vite";
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
-import pkg from "./package.json";
 import dayjs from "dayjs";
 import path from "path";
-import { getEnvConfig } from "./build";
 import { createHtmlPlugin } from "vite-plugin-html";
+// 热重载
 import ViteRestart from "vite-plugin-restart";
+// build 构建
 import { visualizer } from "rollup-plugin-visualizer";
 import vueJsx from "@vitejs/plugin-vue-jsx";
+// 向上兼容浏览器
 import legacy from "@vitejs/plugin-legacy";
+// CDN 配置
 import importToCDN from "vite-plugin-cdn-import";
 import VueSetupExtend from "vite-plugin-vue-setup-extend";
 import viteCompression from "vite-plugin-compression";
 import WindiCSS from "vite-plugin-windicss";
+// 自动导入模块
 import AutoImport from "unplugin-auto-import/vite";
 import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
 import Components from "unplugin-vue-components/vite";
+
+import PurgeIcons from "vite-plugin-purge-icons";
+// 处理变量
+import pkg from "./package.json";
+import { getEnvConfig } from "./build";
 
 const __APP_INFO__ = {
 	pkg,
@@ -109,6 +117,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			WindiCSS(),
 			// * name 可以写在 script 标签上
 			VueSetupExtend(),
+			PurgeIcons({}),
 			legacy({
 				targets: ["defaults", "not IE 11"],
 			}),
