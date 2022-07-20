@@ -34,7 +34,9 @@ export async function setAddRoute(data: any[]) {
 	const routerList = Config.getRouter(data);
 	await routerList.forEach((route: RouteRecordRaw) => {
 		const { name } = route;
-		router.removeRoute(<RouteRecordName>name);
+		if (name !== "/") {
+			router.removeRoute(<RouteRecordName>name);
+		}
 		router.addRoute(route);
 	});
 	await setRouterList(routerList);
