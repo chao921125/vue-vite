@@ -1,4 +1,36 @@
 $prefix: re;
+
+// 色值定义
+$color-primary: #409EFF;
+$color-white: #FFFFFF;
+$color-white-ghost: #F8F8FF;
+$color-white-smoke: #F5F5F5;
+$color-black: #000000;
+$color-grey: #BEBEBE;
+
+// 自定义色值，不常用的、特有的、针对性的
+$color-re-re: #123123;
+
+// 项目共有的宽高设定
+$header-height: 60px;
+$menu-width: 200px;
+$menu-height: calc(100vh - 60px);
+$menu-collapse-width: 64px;
+$menu-item-height: 50px;
+
+// 定位的值，只需要从这里取值或者修改
+$z-index-max: 9999;
+$z-index-min: 1;
+$z-index-1: 1000;
+$z-index-2: 2000;
+$z-index-3: 3000;
+$z-index-4: 4000;
+$z-index-5: 5000;
+$z-index-6: 6000;
+$z-index-7: 7000;
+$z-index-8: 8000;
+$z-index-9: 9000;
+
 // 禁止用户选中 鼠标变为手形
 %unable-select {
 	user-select: none;

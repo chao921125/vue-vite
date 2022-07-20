@@ -1,5 +1,6 @@
 <template>
 	Home
+	<div v-for="(item, index) in 100" :key="index">home {{item}}</div>
 </template>
 
 <script lang="ts">
