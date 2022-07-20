@@ -16,78 +16,81 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, reactive, onBeforeMount, watch } from "vue";
-import { useRouter, useRoute } from "vue-router";
-import SubItem from "./SubItem.vue";
-import { storeToRefs } from "pinia";
-import pinia from "@/store";
-import { useThemeConfig } from "@/store/modules/theme";
-import { useRouterList } from "@/store/modules/routerMeta";
+	import { defineComponent, computed, reactive, onBeforeMount, watch } from "vue";
+	import { useRouter, useRoute } from "vue-router";
+	import SubItem from "./SubItem.vue";
+	import { storeToRefs } from "pinia";
+	import pinia from "@/store";
+	import { useThemeConfig } from "@/store/modules/theme";
+	import { useRouterList } from "@/store/modules/routerMeta";
 
-export default defineComponent({
-	name: "Index",
-	components: {SubItem},
-	setup() {
-		const storeThemeConfig = useThemeConfig(pinia);
-		const { themeConfig } = storeToRefs(storeThemeConfig);
-		const isColl = computed(() => {
-			let { isCollapse } = themeConfig.value;
-			return !isCollapse;
-		});
-		const changeCollapse = () => {
-			themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
-		};
+	export default defineComponent({
+		name: "Index",
+		components: { SubItem },
+		setup() {
+			const storeThemeConfig = useThemeConfig(pinia);
+			const { themeConfig } = storeToRefs(storeThemeConfig);
+			const isColl = computed(() => {
+				let { isCollapse } = themeConfig.value;
+				return !isCollapse;
+			});
+			const changeCollapse = () => {
+				themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
+			};
 
-		const storeRouterList = useRouterList(pinia);
-		const { menuList } = storeToRefs(storeRouterList);
-		const state = reactive({
-			menuList: Array<any>
-		});
-		const setMenu = () => {
-			(state.menuList as any) = menuList.value || [];
-		}
+			const storeRouterList = useRouterList(pinia);
+			const { menuList } = storeToRefs(storeRouterList);
+			const state = reactive({
+				menuList: Array<any>,
+			});
+			const setMenu = () => {
+				(state.menuList as any) = menuList.value || [];
+			};
 
-		const router = useRouter();
-		const route = useRoute();
+			const router = useRouter();
+			const route = useRoute();
 
-
-		const changeMenuKey = computed(() => {
-			let menuHierarchy = 2;
-			let path = route.path.replace("/", "");
-			let pathArray = path.split("/");
-			if (pathArray.length > menuHierarchy) {
-				let returnPath = "";
-				for (let i = 0; i < menuHierarchy; i++) {
-					returnPath += `/${pathArray[i]}`;
+			const changeMenuKey = computed(() => {
+				let menuHierarchy = 2;
+				let path = route.path.replace("/", "");
+				let pathArray = path.split("/");
+				if (pathArray.length > menuHierarchy) {
+					let returnPath = "";
+					for (let i = 0; i < menuHierarchy; i++) {
+						returnPath += `/${pathArray[i]}`;
+					}
+					return returnPath.replace("/", "");
 				}
-				return returnPath.replace("/", "");
-			}
-			return path.toString();
-		});
+				return path.toString();
+			});
 
-		const toMenu = (index) => {
-			router.push({path: "/" + index});
-		};
+			const toMenu = index => {
+				router.push({ path: "/" + index });
+			};
 
-		watch(pinia.state, (value) => {
-			console.log(value);
-			setMenu();
-		}, {
-			deep: true,
-		});
-		onBeforeMount(() => {
-			setMenu();
-		});
+			watch(
+				pinia.state,
+				value => {
+					console.log(value);
+					setMenu();
+				},
+				{
+					deep: true,
+				},
+			);
+			onBeforeMount(() => {
+				setMenu();
+			});
 
-		return {
-			isColl,
-			changeMenuKey,
-			state,
-			changeCollapse,
-			toMenu,
-		};
-	},
-});
+			return {
+				isColl,
+				changeMenuKey,
+				state,
+				changeCollapse,
+				toMenu,
+			};
+		},
+	});
 </script>
 
 <style scoped lang="scss"></style>

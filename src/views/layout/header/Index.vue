@@ -17,49 +17,49 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from "vue";
-import { useRouter } from "vue-router";
-import Utils from "@/plugins/utils";
-import { storeToRefs } from "pinia";
-import pinia from "@/store";
-import { useThemeConfig } from "@/store/modules/theme";
+	import { defineComponent, ref, computed } from "vue";
+	import { useRouter } from "vue-router";
+	import Utils from "@/plugins/utils";
+	import { storeToRefs } from "pinia";
+	import pinia from "@/store";
+	import { useThemeConfig } from "@/store/modules/theme";
 
-export default defineComponent({
-	name: "Index",
-	setup() {
-		let isShowDrawer = ref(false);
+	export default defineComponent({
+		name: "Index",
+		setup() {
+			let isShowDrawer = ref(false);
 
-		const router = useRouter();
-		function logout() {
-			Utils.Storages.removeSessionStorage(Utils.Constants.storageKeys.token);
-			Utils.Cookies.removeCookie(Utils.Constants.cookieKeys.token);
-			router.push({ path: "/login" });
-		}
+			const router = useRouter();
+			function logout() {
+				Utils.Storages.removeSessionStorage(Utils.Constants.storageKeys.token);
+				Utils.Cookies.removeCookie(Utils.Constants.cookieKeys.token);
+				router.push({ path: "/login" });
+			}
 
-		const storeThemeConfig = useThemeConfig(pinia);
-		const { themeConfig } = storeToRefs(storeThemeConfig);
-		const isColl = computed(() => {
-			let { isCollapse } = themeConfig.value;
-			return !isCollapse;
-		});
-		const changeCollapse = () => {
-			themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
-		};
+			const storeThemeConfig = useThemeConfig(pinia);
+			const { themeConfig } = storeToRefs(storeThemeConfig);
+			const isColl = computed(() => {
+				let { isCollapse } = themeConfig.value;
+				return !isCollapse;
+			});
+			const changeCollapse = () => {
+				themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
+			};
 
-		return {
-			isColl,
-			isShowDrawer,
-			changeCollapse,
-			logout,
-		};
-	},
-});
+			return {
+				isColl,
+				isShowDrawer,
+				changeCollapse,
+				logout,
+			};
+		},
+	});
 </script>
 
 <style scoped lang="scss">
-.test-a {
-	.test-b {
-		font-weight: bold;
+	.test-a {
+		.test-b {
+			font-weight: bold;
+		}
 	}
-}
 </style>

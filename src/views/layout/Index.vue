@@ -15,24 +15,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import Settings from "@/router/common";
-import AdminMenu from "./menu/Index.vue";
-import AdminHeader from "./header/Index.vue";
-import AdminFooter from "./footer/Index.vue";
+	import { defineComponent, ref } from "vue";
+	import Settings from "@/router/common";
+	import AdminMenu from "./menu/Index.vue";
+	import AdminHeader from "./header/Index.vue";
+	import AdminFooter from "./footer/Index.vue";
 
-export default defineComponent({
-	name: "Layout",
-	components: { AdminMenu, AdminHeader, AdminFooter },
-	setup() {
-		const isAdmin = ref(true);
-		isAdmin.value = Settings.isAdminIframe;
+	export default defineComponent({
+		name: "Layout",
+		components: { AdminMenu, AdminHeader, AdminFooter },
+		setup() {
+			const isAdmin = ref(true);
+			isAdmin.value = Settings.isAdminIframe;
 
-		return {
-			isAdmin,
-		};
-	},
-});
+			return {
+				isAdmin,
+			};
+		},
+	});
 </script>
 
 <style scoped></style>

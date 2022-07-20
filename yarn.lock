@@ -1860,14 +1860,6 @@
   dependencies:
     "@types/ms" "*"
 
-"@types/eslint@^8.4.2":
-  version "8.4.5"
-  resolved "https://registry.npmjs.org/@types/eslint/-/eslint-8.4.5.tgz"
-  integrity sha512-dhsC09y1gpJWnK+Ff4SGvCuSnk9DaU0BJZSzOwa6GVSg65XtTugLBITDAAzRU5duGBoXBHpdR/9jHGxJjNflJQ==
-  dependencies:
-    "@types/estree" "*"
-    "@types/json-schema" "*"
-
 "@types/estree@*":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@types/estree/-/estree-1.0.0.tgz"
@@ -1997,7 +1989,7 @@
     jest-matcher-utils "^28.0.0"
     pretty-format "^28.0.0"
 
-"@types/json-schema@*", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.9":
+"@types/json-schema@^7.0.5", "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.11.tgz"
   integrity sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==
@@ -2401,14 +2393,6 @@
   version "6.2.1"
   resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.2.1.tgz"
   integrity sha512-OEgAMeQXvCoJ+1x8WyQuVZzFo0wcyCmUR3baRVLmKBo1LmYZWMlRiXlux5jd0fqVJu6PfDbOrZItVqUEzLobeQ==
-
-"@vue/eslint-config-prettier@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.npmjs.org/@vue/eslint-config-prettier/-/eslint-config-prettier-7.0.0.tgz"
-  integrity sha512-/CTc6ML3Wta1tCe1gUeO0EYnVXfo3nJXsIhZ8WJr3sov+cGASr6yuiibJTL6lmIBm7GobopToOuB3B6AWyV0Iw==
-  dependencies:
-    eslint-config-prettier "^8.3.0"
-    eslint-plugin-prettier "^4.0.0"
 
 "@vue/reactivity-transform@3.2.37":
   version "3.2.37"
@@ -4929,14 +4913,14 @@ escape-string-regexp@^5.0.0:
   resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-5.0.0.tgz"
   integrity sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==
 
-eslint-config-prettier@^8.3.0, eslint-config-prettier@^8.5.0:
+eslint-config-prettier@^8.5.0:
   version "8.5.0"
-  resolved "https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-8.5.0.tgz"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.5.0.tgz#5a81680ec934beca02c7b1a61cf8ca34b66feab1"
   integrity sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==
 
-eslint-plugin-prettier@^4.0.0, eslint-plugin-prettier@^4.2.1:
+eslint-plugin-prettier@^4.2.1:
   version "4.2.1"
-  resolved "https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-4.2.1.tgz"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-4.2.1.tgz#651cbb88b1dab98bfd42f017a12fa6b2d993f94b"
   integrity sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==
   dependencies:
     prettier-linter-helpers "^1.0.0"
@@ -9699,7 +9683,7 @@ rollup-plugin-visualizer@^5.7.1:
     source-map "^0.7.3"
     yargs "^17.5.1"
 
-rollup@^2.43.1, rollup@^2.56.3, rollup@^2.70.2, rollup@^2.75.6, rollup@^2.75.7:
+rollup@^2.43.1, rollup@^2.56.3, rollup@^2.75.6, rollup@^2.75.7:
   version "2.77.0"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.77.0.tgz#749eaa5ac09b6baa52acc076bc46613eddfd53f4"
   integrity sha512-vL8xjY4yOQEw79DvyXLijhnhh+R/O9zpF/LEgkCebZFtb6ELeN9H3/2T0r8+mp+fFTBHZ5qGpOpW2ela2zRt3g==
@@ -11398,15 +11382,6 @@ vite-plugin-compression@^0.5.1:
     chalk "^4.1.2"
     debug "^4.3.3"
     fs-extra "^10.0.0"
-
-vite-plugin-eslint@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.npmjs.org/vite-plugin-eslint/-/vite-plugin-eslint-1.6.1.tgz"
-  integrity sha512-wXwGJ222zjlllHmmPXX6oSU8DbmYjnA6HHBYbOLT8WAc73j4/YAtBQHCVSoHOTPiT4TPzsuZSvputWwc86BweQ==
-  dependencies:
-    "@rollup/pluginutils" "^4.2.1"
-    "@types/eslint" "^8.4.2"
-    rollup "^2.70.2"
 
 vite-plugin-html@^3.2.0:
   version "3.2.0"

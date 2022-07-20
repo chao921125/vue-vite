@@ -18,7 +18,7 @@ const util: any = {
  * @description 更新标题
  * @param titleText
  */
-util.title = (titleText) => {
+util.title = titleText => {
 	const processTitle = process.env.VITE_APP_TITLE || "";
 	window.document.title = `${processTitle}${titleText ? ` | ${titleText}` : ""}`;
 };

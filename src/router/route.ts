@@ -30,7 +30,7 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 		redirect: "/404",
 		meta: {
 			isHide: true,
-		}
+		},
 	},
 	{
 		path: "/:pathMatch(.*)*",
@@ -38,7 +38,7 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 		redirect: "/404",
 		meta: {
 			isHide: true,
-		}
+		},
 	},
 	{
 		path: "/401",

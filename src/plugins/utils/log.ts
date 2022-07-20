@@ -29,12 +29,12 @@ log.capsule = function (title: string, info: string, type: string = "primary") {
 		`%c ${title} %c ${info} %c`,
 		"background:#35495E; padding: 1px; border-radius: 3px 0 0 3px; color: #fff;",
 		`background:${typeColor(type)}; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff;`,
-		"background:transparent"
+		"background:transparent",
 	);
 };
 
 function colorful(textArr: any) {
-	console.log(`%c${textArr.map((t) => t.text || "").join("%c")}`, ...textArr.map((t) => `color: ${typeColor(t.type)};`));
+	console.log(`%c${textArr.map(t => t.text || "").join("%c")}`, ...textArr.map(t => `color: ${typeColor(t.type)};`));
 }
 
 log.default = (text: string = "default") => {

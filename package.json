@@ -24,7 +24,7 @@
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
     "clean:lib": "rimraf node_modules",
     "lint:eslint": "eslint \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
-    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:prettier": "prettier --write --loglevel warn \"./**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:ls-lint": "ls-lint",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
@@ -117,7 +117,6 @@
     "@vitejs/plugin-vue": "^3.0.1",
     "@vitejs/plugin-vue-jsx": "^2.0.0",
     "@vue/compiler-sfc": "3.2.37",
-    "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/test-utils": "^2.0.2",
     "amfe-flexible": "^2.2.1",
     "autoprefixer": "^10.4.7",
@@ -129,9 +128,9 @@
     "dotenv": "^16.0.1",
     "esbuild": "^0.14.49",
     "eslint": "^8.20.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.2.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-vue": "^9.2.0",
     "esno": "^0.16.3",
     "http-server": "^14.1.1",
     "husky": "^8.0.1",
@@ -173,7 +172,6 @@
     "vite-plugin-cdn-import": "^0.3.5",
     "vite-plugin-components": "^0.13.3",
     "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-eslint": "^1.6.1",
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-icons": "^0.6.5",
     "vite-plugin-imagemin": "^0.6.1",
@@ -213,29 +211,5 @@
   "homepage": "",
   "engines": {
     "node": "^12 || ^14 || ^15 || ^16 || ^17"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
-      "prettier --write--parser json"
-    ],
-    "package.json": [
-      "prettier --write"
-    ],
-    "*.vue": [
-      "eslint --fix",
-      "prettier --write",
-      "stylelint --fix"
-    ],
-    "*.{scss,less,styl,html}": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
-    "*.md": [
-      "prettier --write"
-    ]
   }
 }
