@@ -12,7 +12,7 @@
 		name: "Home",
 		setup() {
 			const router = useRouter();
-			function logout() {
+			const logout = () => {
 				Utils.Storages.removeSessionStorage(Utils.Constants.storageKeys.token);
 				Utils.Cookies.removeCookie(Utils.Constants.cookieKeys.token);
 				router.push({ path: "/login" });
