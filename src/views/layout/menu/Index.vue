@@ -2,7 +2,7 @@
 	<div v-if="isColl" class="logo-full re-flex-center-row" @click="changeCollapse">
 		<el-link :underline="false" @click="toHome">
 			<i class="iconfont icon-shouye"></i>
-			<span>Name</span>
+			<span class="re-m-l-10">LOGO NAME</span>
 		</el-link>
 	</div>
 	<div v-else class="logo-only re-flex-center-row" @click="changeCollapse">

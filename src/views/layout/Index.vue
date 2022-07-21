@@ -8,9 +8,9 @@
 				<el-main><router-view></router-view></el-main>
 				<el-footer><AdminFooter></AdminFooter></el-footer>
 			</el-scrollbar>
-			<el-backtop target=".bakctop-main .el-scrollbar__wrap"
-				><el-icon :size="20"><ArrowUpBold /></el-icon
-			></el-backtop>
+			<el-backtop target=".bakctop-main .el-scrollbar__wrap">
+				<el-icon :size="20"><ArrowUpBold /></el-icon>
+			</el-backtop>
 		</el-container>
 	</el-container>
 	<el-container v-else class="layout-container" :class="{ 'bakctop-main': !isFixedHeader }">
@@ -20,9 +20,9 @@
 			<el-main><router-view></router-view></el-main>
 			<el-footer>Web 下因需求不同，请重写</el-footer>
 		</el-scrollbar>
-		<el-backtop target=".layout-backtop .el-scrollbar__wrap"
-			><el-icon :size="20"><ArrowUpBold /></el-icon
-		></el-backtop>
+		<el-backtop target=".bakctop-main .el-scrollbar__wrap">
+			<el-icon :size="20"><ArrowUpBold /></el-icon>
+		</el-backtop>
 	</el-container>
 </template>
 

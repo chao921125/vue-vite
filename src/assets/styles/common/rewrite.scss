@@ -138,16 +138,16 @@ $i: 100;
 	.#{$prefix}-m-lr-#{$i} {
 		margin: 0 #{$i}px;
 	}
-	.#{$prefix}-mt-#{$i} {
+	.#{$prefix}-m-t-#{$i} {
 		margin-top: #{$i}px;
 	}
-	.#{$prefix}-mr-#{$i} {
+	.#{$prefix}-m-r-#{$i} {
 		margin-right: #{$i}px;
 	}
-	.#{$prefix}-mb-#{$i} {
+	.#{$prefix}-m-b-#{$i} {
 		margin-bottom: #{$i}px;
 	}
-	.#{$prefix}-ml-#{$i} {
+	.#{$prefix}-m-l-#{$i} {
 		margin-left: #{$i}px;
 	}
 
@@ -160,16 +160,16 @@ $i: 100;
 	.#{$prefix}-p-lr-#{$i} {
 		margin: 0 #{$i}px;
 	}
-	.#{$prefix}-pt-#{$i} {
+	.#{$prefix}-p-t-#{$i} {
 		padding-top: #{$i}px;
 	}
-	.#{$prefix}-pr-#{$i} {
+	.#{$prefix}-p-r-#{$i} {
 		padding-right: #{$i}px;
 	}
-	.#{$prefix}-pb-#{$i} {
+	.#{$prefix}-p-b-#{$i} {
 		padding-bottom: #{$i}px;
 	}
-	.#{$prefix}-pl-#{$i} {
+	.#{$prefix}-p-l-#{$i} {
 		padding-left: #{$i}px;
 	}
 	$i: $i - 1;

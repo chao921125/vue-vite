@@ -109,6 +109,7 @@ export default {
 	routeRoot: "/",
 	routeHome: "/home",
 	whiteList: ["/login", "/register", "/auth"],
+	executeList: ["/login", "/register", "/auth", "/home", "/", "/401", "/404", "/500"],
 	rolesSuper: ["admin", "common"],
 	rolesAdmin: ["admin"],
 	rolesUser: ["common"],
