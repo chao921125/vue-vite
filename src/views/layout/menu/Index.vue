@@ -37,6 +37,7 @@
 		name: "Index",
 		components: { SubItem },
 		setup() {
+			// 折叠菜单
 			const storeThemeConfig = useThemeConfig(pinia);
 			const { themeConfig } = storeToRefs(storeThemeConfig);
 			const isColl = computed(() => {
@@ -46,7 +47,7 @@
 			const changeCollapse = () => {
 				themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
 			};
-
+			// 渲染菜单
 			const storeRouterList = useRouterList(pinia);
 			const { menuList } = storeToRefs(storeRouterList);
 			const state = reactive({
@@ -55,10 +56,9 @@
 			const setMenu = () => {
 				(state.menuList as any) = menuList.value || [];
 			};
-
+			// 设置菜单点击后的默认项
 			const router = useRouter();
 			const route = useRoute();
-
 			const changeMenuKey = computed(() => {
 				let menuHierarchy = 2;
 				let path = route.path.replace("/", "");
@@ -72,15 +72,15 @@
 				}
 				return path.toString();
 			});
-
+			// 点击路由跳转菜单
 			const toMenu = index => {
 				router.push({ path: "/" + index });
 			};
-
+			// 回首页
 			const toHome = () => {
 				router.push({ path: "/" });
 			};
-
+			// 监听路由及状态，改变菜单
 			watch(
 				pinia.state,
 				value => {
