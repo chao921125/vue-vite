@@ -1,10 +1,18 @@
 <template>
-	<el-row :gutter="10" justify="space-between">
-		<el-col :xs="24" :sm="12" class="test-a">
-			<el-icon @click="changeCollapse">
-				<ArrowLeftBold v-if="isColl" />
-				<ArrowRightBold v-else />
-			</el-icon>
+	<el-row :gutter="10" justify="space-between" class="re-height-fill">
+		<el-col :xs="24" :sm="12">
+			<div  class="re-height-fill re-flex-col re-cursor-pointer">
+				<el-icon @click="changeCollapse" class="re-cursor-pointer" :size="18">
+					<Fold v-if="isColl" />
+					<Expand v-else />
+				</el-icon>
+				<el-breadcrumb separator-icon="ArrowRight">
+					<el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
+					<el-breadcrumb-item>promotion management</el-breadcrumb-item>
+					<el-breadcrumb-item>promotion list</el-breadcrumb-item>
+					<el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+				</el-breadcrumb>
+			</div>
 		</el-col>
 		<el-col :xs="24" :sm="12">
 			<el-button @click="isShowDrawer = true">setting</el-button>
@@ -56,10 +64,4 @@
 	});
 </script>
 
-<style scoped lang="scss">
-	.test-a {
-		.test-b {
-			font-weight: bold;
-		}
-	}
-</style>
+<style scoped lang="scss"></style>

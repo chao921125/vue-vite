@@ -1,6 +1,6 @@
 <template>
 	Home
-	<div v-for="(item, index) in 100" :key="index">home {{item}}</div>
+	<div v-for="(item, index) in 100" :key="index">home {{ item }}</div>
 </template>
 
 <script lang="ts">
@@ -16,7 +16,7 @@
 				Utils.Storages.removeSessionStorage(Utils.Constants.storageKeys.token);
 				Utils.Cookies.removeCookie(Utils.Constants.cookieKeys.token);
 				router.push({ path: "/login" });
-			}
+			};
 			return {
 				logout,
 			};

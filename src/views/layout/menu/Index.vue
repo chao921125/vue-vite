@@ -73,7 +73,7 @@
 				return path.toString();
 			});
 
-			const toMenu = (index) => {
+			const toMenu = index => {
 				router.push({ path: "/" + index });
 			};
 
@@ -83,7 +83,7 @@
 
 			watch(
 				pinia.state,
-				(value) => {
+				value => {
 					console.log(value);
 					setMenu();
 				},

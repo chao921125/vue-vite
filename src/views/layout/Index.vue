@@ -1,24 +1,28 @@
 <template>
 	<el-container v-if="isAdmin" class="layout-container">
 		<el-aside class="layout-aside" :class="styleCollapse"><AdminMenu></AdminMenu></el-aside>
-		<el-container :class="{ 'bakctop-main' : !isFixedHeader }">
+		<el-container :class="{ 'bakctop-main': !isFixedHeader }">
 			<el-header v-if="isFixedHeader"><AdminHeader></AdminHeader></el-header>
-			<el-scrollbar ref="refScrollbarMain" :class="{ 'bakctop-main' : isFixedHeader }">
+			<el-scrollbar ref="refScrollbarMain" :class="{ 'bakctop-main': isFixedHeader }">
 				<el-header v-if="!isFixedHeader"><AdminHeader></AdminHeader></el-header>
 				<el-main><router-view></router-view></el-main>
 				<el-footer><AdminFooter></AdminFooter></el-footer>
 			</el-scrollbar>
-			<el-backtop target=".bakctop-main .el-scrollbar__wrap"><el-icon size="20"><ArrowUpBold /></el-icon></el-backtop>
+			<el-backtop target=".bakctop-main .el-scrollbar__wrap"
+				><el-icon :size="20"><ArrowUpBold /></el-icon
+			></el-backtop>
 		</el-container>
 	</el-container>
-	<el-container v-else class="layout-container" :class="{ 'bakctop-main' : !isFixedHeader }">
+	<el-container v-else class="layout-container" :class="{ 'bakctop-main': !isFixedHeader }">
 		<el-header v-if="isFixedHeader">Web 下因需求不同，请重写</el-header>
-		<el-scrollbar ref="refScrollbarMain" :class="{ 'bakctop-main' : isFixedHeader }">
+		<el-scrollbar ref="refScrollbarMain" :class="{ 'bakctop-main': isFixedHeader }">
 			<el-header v-if="!isFixedHeader">Web 下因需求不同，请重写</el-header>
 			<el-main><router-view></router-view></el-main>
 			<el-footer>Web 下因需求不同，请重写</el-footer>
 		</el-scrollbar>
-		<el-backtop target=".layout-backtop .el-scrollbar__wrap"><el-icon size="20"><ArrowUpBold /></el-icon></el-backtop>
+		<el-backtop target=".layout-backtop .el-scrollbar__wrap"
+			><el-icon :size="20"><ArrowUpBold /></el-icon
+		></el-backtop>
 	</el-container>
 </template>
 
@@ -74,7 +78,7 @@
 				() => route.path,
 				() => {
 					proxy.$refs.refScrollbarMain.wrap$.scrollTop = 0;
-				}
+				},
 			);
 			onBeforeMount(() => {
 				state.clientWidth = document.body.clientWidth;
