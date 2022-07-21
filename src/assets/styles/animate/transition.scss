@@ -1,7 +1,7 @@
 // 过渡动画 横向渐变
 .fade-transverse-leave-active,
 .fade-transverse-enter-active {
-	transition: all .5s;
+	transition: all 0.5s;
 }
 .fade-transverse-enter {
 	opacity: 0;
@@ -15,7 +15,7 @@
 // 过渡动画 缩放渐变
 .fade-scale-leave-active,
 .fade-scale-enter-active {
-	transition: all .5s;
+	transition: all 0.5s;
 }
 .fade-scale-enter {
 	opacity: 0;

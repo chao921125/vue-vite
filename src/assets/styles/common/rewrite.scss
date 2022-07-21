@@ -123,27 +123,55 @@
 	content: "";
 }
 .#{$prefix}-clearfix:after {
-	clear: both
+	clear: both;
 }
 
 // 边距相关
 $i: 100;
 @while $i > 0 {
-	.#{$prefix}-m-#{$i} { margin: #{$i}px; }
-	.#{$prefix}-m-tb-#{$i} { margin: #{$i}px 0; }
-	.#{$prefix}-m-lr-#{$i} { margin: 0 #{$i}px; }
-	.#{$prefix}-mt-#{$i} { margin-top: #{$i}px; }
-	.#{$prefix}-mr-#{$i} { margin-right: #{$i}px; }
-	.#{$prefix}-mb-#{$i} { margin-bottom: #{$i}px; }
-	.#{$prefix}-ml-#{$i} { margin-left: #{$i}px; }
+	.#{$prefix}-m-#{$i} {
+		margin: #{$i}px;
+	}
+	.#{$prefix}-m-tb-#{$i} {
+		margin: #{$i}px 0;
+	}
+	.#{$prefix}-m-lr-#{$i} {
+		margin: 0 #{$i}px;
+	}
+	.#{$prefix}-mt-#{$i} {
+		margin-top: #{$i}px;
+	}
+	.#{$prefix}-mr-#{$i} {
+		margin-right: #{$i}px;
+	}
+	.#{$prefix}-mb-#{$i} {
+		margin-bottom: #{$i}px;
+	}
+	.#{$prefix}-ml-#{$i} {
+		margin-left: #{$i}px;
+	}
 
-	.#{$prefix}-p-#{$i} { padding: #{$i}px; }
-	.#{$prefix}-p-tb-#{$i} { margin: #{$i}px 0; }
-	.#{$prefix}-p-lr-#{$i} { margin: 0 #{$i}px; }
-	.#{$prefix}-pt-#{$i} { padding-top: #{$i}px; }
-	.#{$prefix}-pr-#{$i} { padding-right: #{$i}px; }
-	.#{$prefix}-pb-#{$i} { padding-bottom: #{$i}px; }
-	.#{$prefix}-pl-#{$i} { padding-left: #{$i}px; }
+	.#{$prefix}-p-#{$i} {
+		padding: #{$i}px;
+	}
+	.#{$prefix}-p-tb-#{$i} {
+		margin: #{$i}px 0;
+	}
+	.#{$prefix}-p-lr-#{$i} {
+		margin: 0 #{$i}px;
+	}
+	.#{$prefix}-pt-#{$i} {
+		padding-top: #{$i}px;
+	}
+	.#{$prefix}-pr-#{$i} {
+		padding-right: #{$i}px;
+	}
+	.#{$prefix}-pb-#{$i} {
+		padding-bottom: #{$i}px;
+	}
+	.#{$prefix}-pl-#{$i} {
+		padding-left: #{$i}px;
+	}
 	$i: $i - 1;
 }
 
@@ -175,7 +203,7 @@ $i: 100;
 
 .transition-width-1s {
 	transition: width 1s;
-	-moz-transition: width 1s;	/* Firefox 4 */
-	-webkit-transition: width 1s;	/* Safari 和 Chrome */
-	-o-transition: width 1s;	/* Opera */
+	-moz-transition: width 1s; /* Firefox 4 */
+	-webkit-transition: width 1s; /* Safari 和 Chrome */
+	-o-transition: width 1s; /* Opera */
 }

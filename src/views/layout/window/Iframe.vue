@@ -1,13 +1,9 @@
-<template>
-
-</template>
+<template> </template>
 
 <script>
-export default {
-	name: "Iframe"
-}
+	export default {
+		name: "Iframe",
+	};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

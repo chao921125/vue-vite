@@ -61,6 +61,7 @@ Object.keys(Icons).forEach(key => {
 	app.component(key, Icons[key as keyof typeof Icons]);
 });
 
-app.use(pinia).use(router).use(ElementPlus, { i18n: I18n.global.t }).use(I18n).mount("#app");
-
+// 全局指令
 app.config.globalProperties.mittBus = mitt();
+
+app.use(pinia).use(router).use(ElementPlus, { i18n: I18n.global.t }).use(I18n).mount("#app");
