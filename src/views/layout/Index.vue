@@ -2,9 +2,9 @@
 	<el-container v-if="isAdmin" class="layout-container">
 		<el-aside class="layout-aside" :class="styleCollapse"><AdminMenu></AdminMenu></el-aside>
 		<el-container :class="{ 'bakctop-main': !isFixedHeader }">
-			<el-header v-if="isFixedHeader"><AdminHeader></AdminHeader></el-header>
+			<el-header v-if="isFixedHeader" :height="setHeaderHeight"><AdminHeader></AdminHeader></el-header>
 			<el-scrollbar ref="refScrollbarMain" :class="{ 'bakctop-main': isFixedHeader }">
-				<el-header v-if="!isFixedHeader"><AdminHeader></AdminHeader></el-header>
+				<el-header v-if="!isFixedHeader" :height="setHeaderHeight"><AdminHeader></AdminHeader></el-header>
 				<el-main><router-view></router-view></el-main>
 				<el-footer><AdminFooter></AdminFooter></el-footer>
 			</el-scrollbar>
@@ -54,6 +54,12 @@
 			const isFixedHeader = computed(() => {
 				return themeConfig.value.isFixedHeader;
 			});
+			//
+			const setHeaderHeight = computed(() => {
+				const { isTagsView } = themeConfig.value;
+				if (isTagsView) return "84px";
+				else return "60px";
+			});
 			// 动态修改菜单的宽高
 			const styleCollapse = computed(() => {
 				const { isCollapse } = themeConfig.value;
@@ -87,6 +93,7 @@
 			return {
 				isAdmin,
 				isFixedHeader,
+				setHeaderHeight,
 				styleCollapse,
 			};
 		},
