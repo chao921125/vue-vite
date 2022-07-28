@@ -6,7 +6,7 @@
 			<el-scrollbar ref="refScrollbarMain" :class="{ 'bakctop-main': isFixedHeader }">
 				<el-header v-if="!isFixedHeader" :height="setHeaderHeight"><AdminHeader></AdminHeader></el-header>
 				<el-main><router-view></router-view></el-main>
-				<el-footer><AdminFooter></AdminFooter></el-footer>
+				<el-footer v-if="isShowFooter"><AdminFooter></AdminFooter></el-footer>
 			</el-scrollbar>
 			<el-backtop target=".bakctop-main .el-scrollbar__wrap">
 				<el-icon :size="20"><ArrowUpBold /></el-icon>
@@ -18,7 +18,7 @@
 		<el-scrollbar ref="refScrollbarMain" :class="{ 'bakctop-main': isFixedHeader }">
 			<el-header v-if="!isFixedHeader">Web 下因需求不同，请重写</el-header>
 			<el-main><router-view></router-view></el-main>
-			<el-footer>Web 下因需求不同，请重写</el-footer>
+			<el-footer v-if="isShowFooter">Web 下因需求不同，请重写</el-footer>
 		</el-scrollbar>
 		<el-backtop target=".bakctop-main .el-scrollbar__wrap">
 			<el-icon :size="20"><ArrowUpBold /></el-icon>
@@ -60,6 +60,8 @@
 				if (isTagsView) return "84px";
 				else return "60px";
 			});
+			// 开启展示 底部
+			const isShowFooter = themeConfig.value.isFooter;
 			// 动态修改菜单的宽高
 			const styleCollapse = computed(() => {
 				const { isCollapse } = themeConfig.value;
@@ -94,6 +96,7 @@
 				isAdmin,
 				isFixedHeader,
 				setHeaderHeight,
+				isShowFooter,
 				styleCollapse,
 			};
 		},
