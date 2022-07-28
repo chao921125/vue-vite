@@ -4,6 +4,9 @@ dist-ssr
 tests
 test
 
+# auto file when run serve
+auto-imports.d.ts
+
 # local env files
 .env.local
 .env.*.local

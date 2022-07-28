@@ -1,7 +1,7 @@
 <template>
 	<el-row :gutter="10" justify="space-between" class="re-height-fill">
 		<el-col :xs="24" :sm="12">
-			<div  class="re-height-fill re-flex-col">
+			<div class="re-height-fill re-flex-col">
 				<el-icon @click="changeCollapse" class="re-cursor-pointer" :size="18">
 					<Fold v-if="isColl" />
 					<Expand v-else />
@@ -66,7 +66,7 @@
 				}
 				let pathArr = path.split("/");
 				pathArr.shift();
-				for (let i = 0; i< pathArr.length; i++) {
+				for (let i = 0; i < pathArr.length; i++) {
 					breadcrumbList.value.push({
 						name: pathArr[i],
 						title: "",
@@ -94,7 +94,7 @@
 				breadcrumbList.value = [];
 				initBreadcrumbList(route.path);
 			});
-			onBeforeRouteUpdate((to) => {
+			onBeforeRouteUpdate(to => {
 				breadcrumbList.value = [];
 				initBreadcrumbList(to.path);
 			});
@@ -104,7 +104,7 @@
 				Utils.Storages.removeSessionStorage(Utils.Constants.storageKeys.token);
 				Utils.Cookies.removeCookie(Utils.Constants.cookieKeys.token);
 				router.push({ path: SettingsRouter.routeLogin });
-			}
+			};
 
 			const setThemeConfig = () => {
 				Utils.Storages.removeLocalStorage(Utils.Constants.storageKeys.themeConfig);
