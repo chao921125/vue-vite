@@ -2,15 +2,15 @@
 	<el-container v-if="isAdmin" class="layout-container">
 		<el-aside class="layout-aside" :class="styleCollapse"><AdminMenu></AdminMenu></el-aside>
 		<el-container :class="{ 'bakctop-main': !isFixedHeader }">
-			<el-header v-if="isFixedHeader"><AdminHeader></AdminHeader></el-header>
+			<el-header v-if="isFixedHeader" :height="setHeaderHeight"><AdminHeader></AdminHeader></el-header>
 			<el-scrollbar ref="refScrollbarMain" :class="{ 'bakctop-main': isFixedHeader }">
-				<el-header v-if="!isFixedHeader"><AdminHeader></AdminHeader></el-header>
+				<el-header v-if="!isFixedHeader" :height="setHeaderHeight"><AdminHeader></AdminHeader></el-header>
 				<el-main><router-view></router-view></el-main>
 				<el-footer><AdminFooter></AdminFooter></el-footer>
 			</el-scrollbar>
-			<el-backtop target=".bakctop-main .el-scrollbar__wrap"
-				><el-icon :size="20"><ArrowUpBold /></el-icon
-			></el-backtop>
+			<el-backtop target=".bakctop-main .el-scrollbar__wrap">
+				<el-icon :size="20"><ArrowUpBold /></el-icon>
+			</el-backtop>
 		</el-container>
 	</el-container>
 	<el-container v-else class="layout-container" :class="{ 'bakctop-main': !isFixedHeader }">
@@ -20,9 +20,9 @@
 			<el-main><router-view></router-view></el-main>
 			<el-footer>Web 下因需求不同，请重写</el-footer>
 		</el-scrollbar>
-		<el-backtop target=".layout-backtop .el-scrollbar__wrap"
-			><el-icon :size="20"><ArrowUpBold /></el-icon
-		></el-backtop>
+		<el-backtop target=".bakctop-main .el-scrollbar__wrap">
+			<el-icon :size="20"><ArrowUpBold /></el-icon>
+		</el-backtop>
 	</el-container>
 </template>
 
@@ -53,6 +53,12 @@
 			// 固定header
 			const isFixedHeader = computed(() => {
 				return themeConfig.value.isFixedHeader;
+			});
+			//
+			const setHeaderHeight = computed(() => {
+				const { isTagsView } = themeConfig.value;
+				if (isTagsView) return "84px";
+				else return "60px";
 			});
 			// 动态修改菜单的宽高
 			const styleCollapse = computed(() => {
@@ -87,6 +93,7 @@
 			return {
 				isAdmin,
 				isFixedHeader,
+				setHeaderHeight,
 				styleCollapse,
 			};
 		},

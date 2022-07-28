@@ -7,6 +7,8 @@
 <script lang="ts">
 	import { defineComponent, getCurrentInstance, reactive, onBeforeMount, onMounted, onUnmounted, watch } from "vue";
 	import { useRoute } from "vue-router";
+	import pinia from "@/store";
+	import { useThemeConfig } from "@/store/modules/theme";
 	import Utils from  "@/plugins/utils";
 
 	export default defineComponent({
@@ -17,6 +19,7 @@
 				i18n: null,
 			});
 
+			const storesThemeConfig = useThemeConfig(pinia);
 			onBeforeMount(() => {
 				Utils.setCssCdn();
 				Utils.setJsCdn();
@@ -26,6 +29,9 @@
 				proxy.mittBus.on("getI18nConfig", (local: string) => {
 					(state.i18n as string | null) = local;
 				});
+				if (Utils.Storages.getLocalStorage(Utils.Constants.storageKeys.themeConfig)) {
+					storesThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Utils.Constants.storageKeys.themeConfig));
+				}
 			});
 
 			onUnmounted(() => {
