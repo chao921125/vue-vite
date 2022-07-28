@@ -13,6 +13,9 @@ export default {
 		demo: "示例",
 		demoIcon: "图标",
 		demoIconIfy: "iconify",
+		test: "测试",
+		testMap: "地图",
+		testMapOne: "地图1",
 	},
 	title: {
 		login: "登录",
@@ -34,6 +37,9 @@ export default {
 		demo: "示例",
 		demoIcon: "图标",
 		demoIconIfy: "iconify",
+		test: "测试",
+		testMap: "地图",
+		testMapOne: "地图1",
 	},
 	home: {
 		welcome: "欢迎使用",
