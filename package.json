@@ -54,7 +54,7 @@
     "echarts": "^5.3.3",
     "echarts-gl": "^2.0.9",
     "echarts-wordcloud": "^2.0.0",
-    "element-plus": "^2.2.10",
+    "element-plus": "^2.2.11",
 		"fs-extra": "^10.1.0",
     "file-saver": "^2.0.5",
     "intro.js": "^6.0.0",
@@ -76,7 +76,7 @@
     "socket.io-client": "^4.5.1",
     "sortablejs": "^1.15.0",
     "splitpanes": "^3.1.1",
-    "tinymce": "^6.1.0",
+    "tinymce": "^6.1.1",
     "ua-parser-js": "^1.0.2",
     "vant": "^3.5.2",
     "vditor": "^3.8.15",
@@ -85,7 +85,7 @@
     "vue-clipboard3": "^2.0.0",
     "vue-i18n": "^9.1.10",
     "vue-json-pretty": "^2.1.1",
-    "vue-router": "^4.1.2",
+    "vue-router": "^4.1.3",
     "vue-treeselect": "^1.0.7",
     "vue-types": "^4.2.0",
     "vuedraggable": "^2.24.3",
@@ -94,7 +94,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
-    "@iconify/json": "^2.1.83",
+    "@iconify/json": "^2.1.84",
     "@iconify/vue": "^3.2.1",
     "@types/codemirror": "^5.60.5",
     "@types/crypto-js": "^4.1.1",
@@ -104,7 +104,7 @@
     "@types/jest": "^28.1.6",
     "@types/lodash-es": "^4.17.6",
     "@types/mockjs": "^1.0.6",
-    "@types/node": "^18.6.1",
+    "@types/node": "^18.6.2",
     "@types/nprogress": "^0.2.0",
     "@types/qrcode": "^1.4.2",
     "@types/qs": "^6.9.7",
@@ -160,7 +160,7 @@
     "ts-jest": "^28.0.7",
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4",
-    "unplugin-auto-import": "^0.10.1",
+    "unplugin-auto-import": "^0.10.2",
     "unplugin-vue-components": "^0.21.2",
     "unplugin-vue-define-options": "^0.6.2",
     "vite": "^3.0.3",
@@ -178,7 +178,7 @@
     "vite-plugin-windicss": "^1.8.7",
     "vue-style-loader": "^4.1.3",
     "vue-template-compiler": "^2.7.8",
-    "vue-tsc": "^0.39.0",
+    "vue-tsc": "^0.39.2",
     "windicss": "^3.5.6",
     "yargs": "^17.5.1"
   },
@@ -197,8 +197,5 @@
   "bugs": {
     "url": ""
   },
-  "homepage": "",
-  "engines": {
-    "node": "^14 || ^15 || ^16 || ^17"
-  }
+  "homepage": ""
 }
