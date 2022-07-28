@@ -13,6 +13,10 @@ export default {
 		demo: "示例",
 		demoIcon: "图标",
 		demoIconIfy: "iconify",
+		test: "测试",
+		testMap: "拖拽缩放",
+		testMapOne: "分割地图",
+		testMapTwo: "CV拖拽",
 	},
 	title: {
 		login: "登录",
@@ -34,6 +38,10 @@ export default {
 		demo: "示例",
 		demoIcon: "图标",
 		demoIconIfy: "iconify",
+		test: "测试",
+		testMap: "拖拽缩放",
+		testMapOne: "分割地图",
+		testMapTwo: "CV拖拽",
 	},
 	home: {
 		welcome: "欢迎使用",

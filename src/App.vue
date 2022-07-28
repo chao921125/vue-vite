@@ -9,7 +9,7 @@
 	import { useRoute } from "vue-router";
 	import pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
-	import Utils from  "@/plugins/utils";
+	import Utils from "@/plugins/utils";
 
 	export default defineComponent({
 		name: "App",

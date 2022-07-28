@@ -62,7 +62,7 @@ function setTitleI18n(value: any) {
 		tagsViewName = i18n.global.t(<any>meta.title);
 	}
 	return tagsViewName;
-};
+}
 
 /**
  * 设置cdn
@@ -81,7 +81,7 @@ util.setCssCdn = () => {
 		link.crossOrigin = "anonymous";
 		document.getElementsByTagName("head")[0].appendChild(link);
 	});
-}
+};
 // 动态批量设置第三方js
 util.setJsCdn = () => {
 	if (jsCdnUrlList.length <= 0) return false;
@@ -90,7 +90,7 @@ util.setJsCdn = () => {
 		link.src = v;
 		document.body.appendChild(link);
 	});
-}
+};
 
 /**
  * @description 打开新页面
