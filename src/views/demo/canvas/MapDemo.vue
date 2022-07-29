@@ -36,10 +36,10 @@ export default defineComponent({
 			// 缩放倍数 最小
 			scaleMin: 0.5,
 			// 缩放 偏移量
-			scaleOffset: null,
+			scaleOffset: { x: 0, y: 0 },
 			// 最小移动步长 含 拖拽和缩放
 			stepNum: 5,
-			// 缩放 偏移量
+			// 位置 偏移量
 			canvasOffset: null,
 			// 拖拽对象 最后一次拖拽的位置
 			lastPosition: null,
@@ -148,7 +148,7 @@ export default defineComponent({
 		const canvasEvent = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
 			canvas.onmousedown = (event: any) => {
 				canvas.style.cursor = "grab";
-				const canvasPos = getMousePosCanvas(event);
+				const canvasPos = getMousePosCanvas(event, canvasTarget.scaleOffset, canvasTarget.scaleMax);
 				const targetRef = isDragTarget(canvasPos, canvasTarget.dragData);
 				canvasTarget.isDragFlag = false;
 				if (targetRef && canvasTarget.status === initConfig.INIT) {
@@ -164,7 +164,7 @@ export default defineComponent({
 				}
 			}
 			canvas.onmousemove = (event: any) => {
-				const canvasPos = getMousePosCanvas(event);
+				const canvasPos = getMousePosCanvas(event, canvasTarget.scaleOffset, canvasTarget.scaleMax);
 				canvasTarget.isDragFlag = true;
 				if (canvasTarget.status === initConfig.DRAG_START && getDistance(canvasPos, canvasTarget.lastPosition) > canvasTarget.stepNum) {
 					canvasTarget.status = initConfig.DRAG_ING;
@@ -174,7 +174,6 @@ export default defineComponent({
 					canvasTarget.dragTarget.y += (canvasPos.y - canvasTarget.dragOffsetPosition.y);
 
 					resetDrawDrag(canvas, ctx);
-
 					canvasTarget.dragOffsetPosition = canvasPos;
 				}
 			}
@@ -188,6 +187,26 @@ export default defineComponent({
 				} else {
 					console.log("no drag");
 				}
+			}
+			canvas.onwheel = (event: any) => {
+				event.preventDefault();
+				const canvasPos = getMousePosCanvas(event, canvasTarget.scaleOffset, canvasTarget.scaleMax);
+
+				const dealX = canvasPos.x / canvasTarget.scale * canvasTarget.scaleStep;
+				const dealY = canvasPos.y / canvasTarget.scale * canvasTarget.scaleStep;
+
+				if (event.wheelDelta > 0 && canvasTarget.scale < canvasTarget.scaleMax) {
+					canvasTarget.scaleOffset.x -= dealX;
+					canvasTarget.scaleOffset.y -= dealY;
+					canvasTarget.scale += canvasTarget.scaleStep;
+				} else if (event.wheelDelta <= 0 && canvasTarget.scale > canvasTarget.scaleMin) {
+					canvasTarget.scaleOffset.x += dealX;
+					canvasTarget.scaleOffset.y += dealY;
+					canvasTarget.scale -= canvasTarget.scaleStep;
+				}
+				ctx.setTransform(canvasTarget.scale, 0, 0, canvasTarget.scale, canvasTarget.scaleOffset.x, canvasTarget.scaleOffset.y);
+				resetDrawDrag(canvas, ctx);
+				canvasTarget.dragOffsetPosition = canvasPos;
 			}
 			// canvas.onclick = (event: any) => {
 			// 	console.log("unUse onclick", event);
