@@ -108,6 +108,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			__VUE_I18N_FULL_INSTALL__: false,
 			__INTLIFY_PROD_DEVTOOLS__: false,
 			__APP_INFO__: JSON.stringify(__APP_INFO__),
+			"process.env": process.env,
 		},
 		plugins: [
 			// 插件

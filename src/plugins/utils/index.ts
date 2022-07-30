@@ -10,6 +10,9 @@ import Storages from "./storage";
 import DB from "./db";
 import Date from "./date";
 import Log from "./log";
+import {useThemeConfig} from "@/store/modules/theme";
+import pinia from "@/store";
+import {storeToRefs} from "pinia";
 
 const util: any = {
 	Constants,
@@ -24,20 +27,20 @@ const util: any = {
  * @description 更新标题
  * @param titleText
  */
-util.title = async (titleText: any) => {
-	const processTitle = process.env.VITE_APP_TITLE || "";
+util.title = async () => {
+	const stores = useThemeConfig(pinia);
+	const { themeConfig } = storeToRefs(stores);
+	const globalTitle: string = themeConfig.value.globalTitle;
 	await nextTick(() => {
 		let title: any = "";
-		let globalTitle: string = processTitle;
 		const { path, meta } = router.currentRoute.value;
 		if (SettingsRouter.whiteList.includes(path)) {
 			title = <any>meta.title;
 		} else {
-			setTitleI18n(router.currentRoute.value);
+			title = setTitleI18n(router.currentRoute.value);
 		}
-		return title || globalTitle;
+		window.document.title = `${title}` || globalTitle;
 	});
-	window.document.title = `${processTitle}${titleText ? ` | ${titleText}` : ""}`;
 };
 
 util.tagsName = (value: any) => {

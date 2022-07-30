@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-	import { defineComponent, getCurrentInstance, reactive, onBeforeMount, onMounted, onUnmounted, watch } from "vue";
+	import { defineComponent, getCurrentInstance, reactive, onBeforeMount, onMounted, onUnmounted, watch, nextTick } from "vue";
 	import { useRoute } from "vue-router";
 	import pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
@@ -26,12 +26,14 @@
 			});
 
 			onMounted(() => {
-				proxy.mittBus.on("getI18nConfig", (local: string) => {
-					(state.i18n as string | null) = local;
+				nextTick(() => {
+					if (Utils.Storages.getLocalStorage(Utils.Constants.storageKeys.themeConfig)) {
+						storesThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Utils.Constants.storageKeys.themeConfig));
+					}
+					proxy.mittBus.on("getI18nConfig", (local: string) => {
+						(state.i18n as string | null) = local;
+					});
 				});
-				if (Utils.Storages.getLocalStorage(Utils.Constants.storageKeys.themeConfig)) {
-					storesThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Utils.Constants.storageKeys.themeConfig));
-				}
 			});
 
 			onUnmounted(() => {
@@ -41,7 +43,12 @@
 			const route = useRoute();
 			watch(
 				() => route.path,
-				() => {},
+				() => {
+					Utils.title();
+				},
+				{
+					deep: true,
+				}
 			);
 
 			return {
