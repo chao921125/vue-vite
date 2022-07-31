@@ -1,11 +1,11 @@
 <template>
-	<div v-if="isColl" class="logo-full re-flex-center-row" @click="changeCollapse">
+	<div v-if="isColl" class="logo-full re-flex-center-row">
 		<el-link :underline="false" @click="toHome">
 			<i class="iconfont icon-shouye"></i>
 			<span class="re-m-l-10">LOGO NAME</span>
 		</el-link>
 	</div>
-	<div v-else class="logo-only re-flex-center-row" @click="changeCollapse">
+	<div v-else class="logo-only re-flex-center-row">
 		<el-link :underline="false" @click="toHome">
 			<i class="iconfont icon-shouye"></i>
 		</el-link>
@@ -44,9 +44,6 @@
 				let { isCollapse } = themeConfig.value;
 				return !isCollapse;
 			});
-			const changeCollapse = () => {
-				themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
-			};
 			// 渲染菜单
 			const storeRouterList = useRouterList(pinia);
 			const { menuList } = storeToRefs(storeRouterList);
@@ -99,7 +96,6 @@
 				isColl,
 				changeMenuKey,
 				state,
-				changeCollapse,
 				toHome,
 				toMenu,
 			};
