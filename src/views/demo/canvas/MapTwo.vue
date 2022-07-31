@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-	import { defineComponent, onMounted, reactive } from "vue";
+import {defineComponent, onMounted, onUnmounted, reactive} from "vue";
 
 	export default defineComponent({
 		name: "MapTwo",
@@ -59,6 +59,9 @@
 				window.onresize = () => {
 					initCanvas();
 				}
+			});
+			onUnmounted(() => {
+				window.onresize = null;
 			});
 			const initCanvas = () => {
 				//	重置窗口
