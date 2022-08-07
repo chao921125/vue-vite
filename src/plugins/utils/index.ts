@@ -53,7 +53,8 @@ function setTitleI18n(value: any) {
 	if (query?.tagsViewName || params?.tagsViewName) {
 		if (SettingsI18n.key.test(query?.tagsViewName) || SettingsI18n.key.test(params?.tagsViewName)) {
 			// 国际化
-			const urlTagsParams = (query?.tagsViewName && JSON.parse(query?.tagsViewName)) || (params?.tagsViewName && JSON.parse(params?.tagsViewName));
+			const urlTagsParams =
+				(query?.tagsViewName && JSON.parse(query?.tagsViewName)) || (params?.tagsViewName && JSON.parse(params?.tagsViewName));
 			tagsViewName = urlTagsParams[i18n.global.locale];
 		} else {
 			// 非国际化
@@ -76,7 +77,7 @@ const jsCdnUrlList: Array<string> = [];
 // 动态批量设置字体图标
 util.setCssCdn = () => {
 	if (cssCdnUrlList.length <= 0) return false;
-	cssCdnUrlList.map((v) => {
+	cssCdnUrlList.map(v => {
 		let link = document.createElement("link");
 		link.rel = "stylesheet";
 		link.href = v;
@@ -87,7 +88,7 @@ util.setCssCdn = () => {
 // 动态批量设置第三方js
 util.setJsCdn = () => {
 	if (jsCdnUrlList.length <= 0) return false;
-	jsCdnUrlList.map((v) => {
+	jsCdnUrlList.map(v => {
 		let link = document.createElement("script");
 		link.src = v;
 		document.body.appendChild(link);
@@ -105,6 +106,7 @@ util.open = (url: string) => {
 	a.setAttribute("target", "_blank");
 	a.setAttribute("id", "open_window_blank");
 	document.body.appendChild(a);
+	console.log(a);
 	a.click();
 	document.body.removeChild(document.getElementById("open_window_blank") as HTMLElement);
 };

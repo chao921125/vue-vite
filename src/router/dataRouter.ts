@@ -125,7 +125,7 @@ export default {
 			],
 		},
 		{
-			id: 99,
+			id: 9,
 			path: "system",
 			component: "layout/Index",
 			name: "message.menu.system",
@@ -142,7 +142,7 @@ export default {
 			roles: ["admin", "system"],
 			children: [
 				{
-					id: 991,
+					id: 91,
 					path: "menu",
 					component: "system/menu/MenuList",
 					name: "message.menu.systemMenu",
@@ -159,7 +159,7 @@ export default {
 					roles: ["admin", "system"],
 					children: [
 						{
-							id: 9911,
+							id: 911,
 							path: "add",
 							component: "system/menu/MenuAdd",
 							name: "message.menu.systemMenuAdd",
@@ -179,7 +179,7 @@ export default {
 					],
 				},
 				{
-					id: 992,
+					id: 92,
 					path: "user",
 					component: "system/user/UserList",
 					name: "message.menu.systemUser",
@@ -196,7 +196,7 @@ export default {
 					roles: ["admin", "system"],
 					children: [
 						{
-							id: 9921,
+							id: 921,
 							path: "add",
 							component: "system/user/UserAdd",
 							name: "message.menu.systemUserAdd",
@@ -216,7 +216,7 @@ export default {
 					],
 				},
 				{
-					id: 993,
+					id: 93,
 					path: "dept",
 					component: "system/dept/DeptList",
 					name: "message.menu.systemUser",
@@ -234,6 +234,42 @@ export default {
 					children: [],
 				},
 			],
+		},
+		{
+			id: 991,
+			path: "link",
+			component: "home/Open",
+			name: "message.menu.home",
+			title: "message.title.home",
+			icon: "icon-home",
+			isLink: true,
+			isIframe: false,
+			address: "www.baidu.com",
+			isAffix: true,
+			isKeepAlive: true,
+			isDisable: false,
+			isHide: false,
+			isHideSubMenu: false,
+			roles: ["admin", "system"],
+			children: [],
+		},
+		{
+			id: 992,
+			path: "iframe",
+			component: "home/Open",
+			name: "message.menu.home",
+			title: "message.title.home",
+			icon: "icon-home",
+			isLink: false,
+			isIframe: true,
+			address: "www.baidu.com",
+			isAffix: true,
+			isKeepAlive: true,
+			isDisable: false,
+			isHide: false,
+			isHideSubMenu: false,
+			roles: ["admin", "system"],
+			children: [],
 		},
 	],
 };

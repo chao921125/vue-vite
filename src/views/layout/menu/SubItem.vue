@@ -8,7 +8,7 @@
 				</template>
 				<SubItem :menuList="item.children" :basePath="item.path + '/'"></SubItem>
 			</el-sub-menu>
-			<el-menu-item v-else :key="item.id" :index="resolvePath(item.path)" :route="{path: resolvePath(item.path), query: { isLink: item.isLink, isIframe: item.isIframe, address: item.address }}">
+			<el-menu-item v-else :key="item.id" :index="resolvePath(item.path)" @click="toLink(item.isLink, item.isIframe, item.address)">
 				<!-- 此处图标可以自定义 -->
 				<i class="iconfont" :class="item.icon"></i>
 				<template #title>
@@ -21,6 +21,7 @@
 
 <script lang="ts">
 	import { defineComponent, computed } from "vue";
+	import utils from "@/plugins/utils";
 
 	export default defineComponent({
 		name: "SubItem",
@@ -40,9 +41,16 @@
 			const resolvePath = (path: string) => {
 				return props.basePath + path;
 			};
+			const toLink = (isLink: boolean = false, isIframe: boolean = false, address: string = "")=> {
+				console.log(isLink, isIframe, address);
+				if (isLink) {
+					utils.open("www.baidu.com");
+				}
+			}
 			return {
 				menuList,
 				resolvePath,
+				toLink,
 			};
 		},
 	});
