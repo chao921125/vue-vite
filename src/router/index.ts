@@ -34,9 +34,7 @@ router.beforeEach(async (to, from, next) => {
 	console.log("router from", from.path, to.path);
 	NProgress.configure({ showSpinner: false });
 	if (to.meta.title) NProgress.start();
-	const token =
-		Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) ||
-		Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token);
+	const token = Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token);
 	if (Settings.whiteList.includes(to.path) && !token) {
 		next();
 		NProgress.done();

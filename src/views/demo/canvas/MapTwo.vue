@@ -111,7 +111,7 @@
 
 			const resetDrawDrag = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
 				ctx.clearRect(0, 0, canvas.width * canvasTarget.clear, canvas.height * canvasTarget.clear);
-				canvasTarget.dragData.forEach(item => {
+				canvasTarget.dragData.forEach((item) => {
 					drawDrag(ctx, item.x, item.x, item.r);
 				});
 			};
@@ -171,17 +171,14 @@
 				canvas.onmousemove = (event: any) => {
 					const canvasPos = getMousePosCanvas(event);
 					canvasTarget.isDragFlag = true;
-					if (
-						canvasTarget.status === initConfig.DRAG_START &&
-						getDistance(canvasPos, canvasTarget.lastPosition) > canvasTarget.stepNum
-					) {
+					if (canvasTarget.status === initConfig.DRAG_START && getDistance(canvasPos, canvasTarget.lastPosition) > canvasTarget.stepNum) {
 						canvasTarget.status = initConfig.DRAG_ING;
 						canvasTarget.dragOffsetPosition = canvasPos;
 					} else if (canvasTarget.status === initConfig.DRAG_ING) {
 						canvasTarget.dragTarget.x += canvasPos.x - canvasTarget.dragOffsetPosition.x;
 						canvasTarget.dragTarget.y += canvasPos.y - canvasTarget.dragOffsetPosition.y;
 						ctx.clearRect(0, 0, canvas.width * canvasTarget.clear, canvas.height * canvasTarget.clear);
-						canvasTarget.dragData.forEach(item => {
+						canvasTarget.dragData.forEach((item) => {
 							drawDrag(ctx, item.x, item.y, item.r);
 						});
 						canvasTarget.dragOffsetPosition = canvasPos;

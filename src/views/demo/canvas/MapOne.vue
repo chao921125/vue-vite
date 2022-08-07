@@ -102,11 +102,7 @@
 
 					if (mXy.x == mousedownXy[0].x && mXy.y == mousedownXy[0].y) {
 						isStart.value = false;
-					} else if (
-						mousedownXy.length > 1 &&
-						mXy.x == mousedownXy[mousedownXy.length - 2].x &&
-						mXy.y == mousedownXy[mousedownXy.length - 2].y
-					) {
+					} else if (mousedownXy.length > 1 && mXy.x == mousedownXy[mousedownXy.length - 2].x && mXy.y == mousedownXy[mousedownXy.length - 2].y) {
 						return false;
 					} else {
 						mousedownXy.push(mXy);
@@ -148,7 +144,7 @@
 				});
 
 				// 鼠标按下时
-				canvas.addEventListener("mousedown", res => {
+				canvas.addEventListener("mousedown", (res) => {
 					// 计算移动开始位置
 					moveStartXy = {
 						x: res.clientX - moveLogXy.x,
@@ -159,7 +155,7 @@
 				});
 
 				// 鼠标移动
-				canvas.addEventListener("mousemove", e => {
+				canvas.addEventListener("mousemove", (e) => {
 					if (isMove.value) {
 						const leftVal = e.clientX - moveStartXy.x;
 						const topVal = e.clientY - moveStartXy.y;

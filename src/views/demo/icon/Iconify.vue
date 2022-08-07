@@ -1,9 +1,5 @@
 <template>
-	<p
-		>element icon 示例：<el-link :underline="false" type="primary" target="_blank" href="https://element-plus.gitee.io/zh-CN/"
-			>官网</el-link
-		></p
-	>
+	<p>element icon 示例：<el-link :underline="false" type="primary" target="_blank" href="https://element-plus.gitee.io/zh-CN/">官网</el-link></p>
 	<code>
 		1、使用 el-icon 配合使用 &lt;el-icon size="16"&gt;&lt;Edit /&gt;&lt;/el-icon&gt;
 		<el-icon :size="16">
@@ -15,11 +11,7 @@
 		2、直接使用 &lt;Edit style="font-size: 16px; width: 16px; height: 16px;"/&gt;
 		<Edit style="font-size: 16px; width: 16px; height: 16px" />
 	</code>
-	<p
-		>iconify 示例：<el-link :underline="false" type="primary" target="_blank" href="https://icon-sets.iconify.design/"
-			>官网</el-link
-		></p
-	>
+	<p>iconify 示例：<el-link :underline="false" type="primary" target="_blank" href="https://icon-sets.iconify.design/">官网</el-link></p>
 	<code>
 		1、使用 span 标签直接引入 &lt;span class="iconify" data-icon="material-symbols:10k-rounded"&gt;&lt;/span&gt;
 		<span class="iconify" data-icon="material-symbols:home"></span>

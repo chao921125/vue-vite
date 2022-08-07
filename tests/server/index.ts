@@ -40,7 +40,7 @@ app.ws.use(
 const router = new Router();
 
 // router
-AppRoutes.forEach(route => router[route.method](route.path, route.action));
+AppRoutes.forEach((route) => router[route.method](route.path, route.action));
 
 app.use(cors());
 app.use(

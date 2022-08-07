@@ -33,7 +33,7 @@ function routeToComponent(routes: any[]) {
 
 function componentImport(dynamicViewsModules: Record<string, Function>, component: string) {
 	const keys = Object.keys(dynamicViewsModules);
-	const matchKeys = keys.filter(key => {
+	const matchKeys = keys.filter((key) => {
 		const k = key.replace(/..\/views|../, "");
 		return k.startsWith(`${component}`) || k.startsWith(`/${component}`);
 	});

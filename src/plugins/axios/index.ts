@@ -40,7 +40,7 @@ const http = axios.create({
 
 // 请求拦截器
 http.interceptors.request.use(
-	config => {
+	(config) => {
 		// config.headers["Content-Type"] = "application/json"
 		if (!/^https:\/\/|http:\/\//.test(<string>config.url)) {
 			// 在请求发送之前做一些处理
@@ -52,7 +52,7 @@ http.interceptors.request.use(
 		}
 		return config;
 	},
-	error => {
+	(error) => {
 		console.log("request error" + error);
 		let config = error.config;
 		if (!config || !config.retry) return Promise.reject(error);
@@ -72,7 +72,7 @@ http.interceptors.request.use(
 
 // 响应拦截器
 http.interceptors.response.use(
-	response => {
+	(response) => {
 		// dataAxios 是 axios 返回数据中的 data
 		const dataAxios = response.data;
 		// 这个状态码是和后端约定的
@@ -98,7 +98,7 @@ http.interceptors.response.use(
 			}
 		}
 	},
-	error => {
+	(error) => {
 		if (error && error.response) {
 			switch (error.response.status) {
 				case 400:

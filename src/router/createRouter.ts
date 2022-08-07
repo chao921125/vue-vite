@@ -12,13 +12,7 @@ import { useRouterList } from "@/store/modules/routerMeta";
 import { useTagsViewRoutes } from "@/store/modules/routerTags";
 
 export async function getDynamicRouter() {
-	if (
-		!(
-			Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) ||
-			Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token)
-		)
-	)
-		return false;
+	if (!(Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token))) return false;
 	await useUserInfo(pinia).setUserInfo();
 
 	let storesRouterList = useRouterList(pinia);
@@ -28,13 +22,7 @@ export async function getDynamicRouter() {
 }
 
 export async function getStaticRouter() {
-	if (
-		!(
-			Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) ||
-			Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token)
-		)
-	)
-		return false;
+	if (!(Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token))) return false;
 	await useUserInfo(pinia).setUserInfo();
 	await setAddRoute(requestData.menus);
 }

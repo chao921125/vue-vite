@@ -15,9 +15,7 @@
 		name: "App",
 		setup() {
 			const { proxy } = <any>getCurrentInstance();
-			const state = reactive({
-				i18n: null
-			});
+			const state = reactive({ i18n: null });
 
 			const storesThemeConfig = useThemeConfig(pinia);
 			onBeforeMount(() => {
