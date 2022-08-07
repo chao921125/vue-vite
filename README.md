@@ -5,6 +5,8 @@ npm安装包有时候会抽风，所以尽可能的选择yarn安装
 
 注意所有配置菜单的数据，均由前端提供
 
+vue3将不在使用 transition 全部改为 transition-group
+
 # 对应包使用解释
 项目本身配置99%都在vite.config.ts里面，参数设置都在根目录下，而非src下 \
 src下的settings目录是系统默认参数
@@ -25,5 +27,6 @@ src下的settings目录是系统默认参数
 - [ ] 静态权限控制（此项并不在我的计划之内）
 - [ ] 按钮级别权限控制（此项并不在我的计划之内）
 
-# Vite 插件
-https://github.com/vitejs/awesome-vite#plugins
+# [Vite 插件](https://github.com/vitejs/awesome-vite#plugins)
+
+# 收集好用的[VUE库](https://github.com/chao921125/web-study/blob/main/Document/VUE.MD)

@@ -10,9 +10,9 @@ import Storages from "./storage";
 import DB from "./db";
 import Date from "./date";
 import Log from "./log";
-import {useThemeConfig} from "@/store/modules/theme";
+import { useThemeConfig } from "@/store/modules/theme";
 import pinia from "@/store";
-import {storeToRefs} from "pinia";
+import { storeToRefs } from "pinia";
 
 const util: any = {
 	Constants,

@@ -5,16 +5,44 @@ module.exports = {
     node: true,
     es6: true,
   },
+	globals: {
+		// Ref sugar (take 2)
+		$: "readonly",
+		$$: "readonly",
+		$ref: "readonly",
+		$shallowRef: "readonly",
+		$computed: "readonly",
+
+		// index.d.ts
+		// global.d.ts
+		Fn: "readonly",
+		PromiseFn: "readonly",
+		RefType: "readonly",
+		LabelValueOptions: "readonly",
+		EmitType: "readonly",
+		TargetContext: "readonly",
+		ComponentElRef: "readonly",
+		ComponentRef: "readonly",
+		ElRef: "readonly",
+		global: "readonly",
+		ForDataType: "readonly",
+		ComponentRoutes: "readonly",
+
+		// script setup
+		defineProps: "readonly",
+		defineEmits: "readonly",
+		defineExpose: "readonly",
+		withDefaults: "readonly"
+	},
   /* 指定如何解析语法 */
   parser: "vue-eslint-parser",
   /* 继承某些已有的规则 */
   extends: [
-    "eslint:recommended",
-    "plugin:vue/vue3-recommended",
-		"plugin:@typescript-eslint/recommended",
-    "prettier",
-		"plugin:prettier/recommended",
-		"prettier/@typescript-eslint"
+		"plugin:vue/vue3-essential",
+		"eslint:recommended",
+		"@vue/typescript/recommended",
+		"@vue/prettier",
+		"@vue/eslint-config-typescript"
   ],
   plugins: [
     "@typescript-eslint"
@@ -29,6 +57,29 @@ module.exports = {
       jsx: true,
     },
   },
+	overrides: [
+		{
+			files: ["*.ts", "*.vue"],
+			rules: {
+				"no-undef": "off"
+			}
+		},
+		{
+			files: ["*.vue"],
+			parser: "vue-eslint-parser",
+			parserOptions: {
+				parser: "@typescript-eslint/parser",
+				extraFileExtensions: [".vue"],
+				ecmaVersion: "latest",
+				ecmaFeatures: {
+					jsx: true
+				}
+			},
+			rules: {
+				"no-undef": "off"
+			}
+		}
+	],
   /*
 	 * "off" 或 0    ==>  关闭规则
 	 * "warn" 或 1   ==>  打开的规则作为警告（不影响代码执行）
@@ -36,6 +87,7 @@ module.exports = {
 	 */
   rules: {
     "no-var": "error", // 要求使用 let 或 const 而不是 var
+		"no-debugger": "off",
     "no-multiple-empty-lines": ["error", { max: 1 }], // 不允许多个空行
     "no-use-before-define": "off", // 禁止在 函数/类/变量 定义之前使用它们
     "prefer-const": "off", // 此规则旨在标记使用 let 关键字声明但在初始分配后从未重新分配的变量，要求使用 const
@@ -48,6 +100,12 @@ module.exports = {
       },
     ],
     "space-before-function-paren": "off",
+		"prettier/prettier": [
+			"error",
+			{
+				endOfLine: "auto"
+			}
+		],
 
     // typeScript (https://typescript-eslint.io/rules)
     "@typescript-eslint/no-unused-vars": [
@@ -74,6 +132,7 @@ module.exports = {
     "vue/script-setup-uses-vars": "error", // 防止<script setup>使用的变量<template>被标记为未使用，此规则仅在启用该no-unused-vars规则时有效。
     "vue/v-slot-style": "error", // 强制执行 v-slot 指令样式
     "vue/no-mutating-props": "off", // 不允许组件 prop的改变（明天找原因）
+		"vue/no-v-html": "off",
     "vue/custom-event-name-casing": "off", // 为自定义事件名称强制使用特定大小写
     "vue/attributes-order": "off", // vue api使用顺序，强制执行属性顺序
     "vue/one-component-per-file": "off", // 强制每个组件都应该在自己的文件中
@@ -83,7 +142,20 @@ module.exports = {
     "vue/singleline-html-element-content-newline": "off", // 在单行元素的内容之前和之后需要换行符
     "vue/attribute-hyphenation": "off", // 对模板中的自定义组件强制执行属性命名样式
     "vue/require-default-prop": "off", // 此规则要求为每个 prop 为必填时，必须提供默认值
+		"vue/require-explicit-emits": "off",
     "vue/multi-word-component-names": "off", // 要求组件名称始终为 “-” 链接的单词
-    "vue/no-multiple-template-root": "off" // 关闭多根节点的校验
+    "vue/no-multiple-template-root": "off", // 关闭多根节点的校验
+		"vue/html-self-closing": [
+			"error",
+			{
+				html: {
+					void: "always",
+					normal: "always",
+					component: "always"
+				},
+				svg: "always",
+				math: "always"
+			}
+		]
   },
 };

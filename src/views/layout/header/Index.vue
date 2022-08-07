@@ -1,7 +1,7 @@
 <template>
 	<el-row :gutter="10" justify="space-between" class="re-height-fill">
 		<el-col :xs="24" :sm="12">
-			<div class="re-height-fill re-flex-col">
+			<div class="re-height-fill re-flex-row-center-ai">
 				<el-icon @click="changeCollapse" class="re-cursor-pointer" :size="18">
 					<Fold v-if="isColl" />
 					<Expand v-else />
@@ -16,8 +16,23 @@
 			</div>
 		</el-col>
 		<el-col :xs="24" :sm="12">
-			<el-button @click="isShowDrawer = true">setting</el-button>
-			<el-button @click="logout">logout</el-button>
+			<div class="re-height-fill re-flex-row-reverse">
+				<div class="re-m-l-10">Admin</div>
+				<el-dropdown ref="dropdownUser" trigger="contextmenu">
+					<el-image
+						src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+						fit="contain"
+						class="re-cursor-pointer user-avatar re-m-l-10"
+						@click="showDropdown"
+					></el-image>
+					<template #dropdown>
+						<el-dropdown-menu>
+							<el-dropdown-item @click="logout">退出</el-dropdown-item>
+						</el-dropdown-menu>
+					</template>
+				</el-dropdown>
+				<el-button @click="isShowDrawer = true">setting</el-button>
+			</div>
 		</el-col>
 	</el-row>
 	<el-drawer v-model="isShowDrawer" title="system setting" :with-header="false">
@@ -39,7 +54,7 @@
 		name: "Index",
 		setup() {
 			let isShowDrawer = ref(false);
-			// 折叠菜单
+			// 折叠菜单 start
 			const storeThemeConfig = useThemeConfig(pinia);
 			const { themeConfig } = storeToRefs(storeThemeConfig);
 			const isColl = computed(() => {
@@ -50,7 +65,8 @@
 				themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
 				setThemeConfig();
 			};
-			// 面包屑导航
+			// 折叠菜单 end
+			// 面包屑导航 start
 			const breadcrumbList = ref<any[]>([]);
 			const storesRouterList = useRouterList(pinia);
 			const { menuList } = storeToRefs(storesRouterList);
@@ -98,6 +114,12 @@
 				breadcrumbList.value = [];
 				initBreadcrumbList(to.path);
 			});
+			// 面包屑导航 end
+			// 个人中心 start
+			const dropdownUser = ref();
+			const showDropdown = () => {
+				dropdownUser.value.handleOpen();
+			};
 			// 退出
 			const router = useRouter();
 			const logout = () => {
@@ -105,7 +127,9 @@
 				Utils.Cookies.removeCookie(Utils.Constants.cookieKeys.token);
 				router.push({ path: SettingsRouter.routeLogin });
 			};
+			// 个人中心 end
 
+			// 本地持久化配置
 			const setThemeConfig = () => {
 				Utils.Storages.removeLocalStorage(Utils.Constants.storageKeys.themeConfig);
 				Utils.Storages.setLocalStorage(Utils.Constants.storageKeys.themeConfig, themeConfig.value);
@@ -116,10 +140,18 @@
 				changeCollapse,
 				isShowDrawer,
 				breadcrumbList,
+				dropdownUser,
+				showDropdown,
 				logout,
 			};
 		},
 	});
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+	.user-avatar {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+	}
+</style>

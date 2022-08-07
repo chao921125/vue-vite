@@ -1,11 +1,11 @@
 <template>
-	<div v-if="isColl" class="logo-full re-flex-center-row">
+	<div v-if="isColl" class="logo-full re-flex-row-center">
 		<el-link :underline="false" @click="toHome">
 			<i class="iconfont icon-shouye"></i>
 			<span class="re-m-l-10">LOGO NAME</span>
 		</el-link>
 	</div>
-	<div v-else class="logo-only re-flex-center-row">
+	<div v-else class="logo-only re-flex-row-center">
 		<el-link :underline="false" @click="toHome">
 			<i class="iconfont icon-shouye"></i>
 		</el-link>

@@ -13,6 +13,9 @@ import I18n from "@/plugins/language";
 // mitt 总线
 import mitt from "mitt";
 
+// 三方CSS
+import "animate.css/animate.min.css";
+
 // UI element
 import ElementPlus from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
@@ -57,7 +60,7 @@ app.config.warnHandler = (msg, vm, trace) => {
 };
 
 // 注册element Icons组件
-Object.keys(Icons).forEach((key) => {
+Object.keys(Icons).forEach(key => {
 	app.component(key, Icons[key as keyof typeof Icons]);
 });
 

@@ -16,7 +16,7 @@
 		setup() {
 			const { proxy } = <any>getCurrentInstance();
 			const state = reactive({
-				i18n: null,
+				i18n: null
 			});
 
 			const storesThemeConfig = useThemeConfig(pinia);
@@ -48,7 +48,7 @@
 				},
 				{
 					deep: true,
-				}
+				},
 			);
 
 			return {

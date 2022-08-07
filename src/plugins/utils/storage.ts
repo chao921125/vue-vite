@@ -41,47 +41,47 @@ storage.getLocalStorage = (key: string = "default") => {
 };
 
 storage.getLocalMaxSpace = () => {
-		if (!window.localStorage) {
-			console.log('当前浏览器不支持localStorage!');
+	if (!window.localStorage) {
+		console.log("当前浏览器不支持localStorage!");
+	}
+	let test = "0123456789";
+	let add = function (num) {
+		num += num;
+		if (num.length === 10240) {
+			test = num;
+			return test;
 		}
-		let test = '0123456789';
-		let add = function(num) {
-			num += num;
-			if (num.length === 10240) {
-				test = num;
-				return test;
-			}
-			add(num);
-		};
-		add(test);
-		let sum = test;
-		let show = setInterval(function() {
-			sum += test;
-			try {
-				window.localStorage.removeItem('test');
-				window.localStorage.setItem('test', sum);
-				console.log(sum.length / 1024 + 'KB');
-			} catch (e) {
-				console.log(sum.length / 1024 + 'KB超出最大限制');
-				clearInterval(show);
-			}
-		}, 0.1);
-}
+		add(num);
+	};
+	add(test);
+	let sum = test;
+	let show = setInterval(function () {
+		sum += test;
+		try {
+			window.localStorage.removeItem("test");
+			window.localStorage.setItem("test", sum);
+			console.log(sum.length / 1024 + "KB");
+		} catch (e) {
+			console.log(sum.length / 1024 + "KB超出最大限制");
+			clearInterval(show);
+		}
+	}, 0.1);
+};
 
 storage.getLocalUsedSpace = () => {
-		if (!window.localStorage) {
-			console.log('浏览器不支持localStorage');
-			return false;
+	if (!window.localStorage) {
+		console.log("浏览器不支持localStorage");
+		return false;
+	}
+	let size: number = 0;
+	for (let item in window.localStorage) {
+		if (window.localStorage.hasOwnProperty(item)) {
+			size += window.localStorage!.getItem(item)!.length;
 		}
-		let size: number = 0;
-		for (let item in window.localStorage) {
-			if (window.localStorage.hasOwnProperty(item)) {
-				size += window.localStorage!.getItem(item)!.length;
-			}
-		}
-		console.log('当前localStorage使用容量为' + (size / 1024).toFixed(2) + 'KB');
-		return (size / 1024).toFixed(2);
-}
+	}
+	console.log("当前localStorage使用容量为" + (size / 1024).toFixed(2) + "KB");
+	return (size / 1024).toFixed(2);
+};
 
 storage.setSessionStorage = (key: string = "default", value: any = null) => {
 	if (!value) return false;
@@ -103,47 +103,47 @@ storage.getSessionStorage = (key: string = "default") => {
 };
 
 storage.getSessionMaxSpace = () => {
-		if (!window.sessionStorage) {
-			console.log('当前浏览器不支持sessionStorage!');
+	if (!window.sessionStorage) {
+		console.log("当前浏览器不支持sessionStorage!");
+	}
+	let test = "0123456789";
+	let add = function (num) {
+		num += num;
+		if (num.length === 10240) {
+			test = num;
+			return test;
 		}
-		let test = '0123456789';
-		let add = function(num) {
-			num += num;
-			if (num.length === 10240) {
-				test = num;
-				return test;
-			}
-			add(num);
-		};
-		add(test);
-		let sum = test;
-		let show = setInterval(function() {
-			sum += test;
-			try {
-				window.sessionStorage.removeItem('test');
-				window.sessionStorage.setItem('test', sum);
-				console.log(sum.length / 1024 + 'KB');
-			} catch (e) {
-				console.log(sum.length / 1024 + 'KB超出最大限制');
-				clearInterval(show);
-			}
-		}, 0.1);
-}
+		add(num);
+	};
+	add(test);
+	let sum = test;
+	let show = setInterval(function () {
+		sum += test;
+		try {
+			window.sessionStorage.removeItem("test");
+			window.sessionStorage.setItem("test", sum);
+			console.log(sum.length / 1024 + "KB");
+		} catch (e) {
+			console.log(sum.length / 1024 + "KB超出最大限制");
+			clearInterval(show);
+		}
+	}, 0.1);
+};
 
 storage.getSessionUsedSpace = () => {
-		if (!window.sessionStorage) {
-			console.log('当前浏览器不支持sessionStorage');
-			return false;
+	if (!window.sessionStorage) {
+		console.log("当前浏览器不支持sessionStorage");
+		return false;
+	}
+	let size: number = 0;
+	for (let item in window.sessionStorage) {
+		if (window.sessionStorage.hasOwnProperty(item)) {
+			size += window.sessionStorage!.getItem(item)!.length;
 		}
-		let size: number = 0;
-		for (let item in window.sessionStorage) {
-			if (window.sessionStorage.hasOwnProperty(item)) {
-				size += window.sessionStorage!.getItem(item)!.length;
-			}
-		}
-		console.log('当前sessionStorage使用容量为' + (size / 1024).toFixed(2) + 'KB');
-		return (size / 1024).toFixed(2);
-}
+	}
+	console.log("当前sessionStorage使用容量为" + (size / 1024).toFixed(2) + "KB");
+	return (size / 1024).toFixed(2);
+};
 
 storage.removeLocalStorage = (key: string = "default") => {
 	window.localStorage.removeItem(key);
