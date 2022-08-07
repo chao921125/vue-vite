@@ -10,8 +10,7 @@ import { useRouterList } from "@/store/modules/routerMeta";
 import Utils from "@/plugins/utils";
 import { baseRoutes } from "./route";
 import Settings from "./common";
-import { getDynamicRouter } from "./dynamicRoute";
-import { getStaticRouter } from "./staticRoute";
+import { getDynamicRouter, getStaticRouter } from "./createRouter";
 
 // 配置文件修改是否从后端获取路由
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可

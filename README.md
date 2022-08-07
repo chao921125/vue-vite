@@ -13,5 +13,11 @@ src下的settings目录是系统默认参数
 ## 配置解释
 大家根据使用的包来自行搜索下吧，大部分配置都是兼容、打包等
 
+# 已完成
+- [x] 动态路由（同时支持静态路由配置，一切简便化）
+
+# 下一步
+- [ ] 没选中的复选框
+
 # Vite 插件
 https://github.com/vitejs/awesome-vite#plugins

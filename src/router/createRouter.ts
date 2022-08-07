@@ -27,6 +27,18 @@ export async function getDynamicRouter() {
 	await setAddRoute(requestData.menus);
 }
 
+export async function getStaticRouter() {
+	if (
+		!(
+			Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) ||
+			Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token)
+		)
+	)
+		return false;
+	await useUserInfo(pinia).setUserInfo();
+	await setAddRoute(requestData.menus);
+}
+
 export async function setAddRoute(data: any[]) {
 	// add filter roles
 	// const menus = filterMenus(requestData.menus);
