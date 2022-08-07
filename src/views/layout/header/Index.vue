@@ -19,14 +19,63 @@
 			<div class="re-height-fill re-flex-row-reverse">
 				<div class="re-m-l-10">Admin</div>
 				<el-dropdown ref="dropdownUser" trigger="contextmenu">
-					<el-image src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="contain" class="re-cursor-pointer user-avatar re-m-l-10" @click="showDropdown"></el-image>
+					<el-image
+						src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+						fit="cover"
+						class="re-cursor-pointer user-avatar re-m-l-10"
+						@click="showDropdownUser"
+					/>
 					<template #dropdown>
 						<el-dropdown-menu>
-							<el-dropdown-item @click="logout">退出</el-dropdown-item>
+							<el-dropdown-item @click="logout">
+								<el-icon><SwitchButton /></el-icon>
+								<span>退出登录</span>
+							</el-dropdown-item>
 						</el-dropdown-menu>
 					</template>
 				</el-dropdown>
-				<el-button @click="isShowDrawer = true">setting</el-button>
+				<el-tooltip effect="dark" content="全屏" placement="bottom">
+					<i class="iconfont icon-fullscreen re-cursor-pointer re-m-l-10" />
+				</el-tooltip>
+				<el-tooltip effect="dark" content="设置" placement="bottom">
+					<i class="iconfont icon-pifu re-cursor-pointer re-m-l-10" @click="isShowDrawer = true" />
+				</el-tooltip>
+				<el-tooltip effect="dark" content="国际化" placement="bottom">
+					<el-dropdown ref="dropdownComponents" trigger="contextmenu">
+						<i class="iconfont icon-duoyuyan re-cursor-pointer re-m-l-10" @click="showDropdownComponents" />
+						<template #dropdown>
+							<el-dropdown-menu>
+								<el-dropdown-item @click="logout">
+									<span>简体中文</span>
+								</el-dropdown-item>
+								<el-dropdown-item @click="logout">
+									<span>繁体中文</span>
+								</el-dropdown-item>
+								<el-dropdown-item @click="logout">
+									<span>英文</span>
+								</el-dropdown-item>
+							</el-dropdown-menu>
+						</template>
+					</el-dropdown>
+				</el-tooltip>
+				<el-tooltip effect="dark" content="组件" placement="bottom">
+					<el-dropdown ref="dropdownLanguage" trigger="contextmenu">
+						<i class="iconfont icon-zujian2 re-cursor-pointer re-m-l-10" @click="showDropdownLanguage" />
+						<template #dropdown>
+							<el-dropdown-menu>
+								<el-dropdown-item @click="logout">
+									<span>默认</span>
+								</el-dropdown-item>
+								<el-dropdown-item @click="logout">
+									<span>大型</span>
+								</el-dropdown-item>
+								<el-dropdown-item @click="logout">
+									<span>小型</span>
+								</el-dropdown-item>
+							</el-dropdown-menu>
+						</template>
+					</el-dropdown>
+				</el-tooltip>
 			</div>
 		</el-col>
 	</el-row>
@@ -112,8 +161,16 @@
 			// 面包屑导航 end
 			// 个人中心 start
 			const dropdownUser = ref();
-			const showDropdown = () => {
+			const dropdownComponents = ref();
+			const dropdownLanguage = ref();
+			const showDropdownUser = () => {
 				dropdownUser.value.handleOpen();
+			};
+			const showDropdownComponents = () => {
+				dropdownComponents.value.handleOpen();
+			};
+			const showDropdownLanguage = () => {
+				dropdownLanguage.value.handleOpen();
 			};
 			// 退出
 			const router = useRouter();
@@ -136,7 +193,11 @@
 				isShowDrawer,
 				breadcrumbList,
 				dropdownUser,
-				showDropdown,
+				dropdownComponents,
+				dropdownLanguage,
+				showDropdownUser,
+				showDropdownComponents,
+				showDropdownLanguage,
 				logout,
 			};
 		},

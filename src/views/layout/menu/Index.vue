@@ -1,18 +1,18 @@
 <template>
 	<div v-if="isColl" class="logo-full re-flex-row-center">
 		<el-link :underline="false" @click="toHome">
-			<i class="iconfont icon-shouye"></i>
+			<i class="iconfont icon-shouye" />
 			<span class="re-m-l-10">LOGO NAME</span>
 		</el-link>
 	</div>
 	<div v-else class="logo-only re-flex-row-center">
 		<el-link :underline="false" @click="toHome">
-			<i class="iconfont icon-shouye"></i>
+			<i class="iconfont icon-shouye" />
 		</el-link>
 	</div>
 	<el-scrollbar>
 		<el-menu background-color="transparent" :default-active="changeMenuKey" mode="vertical" :collapse="!isColl" :unique-opened="true" @select="toMenu">
-			<SubItem v-if="state.menuList && state.menuList.length > 0" :menuList="state.menuList"></SubItem>
+			<SubItem v-if="state.menuList && state.menuList.length > 0" :menuList="state.menuList" />
 		</el-menu>
 	</el-scrollbar>
 </template>

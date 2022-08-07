@@ -1,4 +1,4 @@
-import { nextTick } from "@vue/runtime-core";
+import { nextTick } from "vue";
 import router from "@/router";
 import SettingsRouter from "@/router/common";
 import i18n from "@/plugins/language";
