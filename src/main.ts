@@ -61,6 +61,12 @@ Object.keys(Icons).forEach((key) => {
 	app.component(key, Icons[key as keyof typeof Icons]);
 });
 
+// 自定义指令
+// import * as directives from "@/plugins/directive";
+// Object.keys(directives).forEach(key => {
+// 	app.directive(key, (directives as { [key: string]: Directive })[key]);
+// });
+
 // 全局指令
 app.config.globalProperties.mittBus = mitt();
 

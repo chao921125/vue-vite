@@ -15,9 +15,12 @@ src下的settings目录是系统默认参数
 
 # 已完成
 - [x] 动态路由（同时支持静态路由配置，一切简便化）
+- [x] 国际化
+- [x] Element Icon、Iconify、IconFont使用
 
 # 下一步
-- [ ] 没选中的复选框
+- [ ] 静态权限控制（此项并不在我的计划之内）
+- [ ] 按钮级别权限控制（此项并不在我的计划之内）
 
 # Vite 插件
 https://github.com/vitejs/awesome-vite#plugins
