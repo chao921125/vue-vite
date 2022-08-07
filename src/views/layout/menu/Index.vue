@@ -1,18 +1,25 @@
 <template>
 	<div v-if="isColl" class="logo-full re-flex-row-center">
 		<el-link :underline="false" @click="toHome">
-			<i class="iconfont icon-shouye" />
+			<i class="iconfont icon-shouye"></i>
 			<span class="re-m-l-10">LOGO NAME</span>
 		</el-link>
 	</div>
 	<div v-else class="logo-only re-flex-row-center">
 		<el-link :underline="false" @click="toHome">
-			<i class="iconfont icon-shouye" />
+			<i class="iconfont icon-shouye"></i>
 		</el-link>
 	</div>
 	<el-scrollbar>
-		<el-menu background-color="transparent" :default-active="changeMenuKey" mode="vertical" :collapse="!isColl" :unique-opened="true" @select="toMenu">
-			<SubItem v-if="state.menuList && state.menuList.length > 0" :menuList="state.menuList" />
+		<el-menu
+			background-color="transparent"
+			:default-active="changeMenuKey"
+			mode="vertical"
+			:collapse="!isColl"
+			:unique-opened="true"
+			@select="toMenu"
+		>
+			<SubItem v-if="state.menuList && state.menuList.length > 0" :menuList="state.menuList"></SubItem>
 		</el-menu>
 	</el-scrollbar>
 </template>
@@ -40,9 +47,7 @@
 			// 渲染菜单
 			const storeRouterList = useRouterList(pinia);
 			const { menuList } = storeToRefs(storeRouterList);
-			const state = reactive({
-				menuList: Array<any>,
-			});
+			const state = reactive({ menuList: Array<any> });
 			const setMenu = () => {
 				(state.menuList as any) = menuList.value || [];
 			};
@@ -63,7 +68,7 @@
 				return path.toString();
 			});
 			// 点击路由跳转菜单
-			const toMenu = (index) => {
+			const toMenu = index => {
 				router.push({ path: "/" + index });
 			};
 			// 回首页
@@ -73,7 +78,7 @@
 			// 监听路由及状态，改变菜单
 			watch(
 				pinia.state,
-				(value) => {
+				value => {
 					console.log(value);
 					setMenu();
 				},

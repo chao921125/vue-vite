@@ -8,12 +8,12 @@
 				</template>
 				<SubItem :menuList="item.children" :basePath="item.path + '/'"></SubItem>
 			</el-sub-menu>
-			<el-menu-item v-else :key="item.id" :index="resolvePath(item.path)">
+			<el-menu-item v-else :key="item.id" :index="resolvePath(item.path)" :route="{path: resolvePath(item.path), query: { isLink: item.isLink, isIframe: item.isIframe, address: item.address }}">
 				<!-- 此处图标可以自定义 -->
 				<i class="iconfont" :class="item.icon"></i>
-				<template #title
-					><span class="re-m-l-5">{{ $t(item.title) }}</span></template
-				>
+				<template #title>
+					<span class="re-m-l-5">{{ $t(item.title) }}</span>
+				</template>
 			</el-menu-item>
 		</template>
 	</template>
@@ -35,9 +35,7 @@
 			},
 		},
 		setup(props) {
-			const menuList = computed(() => {
-				return <any>props.menuList || [];
-			});
+			const menuList = computed(() => { return <any>props.menuList || []; } );
 
 			const resolvePath = (path: string) => {
 				return props.basePath + path;

@@ -1,6 +1,6 @@
 module.exports = {
 	// 超过最大值换行
-	printWidth: 180,
+	printWidth: 200,
 	// 缩进字节数
 	tabWidth: 2,
 	// 使用制表符而不是空格缩进行
@@ -36,6 +36,7 @@ module.exports = {
 	endOfLine: "auto",
 	// Vue文件脚本和样式标签缩进
 	vueIndentScriptAndStyle: true,
+	// 控制是否 prettier 格式的引用代码嵌入在文件中。
 	// embeddedLanguageFormatting: true,
 	// 指定要使用的分析器
 	// parser: true,
