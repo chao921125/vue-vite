@@ -25,7 +25,7 @@ import Components from "unplugin-vue-components/vite";
 import PurgeIcons from "vite-plugin-purge-icons";
 // 处理变量
 import pkg from "./package.json";
-import { getEnvConfig } from "./build";
+import { getEnvConfig, createProxy } from "./build";
 
 const __APP_INFO__ = {
 	pkg,
@@ -60,34 +60,34 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			strictPort: true, // 存在冲突端口，则继续下找可用端口
 			// https: "", // boolean | https.ServerOptions
 			open: envConfig.VITE_APP_OPEN, // boolean | string
-			proxy: {
-				// string shorthand
-				// "/foo": "http://localhost:4567/foo",
-				// with options
-				"/api": {
-					target: "http://jsonplaceholder.typicode.com",
-					changeOrigin: true,
-					rewrite: path => path.replace(/^\/api/, ""),
-				},
-				// with RegEx
-				// "^/fallback/.*": {
-				//   target: "http://jsonplaceholder.typicode.com",
-				//   changeOrigin: true,
-				//   rewrite: (path) => path.replace(/^\/fallback/, "")
-				// },
-				// 使用 proxy 实例
-				// "api": {
-				//   target: "http://jsonplaceholder.typicode.com",
-				//   changeOrigin: true,
-				//   configure: () => {
-				//      // proxy http-proxy
-				//   },
-				// },
-				// '/socket.io': {
-				// 	target: 'ws://localhost:3000',
-				// 	ws: true
-				// }
-			},
+			proxy: createProxy(envConfig.VITE_APP_PROXY),
+			// {
+			// 	// string shorthand
+			// 	// "/foo": "http://localhost:4567/foo",
+			// 	"/api": {
+			// 		target: "http://jsonplaceholder.typicode.com",
+			// 		changeOrigin: true,
+			// 		rewrite: path => path.replace(/^\/api/, ""),
+			// 	},
+			// 	// with RegEx
+			// 	// "^/fallback/.*": {
+			// 	//   target: "http://jsonplaceholder.typicode.com",
+			// 	//   changeOrigin: true,
+			// 	//   rewrite: (path) => path.replace(/^\/fallback/, "")
+			// 	// },
+			// 	// 使用 proxy 实例
+			// 	// "api": {
+			// 	//   target: "http://jsonplaceholder.typicode.com",
+			// 	//   changeOrigin: true,
+			// 	//   configure: () => {
+			// 	//      // proxy http-proxy
+			// 	//   },
+			// 	// },
+			// 	// '/socket.io': {
+			// 	// 	target: 'ws://localhost:3000',
+			// 	// 	ws: true
+			// 	// }
+			// },
 			cors: true, // boolean | CorsOptions
 			// headers: false, // OutgoingHttpHeaders 指定服务器响应的 header
 			// force: false, // boolean 依赖构建
