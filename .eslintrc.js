@@ -4,7 +4,7 @@ module.exports = {
   env: {
 		browser: true,
 		node: true,
-		es6: true,
+		es2021: true,
   },
 	globals: {
 		// Ref sugar (take 2)
@@ -37,44 +37,45 @@ module.exports = {
 	},
   /* 指定如何解析语法 */
   parser: "vue-eslint-parser",
-  plugins: [
-    "@typescript-eslint",
-  ],
   /* 优先级低于 parse 的语法解析配置 */
   parserOptions: {
     parser: "@typescript-eslint/parser",
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "module",
     jsxPragma: "React",
     ecmaFeatures: {
       jsx: true,
     },
   },
-	overrides: [
-		{
-			files: ["*.ts", "*.vue",],
-			rules: {
-				"no-undef": "off",
-			},
-		},
-		{
-			files: ["*.vue",],
-			parser: "vue-eslint-parser",
-			parserOptions: {
-				parser: "@typescript-eslint/parser",
-				extraFileExtensions: [".vue",],
-				ecmaVersion: "latest",
-				ecmaFeatures: {
-					jsx: true,
-				},
-			},
-			rules: {
-				"no-undef": "off",
-			},
-		},
-	],
+	// overrides: [
+	// 	{
+	// 		files: ["*.ts", "*.vue",],
+	// 		rules: {
+	// 			"no-undef": "off",
+	// 		},
+	// 	},
+	// 	{
+	// 		files: ["*.vue",],
+	// 		parser: "vue-eslint-parser",
+	// 		parserOptions: {
+	// 			parser: "@typescript-eslint/parser",
+	// 			extraFileExtensions: [".vue",],
+	// 			ecmaVersion: "latest",
+	// 			ecmaFeatures: {
+	// 				jsx: true,
+	// 			},
+	// 		},
+	// 		rules: {
+	// 			"no-undef": "off",
+	// 		},
+	// 	},
+	// ],
 	/* 继承某些已有的规则 */
 	extends: ["plugin:vue/vue3-recommended", "plugin:@typescript-eslint/recommended", "prettier", "plugin:prettier/recommended",],
+	plugins: [
+		"vue",
+		"@typescript-eslint",
+	],
   /*
 	 * "off" 或 0    ==>  关闭规则
 	 * "warn" 或 1   ==>  打开的规则作为警告（不影响代码执行）
@@ -82,20 +83,25 @@ module.exports = {
 	 */
   rules: {
 		// eslint (http://eslint.cn/docs/rules)
-    "no-var": "error", // 要求使用 let 或 const 而不是 var
+		"no-console": "off", // 禁用 console
 		"no-debugger": "off", // 禁用 debugger
-    "no-multiple-empty-lines": ["error", { max: 1, },], // 不允许多个空行
-    "no-use-before-define": "off", // 禁止在 函数/类/变量 定义之前使用它们
-    "prefer-const": "off", // 此规则旨在标记使用 let 关键字声明但在初始分配后从未重新分配的变量，要求使用 const
-    "no-irregular-whitespace": "off", // 禁止不规则的空白
-    "no-unused-vars": [
-      "error",
-      {
-        argsIgnorePattern: "^h$",
-        varsIgnorePattern: "^h$",
-      },
-    ],
-    "space-before-function-paren": "off",
+		"no-irregular-whitespace": "off", // 禁止不规则的空白
+
+		"no-case-declarations": "off", // 不允许在 case 子句中使用词法声明
+
+		"no-use-before-define": "off", // 禁止在 函数/类/变量 定义之前使用它们
+		"no-unused-vars": [
+			"error",
+			{
+				vars: "all", args: "none", ignoreRestSiblings: false
+			},
+		], // 禁止定义未使用的变量
+		"space-before-function-paren": "off", // 强制在 function的左括号之前使用一致的空格
+
+		"no-multiple-empty-lines": ["error", { max: 1, },], // 不允许多个空行
+
+		"no-var": "error", // 要求使用 let 或 const 而不是 var
+		"prefer-const": "off", // 此规则旨在标记使用 let 关键字声明但在初始分配后从未重新分配的变量，要求使用 const
 
 		// typeScript (https://typescript-eslint.io/rules)
     "@typescript-eslint/no-unused-vars": [

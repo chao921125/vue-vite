@@ -36,17 +36,19 @@
 			},
 		},
 		setup(props) {
-			const menuList = computed(() => { return <any>props.menuList || []; } );
+			const menuList = computed(() => {
+				return <any>props.menuList || [];
+			});
 
 			const resolvePath = (path: string) => {
 				return props.basePath + path;
 			};
-			const toLink = (isLink: boolean = false, isIframe: boolean = false, address: string = "")=> {
+			const toLink = (isLink: boolean = false, isIframe: boolean = false, address: string = "") => {
 				console.log(isLink, isIframe, address);
 				if (isLink) {
 					utils.open("www.baidu.com");
 				}
-			}
+			};
 			return {
 				menuList,
 				resolvePath,

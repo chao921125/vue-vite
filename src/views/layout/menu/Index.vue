@@ -11,14 +11,7 @@
 		</el-link>
 	</div>
 	<el-scrollbar>
-		<el-menu
-			background-color="transparent"
-			:default-active="changeMenuKey"
-			mode="vertical"
-			:collapse="!isColl"
-			:unique-opened="true"
-			@select="toMenu"
-		>
+		<el-menu background-color="transparent" :default-active="changeMenuKey" mode="vertical" :collapse="!isColl" :unique-opened="true" @select="toMenu">
 			<SubItem v-if="state.menuList && state.menuList.length > 0" :menuList="state.menuList"></SubItem>
 		</el-menu>
 	</el-scrollbar>
@@ -68,7 +61,7 @@
 				return path.toString();
 			});
 			// 点击路由跳转菜单
-			const toMenu = index => {
+			const toMenu = (index) => {
 				router.push({ path: "/" + index });
 			};
 			// 回首页
@@ -78,7 +71,7 @@
 			// 监听路由及状态，改变菜单
 			watch(
 				pinia.state,
-				value => {
+				(value) => {
 					console.log(value);
 					setMenu();
 				},
