@@ -19,7 +19,12 @@
 			<div class="re-height-fill re-flex-row-reverse">
 				<div class="re-m-l-10">Admin</div>
 				<el-dropdown ref="dropdownUser" trigger="contextmenu">
-					<el-image src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="cover" class="re-cursor-pointer user-avatar re-m-l-10" @click="showDropdownUser" />
+					<el-image
+						src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+						fit="cover"
+						class="re-cursor-pointer user-avatar re-m-l-10"
+						@click="showDropdownUser"
+					/>
 					<template #dropdown>
 						<el-dropdown-menu>
 							<el-dropdown-item @click="logout">

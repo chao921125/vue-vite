@@ -40,7 +40,7 @@ module.exports = {
   /* 优先级低于 parse 的语法解析配置 */
   parserOptions: {
     parser: "@typescript-eslint/parser",
-    ecmaVersion: 2021,
+    ecmaVersion: "latest",
     sourceType: "module",
     jsxPragma: "React",
     ecmaFeatures: {
