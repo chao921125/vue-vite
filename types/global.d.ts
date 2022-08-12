@@ -15,20 +15,21 @@ declare type Recordable<T = any> = Record<string, T>;
 
 declare interface ViteEnv {
 	NODE_ENV: string;
-	VITE_APP_LOCAL: string;
-	VITE_APP_TITLE: string;
-	VITE_APP_API_URL: string;
-	VITE_APP_UPLOAD_URL: string;
-	VITE_APP_API_URL_PREFIX: string;
-	VITE_APP_PORT: number;
-	VITE_APP_OPEN: boolean;
-	VITE_APP_PROXY: [string, string][];
-	VITE_CONFIG_MOCK: boolean;
-	VITE_CONFIG_DROP_CONSOLE: boolean;
-	VITE_CONFIG_REPORT: boolean;
-	VITE_CONFIG_BUILD_GZIP: boolean;
-	VITE_CONFIG_PUBLIC_PATH: string;
-	VITE_CONFIG_BUILD_COMPRESS: string;
-	VITE_CONFIG_IMAGEMIN: boolean;
-	VITE_CONFIG_PWA: boolean;
+	VITE_LOCAL: string;
+	VITE_TITLE: string;
+	VITE_API_URL: string;
+	VITE_API_UPLOAD_URL: string;
+	VITE_API_URL_PREFIX: string;
+	VITE_PORT: number;
+	VITE_OPEN: boolean;
+	VITE_PROXY: [string, string][];
+	VITE_MOCK: boolean;
+	VITE_MOCK_PATH: string;
+	VITE_DROP_CONSOLE: boolean;
+	VITE_REPORT: boolean;
+	VITE_BUILD_GZIP: boolean;
+	VITE_PUBLIC_PATH: string;
+	VITE_BUILD_COMPRESS: string;
+	VITE_BUILD_IMAGE: boolean;
+	VITE_PWA: boolean;
 }

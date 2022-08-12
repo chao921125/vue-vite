@@ -52,15 +52,15 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 	}
 	const defaultConfig: UserConfig = {
 		// root: "./public/index.html", // 入口，可以指定到public文件夹
-		base: isBuild ? "./" : envConfig.VITE_CONFIG_PUBLIC_PATH, // 公共基础路径
+		base: isBuild ? "./" : envConfig.VITE_PUBLIC_PATH, // 公共基础路径
 		// mode: "development", // 指令覆盖构建模式 --mode
 		server: {
 			// host: "localhost",
-			port: envConfig.VITE_APP_PORT,
+			port: envConfig.VITE_PORT,
 			strictPort: true, // 存在冲突端口，则继续下找可用端口
 			// https: "", // boolean | https.ServerOptions
-			open: envConfig.VITE_APP_OPEN, // boolean | string
-			proxy: createProxy(envConfig.VITE_APP_PROXY),
+			open: envConfig.VITE_OPEN, // boolean | string
+			proxy: createProxy(envConfig.VITE_PROXY),
 			// {
 			// 	// string shorthand
 			// 	// "/foo": "http://localhost:4567/foo",
@@ -166,13 +166,13 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				// template: "public/index.html",
 				inject: {
 					data: {
-						title: envConfig.VITE_APP_TITLE,
+						title: envConfig.VITE_TITLE,
 						injectScript: `<script src="./inject.js"></script>`,
 					},
 				},
 			}),
 			// * 是否生成包预览
-			envConfig.VITE_CONFIG_REPORT && visualizer(),
+			envConfig.VITE_REPORT && visualizer(),
 			{
 				name: "@rollup/plugin-commonjs",
 				transform(code: string, filename: string | string[]) {
@@ -190,7 +190,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				},
 			},
 			// * gzip compress
-			envConfig.VITE_CONFIG_BUILD_GZIP &&
+			envConfig.VITE_BUILD_GZIP &&
 				viteCompression({
 					verbose: true,
 					disable: false,
@@ -241,7 +241,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// false or jsx settings
 			// jsxFactory: "h",
 			// jsxFragment: "Fragment",
-			pure: envConfig.VITE_CONFIG_DROP_CONSOLE ? ["console.log", "debugger"] : [],
+			pure: envConfig.VITE_DROP_CONSOLE ? ["console.log", "debugger"] : [],
 		},
 		// assetsInclude: "", // 静态资源处理
 		logLevel: "info", // 可以根据开发环境动态改变 "info" | "warn" | "error" | "silent"
