@@ -9,12 +9,12 @@ import pinia from "@/store";
 import { useRouterList } from "@/store/modules/routerMeta";
 import Utils from "@/plugins/utils";
 import { baseRoutes } from "./route";
-import Settings from "./common";
+import Config from "./common";
 import { getDynamicRouter, getStaticRouter } from "./createRouter";
 
 // 配置文件修改是否从后端获取路由
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可
-const isRequestRoutes = Settings.isRequestRoutes;
+const isRequestRoutes = Config.isRequestRoutes;
 
 // 动态路由刷新404，所以先行去掉匹配不存在路由重定向至404页
 if (isRequestRoutes) baseRoutes[0].children = [];
@@ -35,17 +35,17 @@ router.beforeEach(async (to, from, next) => {
 	NProgress.configure({ showSpinner: false });
 	if (to.meta.title) NProgress.start();
 	const token = Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token);
-	if (Settings.whiteList.includes(to.path) && !token) {
+	if (Config.whiteList.includes(to.path) && !token) {
 		next();
 		NProgress.done();
 	} else {
 		if (!token || token === "undefined") {
-			next(`${Settings.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
+			next(`${Config.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
 			Utils.Storages.removeSessionStorage(Utils.Constants.storageKeys.token);
 			Utils.Cookies.removeCookie(Utils.Constants.cookieKeys.token);
 			NProgress.done();
-		} else if (token && (Settings.whiteList.includes(to.path) || to.path === Settings.routeRoot)) {
-			next(Settings.routeHome);
+		} else if (token && (Config.whiteList.includes(to.path) || to.path === Config.routeRoot)) {
+			next(Config.routeHome);
 			NProgress.done();
 		} else {
 			const storesRouterList = useRouterList(pinia);
