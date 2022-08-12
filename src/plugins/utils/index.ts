@@ -25,7 +25,7 @@ const util: any = {
  * @param titleText
  */
 util.title = async (titleText: any) => {
-	const processTitle = process.env.VITE_APP_TITLE || "";
+	const processTitle = process.env.VITE_TITLE || "";
 	await nextTick(() => {
 		let title: any = "";
 		let globalTitle: string = processTitle;

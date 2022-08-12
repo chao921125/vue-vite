@@ -32,6 +32,8 @@ module.exports = {
 	// 这两个选项可用于格式化以给定字符偏移量（分别包括和不包括）开始和结束的代码
 	rangeStart: 0,
 	rangeEnd: Infinity,
+	// end tag of jsx need to wrap
+	jsxBracketSameLine: false,
 	// Vue文件脚本和样式标签缩进
 	vueIndentScriptAndStyle: true
 };
