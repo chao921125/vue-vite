@@ -3,11 +3,11 @@
  */
 import { RouteRecordName, RouteRecordRaw } from "vue-router";
 import Utils from "@/plugins/utils";
-import { useUserInfo } from "@/store/modules/user";
-import pinia from "@/store";
+import Pinia from "@/store";
 import { useRouterList } from "@/store/modules/routerMeta";
 import { useTagsViewRoutes } from "@/store/modules/routerTags";
-import router from "./index";
+import { useUserInfo } from "@/store/modules/user";
+import Router from "./index";
 import requestData from "@/config/routerData";
 import { MenuState } from "@/router/interface";
 import { errorRoutes } from "@/router/route";
@@ -16,18 +16,18 @@ const viewsModules: any = import.meta.glob("../views/**/**.{vue,tsx}");
 const dynamicViewsModules: Record<string, Function> = Object.assign({}, { ...viewsModules });
 
 export async function getDynamicRouter() {
-	if (!(Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token))) return false;
-	await useUserInfo(pinia).setUserInfo();
+	if (!(Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKey.token))) return false;
+	await useUserInfo(Pinia).setUserInfo();
 
-	let storesRouterList = useRouterList(pinia);
+	let storesRouterList = useRouterList(Pinia);
 	await storesRouterList.setMenuList(requestData.menus);
 
 	await setAddRoute(requestData.menus);
 }
 
 export async function getStaticRouter() {
-	if (!(Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token))) return false;
-	await useUserInfo(pinia).setUserInfo();
+	if (!(Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKey.token))) return false;
+	await useUserInfo(Pinia).setUserInfo();
 	await setAddRoute(requestData.menus);
 }
 
@@ -39,16 +39,16 @@ export async function setAddRoute(data: any[]) {
 	await routerList.forEach((route: RouteRecordRaw) => {
 		const { name } = route;
 		if (name !== "/") {
-			router.removeRoute(<RouteRecordName>name);
+			Router.removeRoute(<RouteRecordName>name);
 		}
-		router.addRoute(route);
+		Router.addRoute(route);
 	});
 	await setRouterList(routerList);
 }
 
 // 存储原始数据
 export async function setRouterList(data: any[]) {
-	let storesRouterList = useRouterList(pinia);
+	let storesRouterList = useRouterList(Pinia);
 	await storesRouterList.setRouterList(data);
 }
 
@@ -135,6 +135,6 @@ function componentImport(dynamicViewsModules: Record<string, Function>, componen
 
 // 存放tag数据
 export async function setTags(data: any[]) {
-	const storesTagsView = useTagsViewRoutes(pinia);
+	const storesTagsView = useTagsViewRoutes(Pinia);
 	await storesTagsView.setTagsViewRoutes(data);
 }

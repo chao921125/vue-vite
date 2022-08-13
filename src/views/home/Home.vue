@@ -18,7 +18,7 @@
 			const router = useRouter();
 			const logout = () => {
 				Utils.Storages.removeSessionStorage(Utils.Constants.storageKeys.token);
-				Utils.Cookies.removeCookie(Utils.Constants.cookieKeys.token);
+				Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
 				router.push({ path: "/login" });
 			};
 			const isShow = ref(false);

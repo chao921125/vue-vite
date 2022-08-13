@@ -1,6 +1,6 @@
 import { createI18n } from "vue-i18n";
-import pinia from "@/store";
 import { storeToRefs } from "pinia";
+import Pinia from "@/store";
 import { useThemeConfig } from "@/store/modules/theme";
 
 import zhCNLocale from "element-plus/lib/locale/lang/zh-cn";
@@ -35,7 +35,7 @@ const messages = {
 };
 
 // 读取 pinia 默认语言
-const stores = useThemeConfig(pinia);
+const stores = useThemeConfig(Pinia);
 const { themeConfig } = storeToRefs(stores);
 
 // 导出语言国际化

@@ -7,7 +7,7 @@
 <script lang="ts">
 	import { defineComponent, getCurrentInstance, reactive, onBeforeMount, onMounted, onUnmounted, watch, nextTick } from "vue";
 	import { useRoute } from "vue-router";
-	import pinia from "@/store";
+	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import Utils from "@/plugins/utils";
 
@@ -17,7 +17,7 @@
 			const { proxy } = <any>getCurrentInstance();
 			const state = reactive({ i18n: null });
 
-			const storesThemeConfig = useThemeConfig(pinia);
+			const storesThemeConfig = useThemeConfig(Pinia);
 			onBeforeMount(() => {
 				Utils.setCssCdn();
 				Utils.setJsCdn();

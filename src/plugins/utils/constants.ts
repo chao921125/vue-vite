@@ -1,9 +1,9 @@
 export default {
-	storageKeys: {
-		token: "token",
+	storageKey: {
+		token: "auth-token",
 		themeConfig: "themeConfig",
 	},
-	cookieKeys: {
-		token: "token",
+	cookieKey: {
+		token: "auth-token",
 	},
 };

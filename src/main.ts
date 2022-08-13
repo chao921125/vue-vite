@@ -2,10 +2,10 @@ import { createApp } from "vue";
 import App from "./App.vue";
 
 // router
-import router from "@/router";
+import Router from "@/router";
 
 // store pinia
-import pinia from "@/store";
+import Pinia from "@/store";
 
 // vue i18n
 import I18n from "@/plugins/language";
@@ -73,4 +73,4 @@ Object.keys(Icons).forEach((key) => {
 // 全局指令
 app.config.globalProperties.mittBus = mitt();
 
-app.use(pinia).use(router).use(ElementPlus, { i18n: I18n.global.t }).use(I18n).mount("#app");
+app.use(Pinia).use(Router).use(ElementPlus, { i18n: I18n.global.t }).use(I18n).mount("#app");

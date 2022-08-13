@@ -1,7 +1,10 @@
 import { nextTick } from "vue";
-import router from "@/router";
+import { storeToRefs } from "pinia";
+import Router from "@/router";
+import Pinia from "@/store";
+import { useThemeConfig } from "@/store/modules/theme";
 import RouterConfig from "@/config/routerConfig";
-import i18n from "@/plugins/language";
+import I18n from "@/plugins/language";
 import LanguageConfig from "@/config/languageConfig";
 
 import Constants from "./constants";
@@ -10,17 +13,14 @@ import Storages from "./storage";
 import DB from "./db";
 import Date from "./date";
 import Log from "./log";
-import { useThemeConfig } from "@/store/modules/theme";
-import pinia from "@/store";
-import { storeToRefs } from "pinia";
 
 const util: any = {
-	Constants,
-	Cookies,
-	Storages,
-	DB,
-	Date,
-	Log,
+	Constants: Constants,
+	Cookies: Cookies,
+	Storages: Storages,
+	Date: Date,
+	Log: Log,
+	DB: DB,
 };
 
 /**
@@ -28,16 +28,16 @@ const util: any = {
  * @param titleText
  */
 util.title = async () => {
-	const stores = useThemeConfig(pinia);
+	const stores = useThemeConfig(Pinia);
 	const { themeConfig } = storeToRefs(stores);
 	const globalTitle: string = themeConfig.value.globalTitle;
 	await nextTick(() => {
 		let title: any = "";
-		const { path, meta } = router.currentRoute.value;
+		const { path, meta } = Router.currentRoute.value;
 		if (RouterConfig.whiteList.includes(path)) {
 			title = <any>meta.title;
 		} else {
-			title = setTitleI18n(router.currentRoute.value);
+			title = setTitleI18n(Router.currentRoute.value);
 		}
 		window.document.title = `${title}` || globalTitle;
 	});
@@ -54,14 +54,14 @@ function setTitleI18n(value: any) {
 		if (LanguageConfig.key.test(query?.tagsViewName) || LanguageConfig.key.test(params?.tagsViewName)) {
 			// 国际化
 			const urlTagsParams = (query?.tagsViewName && JSON.parse(query?.tagsViewName)) || (params?.tagsViewName && JSON.parse(params?.tagsViewName));
-			tagsViewName = urlTagsParams[i18n.global.locale];
+			tagsViewName = urlTagsParams[I18n.global.locale];
 		} else {
 			// 非国际化
 			tagsViewName = query?.tagsViewName || params?.tagsViewName;
 		}
 	} else {
 		// 非自定义 tagsView 名称
-		tagsViewName = i18n.global.t(<any>meta.title);
+		tagsViewName = I18n.global.t(<any>meta.title);
 	}
 	return tagsViewName;
 }

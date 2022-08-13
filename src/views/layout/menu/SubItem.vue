@@ -21,7 +21,7 @@
 
 <script lang="ts">
 	import { defineComponent, computed } from "vue";
-	import utils from "@/plugins/utils";
+	import Utils from "@/plugins/utils";
 
 	export default defineComponent({
 		name: "SubItem",
@@ -39,14 +39,13 @@
 			const menuList = computed(() => {
 				return <any>props.menuList || [];
 			});
-
 			const resolvePath = (path: string) => {
 				return props.basePath + path;
 			};
 			const toLink = (isLink: boolean = false, isIframe: boolean = false, address: string = "") => {
 				console.log(isLink, isIframe, address);
 				if (isLink) {
-					utils.open("www.baidu.com");
+					Utils.open("www.baidu.com");
 				}
 			};
 			return {

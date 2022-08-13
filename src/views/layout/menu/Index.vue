@@ -22,7 +22,7 @@
 	import { useRouter, useRoute } from "vue-router";
 	import SubItem from "./SubItem.vue";
 	import { storeToRefs } from "pinia";
-	import pinia from "@/store";
+	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
 
@@ -31,14 +31,14 @@
 		components: { SubItem },
 		setup() {
 			// 折叠菜单
-			const storeThemeConfig = useThemeConfig(pinia);
+			const storeThemeConfig = useThemeConfig(Pinia);
 			const { themeConfig } = storeToRefs(storeThemeConfig);
 			const isColl = computed(() => {
 				let { isCollapse } = themeConfig.value;
 				return !isCollapse;
 			});
 			// 渲染菜单
-			const storeRouterList = useRouterList(pinia);
+			const storeRouterList = useRouterList(Pinia);
 			const { menuList } = storeToRefs(storeRouterList);
 			const state = reactive({ menuList: Array<any> });
 			const setMenu = () => {
@@ -70,7 +70,7 @@
 			};
 			// 监听路由及状态，改变菜单
 			watch(
-				pinia.state,
+				Pinia.state,
 				(value) => {
 					console.log(value);
 					setMenu();

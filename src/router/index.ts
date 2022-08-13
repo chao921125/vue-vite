@@ -5,7 +5,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { storeToRefs } from "pinia";
-import pinia from "@/store";
+import Pinia from "@/store";
 import { useRouterList } from "@/store/modules/routerMeta";
 import Utils from "@/plugins/utils";
 import { baseRoutes } from "./route";
@@ -34,7 +34,7 @@ router.beforeEach(async (to, from, next) => {
 	console.log("router from", from.path, to.path);
 	NProgress.configure({ showSpinner: false });
 	if (to.meta.title) NProgress.start();
-	const token = Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKeys.token);
+	const token = Utils.Storages.getSessionStorage(Utils.Constants.storageKeys.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKey.token);
 	if (Config.whiteList.includes(to.path) && !token) {
 		next();
 		NProgress.done();
@@ -42,13 +42,13 @@ router.beforeEach(async (to, from, next) => {
 		if (!token || token === "undefined") {
 			next(`${Config.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
 			Utils.Storages.removeSessionStorage(Utils.Constants.storageKeys.token);
-			Utils.Cookies.removeCookie(Utils.Constants.cookieKeys.token);
+			Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
 			NProgress.done();
 		} else if (token && (Config.whiteList.includes(to.path) || to.path === Config.routeRoot)) {
 			next(Config.routeHome);
 			NProgress.done();
 		} else {
-			const storesRouterList = useRouterList(pinia);
+			const storesRouterList = useRouterList(Pinia);
 			const { routerList } = storeToRefs(storesRouterList);
 			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {

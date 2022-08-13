@@ -90,7 +90,7 @@
 	import Utils from "@/plugins/utils";
 	import RouterConfig from "@/config/routerConfig";
 	import { storeToRefs } from "pinia";
-	import pinia from "@/store";
+	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
 
@@ -99,7 +99,7 @@
 		setup() {
 			let isShowDrawer = ref(false);
 			// 折叠菜单 start
-			const storeThemeConfig = useThemeConfig(pinia);
+			const storeThemeConfig = useThemeConfig(Pinia);
 			const { themeConfig } = storeToRefs(storeThemeConfig);
 			const isColl = computed(() => {
 				let { isCollapse } = themeConfig.value;
@@ -112,7 +112,7 @@
 			// 折叠菜单 end
 			// 面包屑导航 start
 			const breadcrumbList = ref<any[]>([]);
-			const storesRouterList = useRouterList(pinia);
+			const storesRouterList = useRouterList(Pinia);
 			const { menuList } = storeToRefs(storesRouterList);
 			const route = useRoute();
 			const initBreadcrumbList = (path: string) => {
@@ -176,7 +176,7 @@
 			const router = useRouter();
 			const logout = () => {
 				Utils.Storages.removeSessionStorage(Utils.Constants.storageKeys.token);
-				Utils.Cookies.removeCookie(Utils.Constants.cookieKeys.token);
+				Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
 				router.push({ path: RouterConfig.routeLogin });
 			};
 			// 个人中心 end

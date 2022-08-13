@@ -30,7 +30,7 @@
 	import { defineComponent, ref, getCurrentInstance, watch, onBeforeMount } from "vue";
 	import { useRoute } from "vue-router";
 	import { storeToRefs } from "pinia";
-	import pinia from "@/store";
+	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import RouterConfig from "@/config/routerConfig";
 	import AdminMenu from "./menu/Index.vue";
@@ -45,7 +45,7 @@
 			const isAdmin = ref(true);
 			isAdmin.value = RouterConfig.isAdminIframe;
 			// 修改项目设置
-			const storesThemeConfig = useThemeConfig(pinia);
+			const storesThemeConfig = useThemeConfig(Pinia);
 			const { themeConfig } = storeToRefs(storesThemeConfig);
 			const state = reactive({
 				clientWidth: 0,
