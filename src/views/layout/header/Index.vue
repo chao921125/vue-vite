@@ -3,8 +3,8 @@
 		<el-col :xs="24" :sm="12">
 			<div class="re-height-fill re-flex-row-center-ai">
 				<el-icon @click="changeCollapse" class="re-cursor-pointer" :size="18">
-					<Fold v-if="isColl" />
-					<Expand v-else />
+					<Fold v-if="isColl"></Fold>
+					<Expand v-else></Expand>
 				</el-icon>
 				<el-breadcrumb separator-icon="ArrowRight" class="re-m-l-20">
 					<transition-group name="breadcrumb">
@@ -24,25 +24,25 @@
 						fit="cover"
 						class="re-cursor-pointer user-avatar re-m-l-10"
 						@click="showDropdownUser"
-					/>
+					></el-image>
 					<template #dropdown>
 						<el-dropdown-menu>
 							<el-dropdown-item @click="logout">
-								<el-icon><SwitchButton /></el-icon>
+								<el-icon><SwitchButton></SwitchButton></el-icon>
 								<span>退出登录</span>
 							</el-dropdown-item>
 						</el-dropdown-menu>
 					</template>
 				</el-dropdown>
 				<el-tooltip effect="dark" content="全屏" placement="bottom">
-					<i class="iconfont icon-fullscreen re-cursor-pointer re-m-l-10" />
+					<i class="iconfont icon-fullscreen re-cursor-pointer re-m-l-10"></i>
 				</el-tooltip>
 				<el-tooltip effect="dark" content="设置" placement="bottom">
-					<i class="iconfont icon-pifu re-cursor-pointer re-m-l-10" @click="isShowDrawer = true" />
+					<i class="iconfont icon-pifu re-cursor-pointer re-m-l-10" @click="isShowDrawer = true"></i>
 				</el-tooltip>
 				<el-tooltip effect="dark" content="国际化" placement="bottom">
 					<el-dropdown ref="dropdownComponents" trigger="contextmenu">
-						<i class="iconfont icon-duoyuyan re-cursor-pointer re-m-l-10" @click="showDropdownComponents" />
+						<i class="iconfont icon-duoyuyan re-cursor-pointer re-m-l-10" @click="showDropdownComponents"></i>
 						<template #dropdown>
 							<el-dropdown-menu>
 								<el-dropdown-item @click="logout">
@@ -60,7 +60,7 @@
 				</el-tooltip>
 				<el-tooltip effect="dark" content="组件" placement="bottom">
 					<el-dropdown ref="dropdownLanguage" trigger="contextmenu">
-						<i class="iconfont icon-zujian2 re-cursor-pointer re-m-l-10" @click="showDropdownLanguage" />
+						<i class="iconfont icon-zujian2 re-cursor-pointer re-m-l-10" @click="showDropdownLanguage"></i>
 						<template #dropdown>
 							<el-dropdown-menu>
 								<el-dropdown-item @click="logout">
@@ -88,7 +88,7 @@
 	import { defineComponent, ref, computed, onMounted } from "vue";
 	import { useRouter, useRoute, onBeforeRouteUpdate } from "vue-router";
 	import Utils from "@/plugins/utils";
-	import SettingsRouter from "@/router/common";
+	import RouterConfig from "@/config/routerConfig";
 	import { storeToRefs } from "pinia";
 	import pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
@@ -116,7 +116,7 @@
 			const { menuList } = storeToRefs(storesRouterList);
 			const route = useRoute();
 			const initBreadcrumbList = (path: string) => {
-				if (SettingsRouter.executeList.includes(path)) {
+				if (RouterConfig.executeList.includes(path)) {
 					breadcrumbList.value.push({
 						name: menuList.value[0].path,
 						title: menuList.value[0].title,
@@ -177,7 +177,7 @@
 			const logout = () => {
 				Utils.Storages.removeSessionStorage(Utils.Constants.storageKeys.token);
 				Utils.Cookies.removeCookie(Utils.Constants.cookieKeys.token);
-				router.push({ path: SettingsRouter.routeLogin });
+				router.push({ path: RouterConfig.routeLogin });
 			};
 			// 个人中心 end
 

@@ -24,6 +24,10 @@ function typeColor(type: string = "default") {
 	return color;
 }
 
+function colorful(textArr: any) {
+	console.log(`%c${textArr.map((t) => t.text || "").join("%c")}`, ...textArr.map((t) => `color: ${typeColor(t.type)};`));
+}
+
 log.capsule = function (title: string, info: string, type: string = "primary") {
 	console.log(
 		`%c ${title} %c ${info} %c`,
@@ -32,10 +36,6 @@ log.capsule = function (title: string, info: string, type: string = "primary") {
 		"background:transparent",
 	);
 };
-
-function colorful(textArr: any) {
-	console.log(`%c${textArr.map((t) => t.text || "").join("%c")}`, ...textArr.map((t) => `color: ${typeColor(t.type)};`));
-}
 
 log.default = (text: string = "default") => {
 	colorful([{ text, type: "default" }]);

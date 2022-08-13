@@ -1,4 +1,3 @@
-// 静态路由配置参数
 export default {
 	// 是否是管理端
 	isAdminIframe: true,

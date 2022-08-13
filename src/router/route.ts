@@ -1,5 +1,5 @@
 /**
- * 路由 配置
+ * 路由 配置 可以适当进行变更，但尽量不要变动
  */
 import { RouteRecordRaw } from "vue-router";
 

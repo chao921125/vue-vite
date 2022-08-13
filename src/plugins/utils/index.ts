@@ -1,8 +1,8 @@
 import { nextTick } from "vue";
 import router from "@/router";
-import SettingsRouter from "@/router/common";
+import RouterConfig from "@/config/routerConfig";
 import i18n from "@/plugins/language";
-import SettingsI18n from "@/plugins/language/common";
+import LanguageConfig from "@/config/languageConfig";
 
 import Constants from "./constants";
 import Cookies from "./cookie";
@@ -34,7 +34,7 @@ util.title = async () => {
 	await nextTick(() => {
 		let title: any = "";
 		const { path, meta } = router.currentRoute.value;
-		if (SettingsRouter.whiteList.includes(path)) {
+		if (RouterConfig.whiteList.includes(path)) {
 			title = <any>meta.title;
 		} else {
 			title = setTitleI18n(router.currentRoute.value);
@@ -51,7 +51,7 @@ function setTitleI18n(value: any) {
 	let tagsViewName: any = "";
 	const { query, params, meta } = value;
 	if (query?.tagsViewName || params?.tagsViewName) {
-		if (SettingsI18n.key.test(query?.tagsViewName) || SettingsI18n.key.test(params?.tagsViewName)) {
+		if (LanguageConfig.key.test(query?.tagsViewName) || LanguageConfig.key.test(params?.tagsViewName)) {
 			// 国际化
 			const urlTagsParams = (query?.tagsViewName && JSON.parse(query?.tagsViewName)) || (params?.tagsViewName && JSON.parse(params?.tagsViewName));
 			tagsViewName = urlTagsParams[i18n.global.locale];
