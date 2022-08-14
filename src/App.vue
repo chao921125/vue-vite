@@ -25,8 +25,8 @@
 
 			onMounted(() => {
 				nextTick(() => {
-					if (Utils.Storages.getLocalStorage(Utils.Constants.storageKeys.themeConfig)) {
-						storesThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Utils.Constants.storageKeys.themeConfig));
+					if (Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)) {
+						storesThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig));
 					}
 					proxy.mittBus.on("getI18nConfig", (local: string) => {
 						(state.i18n as string | null) = local;

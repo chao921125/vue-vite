@@ -175,7 +175,7 @@
 			// 退出
 			const router = useRouter();
 			const logout = () => {
-				Utils.Storages.removeSessionStorage(Utils.Constants.storageKeys.token);
+				Utils.Storages.removeSessionStorage(Utils.Constants.storageKey.token);
 				Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
 				router.push({ path: RouterConfig.routeLogin });
 			};
@@ -183,8 +183,8 @@
 
 			// 本地持久化配置
 			const setThemeConfig = () => {
-				Utils.Storages.removeLocalStorage(Utils.Constants.storageKeys.themeConfig);
-				Utils.Storages.setLocalStorage(Utils.Constants.storageKeys.themeConfig, themeConfig.value);
+				Utils.Storages.removeLocalStorage(Utils.Constants.storageKey.themeConfig);
+				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.themeConfig, themeConfig.value);
 			};
 
 			return {
