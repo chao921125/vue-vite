@@ -3,6 +3,17 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import Router from "@/router";
 import Utils from "@/plugins/utils";
 import AxiosConfig from "@/config/axiosConfig";
+import NProgress from "@/plugins/loading/progress";
+import qs from "qs";
+
+// axios.request(config)
+// axios.get(url[, config])
+// axios.post(url[, data[, config]])
+// axios.delete(url[, config])
+// axios.head(url[, config])
+// axios.options(url[, config])
+// axios.put(url[, data[, config]])
+// axios.patch(url[, data[, config]])
 
 // 创建一个错误
 function errorCreate(msg) {
@@ -41,6 +52,7 @@ const http: AxiosInstance = axios.create(defaultHeader);
 // 请求拦截器
 http.interceptors.request.use(
 	(config: AxiosRequestConfig) => {
+		NProgress.start();
 		config.data = JSON.stringify(config.data);
 		if (!/^https:\/\/|http:\/\//.test(<string>config.url)) {
 			// 在请求发送之前做一些处理
@@ -51,6 +63,7 @@ http.interceptors.request.use(
 		return config;
 	},
 	(error) => {
+		NProgress.done();
 		let config = error.config;
 		if (!config || !config.retry) return Promise.reject(error);
 		config.__retryCount = config.__retryCount || 0;
@@ -70,6 +83,7 @@ http.interceptors.request.use(
 // 响应拦截器
 http.interceptors.response.use(
 	(response: AxiosResponse) => {
+		NProgress.done();
 		// resp 是 axios 返回数据中的 data
 		const resp = response.data || null;
 		const status = response.status || 0;
@@ -110,6 +124,7 @@ http.interceptors.response.use(
 		}
 	},
 	(error) => {
+		NProgress.done();
 		if (error && error.response) {
 			switch (error.response.status) {
 				case 400:
