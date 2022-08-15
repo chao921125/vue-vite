@@ -4,7 +4,7 @@ import Router from "@/router";
 import Utils from "@/plugins/utils";
 import AxiosConfig from "@/config/axiosConfig";
 import NProgress from "@/plugins/loading/progress";
-import qs from "qs";
+import RouterConfig from "@/config/routerConfig";
 
 // axios.request(config)
 // axios.get(url[, config])
@@ -42,6 +42,7 @@ function errorLog(err) {
 const defaultHeader: AxiosRequestConfig = {
 	baseURL: process.env.VITE_API_URL_PREFIX || "",
 	timeout: AxiosConfig.timeout,
+	timeoutErrorMessage: AxiosConfig.timeoutMsg,
 	withCredentials: true,
 	headers: { Accept: "application/json, text/plain, */*", "Content-Type": "application/json", "X-Requested-With": "XMLHttpRequest" },
 };
@@ -90,13 +91,11 @@ http.interceptors.response.use(
 		if (/^4\d{2}/.test(String(status))) {
 			Utils.Cookies.clearCookie();
 			Utils.Storages.clearSessionStorage();
-			Router.replace({
-				path: "/login",
-			});
+			const toUrl = status === 404 ? RouterConfig.route404 : RouterConfig.route403;
+			Router.replace({ path: toUrl });
 		} else if (/^3\d{2}/.test(String(status))) {
-			Router.replace({
-				path: "/",
-			});
+			Router.replace({ path: RouterConfig.routeRoot });
+		} else if (/^5\d{2}/.test(String(status))) {
 		} else {
 			// 这个状态码是和后端约定的
 			const { code } = resp;
@@ -165,7 +164,7 @@ http.interceptors.response.use(
 			}
 			if (!Utils.cookies.get(Utils.Constants.cookieKey.token)) {
 				Router.replace({
-					path: "/login",
+					path: RouterConfig.routeLogin,
 				});
 			}
 		}
