@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-	import { defineComponent, onMounted, reactive } from "vue";
+	import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
 
 	export default defineComponent({
 		name: "MapTwo",
@@ -58,7 +58,10 @@
 				initCanvas();
 				window.onresize = () => {
 					initCanvas();
-				}
+				};
+			});
+			onUnmounted(() => {
+				window.onresize = null;
 			});
 			const initCanvas = () => {
 				//	重置窗口
@@ -91,7 +94,7 @@
 					y: 200,
 					r: 20,
 				});
-			}
+			};
 
 			// 绘画拖拽对象
 			const drawDrag = (ctx: CanvasRenderingContext2D, cx: number, cy: number, r: number) => {
@@ -104,12 +107,14 @@
 
 				ctx.closePath();
 				ctx.restore();
-			}
+			};
 
 			const resetDrawDrag = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
 				ctx.clearRect(0, 0, canvas.width * canvasTarget.clear, canvas.height * canvasTarget.clear);
-				canvasTarget.dragData.forEach((item) => {drawDrag(ctx, item.x, item.x, item.r);});
-			}
+				canvasTarget.dragData.forEach((item) => {
+					drawDrag(ctx, item.x, item.x, item.r);
+				});
+			};
 
 			// 判断当前点击是否在对象上
 			const isDragTarget = (curPos: any, targetData: any[] = []) => {
@@ -122,27 +127,27 @@
 				} else {
 					return false;
 				}
-			}
+			};
 
 			// 获取当前点击距离目标对象的距离
 			const getDistance = (posStart: any = { x: 0, y: 0 }, posEnd: any = { x: 0, y: 0 }) => {
 				return Math.sqrt((posStart.x - posEnd.x) ** 2 + (posStart.y - posEnd.y) ** 2);
-			}
+			};
 
 			// 获取鼠标再画布的位置
 			const getMousePosCanvas = (event: any, offset: any = { x: 0, y: 0 }, scale: number = 1) => {
 				return {
 					x: (event.offsetX - offset.x) / scale,
 					y: (event.offsetY - offset.y) / scale,
-				}
-			}
+				};
+			};
 			// 获取鼠标当前的坐标位置
 			const getMousePosCur = (event: any) => {
 				return {
 					x: event.offsetX,
 					y: event.offsetY,
-				}
-			}
+				};
+			};
 
 			// 注册事件、处理拖拽 缩放
 			const canvasEvent = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
@@ -162,7 +167,7 @@
 					if (!targetRef) {
 						canvasTarget.status = initConfig.MOVE_START;
 					}
-				}
+				};
 				canvas.onmousemove = (event: any) => {
 					const canvasPos = getMousePosCanvas(event);
 					canvasTarget.isDragFlag = true;
@@ -170,13 +175,15 @@
 						canvasTarget.status = initConfig.DRAG_ING;
 						canvasTarget.dragOffsetPosition = canvasPos;
 					} else if (canvasTarget.status === initConfig.DRAG_ING) {
-						canvasTarget.dragTarget.x += (canvasPos.x - canvasTarget.dragOffsetPosition.x);
-						canvasTarget.dragTarget.y += (canvasPos.y - canvasTarget.dragOffsetPosition.y);
+						canvasTarget.dragTarget.x += canvasPos.x - canvasTarget.dragOffsetPosition.x;
+						canvasTarget.dragTarget.y += canvasPos.y - canvasTarget.dragOffsetPosition.y;
 						ctx.clearRect(0, 0, canvas.width * canvasTarget.clear, canvas.height * canvasTarget.clear);
-						canvasTarget.dragData.forEach((item) => {drawDrag(ctx, item.x, item.y, item.r);});
+						canvasTarget.dragData.forEach((item) => {
+							drawDrag(ctx, item.x, item.y, item.r);
+						});
 						canvasTarget.dragOffsetPosition = canvasPos;
 					}
-				}
+				};
 				canvas.onmouseup = (event: any) => {
 					canvas.style.cursor = "default";
 					if (canvasTarget.status !== initConfig.INIT) {
@@ -187,7 +194,7 @@
 					} else {
 						console.log("no drag");
 					}
-				}
+				};
 				// canvas.onclick = (event: any) => {
 				// 	console.log("unUse onclick", event);
 				// }
@@ -196,15 +203,15 @@
 				// }
 				canvas.ontouchstart = (event: any) => {
 					console.log(event);
-				}
+				};
 				canvas.ontouchmove = (event: any) => {
 					console.log(event);
-				}
+				};
 				canvas.ontouchend = (event: any) => {
 					console.log(event);
-				}
-			}
-			return {}
+				};
+			};
+			return {};
 		},
 	});
 </script>
@@ -214,7 +221,8 @@
 		margin: 0;
 		padding: 0;
 	}
-	html, body {
+	html,
+	body {
 		height: 100%;
 		width: 100%;
 	}
@@ -229,7 +237,7 @@
 	canvas {
 		display: block;
 		background-color: #262539;
-		border: 1px solid #1D1C2D;
+		border: 1px solid #1d1c2d;
 		margin: 0 auto;
 		overflow: hidden;
 		/*scroll-behavior: unset;*/

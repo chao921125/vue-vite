@@ -2,16 +2,19 @@ import { createApp } from "vue";
 import App from "./App.vue";
 
 // router
-import router from "@/router";
+import Router from "@/router";
 
 // store pinia
-import pinia from "@/store";
+import Pinia from "@/store";
 
 // vue i18n
 import I18n from "@/plugins/language";
 
 // mitt 总线
 import mitt from "mitt";
+
+// 三方CSS
+import "animate.css/animate.min.css";
 
 // UI element
 import ElementPlus from "element-plus";
@@ -57,11 +60,17 @@ app.config.warnHandler = (msg, vm, trace) => {
 };
 
 // 注册element Icons组件
-Object.keys(Icons).forEach(key => {
+Object.keys(Icons).forEach((key) => {
 	app.component(key, Icons[key as keyof typeof Icons]);
 });
+
+// 自定义指令
+// import * as directives from "@/plugins/directive";
+// Object.keys(directives).forEach(key => {
+// 	app.directive(key, (directives as { [key: string]: Directive })[key]);
+// });
 
 // 全局指令
 app.config.globalProperties.mittBus = mitt();
 
-app.use(pinia).use(router).use(ElementPlus, { i18n: I18n.global.t }).use(I18n).mount("#app");
+app.use(Pinia).use(Router).use(ElementPlus, { i18n: I18n.global.t }).use(I18n).mount("#app");

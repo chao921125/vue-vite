@@ -30,9 +30,9 @@
 	import { defineComponent, ref, getCurrentInstance, watch, onBeforeMount } from "vue";
 	import { useRoute } from "vue-router";
 	import { storeToRefs } from "pinia";
-	import pinia from "@/store";
+	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
-	import SettingsRouter from "@/router/common";
+	import RouterConfig from "@/config/routerConfig";
 	import AdminMenu from "./menu/Index.vue";
 	import AdminHeader from "./header/Index.vue";
 	import AdminFooter from "./footer/Index.vue";
@@ -43,9 +43,9 @@
 		setup() {
 			// 设置是否为权限管理端
 			const isAdmin = ref(true);
-			isAdmin.value = SettingsRouter.isAdminIframe;
+			isAdmin.value = RouterConfig.isAdminIframe;
 			// 修改项目设置
-			const storesThemeConfig = useThemeConfig(pinia);
+			const storesThemeConfig = useThemeConfig(Pinia);
 			const { themeConfig } = storeToRefs(storesThemeConfig);
 			const state = reactive({
 				clientWidth: 0,

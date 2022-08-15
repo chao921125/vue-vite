@@ -6,6 +6,48 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "6246309",
+      "name": "组件",
+      "font_class": "zujian",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "7193681",
+      "name": "组件",
+      "font_class": "zujian1",
+      "unicode": "e730",
+      "unicode_decimal": 59184
+    },
+    {
+      "icon_id": "11121438",
+      "name": "组件",
+      "font_class": "zujian2",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "658008",
+      "name": "多语言",
+      "font_class": "duoyuyan",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "4251744",
+      "name": "皮肤",
+      "font_class": "pifu",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "8802665",
+      "name": "皮肤",
+      "font_class": "pifu1",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
       "icon_id": "1441627",
       "name": "logo",
       "font_class": "shouye",

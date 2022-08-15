@@ -1,22 +1,19 @@
 <template>
 	<template v-for="(item, index) in menuList" :key="index">
 		<template v-if="!item.isHide">
-			<el-sub-menu
-				v-if="!item.isHideSubMenu && item.children && item.children.length > 0"
-				:key="item.id"
-				:index="item.path"
-				v-bind="$attrs"
-			>
+			<el-sub-menu v-if="!item.isHideSubMenu && item.children && item.children.length > 0" :key="item.id" :index="item.path" v-bind="$attrs">
 				<template #title>
 					<i class="iconfont" :class="item.icon"></i>
-					<span>{{ $t(item.title) }}</span>
+					<span class="re-m-l-5">{{ $t(item.title) }}</span>
 				</template>
 				<SubItem :menuList="item.children" :basePath="item.path + '/'"></SubItem>
 			</el-sub-menu>
-			<el-menu-item v-else :key="item.id" :index="resolvePath(item.path)">
+			<el-menu-item v-else :key="item.id" :index="resolvePath(item.path)" @click="toLink(item.isLink, item.isIframe, item.address)">
 				<!-- 此处图标可以自定义 -->
 				<i class="iconfont" :class="item.icon"></i>
-				<template #title>{{ $t(item.title) }}</template>
+				<template #title>
+					<span class="re-m-l-5">{{ $t(item.title) }}</span>
+				</template>
 			</el-menu-item>
 		</template>
 	</template>
@@ -24,6 +21,7 @@
 
 <script lang="ts">
 	import { defineComponent, computed } from "vue";
+	import Utils from "@/plugins/utils";
 
 	export default defineComponent({
 		name: "SubItem",
@@ -41,13 +39,19 @@
 			const menuList = computed(() => {
 				return <any>props.menuList || [];
 			});
-
 			const resolvePath = (path: string) => {
 				return props.basePath + path;
+			};
+			const toLink = (isLink: boolean = false, isIframe: boolean = false, address: string = "") => {
+				console.log(isLink, isIframe, address);
+				if (isLink) {
+					Utils.open("www.baidu.com");
+				}
 			};
 			return {
 				menuList,
 				resolvePath,
+				toLink,
 			};
 		},
 	});

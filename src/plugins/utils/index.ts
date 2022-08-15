@@ -1,8 +1,11 @@
-import { nextTick } from "@vue/runtime-core";
-import router from "@/router";
-import SettingsRouter from "@/router/common";
-import i18n from "@/plugins/language";
-import SettingsI18n from "@/plugins/language/common";
+import { nextTick } from "vue";
+import { storeToRefs } from "pinia";
+import Router from "@/router";
+import Pinia from "@/store";
+import { useThemeConfig } from "@/store/modules/theme";
+import RouterConfig from "@/config/routerConfig";
+import I18n from "@/plugins/language";
+import LanguageConfig from "@/config/languageConfig";
 
 import Constants from "./constants";
 import Cookies from "./cookie";
@@ -12,32 +15,32 @@ import Date from "./date";
 import Log from "./log";
 
 const util: any = {
-	Constants,
-	Cookies,
-	Storages,
-	DB,
-	Date,
-	Log,
+	Constants: Constants,
+	Cookies: Cookies,
+	Storages: Storages,
+	Date: Date,
+	Log: Log,
+	DB: DB,
 };
 
 /**
  * @description 更新标题
  * @param titleText
  */
-util.title = async (titleText: any) => {
-	const processTitle = process.env.VITE_TITLE || "";
+util.title = async () => {
+	const stores = useThemeConfig(Pinia);
+	const { themeConfig } = storeToRefs(stores);
+	const globalTitle: string = themeConfig.value.globalTitle;
 	await nextTick(() => {
 		let title: any = "";
-		let globalTitle: string = processTitle;
-		const { path, meta } = router.currentRoute.value;
-		if (SettingsRouter.whiteList.includes(path)) {
+		const { path, meta } = Router.currentRoute.value;
+		if (RouterConfig.whiteList.includes(path)) {
 			title = <any>meta.title;
 		} else {
-			setTitleI18n(router.currentRoute.value);
+			title = setTitleI18n(Router.currentRoute.value);
 		}
-		return title || globalTitle;
+		window.document.title = `${title}` || globalTitle;
 	});
-	window.document.title = `${processTitle}${titleText ? ` | ${titleText}` : ""}`;
 };
 
 util.tagsName = (value: any) => {
@@ -48,18 +51,17 @@ function setTitleI18n(value: any) {
 	let tagsViewName: any = "";
 	const { query, params, meta } = value;
 	if (query?.tagsViewName || params?.tagsViewName) {
-		if (SettingsI18n.key.test(query?.tagsViewName) || SettingsI18n.key.test(params?.tagsViewName)) {
+		if (LanguageConfig.key.test(query?.tagsViewName) || LanguageConfig.key.test(params?.tagsViewName)) {
 			// 国际化
-			const urlTagsParams =
-				(query?.tagsViewName && JSON.parse(query?.tagsViewName)) || (params?.tagsViewName && JSON.parse(params?.tagsViewName));
-			tagsViewName = urlTagsParams[i18n.global.locale];
+			const urlTagsParams = (query?.tagsViewName && JSON.parse(query?.tagsViewName)) || (params?.tagsViewName && JSON.parse(params?.tagsViewName));
+			tagsViewName = urlTagsParams[I18n.global.locale];
 		} else {
 			// 非国际化
 			tagsViewName = query?.tagsViewName || params?.tagsViewName;
 		}
 	} else {
 		// 非自定义 tagsView 名称
-		tagsViewName = i18n.global.t(<any>meta.title);
+		tagsViewName = I18n.global.t(<any>meta.title);
 	}
 	return tagsViewName;
 }
@@ -74,7 +76,7 @@ const jsCdnUrlList: Array<string> = [];
 // 动态批量设置字体图标
 util.setCssCdn = () => {
 	if (cssCdnUrlList.length <= 0) return false;
-	cssCdnUrlList.map(v => {
+	cssCdnUrlList.map((v) => {
 		let link = document.createElement("link");
 		link.rel = "stylesheet";
 		link.href = v;
@@ -85,7 +87,7 @@ util.setCssCdn = () => {
 // 动态批量设置第三方js
 util.setJsCdn = () => {
 	if (jsCdnUrlList.length <= 0) return false;
-	jsCdnUrlList.map(v => {
+	jsCdnUrlList.map((v) => {
 		let link = document.createElement("script");
 		link.src = v;
 		document.body.appendChild(link);
@@ -103,6 +105,7 @@ util.open = (url: string) => {
 	a.setAttribute("target", "_blank");
 	a.setAttribute("id", "open_window_blank");
 	document.body.appendChild(a);
+	console.log(a);
 	a.click();
 	document.body.removeChild(document.getElementById("open_window_blank") as HTMLElement);
 };

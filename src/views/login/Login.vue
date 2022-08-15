@@ -15,8 +15,8 @@
 			const router = useRouter();
 
 			const loginUser = () => {
-				Utils.Cookies.setCookie(Utils.Constants.cookieKeys.token, Math.random().toString(36));
-				Utils.Storages.setSessionStorage(Utils.Constants.storageKeys.token, Math.random().toString(36));
+				Utils.Cookies.setCookie(Utils.Constants.cookieKey.token, Math.random().toString(36));
+				Utils.Storages.setSessionStorage(Utils.Constants.storageKey.token, Math.random().toString(36));
 				if (route.query?.redirect && route.query?.redirect !== "/") {
 					router.push({
 						path: <string>route.query?.redirect,

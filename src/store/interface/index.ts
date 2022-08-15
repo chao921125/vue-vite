@@ -63,6 +63,7 @@ export interface ThemeConfigState {
 	isTagsViewIcon: boolean;
 	isCacheTagsView: boolean;
 	isSortableTagsView: boolean;
+	globalTitle: string;
 	globalI18n: string;
 	globalComponentSize: string;
 }

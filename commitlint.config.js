@@ -2,7 +2,7 @@
 /** @type {import('cz-git').UserConfig} */
 
 module.exports = {
-	ignores: [commit => commit.includes("init")],
+	ignores: [(commit) => commit.includes("init")],
 	extends: ["@commitlint/config-conventional"],
 	rules: {
 		// @see: https://commitlint.js.org/#/reference-rules
@@ -15,23 +15,7 @@ module.exports = {
 		"type-enum": [
 			2,
 			"always",
-			[
-				"feat",
-				"fix",
-				"docs",
-				"style",
-				"refactor",
-				"perf",
-				"test",
-				"build",
-				"ci",
-				"chore",
-				"revert",
-				"wip",
-				"workflow",
-				"types",
-				"release",
-			],
+			["feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert", "wip", "workflow", "types", "release"],
 		],
 	},
 	prompt: {

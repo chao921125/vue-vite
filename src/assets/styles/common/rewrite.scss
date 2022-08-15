@@ -5,34 +5,47 @@
 	height: 1px;
 }
 
-// 基础布局
-.#{$prefix}-flex-base {
-	@extend %flex-base;
-}
+// Flex 基础布局
 .#{$prefix}-flex-auto {
 	flex: 1;
 	overflow: hidden;
 }
+
 .#{$prefix}-flex-row {
+	@extend %flex-base;
+	flex-direction: row;
+}
+.#{$prefix}-flex-row-center {
+	@extend %flex-base;
+	@extend %flex-row-center;
+}
+.#{$prefix}-flex-row-center-jc {
 	@extend %flex-base;
 	justify-content: center;
 }
-.#{$prefix}-flex-col {
+.#{$prefix}-flex-row-center-ai {
 	@extend %flex-base;
 	align-items: center;
 }
-.#{$prefix}-flex-center-row {
-	@extend %flex-base;
-	@extend %flex-center-row;
-}
-.#{$prefix}-flex-center-col {
-	@extend %flex-base;
-	@extend %flex-center-col;
-}
-.#{$prefix}-flex-space-between {
+.#{$prefix}-flex-row-between {
 	@extend %flex-base;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.#{$prefix}-flex-row-reverse {
+	@extend %flex-base;
+	flex-direction: row-reverse;
+	align-items: center;
+}
+
+.#{$prefix}-flex-col {
+	@extend %flex-base;
+	flex-direction: column;
+}
+.#{$prefix}-flex-col-center {
+	@extend %flex-base;
+	@extend %flex-center-col;
 }
 
 // 100%

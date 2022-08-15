@@ -22,7 +22,7 @@ declare interface ViteEnv {
 	VITE_API_URL_PREFIX: string;
 	VITE_PORT: number;
 	VITE_OPEN: boolean;
-	VITE_PROXY: string[];
+	VITE_PROXY: [string, string][];
 	VITE_MOCK: boolean;
 	VITE_MOCK_PATH: string;
 	VITE_DROP_CONSOLE: boolean;

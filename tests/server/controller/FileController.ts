@@ -3,7 +3,7 @@ import FileService from "../service/FileService";
 class FileController {
 	private service: FileService = new FileService();
 
-	upload = async ctx => {
+	upload = async (ctx) => {
 		const files = ctx.request.files.file;
 		console.log(files);
 

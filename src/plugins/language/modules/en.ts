@@ -1,10 +1,10 @@
 export default {
 	menu: {
-		home: "首页",
-		system: "系统管理",
-		systemUser: "用户管理",
-		systemUserAdd: "用户新增",
-		systemRole: "角色管理",
+		home: "Home",
+		system: "Manage System",
+		systemUser: "Manage User",
+		systemUserAdd: "User Add",
+		systemRole: "Manage Role",
 		systemDept: "部门管理",
 		systemMenu: "菜单管理",
 		systemMenuAdd: "菜单新增",

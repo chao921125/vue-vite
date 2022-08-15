@@ -1,23 +1,29 @@
 import { createI18n } from "vue-i18n";
-import pinia from "@/store";
 import { storeToRefs } from "pinia";
+import Pinia from "@/store";
 import { useThemeConfig } from "@/store/modules/theme";
 
-import zhcnLocale from "element-plus/lib/locale/lang/zh-cn";
+import zhCNLocale from "element-plus/lib/locale/lang/zh-cn";
 import enLocale from "element-plus/lib/locale/lang/en";
 
-import zncn from "./modules/zh-cn";
+import znCN from "./modules/zh-cn";
 import en from "./modules/en";
+
+// const languageKeys = import.meta.glob("./modules/*.ts");
+// export const routerArray: object = {};
+// Object.keys(languageKeys).forEach((item: string) => {
+// 	console.log("==========", item);
+// });
 
 // 定义语言国际化内容
 /**
  * 说明：
  */
 const messages = {
-	[zhcnLocale.name]: {
-		...zhcnLocale,
+	[zhCNLocale.name]: {
+		...zhCNLocale,
 		message: {
-			...zncn,
+			...znCN,
 		},
 	},
 	[enLocale.name]: {
@@ -29,7 +35,7 @@ const messages = {
 };
 
 // 读取 pinia 默认语言
-const stores = useThemeConfig(pinia);
+const stores = useThemeConfig(Pinia);
 const { themeConfig } = storeToRefs(stores);
 
 // 导出语言国际化
@@ -40,7 +46,7 @@ const i18n = createI18n({
 	silentFallbackWarn: true,
 	fallbackWarn: false,
 	locale: themeConfig.value.globalI18n,
-	fallbackLocale: zhcnLocale.name,
+	fallbackLocale: zhCNLocale.name,
 	messages,
 });
 

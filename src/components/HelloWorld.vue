@@ -9,7 +9,7 @@
 		or
 		<a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
 		(if using
-		<code>&ltscript setup&gt;</code>)
+		<code>&lt;script setup&gt;</code>)
 	</p>
 
 	<p>See <code>README.md</code> for more information.</p>
@@ -45,20 +45,6 @@
 	});
 </script>
 
-<style scoped>
-	a {
-		color: #42b983;
-	}
-
-	label {
-		margin: 0 0.5em;
-		font-weight: bold;
-	}
-
-	code {
-		background-color: #eee;
-		padding: 2px 4px;
-		border-radius: 4px;
-		color: #304455;
-	}
+<style scoped lang="scss">
+	@import "./HelloWorld.scss";
 </style>
