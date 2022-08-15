@@ -17,7 +17,6 @@
 		</el-col>
 		<el-col :xs="24" :sm="12">
 			<div class="re-height-fill re-flex-row-reverse">
-				<div class="re-m-l-10">Admin</div>
 				<el-dropdown ref="dropdownUser" trigger="contextmenu">
 					<el-image
 						src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
@@ -34,6 +33,7 @@
 						</el-dropdown-menu>
 					</template>
 				</el-dropdown>
+				<div class="re-m-l-10">Admin</div>
 				<el-tooltip effect="dark" content="全屏" placement="bottom">
 					<i class="iconfont icon-fullscreen re-cursor-pointer re-m-l-10"></i>
 				</el-tooltip>
