@@ -1,0 +1,199 @@
+// 优化显示
+:root {
+	--re-color-white: $color-white;
+	--re-bg-main-color: #f8f8f8;
+	--re-bg-color: #f5f5ff;
+	--re-border-color-light: #f1f2f3;
+	--re-color-primary-lighter: #ecf5ff;
+	--re-color-success-lighter: #f0f9eb;
+	--re-color-warning-lighter: #fdf6ec;
+	--re-color-danger-lighter: #fef0f0;
+	--re-color-dark-hover: #0000001a;
+	--re-color-menu-hover: rgba(0, 0, 0, 0.2);
+	--re-color-user-hover: rgba(0, 0, 0, 0.04);
+	--re-color-seting-main: #e9eef3;
+	--re-color-seting-aside: #d3dce6;
+	--re-color-seting-header: #b3c0d1;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	font-family: "PingFangSC-Regular", "PingFang", "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-tap-highlight-color: transparent;
+	background-color: var(--re-bg-main-color);
+	overflow: hidden;
+	#app {
+		@extend %full;
+		a {
+			text-decoration: none;
+		}
+	}
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	font-size: 1rem;
+}
+@media only screen and (min-width: 1366px) {
+	html {
+		font-size: 94% !important;
+	}
+}
+@media only screen and (min-width: 1600px) {
+	html {
+		font-size: 109% !important;
+	}
+}
+@media only screen and (min-width: 1920px) {
+	html {
+		font-size: 125% !important;
+	}
+}
+
+// 布局样式
+.layout-container {
+	width: 100%;
+	height: 100%;
+	.layout-aside {
+		background: var(--re-bg-menuBar);
+		box-shadow: 2px 0 6px rgb(0 21 41 / 1%);
+		height: inherit;
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden !important;
+		.el-scrollbar__view {
+			overflow: hidden;
+		}
+
+		.logo-full {
+			width: 220px;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: rgb(0 21 41 / 2%) 0px 1px 4px;
+			color: var(--el-color-primary);
+			font-size: 16px;
+			cursor: pointer;
+			animation: logoAnimation 0.3s ease-in-out;
+			span {
+				white-space: nowrap;
+				display: inline-block;
+			}
+			&:hover {
+				span {
+					color: var(--color-primary-light-2);
+				}
+			}
+			&-medium-img {
+				width: 20px;
+				margin-right: 5px;
+			}
+		}
+		.logo-only {
+			width: 100%;
+			height: 60px;
+			display: flex;
+			cursor: pointer;
+			animation: logoAnimation 0.3s ease-in-out;
+			&-img {
+				width: 20px;
+				margin: auto;
+			}
+			&:hover {
+				img {
+					animation: logoAnimation 0.3s ease-in-out;
+				}
+			}
+		}
+	}
+	.layout-header {
+		padding: 0 !important;
+	}
+	.layout-main {
+		padding: 0 !important;
+		overflow: hidden;
+		width: 100%;
+		background-color: var(--re-bg-main-color);
+	}
+	.el-scrollbar {
+		width: 100%;
+	}
+	// 此字段多次用到，建议不删除，如需修改，请重写覆盖样式
+	.layout-view-bg-white {
+		background: var(--el-color-white);
+		width: 100%;
+		height: 100%;
+		border-radius: 4px;
+		border: 1px solid var(--el-border-color-light, #ebeef5);
+	}
+	.layout-el-aside-br-color {
+		border-right: 1px solid var(--el-border-color-light, #ebeef5);
+	}
+	// pc端左侧导航样式
+	.layout-aside-pc-220 {
+		width: 220px !important;
+		transition: width 0.3s ease;
+	}
+	.layout-aside-pc-64 {
+		width: 64px !important;
+		transition: width 0.3s ease;
+	}
+	.layout-aside-pc-1 {
+		width: 1px !important;
+		transition: width 0.3s ease;
+	}
+	// 手机端左侧导航样式
+	.layout-aside-mobile {
+		position: fixed;
+		top: 0;
+		left: -220px;
+		width: 220px;
+		z-index: 9999999;
+	}
+	.layout-aside-mobile-close {
+		left: -220px;
+		transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+	}
+	.layout-aside-mobile-open {
+		left: 0;
+		transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+	}
+	.layout-aside-mobile-mode {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 9999998;
+		animation: error-img 0.3s;
+	}
+	.layout-scrollbar {
+		@extend .el-scrollbar;
+		padding: 15px;
+	}
+	.layout-mian-height-50 {
+		height: calc(100vh - 50px);
+	}
+	.layout-columns-warp {
+		flex: 1;
+		display: flex;
+		overflow: hidden;
+	}
+	.layout-hide {
+		display: none;
+	}
+}
