@@ -1,0 +1,222 @@
+// 在这里写公用的class
+// 占位符
+.#{$prefix}-place {
+	width: 1px;
+	height: 1px;
+}
+
+// Flex 基础布局
+.#{$prefix}-flex-auto {
+	flex: 1;
+	overflow: hidden;
+}
+
+.#{$prefix}-flex-row {
+	@extend %flex-base;
+	flex-direction: row;
+}
+.#{$prefix}-flex-row-center {
+	@extend %flex-base;
+	@extend %flex-row-center;
+}
+.#{$prefix}-flex-row-center-jc {
+	@extend %flex-base;
+	justify-content: center;
+}
+.#{$prefix}-flex-row-center-ai {
+	@extend %flex-base;
+	align-items: center;
+}
+.#{$prefix}-flex-row-between {
+	@extend %flex-base;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.#{$prefix}-flex-row-reverse {
+	@extend %flex-base;
+	flex-direction: row-reverse;
+	align-items: center;
+}
+
+.#{$prefix}-flex-col {
+	@extend %flex-base;
+	flex-direction: column;
+}
+.#{$prefix}-flex-col-center {
+	@extend %flex-base;
+	@extend %flex-center-col;
+}
+
+// 100%
+.#{$prefix}-width-auto {
+	width: auto;
+}
+.#{$prefix}-height-auto {
+	height: auto;
+}
+.#{$prefix}-box-fill {
+	@extend %wh-fill;
+}
+.#{$prefix}-width-fill {
+	@extend %width-fill;
+}
+.#{$prefix}-height-fill {
+	@extend %height-fill;
+}
+.#{$prefix}-width-fill-min {
+	min-width: 100%;
+}
+.#{$prefix}-height-fill-min {
+	min-height: 100%;
+}
+.#{$prefix}-width-fill-max {
+	max-width: 100%;
+}
+.#{$prefix}-height-fill-max {
+	max-height: 100%;
+}
+.#{$prefix}-box-full {
+	@extend %wh-full;
+}
+.#{$prefix}-width-full {
+	@extend %width-full;
+}
+.#{$prefix}-height-full {
+	@extend %height-full;
+}
+.#{$prefix}-width-full-min {
+	min-width: 100vw;
+}
+.#{$prefix}-height-full-min {
+	min-height: 100vh;
+}
+.#{$prefix}-width-full-max {
+	max-width: 100vw;
+}
+.#{$prefix}-height-full-max {
+	max-height: 100vh;
+}
+
+// 文字相关
+.#{$prefix}-text-center {
+	@extend %text-center;
+}
+.#{$prefix}-text-left {
+	@extend %text-left;
+}
+.#{$prefix}-text-right {
+	@extend %text-right;
+}
+
+// 变成 小手 帮助 移动
+.#{$prefix}-cursor-default {
+	cursor: default;
+}
+.#{$prefix}-cursor-pointer {
+	cursor: pointer;
+}
+.#{$prefix}-cursor-help {
+	cursor: help;
+}
+.#{$prefix}-cursor-move {
+	cursor: move;
+}
+
+// 浮动相关
+.#{$prefix}-fl {
+	float: left;
+}
+.#{$prefix}-fr {
+	float: right;
+}
+.#{$prefix}-clearfix:before,
+.#{$prefix}-clearfix:after {
+	display: table;
+	content: "";
+}
+.#{$prefix}-clearfix:after {
+	clear: both;
+}
+
+// 边距相关
+$i: 100;
+@while $i > 0 {
+	.#{$prefix}-m-#{$i} {
+		margin: #{$i}px;
+	}
+	.#{$prefix}-m-tb-#{$i} {
+		margin: #{$i}px 0;
+	}
+	.#{$prefix}-m-lr-#{$i} {
+		margin: 0 #{$i}px;
+	}
+	.#{$prefix}-m-t-#{$i} {
+		margin-top: #{$i}px;
+	}
+	.#{$prefix}-m-r-#{$i} {
+		margin-right: #{$i}px;
+	}
+	.#{$prefix}-m-b-#{$i} {
+		margin-bottom: #{$i}px;
+	}
+	.#{$prefix}-m-l-#{$i} {
+		margin-left: #{$i}px;
+	}
+
+	.#{$prefix}-p-#{$i} {
+		padding: #{$i}px;
+	}
+	.#{$prefix}-p-tb-#{$i} {
+		margin: #{$i}px 0;
+	}
+	.#{$prefix}-p-lr-#{$i} {
+		margin: 0 #{$i}px;
+	}
+	.#{$prefix}-p-t-#{$i} {
+		padding-top: #{$i}px;
+	}
+	.#{$prefix}-p-r-#{$i} {
+		padding-right: #{$i}px;
+	}
+	.#{$prefix}-p-b-#{$i} {
+		padding-bottom: #{$i}px;
+	}
+	.#{$prefix}-p-l-#{$i} {
+		padding-left: #{$i}px;
+	}
+	$i: $i - 1;
+}
+
+//$sizes: (0, 5, 10, 15, 20);
+//@for $index from 1 to 6 {
+//  .#{$prefix}-m-#{$index} { margin: #{$index}px !important; }
+//  .#{$prefix}-mt-#{$index} { margin-top: #{$index}px !important; }
+//  .#{$prefix}-mr-#{$index} { margin-right: #{$index}px !important; }
+//  .#{$prefix}-mb-#{$index} { margin-bottom: #{$index}px !important; }
+//  .#{$prefix}-ml-#{$index} { margin-left: #{$index}px !important; }
+//
+//  .#{$prefix}-p-#{$index} { padding: #{$index}px !important; }
+//  .#{$prefix}-pt-#{$index} { padding-top: #{$index}px !important; }
+//  .#{$prefix}-pr-#{$index} { padding-right: #{$index}px !important; }
+//  .#{$prefix}-pb-#{$index} { padding-bottom: #{$index}px !important; }
+//  .#{$prefix}-pl-#{$index} { padding-left: #{$index}px !important; }
+//}
+
+.fixed-top-center {
+	@extend %text-center;
+	position: fixed;
+	top: 0;
+}
+.fixed-bottom {
+	@extend %text-center;
+	position: fixed;
+	bottom: 0;
+}
+
+.transition-width-1s {
+	transition: width 1s;
+	-moz-transition: width 1s; /* Firefox 4 */
+	-webkit-transition: width 1s; /* Safari 和 Chrome */
+	-o-transition: width 1s; /* Opera */
+}

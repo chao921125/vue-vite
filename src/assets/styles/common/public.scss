@@ -1,0 +1,104 @@
+$prefix: re;
+
+// 色值定义
+$color-primary: #409eff;
+$color-white: #ffffff;
+$color-white-ghost: #f8f8ff;
+$color-white-smoke: #f5f5f5;
+$color-black: #000000;
+$color-grey: #bebebe;
+
+// 自定义色值，不常用的、特有的、针对性的
+$color-re-re: #123123;
+
+// 项目共有的宽高设定
+$header-height: 60px;
+$menu-width: 200px;
+$menu-height: calc(100vh - 60px);
+$menu-collapse-width: 64px;
+$menu-item-height: 50px;
+
+// 定位的值，只需要从这里取值或者修改
+$z-index-max: 9999;
+$z-index-min: 1;
+$z-index-1: 1000;
+$z-index-2: 2000;
+$z-index-3: 3000;
+$z-index-4: 4000;
+$z-index-5: 5000;
+$z-index-6: 6000;
+$z-index-7: 7000;
+$z-index-8: 8000;
+$z-index-9: 9000;
+
+// 禁止用户选中
+%unable-select {
+	user-select: none;
+}
+
+// 填满父元素 position: relative | absolute;
+%full {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+// 文字 居中 左 右
+%text-center {
+	text-align: center;
+}
+%text-left {
+	text-align: left;
+}
+%text-right {
+	text-align: right;
+}
+
+// 填充 宽高
+%wh-full {
+	width: 100vw;
+	height: 100vh;
+}
+%width-full {
+	width: 100vw;
+}
+%height-full {
+	height: 100vh;
+}
+%wh-fill {
+	width: 100%;
+	height: 100%;
+}
+%width-fill {
+	width: 100%;
+}
+%height-fill {
+	height: 100%;
+}
+
+// flex 垂直水平居中 两端对齐
+%flex-base {
+	display: flex;
+	display: -webkit-flex;
+}
+%flex-row-center {
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+%flex-center-col {
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+// 将元素模拟成卡片外观
+%card {
+	//border: 1px solid $color-border-white;
+	background: #fff;
+	border-radius: 4px;
+	font-size: 14px;
+	position: relative;
+}
