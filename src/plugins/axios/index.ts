@@ -5,6 +5,7 @@ import Utils from "@/plugins/utils";
 import AxiosConfig from "@/config/axiosConfig";
 import NProgress from "@/plugins/loading/progress";
 import RouterConfig from "@/config/routerConfig";
+import AxiosCancel from "./cancel";
 
 // axios.request(config)
 // axios.get(url[, config])
@@ -61,6 +62,7 @@ http.interceptors.request.use(
 				token: Utils.Cookies.getCookie(Utils.Constants.cookieKey.token),
 			};
 		}
+		AxiosCancel.addCancer(config);
 		return config;
 	},
 	(error) => {
@@ -83,8 +85,9 @@ http.interceptors.request.use(
 
 // 响应拦截器
 http.interceptors.response.use(
-	(response: AxiosResponse) => {
+	async (response: AxiosResponse) => {
 		NProgress.done();
+		AxiosCancel.removeCancer(response.config);
 		// resp 是 axios 返回数据中的 data
 		const resp = response.data || null;
 		const status = response.status || 0;
@@ -92,9 +95,9 @@ http.interceptors.response.use(
 			Utils.Cookies.clearCookie();
 			Utils.Storages.clearSessionStorage();
 			const toUrl = status === 404 ? RouterConfig.route404 : RouterConfig.route403;
-			Router.replace({ path: toUrl });
+			await Router.replace({ path: toUrl });
 		} else if (/^3\d{2}/.test(String(status))) {
-			Router.replace({ path: RouterConfig.routeRoot });
+			await Router.replace({ path: RouterConfig.routeRoot });
 		} else if (/^5\d{2}/.test(String(status))) {
 		} else {
 			// 这个状态码是和后端约定的

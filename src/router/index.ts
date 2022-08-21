@@ -13,6 +13,7 @@ import RouterConfig from "@/config/routerConfig";
 import { useUserInfo } from "@/store/modules/user";
 import requestData from "@/config/routerData";
 import { MenuState } from "@/router/interface";
+import AxiosCancel from "@/plugins/axios/cancel";
 
 // 配置文件修改是否从后端获取路由
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可
@@ -33,8 +34,8 @@ if (!isRequestRoutes) await getStaticRouter();
 
 // 路由加载前
 router.beforeEach(async (to, from, next) => {
-	console.log("router from", from.path, to.path);
 	NProgress.configure({ showSpinner: false });
+	AxiosCancel.removeAllCancer();
 	if (to.meta.title) NProgress.start();
 	const token = Utils.Storages.getSessionStorage(Utils.Constants.storageKey.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKey.token);
 	if (RouterConfig.whiteList.includes(to.path) && !token) {
