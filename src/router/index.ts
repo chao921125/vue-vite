@@ -34,6 +34,7 @@ if (!isRequestRoutes) await getStaticRouter();
 
 // 路由加载前
 router.beforeEach(async (to, from, next) => {
+	console.log("router from", from.path, to.path);
 	NProgress.configure({ showSpinner: false });
 	AxiosCancel.removeAllCancer();
 	if (to.meta.title) NProgress.start();
