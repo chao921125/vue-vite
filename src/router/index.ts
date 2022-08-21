@@ -20,7 +20,7 @@ import AxiosCancel from "@/plugins/axios/cancel";
 const isRequestRoutes = RouterConfig.isRequestRoutes;
 
 // 默认获取菜单及路由为静态数据
-let requestData: any = routeData.menus;
+let requestData: any = [];
 
 // 动态路由刷新404，所以先行去掉匹配不存在路由重定向至404页
 if (isRequestRoutes) baseRoutes[0].children = [];
@@ -58,7 +58,9 @@ router.beforeEach(async (to, from, next) => {
 			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {
 					// 从后端接口中重新获取数据
-					// requestData = routeData.menus;
+					requestData = routeData.menus;
+				} else {
+					requestData = routeData.menus;
 				}
 				// 后端控制路由：路由数据初始化，防止刷新时丢失
 				await getDynamicRouter();
@@ -150,18 +152,19 @@ function setRouterItem(routerList: any, data: MenuState[] = [], parentPath: stri
 				title: item.title,
 				name: item.name,
 				icon: item.icon,
-				isLink: item.isLink,
 				isHide: item.isHide,
 				isKeepAlive: item.isKeepAlive,
 				isAffix: item.isAffix,
+				isLink: item.isLink,
 				isIframe: item.isIframe,
+				address: item.address,
 				roles: item.roles,
 			},
 		};
 		if (item.children && item.children.length > 0) {
 			// 当访问的路由是含有子节点的路由，并且子节点非菜单，那么重定向
 			// if (!o.isHideSubMenu) {
-			// 	o.address = { name: o.children[0].path };
+			// 	o.path = { name: o.children[0].path };
 			// }
 			routerList.push(route);
 			setRouterItem(routerList, item.children, path);

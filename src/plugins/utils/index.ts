@@ -99,13 +99,13 @@ util.setJsCdn = () => {
  * @param {String} url 地址
  */
 util.open = (url: string) => {
+	console.log(url);
 	if (!url) return false;
 	let a = document.createElement("a");
 	a.setAttribute("href", url);
 	a.setAttribute("target", "_blank");
 	a.setAttribute("id", "open_window_blank");
 	document.body.appendChild(a);
-	console.log(a);
 	a.click();
 	document.body.removeChild(document.getElementById("open_window_blank") as HTMLElement);
 };

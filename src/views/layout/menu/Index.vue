@@ -12,7 +12,7 @@
 	</div>
 	<el-scrollbar>
 		<el-menu background-color="transparent" :default-active="changeMenuKey" mode="vertical" :collapse="!isColl" :unique-opened="true" @select="toMenu">
-			<SubItem v-if="state.menuList && state.menuList.length > 0" :menuList="state.menuList"></SubItem>
+			<SubItem v-if="state.menuList && state.menuList.length > 0" :menus="state.menuList"></SubItem>
 		</el-menu>
 	</el-scrollbar>
 </template>
