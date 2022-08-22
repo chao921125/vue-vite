@@ -39,8 +39,23 @@ src下的settings目录是系统默认参数
 - [ ] 静态权限控制（此项并不在我的计划之内）
 - [ ] 按钮级别权限控制（此项并不在我的计划之内）
 
+# bug
+- [ ] 当点击link后，再点击iframe还是出现新窗口打开的情况
+
 # 我有一个想法
 把Axios封装成一个异步函数，所有的数据均抽象出来，然后多次调用。但是有个缺点，当数据请求特别多的时候，那么都在等待状态，而此时就无法点击其他操作，不太友好，怎么解决？
+
+# vite 官方推荐项目
+https://github.com/cmdparkour/vue-admin-box.git
+
+https://github.com/vbenjs/vue-vben-admin
+
+https://github.com/xiaoxian521/vue-pure-admin
+
+# 移动端推荐
+https://github.com/CharleeWa/vue3-vant-mobile
+
+https://github.com/LZHD/vue-vite-h5
 
 # [Vite 插件](https://github.com/vitejs/awesome-vite#plugins)
 

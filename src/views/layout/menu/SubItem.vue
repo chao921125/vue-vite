@@ -6,9 +6,9 @@
 					<i class="iconfont" :class="item.icon"></i>
 					<span class="re-m-l-5">{{ $t(item.title) }}</span>
 				</template>
-				<SubItem :menuList="item.children" :basePath="item.path + '/'"></SubItem>
+				<SubItem :menus="item.children" :basePath="item.path + '/'"></SubItem>
 			</el-sub-menu>
-			<el-menu-item v-else :key="item.id" :index="resolvePath(item.path)" @click="toLink(item.isLink, item.isIframe, item.address)">
+			<el-menu-item v-else :key="item.id" :index="resolvePath(item.path)">
 				<!-- 此处图标可以自定义 -->
 				<i class="iconfont" :class="item.icon"></i>
 				<template #title>
@@ -21,13 +21,13 @@
 
 <script lang="ts">
 	import { defineComponent, computed } from "vue";
-	import Utils from "@/plugins/utils";
 
 	export default defineComponent({
 		name: "SubItem",
 		props: {
-			menuList: {
+			menus: {
 				type: Object,
+				// eslint-disable-next-line vue/require-valid-default-prop
 				default: () => [],
 			},
 			basePath: {
@@ -37,21 +37,14 @@
 		},
 		setup(props) {
 			const menuList = computed(() => {
-				return <any>props.menuList || [];
+				return props.menus || [];
 			});
 			const resolvePath = (path: string) => {
 				return props.basePath + path;
 			};
-			const toLink = (isLink: boolean = false, isIframe: boolean = false, address: string = "") => {
-				console.log(isLink, isIframe, address);
-				if (isLink) {
-					Utils.open("www.baidu.com");
-				}
-			};
 			return {
 				menuList,
 				resolvePath,
-				toLink,
 			};
 		},
 	});

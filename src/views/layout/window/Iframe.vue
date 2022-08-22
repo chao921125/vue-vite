@@ -1,9 +1,57 @@
-<template />
+<template>
+	<el-row>
+		<el-col :span="24" v-loading="iframeObj.loading" :style="{ height: `calc(100vh - ${iframeHeight})`, border: 'none' }">
+			<iframe id="iframe" :src="iframeObj.url" width="100%" height="100%"></iframe>
+		</el-col>
+	</el-row>
+</template>
 
-<script>
-	export default {
+<script lang="ts">
+	import { defineComponent, onMounted, nextTick, watch, computed, reactive } from "vue";
+	import { useRoute } from "vue-router";
+	import Pinia from "@/store";
+	import { useThemeConfig } from "@/store/modules/theme";
+	import { storeToRefs } from "pinia";
+
+	export default defineComponent({
+		// eslint-disable-next-line vue/no-reserved-component-names
 		name: "Iframe",
-	};
+		setup() {
+			const stores = useThemeConfig(Pinia);
+			const { themeConfig } = storeToRefs(stores);
+			const iframeHeight = computed(() => {
+				if (themeConfig.value.isTagsView) {
+					return "120px";
+				}
+				return "100px";
+			});
+			const iframeObj = reactive({
+				url: "",
+				loading: true,
+			});
+			const route = useRoute();
+			const initData = () => {
+				iframeObj.url = String(route.meta.address) || "";
+				console.log(iframeObj.url);
+				nextTick(() => {
+					iframeObj.loading = false;
+				});
+			};
+			onMounted(() => {
+				initData();
+			});
+			watch(
+				() => route.path,
+				() => {
+					initData();
+				},
+			);
+			return {
+				iframeHeight,
+				iframeObj,
+			};
+		},
+	});
 </script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

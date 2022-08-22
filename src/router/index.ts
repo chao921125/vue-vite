@@ -11,12 +11,16 @@ import Utils from "@/plugins/utils";
 import NProgress from "@/plugins/loading/progress";
 import RouterConfig from "@/config/routerConfig";
 import { useUserInfo } from "@/store/modules/user";
-import requestData from "@/config/routerData";
+import routeData from "@/config/routerData";
 import { MenuState } from "@/router/interface";
+import AxiosCancel from "@/plugins/axios/cancel";
 
 // 配置文件修改是否从后端获取路由
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可
 const isRequestRoutes = RouterConfig.isRequestRoutes;
+
+// 默认获取菜单及路由为静态数据
+let requestData: any = [];
 
 // 动态路由刷新404，所以先行去掉匹配不存在路由重定向至404页
 if (isRequestRoutes) baseRoutes[0].children = [];
@@ -29,12 +33,11 @@ export const router = createRouter({
 	scrollBehavior: () => ({ left: 0, top: 0 }),
 });
 
-if (!isRequestRoutes) await getStaticRouter();
-
 // 路由加载前
 router.beforeEach(async (to, from, next) => {
 	console.log("router from", from.path, to.path);
 	NProgress.configure({ showSpinner: false });
+	AxiosCancel.removeAllCancer();
 	if (to.meta.title) NProgress.start();
 	const token = Utils.Storages.getSessionStorage(Utils.Constants.storageKey.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKey.token);
 	if (RouterConfig.whiteList.includes(to.path) && !token) {
@@ -54,13 +57,17 @@ router.beforeEach(async (to, from, next) => {
 			const { routerList } = storeToRefs(storesRouterList);
 			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {
-					// 后端控制路由：路由数据初始化，防止刷新时丢失
-					await getDynamicRouter();
-					// 动态添加路由：防止非首页刷新时跳转回首页的问题
-					// 确保 addRoute() 时动态添加的路由已经被完全加载上去
-					next({ ...to, replace: true });
-					NProgress.done();
+					// 从后端接口中重新获取数据
+					requestData = routeData.menus;
+				} else {
+					requestData = routeData.menus;
 				}
+				// 后端控制路由：路由数据初始化，防止刷新时丢失
+				await getDynamicRouter();
+				// 动态添加路由：防止非首页刷新时跳转回首页的问题
+				// 确保 addRoute() 时动态添加的路由已经被完全加载上去
+				next({ ...to, replace: true });
+				NProgress.done();
 			} else {
 				next();
 				NProgress.done();
@@ -89,23 +96,13 @@ export async function getDynamicRouter() {
 	await useUserInfo(Pinia).setUserInfo();
 
 	let storesRouterList = useRouterList(Pinia);
-	await storesRouterList.setMenuList(requestData.menus);
+	await storesRouterList.setMenuList(requestData);
 
-	await setAddRoute(requestData.menus);
-}
-
-// 获取静态路由数据
-export async function getStaticRouter() {
-	if (!(Utils.Storages.getSessionStorage(Utils.Constants.storageKey.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKey.token))) return false;
-	await useUserInfo(Pinia).setUserInfo();
-	await setAddRoute(requestData.menus);
+	await setAddRoute(requestData);
 }
 
 // 动态添加至路由中
 export async function setAddRoute(data: any[]) {
-	// add filter roles
-	// const menus = filterMenus(requestData.menus);
-	// const routerList = Config.getRouter(menus);
 	const routerList = getRouter(data);
 	await routerList.forEach((route: RouteRecordRaw) => {
 		const { name } = route;
@@ -155,18 +152,19 @@ function setRouterItem(routerList: any, data: MenuState[] = [], parentPath: stri
 				title: item.title,
 				name: item.name,
 				icon: item.icon,
-				isLink: item.isLink,
 				isHide: item.isHide,
 				isKeepAlive: item.isKeepAlive,
 				isAffix: item.isAffix,
+				isLink: item.isLink,
 				isIframe: item.isIframe,
+				address: item.address,
 				roles: item.roles,
 			},
 		};
 		if (item.children && item.children.length > 0) {
 			// 当访问的路由是含有子节点的路由，并且子节点非菜单，那么重定向
 			// if (!o.isHideSubMenu) {
-			// 	o.address = { name: o.children[0].path };
+			// 	o.path = { name: o.children[0].path };
 			// }
 			routerList.push(route);
 			setRouterItem(routerList, item.children, path);

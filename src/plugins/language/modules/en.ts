@@ -16,9 +16,8 @@ export default {
 		demoMap: "CV拖拽缩放",
 		demoMapOne: "CV分割地图",
 		demoMapTwo: "CV拖拽",
-		test: "测试",
-		testOne: "测试子级",
-		testTwo: "测试子子级",
+		testLink: "Link",
+		testIframe: "Iframe",
 	},
 	title: {
 		login: "登录",
@@ -43,9 +42,8 @@ export default {
 		demoMap: "CV拖拽缩放",
 		demoMapOne: "CV分割地图",
 		demoMapTwo: "CV拖拽",
-		test: "测试",
-		testOne: "测试子级",
-		testTwo: "测试子子级",
+		testLink: "Link",
+		testIframe: "Iframe",
 	},
 	home: {
 		welcome: "欢迎使用",
