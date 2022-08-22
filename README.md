@@ -55,6 +55,6 @@ https://github.com/CharleeWa/vue3-vant-mobile
 
 https://github.com/LZHD/vue-vite-h5
 
-# [Vite 插件](https://github.com/vitejs/awesome-vite#plugins)
+# [Vite 插件](https://github.com/vitejs/awesome-vite)
 
 # 收集好用的[VUE库](https://github.com/chao921125/web-study/blob/main/Document/VUE.MD)
