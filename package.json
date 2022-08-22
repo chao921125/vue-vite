@@ -96,7 +96,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
-    "@iconify/json": "^2.1.95",
+    "@iconify/json": "^2.1.96",
     "@iconify/vue": "^3.2.1",
     "@types/codemirror": "^5.60.5",
     "@types/crypto-js": "^4.1.1",
@@ -106,7 +106,7 @@
     "@types/jest": "^28.1.7",
     "@types/lodash-es": "^4.17.6",
     "@types/mockjs": "^1.0.6",
-    "@types/node": "^18.7.8",
+    "@types/node": "^18.7.9",
     "@types/nprogress": "^0.2.0",
     "@types/qrcode": "^1.5.0",
     "@types/qs": "^6.9.7",
