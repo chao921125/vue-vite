@@ -1,3 +1,4 @@
+###### [**花里胡哨的不要，保证可用**]
 # 注意事项
 使用pnpm安装包的时候需要修改package.json的文件，删除掉resolutions里面的// \
 npm安装依赖包出现错误或安装失败，选择yarn安装 \
@@ -6,7 +7,7 @@ npm安装依赖包出现错误或安装失败，选择yarn安装 \
 
 # 对应包使用解释
 项目本身配置99%都在vite.config.ts里面，参数设置都在根目录下，而非src下 \
-src下的settings目录是系统默认参数
+src下的config目录是系统默认参数，及部分数据配置
 
 # 命名规范及解释
 1、命名遵循驼峰规则：demoUser \
@@ -28,22 +29,19 @@ src下的settings目录是系统默认参数
 大家根据使用的包来自行搜索下吧，大部分配置都是兼容、打包等
 
 # 已完成
+- [x] 基础插件配置，语法校验
+- [x] 多环境切换
+- [x] axios请求，取消请求
 - [x] 动态路由（同时支持静态路由配置，一切简便化）
 - [x] 国际化
 - [x] Element Icon、Iconify、IconFont使用
 
 # 下一步
+- [ ] Mock
 - [ ] 换肤
 - [ ] 全屏
 - [ ] 标签TAG
-- [ ] 静态权限控制（此项并不在我的计划之内）
 - [ ] 按钮级别权限控制（此项并不在我的计划之内）
-
-# bug
-- [ ] 当点击link后，再点击iframe还是出现新窗口打开的情况
-
-# 我有一个想法
-把Axios封装成一个异步函数，所有的数据均抽象出来，然后多次调用。但是有个缺点，当数据请求特别多的时候，那么都在等待状态，而此时就无法点击其他操作，不太友好，怎么解决？
 
 # vite 官方推荐项目
 https://github.com/cmdparkour/vue-admin-box.git
@@ -57,6 +55,6 @@ https://github.com/CharleeWa/vue3-vant-mobile
 
 https://github.com/LZHD/vue-vite-h5
 
-# [Vite 插件](https://github.com/vitejs/awesome-vite#plugins)
+# [Vite 插件](https://github.com/vitejs/awesome-vite)
 
 # 收集好用的[VUE库](https://github.com/chao921125/web-study/blob/main/Document/VUE.MD)
