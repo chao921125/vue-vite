@@ -33,3 +33,7 @@ declare interface ViteEnv {
 	VITE_BUILD_IMAGE: boolean;
 	VITE_PWA: boolean;
 }
+
+declare interface TranslatePair {
+	[key: string]: string | string[] | TranslatePair;
+}

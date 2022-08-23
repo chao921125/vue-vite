@@ -125,6 +125,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// https://github.com/antfu/unplugin-auto-import#readme
 			AutoImport({
 				include: [
+					/\.[tj]s?$/, // .ts, .tsx, .js, .jsx
 					/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
 					/\.vue$/,
 					/\.vue\?vue/, // .vue

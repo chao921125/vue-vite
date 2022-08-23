@@ -46,7 +46,7 @@ export const useThemeConfig = defineStore("themeConfig", {
 			// 是否开启水印
 			isWatermark: false,
 			// 水印文案
-			watermarkText: "shuiyin",
+			watermarkText: "YY",
 		},
 	}),
 	actions: {

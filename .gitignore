@@ -7,6 +7,7 @@ node_modules
 
 # auto file when run serve
 auto-imports.d.ts
+components.d.ts
 
 # local env files
 .env.local

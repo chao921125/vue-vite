@@ -1,5 +1,9 @@
 ###### [**花里胡哨的不要，保证可用**]
-# 注意事项
+# 避坑指南 及 注意事项
+## 开发问题 Typescript 和 TSX
+TS的泛型<T> 在结合 tsx 的时候使用as形式
+## 安装及打包
+避免使用vue-tsc，目前和typescript、jsx出现各种冲突 \
 使用pnpm安装包的时候需要修改package.json的文件，删除掉resolutions里面的// \
 npm安装依赖包出现错误或安装失败，选择yarn安装 \
 注意所有配置菜单的数据，均由前端提供 \
