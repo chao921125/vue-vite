@@ -17,7 +17,7 @@
 			const { proxy } = <any>getCurrentInstance();
 			// large / default /small
 			const config = reactive({
-				i18n: null,
+				i18n: process.env.VITE_LOCAL,
 				size: "default",
 				buttonSpace: {
 					autoInsertSpace: true,
@@ -32,6 +32,7 @@
 
 			onMounted(() => {
 				nextTick(() => {
+					initData();
 					if (Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)) {
 						storesThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig));
 					}
@@ -49,13 +50,16 @@
 			watch(
 				() => route.path,
 				() => {
-					Utils.title();
+					Utils.setTitle();
 				},
 				{
 					deep: true,
 				},
 			);
 
+			const initData = () => {
+				config.i18n = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal);
+			}
 			return {
 				config,
 			};

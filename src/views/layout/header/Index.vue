@@ -41,18 +41,12 @@
 					<i class="iconfont icon-pifu re-cursor-pointer re-m-l-10" @click="isShowDrawer = true"></i>
 				</el-tooltip>
 				<el-tooltip effect="dark" content="国际化" placement="bottom">
-					<el-dropdown ref="dropdownComponents" trigger="contextmenu">
+					<el-dropdown ref="dropdownComponents" trigger="contextmenu" @command="changeI18n">
 						<i class="iconfont icon-duoyuyan re-cursor-pointer re-m-l-10" @click="showDropdownComponents"></i>
 						<template #dropdown>
 							<el-dropdown-menu>
-								<el-dropdown-item @click="logout">
-									<span>简体中文</span>
-								</el-dropdown-item>
-								<el-dropdown-item @click="logout">
-									<span>繁体中文</span>
-								</el-dropdown-item>
-								<el-dropdown-item @click="logout">
-									<span>英文</span>
+								<el-dropdown-item v-for="(item, index) in i18ns" :key="index" :command="item.value">
+									<span>{{ item.label }}</span>
 								</el-dropdown-item>
 							</el-dropdown-menu>
 						</template>
@@ -85,7 +79,7 @@
 </template>
 
 <script lang="ts">
-	import { defineComponent, ref, computed, onMounted } from "vue";
+	import { defineComponent, ref, computed, onMounted, getCurrentInstance } from "vue";
 	import { useRouter, useRoute, onBeforeRouteUpdate } from "vue-router";
 	import Utils from "@/plugins/utils";
 	import RouterConfig from "@/config/routerConfig";
@@ -93,6 +87,7 @@
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
+	import I18nList from "@/config/languageConfig";
 
 	export default defineComponent({
 		name: "Index",
@@ -160,6 +155,7 @@
 			});
 			// 面包屑导航 end
 			// 个人中心 start
+			const { proxy } = <any>getCurrentInstance();
 			const dropdownUser = ref();
 			const dropdownComponents = ref();
 			const dropdownLanguage = ref();
@@ -171,6 +167,16 @@
 			};
 			const showDropdownLanguage = () => {
 				dropdownLanguage.value.handleOpen();
+			};
+			// i18n
+			const i18ns = I18nList.keys;
+			const changeI18n = (lang: string) => {
+				themeConfig.value.globalI18n = lang;
+				proxy.$i18n.locale = lang;
+				proxy.mittBus.emit('getI18nConfig', proxy.$i18n.messages[lang]);
+				Utils.setTitle();
+				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.i18nLocal, lang);
+				setThemeConfig();
 			};
 			// 退出
 			const router = useRouter();
@@ -198,6 +204,8 @@
 				showDropdownUser,
 				showDropdownComponents,
 				showDropdownLanguage,
+				i18ns,
+				changeI18n,
 				logout,
 			};
 		},
