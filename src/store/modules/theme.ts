@@ -8,10 +8,10 @@ export const useThemeConfig = defineStore("themeConfig", {
 	state: (): ThemeConfigStates => ({
 		themeConfig: {
 			// 默认初始语言，可选值"<zh-cn|en|zh-tw>"，默认 zh-cn
-			globalI18n: process.env.VITE_APP_LOCAL || "zh-cn",
+			globalI18n: process.env.VITE_LOCAL || "",
 			// 默认全局组件大小，可选值"<large|'default'|small>"，默认 'large'
 			globalComponentSize: "default",
-			globalTitle: process.env.VITE_APP_TITLE || "CC Admin",
+			globalTitle: process.env.VITE_TITLE || "",
 			// 默认 primary 主题颜色
 			primary: "#409eff",
 			// 是否开启深色模式
@@ -46,7 +46,7 @@ export const useThemeConfig = defineStore("themeConfig", {
 			// 是否开启水印
 			isWatermark: false,
 			// 水印文案
-			watermarkText: "shuiyin",
+			watermarkText: "YY",
 		},
 	}),
 	actions: {

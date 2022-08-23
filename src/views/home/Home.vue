@@ -4,6 +4,7 @@
 		<h2 v-show="isShow" key="1">动画效果1</h2>
 		<h2 v-show="!isShow" key="2">动画效果2</h2>
 	</transition-group>
+	<div v-html="htmlTest"></div>
 	<div v-for="(item, index) in 100" :key="index">home {{ item }}</div>
 </template>
 
@@ -25,8 +26,10 @@
 			const changeShow = () => {
 				isShow.value = !isShow.value;
 			};
+			const htmlTest = "<div style='color: red'>1231233</div>";
 			return {
 				isShow,
+				htmlTest,
 				changeShow,
 				logout,
 			};

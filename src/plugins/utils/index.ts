@@ -27,7 +27,7 @@ const util: any = {
  * @description 更新标题
  * @param titleText
  */
-util.title = async () => {
+util.setTitle = async () => {
 	const stores = useThemeConfig(Pinia);
 	const { themeConfig } = storeToRefs(stores);
 	const globalTitle: string = themeConfig.value.globalTitle;

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+		/* Visit https://aka.ms/tsconfig.json to read more about this file */
     "forceConsistentCasingInFileNames": true,
     "strictFunctionTypes": false,
     "allowJs": true,
@@ -22,8 +23,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "vite/client",
-      "chai"
+      "vite/client"
     ],
     "paths": {
       "@/*": [
@@ -59,11 +59,10 @@
     "config/**/*.d.ts",
     "mock/**/*.ts",
     "vite.config.ts",
-		"./auto-imports.d.ts",
     "node_modules/@types/jest/index.d.ts",
     "node_modules/@types/jest/index.d.ts"
   ],
   "exclude": [
-    "node_modules", "dist", "**/*.js", "tests/server/**/*.ts", "./tsconfig.node.json"
+    "node_modules", "dist", "**/*.js", "tests/**/*.ts"
   ]
 }

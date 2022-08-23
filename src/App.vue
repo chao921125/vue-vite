@@ -1,5 +1,5 @@
 <template>
-	<el-config-provider :locale="state.i18n">
+	<el-config-provider :locale="config.i18n" :size="config.size" :button="config.buttonSpace">
 		<RouterView />
 	</el-config-provider>
 </template>
@@ -15,7 +15,14 @@
 		name: "App",
 		setup() {
 			const { proxy } = <any>getCurrentInstance();
-			const state = reactive({ i18n: null });
+			// large / default /small
+			const config = reactive({
+				i18n: process.env.VITE_LOCAL,
+				size: "default",
+				buttonSpace: {
+					autoInsertSpace: true,
+				}
+			});
 
 			const storesThemeConfig = useThemeConfig(Pinia);
 			onBeforeMount(() => {
@@ -25,11 +32,12 @@
 
 			onMounted(() => {
 				nextTick(() => {
+					initData();
 					if (Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)) {
 						storesThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig));
 					}
 					proxy.mittBus.on("getI18nConfig", (local: string) => {
-						(state.i18n as string | null) = local;
+						(config.i18n as unknown as string | null) = local;
 					});
 				});
 			});
@@ -42,15 +50,18 @@
 			watch(
 				() => route.path,
 				() => {
-					Utils.title();
+					Utils.setTitle();
 				},
 				{
 					deep: true,
 				},
 			);
 
+			const initData = () => {
+				config.i18n = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal);
+			}
 			return {
-				state,
+				config,
 			};
 		},
 	});

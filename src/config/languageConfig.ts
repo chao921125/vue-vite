@@ -1,5 +1,19 @@
 export default {
 	key: /\/zh-cn|en-us|zh-tw\//,
+	keys: [
+		{
+			label: "中文简体",
+			value: "zh-cn",
+		},
+		{
+			label: "中文繁体",
+			value: "zh-tw",
+		},
+		{
+			label: "English",
+			value: "en",
+		},
+	],
 };
 /**
  * 简体中文（zh-cn）
