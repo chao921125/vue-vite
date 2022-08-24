@@ -39,6 +39,9 @@
 					proxy.mittBus.on("getI18nConfig", (local: string) => {
 						(config.i18n as unknown as string | null) = local;
 					});
+					proxy.mittBus.on("getSizeConfig", (size: string) => {
+						config.size = size;
+					})
 				});
 			});
 

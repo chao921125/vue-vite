@@ -1,6 +1,6 @@
 export default {
-	key: /\/zh-cn|en-us|zh-tw\//,
-	keys: [
+	i18nKey: /\/zh-cn|en-us|zh-tw\//,
+	i18nKeys: [
 		{
 			label: "中文简体",
 			value: "zh-cn",
@@ -12,6 +12,20 @@ export default {
 		{
 			label: "English",
 			value: "en",
+		},
+	],
+	sizeKeys: [
+		{
+			label: "默认",
+			value: "default",
+		},
+		{
+			label: "大型",
+			value: "large",
+		},
+		{
+			label: "小型",
+			value: "small",
 		},
 	],
 };

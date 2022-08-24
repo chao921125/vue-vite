@@ -41,8 +41,8 @@
 					<i class="iconfont icon-pifu re-cursor-pointer re-m-l-10" @click="isShowDrawer = true"></i>
 				</el-tooltip>
 				<el-tooltip effect="dark" content="国际化" placement="bottom">
-					<el-dropdown ref="dropdownComponents" trigger="contextmenu" @command="changeI18n">
-						<i class="iconfont icon-duoyuyan re-cursor-pointer re-m-l-10" @click="showDropdownComponents"></i>
+					<el-dropdown ref="dropdownLanguage" trigger="contextmenu" @command="changeI18n">
+						<i class="iconfont icon-duoyuyan re-cursor-pointer re-m-l-10" @click="showDropdownLanguage"></i>
 						<template #dropdown>
 							<el-dropdown-menu>
 								<el-dropdown-item v-for="(item, index) in i18ns" :key="index" :command="item.value">
@@ -53,18 +53,12 @@
 					</el-dropdown>
 				</el-tooltip>
 				<el-tooltip effect="dark" content="组件" placement="bottom">
-					<el-dropdown ref="dropdownLanguage" trigger="contextmenu">
-						<i class="iconfont icon-zujian2 re-cursor-pointer re-m-l-10" @click="showDropdownLanguage"></i>
+					<el-dropdown ref="dropdownComponents" trigger="contextmenu" @command="changeSize">
+						<i class="iconfont icon-zujian2 re-cursor-pointer re-m-l-10" @click="showDropdownComponents"></i>
 						<template #dropdown>
 							<el-dropdown-menu>
-								<el-dropdown-item @click="logout">
-									<span>默认</span>
-								</el-dropdown-item>
-								<el-dropdown-item @click="logout">
-									<span>大型</span>
-								</el-dropdown-item>
-								<el-dropdown-item @click="logout">
-									<span>小型</span>
+								<el-dropdown-item v-for="(item, index) in sizes" :key="index" :command="item.value">
+									<span>{{ item.label }}</span>
 								</el-dropdown-item>
 							</el-dropdown-menu>
 						</template>
@@ -87,7 +81,7 @@
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
-	import I18nList from "@/config/languageConfig";
+	import ThemeSetConfig from "@/config/themeSetConfig";
 
 	export default defineComponent({
 		name: "Index",
@@ -145,14 +139,6 @@
 					});
 				});
 			};
-			onMounted(() => {
-				breadcrumbList.value = [];
-				initBreadcrumbList(route.path);
-			});
-			onBeforeRouteUpdate((to) => {
-				breadcrumbList.value = [];
-				initBreadcrumbList(to.path);
-			});
 			// 面包屑导航 end
 			// 个人中心 start
 			const { proxy } = <any>getCurrentInstance();
@@ -169,7 +155,7 @@
 				dropdownLanguage.value.handleOpen();
 			};
 			// i18n
-			const i18ns = I18nList.keys;
+			const i18ns = ThemeSetConfig.i18nKeys;
 			const changeI18n = (lang: string) => {
 				themeConfig.value.globalI18n = lang;
 				proxy.$i18n.locale = lang;
@@ -178,6 +164,12 @@
 				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.i18nLocal, lang);
 				setThemeConfig();
 			};
+			const sizes = ThemeSetConfig.sizeKeys;
+			const changeSize = (size: string) => {
+				themeConfig.value.globalComponentSize = size;
+				proxy.mittBus.emit('getSizeConfig', size);
+				setThemeConfig();
+			}
 			// 退出
 			const router = useRouter();
 			const logout = () => {
@@ -193,6 +185,18 @@
 				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.themeConfig, themeConfig.value);
 			};
 
+			onMounted(() => {
+				breadcrumbList.value = [];
+				initBreadcrumbList(route.path);
+				const localI18n = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal);
+				if (localI18n) {
+					changeI18n(localI18n);
+				}
+			});
+			onBeforeRouteUpdate((to) => {
+				breadcrumbList.value = [];
+				initBreadcrumbList(to.path);
+			});
 			return {
 				isColl,
 				changeCollapse,
@@ -206,6 +210,8 @@
 				showDropdownLanguage,
 				i18ns,
 				changeI18n,
+				sizes,
+				changeSize,
 				logout,
 			};
 		},
