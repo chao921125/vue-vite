@@ -4,8 +4,6 @@ module.exports = {
   env: {
 		browser: true,
 		node: true,
-		es6: true,
-		es2021: true,
 		es2022: true,
   },
   /* 指定如何解析语法 */
@@ -17,7 +15,7 @@ module.exports = {
     sourceType: "module",
     jsxPragma: "React",
     ecmaFeatures: {
-      jsx: true,
+      jsx: false,
     },
   },
 	// overrides: [
