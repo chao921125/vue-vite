@@ -13,7 +13,7 @@
     "module": "esnext",
     "strict": true,
     "noLib": false,
-    "jsx": "preserve",
+//    "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
     "skipLibCheck": true,

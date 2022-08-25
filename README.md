@@ -1,7 +1,14 @@
 ###### [**花里胡哨的不要，保证可用**]
+###### [Vite 插件](https://github.com/vitejs/awesome-vite)
+###### 收集好用的[VUE库](https://github.com/chao921125/web-study/blob/main/Document/VUE.MD)
 # 避坑指南 及 注意事项
 ## 开发问题 Typescript 和 TSX
-TS的泛型<T> 在结合 tsx 的时候使用as形式
+TS的泛型<T> 在结合 tsx 的时候使用as形式 \
+我建议的组合，大家仅当参考 \
+VUE + JS \
+VUE + TS \
+VUE + JSX \
+VUE + TSX
 ## 安装及打包
 避免使用vue-tsc，目前和typescript、jsx出现各种冲突 \
 使用pnpm安装包的时候需要修改package.json的文件，删除掉resolutions里面的// \
@@ -58,7 +65,3 @@ https://github.com/xiaoxian521/vue-pure-admin
 https://github.com/CharleeWa/vue3-vant-mobile
 
 https://github.com/LZHD/vue-vite-h5
-
-# [Vite 插件](https://github.com/vitejs/awesome-vite)
-
-# 收集好用的[VUE库](https://github.com/chao921125/web-study/blob/main/Document/VUE.MD)

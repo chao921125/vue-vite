@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-	import { defineComponent, ref, getCurrentInstance, watch, onBeforeMount } from "vue";
+	import { defineComponent, ref, reactive, computed, getCurrentInstance, watch, onBeforeMount } from "vue";
 	import { useRoute } from "vue-router";
 	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
@@ -70,7 +70,7 @@
 					console.log("TODO 处理移动端");
 				} else {
 					// 管理端
-					if (isAdmin) {
+					if (isAdmin.value) {
 						if (isCollapse) return ["layout-aside-pc-64"];
 						else return ["layout-aside-pc-220"];
 					} else {
