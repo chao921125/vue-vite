@@ -16,12 +16,7 @@ components.d.ts
 # Log files
 logs
 *.log
-npm-debug.log*
-npm-error.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+*.log*
 
 # Editor directories and files
 .DS_Store
