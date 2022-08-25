@@ -21,7 +21,7 @@
 				size: "default",
 				buttonSpace: {
 					autoInsertSpace: true,
-				}
+				},
 			});
 
 			const storesThemeConfig = useThemeConfig(Pinia);
@@ -41,7 +41,7 @@
 					});
 					proxy.mittBus.on("getSizeConfig", (size: string) => {
 						config.size = size;
-					})
+					});
 				});
 			});
 
@@ -62,7 +62,7 @@
 
 			const initData = () => {
 				config.i18n = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal);
-			}
+			};
 			return {
 				config,
 			};
