@@ -28,8 +28,8 @@ const util: any = {
  * @param titleText
  */
 util.setTitle = async () => {
-	const stores = useThemeConfig(Pinia);
-	const { themeConfig } = storeToRefs(stores);
+	const storeThemeConfig = useThemeConfig(Pinia);
+	const { themeConfig } = storeToRefs(storeThemeConfig);
 	const globalTitle: string = themeConfig.value.globalTitle;
 	await nextTick(() => {
 		let title: any = "";

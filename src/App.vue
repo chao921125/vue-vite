@@ -10,6 +10,7 @@
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import Utils from "@/plugins/utils";
+	import { storeToRefs } from "pinia";
 
 	export default defineComponent({
 		name: "App",
@@ -20,21 +21,26 @@
 				i18n: process.env.VITE_LOCAL,
 				size: "default",
 				buttonSpace: {
-					autoInsertSpace: true,
+					autoInsertSpace: false,
 				},
 			});
 
-			const storesThemeConfig = useThemeConfig(Pinia);
+			const storeThemeConfig = useThemeConfig(Pinia);
+			const { themeConfig } = storeToRefs(storeThemeConfig);
 			onBeforeMount(() => {
 				Utils.setCssCdn();
 				Utils.setJsCdn();
+				if (!Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)) {
+					Utils.Storages.setLocalStorage(Utils.Constants.storageKey.themeConfig, themeConfig.value);
+					(config.i18n as unknown as string | null) = themeConfig.value.globalI18n;
+				}
 			});
 
 			onMounted(() => {
 				nextTick(() => {
 					initData();
 					if (Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)) {
-						storesThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig));
+						storeThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig));
 					}
 					proxy.mittBus.on("getI18nConfig", (local: string) => {
 						(config.i18n as unknown as string | null) = local;

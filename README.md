@@ -18,7 +18,8 @@ npm安装依赖包出现错误或安装失败，选择yarn安装 \
 
 # 对应包使用解释
 项目本身配置99%都在vite.config.ts里面，参数设置都在根目录下，而非src下 \
-src下的config目录是系统默认参数，及部分数据配置
+src下的config目录是系统默认参数，及部分数据配置 \
+为什么我用<script lang="ts">而不用step，这里手动控制下视图和可以访问的变量
 
 # 命名规范及解释
 1、命名遵循驼峰规则：demoUser \
@@ -43,9 +44,9 @@ src下的config目录是系统默认参数，及部分数据配置
 - [x] 基础插件配置，语法校验
 - [x] 多环境切换
 - [x] axios请求，取消请求
-- [x] 动态路由（同时支持静态路由配置，一切简便化）
-- [x] 国际化
-- [x] Element Icon、Iconify、IconFont使用
+- [x] 动态路由（同时支持静态路由配置，一切简化）
+- [x] 国际化目前用的vue-i18n
+- [x] 三个图标库Element Icon、Iconify、IconFont使用
 
 # 下一步
 - [ ] Mock

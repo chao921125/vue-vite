@@ -2,7 +2,7 @@
 	<div v-if="isColl" class="logo-full re-flex-row-center">
 		<el-link :underline="false" @click="toHome">
 			<i class="iconfont icon-shouye"></i>
-			<span class="re-m-l-10">LOGO NAME</span>
+			<span class="re-m-l-10">CC ADMIN</span>
 		</el-link>
 	</div>
 	<div v-else class="logo-only re-flex-row-center">
@@ -71,8 +71,7 @@
 			// 监听路由及状态，改变菜单
 			watch(
 				Pinia.state,
-				(value) => {
-					console.log(value);
+				() => {
 					setMenu();
 				},
 				{

@@ -17,8 +17,8 @@
 		// eslint-disable-next-line vue/no-reserved-component-names
 		name: "Iframe",
 		setup() {
-			const stores = useThemeConfig(Pinia);
-			const { themeConfig } = storeToRefs(stores);
+			const storeThemeConfig = useThemeConfig(Pinia);
+			const { themeConfig } = storeToRefs(storeThemeConfig);
 			const iframeHeight = computed(() => {
 				if (themeConfig.value.isTagsView) {
 					return "120px";

@@ -18,6 +18,7 @@ import "animate.css/animate.min.css";
 
 // UI element
 import ElementPlus from "element-plus";
+import { ElMessage } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
@@ -72,5 +73,6 @@ Object.keys(Icons).forEach((key) => {
 
 // 全局指令
 app.config.globalProperties.mittBus = mitt();
+app.config.globalProperties.elMessage = ElMessage;
 
 app.use(Pinia).use(Router).use(ElementPlus, { i18n: I18n.global.t }).use(I18n).mount("#app");
