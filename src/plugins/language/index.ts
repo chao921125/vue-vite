@@ -35,8 +35,8 @@ const messages = {
 };
 
 // 读取 pinia 默认语言
-const stores = useThemeConfig(Pinia);
-const { themeConfig } = storeToRefs(stores);
+const storeThemeConfig = useThemeConfig(Pinia);
+const { themeConfig } = storeToRefs(storeThemeConfig);
 
 // 导出语言国际化
 // https://vue-i18n.intlify.dev/guide/essentials/fallback.html#explicit-fallback-with-one-locale

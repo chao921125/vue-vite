@@ -17,7 +17,7 @@
 		</el-col>
 		<el-col :xs="24" :sm="12">
 			<div class="re-height-fill re-flex-row-reverse">
-				<el-dropdown ref="dropdownUser" trigger="contextmenu">
+				<el-dropdown ref="dropdownUser" trigger="hover">
 					<el-image
 						src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
 						fit="cover"
@@ -26,6 +26,10 @@
 					></el-image>
 					<template #dropdown>
 						<el-dropdown-menu>
+							<el-dropdown-item>
+								<el-icon><User></User></el-icon>
+								<span>个人中心</span>
+							</el-dropdown-item>
 							<el-dropdown-item @click="logout">
 								<el-icon><SwitchButton></SwitchButton></el-icon>
 								<span>退出登录</span>
@@ -34,60 +38,65 @@
 					</template>
 				</el-dropdown>
 				<div class="re-m-l-10">Admin</div>
-				<el-tooltip effect="dark" content="全屏" placement="bottom">
-					<i class="iconfont icon-fullscreen re-cursor-pointer re-m-l-10"></i>
+				<el-tooltip effect="dark" :content="isScreenFull ? '退出全屏' : '全屏'" placement="bottom">
+					<i v-if="isScreenFull" class="iconfont icon-fullscreen-exit re-cursor-pointer re-m-l-10" @click="changeScreenFull"></i>
+					<i v-else class="iconfont icon-fullscreen re-cursor-pointer re-m-l-10" @click="changeScreenFull"></i>
 				</el-tooltip>
 				<el-tooltip effect="dark" content="设置" placement="bottom">
 					<i class="iconfont icon-pifu re-cursor-pointer re-m-l-10" @click="isShowDrawer = true"></i>
 				</el-tooltip>
-				<el-tooltip effect="dark" content="国际化" placement="bottom">
-					<el-dropdown ref="dropdownComponents" trigger="contextmenu" @command="changeI18n">
-						<i class="iconfont icon-duoyuyan re-cursor-pointer re-m-l-10" @click="showDropdownComponents"></i>
-						<template #dropdown>
-							<el-dropdown-menu>
-								<el-dropdown-item v-for="(item, index) in i18ns" :key="index" :command="item.value">
-									<span>{{ item.label }}</span>
-								</el-dropdown-item>
-							</el-dropdown-menu>
-						</template>
-					</el-dropdown>
-				</el-tooltip>
-				<el-tooltip effect="dark" content="组件" placement="bottom">
-					<el-dropdown ref="dropdownLanguage" trigger="contextmenu">
-						<i class="iconfont icon-zujian2 re-cursor-pointer re-m-l-10" @click="showDropdownLanguage"></i>
-						<template #dropdown>
-							<el-dropdown-menu>
-								<el-dropdown-item @click="logout">
-									<span>默认</span>
-								</el-dropdown-item>
-								<el-dropdown-item @click="logout">
-									<span>大型</span>
-								</el-dropdown-item>
-								<el-dropdown-item @click="logout">
-									<span>小型</span>
-								</el-dropdown-item>
-							</el-dropdown-menu>
-						</template>
-					</el-dropdown>
-				</el-tooltip>
+				<el-dropdown ref="dropdownLanguage" trigger="hover" @command="changeI18n">
+					<i class="iconfont icon-duoyuyan re-cursor-pointer re-m-l-10" @click="showDropdownLanguage"></i>
+					<template #dropdown>
+						<el-dropdown-menu>
+							<el-dropdown-item v-for="(item, index) in i18ns" :key="index" :command="item.value">
+								<span>{{ item.label }}</span>
+							</el-dropdown-item>
+						</el-dropdown-menu>
+					</template>
+				</el-dropdown>
+				<el-dropdown ref="dropdownComponents" trigger="hover" @command="changeSize">
+					<i class="iconfont icon-zujian2 re-cursor-pointer re-m-l-10" @click="showDropdownComponents"></i>
+					<template #dropdown>
+						<el-dropdown-menu>
+							<el-dropdown-item v-for="(item, index) in sizes" :key="index" :command="item.value">
+								<span>{{ item.label }}</span>
+							</el-dropdown-item>
+						</el-dropdown-menu>
+					</template>
+				</el-dropdown>
 			</div>
 		</el-col>
 	</el-row>
 	<el-drawer v-model="isShowDrawer" title="system setting" :with-header="false">
-		<span>Hi there!</span>
+		<el-row :gutter="20" class="re-flex-row-center-ai">
+			<el-col :span="6" class="re-text-right">颜色</el-col>
+			<el-col :span="18"><el-color-picker v-model="colorPicker" @change="changeColorPicker" /></el-col>
+		</el-row>
+		<el-row :gutter="20" class="re-flex-row-center-ai">
+			<el-col :span="6" class="re-text-right">暗黑</el-col>
+			<el-col :span="18">
+				<el-switch v-model="themDark" inline-prompt active-text="是" inactive-text="否" />
+			</el-col>
+		</el-row>
+		<el-row :gutter="20" class="re-flex-row-center-ai">
+			<el-col :span="6" class="re-text-right">灰色</el-col>
+			<el-col :span="18"><el-color-picker v-model="colorPicker" @change="changeColorPicker" /></el-col>
+		</el-row>
 	</el-drawer>
 </template>
 
 <script lang="ts">
 	import { defineComponent, ref, computed, onMounted, getCurrentInstance } from "vue";
 	import { useRouter, useRoute, onBeforeRouteUpdate } from "vue-router";
+	import screenfull from "screenfull";
 	import Utils from "@/plugins/utils";
 	import RouterConfig from "@/config/routerConfig";
 	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
-	import I18nList from "@/config/languageConfig";
+	import ThemeSetConfig from "@/config/themeSetConfig";
 
 	export default defineComponent({
 		name: "Index",
@@ -145,14 +154,6 @@
 					});
 				});
 			};
-			onMounted(() => {
-				breadcrumbList.value = [];
-				initBreadcrumbList(route.path);
-			});
-			onBeforeRouteUpdate((to) => {
-				breadcrumbList.value = [];
-				initBreadcrumbList(to.path);
-			});
 			// 面包屑导航 end
 			// 个人中心 start
 			const { proxy } = <any>getCurrentInstance();
@@ -169,14 +170,28 @@
 				dropdownLanguage.value.handleOpen();
 			};
 			// i18n
-			const i18ns = I18nList.keys;
+			const i18ns = ThemeSetConfig.i18nKeys;
 			const changeI18n = (lang: string) => {
 				themeConfig.value.globalI18n = lang;
 				proxy.$i18n.locale = lang;
-				proxy.mittBus.emit('getI18nConfig', proxy.$i18n.messages[lang]);
+				proxy.mittBus.emit("getI18nConfig", proxy.$i18n.messages[lang]);
 				Utils.setTitle();
 				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.i18nLocal, lang);
 				setThemeConfig();
+			};
+			const sizes = ThemeSetConfig.sizeKeys;
+			const changeSize = (size: string) => {
+				themeConfig.value.globalComponentSize = size;
+				proxy.mittBus.emit("getSizeConfig", size);
+				setThemeConfig();
+			};
+			// 全名
+			const isScreenFull = ref(screenfull.isFullscreen);
+			const changeScreenFull = () => {
+				if (screenfull.isEnabled) {
+					isScreenFull.value = !isScreenFull.value;
+					screenfull.toggle();
+				}
 			};
 			// 退出
 			const router = useRouter();
@@ -187,25 +202,52 @@
 			};
 			// 个人中心 end
 
+			// 设置 start
+			const colorPicker = ref();
+			const changeColorPicker = () => {
+				console.log("color is ", colorPicker.value);
+			};
+			const themDark = ref();
+			// 设置 end
+
 			// 本地持久化配置
 			const setThemeConfig = () => {
 				Utils.Storages.removeLocalStorage(Utils.Constants.storageKey.themeConfig);
 				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.themeConfig, themeConfig.value);
 			};
 
+			onMounted(() => {
+				breadcrumbList.value = [];
+				initBreadcrumbList(route.path);
+				const localI18n = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal);
+				if (localI18n) {
+					changeI18n(localI18n);
+				}
+			});
+			onBeforeRouteUpdate((to) => {
+				breadcrumbList.value = [];
+				initBreadcrumbList(to.path);
+			});
 			return {
 				isColl,
 				changeCollapse,
 				isShowDrawer,
 				breadcrumbList,
 				dropdownUser,
-				dropdownComponents,
-				dropdownLanguage,
 				showDropdownUser,
+				dropdownComponents,
 				showDropdownComponents,
+				dropdownLanguage,
 				showDropdownLanguage,
 				i18ns,
 				changeI18n,
+				sizes,
+				changeSize,
+				isScreenFull,
+				changeScreenFull,
+				colorPicker,
+				changeColorPicker,
+				themDark,
 				logout,
 			};
 		},
@@ -213,9 +255,5 @@
 </script>
 
 <style scoped lang="scss">
-	.user-avatar {
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-	}
+	@import "./index.scss";
 </style>

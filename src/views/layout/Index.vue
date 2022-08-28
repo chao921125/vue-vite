@@ -1,33 +1,33 @@
 <template>
 	<el-container v-if="isAdmin" class="layout-container">
-		<el-aside class="layout-aside" :class="styleCollapse"><AdminMenu></AdminMenu></el-aside>
-		<el-container :class="{ 'bakctop-main': !isFixedHeader }">
+		<el-aside id="admin-aside" class="layout-aside" :class="styleCollapse"><AdminMenu></AdminMenu></el-aside>
+		<el-container id="admin-body" :class="{ 'admin-main': !isFixedHeader }">
 			<el-header v-if="isFixedHeader" :height="setHeaderHeight"><AdminHeader></AdminHeader></el-header>
-			<el-scrollbar ref="refScrollbarMain" :class="{ 'bakctop-main': isFixedHeader }">
+			<el-scrollbar ref="refScrollbarMain" :class="{ 'admin-main': isFixedHeader }">
 				<el-header v-if="!isFixedHeader" :height="setHeaderHeight"><AdminHeader></AdminHeader></el-header>
 				<el-main><router-view></router-view></el-main>
 				<el-footer v-if="isShowFooter"><AdminFooter></AdminFooter></el-footer>
 			</el-scrollbar>
-			<el-backtop target=".bakctop-main .el-scrollbar__wrap">
+			<el-backtop target=".admin-main .el-scrollbar__wrap">
 				<el-icon :size="20"><ArrowUpBold /></el-icon>
 			</el-backtop>
 		</el-container>
 	</el-container>
-	<el-container v-else class="layout-container" :class="{ 'bakctop-main': !isFixedHeader }">
+	<el-container v-else class="layout-container" :class="{ 'web-main': !isFixedHeader }">
 		<el-header v-if="isFixedHeader">Web 下因需求不同，请重写</el-header>
-		<el-scrollbar ref="refScrollbarMain" :class="{ 'bakctop-main': isFixedHeader }">
+		<el-scrollbar ref="refScrollbarMain" :class="{ 'web-main': isFixedHeader }">
 			<el-header v-if="!isFixedHeader">Web 下因需求不同，请重写</el-header>
 			<el-main><router-view></router-view></el-main>
 			<el-footer v-if="isShowFooter">Web 下因需求不同，请重写</el-footer>
 		</el-scrollbar>
-		<el-backtop target=".bakctop-main .el-scrollbar__wrap">
+		<el-backtop target=".web-main .el-scrollbar__wrap">
 			<el-icon :size="20"><ArrowUpBold /></el-icon>
 		</el-backtop>
 	</el-container>
 </template>
 
 <script lang="ts">
-	import { defineComponent, ref, getCurrentInstance, watch, onBeforeMount } from "vue";
+	import { defineComponent, ref, reactive, computed, getCurrentInstance, watch, onBeforeMount } from "vue";
 	import { useRoute } from "vue-router";
 	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
@@ -70,7 +70,7 @@
 					console.log("TODO 处理移动端");
 				} else {
 					// 管理端
-					if (isAdmin) {
+					if (isAdmin.value) {
 						if (isCollapse) return ["layout-aside-pc-64"];
 						else return ["layout-aside-pc-220"];
 					} else {

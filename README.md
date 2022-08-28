@@ -1,7 +1,14 @@
 ###### [**花里胡哨的不要，保证可用**]
+###### [Vite 插件](https://github.com/vitejs/awesome-vite)
+###### 收集好用的[VUE库](https://github.com/chao921125/web-study/blob/main/Document/VUE.MD)
 # 避坑指南 及 注意事项
 ## 开发问题 Typescript 和 TSX
-TS的泛型<T> 在结合 tsx 的时候使用as形式
+TS的泛型<T> 在结合 tsx 的时候使用as形式 \
+我建议的组合，大家仅当参考 \
+VUE + JS \
+VUE + TS \
+VUE + JSX \
+VUE + TSX
 ## 安装及打包
 避免使用vue-tsc，目前和typescript、jsx出现各种冲突 \
 使用pnpm安装包的时候需要修改package.json的文件，删除掉resolutions里面的// \
@@ -11,7 +18,8 @@ npm安装依赖包出现错误或安装失败，选择yarn安装 \
 
 # 对应包使用解释
 项目本身配置99%都在vite.config.ts里面，参数设置都在根目录下，而非src下 \
-src下的config目录是系统默认参数，及部分数据配置
+src下的config目录是系统默认参数，及部分数据配置 \
+为什么我用<script lang="ts">而不用step，这里手动控制下视图和可以访问的变量
 
 # 命名规范及解释
 1、命名遵循驼峰规则：demoUser \
@@ -36,9 +44,9 @@ src下的config目录是系统默认参数，及部分数据配置
 - [x] 基础插件配置，语法校验
 - [x] 多环境切换
 - [x] axios请求，取消请求
-- [x] 动态路由（同时支持静态路由配置，一切简便化）
-- [x] 国际化
-- [x] Element Icon、Iconify、IconFont使用
+- [x] 动态路由（同时支持静态路由配置，一切简化）
+- [x] 国际化目前用的vue-i18n
+- [x] 三个图标库Element Icon、Iconify、IconFont使用
 
 # 下一步
 - [ ] Mock
@@ -58,7 +66,3 @@ https://github.com/xiaoxian521/vue-pure-admin
 https://github.com/CharleeWa/vue3-vant-mobile
 
 https://github.com/LZHD/vue-vite-h5
-
-# [Vite 插件](https://github.com/vitejs/awesome-vite)
-
-# 收集好用的[VUE库](https://github.com/chao921125/web-study/blob/main/Document/VUE.MD)

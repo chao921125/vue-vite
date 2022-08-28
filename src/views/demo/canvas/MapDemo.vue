@@ -142,12 +142,6 @@
 				};
 			};
 			// 获取鼠标当前的坐标位置
-			const getMousePosCur = (event: any) => {
-				return {
-					x: event.offsetX,
-					y: event.offsetY,
-				};
-			};
 
 			// 注册事件、处理拖拽 缩放
 			const canvasEvent = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
@@ -182,7 +176,7 @@
 						canvasTarget.dragOffsetPosition = canvasPos;
 					}
 				};
-				canvas.onmouseup = (event: any) => {
+				canvas.onmouseup = () => {
 					canvas.style.cursor = "default";
 					if (canvasTarget.status !== initConfig.INIT) {
 						canvasTarget.status = initConfig.INIT;

@@ -9,7 +9,6 @@ import { createHtmlPlugin } from "vite-plugin-html";
 import ViteRestart from "vite-plugin-restart";
 // build 构建
 import { visualizer } from "rollup-plugin-visualizer";
-import vueJsx from "@vitejs/plugin-vue-jsx";
 // 向上兼容浏览器
 import legacy from "@vitejs/plugin-legacy";
 // CDN 配置
@@ -114,7 +113,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// 插件
 			vue(),
 			// * vite 可以使用 jsx/tsx 语法
-			vueJsx(),
 			WindiCSS(),
 			// * name 可以写在 script 标签上
 			VueSetupExtend(),

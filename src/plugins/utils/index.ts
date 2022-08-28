@@ -5,7 +5,7 @@ import Pinia from "@/store";
 import { useThemeConfig } from "@/store/modules/theme";
 import RouterConfig from "@/config/routerConfig";
 import I18n from "@/plugins/language";
-import LanguageConfig from "@/config/languageConfig";
+import ThemeSetConfig from "@/config/themeSetConfig";
 
 import Constants from "./constants";
 import Cookies from "./cookie";
@@ -28,8 +28,8 @@ const util: any = {
  * @param titleText
  */
 util.setTitle = async () => {
-	const stores = useThemeConfig(Pinia);
-	const { themeConfig } = storeToRefs(stores);
+	const storeThemeConfig = useThemeConfig(Pinia);
+	const { themeConfig } = storeToRefs(storeThemeConfig);
 	const globalTitle: string = themeConfig.value.globalTitle;
 	await nextTick(() => {
 		let title: any = "";
@@ -51,7 +51,7 @@ function setTitleI18n(value: any) {
 	let tagsViewName: any = "";
 	const { query, params, meta } = value;
 	if (query?.tagsViewName || params?.tagsViewName) {
-		if (LanguageConfig.key.test(query?.tagsViewName) || LanguageConfig.key.test(params?.tagsViewName)) {
+		if (ThemeSetConfig.i18nKey.test(query?.tagsViewName) || ThemeSetConfig.i18nKey.test(params?.tagsViewName)) {
 			// 国际化
 			const urlTagsParams = (query?.tagsViewName && JSON.parse(query?.tagsViewName)) || (params?.tagsViewName && JSON.parse(params?.tagsViewName));
 			tagsViewName = urlTagsParams[I18n.global.locale];
