@@ -244,20 +244,30 @@ https://hu-snail.github.io/vue3-resource/
 ## 剪切板
 [vue-clipboard2](https://www.npmjs.com/package/vue-clipboard2)
 
-## 动画
+## Loading动画
+[three-dots 等待效果](https://nzbin.github.io/three-dots/) \
+
+## 开屏渲染动画
 [animate css库](https://www.npmjs.com/package/animate.css/) [官网](https://animate.style/) \
 [gsap库](https://www.npmjs.com/package/gsap/) [官网](https://greensock.com/) \
 [vivify](http://vivify.mkcreative.cz/) \
-[angrytools](https://angrytools.com/) \
+[angrytools](https://angrytools.com/) | 
+[angrytools](https://angrytools.com/css/animation/) \
 [animista](https://animista.net/) \
 [minimamente](https://www.minimamente.com/project/magic/) \
 [vue-kinesis](https://www.npmjs.com/package/vue-kinesis@next) \
 [tsparticles 粒子动画](https://www.npmjs.com/package/tsparticles) \
 [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx) \
 [vue-page-transition 过渡](https://www.npmjs.com/package/vue-page-transition) \
-[three-dots 等待效果](https://nzbin.github.io/three-dots/) \
+[Animatopy](https://sarthology.github.io/Animatopy/) \
+[wickedCSS](https://github.com/kristofferandreasen/wickedCSS) \
+[cssanimation](https://github.com/yesiamrocks/cssanimation.io) \
+[]()
+
+## 鼠标动画
+[ianlunn 鼠标放上效果](https://github.com/IanLunn/Hover) | [官网](http://ianlunn.github.io/Hover/) \
+[animxyz](https://animxyz.com/) \
 [elrumordelaluz 鼠标放上效果](https://elrumordelaluz.github.io/reshake/) \
-[ianlunn 鼠标放上效果](http://ianlunn.github.io/Hover/) \
 
 [基本形状](https://csslayout.io/) \
 [案例 特效 1](https://codepen.io/) \
