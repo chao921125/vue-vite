@@ -32,7 +32,6 @@
 			const route = useRoute();
 			const initData = () => {
 				iframeObj.url = String(route.meta.address) || "";
-				console.log(iframeObj.url);
 				nextTick(() => {
 					iframeObj.loading = false;
 				});

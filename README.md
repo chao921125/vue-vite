@@ -39,6 +39,7 @@ src下的config目录是系统默认参数，及部分数据配置 \
 6、interface尽量抽取出来，且抽取到最小粒度
 # 配置解释
 大家根据使用的包来自行搜索下吧，大部分配置都是兼容、打包等
+1、不建议在本项目中使用自带的Link和Iframe，因为存在多个Link的时候出现问题，且点击Link后再切换Iframe有一个bug： \
 
 # 已完成
 - [x] 基础插件配置，语法校验
@@ -244,20 +245,30 @@ https://hu-snail.github.io/vue3-resource/
 ## 剪切板
 [vue-clipboard2](https://www.npmjs.com/package/vue-clipboard2)
 
-## 动画
+## Loading动画
+[three-dots 等待效果](https://nzbin.github.io/three-dots/) \
+
+## 开屏渲染动画
 [animate css库](https://www.npmjs.com/package/animate.css/) [官网](https://animate.style/) \
 [gsap库](https://www.npmjs.com/package/gsap/) [官网](https://greensock.com/) \
 [vivify](http://vivify.mkcreative.cz/) \
-[angrytools](https://angrytools.com/) \
+[angrytools](https://angrytools.com/) | 
+[angrytools](https://angrytools.com/css/animation/) \
 [animista](https://animista.net/) \
 [minimamente](https://www.minimamente.com/project/magic/) \
 [vue-kinesis](https://www.npmjs.com/package/vue-kinesis@next) \
 [tsparticles 粒子动画](https://www.npmjs.com/package/tsparticles) \
 [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx) \
 [vue-page-transition 过渡](https://www.npmjs.com/package/vue-page-transition) \
-[three-dots 等待效果](https://nzbin.github.io/three-dots/) \
+[Animatopy](https://sarthology.github.io/Animatopy/) \
+[wickedCSS](https://github.com/kristofferandreasen/wickedCSS) \
+[cssanimation](https://github.com/yesiamrocks/cssanimation.io) \
+[]()
+
+## 鼠标动画
+[ianlunn 鼠标放上效果](https://github.com/IanLunn/Hover) | [官网](http://ianlunn.github.io/Hover/) \
+[animxyz](https://animxyz.com/) \
 [elrumordelaluz 鼠标放上效果](https://elrumordelaluz.github.io/reshake/) \
-[ianlunn 鼠标放上效果](http://ianlunn.github.io/Hover/) \
 
 [基本形状](https://csslayout.io/) \
 [案例 特效 1](https://codepen.io/) \
