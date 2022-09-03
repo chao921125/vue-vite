@@ -5,23 +5,9 @@
 		<h2 v-show="!isShow" key="2">动画效果2</h2>
 	</transition-group>
 	<div v-html="htmlTest"></div>
-	<el-input
-		v-model="text"
-		maxlength="100"
-		:autosize="{ minRows: 4, maxRows: 8 }"
-		placeholder="Please input"
-		show-word-limit
-		type="textarea"
-	/>
+	<el-input v-model="text" maxlength="100" :autosize="{ minRows: 4, maxRows: 8 }" placeholder="Please input" show-word-limit type="textarea" />
 	<div v-html="textHtml"></div>
-	<el-input
-		v-model="textRe"
-		maxlength="100"
-		:autosize="{ minRows: 4, maxRows: 8 }"
-		placeholder="Please input"
-		show-word-limit
-		type="textarea"
-	/>
+	<el-input v-model="textRe" maxlength="100" :autosize="{ minRows: 4, maxRows: 8 }" placeholder="Please input" show-word-limit type="textarea" />
 </template>
 
 <script lang="ts">
@@ -48,14 +34,13 @@
 			const changeShow = () => {
 				isShow.value = !isShow.value;
 				textHtml.value = "";
-				console.log(text.value.toString())
-				if (text.value.replace(/\r\n/g, '|rn|').includes("|rn|")) {
-					textHtml.value = text.value.replace(/\r\n/g, '@rn@</br>');
+				if (text.value.replace(/\r\n/g, "|rn|").includes("|rn|")) {
+					textHtml.value = text.value.replace(/\r\n/g, "@rn@</br>");
 				}
-				if (text.value.replace(/\n/g, '|n|').includes("|n|")) {
-					textHtml.value = text.value.replace(/\n/g, '@n@</br>');
+				if (text.value.replace(/\n/g, "|n|").includes("|n|")) {
+					textHtml.value = text.value.replace(/\n/g, "@n@</br>");
 				}
-				textHtml.value = textHtml.value.replace(/@n@/g, '');
+				textHtml.value = textHtml.value.replace(/@n@/g, "");
 
 				textRe.value = textHtml.value.replace(/<\/br>/g, "\r\n");
 			};

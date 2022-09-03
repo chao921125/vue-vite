@@ -251,12 +251,11 @@ https://hu-snail.github.io/vue3-resource/
 ## 开屏渲染动画
 [animate css库](https://www.npmjs.com/package/animate.css/) [官网](https://animate.style/) \
 [gsap库](https://www.npmjs.com/package/gsap/) [官网](https://greensock.com/) \
-[vivify](http://vivify.mkcreative.cz/) \
 [angrytools](https://angrytools.com/) | 
 [angrytools](https://angrytools.com/css/animation/) \
 [animista](https://animista.net/) \
 [minimamente](https://www.minimamente.com/project/magic/) \
-[vue-kinesis](https://www.npmjs.com/package/vue-kinesis@next) \
+[vue-kinesis](https://www.npmjs.com/package/vue-kinesis) \
 [tsparticles 粒子动画](https://www.npmjs.com/package/tsparticles) \
 [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx) \
 [vue-page-transition 过渡](https://www.npmjs.com/package/vue-page-transition) \
