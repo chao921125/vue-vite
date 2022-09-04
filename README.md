@@ -1,6 +1,6 @@
 ###### [**花里胡哨的不要，保证可用**]
 ###### [Vite 插件](https://github.com/vitejs/awesome-vite)
-
+https://vuejs.org/
 # 避坑指南 及 注意事项
 ## 开发问题 Typescript 和 TSX
 TS的泛型<T> 在结合 tsx 的时候使用as形式 \
@@ -407,7 +407,7 @@ https://hu-snail.github.io/vue3-resource/
 [Unreal(C++) 这是一个追求画质的游戏引擎](https://www.unrealengine.com/zh-CN/)
 
 # vite 官方推荐项目
-https://github.com/cmdparkour/vue-admin-box.git
+https://github.com/cmdparkour/vue-admin-box
 
 https://github.com/vbenjs/vue-vben-admin
 
