@@ -64,13 +64,6 @@ src下的config目录是系统默认参数，及部分数据配置 \
 ## Vue 3 vite
 ##### [vue3-antd-admin](http://www.lelebk.com/docs/)
 ##### []()
-##### []()
-##### []()
-##### []()
-##### []()
-##### []()
-##### []()
-##### []()
 ## Vue 2
 ##### [Vue Antd Admin](https://iczer.gitee.io/vue-antd-admin-docs/)
 # 基础核心依赖 https://vue3js.cn/
@@ -126,12 +119,14 @@ https://hu-snail.github.io/vue3-resource/
 [小插件合集](https://madewith.cn/)
 ## UI 官方
 [element-plus](https://www.npmjs.com/package/element-plus) || PC [官网](https://element-plus.org/) \
+[arco 字节](https://www.npmjs.com/package/vuetify) || PC [官网](https://arco.design/) \
+[tdesign 腾讯多端UI](https://tdesign.tencent.com/) \
 [elementUI](https://www.npmjs.com/package/element-ui) || vue2 PC [官网](https://element.eleme.io/) \
 [ant-design-vue](https://www.npmjs.com/package/ant-design-vue) || PC 社区维护 请自行斟酌 [官网](https://2x.antdv.com/components/overview/) \
-[bootstrap-vue](https://www.npmjs.com/package/bootstrap-vue) || vue2 PC [官网](https://dev.bootstrap-vue.org/docs/) \
 [vuetifyjs](https://www.npmjs.com/package/vuetify) || PC [官网](https://vuetifyjs.com/) \
 [vuetifyjs](https://www.npmjs.com/package/vuetify) || PC [官网](https://next.vuetifyjs.com/en/) \
-[arco 字节](https://www.npmjs.com/package/vuetify) || PC [官网](https://arco.design/) \
+
+[bootstrap-vue](https://www.npmjs.com/package/bootstrap-vue) || vue2 PC [官网](https://dev.bootstrap-vue.org/docs/) \
 
 [vant@next](https://www.npmjs.com/package/vant) || M [官网](https://vant-contrib.gitee.io/vant/v3/) \
 [mui uni-app](https://www.npmjs.com/package/mui) || M [官网](https://dev.dcloud.net.cn/mui/) \
@@ -151,8 +146,6 @@ https://hu-snail.github.io/vue3-resource/
 [Vuestic UI](https://www.npmjs.com/package/vuestic-ui) || [官网](https://vuestic.dev/) \
 [iDux](https://www.npmjs.com/package/@idux/cdk) || [官网](https://idux.site/) \
 [relaxplus](https://www.npmjs.com/package/relaxplus) || [官网](https://bsie.gitee.io/relaxplus/#/) \
-
-[iviewui 付费](https://www.npmjs.com/package/ant-design-vue) || ？PC [官网](https://www.iviewui.com/)
 
 ## 静态UI PC H5
 [H5 zeptojs](https://www.zeptojs.com.cn/) \
@@ -417,3 +410,11 @@ https://github.com/xiaoxian521/vue-pure-admin
 https://github.com/CharleeWa/vue3-vant-mobile
 
 https://github.com/LZHD/vue-vite-h5
+
+# 由于其他因素相关的Web 库也放这里
+## UI
+[Bootstrap](https://getbootstrap.com/)
+[]()
+[]()
+
+
