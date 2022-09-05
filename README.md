@@ -128,10 +128,11 @@ https://hu-snail.github.io/vue3-resource/
 [element-plus](https://www.npmjs.com/package/element-plus) || PC [官网](https://element-plus.org/) \
 [elementUI](https://www.npmjs.com/package/element-ui) || vue2 PC [官网](https://element.eleme.io/) \
 [ant-design-vue](https://www.npmjs.com/package/ant-design-vue) || PC 社区维护 请自行斟酌 [官网](https://2x.antdv.com/components/overview/) \
-[bootstrap-vue](https://www.npmjs.com/package/bootstrap-vue) || vue2 PC [官网](https://dev.bootstrap-vue.org/docs/) \
 [vuetifyjs](https://www.npmjs.com/package/vuetify) || PC [官网](https://vuetifyjs.com/) \
 [vuetifyjs](https://www.npmjs.com/package/vuetify) || PC [官网](https://next.vuetifyjs.com/en/) \
 [arco 字节](https://www.npmjs.com/package/vuetify) || PC [官网](https://arco.design/) \
+
+[bootstrap-vue](https://www.npmjs.com/package/bootstrap-vue) || vue2 PC [官网](https://dev.bootstrap-vue.org/docs/) \
 
 [vant@next](https://www.npmjs.com/package/vant) || M [官网](https://vant-contrib.gitee.io/vant/v3/) \
 [mui uni-app](https://www.npmjs.com/package/mui) || M [官网](https://dev.dcloud.net.cn/mui/) \
@@ -417,3 +418,11 @@ https://github.com/xiaoxian521/vue-pure-admin
 https://github.com/CharleeWa/vue3-vant-mobile
 
 https://github.com/LZHD/vue-vite-h5
+
+# 由于其他因素相关的Web 库也放这里
+## UI
+[Bootstrap](https://getbootstrap.com/)
+[]()
+[]()
+
+
