@@ -37,17 +37,15 @@
 			});
 
 			onMounted(() => {
-				nextTick(() => {
-					initData();
-					if (Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)) {
-						storeThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig));
-					}
-					proxy.mittBus.on("getI18nConfig", (local: string) => {
-						(config.i18n as unknown as string | null) = local;
-					});
-					proxy.mittBus.on("getSizeConfig", (size: string) => {
-						config.size = size;
-					});
+				initData();
+				if (Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)) {
+					storeThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig));
+				}
+				proxy.mittBus.on("getI18nConfig", (local: string) => {
+					(config.i18n as unknown as string | null) = local;
+				});
+				proxy.mittBus.on("getSizeConfig", (size: string) => {
+					config.size = size;
 				});
 			});
 
