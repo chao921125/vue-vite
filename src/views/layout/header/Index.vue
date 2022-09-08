@@ -81,7 +81,9 @@
 		</el-row>
 		<el-row :gutter="20" class="re-flex-row-center-ai">
 			<el-col :span="6" class="re-text-right">灰色</el-col>
-			<el-col :span="18"><el-color-picker v-model="colorPicker" @change="changeColorPicker" /></el-col>
+			<el-col :span="18">
+				<el-switch v-model="themDark" inline-prompt :active-icon="Sunny" :inactive-icon="Moon" />
+			</el-col>
 		</el-row>
 	</el-drawer>
 </template>
@@ -97,6 +99,7 @@
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
 	import ThemeSetConfig from "@/config/themeSetConfig";
+	import { Sunny, Moon } from "@element-plus/icons-vue";
 
 	export default defineComponent({
 		name: "Index",
@@ -248,6 +251,8 @@
 				colorPicker,
 				changeColorPicker,
 				themDark,
+				Sunny,
+				Moon,
 				logout,
 			};
 		},
