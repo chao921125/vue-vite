@@ -1,5 +1,6 @@
 <template>
 	<el-row :gutter="10" justify="space-between" class="re-height-fill">
+<!--		面包屑导航-->
 		<el-col :xs="24" :sm="12">
 			<div class="re-height-fill re-flex-row-center-ai">
 				<el-icon @click="changeCollapse" class="re-cursor-pointer" :size="18">
@@ -15,6 +16,7 @@
 				</el-breadcrumb>
 			</div>
 		</el-col>
+<!--		右侧快捷栏-->
 		<el-col :xs="24" :sm="12">
 			<div class="re-height-fill re-flex-row-reverse">
 				<el-dropdown ref="dropdownUser" trigger="hover">
@@ -68,20 +70,23 @@
 			</div>
 		</el-col>
 	</el-row>
-	<el-drawer v-model="isShowDrawer" title="system setting" :with-header="false">
-		<el-row :gutter="20" class="re-flex-row-center-ai">
-			<el-col :span="6" class="re-text-right">颜色</el-col>
-			<el-col :span="18"><el-color-picker v-model="colorPicker" @change="changeColorPicker" /></el-col>
+	<el-drawer v-model="isShowDrawer" title="主题设置" size="300px">
+<!--		<template #header></template>-->
+		<el-row :gutter="20" class="re-flex-row-center-ai" justify="space-between">
+			<el-col :span="6" class="re-text-left">颜色</el-col>
+			<el-col :span="18" class="re-text-right"><el-color-picker v-model="colorPicker" @change="changeColorPicker" /></el-col>
 		</el-row>
-		<el-row :gutter="20" class="re-flex-row-center-ai">
-			<el-col :span="6" class="re-text-right">暗黑</el-col>
-			<el-col :span="18">
-				<el-switch v-model="themDark" inline-prompt active-text="是" inactive-text="否" />
+		<el-row :gutter="20" class="re-flex-row-center-ai" justify="space-between">
+			<el-col :span="6" class="re-text-left">暗黑</el-col>
+			<el-col :span="18" class="re-text-right">
+				<el-switch v-model="isThemDark" inline-prompt :active-icon="Sunny" :inactive-icon="Moon" />
 			</el-col>
 		</el-row>
-		<el-row :gutter="20" class="re-flex-row-center-ai">
-			<el-col :span="6" class="re-text-right">灰色</el-col>
-			<el-col :span="18"><el-color-picker v-model="colorPicker" @change="changeColorPicker" /></el-col>
+		<el-row :gutter="20" class="re-flex-row-center-ai" justify="space-between">
+			<el-col :span="6" class="re-text-left">灰色</el-col>
+			<el-col :span="18" class="re-text-right">
+				<el-switch v-model="isThemGrey" inline-prompt />
+			</el-col>
 		</el-row>
 	</el-drawer>
 </template>
@@ -97,14 +102,16 @@
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
 	import ThemeSetConfig from "@/config/themeSetConfig";
+	import { Sunny, Moon } from "@element-plus/icons-vue";
+	import Template from "@/views/Template.vue";
 
 	export default defineComponent({
 		name: "Index",
+		components: {Template},
 		setup() {
-			let isShowDrawer = ref(false);
-			// 折叠菜单 start
 			const storeThemeConfig = useThemeConfig(Pinia);
 			const { themeConfig } = storeToRefs(storeThemeConfig);
+			// 折叠菜单 start
 			const isColl = computed(() => {
 				let { isCollapse } = themeConfig.value;
 				return !isCollapse;
@@ -115,10 +122,10 @@
 			};
 			// 折叠菜单 end
 			// 面包屑导航 start
-			const breadcrumbList = ref<any[]>([]);
+			const route = useRoute();
 			const storesRouterList = useRouterList(Pinia);
 			const { menuList } = storeToRefs(storesRouterList);
-			const route = useRoute();
+			const breadcrumbList = ref<any[]>([]);
 			const initBreadcrumbList = (path: string) => {
 				if (RouterConfig.executeList.includes(path)) {
 					breadcrumbList.value.push({
@@ -179,13 +186,16 @@
 				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.i18nLocal, lang);
 				setThemeConfig();
 			};
+			// 组件大小
 			const sizes = ThemeSetConfig.sizeKeys;
 			const changeSize = (size: string) => {
 				themeConfig.value.globalComponentSize = size;
 				proxy.mittBus.emit("getSizeConfig", size);
 				setThemeConfig();
 			};
-			// 全名
+			// 设置
+			const isShowDrawer = ref(false);
+			// 全屏
 			const isScreenFull = ref(screenfull.isFullscreen);
 			const changeScreenFull = () => {
 				if (screenfull.isEnabled) {
@@ -202,13 +212,26 @@
 			};
 			// 个人中心 end
 
-			// 设置 start
+			// 设置 抽屉 start
 			const colorPicker = ref();
 			const changeColorPicker = () => {
 				console.log("color is ", colorPicker.value);
 			};
-			const themDark = ref();
-			// 设置 end
+			const isThemDark = ref();
+			const changeDark = () => {
+				console.log(isThemDark);
+				changeThemColor("");
+			}
+			const isThemGrey = ref();
+			const changeGrey = () => {
+				console.log(isThemDark);
+				changeThemColor("");
+			}
+			const changeThemColor = (themColor: string) => {
+				const body = document.documentElement as HTMLElement;
+				body.setAttribute("", themColor);
+			}
+			// 设置 抽屉 end
 
 			// 本地持久化配置
 			const setThemeConfig = () => {
@@ -216,6 +239,7 @@
 				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.themeConfig, themeConfig.value);
 			};
 
+			// 渲染调用
 			onMounted(() => {
 				breadcrumbList.value = [];
 				initBreadcrumbList(route.path);
@@ -231,7 +255,6 @@
 			return {
 				isColl,
 				changeCollapse,
-				isShowDrawer,
 				breadcrumbList,
 				dropdownUser,
 				showDropdownUser,
@@ -245,9 +268,15 @@
 				changeSize,
 				isScreenFull,
 				changeScreenFull,
+				isShowDrawer,
 				colorPicker,
 				changeColorPicker,
-				themDark,
+				isThemDark,
+				changeDark,
+				isThemGrey,
+				changeGrey,
+				Sunny,
+				Moon,
 				logout,
 			};
 		},

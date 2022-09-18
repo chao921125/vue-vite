@@ -47,8 +47,8 @@ export interface RouterListState {
 // 布局配置
 export interface ThemeConfigState {
 	primary: string;
-	isIsDark: boolean;
-	isGrayscale: boolean;
+	isDark: boolean;
+	isGrey: boolean;
 	isInvert: boolean;
 	isCollapse: boolean;
 	isUniqueOpened: boolean;
