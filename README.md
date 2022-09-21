@@ -1,5 +1,6 @@
 ###### [**花里胡哨的不要，保证可用**]
 ###### [Vite 插件](https://github.com/vitejs/awesome-vite)
+https://github.com/cuixiaorui/mini-vue \
 https://vuejs.org/
 # 避坑指南 及 注意事项
 ## 开发问题 Typescript 和 TSX
