@@ -399,13 +399,6 @@ https://hu-snail.github.io/vue3-resource/
 [Cocos(C/TS) 2D、2.5大佬！](https://www.unrealengine.com/zh-CN/) \
 [Unreal(C++) 这是一个追求画质的游戏引擎](https://www.unrealengine.com/zh-CN/)
 
-# vite 官方推荐项目
-https://github.com/cmdparkour/vue-admin-box
-
-https://github.com/vbenjs/vue-vben-admin
-
-https://github.com/xiaoxian521/vue-pure-admin
-
 # 移动端推荐
 [vant](https://github.com/CharleeWa/vue3-vant-mobile) \
 [Tencent](https://github.com/Tencent/weui/) \
@@ -424,7 +417,40 @@ https://github.com/xiaoxian521/vue-pure-admin
 # 由于其他因素相关的Web 库也放这里
 ## UI
 [Bootstrap](https://getbootstrap.com/)
-[]()
-[]()
+[heyui](https://v2.heyui.top/)
+[varletjs](https://github.com/varletjs/varlet) | [varletjs](https://varlet-varletjs.vercel.app/#/en-US/home)
 
+https://github.com/lin-xin/vue-manage-system \
+https://github.com/vbenjs/vue-vben-admin \
+https://github.com/xiaoxian521/vue-pure-admin \
+https://github.com/jekip/naive-ui-admin \
+https://github.com/HalseySpicy/Geeker-Admin \
+https://github.com/newbee-ltd/vue3-admin \
+https://github.com/buqiyuan/vite-vue3-admin \
+https://github.com/buqiyuan/vite-vue3-lowcode \
+https://github.com/RainManGO/vue3-composition-admin/tree/vite \
+https://github.com/cmdparkour/vue-admin-box \
+https://github.com/GeekQiaQia/vue3.0-template-admin \
+https://github.com/jeecgboot/jeecgboot-vue3 \
+https://github.com/lyt-Top/vue-next-admin \
+https://github.com/jzfai/vue3-admin-plus \
+https://github.com/tobe-fe-dalao/fast-vue3 \
+https://github.com/XPoet/vite-vue3-starter \
+https://github.com/nekobc1998923/vitecamp \
+https://github.com/gmingchen/vue3-element-plus-admin/tree/vite-pinia \
+https://github.com/xxxsf/vue3-h5-template \
 
+## doc
+https://github.com/sl1673495/blogs \
+https://github.com/cuixiaorui/mini-vue \
+
+## project
+https://github.com/geekskai/vue3-jd-h5 \
+https://github.com/biubiubiu01/vue3-bigData \
+https://github.com/jeecgboot/jeecg-boot \
+https://github.com/flipped-aurora/gin-vue-admin \
+https://github.com/biaochenxuying/blog-vue-typescript \
+https://github.com/Yin-Hongwei/music-website \
+https://github.com/pipipi-pikachu/PPTist \
+https://github.com/Codennnn/vue-color-avatar \
+https://github.com/youlaitech/youlai-mall \

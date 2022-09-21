@@ -1,9 +1,10 @@
 # Project directories
+node_modules
 dist
 dist-ssr
 tests
 test
-node_modules
+*.local
 
 # auto file when run serve
 auto-imports.d.ts
@@ -17,10 +18,17 @@ components.d.ts
 logs
 *.log
 *.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
 # Editor directories and files
 .DS_Store
 .hbuilderx
+.vscode/*
+!.vscode/extensions.json
 .idea
 .vscode
 .project
