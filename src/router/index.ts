@@ -179,15 +179,15 @@ function routeToComponent(routes: any[]) {
 	});
 }
 
-function componentImport(dynamicViewsModules: Record<string, Function>, component: string) {
-	const keys = Object.keys(dynamicViewsModules);
+function componentImport(viewsModules: Record<string, Function>, component: string) {
+	const keys = Object.keys(viewsModules);
 	const matchKeys = keys.filter((key) => {
 		const k = key.replace(/..\/views|../, "");
 		return k.startsWith(`${component}`) || k.startsWith(`/${component}`);
 	});
 	if (matchKeys?.length === 1) {
 		const matchKey = matchKeys[0];
-		return dynamicViewsModules[matchKey];
+		return viewsModules[matchKey];
 	}
 	if (matchKeys?.length > 1) {
 		return false;
