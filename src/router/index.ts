@@ -41,17 +41,14 @@ router.beforeEach(async (to, from, next) => {
 	if (to.meta.title) NProgress.start();
 	const token = Utils.Storages.getSessionStorage(Utils.Constants.storageKey.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKey.token);
 	if (RouterConfig.whiteList.includes(to.path) && !token) {
-		next();
-		NProgress.done();
+		next(to.path);
 	} else {
 		if (!token || token === "undefined") {
 			next(`${RouterConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
 			Utils.Storages.removeSessionStorage(Utils.Constants.storageKey.token);
 			Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
-			NProgress.done();
 		} else if (token && (RouterConfig.whiteList.includes(to.path) || to.path === RouterConfig.routeRoot)) {
 			next(RouterConfig.routeHome);
-			NProgress.done();
 		} else {
 			const storesRouterList = useRouterList(Pinia);
 			const { routerList } = storeToRefs(storesRouterList);
@@ -67,13 +64,12 @@ router.beforeEach(async (to, from, next) => {
 				// 动态添加路由：防止非首页刷新时跳转回首页的问题
 				// 确保 addRoute() 时动态添加的路由已经被完全加载上去
 				next({ ...to, replace: true });
-				NProgress.done();
 			} else {
 				next();
-				NProgress.done();
 			}
 		}
 	}
+	NProgress.done();
 });
 
 // 路由加载后，关闭loading
