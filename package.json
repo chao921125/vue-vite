@@ -1,10 +1,9 @@
 {
   "name": "vue3-vite",
   "description": "vue3-vite",
-  "main": "vue3-vite",
-  "author": "vue3-vite",
+  "version": "0.0.10",
   "private": true,
-  "version": "1.5.3",
+  "type": "module",
   "scripts": {
     "reinstall": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
     "serve": "npm run dev",
@@ -185,19 +184,33 @@
     "yargs": "^17.5.1"
   },
   "resolutions": {
-    "//": "Used to install imagemin dependencies, because imagemin may not be installed in China.If it is abroad, you can delete it",
     "bin-wrapper": "npm:bin-wrapper-china",
     "ecstatic": "4.1.4",
     "rollup": "^2.56.3",
     "gifsicle": "5.2.0"
   },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "rollup",
+        "webpack"
+      ]
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
+  ],
+  "license": "MIT",
+  "author": "vue3-vite",
+  "homepage": "https://github.com/vitejs/awesome-vite#plugins",
+  "main": "vue3-vite",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/vitejs/awesome-vite#plugins"
   },
-  "license": "MIT",
   "bugs": {
-    "url": ""
-  },
-  "homepage": ""
+    "url": "https://github.com/vitejs/awesome-vite#plugins"
+  }
 }
