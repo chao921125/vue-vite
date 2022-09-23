@@ -12,7 +12,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 // 向上兼容浏览器
 import legacy from "@vitejs/plugin-legacy";
 // CDN 配置
-import importToCDN from "vite-plugin-cdn-import";
+import PluginImportToCDN from "vite-plugin-cdn-import";
 import VueSetupExtend from "vite-plugin-vue-setup-extend";
 import viteCompression from "vite-plugin-compression";
 import WindiCSS from "vite-plugin-windicss";
@@ -90,7 +90,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			cors: true, // boolean | CorsOptions
 			// headers: false, // OutgoingHttpHeaders 指定服务器响应的 header
 			// force: false, // boolean 依赖构建
-			// hmr: false, // boolean | { protocol?: string, host?: string, port?: number, path?: string, timeout?: number, overlay?: boolean }
+			hmr: true, // boolean | { protocol?: string, host?: string, port?: number, path?: string, timeout?: number, overlay?: boolean }
 			// watch: "", // object
 			// middlewareMode: "",
 			// fs: {
@@ -138,7 +138,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
 			// * cdn 引入（vue、element-plus）
-			importToCDN({
+			PluginImportToCDN({
 				modules: [
 					// vue按需引入会导致依赖vue的插件出现问题(列如:pinia/vuex)
 					// {
