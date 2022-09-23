@@ -1,6 +1,24 @@
 {
+  /* Visit https://aka.ms/tsconfig.json to read more about this file */
   "compilerOptions": {
-		/* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": [
+      "ESNext",
+      "DOM",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "skipLibCheck": true,
+
     "forceConsistentCasingInFileNames": true,
     "strictFunctionTypes": false,
     "allowJs": true,
@@ -8,19 +26,10 @@
     "noUnusedParameters": true,
     "experimentalDecorators": true,
     "incremental": false,
-    "isolatedModules": true,
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
     "noLib": false,
-//    "jsx": "preserve",
+    //    "jsx": "preserve",
     "importHelpers": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "sourceMap": true,
     "baseUrl": ".",
     "types": [
       "vite/client"
@@ -32,12 +41,6 @@
       "/@/*": ["src/*"],
       "/#/*": ["class/*"]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ],
     "noImplicitAny": false,
     "removeComments": true
   },
@@ -47,14 +50,22 @@
     }
   ],
   "include": [
+    "src/**/*.js",
     "src/**/*.ts",
+    "src/**/*.d.js",
     "src/**/*.d.ts",
+    "src/**/*.jsx",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "tests/**/*.js",
     "tests/**/*.ts",
+    "tests/**/*.d.js",
+    "tests/**/*.d.ts",
+    "tests/**/*.jsx",
     "tests/**/*.tsx",
-    "types/**/*.d.ts",
+    "tests/**/*.vue",
     "types/**/*.ts",
+    "types/**/*.d.ts",
     "config/**/*.ts",
     "config/**/*.d.ts",
     "mock/**/*.ts",
@@ -64,5 +75,7 @@
   ],
   "exclude": [
     "node_modules", "dist", "**/*.js", "tests"
-  ]
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }],
+
 }
