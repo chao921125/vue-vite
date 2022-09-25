@@ -1,6 +1,6 @@
 <template>
 	<el-row :gutter="10" justify="space-between" class="re-height-fill">
-<!--		面包屑导航-->
+		<!--		面包屑导航-->
 		<el-col :xs="24" :sm="12">
 			<div class="re-height-fill re-flex-row-center-ai">
 				<el-icon @click="changeCollapse" class="re-cursor-pointer" :size="18">
@@ -16,7 +16,7 @@
 				</el-breadcrumb>
 			</div>
 		</el-col>
-<!--		右侧快捷栏-->
+		<!--		右侧快捷栏-->
 		<el-col :xs="24" :sm="12">
 			<div class="re-height-fill re-flex-row-reverse">
 				<el-dropdown ref="dropdownUser" trigger="hover">
@@ -70,8 +70,8 @@
 			</div>
 		</el-col>
 	</el-row>
-	<el-drawer v-model="isShowDrawer" title="主题设置" size="300px">
-<!--		<template #header></template>-->
+	<el-drawer v-model="isShowDrawer" title="主题设置" size="20%">
+		<!--		<template #header></template>-->
 		<el-row :gutter="20" class="re-flex-row-center-ai" justify="space-between">
 			<el-col :span="6" class="re-text-left">颜色</el-col>
 			<el-col :span="18" class="re-text-right"><el-color-picker v-model="colorPicker" @change="changeColorPicker" /></el-col>
@@ -79,13 +79,19 @@
 		<el-row :gutter="20" class="re-flex-row-center-ai" justify="space-between">
 			<el-col :span="6" class="re-text-left">暗黑</el-col>
 			<el-col :span="18" class="re-text-right">
-				<el-switch v-model="isThemDark" inline-prompt :active-icon="Sunny" :inactive-icon="Moon" />
+				<el-switch v-model="isThemDark" inline-prompt disabled :active-icon="Sunny" :inactive-icon="Moon" @change="changeDark" />
 			</el-col>
 		</el-row>
 		<el-row :gutter="20" class="re-flex-row-center-ai" justify="space-between">
 			<el-col :span="6" class="re-text-left">灰色</el-col>
 			<el-col :span="18" class="re-text-right">
-				<el-switch v-model="isThemGrey" inline-prompt />
+				<el-switch v-model="isThemGrey" inline-prompt @change="changeGrey" />
+			</el-col>
+		</el-row>
+		<el-row :gutter="20" class="re-flex-row-center-ai" justify="space-between">
+			<el-col :span="6" class="re-text-left">色弱</el-col>
+			<el-col :span="18" class="re-text-right">
+				<el-switch v-model="isThemInvert" inline-prompt @change="changeInvert" />
 			</el-col>
 		</el-row>
 	</el-drawer>
@@ -96,18 +102,16 @@
 	import { useRouter, useRoute, onBeforeRouteUpdate } from "vue-router";
 	import screenfull from "screenfull";
 	import Utils from "@/plugins/utils";
-	import RouterConfig from "@/config/routerConfig";
+	import ThemeSetConfig from "@/config/themeSetConfig";
+	import RouterSetConfig from "@/config/routerSetConfig";
 	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
-	import ThemeSetConfig from "@/config/themeSetConfig";
 	import { Sunny, Moon } from "@element-plus/icons-vue";
-	import Template from "@/views/Template.vue";
 
 	export default defineComponent({
 		name: "Index",
-		components: {Template},
 		setup() {
 			const storeThemeConfig = useThemeConfig(Pinia);
 			const { themeConfig } = storeToRefs(storeThemeConfig);
@@ -127,7 +131,7 @@
 			const { menuList } = storeToRefs(storesRouterList);
 			const breadcrumbList = ref<any[]>([]);
 			const initBreadcrumbList = (path: string) => {
-				if (RouterConfig.executeList.includes(path)) {
+				if (RouterSetConfig.executeList.includes(path)) {
 					breadcrumbList.value.push({
 						name: menuList.value[0].path,
 						title: menuList.value[0].title,
@@ -208,7 +212,7 @@
 			const logout = () => {
 				Utils.Storages.removeSessionStorage(Utils.Constants.storageKey.token);
 				Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
-				router.push({ path: RouterConfig.routeLogin });
+				router.push({ path: RouterSetConfig.routeLogin });
 			};
 			// 个人中心 end
 
@@ -218,19 +222,36 @@
 				console.log("color is ", colorPicker.value);
 			};
 			const isThemDark = ref();
-			const changeDark = () => {
-				console.log(isThemDark);
-				changeThemColor("");
-			}
+			const changeDark = (e) => {
+				themeConfig.value.isDark = e;
+				setThemeConfig();
+				let html = document.documentElement as HTMLElement;
+				if (e) {
+					html.setAttribute("class", "dark");
+				} else {
+					html.removeAttribute("class");
+				}
+			};
 			const isThemGrey = ref();
-			const changeGrey = () => {
-				console.log(isThemDark);
-				changeThemColor("");
-			}
-			const changeThemColor = (themColor: string) => {
-				const body = document.documentElement as HTMLElement;
-				body.setAttribute("", themColor);
-			}
+			const changeGrey = (e) => {
+				themeConfig.value.isGrey = e;
+				setThemeConfig();
+				if (e) {
+					document.querySelector("body")!.setAttribute("style", `filter: grayscale(1)`);
+				} else {
+					document.querySelector("body")!.removeAttribute("style");
+				}
+			};
+			const isThemInvert = ref();
+			const changeInvert = (e) => {
+				themeConfig.value.isInvert = e;
+				setThemeConfig();
+				if (e) {
+					document.querySelector("body")!.setAttribute("style", `filter: invert(1)`);
+				} else {
+					document.querySelector("body")!.removeAttribute("style");
+				}
+			};
 			// 设置 抽屉 end
 
 			// 本地持久化配置
@@ -239,8 +260,15 @@
 				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.themeConfig, themeConfig.value);
 			};
 
+			const initData = () => {
+				isThemGrey.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)?.isGrey || false;
+				changeGrey(isThemGrey.value);
+				isThemInvert.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)?.isInvert || false;
+				changeInvert(isThemInvert.value);
+			};
 			// 渲染调用
 			onMounted(() => {
+				initData();
 				breadcrumbList.value = [];
 				initBreadcrumbList(route.path);
 				const localI18n = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal);
@@ -275,6 +303,8 @@
 				changeDark,
 				isThemGrey,
 				changeGrey,
+				isThemInvert,
+				changeInvert,
 				Sunny,
 				Moon,
 				logout,

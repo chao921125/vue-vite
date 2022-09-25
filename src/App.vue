@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-	import { defineComponent, getCurrentInstance, reactive, onBeforeMount, onMounted, onUnmounted, watch, nextTick } from "vue";
+	import { defineComponent, getCurrentInstance, reactive, onBeforeMount, onMounted, onUnmounted, watch } from "vue";
 	import { useRoute } from "vue-router";
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
@@ -48,6 +48,9 @@
 					config.size = size;
 				});
 			});
+			const initData = () => {
+				config.i18n = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal);
+			};
 
 			onUnmounted(() => {
 				proxy.mittBus.off("getI18nConfig");
@@ -64,9 +67,6 @@
 				},
 			);
 
-			const initData = () => {
-				config.i18n = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal);
-			};
 			return {
 				config,
 			};

@@ -1,15 +1,15 @@
 @font-face {
 	font-family: "PingFang";
-	src: url("./PingFangBold.ttf"), url("./PingFangExtraLight.ttf"), url("./PingFangHeavy.ttf"), url("./PingFangLight.ttf"), url("./PingFangMedium.ttf"),
-		url("./PingFangRegular.ttf");
+	src: url("./PingFang_Bold.ttf"), url("./PingFang_ExtraLight.ttf"), url("./PingFang_Heavy.ttf"), url("./PingFang_Light.ttf"), url("./PingFang_Medium.ttf"),
+		url("./PingFang_Regular.ttf");
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "PingFangSC-Regular";
-	src: url("./PingFangBold.ttf"), url("./PingFangExtraLight.ttf"), url("./PingFangHeavy.ttf"), url("./PingFangLight.ttf"), url("./PingFangMedium.ttf"),
-		url("./PingFangRegular.ttf");
+	src: url("./PingFang_Bold.ttf"), url("./PingFang_ExtraLight.ttf"), url("./PingFang_Heavy.ttf"), url("./PingFang_Light.ttf"), url("./PingFang_Medium.ttf"),
+		url("./PingFang_Regular.ttf");
 	font-weight: normal;
 	font-style: normal;
 }

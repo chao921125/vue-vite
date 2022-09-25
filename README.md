@@ -309,7 +309,6 @@ https://hu-snail.github.io/vue3-resource/
 ## 绘图 3D
 [three.js](https://www.npmjs.com/package/three) || three.js
 
-
 ## 代码提交信息校验 -D
 [husky](https://www.npmjs.com/package/husky) \
 [commitizen](https://www.npmjs.com/package/commitizen) \
@@ -387,9 +386,6 @@ https://hu-snail.github.io/vue3-resource/
 # 好玩的？
 [水墨文档](https://github.com/huangwei9527/Ink-wash-docs) \
 [聊天](https://www.npmjs.com/package/vue-beautiful-chat)
-
-# 转战游戏？
-## HTML？前端走一波
 
 [createjs](https://www.createjs.com/) \
 [Phaser 还有人用吗？](https://www.phaser-china.com/)

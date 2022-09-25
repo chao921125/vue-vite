@@ -3,7 +3,6 @@
   "description": "vue3-vite",
   "version": "0.0.10",
   "private": true,
-  "type": "module",
   "scripts": {
 		"serve": "npm run dev",
 		"dev": "vite --mode development --host",

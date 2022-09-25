@@ -1,4 +1,5 @@
 export default {
+	i18nDef: process.env.VITE_LOCAL,
 	i18nKey: /\/zh-cn|en-us|zh-tw\//,
 	i18nKeys: [
 		{

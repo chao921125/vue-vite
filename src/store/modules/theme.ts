@@ -11,7 +11,7 @@ export const useThemeConfig = defineStore("themeConfig", {
 			globalI18n: "zh-cn",
 			// 默认全局组件大小，可选值"<large|'default'|small>"，默认 'large'
 			globalComponentSize: "default",
-			globalTitle: "CC ADMIN",
+			globalTitle: "",
 			// 默认 primary 主题颜色
 			primary: "#409eff",
 			// 是否开启深色模式
