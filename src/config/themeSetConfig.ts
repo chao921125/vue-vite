@@ -7,10 +7,6 @@ export default {
 			value: "zh-cn",
 		},
 		{
-			label: "中文繁体",
-			value: "zh-tw",
-		},
-		{
 			label: "English",
 			value: "en",
 		},
