@@ -423,6 +423,11 @@ https://hu-snail.github.io/vue3-resource/
 [heyui](https://v2.heyui.top/)
 [varletjs](https://github.com/varletjs/varlet) | [varletjs](https://varlet-varletjs.vercel.app/#/en-US/home)
 
+## Admin server & Web
+https://github.com/jeecgboot \
+https://github.com/flipped-aurora \
+https://gitee.com/likeadmin \
+
 ## Admin vite
 https://github.com/vbenjs/vue-vben-admin \
 https://github.com/xiaoxian521/vue-pure-admin \
