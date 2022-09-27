@@ -9,7 +9,7 @@
     "test": "vite --mode test --host",
     "prod": "vite --mode production --host",
     "preview": "vite preview",
-		"prepare": "husky install",
+    "prepare": "husky install",
     "build": "vue-tsc --noEmit --skipLibCheck && vite build --mode production",
     "build:dev": "vue-tsc --noEmit --skipLibCheck && vite build --mode development",
     "build:test": "vue-tsc --noEmit --skipLibCheck && vite build --mode test",
@@ -21,8 +21,8 @@
     "lint:prettier": "prettier --write --fix --loglevel warn \"./**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:lint-staged": "lint-staged",
-		"test:gzip": "http-server dist --cors --gzip -c-1",
-		"test:br": "http-server dist --cors --brotli -c-1",
+    "test:gzip": "http-server dist --cors --gzip -c-1",
+    "test:br": "http-server dist --cors --brotli -c-1",
     "commit": "git pull && git add -A && git-cz && git push"
   },
   "dependencies": {
@@ -123,6 +123,7 @@
     "vite-plugin-pages": "^0.26.0",
     "vite-plugin-purge-icons": "^0.9.1",
     "vite-plugin-pwa": "^0.13.0",
+    "vite-plugin-restart": "^0.2.0",
     "vite-plugin-style-import": "^2.0.0",
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vite-plugin-windicss": "^1.8.8",

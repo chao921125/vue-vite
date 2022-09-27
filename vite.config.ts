@@ -23,7 +23,9 @@ import Components from "unplugin-vue-components/vite";
 
 import PurgeIcons from "vite-plugin-purge-icons";
 // 处理变量
+// @ts-ignore
 import pkg from "./package.json";
+// @ts-ignore
 import { getEnvConfig, createProxy } from "./build";
 
 const __APP_INFO__ = {
