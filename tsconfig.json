@@ -50,12 +50,18 @@
     }
   ],
   "include": [
+    "src/**/*.js",
     "src/**/*.ts",
+    "src/**/*.d.js",
     "src/**/*.d.ts",
+    "src/**/*.jsx",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "tests/**/*.js",
     "tests/**/*.ts",
+    "tests/**/*.d.js",
     "tests/**/*.d.ts",
+    "tests/**/*.jsx",
     "tests/**/*.tsx",
     "tests/**/*.vue",
     "types/**/*.ts",

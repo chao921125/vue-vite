@@ -1,7 +1,7 @@
 module.exports = {
 	plugins: {
 		autoprefixer: {
-			overrideBrowserslist: ["Android >= 4.0", "iOS >= 7", "Chrome > 31", "ff > 31", "ie >= 7"],
+			overrideBrowserslist: ["Android >= 4.1", "iOS >= 7.1", "Chrome > 31", "ff > 31", "ie >= 8"],
 		},
 		"postcss-pxtorem": {
 			rootValue: 37.5, //换算基数，1rem相当于10px,值为37.5时,1rem为20px,淘宝的flex默认为1rem为10px 结果为：设计稿元素尺寸/16，比如元素宽320px,最终页面会换算成 20rem
