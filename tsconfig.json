@@ -44,11 +44,7 @@
     "noImplicitAny": false,
     "removeComments": true
   },
-  "plugins": [
-    {
-      "name": "@vuedx/typescript-plugin-vue"
-    }
-  ],
+  "plugins": [],
   "include": [
     "src/**/*.js",
     "src/**/*.ts",
@@ -57,18 +53,10 @@
     "src/**/*.jsx",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/**/*.js",
-    "tests/**/*.ts",
-    "tests/**/*.d.js",
-    "tests/**/*.d.ts",
-    "tests/**/*.jsx",
-    "tests/**/*.tsx",
-    "tests/**/*.vue",
     "types/**/*.ts",
     "types/**/*.d.ts",
-    "config/**/*.ts",
-    "config/**/*.d.ts",
-    "mock/**/*.ts",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
     "vite.config.ts",
     "node_modules/@types/jest/index.d.ts",
     "node_modules/@types/jest/index.d.ts"
