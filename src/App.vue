@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-	import { defineComponent, getCurrentInstance, reactive, onBeforeMount, onMounted, onUnmounted, watch, nextTick } from "vue";
+	import { defineComponent, getCurrentInstance, reactive, onBeforeMount, onMounted, onUnmounted, watch } from "vue";
 	import { useRoute } from "vue-router";
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
@@ -74,4 +74,4 @@
 	});
 </script>
 
-<style lang="scss"></style>
+<style scoped lang="scss"></style>

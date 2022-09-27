@@ -1,6 +1,6 @@
 <template>
 	<el-row :gutter="10" justify="space-between" class="re-height-fill">
-<!--		面包屑导航-->
+		<!--		面包屑导航-->
 		<el-col :xs="24" :sm="12">
 			<div class="re-height-fill re-flex-row-center-ai">
 				<el-icon @click="changeCollapse" class="re-cursor-pointer" :size="18">
@@ -16,7 +16,7 @@
 				</el-breadcrumb>
 			</div>
 		</el-col>
-<!--		右侧快捷栏-->
+		<!--		右侧快捷栏-->
 		<el-col :xs="24" :sm="12">
 			<div class="re-height-fill re-flex-row-reverse">
 				<el-dropdown ref="dropdownUser" trigger="hover">
@@ -71,7 +71,7 @@
 		</el-col>
 	</el-row>
 	<el-drawer v-model="isShowDrawer" title="主题设置" size="300px">
-<!--		<template #header></template>-->
+		<!--		<template #header></template>-->
 		<el-row :gutter="20" class="re-flex-row-center-ai" justify="space-between">
 			<el-col :span="6" class="re-text-left">颜色</el-col>
 			<el-col :span="18" class="re-text-right"><el-color-picker v-model="colorPicker" @change="changeColorPicker" /></el-col>
@@ -103,11 +103,9 @@
 	import { useRouterList } from "@/store/modules/routerMeta";
 	import ThemeSetConfig from "@/config/themeSetConfig";
 	import { Sunny, Moon } from "@element-plus/icons-vue";
-	import Template from "@/views/Template.vue";
 
 	export default defineComponent({
 		name: "Index",
-		components: {Template},
 		setup() {
 			const storeThemeConfig = useThemeConfig(Pinia);
 			const { themeConfig } = storeToRefs(storeThemeConfig);
@@ -221,16 +219,16 @@
 			const changeDark = () => {
 				console.log(isThemDark);
 				changeThemColor("");
-			}
+			};
 			const isThemGrey = ref();
 			const changeGrey = () => {
 				console.log(isThemDark);
 				changeThemColor("");
-			}
+			};
 			const changeThemColor = (themColor: string) => {
 				const body = document.documentElement as HTMLElement;
 				body.setAttribute("", themColor);
-			}
+			};
 			// 设置 抽屉 end
 
 			// 本地持久化配置

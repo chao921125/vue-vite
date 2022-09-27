@@ -1,5 +1,4 @@
 // @see: https://stylelint.io
-
 module.exports = {
 	root: true,
 	plugins: ["stylelint-order"],
@@ -7,7 +6,6 @@ module.exports = {
 	/* 继承某些已有的规则 */
 	extends: [
 		"stylelint-config-standard", // 配置stylelint拓展插件
-		"stylelint-config-html/vue", // 配置 vue 中 template 样式格式化
 		"stylelint-config-standard-scss", // 配置stylelint scss插件
 		"stylelint-config-recommended-vue/scss", // 配置 vue 中 scss 样式格式化
 		"stylelint-config-recess-order", // 配置stylelint css属性书写顺序插件,
@@ -41,6 +39,7 @@ module.exports = {
 	 * null  => 关闭该规则
 	 */
 	rules: {
+		"function-no-unknown": null,
 		"no-descending-specificity": null, // 禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器
 		"function-url-quotes": "always", // 要求或禁止 URL 的引号 "always(必须加上引号)"|"never(没有引号)"
 		"string-quotes": "double", // 指定字符串使用单引号或双引号
@@ -60,7 +59,6 @@ module.exports = {
 		"named-grid-areas-no-invalid": null,
 		"declaration-block-trailing-semicolon": null, // 要求或不允许在声明块中使用尾随分号 string："always(必须始终有一个尾随分号)"|"never(不得有尾随分号)"
 		"selector-class-pattern": null, // 强制选择器类名的格式
-		"scss/at-import-partial-extension": null, // 解决不能引入scss文件
 		"value-no-vendor-prefix": null, // 关闭 vendor-prefix(为了解决多行省略 -webkit-box)
 		"selector-pseudo-class-no-unknown": [
 			true,

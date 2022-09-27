@@ -4,7 +4,7 @@
 	import { defineComponent } from "vue";
 
 	export default defineComponent({
-		name: "Template",
+		name: "TemplateDef",
 		setup() {},
 	});
 </script>
