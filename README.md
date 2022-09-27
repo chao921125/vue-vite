@@ -1,4 +1,5 @@
 ###### [**花里胡哨的不要，保证可用**]
+###### 推荐使用pnpm安装依赖，其次yarn或者npm
 ###### [Vite 插件](https://github.com/vitejs/awesome-vite)
 https://vuejs.org/
 # 避坑指南 及 注意事项
