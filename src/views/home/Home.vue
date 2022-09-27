@@ -60,4 +60,4 @@
 	});
 </script>
 
-<style scope lang="less"></style>
+<style scoped lang="scss"></style>

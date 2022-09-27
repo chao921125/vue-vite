@@ -52,12 +52,16 @@ router.beforeEach(async (to, from, next) => {
 		} else {
 			const storesRouterList = useRouterList(Pinia);
 			const { routerList } = storeToRefs(storesRouterList);
+			console.log("routerList111111111");
 			if (routerList.value.length === 0) {
+				console.log("routerList222222222");
 				if (isRequestRoutes) {
 					// 从后端接口中重新获取数据
 					requestData = routeData.menus;
+					console.log("routerList3333333");
 				} else {
 					requestData = routeData.menus;
+					console.log("routerList444444444");
 				}
 				// 后端控制路由：路由数据初始化，防止刷新时丢失
 				await getDynamicRouter();
