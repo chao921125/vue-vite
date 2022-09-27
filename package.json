@@ -183,7 +183,7 @@
 	},
 	"config": {
 		"commitizen": {
-			"path": "cz-customizable"
+			"path": "node_modules/cz-git"
 		}
 	}
 }
