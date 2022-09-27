@@ -75,7 +75,6 @@
     "@vue/test-utils": "^2.0.2",
     "autoprefixer": "^10.4.12",
     "chai": "^4.3.6",
-    "commitizen": "^4.2.5",
     "css-loader": "^6.7.1",
     "esbuild": "^0.15.8",
     "eslint": "^8.23.1",
