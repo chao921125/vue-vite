@@ -6,22 +6,22 @@ import dayjs from "dayjs";
 import path from "path";
 import { createHtmlPlugin } from "vite-plugin-html";
 // 热重载
-import ViteRestart from "vite-plugin-restart";
+import viteRestart from "vite-plugin-restart";
 // build 构建
 import { visualizer } from "rollup-plugin-visualizer";
 // 向上兼容浏览器
 import legacy from "@vitejs/plugin-legacy";
 // CDN 配置
-import PluginImportToCDN from "vite-plugin-cdn-import";
-import VueSetupExtend from "vite-plugin-vue-setup-extend";
+import importToCDN from "vite-plugin-cdn-import";
+import vueSetupExtend from "vite-plugin-vue-setup-extend";
 import viteCompression from "vite-plugin-compression";
-import WindiCSS from "vite-plugin-windicss";
+import windiCSS from "vite-plugin-windicss";
 // 自动导入模块
 import AutoImport from "unplugin-auto-import/vite";
 import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
 import Components from "unplugin-vue-components/vite";
 
-import PurgeIcons from "vite-plugin-purge-icons";
+import purgeIcons from "vite-plugin-purge-icons";
 // 处理变量
 // @ts-ignore
 import pkg from "./package.json";
@@ -105,9 +105,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		define: {
 			// setting vue-i18-next
 			// Suppress warning
-			__VUE_I18N_LEGACY_API__: false,
-			__VUE_I18N_FULL_INSTALL__: false,
-			__INTLIFY_PROD_DEVTOOLS__: false,
 			__APP_INFO__: JSON.stringify(__APP_INFO__),
 			"process.env": process.env,
 		},
@@ -115,10 +112,10 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// 插件
 			vue(),
 			// * vite 可以使用 jsx/tsx 语法
-			WindiCSS(),
+			windiCSS(),
 			// * name 可以写在 script 标签上
-			VueSetupExtend(),
-			PurgeIcons({}),
+			vueSetupExtend(),
+			purgeIcons({}),
 			legacy({
 				targets: ["defaults", "not IE 11"],
 			}),
@@ -140,7 +137,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
 			// * cdn 引入（vue、element-plus）
-			PluginImportToCDN({
+			importToCDN({
 				modules: [
 					// vue按需引入会导致依赖vue的插件出现问题(列如:pinia/vuex)
 					// {
@@ -158,7 +155,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				],
 			}),
 			// 热重载，包含配置文件的修改
-			ViteRestart({
+			viteRestart({
 				restart: ["vite.config.[jt]s"],
 			}),
 			createHtmlPlugin({
@@ -220,9 +217,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		css: {
 			// modules: "",
 			// 打开此处 postcss.config.js失效
-			postcss: {
-				plugins: [],
-			},
+			// postcss: {
+			// 	plugins: [],
+			// },
 			preprocessorOptions: {
 				css: { charset: false },
 				less: {
