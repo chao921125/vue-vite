@@ -6,10 +6,6 @@ tests
 test
 *.local
 
-# auto file when run serve
-auto-imports.d.ts
-components.d.ts
-
 # local env files
 .env.local
 .env.*.local
