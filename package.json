@@ -136,21 +136,6 @@
   "resolutions": {
     "bin-wrapper": "npm:bin-wrapper-china"
   },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "rollup",
-        "webpack"
-      ]
-    }
-  },
-  "browserslist": [
-    "defaults",
-    "> 1%",
-    "last 2 versions",
-    "not ie 11",
-    "not op_mini all"
-  ],
   "license": "MIT",
   "author": "vue3-vite",
   "homepage": "https://github.com/vitejs/awesome-vite#plugins",
@@ -161,5 +146,52 @@
   },
   "bugs": {
     "url": "https://github.com/vitejs/awesome-vite#plugins"
-  }
+  },
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"rollup",
+				"webpack"
+			]
+		}
+	},
+	"browserslist": [
+		"defaults",
+		"> 1%",
+		"last 2 versions",
+		"not ie 11",
+		"not op_mini all"
+	],
+	"engines": {
+		"node": "^12 || >=14"
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx}": [
+			"eslint --fix",
+			"prettier --write"
+		],
+		"{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
+			"prettier --write--parser json"
+		],
+		"package.json": [
+			"prettier --write"
+		],
+		"*.vue": [
+			"eslint --fix",
+			"prettier --write",
+			"stylelint --fix"
+		],
+		"*.{scss,less,styl,html}": [
+			"stylelint --fix",
+			"prettier --write"
+		],
+		"*.md": [
+			"prettier --write"
+		]
+	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-git"
+		}
+	}
 }
