@@ -221,14 +221,20 @@ https://hu-snail.github.io/vue3-resource/
 [vuejs-heatmap](https://www.npmjs.com/package/vuejs-heatmap)
 
 ## 富文本编辑器
-[tiptap](https://www.npmjs.com/package/tiptap) \
+[tiptap](https://www.npmjs.com/package/tiptap) || [官网](https://tiptap.dev/) \
 [wangeditor](https://www.npmjs.com/package/@wangeditor/editor-for-vue@next) || vue3 [官网](https://www.wangeditor.com/) \
 [wangeditor](https://www.npmjs.com/package/@wangeditor/editor-for-vue) || vue2 [官网](https://www.wangeditor.com/) \
 [wangeditor](https://www.npmjs.com/package/@wangeditor/editor-for-react) || react [官网](https://www.wangeditor.com/) \
 [wangeditor](https://www.npmjs.com/package/@wangeditor/editor) || js [官网](https://www.wangeditor.com/) \
+[Quill](https://quilljs.com/) \
 [vue-quill-editor](https://www.npmjs.com/package/vue-quill-editor) \
 [ckeditor5-vue](https://www.npmjs.com/package/@ckeditor/ckeditor5-vue) \
-[TinyMCE 6 官网](https://www.tiny.cloud/docs/tinymce/6/)
+[TinyMCE 6 官网](https://www.tiny.cloud/docs/tinymce/6/) || [官网](https://www.tiny.cloud/)
+[Froala](https://froala.com/wysiwyg-editor/) \
+[Trumbowyg](https://alex-d.github.io/Trumbowyg/) \
+[slate](https://github.com/ianstormtaylor/slate) \
+[squire](https://github.com/neilj/Squire) \
+[summernote](https://summernote.org/) \
 
 ## Markdown编辑器
 [Vditor 官网](https://b3log.org/vditor/) \
