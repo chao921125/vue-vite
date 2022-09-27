@@ -204,15 +204,6 @@
 </script>
 
 <style scoped lang="scss">
-	* {
-		margin: 0;
-		padding: 0;
-	}
-	html,
-	body {
-		height: 100%;
-		width: 100%;
-	}
 	.map-box {
 		background-color: #262539;
 		display: flex;
@@ -221,6 +212,7 @@
 		justify-content: center;
 		transform: scale(1, 1);
 	}
+
 	canvas {
 		display: block;
 		background-color: #262539;

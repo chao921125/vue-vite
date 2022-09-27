@@ -8,7 +8,6 @@ declare global {
 	interface Window {
 		nextLoading: boolean;
 	}
-
 }
 
 export {};

@@ -14,11 +14,11 @@
     "build:test": "vue-tsc --noEmit --skipLibCheck && vite build --mode test",
     "build:prod": "vue-tsc --noEmit --skipLibCheck && vite build --mode production",
     "build:no-cache": "npm clean:cache && npm run build",
-    "clean:cache": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && rimraf .eslintcache && pnpm install",
+    "clean:cache": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && pnpm install",
     "clean:lib": "rimraf node_modules",
     "lint:eslint": "eslint --cache --fix --max-warnings 0 \"{src,mock}/**/*.{vue,ts,tsx}\"",
     "lint:prettier": "prettier --write --fix --loglevel warn \"./**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
-    "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:lint-staged": "lint-staged",
 		"prepare": "husky install",
     "test:gzip": "http-server dist --cors --gzip -c-1",
@@ -147,14 +147,6 @@
   "bugs": {
     "url": "https://github.com/vitejs/awesome-vite#plugins"
   },
-	"pnpm": {
-		"peerDependencyRules": {
-			"ignoreMissing": [
-				"rollup",
-				"webpack"
-			]
-		}
-	},
 	"browserslist": [
 		"defaults",
 		"> 1%",
@@ -177,9 +169,9 @@
 			"prettier --write"
 		],
 		"*.vue": [
+			"stylelint --fix",
 			"eslint --fix",
-			"prettier --write",
-			"stylelint --fix"
+			"prettier --write"
 		],
 		"*.{scss,less,styl,html}": [
 			"stylelint --fix",
@@ -191,7 +183,7 @@
 	},
 	"config": {
 		"commitizen": {
-			"path": "node_modules/cz-git"
+			"path": "cz-customizable"
 		}
 	}
 }

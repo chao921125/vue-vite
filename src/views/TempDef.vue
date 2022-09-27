@@ -4,10 +4,9 @@
 	import { defineComponent } from "vue";
 
 	export default defineComponent({
-		// eslint-disable-next-line vue/no-reserved-component-names
-		name: "Template",
+		name: "TemplateDef",
 		setup() {},
 	});
 </script>
 
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>
