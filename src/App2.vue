@@ -7,7 +7,7 @@
 			<img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
 		</a>
 	</div>
-	<HelloWorld msg="Vite + Vue 3333" />
+	<HelloWorld msg="Vite + Vue 1111" />
 	<el-button @click="loginUser">login</el-button>
 </template>
 
