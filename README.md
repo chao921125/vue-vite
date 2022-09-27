@@ -421,7 +421,7 @@ https://hu-snail.github.io/vue3-resource/
 [heyui](https://v2.heyui.top/)
 [varletjs](https://github.com/varletjs/varlet) | [varletjs](https://varlet-varletjs.vercel.app/#/en-US/home)
 
-https://github.com/lin-xin/vue-manage-system \
+## Admin vite
 https://github.com/vbenjs/vue-vben-admin \
 https://github.com/xiaoxian521/vue-pure-admin \
 https://github.com/jekip/naive-ui-admin \
@@ -436,9 +436,13 @@ https://github.com/jeecgboot/jeecgboot-vue3 \
 https://github.com/lyt-Top/vue-next-admin \
 https://github.com/jzfai/vue3-admin-plus \
 https://github.com/tobe-fe-dalao/fast-vue3 \
-https://github.com/XPoet/vite-vue3-starter \
-https://github.com/nekobc1998923/vitecamp \
+
 https://github.com/gmingchen/vue3-element-plus-admin/tree/vite-pinia \
+https://github.com/lin-xin/vue-manage-system \
+
+## other vite
+https://github.com/nekobc1998923/vitecamp \
+https://github.com/XPoet/vite-vue3-starter \
 https://github.com/xxxsf/vue3-h5-template \
 
 ## doc
