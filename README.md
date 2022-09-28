@@ -49,11 +49,11 @@ src下的config目录是系统默认参数，及部分数据配置 \
 - [x] 动态路由（同时支持静态路由配置，一切简化）
 - [x] 国际化目前用的vue-i18n
 - [x] 三个图标库Element Icon、Iconify、IconFont使用
+- [x] 换肤
+- [x] 全屏
 
 # 下一步
 - [ ] Mock
-- [ ] 换肤
-- [ ] 全屏
 - [ ] 标签TAG
 - [ ] 按钮级别权限控制（此项并不在我的计划之内）
 
@@ -222,14 +222,20 @@ https://hu-snail.github.io/vue3-resource/
 [vuejs-heatmap](https://www.npmjs.com/package/vuejs-heatmap)
 
 ## 富文本编辑器
-[tiptap](https://www.npmjs.com/package/tiptap) \
+[tiptap](https://www.npmjs.com/package/tiptap) || [官网](https://tiptap.dev/) \
 [wangeditor](https://www.npmjs.com/package/@wangeditor/editor-for-vue@next) || vue3 [官网](https://www.wangeditor.com/) \
 [wangeditor](https://www.npmjs.com/package/@wangeditor/editor-for-vue) || vue2 [官网](https://www.wangeditor.com/) \
 [wangeditor](https://www.npmjs.com/package/@wangeditor/editor-for-react) || react [官网](https://www.wangeditor.com/) \
 [wangeditor](https://www.npmjs.com/package/@wangeditor/editor) || js [官网](https://www.wangeditor.com/) \
+[Quill](https://quilljs.com/) \
 [vue-quill-editor](https://www.npmjs.com/package/vue-quill-editor) \
 [ckeditor5-vue](https://www.npmjs.com/package/@ckeditor/ckeditor5-vue) \
-[TinyMCE 6 官网](https://www.tiny.cloud/docs/tinymce/6/)
+[TinyMCE 6 官网](https://www.tiny.cloud/docs/tinymce/6/) || [官网](https://www.tiny.cloud/)
+[Froala](https://froala.com/wysiwyg-editor/) \
+[Trumbowyg](https://alex-d.github.io/Trumbowyg/) \
+[slate](https://github.com/ianstormtaylor/slate) \
+[squire](https://github.com/neilj/Squire) \
+[summernote](https://summernote.org/) \
 
 ## Markdown编辑器
 [Vditor 官网](https://b3log.org/vditor/) \
@@ -310,7 +316,6 @@ https://hu-snail.github.io/vue3-resource/
 ## 绘图 3D
 [three.js](https://www.npmjs.com/package/three) || three.js
 
-
 ## 代码提交信息校验 -D
 [husky](https://www.npmjs.com/package/husky) \
 [commitizen](https://www.npmjs.com/package/commitizen) \
@@ -389,9 +394,6 @@ https://hu-snail.github.io/vue3-resource/
 [水墨文档](https://github.com/huangwei9527/Ink-wash-docs) \
 [聊天](https://www.npmjs.com/package/vue-beautiful-chat)
 
-# 转战游戏？
-## HTML？前端走一波
-
 [createjs](https://www.createjs.com/) \
 [Phaser 还有人用吗？](https://www.phaser-china.com/)
 
@@ -420,6 +422,11 @@ https://hu-snail.github.io/vue3-resource/
 [Bootstrap](https://getbootstrap.com/)
 [heyui](https://v2.heyui.top/)
 [varletjs](https://github.com/varletjs/varlet) | [varletjs](https://varlet-varletjs.vercel.app/#/en-US/home)
+
+## Admin server & Web
+https://github.com/jeecgboot \
+https://github.com/flipped-aurora \
+https://gitee.com/likeadmin \
 
 ## Admin vite
 https://github.com/vbenjs/vue-vben-admin \

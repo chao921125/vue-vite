@@ -8,6 +8,9 @@
 	<el-input v-model="text" maxlength="100" :autosize="{ minRows: 4, maxRows: 8 }" placeholder="Please input" show-word-limit type="textarea" />
 	<div v-html="textHtml"></div>
 	<el-input v-model="textRe" maxlength="100" :autosize="{ minRows: 4, maxRows: 8 }" placeholder="Please input" show-word-limit type="textarea" />
+	<div v-for="(item, index) in 100" :key="index">
+		<div>{{ item }}</div>
+	</div>
 </template>
 
 <script lang="ts">

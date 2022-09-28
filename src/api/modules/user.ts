@@ -1,11 +1,11 @@
 import Axios from "@/plugins/axios";
-import requestURL from "@/config/axiosConfig";
+import AxiosSetConfig from "@/config/axiosSetConfig";
 
 let user: any = {};
 
 user.queryUserInfo = (data: any = {}) => {
 	return Axios({
-		url: requestURL.userInfo,
+		url: AxiosSetConfig.userInfo,
 		method: "POST",
 		data,
 	});

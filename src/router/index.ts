@@ -9,7 +9,7 @@ import { useTagsViewRoutes } from "@/store/modules/routerTags";
 import { baseRoutes, errorRoutes } from "./route";
 import Utils from "@/plugins/utils";
 import NProgress from "@/plugins/loading/progress";
-import RouterConfig from "@/config/routerConfig";
+import RouterSetConfig from "@/config/routerSetConfig";
 import { useUserInfo } from "@/store/modules/user";
 import routeData from "@/config/routerData";
 import { MenuState } from "@/router/interface";
@@ -17,7 +17,7 @@ import AxiosCancel from "@/plugins/axios/cancel";
 
 // 配置文件修改是否从后端获取路由
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可
-const isRequestRoutes = RouterConfig.isRequestRoutes;
+const isRequestRoutes = RouterSetConfig.isRequestRoutes;
 
 // 默认获取菜单及路由为静态数据
 let requestData: any = [];
@@ -40,15 +40,15 @@ router.beforeEach(async (to, from, next) => {
 	AxiosCancel.removeAllCancer();
 	if (to.meta.title) NProgress.start();
 	const token = Utils.Storages.getSessionStorage(Utils.Constants.storageKey.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKey.token);
-	if (RouterConfig.whiteList.includes(to.path) && !token) {
-		next(to.path);
+	if (RouterSetConfig.whiteList.includes(to.path) && !token) {
+		next();
 	} else {
 		if (!token || token === "undefined") {
-			next(`${RouterConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
+			next(`${RouterSetConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
 			Utils.Storages.removeSessionStorage(Utils.Constants.storageKey.token);
 			Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
-		} else if (token && (RouterConfig.whiteList.includes(to.path) || to.path === RouterConfig.routeRoot)) {
-			next(RouterConfig.routeHome);
+		} else if (token && (RouterSetConfig.whiteList.includes(to.path) || to.path === RouterSetConfig.routeRoot)) {
+			next(RouterSetConfig.routeHome);
 		} else {
 			const storesRouterList = useRouterList(Pinia);
 			const { routerList } = storeToRefs(storesRouterList);

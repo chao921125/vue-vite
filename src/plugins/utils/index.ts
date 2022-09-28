@@ -3,7 +3,7 @@ import { storeToRefs } from "pinia";
 import Router from "@/router";
 import Pinia from "@/store";
 import { useThemeConfig } from "@/store/modules/theme";
-import RouterConfig from "@/config/routerConfig";
+import RouterSetConfig from "@/config/routerSetConfig";
 import I18n from "@/plugins/language";
 import ThemeSetConfig from "@/config/themeSetConfig";
 
@@ -34,7 +34,7 @@ util.setTitle = async () => {
 	await nextTick(() => {
 		let title: any = "";
 		const { path, meta } = Router.currentRoute.value;
-		if (RouterConfig.whiteList.includes(path)) {
+		if (RouterSetConfig.whiteList.includes(path)) {
 			title = <any>meta.title;
 		} else {
 			title = setTitleI18n(Router.currentRoute.value);

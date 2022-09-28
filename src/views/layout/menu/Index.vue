@@ -5,13 +5,23 @@
 			<span class="re-m-l-10">CC ADMIN</span>
 		</el-link>
 	</div>
-	<div v-else class="logo-only re-flex-row-center">
+	<div v-else class="animate__animated animate__zoomIn logo-only re-flex-row-center">
 		<el-link :underline="false" @click="toHome">
 			<i class="iconfont icon-shouye"></i>
 		</el-link>
 	</div>
 	<el-scrollbar>
-		<el-menu background-color="transparent" :default-active="changeMenuKey" mode="vertical" :collapse="!isColl" :unique-opened="true" @select="toMenu">
+		<el-menu
+			class="menu-box"
+			:background-color="colorSet.menuBg"
+			:active-text-color="colorSet.menuTextActive"
+			:text-color="colorSet.menuText"
+			:default-active="changeMenuKey"
+			mode="vertical"
+			:collapse="!isColl"
+			:unique-opened="true"
+			@select="toMenu"
+		>
 			<SubItem v-if="state.menuList && state.menuList.length > 0" :menus="state.menuList"></SubItem>
 		</el-menu>
 	</el-scrollbar>
@@ -23,6 +33,7 @@
 	import SubItem from "./SubItem.vue";
 	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
+	import ColorSetConfig from "@/config/colorSetConfig";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
 
@@ -30,6 +41,7 @@
 		name: "Index",
 		components: { SubItem },
 		setup() {
+			const colorSet = ColorSetConfig;
 			// 折叠菜单
 			const storeThemeConfig = useThemeConfig(Pinia);
 			const { themeConfig } = storeToRefs(storeThemeConfig);
@@ -83,6 +95,7 @@
 			});
 
 			return {
+				colorSet,
 				isColl,
 				changeMenuKey,
 				state,

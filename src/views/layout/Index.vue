@@ -2,25 +2,29 @@
 	<el-container v-if="isAdmin" class="layout-container">
 		<el-aside id="admin-aside" class="layout-aside" :class="styleCollapse"><AdminMenu></AdminMenu></el-aside>
 		<el-container id="admin-body" :class="{ 'admin-main': !isFixedHeader }">
-			<el-header v-if="isFixedHeader" :height="setHeaderHeight"><AdminHeader></AdminHeader></el-header>
+			<el-header v-if="isFixedHeader" :height="setHeaderHeight" class="layout-header"><AdminHeader></AdminHeader></el-header>
 			<el-scrollbar ref="refScrollbarMain" :class="{ 'admin-main': isFixedHeader }">
-				<el-header v-if="!isFixedHeader" :height="setHeaderHeight"><AdminHeader></AdminHeader></el-header>
-				<el-main><router-view></router-view></el-main>
+				<el-header v-if="!isFixedHeader" :height="setHeaderHeight" class="layout-header"><AdminHeader></AdminHeader></el-header>
+				<el-main class="layout-main">
+					<el-card class="main-body">
+						<router-view></router-view>
+					</el-card>
+				</el-main>
 				<el-footer v-if="isShowFooter"><AdminFooter></AdminFooter></el-footer>
 			</el-scrollbar>
-			<el-backtop target=".admin-main .el-scrollbar__wrap">
+			<el-backtop target=".admin-main .el-scrollbar__wrap" :visibility-height="300" :right="20" :bottom="20">
 				<el-icon :size="20"><ArrowUpBold /></el-icon>
 			</el-backtop>
 		</el-container>
 	</el-container>
 	<el-container v-else class="layout-container" :class="{ 'web-main': !isFixedHeader }">
-		<el-header v-if="isFixedHeader">Web 下因需求不同，请重写</el-header>
+		<el-header v-if="isFixedHeader" class="layout-header">Web 下因需求不同，请重写</el-header>
 		<el-scrollbar ref="refScrollbarMain" :class="{ 'web-main': isFixedHeader }">
-			<el-header v-if="!isFixedHeader">Web 下因需求不同，请重写</el-header>
-			<el-main><router-view></router-view></el-main>
+			<el-header v-if="!isFixedHeader" class="layout-header">Web 下因需求不同，请重写</el-header>
+			<el-main class="layout-main"><router-view></router-view></el-main>
 			<el-footer v-if="isShowFooter">Web 下因需求不同，请重写</el-footer>
 		</el-scrollbar>
-		<el-backtop target=".web-main .el-scrollbar__wrap">
+		<el-backtop target=".web-main .el-scrollbar__wrap" :visibility-height="300" :right="20" :bottom="20">
 			<el-icon :size="20"><ArrowUpBold /></el-icon>
 		</el-backtop>
 	</el-container>
@@ -32,7 +36,7 @@
 	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
-	import RouterConfig from "@/config/routerConfig";
+	import RouterSetConfig from "@/config/routerSetConfig";
 	import AdminMenu from "./menu/Index.vue";
 	import AdminHeader from "./header/Index.vue";
 	import AdminFooter from "./footer/Index.vue";
@@ -43,7 +47,7 @@
 		setup() {
 			// 设置是否为权限管理端
 			const isAdmin = ref(true);
-			isAdmin.value = RouterConfig.isAdminIframe;
+			isAdmin.value = RouterSetConfig.isAdminIframe;
 			// 修改项目设置
 			const storesThemeConfig = useThemeConfig(Pinia);
 			const { themeConfig } = storeToRefs(storesThemeConfig);
@@ -63,6 +67,7 @@
 			// 开启展示 底部
 			const isShowFooter = themeConfig.value.isFooter;
 			// 动态修改菜单的宽高
+			// eslint-disable-next-line vue/return-in-computed-property
 			const styleCollapse = computed(() => {
 				const { isCollapse } = themeConfig.value;
 				// 处理移动端

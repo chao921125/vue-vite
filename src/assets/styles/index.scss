@@ -1,9 +1,9 @@
+// ***注意在scss中无法使用变量对应变量对应值，只能变量对应一个确定的值***
 @import "./fonts/font.css";
 @import "./icon/iconfont.css";
 // 全局重置必须在此位置
 @import "./reset/reset.scss";
 // 定义的文件在这里
-@import "./common/public.scss";
 @import "./common/rewrite.scss";
 @import "./common/base.scss";
 // 重写三方UI的样式文件在这里
