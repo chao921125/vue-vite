@@ -37,32 +37,28 @@ export const router = createRouter({
 // 路由加载前
 router.beforeEach(async (to, from, next) => {
 	console.log("router from", from.path, to.path);
-	NProgress.configure({ showSpinner: false });
+	NProgress.start();
+	// 取消所有请求
 	AxiosCancel.removeAllCancer();
-	if (to.meta.title) NProgress.start();
 	const token = Utils.Storages.getSessionStorage(Utils.Constants.storageKey.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKey.token);
 	if (RouterSetConfig.whiteList.includes(to.path) && !token) {
 		next();
 	} else {
 		if (!token || token === "undefined") {
-			next(`${RouterSetConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
 			Utils.Storages.removeSessionStorage(Utils.Constants.storageKey.token);
 			Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
+			next(`${RouterSetConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
 		} else if (token && (RouterSetConfig.whiteList.includes(to.path) || to.path === RouterSetConfig.routeRoot)) {
 			next(RouterSetConfig.routeHome);
 		} else {
 			const storesRouterList = useRouterList(Pinia);
 			const { routerList } = storeToRefs(storesRouterList);
-			console.log("routerList111111111");
 			if (routerList.value.length === 0) {
-				console.log("routerList222222222");
 				if (isRequestRoutes) {
 					// 从后端接口中重新获取数据
 					requestData = routeData.menus;
-					console.log("routerList3333333");
 				} else {
 					requestData = routeData.menus;
-					console.log("routerList444444444");
 				}
 				// 后端控制路由：路由数据初始化，防止刷新时丢失
 				await getDynamicRouter();

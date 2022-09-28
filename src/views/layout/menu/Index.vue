@@ -22,7 +22,7 @@
 			:unique-opened="true"
 			@select="toMenu"
 		>
-			<SubItem v-if="state.menuList && state.menuList.length > 0" :menus="state.menuList"></SubItem>
+			<SubMenu v-if="state.menuList && state.menuList.length > 0" :menus="state.menuList"></SubMenu>
 		</el-menu>
 	</el-scrollbar>
 </template>
@@ -30,7 +30,7 @@
 <script lang="ts">
 	import { defineComponent, computed, reactive, onBeforeMount, watch } from "vue";
 	import { useRouter, useRoute } from "vue-router";
-	import SubItem from "./SubItem.vue";
+	import SubMenu from "./SubMenu.vue";
 	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
 	import ColorSetConfig from "@/config/colorSetConfig";
@@ -39,7 +39,7 @@
 
 	export default defineComponent({
 		name: "Index",
-		components: { SubItem },
+		components: { SubMenu },
 		setup() {
 			const colorSet = ColorSetConfig;
 			// 折叠菜单
