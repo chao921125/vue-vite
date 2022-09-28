@@ -280,7 +280,7 @@ export default {
 			icon: "icon-home",
 			isLink: false,
 			isIframe: true,
-			address: "https://cn.bing.com/",
+			address: "https://nodejs.org/zh-cn/",
 			isAffix: true,
 			isKeepAlive: true,
 			isDisable: false,
