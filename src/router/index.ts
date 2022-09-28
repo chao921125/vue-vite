@@ -24,6 +24,7 @@ let requestData: any = [];
 
 // 动态路由刷新404，所以先行去掉匹配不存在路由重定向至404页
 if (isRequestRoutes) baseRoutes[0].children = [];
+// const evn = import.meta.env.BASE_URL;
 
 export const router = createRouter({
 	history: createWebHashHistory(),

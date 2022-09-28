@@ -31,8 +31,9 @@
 			});
 			const route = useRoute();
 			const initData = () => {
-				iframeObj.url = String(route.meta.address) || "";
+				iframeObj.loading = true;
 				nextTick(() => {
+					iframeObj.url = String(route.meta.address) || "";
 					iframeObj.loading = false;
 				});
 			};
