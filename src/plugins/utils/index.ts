@@ -3,7 +3,6 @@ import { storeToRefs } from "pinia";
 import Router from "@/router";
 import Pinia from "@/store";
 import { useThemeConfig } from "@/store/modules/theme";
-import RouterSetConfig from "@/config/routerSetConfig";
 import I18n from "@/plugins/language";
 import ThemeSetConfig from "@/config/themeSetConfig";
 
@@ -33,12 +32,7 @@ util.setTitle = async () => {
 	const globalTitle: string = themeConfig.value.globalTitle;
 	await nextTick(() => {
 		let title: any = "";
-		const { path, meta } = Router.currentRoute.value;
-		if (RouterSetConfig.whiteList.includes(path)) {
-			title = <any>meta.title;
-		} else {
-			title = setTitleI18n(Router.currentRoute.value);
-		}
+		title = setTitleI18n(Router.currentRoute.value);
 		window.document.title = `${title}` || globalTitle;
 	});
 };
@@ -48,7 +42,7 @@ util.tagsName = (value: any) => {
 };
 
 function setTitleI18n(value: any) {
-	let tagsViewName: any = "";
+	let tagsViewName: any = import.meta.env.VITE_TITLE;
 	const { query, params, meta } = value;
 	if (query?.tagsViewName || params?.tagsViewName) {
 		if (ThemeSetConfig.i18nKey.test(query?.tagsViewName) || ThemeSetConfig.i18nKey.test(params?.tagsViewName)) {

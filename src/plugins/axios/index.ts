@@ -28,7 +28,7 @@ function errorLog(err) {
 	// 添加到日志
 
 	// 打印到控制台
-	if (process.env.NODE_ENV === "development") {
+	if (import.meta.env.NODE_ENV === "development") {
 		Utils.log.danger(">>>>>> Error >>>>>>");
 		console.log(err);
 	}
@@ -41,7 +41,7 @@ function errorLog(err) {
 }
 
 const defaultHeader: AxiosRequestConfig = {
-	baseURL: process.env.VITE_API_URL_PREFIX || "",
+	baseURL: import.meta.env.VITE_API_URL_PREFIX || "",
 	timeout: AxiosSetConfig.timeout,
 	timeoutErrorMessage: AxiosSetConfig.timeoutMsg,
 	withCredentials: true,

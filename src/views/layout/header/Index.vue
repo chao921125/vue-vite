@@ -186,7 +186,6 @@
 				themeConfig.value.globalI18n = lang;
 				proxy.$i18n.locale = lang;
 				proxy.mittBus.emit("getI18nConfig", proxy.$i18n.messages[lang]);
-				Utils.setTitle();
 				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.i18nLocal, lang);
 				setThemeConfig();
 			};

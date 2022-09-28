@@ -106,7 +106,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// setting vue-i18-next
 			// Suppress warning
 			__APP_INFO__: JSON.stringify(__APP_INFO__),
-			"process.env": process.env,
 		},
 		plugins: [
 			// 插件
