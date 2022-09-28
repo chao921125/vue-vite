@@ -6,7 +6,7 @@
 					<i class="iconfont" :class="item.icon"></i>
 					<span class="re-m-l-5">{{ $t(item.title) }}</span>
 				</template>
-				<SubItem :menus="item.children" :basePath="item.path + '/'"></SubItem>
+				<SubMenu :menus="item.children" :basePath="item.path + '/'"></SubMenu>
 			</el-sub-menu>
 			<el-menu-item v-else :key="item.id" :index="resolvePath(item.path)">
 				<!-- 此处图标可以自定义 -->

@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-	import { defineComponent, onMounted, watch, ref } from "vue";
+	import { defineComponent, onMounted, ref } from "vue";
 	import { useRoute } from "vue-router";
 	import Utils from "@/plugins/utils";
 
@@ -24,12 +24,6 @@
 			onMounted(() => {
 				initData();
 			});
-			watch(
-				() => route.path,
-				() => {
-					initData();
-				},
-			);
 			return {
 				linkUrl,
 			};
