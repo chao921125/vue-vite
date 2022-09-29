@@ -38,7 +38,7 @@ app.config.errorHandler = (err, vm, info) => {
 	// 处理错误
 	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
 	// 只在开发模式下打印 log
-	if (process.env.NODE_ENV === "development") {
+	if (import.meta.env.NODE_ENV === "development") {
 		Utils.log.danger(">>>>>> 错误信息 >>>>>>");
 		console.log(info);
 		Utils.log.danger(">>>>>> Vue 实例 >>>>>>");
@@ -49,7 +49,7 @@ app.config.errorHandler = (err, vm, info) => {
 };
 app.config.warnHandler = (msg, vm, trace) => {
 	// 显示在控制台
-	if (process.env.NODE_ENV === "development") {
+	if (import.meta.env.NODE_ENV === "development") {
 		// `trace` 是组件的继承关系追踪
 		Utils.log.warning(">>>>>> 警告信息 >>>>>>");
 		console.log(msg);
