@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup name="RoleList">
-	import StatusUse from "@/plugins/enums";
+	import { StatusUse } from "@/plugins/enums";
 	const tableData = [
 		{
 			id: 1,
@@ -27,6 +27,14 @@
 			flag: "super",
 			sort: 1,
 			status: 1,
+			desc: "超级管理员",
+		},
+		{
+			id: 2,
+			name: "管理员",
+			flag: "super",
+			sort: 2,
+			status: 0,
 			desc: "超级管理员",
 		},
 	];

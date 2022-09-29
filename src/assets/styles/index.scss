@@ -4,8 +4,8 @@
 // 全局重置必须在此位置
 @import "./reset/reset.scss";
 // 定义的文件在这里
-@import "./common/rewrite.scss";
-@import "./common/base.scss";
+@import "./common/custom.scss";
+@import "./common/layout.scss";
 // 重写三方UI的样式文件在这里
 @import "./reset/element.scss";
 @import "./reset/n-progress";

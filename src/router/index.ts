@@ -4,13 +4,13 @@
 import { createRouter, createWebHashHistory, RouteRecordName, RouteRecordRaw } from "vue-router";
 import { storeToRefs } from "pinia";
 import Pinia from "@/store";
+// import { useUserInfo } from "@/store/modules/user";
 import { useRouterList } from "@/store/modules/routerMeta";
 import { useTagsViewRoutes } from "@/store/modules/routerTags";
 import { baseRoutes, errorRoutes } from "./route";
 import Utils from "@/plugins/utils";
 import NProgress from "@/plugins/loading/progress";
 import RouterSetConfig from "@/config/routerSetConfig";
-import { useUserInfo } from "@/store/modules/user";
 import routeData from "@/config/routerData";
 import { MenuState } from "@/router/interface";
 import AxiosCancel from "@/plugins/axios/cancel";
@@ -90,7 +90,7 @@ const dynamicViewsModules: Record<string, Function> = Object.assign({}, { ...vie
 // 获取动态路由数据
 export async function getDynamicRouter() {
 	if (!(Utils.Storages.getSessionStorage(Utils.Constants.storageKey.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKey.token))) return false;
-	await useUserInfo(Pinia).setUserInfo();
+	// await useUserInfo(Pinia).setUserInfo();
 
 	let storesRouterList = useRouterList(Pinia);
 	await storesRouterList.setMenuList(requestData);

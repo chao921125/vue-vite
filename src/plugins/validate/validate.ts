@@ -1,3 +1,8 @@
+import Reg from "./reg";
+export function verifyNumber(val: string): boolean {
+	val = val.trim();
+	return Reg.number.test(val);
+}
 /**
  * 验证百分比（不可以小数）
  * @param val 当前值字符串
