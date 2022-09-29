@@ -20,12 +20,7 @@
 		<el-col :xs="24" :sm="12">
 			<div class="re-height-fill re-flex-row-reverse">
 				<el-dropdown ref="dropdownUser" trigger="hover">
-					<el-image
-						src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
-						fit="cover"
-						class="re-cursor-pointer user-avatar re-m-l-10"
-						@click="showDropdownUser"
-					></el-image>
+					<el-image v-if="userInfo" :src="userInfo.avatar" fit="cover" class="re-cursor-pointer user-avatar re-m-l-10" @click="showDropdownUser"></el-image>
 					<template #dropdown>
 						<el-dropdown-menu>
 							<el-dropdown-item>
@@ -39,7 +34,7 @@
 						</el-dropdown-menu>
 					</template>
 				</el-dropdown>
-				<div class="re-m-l-10">Admin</div>
+				<div class="re-m-l-10" v-if="userInfo">{{ userInfo.userName }}</div>
 				<el-tooltip effect="dark" :content="isScreenFull ? '退出全屏' : '全屏'" placement="bottom">
 					<i v-if="isScreenFull" class="iconfont icon-fullscreen-exit re-cursor-pointer re-m-l-10" @click="changeScreenFull"></i>
 					<i v-else class="iconfont icon-fullscreen re-cursor-pointer re-m-l-10" @click="changeScreenFull"></i>
@@ -258,8 +253,9 @@
 				Utils.Storages.removeLocalStorage(Utils.Constants.storageKey.themeConfig);
 				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.themeConfig, themeConfig.value);
 			};
-
+			const userInfo = ref(null);
 			const initData = () => {
+				userInfo.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.userInfo) || null;
 				isThemGrey.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)?.isGrey || false;
 				changeGrey(isThemGrey.value);
 				isThemInvert.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)?.isInvert || false;
@@ -306,6 +302,7 @@
 				changeInvert,
 				Sunny,
 				Moon,
+				userInfo,
 				logout,
 			};
 		},

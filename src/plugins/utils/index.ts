@@ -6,12 +6,12 @@ import { useThemeConfig } from "@/store/modules/theme";
 import I18n from "@/plugins/language";
 import ThemeSetConfig from "@/config/themeSetConfig";
 
-import Constants from "./constants";
-import Cookies from "./cookie";
-import Storages from "./storage";
-import DB from "./db";
-import Date from "./date";
-import Log from "./log";
+import Constants from "./modules/constants";
+import Cookies from "./modules/cookie";
+import Storages from "./modules/storage";
+import DB from "./modules/db";
+import Date from "./modules/date";
+import Log from "./modules/log";
 
 const util: any = {
 	Constants: Constants,
@@ -41,7 +41,7 @@ util.tagsName = (value: any) => {
 	return setTitleI18n(value);
 };
 
-function setTitleI18n(value: any) {
+const setTitleI18n = (value: any) => {
 	let tagsViewName: any = import.meta.env.VITE_TITLE;
 	const { query, params, meta } = value;
 	if (query?.tagsViewName || params?.tagsViewName) {
@@ -58,7 +58,7 @@ function setTitleI18n(value: any) {
 		tagsViewName = I18n.global.t(<any>meta.title);
 	}
 	return tagsViewName;
-}
+};
 
 /**
  * 设置cdn

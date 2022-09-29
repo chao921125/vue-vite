@@ -13,15 +13,15 @@ import I18n from "@/plugins/language";
 // mitt 总线
 import mitt from "mitt";
 
-// 三方CSS
-import "animate.css/animate.min.css";
-
 // UI element
 import ElementPlus from "element-plus";
 import { ElMessage } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
+
+// 三方CSS
+import "animate.css/animate.min.css";
 
 // styles
 import "@/assets/styles/index.scss";

@@ -466,3 +466,8 @@ https://github.com/Yin-Hongwei/music-website \
 https://github.com/pipipi-pikachu/PPTist \
 https://github.com/Codennnn/vue-color-avatar \
 https://github.com/youlaitech/youlai-mall \
+
+[//]: # (loading)
+http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading
+
+https://juejin.cn/post/7037036742985121800

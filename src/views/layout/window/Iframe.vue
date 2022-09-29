@@ -43,7 +43,7 @@
 			watch(
 				() => route.path,
 				() => {
-					initData();
+					// initData();
 				},
 			);
 			return {
