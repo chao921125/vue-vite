@@ -17,6 +17,12 @@
 	@extend %flex-base;
 	flex-direction: row;
 }
+.#{$prefix}-flex-row-end {
+	@extend %flex-base;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+}
 .#{$prefix}-flex-row-center {
 	@extend %flex-base;
 	@extend %flex-row-center;

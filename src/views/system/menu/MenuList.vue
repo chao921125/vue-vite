@@ -1,106 +1,96 @@
 <template>
-	<el-form :inline="true" :model="formInline" class="demo-form-inline">
-		<el-form-item label="Approved by">
-			<el-input v-model="formInline.user" placeholder="Approved by" />
+	<el-form ref="formMenuRef" :model="formMenu" status-icon label-width="" :inline="true">
+		<el-form-item label="菜单" prop="name">
+			<el-input v-model="formMenu.name" placeholder=""></el-input>
 		</el-form-item>
-		<el-form-item label="Activity zone">
-			<el-select v-model="formInline.region" placeholder="Activity zone">
-				<el-option label="Zone one" value="shanghai" />
-				<el-option label="Zone two" value="beijing" />
-			</el-select>
-		</el-form-item>
-		<el-form-item>
-			<el-button type="primary" @click="toAdd">to add</el-button>
+		<el-form-item label="" prop="">
+			<el-button>查询</el-button>
+			<el-button @click="resetForm(formMenuRef)">重置</el-button>
 		</el-form-item>
 	</el-form>
-	<el-table :data="tableData" style="width: 100%" row-key="id" border lazy :load="load" :tree-props="{ children: 'children', hasChildren: 'hasChildren' }">
-		<el-table-column prop="date" label="Date" width="180" />
-		<el-table-column prop="name" label="Name" width="180" />
+	<el-table :data="tableData" style="width: 100%">
+		<el-table-column prop="name" label="名称" width="180" />
+		<el-table-column prop="flag" label="标识" width="180" />
+		<el-table-column prop="sort" label="排序" width="180" />
+		<el-table-column prop="status" label="状态" width="180">
+			<template #default="scope">
+				<div>{{ StatusUse[scope.row.status] }}</div>
+			</template>
+		</el-table-column>
+		<el-table-column prop="desc" label="描述" />
+		<el-table-column prop="" label="操作" width="180">
+			<template #default="scope">
+				<el-button link>编辑{{ scope.row.id }}</el-button>
+				<el-button link>删除</el-button>
+			</template>
+		</el-table-column>
 	</el-table>
+	<el-row justify="end">
+		<el-col :span="24" class="re-flex-row-end page-box">
+			<el-pagination
+				v-model:currentPage="pageOption.pageCurrent"
+				v-model:page-size="pageOption.pageSize"
+				:page-sizes="pageOption.pageSizes"
+				:small="pageOption.small"
+				:disabled="pageOption.disabled"
+				:background="pageOption.background"
+				:layout="pageOption.layout"
+				:total="pageOption.pageTotal"
+				@size-change="pageChangeSize"
+				@current-change="pageChangeCurrent"
+			/>
+		</el-col>
+	</el-row>
 </template>
 
-<script lang="ts">
-	import { defineComponent, reactive } from "vue";
-	import { useRouter } from "vue-router";
-	interface User {
-		id: number;
-		date: string;
-		name: string;
-		hasChildren?: boolean;
-		children?: User[];
-	}
-	export default defineComponent({
-		name: "MenuList",
-		setup() {
-			const formInline = reactive({
-				user: "",
-				region: "",
-			});
+<script lang="ts" setup name="MenuList">
+	import { ref, reactive } from "vue";
+	import type { FormInstance } from "element-plus";
+	import { StatusUse } from "@/plugins/enums";
 
-			const load = (_row: User, _treeNode: unknown, resolve: (date: User[]) => void) => {
-				setTimeout(() => {
-					resolve([
-						{
-							id: 31,
-							date: "2016-05-01",
-							name: "wangxiaohu",
-						},
-						{
-							id: 32,
-							date: "2016-05-01",
-							name: "wangxiaohu",
-						},
-					]);
-				}, 1000);
-			};
-
-			const tableData: User[] = [
-				{
-					id: 1,
-					date: "2016-05-02",
-					name: "wangxiaohu",
-				},
-				{
-					id: 2,
-					date: "2016-05-04",
-					name: "wangxiaohu",
-				},
-				{
-					id: 3,
-					date: "2016-05-01",
-					name: "wangxiaohu",
-					children: [
-						{
-							id: 31,
-							date: "2016-05-01",
-							name: "wangxiaohu",
-						},
-						{
-							id: 32,
-							date: "2016-05-01",
-							name: "wangxiaohu",
-						},
-					],
-				},
-				{
-					id: 4,
-					date: "2016-05-03",
-					name: "wangxiaohu",
-				},
-			];
-
-			const router = useRouter();
-			const toAdd = () => {
-				router.push({ path: "/system/menu/add" });
-			};
-			return {
-				formInline,
-				load,
-				tableData,
-				toAdd,
-			};
-		},
+	const formMenuRef = ref();
+	const formMenu = reactive({
+		name: "",
 	});
+	const resetForm = (formEl: FormInstance | undefined) => {
+		if (!formEl) return false;
+		formEl.resetFields();
+	};
+	const tableData = ref<any[]>([]);
+	tableData.value = [
+		{
+			id: 1,
+			name: "超级管理员",
+			flag: "super",
+			sort: 1,
+			status: 1,
+			desc: "超级管理员",
+		},
+		{
+			id: 2,
+			name: "管理员",
+			flag: "super",
+			sort: 2,
+			status: 0,
+			desc: "超级管理员",
+		},
+	];
+	const pageOption = reactive({
+		pageCurrent: 1,
+		pageSize: 50,
+		pageTotal: 100,
+		pageSizes: [10, 50, 100, 200],
+		small: false,
+		disabled: false,
+		background: false,
+		layout: "total, sizes, prev, pager, next, jumper",
+	});
+	const pageChangeSize = (val: number) => {
+		console.log(`${val} items per page`);
+	};
+	const pageChangeCurrent = (val: number) => {
+		console.log(`${val} items per page`);
+	};
 </script>
 
 <style scoped lang="scss"></style>
