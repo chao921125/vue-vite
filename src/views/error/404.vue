@@ -1,9 +1,5 @@
 <template>404</template>
 
-<script>
-	export default {
-		name: "404",
-	};
-</script>
+<script lang="ts" setup name="404"></script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

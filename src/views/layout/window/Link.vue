@@ -6,28 +6,19 @@
 	</el-row>
 </template>
 
-<script lang="ts">
-	import { defineComponent, onMounted, ref } from "vue";
+<script lang="ts" setup name="Link">
+	import { onMounted, ref } from "vue";
 	import { useRoute } from "vue-router";
 	import Utils from "@/plugins/utils";
 
-	export default defineComponent({
-		// eslint-disable-next-line vue/no-reserved-component-names
-		name: "Link",
-		setup() {
-			const linkUrl = ref("");
-			const route = useRoute();
-			const initData = () => {
-				linkUrl.value = String(route.meta.address) || "";
-				Utils.open(linkUrl.value);
-			};
-			onMounted(() => {
-				initData();
-			});
-			return {
-				linkUrl,
-			};
-		},
+	const linkUrl = ref("");
+	const route = useRoute();
+	const initData = () => {
+		linkUrl.value = String(route.meta.address) || "";
+		Utils.open(linkUrl.value);
+	};
+	onMounted(() => {
+		initData();
 	});
 </script>
 

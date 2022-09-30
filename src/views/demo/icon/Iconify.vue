@@ -25,17 +25,8 @@
 	<code>iconfont &lt;i class="iconfont icon-detail"&gt;&lt;/i&gt; <i class="iconfont icon-detail" /></code>
 </template>
 
-<script lang="ts">
-	import { defineComponent } from "vue";
+<script lang="ts" setup name="Iconify">
 	import { Icon } from "@iconify/vue";
-
-	export default defineComponent({
-		name: "Iconify",
-		components: {
-			Icon,
-		},
-		setup() {},
-	});
 </script>
 
 <style scoped lang="scss"></style>

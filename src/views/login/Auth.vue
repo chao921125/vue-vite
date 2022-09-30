@@ -1,9 +1,5 @@
 <template>auth</template>
 
-<script>
-	export default {
-		name: "Auth",
-	};
-</script>
+<script lang="ts" setup name="Auth"></script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>
