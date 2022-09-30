@@ -15,6 +15,7 @@ export default {
 		demo: "示例",
 		demoIcon: "图标",
 		demoIconIfy: "iconify",
+		demoAnimaCss: "Animation.css",
 		demoMap: "CV拖拽缩放",
 		demoMapOne: "CV分割地图",
 		demoMapTwo: "CV拖拽",
