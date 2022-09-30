@@ -45,7 +45,7 @@ const i18n = createI18n({
 	missingWarn: false,
 	silentFallbackWarn: true,
 	fallbackWarn: false,
-	locale: themeConfig.value.globalI18n,
+	locale: themeConfig.value.globalI18n || import.meta.env.VITE_LOCAL,
 	fallbackLocale: zhCNLocale.name,
 	messages,
 });

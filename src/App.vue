@@ -46,7 +46,7 @@
 		});
 	});
 	const initData = () => {
-		config.i18n = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal) || import.meta.env.VITE_LOCAL;
+		proxy.mittBus.emit("getI18nConfig", Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal) || import.meta.env.VITE_LOCAL);
 	};
 
 	onUnmounted(() => {
