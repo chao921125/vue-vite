@@ -1,9 +1,5 @@
 <template>500</template>
 
-<script>
-	export default {
-		name: "500",
-	};
-</script>
+<script lang="ts" setup name="500"></script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

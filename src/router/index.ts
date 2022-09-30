@@ -24,7 +24,6 @@ let requestData: any = [];
 
 // 动态路由刷新404，所以先行去掉匹配不存在路由重定向至404页
 if (isRequestRoutes) baseRoutes[0].children = [];
-// const evn = import.meta.env.BASE_URL;
 
 export const router = createRouter({
 	history: createWebHashHistory(),
@@ -55,7 +54,7 @@ router.beforeEach(async (to, from, next) => {
 			const { routerList } = storeToRefs(storesRouterList);
 			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {
-					// 从后端接口中重新获取数据
+					// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
 					requestData = routeData.menus;
 				} else {
 					requestData = routeData.menus;
@@ -80,8 +79,7 @@ router.afterEach(() => {
 
 /**
  * 处理路由数据
- * 这里不再单独抽出来一个文件了
- * 总感觉有些人专门搞事情
+ * 其实处理路由的逻辑很简单，就是拦截配置、动态加载，加载之前转为路由即可
  */
 
 const viewsModules: any = import.meta.glob("../views/**/**.{vue,tsx}");

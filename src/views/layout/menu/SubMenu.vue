@@ -19,35 +19,26 @@
 	</template>
 </template>
 
-<script lang="ts">
-	import { defineComponent, computed } from "vue";
+<script lang="ts" setup name="SubItem">
+	import { defineProps, computed } from "vue";
 
-	export default defineComponent({
-		name: "SubItem",
-		props: {
-			menus: {
-				type: Object,
-				// eslint-disable-next-line vue/require-valid-default-prop
-				default: () => [],
-			},
-			basePath: {
-				type: String,
-				default: "",
-			},
+	const props = defineProps({
+		menus: {
+			type: Object,
+			// eslint-disable-next-line vue/require-valid-default-prop
+			default: () => [],
 		},
-		setup(props) {
-			const menuList = computed(() => {
-				return props.menus || [];
-			});
-			const resolvePath = (path: string) => {
-				return props.basePath + path;
-			};
-			return {
-				menuList,
-				resolvePath,
-			};
+		basePath: {
+			type: String,
+			default: "",
 		},
 	});
+	const menuList = computed(() => {
+		return props.menus || [];
+	});
+	const resolvePath = (path: string) => {
+		return props.basePath + path;
+	};
 </script>
 
 <style scoped lang="scss"></style>

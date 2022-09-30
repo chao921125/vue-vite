@@ -1,9 +1,5 @@
 <template>401</template>
 
-<script>
-	export default {
-		name: "401",
-	};
-</script>
+<script lang="ts" setup name="401"></script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

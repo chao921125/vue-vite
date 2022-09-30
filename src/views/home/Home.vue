@@ -13,51 +13,28 @@
 	</div>
 </template>
 
-<script lang="ts">
-	import { defineComponent, ref } from "vue";
-	import { useRouter } from "vue-router";
-	import Utils from "@/plugins/utils";
+<script lang="ts" setup name="Home">
+	import { ref } from "vue";
 
-	export default defineComponent({
-		name: "Home",
-		setup() {
-			const router = useRouter();
-			const logout = () => {
-				Utils.Storages.removeSessionStorage(Utils.Constants.storageKey.token);
-				Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
-				router.push({ path: "/login" });
-			};
+	const htmlTest = "<div style='color: red'>1231233</div>";
+	const text = ref("");
+	const textHtml = ref("");
+	const textRe = ref("");
 
-			const htmlTest = "<div style='color: red'>1231233</div>";
-			const text = ref("");
-			const textHtml = ref("");
-			const textRe = ref("");
+	const isShow = ref(false);
+	const changeShow = () => {
+		isShow.value = !isShow.value;
+		textHtml.value = "";
+		if (text.value.replace(/\r\n/g, "|rn|").includes("|rn|")) {
+			textHtml.value = text.value.replace(/\r\n/g, "@rn@</br>");
+		}
+		if (text.value.replace(/\n/g, "|n|").includes("|n|")) {
+			textHtml.value = text.value.replace(/\n/g, "@n@</br>");
+		}
+		textHtml.value = textHtml.value.replace(/@n@/g, "");
 
-			const isShow = ref(false);
-			const changeShow = () => {
-				isShow.value = !isShow.value;
-				textHtml.value = "";
-				if (text.value.replace(/\r\n/g, "|rn|").includes("|rn|")) {
-					textHtml.value = text.value.replace(/\r\n/g, "@rn@</br>");
-				}
-				if (text.value.replace(/\n/g, "|n|").includes("|n|")) {
-					textHtml.value = text.value.replace(/\n/g, "@n@</br>");
-				}
-				textHtml.value = textHtml.value.replace(/@n@/g, "");
-
-				textRe.value = textHtml.value.replace(/<\/br>/g, "\r\n");
-			};
-			return {
-				text,
-				textHtml,
-				textRe,
-				isShow,
-				htmlTest,
-				changeShow,
-				logout,
-			};
-		},
-	});
+		textRe.value = textHtml.value.replace(/<\/br>/g, "\r\n");
+	};
 </script>
 
 <style scoped lang="scss"></style>

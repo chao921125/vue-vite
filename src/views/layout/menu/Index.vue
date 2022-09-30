@@ -27,8 +27,8 @@
 	</el-scrollbar>
 </template>
 
-<script lang="ts">
-	import { defineComponent, computed, reactive, onBeforeMount, watch } from "vue";
+<script lang="ts" setup name="Menu">
+	import { computed, reactive, onBeforeMount, watch } from "vue";
 	import { useRouter, useRoute } from "vue-router";
 	import SubMenu from "./SubMenu.vue";
 	import { storeToRefs } from "pinia";
@@ -37,72 +37,57 @@
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
 
-	export default defineComponent({
-		name: "Index",
-		components: { SubMenu },
-		setup() {
-			const colorSet = ColorSetConfig;
-			// 折叠菜单
-			const storeThemeConfig = useThemeConfig(Pinia);
-			const { themeConfig } = storeToRefs(storeThemeConfig);
-			const isColl = computed(() => {
-				let { isCollapse } = themeConfig.value;
-				return !isCollapse;
-			});
-			// 渲染菜单
-			const storeRouterList = useRouterList(Pinia);
-			const { menuList } = storeToRefs(storeRouterList);
-			const state = reactive({ menuList: Array<any> });
-			const setMenu = () => {
-				(state.menuList as any) = menuList.value || [];
-			};
-			// 设置菜单点击后的默认项
-			const router = useRouter();
-			const route = useRoute();
-			const changeMenuKey = computed(() => {
-				let menuHierarchy = 2;
-				let path = route.path.replace("/", "");
-				let pathArray = path.split("/");
-				if (pathArray.length > menuHierarchy) {
-					let returnPath = "";
-					for (let i = 0; i < menuHierarchy; i++) {
-						returnPath += `/${pathArray[i]}`;
-					}
-					return returnPath.replace("/", "");
-				}
-				return path.toString();
-			});
-			// 点击路由跳转菜单
-			const toMenu = (index) => {
-				router.push({ path: "/" + index });
-			};
-			// 回首页
-			const toHome = () => {
-				router.push({ path: "/" });
-			};
-			// 监听路由及状态，改变菜单
-			watch(
-				Pinia.state,
-				() => {
-					setMenu();
-				},
-				{
-					deep: true,
-				},
-			);
-			onBeforeMount(() => {
-				setMenu();
-			});
-
-			return {
-				colorSet,
-				isColl,
-				changeMenuKey,
-				state,
-				toHome,
-				toMenu,
-			};
+	const colorSet = ColorSetConfig;
+	// 折叠菜单
+	const storeThemeConfig = useThemeConfig(Pinia);
+	const { themeConfig } = storeToRefs(storeThemeConfig);
+	const isColl = computed(() => {
+		let { isCollapse } = themeConfig.value;
+		return !isCollapse;
+	});
+	// 渲染菜单
+	const storeRouterList = useRouterList(Pinia);
+	const { menuList } = storeToRefs(storeRouterList);
+	const state = reactive({ menuList: Array<any> });
+	const setMenu = () => {
+		(state.menuList as any) = menuList.value || [];
+	};
+	// 设置菜单点击后的默认项
+	const router = useRouter();
+	const route = useRoute();
+	const changeMenuKey = computed(() => {
+		let menuHierarchy = 2;
+		let path = route.path.replace("/", "");
+		let pathArray = path.split("/");
+		if (pathArray.length > menuHierarchy) {
+			let returnPath = "";
+			for (let i = 0; i < menuHierarchy; i++) {
+				returnPath += `/${pathArray[i]}`;
+			}
+			return returnPath.replace("/", "");
+		}
+		return path.toString();
+	});
+	// 点击路由跳转菜单
+	const toMenu = (index) => {
+		router.push({ path: "/" + index });
+	};
+	// 回首页
+	const toHome = () => {
+		router.push({ path: "/" });
+	};
+	// 监听路由及状态，改变菜单
+	watch(
+		Pinia.state,
+		() => {
+			setMenu();
 		},
+		{
+			deep: true,
+		},
+	);
+	onBeforeMount(() => {
+		setMenu();
 	});
 </script>
 

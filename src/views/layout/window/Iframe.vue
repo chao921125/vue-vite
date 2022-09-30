@@ -6,52 +6,42 @@
 	</el-row>
 </template>
 
-<script lang="ts">
-	import { defineComponent, onMounted, nextTick, watch, computed, reactive } from "vue";
+<script lang="ts" setup name="Iframe">
+	import { onMounted, nextTick, watch, computed, reactive } from "vue";
 	import { useRoute } from "vue-router";
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { storeToRefs } from "pinia";
 
-	export default defineComponent({
-		// eslint-disable-next-line vue/no-reserved-component-names
-		name: "Iframe",
-		setup() {
-			const storeThemeConfig = useThemeConfig(Pinia);
-			const { themeConfig } = storeToRefs(storeThemeConfig);
-			const iframeHeight = computed(() => {
-				if (themeConfig.value.isTagsView) {
-					return "120px";
-				}
-				return "100px";
-			});
-			const iframeObj = reactive({
-				url: "",
-				loading: true,
-			});
-			const route = useRoute();
-			const initData = () => {
-				iframeObj.loading = true;
-				nextTick(() => {
-					iframeObj.url = String(route.meta.address) || "";
-					iframeObj.loading = false;
-				});
-			};
-			onMounted(() => {
-				initData();
-			});
-			watch(
-				() => route.path,
-				() => {
-					// initData();
-				},
-			);
-			return {
-				iframeHeight,
-				iframeObj,
-			};
-		},
+	const storeThemeConfig = useThemeConfig(Pinia);
+	const { themeConfig } = storeToRefs(storeThemeConfig);
+	const iframeHeight = computed(() => {
+		if (themeConfig.value.isTagsView) {
+			return "120px";
+		}
+		return "100px";
 	});
+	const iframeObj = reactive({
+		url: "",
+		loading: true,
+	});
+	const route = useRoute();
+	const initData = () => {
+		iframeObj.loading = true;
+		nextTick(() => {
+			iframeObj.url = String(route.meta.address) || "";
+			iframeObj.loading = false;
+		});
+	};
+	onMounted(() => {
+		initData();
+	});
+	watch(
+		() => route.path,
+		() => {
+			// initData();
+		},
+	);
 </script>
 
 <style scoped lang="scss"></style>

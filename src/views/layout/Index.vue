@@ -30,8 +30,8 @@
 	</el-container>
 </template>
 
-<script lang="ts">
-	import { defineComponent, ref, reactive, computed, getCurrentInstance, watch, onBeforeMount } from "vue";
+<script lang="ts" setup name="Layout">
+	import { ref, reactive, computed, getCurrentInstance, watch, onBeforeMount } from "vue";
 	import { useRoute } from "vue-router";
 	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
@@ -41,70 +41,56 @@
 	import AdminHeader from "./header/Index.vue";
 	import AdminFooter from "./footer/Index.vue";
 
-	export default defineComponent({
-		name: "Layout",
-		components: { AdminMenu, AdminHeader, AdminFooter },
-		setup() {
-			// 设置是否为权限管理端
-			const isAdmin = ref(true);
-			isAdmin.value = RouterSetConfig.isAdminIframe;
-			// 修改项目设置
-			const storesThemeConfig = useThemeConfig(Pinia);
-			const { themeConfig } = storeToRefs(storesThemeConfig);
-			const state = reactive({
-				clientWidth: 0,
-			});
-			// 固定header
-			const isFixedHeader = computed(() => {
-				return themeConfig.value.isFixedHeader;
-			});
-			//
-			const setHeaderHeight = computed(() => {
-				const { isTagsView } = themeConfig.value;
-				if (isTagsView) return "84px";
-				else return "60px";
-			});
-			// 开启展示 底部
-			const isShowFooter = themeConfig.value.isFooter;
-			// 动态修改菜单的宽高
-			// eslint-disable-next-line vue/return-in-computed-property
-			const styleCollapse = computed(() => {
-				const { isCollapse } = themeConfig.value;
-				// 处理移动端
-				if (state.clientWidth < 1000) {
-					console.log("TODO 处理移动端");
-				} else {
-					// 管理端
-					if (isAdmin.value) {
-						if (isCollapse) return ["layout-aside-pc-64"];
-						else return ["layout-aside-pc-220"];
-					} else {
-						console.log("TODO 处理非管理端");
-					}
-				}
-			});
-			// 切换路由之后，滚动到顶部
-			const { proxy } = <any>getCurrentInstance();
-			const route = useRoute();
-			// 监听路由的变化
-			watch(
-				() => route.path,
-				() => {
-					proxy.$refs.refScrollbarMain.wrap$.scrollTop = 0;
-				},
-			);
-			onBeforeMount(() => {
-				state.clientWidth = document.body.clientWidth;
-			});
-
-			return {
-				isAdmin,
-				isFixedHeader,
-				setHeaderHeight,
-				isShowFooter,
-				styleCollapse,
-			};
+	// 设置是否为权限管理端
+	const isAdmin = ref(true);
+	isAdmin.value = RouterSetConfig.isAdminIframe;
+	// 修改项目设置
+	const storesThemeConfig = useThemeConfig(Pinia);
+	const { themeConfig } = storeToRefs(storesThemeConfig);
+	const state = reactive({
+		clientWidth: 0,
+	});
+	// 固定header
+	const isFixedHeader = computed(() => {
+		return themeConfig.value.isFixedHeader;
+	});
+	//
+	const setHeaderHeight = computed(() => {
+		const { isTagsView } = themeConfig.value;
+		if (isTagsView) return "84px";
+		else return "60px";
+	});
+	// 开启展示 底部
+	const isShowFooter = themeConfig.value.isFooter;
+	// 动态修改菜单的宽高
+	// eslint-disable-next-line vue/return-in-computed-property
+	const styleCollapse = computed(() => {
+		const { isCollapse } = themeConfig.value;
+		// 处理移动端
+		if (state.clientWidth < 1000) {
+			console.log("TODO 处理移动端");
+		} else {
+			// 管理端
+			if (isAdmin.value) {
+				if (isCollapse) return ["layout-aside-pc-64"];
+				else return ["layout-aside-pc-220"];
+			} else {
+				console.log("TODO 处理非管理端");
+			}
+		}
+	});
+	// 切换路由之后，滚动到顶部
+	const { proxy } = <any>getCurrentInstance();
+	const route = useRoute();
+	// 监听路由的变化
+	watch(
+		() => route.path,
+		() => {
+			proxy.$refs.refScrollbarMain.wrap$.scrollTop = 0;
 		},
+	);
+	onBeforeMount(() => {
+		state.clientWidth = document.body.clientWidth;
 	});
 </script>
 

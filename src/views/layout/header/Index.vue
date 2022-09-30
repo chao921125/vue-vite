@@ -92,8 +92,8 @@
 	</el-drawer>
 </template>
 
-<script lang="ts">
-	import { defineComponent, ref, computed, onMounted, getCurrentInstance } from "vue";
+<script lang="ts" setup name="Header">
+	import { ref, computed, onMounted, getCurrentInstance } from "vue";
 	import { useRouter, useRoute, onBeforeRouteUpdate } from "vue-router";
 	import screenfull from "screenfull";
 	import Utils from "@/plugins/utils";
@@ -105,211 +105,175 @@
 	import { useRouterList } from "@/store/modules/routerMeta";
 	import { Sunny, Moon } from "@element-plus/icons-vue";
 
-	export default defineComponent({
-		name: "Index",
-		setup() {
-			const storeThemeConfig = useThemeConfig(Pinia);
-			const { themeConfig } = storeToRefs(storeThemeConfig);
-			// 折叠菜单 start
-			const isColl = computed(() => {
-				let { isCollapse } = themeConfig.value;
-				return !isCollapse;
+	const storeThemeConfig = useThemeConfig(Pinia);
+	const { themeConfig } = storeToRefs(storeThemeConfig);
+	// 折叠菜单 start
+	const isColl = computed(() => {
+		let { isCollapse } = themeConfig.value;
+		return !isCollapse;
+	});
+	const changeCollapse = () => {
+		themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
+		setThemeConfig();
+	};
+	// 折叠菜单 end
+	// 面包屑导航 start
+	const route = useRoute();
+	const storesRouterList = useRouterList(Pinia);
+	const { menuList } = storeToRefs(storesRouterList);
+	const breadcrumbList = ref<any[]>([]);
+	const initBreadcrumbList = (path: string) => {
+		if (RouterSetConfig.executeList.includes(path)) {
+			breadcrumbList.value.push({
+				name: menuList.value[0].path,
+				title: menuList.value[0].title,
+				path: "/" + menuList.value[0].path,
 			});
-			const changeCollapse = () => {
-				themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
-				setThemeConfig();
-			};
-			// 折叠菜单 end
-			// 面包屑导航 start
-			const route = useRoute();
-			const storesRouterList = useRouterList(Pinia);
-			const { menuList } = storeToRefs(storesRouterList);
-			const breadcrumbList = ref<any[]>([]);
-			const initBreadcrumbList = (path: string) => {
-				if (RouterSetConfig.executeList.includes(path)) {
-					breadcrumbList.value.push({
-						name: menuList.value[0].path,
-						title: menuList.value[0].title,
-						path: "/" + menuList.value[0].path,
-					});
-					return false;
+			return false;
+		}
+		let pathArr = path.split("/");
+		pathArr.shift();
+		for (let i = 0; i < pathArr.length; i++) {
+			breadcrumbList.value.push({
+				name: pathArr[i],
+				title: "",
+				path: i === pathArr.length ? "/" + pathArr.slice(0, i + 1).join("/") : "",
+			});
+		}
+		setBreadcrumbList(menuList.value);
+		breadcrumbList.value.unshift({
+			name: menuList.value[0].path,
+			title: menuList.value[0].title,
+			path: "/" + menuList.value[0].path,
+		});
+	};
+	const setBreadcrumbList = (array: Array<any>) => {
+		array.forEach((item: any) => {
+			breadcrumbList.value.forEach((obj: any) => {
+				if (item.path === obj.name) {
+					obj.title = item.title;
+					if (item.children) setBreadcrumbList(item.children);
 				}
-				let pathArr = path.split("/");
-				pathArr.shift();
-				for (let i = 0; i < pathArr.length; i++) {
-					breadcrumbList.value.push({
-						name: pathArr[i],
-						title: "",
-						path: i === pathArr.length ? "/" + pathArr.slice(0, i + 1).join("/") : "",
-					});
-				}
-				setBreadcrumbList(menuList.value);
-				breadcrumbList.value.unshift({
-					name: menuList.value[0].path,
-					title: menuList.value[0].title,
-					path: "/" + menuList.value[0].path,
-				});
-			};
-			const setBreadcrumbList = (array: Array<any>) => {
-				array.forEach((item: any) => {
-					breadcrumbList.value.forEach((obj: any) => {
-						if (item.path === obj.name) {
-							obj.title = item.title;
-							if (item.children) setBreadcrumbList(item.children);
-						}
-					});
-				});
-			};
-			// 面包屑导航 end
-			// 个人中心 start
-			const { proxy } = <any>getCurrentInstance();
-			const dropdownUser = ref();
-			const dropdownComponents = ref();
-			const dropdownLanguage = ref();
-			const showDropdownUser = () => {
-				dropdownUser.value.handleOpen();
-			};
-			const showDropdownComponents = () => {
-				dropdownComponents.value.handleOpen();
-			};
-			const showDropdownLanguage = () => {
-				dropdownLanguage.value.handleOpen();
-			};
-			// i18n
-			const i18ns = ThemeSetConfig.i18nKeys;
-			const changeI18n = (lang: string) => {
-				themeConfig.value.globalI18n = lang;
-				proxy.$i18n.locale = lang;
-				proxy.mittBus.emit("getI18nConfig", proxy.$i18n.messages[lang]);
-				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.i18nLocal, lang);
-				setThemeConfig();
-			};
-			// 组件大小
-			const sizes = ThemeSetConfig.sizeKeys;
-			const changeSize = (size: string) => {
-				themeConfig.value.globalComponentSize = size;
-				proxy.mittBus.emit("getSizeConfig", size);
-				setThemeConfig();
-			};
-			// 设置
-			const isShowDrawer = ref(false);
-			// 全屏
-			const isScreenFull = ref(screenfull.isFullscreen);
-			const changeScreenFull = () => {
-				if (screenfull.isEnabled) {
-					isScreenFull.value = !isScreenFull.value;
-					screenfull.toggle();
-				}
-			};
-			// 退出
-			const router = useRouter();
-			const logout = () => {
-				Utils.Storages.removeSessionStorage(Utils.Constants.storageKey.token);
-				Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
-				router.push({ path: RouterSetConfig.routeLogin });
-			};
-			// 个人中心 end
+			});
+		});
+	};
+	// 面包屑导航 end
+	// 个人中心 start
+	const { proxy } = <any>getCurrentInstance();
+	const dropdownUser = ref();
+	const dropdownComponents = ref();
+	const dropdownLanguage = ref();
+	const showDropdownUser = () => {
+		dropdownUser.value.handleOpen();
+	};
+	const showDropdownComponents = () => {
+		dropdownComponents.value.handleOpen();
+	};
+	const showDropdownLanguage = () => {
+		dropdownLanguage.value.handleOpen();
+	};
+	// i18n
+	const i18ns = ThemeSetConfig.i18nKeys;
+	const changeI18n = (lang: string) => {
+		themeConfig.value.globalI18n = lang;
+		proxy.$i18n.locale = lang;
+		proxy.mittBus.emit("getI18nConfig", proxy.$i18n.messages[lang]);
+		Utils.Storages.setLocalStorage(Utils.Constants.storageKey.i18nLocal, lang);
+		setThemeConfig();
+	};
+	// 组件大小
+	const sizes = ThemeSetConfig.sizeKeys;
+	const changeSize = (size: string) => {
+		themeConfig.value.globalComponentSize = size;
+		proxy.mittBus.emit("getSizeConfig", size);
+		setThemeConfig();
+	};
+	// 设置
+	const isShowDrawer = ref(false);
+	// 全屏
+	const isScreenFull = ref(screenfull.isFullscreen);
+	const changeScreenFull = () => {
+		if (screenfull.isEnabled) {
+			isScreenFull.value = !isScreenFull.value;
+			screenfull.toggle();
+		}
+	};
+	// 退出
+	const router = useRouter();
+	const logout = () => {
+		Utils.Storages.removeSessionStorage(Utils.Constants.storageKey.token);
+		Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
+		router.push({ path: RouterSetConfig.routeLogin });
+	};
+	// 个人中心 end
 
-			// 设置 抽屉 start
-			const colorPicker = ref();
-			const changeColorPicker = () => {
-				console.log("color is ", colorPicker.value);
-			};
-			const isThemDark = ref();
-			const changeDark = (e) => {
-				themeConfig.value.isDark = e;
-				setThemeConfig();
-				let html = document.documentElement as HTMLElement;
-				if (e) {
-					html.setAttribute("class", "dark");
-				} else {
-					html.removeAttribute("class");
-				}
-			};
-			const isThemGrey = ref();
-			const changeGrey = (e) => {
-				themeConfig.value.isGrey = e;
-				setThemeConfig();
-				if (e) {
-					document.querySelector("body")!.setAttribute("style", `filter: grayscale(1)`);
-				} else {
-					document.querySelector("body")!.removeAttribute("style");
-				}
-			};
-			const isThemInvert = ref();
-			const changeInvert = (e) => {
-				themeConfig.value.isInvert = e;
-				setThemeConfig();
-				if (e) {
-					document.querySelector("body")!.setAttribute("style", `filter: invert(1)`);
-				} else {
-					document.querySelector("body")!.removeAttribute("style");
-				}
-			};
-			// 设置 抽屉 end
+	// 设置 抽屉 start
+	const colorPicker = ref();
+	const changeColorPicker = () => {
+		console.log("color is ", colorPicker.value);
+	};
+	const isThemDark = ref();
+	const changeDark = (e) => {
+		themeConfig.value.isDark = e;
+		setThemeConfig();
+		let html = document.documentElement as HTMLElement;
+		if (e) {
+			html.setAttribute("class", "dark");
+		} else {
+			html.removeAttribute("class");
+		}
+	};
+	const isThemGrey = ref();
+	const changeGrey = (e) => {
+		themeConfig.value.isGrey = e;
+		setThemeConfig();
+		if (e) {
+			document.querySelector("body")!.setAttribute("style", `filter: grayscale(1)`);
+		} else {
+			document.querySelector("body")!.removeAttribute("style");
+		}
+	};
+	const isThemInvert = ref();
+	const changeInvert = (e) => {
+		themeConfig.value.isInvert = e;
+		setThemeConfig();
+		if (e) {
+			document.querySelector("body")!.setAttribute("style", `filter: invert(1)`);
+		} else {
+			document.querySelector("body")!.removeAttribute("style");
+		}
+	};
+	// 设置 抽屉 end
 
-			// 本地持久化配置
-			const setThemeConfig = () => {
-				Utils.Storages.removeLocalStorage(Utils.Constants.storageKey.themeConfig);
-				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.themeConfig, themeConfig.value);
-			};
-			const userInfoAvatar = ref("");
-			const userInfoName = ref("");
-			const initData = () => {
-				const userInfo = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.userInfo) || null;
-				userInfoAvatar.value = userInfo.avatar || "";
-				userInfoName.value = userInfo.userName || "";
-				isThemGrey.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)?.isGrey || false;
-				changeGrey(isThemGrey.value);
-				isThemInvert.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)?.isInvert || false;
-				changeInvert(isThemInvert.value);
-			};
-			// 渲染调用
-			onMounted(() => {
-				initData();
-				breadcrumbList.value = [];
-				initBreadcrumbList(route.path);
-				const localI18n = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal);
-				if (localI18n) {
-					changeI18n(localI18n);
-				}
-			});
-			onBeforeRouteUpdate((to) => {
-				breadcrumbList.value = [];
-				initBreadcrumbList(to.path);
-			});
-			return {
-				isColl,
-				changeCollapse,
-				breadcrumbList,
-				dropdownUser,
-				showDropdownUser,
-				dropdownComponents,
-				showDropdownComponents,
-				dropdownLanguage,
-				showDropdownLanguage,
-				i18ns,
-				changeI18n,
-				sizes,
-				changeSize,
-				isScreenFull,
-				changeScreenFull,
-				isShowDrawer,
-				colorPicker,
-				changeColorPicker,
-				isThemDark,
-				changeDark,
-				isThemGrey,
-				changeGrey,
-				isThemInvert,
-				changeInvert,
-				Sunny,
-				Moon,
-				userInfoAvatar,
-				userInfoName,
-				logout,
-			};
-		},
+	// 本地持久化配置
+	const setThemeConfig = () => {
+		Utils.Storages.removeLocalStorage(Utils.Constants.storageKey.themeConfig);
+		Utils.Storages.setLocalStorage(Utils.Constants.storageKey.themeConfig, themeConfig.value);
+	};
+	const userInfoAvatar = ref("");
+	const userInfoName = ref("");
+	const initData = () => {
+		const userInfo = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.userInfo) || null;
+		userInfoAvatar.value = userInfo.avatar || "";
+		userInfoName.value = userInfo.userName || "";
+		isThemGrey.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)?.isGrey || false;
+		changeGrey(isThemGrey.value);
+		isThemInvert.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)?.isInvert || false;
+		changeInvert(isThemInvert.value);
+	};
+	// 渲染调用
+	onMounted(() => {
+		initData();
+		breadcrumbList.value = [];
+		initBreadcrumbList(route.path);
+		const localI18n = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal);
+		if (localI18n) {
+			changeI18n(localI18n);
+		}
+	});
+	onBeforeRouteUpdate((to) => {
+		breadcrumbList.value = [];
+		initBreadcrumbList(to.path);
 	});
 </script>
 
