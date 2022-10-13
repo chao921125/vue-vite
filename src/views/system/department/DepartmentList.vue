@@ -1,11 +1,11 @@
 <template>
-	<el-form ref="formDeptRef" :model="formDept" status-icon label-width="" :inline="true">
+	<el-form ref="formDeptRef" :model="formDepartment" status-icon label-width="" :inline="true">
 		<el-form-item label="部门" prop="name">
-			<el-input v-model="formDept.name" placeholder=""></el-input>
+			<el-input v-model="formDepartment.name" placeholder=""></el-input>
 		</el-form-item>
 		<el-form-item label="" prop="">
 			<el-button>查询</el-button>
-			<el-button @click="resetForm(formDeptRef)">重置</el-button>
+			<el-button @click="resetForm(formDepartmentRef)">重置</el-button>
 		</el-form-item>
 	</el-form>
 	<el-table :data="tableData" style="width: 100%">
@@ -44,13 +44,13 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="DeptList">
+<script lang="ts" setup name="DepartmentList">
 	import { ref, reactive } from "vue";
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
 
-	const formDeptRef = ref();
-	const formDept = reactive({
+	const formDepartmentRef = ref();
+	const formDepartment = reactive({
 		name: "",
 	});
 	const resetForm = (formEl: FormInstance | undefined) => {

@@ -1,11 +1,11 @@
 <template>
-	<el-form ref="formRoleRef" :model="formRole" status-icon label-width="" :inline="true">
-		<el-form-item label="角色" prop="name">
-			<el-input v-model="formRole.name" placeholder=""></el-input>
+	<el-form ref="formDeptRef" :model="formDepartment" status-icon label-width="" :inline="true">
+		<el-form-item label="部门" prop="name">
+			<el-input v-model="formDepartment.name" placeholder=""></el-input>
 		</el-form-item>
 		<el-form-item label="" prop="">
 			<el-button>查询</el-button>
-			<el-button @click="resetForm(formRoleRef)">重置</el-button>
+			<el-button @click="resetForm(formDepartmentRef)">重置</el-button>
 		</el-form-item>
 	</el-form>
 	<el-table :data="tableData" style="width: 100%">
@@ -44,13 +44,13 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="RoleList">
+<script lang="ts" setup name="DepartmentList">
 	import { ref, reactive } from "vue";
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
 
-	const formRoleRef = ref();
-	const formRole = reactive({
+	const formDepartmentRef = ref();
+	const formDepartment = reactive({
 		name: "",
 	});
 	const resetForm = (formEl: FormInstance | undefined) => {
@@ -65,7 +65,6 @@
 			flag: "super",
 			sort: 1,
 			status: 1,
-			permission: ["add", "edit", "remove"],
 			desc: "超级管理员",
 		},
 		{

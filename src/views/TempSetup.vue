@@ -1,5 +1,12 @@
-<template>body</template>
+<template>Template</template>
 
-<script lang="ts" setup name="TempSetup"></script>
+<script lang="ts">
+	import { defineComponent } from "vue";
+
+	export default defineComponent({
+		name: "TempScriptSetup",
+		setup() {},
+	});
+</script>
 
 <style scoped lang="scss"></style>
