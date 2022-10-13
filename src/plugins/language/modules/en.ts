@@ -6,6 +6,7 @@ export default {
 		systemUserAdd: "User Add",
 		systemRole: "Manage Role",
 		systemDepartment: "Manage Department",
+		systemJob: "Mange Job",
 		systemMenu: "Manage Menu",
 		systemMenuAdd: "Menu Add",
 		systemMenuEdit: "Menu Edit",

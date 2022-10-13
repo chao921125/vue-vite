@@ -1,8 +1,9 @@
 <template>
-	<el-dialog v-model="dialogFormVisible" title="Shipping address">
+	<el-dialog v-model="dialogFormVisible" :title="userInfo ? '编辑用户' : '新增用户'">
 		<el-form :model="form">
 			<el-form-item label="Promotion name" :label-width="formLabelWidth">
 				<el-input v-model="form.name" autocomplete="off" />
+				{{ userInfo && userInfo.id }}
 			</el-form-item>
 			<el-form-item label="Zones" :label-width="formLabelWidth">
 				<el-select v-model="form.region" placeholder="Please select a zone">
@@ -14,29 +15,37 @@
 		<template #footer>
 			<span class="dialog-footer">
 				<el-button @click="closeDialog">Cancel</el-button>
-				<el-button type="primary" @click="closeDialog">Confirm</el-button>
+				<el-button type="primary" @click="changeUserInfo">Confirm</el-button>
 			</span>
 		</template>
 	</el-dialog>
 </template>
 
 <script lang="ts" name="AddEdit">
-	import { defineComponent, reactive, ref } from "vue";
+	import { computed, defineComponent, reactive, ref } from "vue";
 
 	export default defineComponent({
 		name: "TempScriptSetup",
+		props: {
+			data: {
+				type: Object,
+				default: () => {
+					return {};
+				},
+			},
+		},
 		setup(props, context) {
 			const dialogFormVisible = ref(false);
 			const formLabelWidth = "140px";
-
 			const openDialog = () => {
-				console.log(props, context);
 				dialogFormVisible.value = true;
 			};
 			const closeDialog = () => {
 				dialogFormVisible.value = false;
 			};
-
+			const userInfo = computed(() => {
+				return props.data;
+			});
 			const form = reactive({
 				name: "",
 				region: "",
@@ -47,12 +56,18 @@
 				resource: "",
 				desc: "",
 			});
+			const changeUserInfo = () => {
+				closeDialog();
+				context.emit("result", true);
+			};
 			return {
 				dialogFormVisible,
-				form,
-				formLabelWidth,
 				openDialog,
 				closeDialog,
+				form,
+				formLabelWidth,
+				userInfo,
+				changeUserInfo,
 			};
 		},
 	});

@@ -1,6 +1,6 @@
 <template>
 	<el-form ref="formDeptRef" :model="formDepartment" status-icon label-width="" :inline="true">
-		<el-form-item label="部门" prop="name">
+		<el-form-item label="岗位" prop="name">
 			<el-input v-model="formDepartment.name" placeholder=""></el-input>
 		</el-form-item>
 		<el-form-item label="" prop="">

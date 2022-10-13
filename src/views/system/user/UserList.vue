@@ -6,7 +6,7 @@
 		<el-form-item label="" prop="">
 			<el-button type="primary">查询</el-button>
 			<el-button @click="resetForm(formSearchRef)">重置</el-button>
-			<el-button type="success">新增</el-button>
+			<el-button type="success" @click="openAddUser">新增</el-button>
 		</el-form-item>
 	</el-form>
 	<el-table :data="tableData" style="width: 100%">
@@ -24,14 +24,14 @@
 		<el-table-column prop="desc" label="描述" />
 		<el-table-column prop="" label="操作" width="120">
 			<template #default="scope">
-				<el-button type="success" link>
-					<el-icon><EditPen @click="openEditUser(scope.row)" /></el-icon>
+				<el-button type="success" link @click="openEditUser(scope.row)">
+					<el-icon><EditPen /></el-icon>
 				</el-button>
-				<el-button type="danger" link>
-					<el-icon><Delete @click="openEditUser(scope.row)" /></el-icon>
+				<el-button type="danger" link @click="openEditUser(scope.row)">
+					<el-icon><Delete /></el-icon>
 				</el-button>
-				<el-button type="danger" link>
-					<el-icon><Switch @click="openEditUser(scope.row)" /></el-icon>
+				<el-button type="danger" link @click="openEditUser(scope.row)">
+					<el-icon><Switch /></el-icon>
 				</el-button>
 			</template>
 		</el-table-column>
@@ -52,11 +52,11 @@
 			/>
 		</el-col>
 	</el-row>
-	<AddEdit :data="userInfo" ref="dialogForm"></AddEdit>
+	<AddEdit :data="userInfo" ref="dialogForm" @result="dialogResult"></AddEdit>
 </template>
 
 <script lang="ts" setup name="UserList">
-	import { ref, reactive } from "vue";
+	import { ref, reactive, onMounted } from "vue";
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";
@@ -68,6 +68,7 @@
 	const resetForm = (formEl: FormInstance | undefined) => {
 		if (!formEl) return false;
 		formEl.resetFields();
+		getUserList();
 	};
 	const pageOption = reactive({
 		pageCurrent: 1,
@@ -107,7 +108,7 @@
 			avatar: "",
 			mail: "admin@ad.com",
 			phone: "19920008007",
-			realName: "小明",
+			realName: "赵一找",
 			userName: "sp_admin",
 			password: "123123",
 			department: "1",
@@ -124,16 +125,39 @@
 	];
 	const pageChangeSize = (val: number) => {
 		console.log(`${val} items per page`);
+		getUserList();
 	};
 	const pageChangeCurrent = (val: number) => {
 		console.log(`${val} items per page`);
+		getUserList();
 	};
-	const userInfo: any = ref({});
+	const userInfo = ref();
 	const dialogForm = ref();
+	const openAddUser = () => {
+		userInfo.value = null;
+		dialogForm.value.openDialog();
+	};
 	const openEditUser = (item: any) => {
 		userInfo.value = item;
 		dialogForm.value.openDialog();
 	};
+
+	const userParams = reactive({
+		pageSize: 1,
+		pageTotal: 100,
+	});
+	const initData = () => {
+		userParams.pageSize = 1;
+		userParams.pageTotal = 100;
+		getUserList();
+	};
+	const dialogResult = (result: any) => {
+		if (result) getUserList();
+	};
+	const getUserList = () => {};
+	onMounted(() => {
+		initData();
+	});
 </script>
 
 <style scoped lang="scss"></style>

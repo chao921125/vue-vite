@@ -8,6 +8,8 @@ export default {
 		systemRoleAdd: "角色管理",
 		systemDepartment: "部门管理",
 		systemDepartmentAdd: "部门管理",
+		systemJob: "岗位管理",
+		systemJobAdd: "岗位管理",
 		systemMenu: "菜单管理",
 		systemMenuAdd: "菜单新增",
 		systemMenuEdit: "菜单编辑",
