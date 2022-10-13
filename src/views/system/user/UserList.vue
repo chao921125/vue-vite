@@ -1,9 +1,9 @@
 <template>
 	<el-form ref="formSearchRef" :model="formSearch" status-icon label-width="" :inline="true">
-		<el-form-item label="姓名" prop="name">
+		<el-form-item prop="name" label="姓名">
 			<el-input v-model="formSearch.name" placeholder=""></el-input>
 		</el-form-item>
-		<el-form-item label="" prop="">
+		<el-form-item prop="" label="">
 			<el-button type="primary">查询</el-button>
 			<el-button @click="resetForm(formSearchRef)">重置</el-button>
 			<el-button type="success" @click="openAddUser">新增</el-button>
@@ -52,7 +52,7 @@
 			/>
 		</el-col>
 	</el-row>
-	<AddEdit :data="userInfo" ref="dialogForm" @result="dialogResult"></AddEdit>
+	<AddEdit :data="userInfo" ref="dialogForm" @result="getUserList"></AddEdit>
 </template>
 
 <script lang="ts" setup name="UserList">
@@ -150,9 +150,6 @@
 		userParams.pageSize = 1;
 		userParams.pageTotal = 100;
 		getUserList();
-	};
-	const dialogResult = (result: any) => {
-		if (result) getUserList();
 	};
 	const getUserList = () => {};
 	onMounted(() => {

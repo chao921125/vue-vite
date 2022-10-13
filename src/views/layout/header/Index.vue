@@ -20,7 +20,7 @@
 		<el-col :xs="24" :sm="12">
 			<div class="re-height-fill re-flex-row-reverse">
 				<el-dropdown ref="dropdownUser" trigger="hover">
-					<el-image :src="userInfoAvatar" fit="cover" class="re-cursor-pointer user-avatar re-m-l-10" @click="showDropdownUser"></el-image>
+					<el-avatar :src="userInfoAvatar" fit="cover" class="re-cursor-pointer user-avatar re-m-l-10" @click="showDropdownUser" />
 					<template #dropdown>
 						<el-dropdown-menu>
 							<el-dropdown-item>
