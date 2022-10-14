@@ -27,9 +27,13 @@
 				<el-button type="success" link @click="openEditUser(scope.row)">
 					<el-icon><EditPen /></el-icon>
 				</el-button>
-				<el-button type="danger" link @click="openEditUser(scope.row)">
-					<el-icon><Delete /></el-icon>
-				</el-button>
+				<el-popconfirm title="确认删除？">
+					<template #reference>
+						<el-button type="danger" link>
+							<el-icon><Delete /></el-icon>
+						</el-button>
+					</template>
+				</el-popconfirm>
 				<el-button type="danger" link @click="openEditUser(scope.row)">
 					<el-icon><Switch /></el-icon>
 				</el-button>

@@ -52,7 +52,7 @@
 				const userInfo = {
 					id: 1,
 					userName: formUser.userName,
-					avatar: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
+					avatar: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
 				};
 				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.userInfo, userInfo);
 				if (route.query?.redirect && route.query?.redirect !== "/") {
