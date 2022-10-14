@@ -1,5 +1,5 @@
 <template>
-	<el-dialog v-model="dialogFormVisible" :title="form ? '编辑用户' : '新增用户'" @close="closeDialog">
+	<el-dialog v-model="dialogFormVisible" :title="userInfo ? '编辑用户' : '新增用户'" @close="closeDialog">
 		<el-form :model="form" :label-width="formLabelWidth" ref="formRef">
 			<el-form-item prop="avatar" label="头像">
 				<el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
@@ -88,7 +88,6 @@
 			};
 			// 数据信息
 			const userInfo = computed(() => {
-				console.log(JSON.stringify(props.data));
 				if (props.data) Object.assign(form, props.data);
 				return props.data;
 			});
