@@ -1,5 +1,5 @@
 <template>
-	<el-dialog v-model="dialogFormVisible" :title="userInfo ? '编辑用户' : '新增用户'" @close="closeDialog">
+	<el-dialog v-model="dialogFormVisible" :title="departmentInfo ? '编辑用户' : '新增用户'" @close="closeDialog">
 		<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
 			<el-form-item prop="avatar" label="头像">
 				<el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
@@ -13,8 +13,8 @@
 			<el-form-item prop="phone" label="手机号">
 				<el-input v-model="form.phone" placeholder=""></el-input>
 			</el-form-item>
-			<el-form-item prop="userName" label="账号">
-				<el-input v-model="form.userName" placeholder=""></el-input>
+			<el-form-item prop="DepartmentName" label="账号">
+				<el-input v-model="form.DepartmentName" placeholder=""></el-input>
 			</el-form-item>
 			<el-form-item prop="password" label="密码">
 				<el-input v-model="form.password" placeholder="默认密码 qq123456"></el-input>
@@ -50,7 +50,7 @@
 		<template #footer>
 			<span class="dialog-footer">
 				<el-button @click="closeDialog">取消</el-button>
-				<el-button type="primary" @click="changeUserInfo">确认</el-button>
+				<el-button type="primary" @click="changeDepartmentInfo">确认</el-button>
 			</span>
 		</template>
 	</el-dialog>
@@ -59,7 +59,7 @@
 <script lang="ts" setup name="AddEdit">
 	import { onUpdated, reactive, ref } from "vue";
 	import type { FormInstance, FormRules } from "element-plus";
-	import { User } from "@/interface/user";
+	import { Department } from "@/interface/department";
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({
 		data: {
@@ -73,7 +73,7 @@
 	// 表单
 	const formLabelWidth = "100px";
 	const formRef = ref<FormInstance>();
-	let form = reactive<User>({});
+	let form = reactive<Department>({});
 	const rules = reactive<FormRules>({});
 	// 弹窗
 	const dialogFormVisible = ref(false);
@@ -85,14 +85,14 @@
 		dialogFormVisible.value = false;
 	};
 	// 数据信息
-	const userInfo = reactive({});
-	const changeUserInfo = () => {
+	const departmentInfo = reactive({});
+	const changeDepartmentInfo = () => {
 		console.log(JSON.stringify(form));
 		closeDialog();
 		emits("result", true);
 	};
 	onUpdated(() => {
-		Object.assign(userInfo, propsData.data);
+		Object.assign(departmentInfo, propsData.data);
 		if (propsData.data) {
 			Object.assign(form, propsData.data);
 		}
