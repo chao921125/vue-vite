@@ -34,9 +34,6 @@
 						</el-button>
 					</template>
 				</el-popconfirm>
-				<el-button type="danger" link @click="openEditUser(scope.row)">
-					<el-icon><Switch /></el-icon>
-				</el-button>
 			</template>
 		</el-table-column>
 	</el-table>

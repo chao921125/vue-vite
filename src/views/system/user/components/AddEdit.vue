@@ -1,5 +1,6 @@
 <template>
-	<el-dialog v-model="dialogFormVisible" :title="userInfo ? '编辑用户' : '新增用户'" @close="closeDialog">
+	<el-dialog v-model="dialogFormVisible" @close="closeDialog">
+		<template #header>{{ userInfo.id ? "编辑用户" : "新增用户" }}</template>
 		<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
 			<el-form-item prop="avatar" label="头像">
 				<el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
@@ -73,28 +74,28 @@
 	// 表单
 	const formLabelWidth = "100px";
 	const formRef = ref<FormInstance>();
-	let form = reactive<User>({});
+	const form = ref<User>({});
 	const rules = reactive<FormRules>({});
+	const userInfo = ref<User>({});
 	// 弹窗
 	const dialogFormVisible = ref(false);
 	const openDialog = () => {
 		dialogFormVisible.value = true;
 	};
 	const closeDialog = () => {
-		for (let key in form) form[key] = "";
+		form.value = {};
+		userInfo.value = {};
 		dialogFormVisible.value = false;
 	};
 	// 数据信息
-	const userInfo = reactive({});
 	const changeUserInfo = () => {
-		console.log(JSON.stringify(form));
 		closeDialog();
 		emits("result", true);
 	};
 	onUpdated(() => {
-		Object.assign(userInfo, propsData.data);
-		if (propsData.data) {
-			Object.assign(form, propsData.data);
+		if (propsData.data && dialogFormVisible.value) {
+			form.value = propsData.data;
+			userInfo.value = propsData.data;
 		}
 	});
 
