@@ -1,7 +1,9 @@
 export interface Job {
 	id?: number;
 	name?: string;
-	principal?: string;
-	contact?: string;
+	number?: number;
+	userName?: string;
+	phone?: string;
+	status?: string;
 	desc?: string;
 }

@@ -12,6 +12,13 @@
 	<el-table :data="tableData" style="width: 100%">
 		<el-table-column prop="name" label="名称" width="120" />
 		<el-table-column prop="number" label="编码" width="120" />
+		<el-table-column prop="userName" label="联系人" width="120" />
+		<el-table-column prop="phone" label="联系电话" width="120" />
+		<el-table-column prop="status" label="状态" width="60">
+			<template #default="scope">
+				<el-tag :type="scope.row.status ? 'success' : 'danger'">{{ StatusUse[scope.row.status] }}</el-tag>
+			</template>
+		</el-table-column>
 		<el-table-column prop="desc" label="描述" />
 		<el-table-column prop="" label="操作" width="120">
 			<template #default="scope">
@@ -53,6 +60,7 @@
 <script lang="ts" setup name="JobList">
 	import { ref, reactive, onMounted } from "vue";
 	import type { FormInstance } from "element-plus";
+	import { StatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";
 
 	const formSearchRef = ref();
@@ -80,14 +88,18 @@
 			id: 1,
 			number: "19920008007",
 			name: "小明",
-			menus: "",
+			status: 1,
+			userName: "王五",
+			phone: "13312341234",
 			desc: "超级管理员",
 		},
 		{
 			id: 2,
 			number: "19920008007",
 			name: "赵一找",
-			menus: "",
+			status: 0,
+			userName: "赵六",
+			phone: "19900001111",
 			desc: "管理员",
 		},
 	];
