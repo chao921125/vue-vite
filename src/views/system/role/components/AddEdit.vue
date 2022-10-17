@@ -15,7 +15,7 @@
 		<template #footer>
 			<span class="dialog-footer">
 				<el-button @click="closeDialog">取消</el-button>
-				<el-button type="primary" @click="changeroleInfo">确认</el-button>
+				<el-button type="primary" @click="changeRoleInfo">确认</el-button>
 			</span>
 		</template>
 	</el-dialog>
@@ -52,7 +52,7 @@
 		dialogFormVisible.value = false;
 	};
 	// 数据信息
-	const changeroleInfo = () => {
+	const changeRoleInfo = () => {
 		closeDialog();
 		emits("result", true);
 	};
