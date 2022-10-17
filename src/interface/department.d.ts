@@ -1,4 +1,4 @@
-export interface Job {
+export interface Department {
 	id?: number;
 	name?: string;
 	number?: number;
