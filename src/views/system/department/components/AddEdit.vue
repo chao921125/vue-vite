@@ -3,7 +3,7 @@
 		<template #header>{{ departmentInfo.id ? "编辑部门" : "新增部门" }}</template>
 		<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
 			<el-form-item prop="realName" label="名称">
-				<el-input v-model="form.name" o placeholder=""></el-input>
+				<el-input v-model="form.name" placeholder=""></el-input>
 			</el-form-item>
 			<el-form-item prop="mail" label="编码">
 				<el-input v-model="form.number" placeholder=""></el-input>

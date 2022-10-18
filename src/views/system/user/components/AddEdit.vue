@@ -6,7 +6,7 @@
 				<el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
 			</el-form-item>
 			<el-form-item prop="realName" label="姓名">
-				<el-input v-model="form.realName" o placeholder=""></el-input>
+				<el-input v-model="form.realName" placeholder=""></el-input>
 			</el-form-item>
 			<el-form-item prop="mail" label="邮箱">
 				<el-input v-model="form.mail" placeholder=""></el-input>

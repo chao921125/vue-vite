@@ -1,88 +1,85 @@
 <template>
-	<el-form ref="formSearchRef" :model="formSearch" status-icon label-width="" :inline="true">
-		<el-form-item prop="name" label="菜单">
-			<el-input v-model="formSearch.name" placeholder=""></el-input>
-		</el-form-item>
-		<el-form-item prop="" label="">
-			<el-button type="primary">查询</el-button>
-			<el-button @click="resetForm(formSearchRef)">重置</el-button>
-			<el-button type="success" @click="openAddJob">新增</el-button>
-		</el-form-item>
-	</el-form>
-	<el-table :data="tableData" style="width: 100%" row-key="id">
-		<el-table-column prop="name" label="名称" width="200">
-			<template #default="scope">
-				<span>{{ $t(scope.row.name) }}</span>
-			</template>
-		</el-table-column>
-		<!--		<el-table-column prop="title" label="标题" width="120" />-->
-		<el-table-column prop="path" label="URL" />
-		<el-table-column prop="component" label="组件" />
-		<el-table-column prop="icon" label="图标" width="60">
-			<template #default="scope">
-				<i class="iconfont" :class="scope.row.icon"></i>
-			</template>
-		</el-table-column>
-		<el-table-column prop="" label="操作" width="120">
-			<template #default="scope">
-				<el-button type="success" link @click="openEditJob(scope.row)">
-					<el-icon><EditPen /></el-icon>
-				</el-button>
-				<el-popconfirm title="确认删除？">
-					<template #reference>
-						<el-button type="danger" link>
-							<el-icon><Delete /></el-icon>
-						</el-button>
-					</template>
-				</el-popconfirm>
-			</template>
-		</el-table-column>
-	</el-table>
-	<el-row justify="end">
-		<el-col :span="24" class="re-flex-row-end page-box">
-			<el-pagination
-				v-model:currentPage="pageOption.pageCurrent"
-				v-model:page-size="pageOption.pageSize"
-				:page-sizes="pageOption.pageSizes"
-				:small="pageOption.small"
-				:disabled="pageOption.disabled"
-				:background="pageOption.background"
-				:layout="pageOption.layout"
-				:total="pageOption.pageTotal"
-				@size-change="pageChangeSize"
-				@current-change="pageChangeCurrent"
-			/>
-		</el-col>
-	</el-row>
-	<AddEdit :data="jobInfo" ref="dialogForm" @result="getJobList"></AddEdit>
+	<el-dialog v-model="dialogFormVisible" @close="closeDialog">
+		<template #header>{{ menuInfo.id ? "编辑菜单" : "新增菜单" }}</template>
+		<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
+			<el-form-item prop="parent" label="父节点">
+				<el-select v-model="form.parent" clearable placeholder="" popper-class="select-tree" @visible-change="getCheckedTree">
+					<el-option v-if="optionSelectMenu && optionSelectMenu.length > 0">
+						<el-tree ref="treeRef" :data="optionSelectMenu" :props="propsTreeMenu" show-checkbox>
+							<template #default="{ data }">
+								<span>{{ $t(data.name) }}</span>
+							</template>
+						</el-tree>
+					</el-option>
+				</el-select>
+			</el-form-item>
+			<el-form-item prop="name" label="名称">
+				<el-input v-model="form.name" placeholder=""></el-input>
+			</el-form-item>
+			<el-form-item prop="title" label="标题">
+				<el-input v-model="form.title" placeholder=""></el-input>
+			</el-form-item>
+			<el-form-item prop="icon" label="图标">
+				<el-select v-model="form.icon" clearable placeholder="" popper-class="select-icons">
+					<el-option v-for="(item, index) in IconfontData" :key="index" :label="item" :value="item" class="re-flex-row-center">
+						<i class="iconfont" :class="item"></i>
+					</el-option>
+				</el-select>
+			</el-form-item>
+			<el-form-item prop="path" label="URL">
+				<el-input v-model="form.path" placeholder=""></el-input>
+			</el-form-item>
+			<el-form-item prop="component" label="组件">
+				<el-input v-model="form.component" placeholder=""></el-input>
+			</el-form-item>
+			<el-form-item prop="sort" label="排序">
+				<el-input-number v-model="form.sort" :min="1" :max="99999" controls-position="right"></el-input-number>
+			</el-form-item>
+			<el-form-item prop="isLink" label="是否外链">
+				<el-switch v-model="form.isLink" :active-value="1" :inactive-value="0" :disabled="!!form.isIframe" />
+			</el-form-item>
+			<el-form-item prop="isIframe" label="是否内嵌">
+				<el-switch v-model="form.isIframe" :active-value="1" :inactive-value="0" :disabled="!!form.isLink" />
+			</el-form-item>
+			<el-form-item prop="address" label="地址">
+				<el-input v-model="form.address" placeholder="" :disabled="!(form.isIframe || form.isLink)"></el-input>
+			</el-form-item>
+			<el-form-item prop="isHide" label="是否隐藏">
+				<el-switch v-model="form.isHide" :active-value="1" :inactive-value="0" />
+			</el-form-item>
+			<el-form-item prop="isHideSubMenu" label="是否隐藏子节点">
+				<el-switch v-model="form.isHideSubMenu" :active-value="1" :inactive-value="0" />
+			</el-form-item>
+			<el-form-item prop="isDisable" label="是否禁用">
+				<el-switch v-model="form.isDisable" :active-value="1" :inactive-value="0" />
+			</el-form-item>
+			<el-form-item prop="isKeepAlive" label="是否缓存">
+				<el-switch v-model="form.isKeepAlive" :active-value="1" :inactive-value="0" />
+			</el-form-item>
+			<el-form-item prop="isAffix" label="是否固定">
+				<el-switch v-model="form.isAffix" :active-value="1" :inactive-value="0" />
+			</el-form-item>
+		</el-form>
+		<template #footer>
+			<span class="dialog-footer">
+				<el-button @click="closeDialog">取消</el-button>
+				<el-button type="primary" @click="changeMenuInfo">确认</el-button>
+			</span>
+		</template>
+	</el-dialog>
 </template>
 
-<script lang="ts" setup name="MenuList">
-	import { ref, reactive, onMounted } from "vue";
-	import type { FormInstance } from "element-plus";
-	import AddEdit from "./components/AddEdit.vue";
+<script lang="ts" setup name="AddEdit">
+	import { onUpdated, reactive, ref } from "vue";
+	import type { FormInstance, FormRules } from "element-plus";
+	import { ElTree } from "element-plus";
+	import { Menu } from "@/interface/menu";
+	import IconfontData from "@/config/iconfontData";
 
-	const formSearchRef = ref();
-	const formSearch = reactive({
-		name: "",
-	});
-	const resetForm = (formEl: FormInstance | undefined) => {
-		if (!formEl) return false;
-		formEl.resetFields();
-		getJobList();
-	};
-	const pageOption = reactive({
-		pageCurrent: 1,
-		pageSize: 50,
-		pageTotal: 100,
-		pageSizes: [10, 50, 100, 200],
-		small: false,
-		disabled: false,
-		background: false,
-		layout: "total, sizes, prev, pager, next, jumper",
-	});
-	const tableData = ref<any[]>([]);
-	tableData.value = [
+	const treeRef = ref<InstanceType<typeof ElTree>>();
+	const propsTreeMenu = { children: "children", label: "name", disabled: "disabled" };
+	const optionSelectMenu = ref<Menu[]>([]);
+	optionSelectMenu.value = [
 		{
 			id: 1,
 			path: "home",
@@ -321,38 +318,53 @@
 			children: [],
 		},
 	];
-	const pageChangeSize = (val: number) => {
-		console.log(`${val} items per page`);
-		getJobList();
-	};
-	const pageChangeCurrent = (val: number) => {
-		console.log(`${val} items per page`);
-		getJobList();
-	};
-	const jobInfo = ref();
-	const dialogForm = ref();
-	const openAddJob = () => {
-		jobInfo.value = null;
-		dialogForm.value.openDialog();
-	};
-	const openEditJob = (item: any) => {
-		jobInfo.value = item;
-		dialogForm.value.openDialog();
-	};
-
-	const jobParams = reactive({
-		pageSize: 1,
-		pageTotal: 100,
+	// 组件内部函数 接收及传递结果
+	const propsData = defineProps({
+		data: {
+			type: Object,
+			default: () => {
+				return {};
+			},
+		},
 	});
-	const initData = () => {
-		jobParams.pageSize = 1;
-		jobParams.pageTotal = 100;
-		getJobList();
+	const emits = defineEmits(["result"]);
+	// 表单
+	const formLabelWidth = "120px";
+	const formRef = ref<FormInstance>();
+	const form = ref<Menu>({});
+	const rules = reactive<FormRules>({});
+	const menuInfo = ref<Menu>({});
+	// 弹窗
+	const dialogFormVisible = ref(false);
+	const openDialog = () => {
+		dialogFormVisible.value = true;
 	};
-	const getJobList = () => {};
-	onMounted(() => {
-		initData();
+	const closeDialog = () => {
+		form.value = {};
+		menuInfo.value = {};
+		dialogFormVisible.value = false;
+	};
+	// 数据信息
+	const changeMenuInfo = () => {
+		closeDialog();
+		emits("result", true);
+	};
+	onUpdated(() => {
+		if (propsData.data && dialogFormVisible.value) {
+			form.value = propsData.data;
+			menuInfo.value = propsData.data;
+		}
+	});
+	const getCheckedTree = () => {
+		console.log(treeRef.value?.getCheckedNodes(false, false));
+	};
+	// 组件内部函数 供外部调用函数
+	defineExpose({
+		openDialog,
+		closeDialog,
 	});
 </script>
 
-<style scoped lang="scss"></style>
+<style lang="scss">
+	@import "./index.scss";
+</style>

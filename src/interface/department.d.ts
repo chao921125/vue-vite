@@ -1,7 +1,7 @@
 export interface Department {
 	id?: number;
 	name?: string;
-	number?: number;
+	number?: string;
 	userName?: string;
 	phone?: string;
 	status?: string;
