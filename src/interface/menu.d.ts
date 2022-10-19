@@ -15,6 +15,6 @@ export interface Menu {
 	roles?: Array<string>;
 	icon?: string;
 	children?: Array<Menu>;
-	parent?: object;
+	parent?: any;
 	sort?: number;
 }
