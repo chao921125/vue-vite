@@ -1,0 +1,12 @@
+.select-icons ul {
+	width: 210px;
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	li {
+		display: flex;
+		display: -webkit-flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

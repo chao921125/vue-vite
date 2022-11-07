@@ -134,3 +134,10 @@ export function formatAxis(param: Date): string {
 	else if (hour < 22) return "晚上好";
 	else return "夜里好";
 }
+
+export function replaceChar(value: string) {
+	if (!value) return "******";
+	// const reg = /[a-zA-Z0-9]{3}\w*[a-zA-Z0-9]{4}/;
+	// return pwd.replace(reg, "$1****$2");
+	return value.slice(0, 2) + "****" + value.slice(value.length - 2);
+}

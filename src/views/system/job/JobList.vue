@@ -1,21 +1,19 @@
 <template>
 	<el-form ref="formSearchRef" :model="formSearch" status-icon label-width="" :inline="true">
-		<el-form-item prop="name" label="姓名">
+		<el-form-item prop="name" label="岗位">
 			<el-input v-model="formSearch.name" placeholder=""></el-input>
 		</el-form-item>
 		<el-form-item prop="" label="">
 			<el-button type="primary">查询</el-button>
 			<el-button @click="resetForm(formSearchRef)">重置</el-button>
-			<el-button type="success" @click="openAddUser">新增</el-button>
+			<el-button type="success" @click="openAddJob">新增</el-button>
 		</el-form-item>
 	</el-form>
 	<el-table :data="tableData" style="width: 100%">
-		<el-table-column prop="realName" label="姓名" width="100" />
-		<el-table-column prop="phone" label="手机号" width="120" />
-		<el-table-column prop="mail" label="邮箱" />
-		<el-table-column prop="departmentName" label="部门" width="120" />
-		<el-table-column prop="jobName" label="岗位" width="120" />
-		<el-table-column prop="roleName" label="角色" width="120" />
+		<el-table-column prop="name" label="名称" width="120" />
+		<el-table-column prop="number" label="编码" width="120" />
+		<el-table-column prop="userName" label="联系人" width="120" />
+		<el-table-column prop="phone" label="联系电话" width="120" />
 		<el-table-column prop="status" label="状态" width="60">
 			<template #default="scope">
 				<el-tag :type="scope.row.status ? 'success' : 'danger'">{{ StatusUse[scope.row.status] }}</el-tag>
@@ -24,7 +22,7 @@
 		<el-table-column prop="desc" label="描述" />
 		<el-table-column prop="" label="操作" width="120">
 			<template #default="scope">
-				<el-button type="success" link @click="openEditUser(scope.row)">
+				<el-button type="success" link @click="openEditJob(scope.row)">
 					<el-icon><EditPen /></el-icon>
 				</el-button>
 				<el-popconfirm title="确认删除？">
@@ -53,10 +51,10 @@
 			/>
 		</el-col>
 	</el-row>
-	<AddEdit :data="userInfo" ref="dialogForm" @result="getUserList"></AddEdit>
+	<AddEdit :data="jobInfo" ref="dialogForm" @result="getJobList"></AddEdit>
 </template>
 
-<script lang="ts" setup name="UserList">
+<script lang="ts" setup name="JobList">
 	import { ref, reactive, onMounted } from "vue";
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
@@ -69,7 +67,7 @@
 	const resetForm = (formEl: FormInstance | undefined) => {
 		if (!formEl) return false;
 		formEl.resetFields();
-		getUserList();
+		getJobList();
 	};
 	const pageOption = reactive({
 		pageCurrent: 1,
@@ -85,74 +83,52 @@
 	tableData.value = [
 		{
 			id: 1,
-			nickName: "小明",
-			avatar: "",
-			mail: "admin@ad.com",
-			phone: "19920008007",
-			realName: "小明",
-			userName: "sp_admin",
-			password: "123123",
-			department: "1",
-			departmentName: "事业部",
-			job: "1",
-			jobName: "管理岗",
-			role: "2",
-			roleName: "管理",
-			flag: "super",
-			sort: 1,
+			number: "19920008007",
+			name: "小明",
 			status: 1,
+			userName: "王五",
+			phone: "13312341234",
 			desc: "超级管理员",
 		},
 		{
 			id: 2,
-			nickName: "赵一找",
-			avatar: "",
-			mail: "admin@ad.com",
-			phone: "19920008007",
-			realName: "赵一找",
-			userName: "sp_admin",
-			password: "123123",
-			department: "1",
-			departmentName: "事业部",
-			job: "1",
-			jobName: "管理岗",
-			role: "2",
-			roleName: "管理",
-			flag: "super",
-			sort: 2,
+			number: "19920008007",
+			name: "赵一找",
 			status: 0,
+			userName: "赵六",
+			phone: "19900001111",
 			desc: "管理员",
 		},
 	];
 	const pageChangeSize = (val: number) => {
 		console.log(`${val} items per page`);
-		getUserList();
+		getJobList();
 	};
 	const pageChangeCurrent = (val: number) => {
 		console.log(`${val} items per page`);
-		getUserList();
+		getJobList();
 	};
-	const userInfo = ref();
+	const jobInfo = ref();
 	const dialogForm = ref();
-	const openAddUser = () => {
-		userInfo.value = null;
+	const openAddJob = () => {
+		jobInfo.value = null;
 		dialogForm.value.openDialog();
 	};
-	const openEditUser = (item: any) => {
-		userInfo.value = item;
+	const openEditJob = (item: any) => {
+		jobInfo.value = item;
 		dialogForm.value.openDialog();
 	};
 
-	const userParams = reactive({
+	const jobParams = reactive({
 		pageSize: 1,
 		pageTotal: 100,
 	});
 	const initData = () => {
-		userParams.pageSize = 1;
-		userParams.pageTotal = 100;
-		getUserList();
+		jobParams.pageSize = 1;
+		jobParams.pageTotal = 100;
+		getJobList();
 	};
-	const getUserList = () => {};
+	const getJobList = () => {};
 	onMounted(() => {
 		initData();
 	});

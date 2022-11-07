@@ -21,18 +21,3 @@ declare interface ViteEnv {
 	VITE_BUILD_IMAGE: boolean;
 	VITE_PWA: boolean;
 }
-
-declare interface TranslatePair {
-	[key: string]: string | string[] | TranslatePair;
-}
-// Menu 菜单
-declare namespace Menu {
-	interface MenuOptions {
-		path: string;
-		title: string;
-		icon?: string;
-		isLink?: string;
-		close?: boolean;
-		children?: MenuOptions[];
-	}
-}
