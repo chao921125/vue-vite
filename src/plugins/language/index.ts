@@ -50,7 +50,7 @@ const i18n = createI18n({
 	messages,
 });
 
-export function $t(args) {
+export function $t(args: string) {
 	return i18n.global.tc(args);
 }
 
