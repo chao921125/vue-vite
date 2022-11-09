@@ -1,3 +1,9 @@
+[//]: # (后续需要删除的包)
+#### TODO delete pkg
+```javascript
+is-stream
+```
+
 ###### [**花里胡哨的不要，保证可用**]
 ###### 推荐使用pnpm安装依赖，其次yarn或者npm
 ###### [Vite 插件](https://github.com/vitejs/awesome-vite)
