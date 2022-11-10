@@ -2,6 +2,7 @@
 #### TODO delete pkg
 ```javascript
 is-stream
+npm-run-path
 ```
 
 ###### [**花里胡哨的不要，保证可用**]
