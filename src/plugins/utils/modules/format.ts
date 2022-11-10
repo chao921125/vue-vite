@@ -1,3 +1,4 @@
+let format: any = {};
 /**
  * 时间日期转换
  * @param date 当前时间，new Date() 格式
@@ -9,7 +10,7 @@
  * @description format 季度 + 星期 + 几周："YYYY-mm-dd HH:MM:SS WWW QQQQ ZZZ"
  * @returns 返回拼接后的时间字符串
  */
-export function formatDate(date: Date, format: string): string {
+function formatDate(date: Date, format: string): string {
 	let we = date.getDay(); // 星期
 	let z = getWeek(date); // 周
 	let qut = Math.floor((date.getMonth() + 3) / 3).toString(); // 季度
@@ -55,7 +56,7 @@ export function formatDate(date: Date, format: string): string {
  * @param dateTime 当前传入的日期值
  * @returns 返回第几周数字值
  */
-export function getWeek(dateTime: Date): number {
+function getWeek(dateTime: Date): number {
 	let temptTime = new Date(dateTime.getTime());
 	// 周几
 	let weekday = temptTime.getDay() || 7;
@@ -67,8 +68,7 @@ export function getWeek(dateTime: Date): number {
 	if (dayOfWeek != 0) spendDay = 7 - dayOfWeek + 1;
 	firstDay = new Date(temptTime.getFullYear(), 0, 1 + spendDay);
 	let d = Math.ceil((temptTime.valueOf() - firstDay.valueOf()) / 86400000);
-	let result = Math.ceil(d / 7);
-	return result;
+	return Math.ceil(d / 7);
 }
 
 /**
@@ -82,7 +82,7 @@ export function getWeek(dateTime: Date): number {
  * @description param 3天：   60 * 60* 24 * 1000 * 3
  * @returns 返回拼接后的时间字符串
  */
-export function formatPast(param: string | Date, format: string = "YYYY-mm-dd"): string {
+format.formatPast = (param: string | Date, format: string = "YYYY-mm-dd"): string => {
 	// 传入格式处理、存储转换值
 	let t: any, s: number;
 	// 获取js 时间戳
@@ -115,7 +115,7 @@ export function formatPast(param: string | Date, format: string = "YYYY-mm-dd"):
 		let date = typeof param === "string" || "object" ? new Date(param) : param;
 		return formatDate(date, format);
 	}
-}
+};
 
 /**
  * 时间问候语
@@ -123,7 +123,7 @@ export function formatPast(param: string | Date, format: string = "YYYY-mm-dd"):
  * @description param 调用 `formatAxis(new Date())` 输出 `上午好`
  * @returns 返回拼接后的时间字符串
  */
-export function formatAxis(param: Date): string {
+format.formatAxis = (param: Date): string => {
 	let hour: number = new Date(param).getHours();
 	if (hour < 6) return "凌晨好";
 	else if (hour < 9) return "早上好";
@@ -133,11 +133,22 @@ export function formatAxis(param: Date): string {
 	else if (hour < 19) return "傍晚好";
 	else if (hour < 22) return "晚上好";
 	else return "夜里好";
-}
+};
 
-export function replaceChar(value: string) {
+format.replaceChar = (value: string): string => {
 	if (!value) return "******";
 	// const reg = /[a-zA-Z0-9]{3}\w*[a-zA-Z0-9]{4}/;
 	// return pwd.replace(reg, "$1****$2");
 	return value.slice(0, 2) + "****" + value.slice(value.length - 2);
-}
+};
+
+format.replaceNullLine = (value: any): any => {
+	let result: any = value;
+	if (!value || isNaN(value)) {
+		result = "-";
+	}
+	console.log(value, result);
+	return result;
+};
+
+export default format;
