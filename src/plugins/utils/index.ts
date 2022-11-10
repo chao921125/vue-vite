@@ -12,6 +12,7 @@ import Storages from "./modules/storage";
 import DB from "./modules/db";
 import Date from "./modules/date";
 import Log from "./modules/log";
+import Format from "./modules/format";
 
 const util: any = {
 	Constants: Constants,
@@ -20,6 +21,7 @@ const util: any = {
 	Date: Date,
 	Log: Log,
 	DB: DB,
+	Format: Format,
 };
 
 /**

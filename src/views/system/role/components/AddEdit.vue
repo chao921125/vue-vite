@@ -22,9 +22,10 @@
 </template>
 
 <script lang="ts" setup name="AddEdit">
-	import { onUpdated, reactive, ref } from "vue";
+	import { defineProps, defineEmits, defineExpose, onUpdated, reactive, ref } from "vue";
 	import type { FormInstance, FormRules } from "element-plus";
 	import { Role } from "@/interface/role";
+
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({
 		data: {
