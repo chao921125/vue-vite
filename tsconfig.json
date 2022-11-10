@@ -57,9 +57,7 @@
     "types/**/*.d.ts",
     "build/**/*.ts",
     "build/**/*.d.ts",
-    "vite.config.ts",
-    "node_modules/@types/jest/index.d.ts",
-    "node_modules/@types/jest/index.d.ts"
+    "vite.config.ts"
   ],
   "exclude": [
     "node_modules", "dist", "**/*.js", "tests"
