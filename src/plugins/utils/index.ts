@@ -10,18 +10,14 @@ import Constants from "./modules/constants";
 import Cookies from "./modules/cookie";
 import Storages from "./modules/storage";
 import DB from "./modules/db";
-import Date from "./modules/date";
 import Log from "./modules/log";
-import Format from "./modules/format";
 
 const util: any = {
 	Constants: Constants,
 	Cookies: Cookies,
 	Storages: Storages,
-	Date: Date,
 	Log: Log,
 	DB: DB,
-	Format: Format,
 };
 
 /**

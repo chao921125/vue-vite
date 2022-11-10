@@ -1,4 +1,3 @@
-let format: any = {};
 /**
  * 时间日期转换
  * @param date 当前时间，new Date() 格式
@@ -82,7 +81,7 @@ function getWeek(dateTime: Date): number {
  * @description param 3天：   60 * 60* 24 * 1000 * 3
  * @returns 返回拼接后的时间字符串
  */
-format.formatPast = (param: string | Date, format: string = "YYYY-mm-dd"): string => {
+export function formatPast(param: string | Date, format: string = "YYYY-mm-dd"): string {
 	// 传入格式处理、存储转换值
 	let t: any, s: number;
 	// 获取js 时间戳
@@ -115,7 +114,7 @@ format.formatPast = (param: string | Date, format: string = "YYYY-mm-dd"): strin
 		let date = typeof param === "string" || "object" ? new Date(param) : param;
 		return formatDate(date, format);
 	}
-};
+}
 
 /**
  * 时间问候语
@@ -123,7 +122,7 @@ format.formatPast = (param: string | Date, format: string = "YYYY-mm-dd"): strin
  * @description param 调用 `formatAxis(new Date())` 输出 `上午好`
  * @returns 返回拼接后的时间字符串
  */
-format.formatAxis = (param: Date): string => {
+export function formatAxis(param: Date): string {
 	let hour: number = new Date(param).getHours();
 	if (hour < 6) return "凌晨好";
 	else if (hour < 9) return "早上好";
@@ -133,22 +132,18 @@ format.formatAxis = (param: Date): string => {
 	else if (hour < 19) return "傍晚好";
 	else if (hour < 22) return "晚上好";
 	else return "夜里好";
-};
+}
 
-format.replaceChar = (value: string): string => {
+export function replaceChar(value: string): string {
 	if (!value) return "******";
 	// const reg = /[a-zA-Z0-9]{3}\w*[a-zA-Z0-9]{4}/;
 	// return pwd.replace(reg, "$1****$2");
 	return value.slice(0, 2) + "****" + value.slice(value.length - 2);
-};
+}
 
-format.replaceNullLine = (value: any): any => {
-	let result: any = value;
-	if (!value || isNaN(value)) {
-		result = "-";
+export function replaceNullLine(value: number | string): number | string {
+	if (!value) {
+		return "-";
 	}
-	console.log(value, result);
-	return result;
-};
-
-export default format;
+	return value;
+}
