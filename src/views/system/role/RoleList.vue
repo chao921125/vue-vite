@@ -9,7 +9,7 @@
 			<el-button type="success" @click="openAddRole">新增</el-button>
 		</el-form-item>
 	</el-form>
-	<el-table :data="tableData" style="width: 100%">
+	<el-table :data="tableData" v-loading="isLoadData" style="width: 100%">
 		<el-table-column prop="name" label="名称" width="120" />
 		<el-table-column prop="number" label="编码" width="120" />
 		<el-table-column prop="desc" label="描述" />
@@ -31,28 +31,14 @@
 			</template>
 		</el-table-column>
 	</el-table>
-	<el-row justify="end">
-		<el-col :span="24" class="re-flex-row-end page-box">
-			<el-pagination
-				v-model:currentPage="pageOption.pageCurrent"
-				v-model:page-size="pageOption.pageSize"
-				:page-sizes="pageOption.pageSizes"
-				:small="pageOption.small"
-				:disabled="pageOption.disabled"
-				:background="pageOption.background"
-				:layout="pageOption.layout"
-				:total="pageOption.pageTotal"
-				@size-change="pageChangeSize"
-				@current-change="pageChangeCurrent"
-			/>
-		</el-col>
-	</el-row>
+	<ElPage :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></ElPage>
 	<AddEdit :data="roleInfo" ref="dialogForm" @result="getRoleList"></AddEdit>
 </template>
 
 <script lang="ts" setup name="RoleList">
 	import { ref, reactive, onMounted } from "vue";
 	import type { FormInstance } from "element-plus";
+	import ElPage from "@/components/pagenation/ElPage.vue";
 	import AddEdit from "./components/AddEdit.vue";
 
 	const formSearchRef = ref();
@@ -64,41 +50,23 @@
 		formEl.resetFields();
 		getRoleList();
 	};
-	const pageOption = reactive({
+
+	const params = reactive({
 		pageCurrent: 1,
-		pageSize: 50,
-		pageTotal: 100,
-		pageSizes: [10, 50, 100, 200],
-		small: false,
-		disabled: false,
-		background: false,
-		layout: "total, sizes, prev, pager, next, jumper",
+		pageSize: 10,
+		pageTotal: 0,
 	});
+	const isLoadData = ref<boolean>(false);
 	const tableData = ref<any[]>([]);
-	tableData.value = [
-		{
-			id: 1,
-			number: "19920008007",
-			name: "小明",
-			menus: "",
-			desc: "超级管理员",
-		},
-		{
-			id: 2,
-			number: "19920008007",
-			name: "赵一找",
-			menus: "",
-			desc: "管理员",
-		},
-	];
 	const pageChangeSize = (val: number) => {
-		console.log(`${val} items per page`);
+		params.pageSize = val;
 		getRoleList();
 	};
 	const pageChangeCurrent = (val: number) => {
-		console.log(`${val} items per page`);
+		params.pageCurrent = val;
 		getRoleList();
 	};
+
 	const roleInfo = ref();
 	const dialogForm = ref();
 	const openAddRole = () => {
@@ -110,16 +78,32 @@
 		dialogForm.value.openDialog();
 	};
 
-	const roleParams = reactive({
-		pageSize: 1,
-		pageTotal: 100,
-	});
 	const initData = () => {
-		roleParams.pageSize = 1;
-		roleParams.pageTotal = 100;
+		isLoadData.value = true;
 		getRoleList();
 	};
-	const getRoleList = () => {};
+	const getRoleList = () => {
+		isLoadData.value = false;
+		params.pageCurrent = 1;
+		params.pageSize = 10;
+		params.pageTotal = 0;
+		tableData.value = [
+			{
+				id: 1,
+				number: "19920008007",
+				name: "小明",
+				menus: "",
+				desc: "超级管理员",
+			},
+			{
+				id: 2,
+				number: "19920008007",
+				name: "赵一找",
+				menus: "",
+				desc: "管理员",
+			},
+		];
+	};
 	onMounted(() => {
 		initData();
 	});
