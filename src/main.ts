@@ -10,12 +10,8 @@ import Pinia from "@/store";
 // vue i18n
 import I18n from "@/plugins/language";
 
-// mitt 总线
-import mitt from "mitt";
-
 // UI element
 import ElementPlus from "element-plus";
-import { ElMessage } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
@@ -31,6 +27,7 @@ import "@purge-icons/generated";
 
 // util
 import Utils from "@/plugins/utils";
+
 const app = createApp(App);
 
 // log
@@ -66,13 +63,19 @@ Object.keys(Icons).forEach((key) => {
 });
 
 // 自定义指令
-// import * as directives from "@/plugins/directive";
-// Object.keys(directives).forEach(key => {
-// 	app.directive(key, (directives as { [key: string]: Directive })[key]);
-// });
+import type { Directive } from "vue";
+import * as directives from "@/plugins/directive";
+Object.keys(directives).forEach((key) => {
+	console.log(key);
+	app.directive(key, (directives as { [key: string]: Directive })[key]);
+});
 
 // 全局指令
+// mitt 总线
+import mitt from "mitt";
 app.config.globalProperties.mittBus = mitt();
+// 全局消息提示
+import { ElMessage } from "element-plus";
 app.config.globalProperties.elMessage = ElMessage;
 
 app.use(Pinia).use(Router).use(ElementPlus, { i18n: I18n.global.t }).use(I18n).mount("#app");

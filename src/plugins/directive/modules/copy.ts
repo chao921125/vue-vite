@@ -1,14 +1,16 @@
 import type { Directive, DirectiveBinding } from "vue";
 import { ElMessage } from "element-plus";
+import { $t } from "@/plugins/language";
 
 interface ElType extends HTMLElement {
 	copyData: string | number;
 	__handleClick__: any;
 }
 
-const copy: Directive = {
+export const copy: Directive = {
 	mounted(el: ElType, binding: DirectiveBinding) {
 		el.copyData = binding.value;
+		console.log(binding.value);
 		el.addEventListener("click", handClick);
 	},
 	updated(el: ElType, binding: DirectiveBinding) {
@@ -27,8 +29,6 @@ function handClick(this: any) {
 	document.body.removeChild(input);
 	ElMessage({
 		type: "success",
-		message: "copy success",
+		message: $t("i18n.msg.copy"),
 	});
 }
-
-export default copy;
