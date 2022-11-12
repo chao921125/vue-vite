@@ -45,12 +45,14 @@
 		},
 	});
 	const emits = defineEmits(["result"]);
+
 	// 表单
 	const formLabelWidth = "100px";
 	const formRef = ref<FormInstance>();
 	const form = ref<Department>({});
 	const rules = reactive<FormRules>({});
 	const departmentInfo = ref<Department>({});
+
 	// 弹窗
 	const dialogFormVisible = ref(false);
 	const openDialog = () => {
@@ -61,6 +63,7 @@
 		departmentInfo.value = {};
 		dialogFormVisible.value = false;
 	};
+
 	// 数据信息
 	const changeDepartmentInfo = () => {
 		closeDialog();

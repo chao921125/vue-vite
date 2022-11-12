@@ -151,6 +151,7 @@
 			children: [],
 		},
 	];
+
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({
 		data: {
@@ -161,12 +162,14 @@
 		},
 	});
 	const emits = defineEmits(["result"]);
+
 	// 表单
 	const formLabelWidth = "120px";
 	const formRef = ref<FormInstance>();
 	const form = ref<Menu>({});
 	const rules = reactive<FormRules>({});
 	const menuInfo = ref<Menu>({});
+
 	// 弹窗
 	const dialogFormVisible = ref(false);
 	const openDialog = () => {
@@ -177,6 +180,7 @@
 		menuInfo.value = {};
 		dialogFormVisible.value = false;
 	};
+
 	// 数据信息
 	const changeMenuInfo = () => {
 		closeDialog();
