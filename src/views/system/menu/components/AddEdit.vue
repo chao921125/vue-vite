@@ -84,40 +84,40 @@
 	optionSelectMenu.value = [
 		{
 			id: 1,
-			name: "message.menu.home",
+			name: "i18n.menu.home",
 			children: [],
 		},
 		{
 			id: 9,
-			name: "message.menu.system",
+			name: "i18n.menu.system",
 			children: [
 				{
 					id: 91,
-					name: "message.menu.systemUser",
+					name: "i18n.menu.systemUser",
 					children: [],
 				},
 				{
 					id: 92,
-					name: "message.menu.systemRole",
+					name: "i18n.menu.systemRole",
 					children: [],
 				},
 				{
 					id: 93,
-					name: "message.menu.systemDepartment",
+					name: "i18n.menu.systemDepartment",
 					children: [],
 				},
 				{
 					id: 94,
-					name: "message.menu.systemJob",
+					name: "i18n.menu.systemJob",
 					children: [],
 				},
 				{
 					id: 99,
-					name: "message.menu.systemMenu",
+					name: "i18n.menu.systemMenu",
 					children: [
 						{
 							id: 941,
-							name: "message.menu.systemMenuAdd",
+							name: "i18n.menu.systemMenuAdd",
 							children: [],
 						},
 					],
@@ -126,28 +126,28 @@
 		},
 		{
 			id: 9900,
-			name: "message.menu.demo",
+			name: "i18n.menu.demo",
 			children: [
 				{
 					id: 99001,
-					name: "message.menu.demoIcon",
+					name: "i18n.menu.demoIcon",
 					children: [],
 				},
 				{
 					id: 99002,
-					name: "message.menu.demoAnimaCss",
+					name: "i18n.menu.demoAnimaCss",
 					children: [],
 				},
 			],
 		},
 		{
 			id: 9901,
-			name: "message.menu.testLink",
+			name: "i18n.menu.testLink",
 			children: [],
 		},
 		{
 			id: 9902,
-			name: "message.menu.testIframe",
+			name: "i18n.menu.testIframe",
 			children: [],
 		},
 	];

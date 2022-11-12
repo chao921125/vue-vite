@@ -177,16 +177,16 @@
 	const changeI18n = (lang: string) => {
 		themeConfig.value.globalI18n = lang;
 		proxy.$i18n.locale = lang;
-		proxy.mittBus.emit("getI18nConfig", proxy.$i18n.messages[lang]);
 		Utils.Storages.setLocalStorage(Utils.Constants.storageKey.i18nLocal, lang);
 		setThemeConfig();
+		proxy.mittBus.emit("getI18nConfig", proxy.$i18n.messages[lang]);
 	};
 	// 组件大小
 	const sizes = ThemeSetConfig.sizeKeys;
 	const changeSize = (size: string) => {
 		themeConfig.value.globalComponentSize = size;
-		proxy.mittBus.emit("getSizeConfig", size);
 		setThemeConfig();
+		proxy.mittBus.emit("getSizeConfig", size);
 	};
 	// 设置
 	const isShowDrawer = ref(false);

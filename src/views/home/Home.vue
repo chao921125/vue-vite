@@ -8,15 +8,22 @@
 			</el-col>
 		</el-row>
 	</el-skeleton>
+	{{ tI18n }}
 </template>
 
 <script lang="ts" setup name="Home">
-	import { ref } from "vue";
+	import { ref, getCurrentInstance } from "vue";
+	import { useI18n } from "vue-i18n";
+
+	const { proxy } = <any>getCurrentInstance();
+	console.log(proxy.$i18n.locale);
+	const { t } = useI18n();
+	let tI18n = t("i18n.title.login");
 
 	const isLoading = ref(true);
 	setTimeout(() => {
 		isLoading.value = false;
-	}, 3000);
+	}, 2000);
 </script>
 
 <style scoped lang="scss"></style>

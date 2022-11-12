@@ -123,7 +123,7 @@ function getRouter(data: MenuState[] = []) {
 			name: "/",
 			redirect: { path: "/" },
 			component: () => import("@/views/layout/Index.vue"),
-			meta: { title: "message.router.login" },
+			meta: { title: "i18n.router.login" },
 			children: [],
 		},
 	];

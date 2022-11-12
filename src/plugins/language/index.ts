@@ -22,13 +22,13 @@ import en from "./modules/en";
 const messages = {
 	[zhCNLocale.name]: {
 		...zhCNLocale,
-		message: {
+		i18n: {
 			...znCN,
 		},
 	},
 	[enLocale.name]: {
 		...enLocale,
-		message: {
+		i18n: {
 			...en,
 		},
 	},
@@ -45,13 +45,26 @@ const i18n = createI18n({
 	missingWarn: false,
 	silentFallbackWarn: true,
 	fallbackWarn: false,
+	legacy: false,
+	globalInjection: true,
 	locale: themeConfig.value.globalI18n || import.meta.env.VITE_LOCAL,
 	fallbackLocale: zhCNLocale.name,
 	messages,
 });
 
-export function $t(args: string) {
-	return i18n.global.tc(args);
+export function readLocal(prefix = zhCNLocale.name) {
+	return Object.fromEntries(
+		Object.entries(import.meta.glob("./modules/*.(j)?(t)?s", { eager: true })).map(([key, value]: any) => {
+			const matched = key.match(/([A-Za-z0-9-_]+)\./i)[1];
+			return [matched, value.default];
+		}),
+	)[prefix];
 }
+
+export const $t = (key: any) => key;
+
+// export function $t(args: string) {
+// 	return i18n.global.tc(args);
+// }
 
 export default i18n;
