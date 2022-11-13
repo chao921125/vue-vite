@@ -3,12 +3,12 @@
 		<el-row>
 			<el-col :span="12">
 				<el-badge :value="12" class="item">
-					<el-button v-auth @click="testI18nMessage">库存预警</el-button>
+					<el-button @click="testI18nMessage">库存预警</el-button>
 				</el-badge>
 			</el-col>
 		</el-row>
 	</el-skeleton>
-	<el-button v-copy="'wo de'">click me</el-button>
+	<el-button v-copy="'copyData'">click me copy</el-button>
 	{{ tI18n }}
 </template>
 
