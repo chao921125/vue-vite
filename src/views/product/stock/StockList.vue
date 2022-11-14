@@ -18,7 +18,7 @@
 		<el-table-column prop="type" label="种类" width="120" />
 		<el-table-column prop="number" label="内部编码" width="120" />
 		<el-table-column prop="material" label="材质" width="120">
-			<template #default="scope"> {{ replaceNull(scope.row.material) }} </template>
+			<template #default="scope"> {{ replaceNullLine(scope.row.material) }} </template>
 		</el-table-column>
 		<el-table-column prop="specification" label="规格" width="120" />
 		<el-table-column prop="specification" label="价格" width="120">
@@ -55,11 +55,7 @@
 	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
 	import ElPage from "@/components/pagenation/ElPage.vue";
-	import Utils from "@/plugins/utils";
-
-	const replaceNull = (value) => {
-		return Utils.Format.replaceNullLine(value);
-	};
+	import { replaceNullLine } from "@/plugins/utils/format";
 
 	const formSearchRef = ref();
 	const formSearch = reactive({
@@ -70,73 +66,73 @@
 		formEl.resetFields();
 		getUserList();
 	};
-	const params = reactive({
-		pageCurrent: 1,
-		pageTotal: 100,
-	});
-	const tableData = ref<any[]>([]);
-	tableData.value = [
-		{
-			id: 1,
-			name: "外丝接头",
-			type: "NPT螺纹",
-			number: "DN1233",
-			material: "钢",
-			specification: "DN52'R33",
-			weight: 123,
-			weightUnit: "g",
-			price: 3.33,
-			priceUnit: "元",
-			volumeLength: 12,
-			volumeWight: 23,
-			volumeHeight: 33,
-			volumeUnit: "m³",
-			unit: "个",
-			total: 123,
-		},
-		{
-			id: 1,
-			name: "扳手",
-			type: "配件",
-			number: "DN1233",
-			material: "",
-			specification: "DN52'R33",
-			weight: 123,
-			weightUnit: "g",
-			price: 3.33,
-			priceUnit: "元",
-			volumeLength: 12,
-			volumeWight: 23,
-			volumeHeight: 33,
-			volumeUnit: "m³",
-			unit: "个",
-			total: 123,
-		},
-	];
-	const pageChangeSize = (val: number) => {
-		console.log(`${val} items per page`);
-		getUserList();
-	};
-	const pageChangeCurrent = (val: number) => {
-		console.log(`${val} items per page`);
-		getUserList();
-	};
+
 	const userInfo = ref();
 	const dialogForm = ref();
 	const openAddUser = () => {
 		userInfo.value = null;
 		dialogForm.value.openDialog();
 	};
-	const userParams = reactive({
-		pageSize: 1,
+
+	const tableData = ref<any[]>([]);
+	const params = reactive({
+		pageCurrent: 1,
+		pageSize: 10,
 		pageTotal: 100,
 	});
-	const initData = () => {
-		userParams.pageSize = 1;
-		userParams.pageTotal = 100;
+	const pageChangeSize = (val: number) => {
+		params.pageSize = val;
 		getUserList();
 	};
-	const getUserList = () => {};
+	const pageChangeCurrent = (val: number) => {
+		params.pageCurrent = val;
+		getUserList();
+	};
+	const initData = () => {
+		params.pageSize = 1;
+		params.pageTotal = 100;
+		getUserList();
+	};
+	const getUserList = () => {
+		tableData.value = [
+			{
+				id: 1,
+				name: "外丝接头",
+				type: "NPT螺纹",
+				number: "DN1233",
+				material: "钢",
+				specification: "DN52'R33",
+				weight: 123,
+				weightUnit: "g",
+				price: 3.33,
+				priceUnit: "元",
+				volumeLength: 12,
+				volumeWight: 23,
+				volumeHeight: 33,
+				volumeUnit: "m³",
+				unit: "个",
+				total: 123,
+			},
+			{
+				id: 1,
+				name: "扳手",
+				type: "配件",
+				number: "DN1233",
+				material: "",
+				specification: "DN52'R33",
+				weight: 123,
+				weightUnit: "g",
+				price: 3.33,
+				priceUnit: "元",
+				volumeLength: 12,
+				volumeWight: 23,
+				volumeHeight: 33,
+				volumeUnit: "m³",
+				unit: "个",
+				total: 123,
+			},
+		];
+	};
 	onMounted(() => {
 		initData();
 	});
