@@ -1,4 +1,4 @@
-import { createI18n } from "vue-i18n";
+import { createI18n, useI18n } from "vue-i18n";
 import { storeToRefs } from "pinia";
 import Pinia from "@/store";
 import { useThemeConfig } from "@/store/modules/theme";
@@ -9,12 +9,6 @@ import enLocale from "element-plus/lib/locale/lang/en";
 import znCN from "./modules/zh-cn";
 import en from "./modules/en";
 
-// const languageKeys = import.meta.glob("./modules/*.ts");
-// export const routerArray: object = {};
-// Object.keys(languageKeys).forEach((item: string) => {
-// 	console.log("==========", item);
-// });
-
 // 定义语言国际化内容
 /**
  * 说明：
@@ -22,13 +16,13 @@ import en from "./modules/en";
 const messages = {
 	[zhCNLocale.name]: {
 		...zhCNLocale,
-		message: {
+		i18n: {
 			...znCN,
 		},
 	},
 	[enLocale.name]: {
 		...enLocale,
-		message: {
+		i18n: {
 			...en,
 		},
 	},
@@ -45,13 +39,35 @@ const i18n = createI18n({
 	missingWarn: false,
 	silentFallbackWarn: true,
 	fallbackWarn: false,
+	legacy: false,
+	globalInjection: true,
 	locale: themeConfig.value.globalI18n || import.meta.env.VITE_LOCAL,
 	fallbackLocale: zhCNLocale.name,
 	messages,
 });
 
+export function readLocal(prefix = zhCNLocale.name) {
+	// const languageKeys = import.meta.glob("./modules/*.ts");
+	// export const routerArray: object = {};
+	// Object.keys(languageKeys).forEach((item: string) => {
+	// 	console.log("==========", item);
+	// });
+
+	return Object.fromEntries(
+		Object.entries(import.meta.glob("./modules/*.(j)?(t)?s", { eager: true })).map(([key, value]: any) => {
+			const matched = key.match(/([A-Za-z0-9-_]+)\./i)[1];
+			return [matched, value.default];
+		}),
+	)[prefix];
+}
+
+// 以下两种方式均可以实现在js中动态国际化
 export function $t(args: string) {
-	return i18n.global.tc(args);
+	return i18n.global.t(args);
+}
+export function transI18n(args: string) {
+	const { t } = useI18n();
+	return t(args);
 }
 
 export default i18n;

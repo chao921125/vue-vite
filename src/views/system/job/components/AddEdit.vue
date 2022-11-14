@@ -33,7 +33,7 @@
 <script lang="ts" setup name="AddEdit">
 	import { defineProps, defineEmits, defineExpose, onUpdated, reactive, ref } from "vue";
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Job } from "@/interface/job";
+	import { Job } from "@/views/interface/job";
 
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({
@@ -45,12 +45,14 @@
 		},
 	});
 	const emits = defineEmits(["result"]);
+
 	// 表单
 	const formLabelWidth = "100px";
 	const formRef = ref<FormInstance>();
 	const form = ref<Job>({});
 	const rules = reactive<FormRules>({});
 	const jobInfo = ref<Job>({});
+
 	// 弹窗
 	const dialogFormVisible = ref(false);
 	const openDialog = () => {
@@ -61,6 +63,7 @@
 		jobInfo.value = {};
 		dialogFormVisible.value = false;
 	};
+
 	// 数据信息
 	const changeJobInfo = () => {
 		closeDialog();

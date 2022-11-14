@@ -9,7 +9,7 @@
 			<el-button type="success" @click="openAddUser">新增</el-button>
 		</el-form-item>
 	</el-form>
-	<el-table :data="tableData" style="width: 100%">
+	<el-table :data="tableData" v-loading="isLoadData" style="width: 100%">
 		<el-table-column prop="realName" label="姓名" width="100" />
 		<el-table-column prop="phone" label="手机号" width="120" />
 		<el-table-column prop="mail" label="邮箱" />
@@ -37,22 +37,7 @@
 			</template>
 		</el-table-column>
 	</el-table>
-	<el-row justify="end">
-		<el-col :span="24" class="re-flex-row-end page-box">
-			<el-pagination
-				v-model:currentPage="pageOption.pageCurrent"
-				v-model:page-size="pageOption.pageSize"
-				:page-sizes="pageOption.pageSizes"
-				:small="pageOption.small"
-				:disabled="pageOption.disabled"
-				:background="pageOption.background"
-				:layout="pageOption.layout"
-				:total="pageOption.pageTotal"
-				@size-change="pageChangeSize"
-				@current-change="pageChangeCurrent"
-			/>
-		</el-col>
-	</el-row>
+	<ElPage :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></ElPage>
 	<AddEdit :data="userInfo" ref="dialogForm" @result="getUserList"></AddEdit>
 </template>
 
@@ -60,6 +45,7 @@
 	import { ref, reactive, onMounted } from "vue";
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
+	import ElPage from "@/components/pagenation/ElPage.vue";
 	import AddEdit from "./components/AddEdit.vue";
 
 	const formSearchRef = ref();
@@ -71,67 +57,23 @@
 		formEl.resetFields();
 		getUserList();
 	};
-	const pageOption = reactive({
+
+	const params = reactive({
 		pageCurrent: 1,
-		pageSize: 50,
-		pageTotal: 100,
-		pageSizes: [10, 50, 100, 200],
-		small: false,
-		disabled: false,
-		background: false,
-		layout: "total, sizes, prev, pager, next, jumper",
+		pageSize: 10,
+		pageTotal: 0,
 	});
+	const isLoadData = ref<boolean>(false);
 	const tableData = ref<any[]>([]);
-	tableData.value = [
-		{
-			id: 1,
-			nickName: "小明",
-			avatar: "",
-			mail: "admin@ad.com",
-			phone: "19920008007",
-			realName: "小明",
-			userName: "sp_admin",
-			password: "123123",
-			department: "1",
-			departmentName: "事业部",
-			job: "1",
-			jobName: "管理岗",
-			role: "2",
-			roleName: "管理",
-			flag: "super",
-			sort: 1,
-			status: 1,
-			desc: "超级管理员",
-		},
-		{
-			id: 2,
-			nickName: "赵一找",
-			avatar: "",
-			mail: "admin@ad.com",
-			phone: "19920008007",
-			realName: "赵一找",
-			userName: "sp_admin",
-			password: "123123",
-			department: "1",
-			departmentName: "事业部",
-			job: "1",
-			jobName: "管理岗",
-			role: "2",
-			roleName: "管理",
-			flag: "super",
-			sort: 2,
-			status: 0,
-			desc: "管理员",
-		},
-	];
 	const pageChangeSize = (val: number) => {
-		console.log(`${val} items per page`);
+		params.pageSize = val;
 		getUserList();
 	};
 	const pageChangeCurrent = (val: number) => {
-		console.log(`${val} items per page`);
+		params.pageCurrent = val;
 		getUserList();
 	};
+
 	const userInfo = ref();
 	const dialogForm = ref();
 	const openAddUser = () => {
@@ -143,16 +85,58 @@
 		dialogForm.value.openDialog();
 	};
 
-	const userParams = reactive({
-		pageSize: 1,
-		pageTotal: 100,
-	});
 	const initData = () => {
-		userParams.pageSize = 1;
-		userParams.pageTotal = 100;
+		isLoadData.value = true;
 		getUserList();
 	};
-	const getUserList = () => {};
+	const getUserList = () => {
+		isLoadData.value = false;
+		params.pageCurrent = 1;
+		params.pageSize = 10;
+		params.pageTotal = 0;
+		tableData.value = [
+			{
+				id: 1,
+				nickName: "小明",
+				avatar: "",
+				mail: "admin@ad.com",
+				phone: "19920008007",
+				realName: "小明",
+				userName: "sp_admin",
+				password: "123123",
+				department: "1",
+				departmentName: "事业部",
+				job: "1",
+				jobName: "管理岗",
+				role: "2",
+				roleName: "管理",
+				flag: "super",
+				sort: 1,
+				status: 1,
+				desc: "超级管理员",
+			},
+			{
+				id: 2,
+				nickName: "赵一找",
+				avatar: "",
+				mail: "admin@ad.com",
+				phone: "19920008007",
+				realName: "赵一找",
+				userName: "sp_admin",
+				password: "123123",
+				department: "1",
+				departmentName: "事业部",
+				job: "1",
+				jobName: "管理岗",
+				role: "2",
+				roleName: "管理",
+				flag: "super",
+				sort: 2,
+				status: 0,
+				desc: "管理员",
+			},
+		];
+	};
 	onMounted(() => {
 		initData();
 	});

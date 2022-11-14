@@ -7,10 +7,10 @@
 <script lang="ts" setup name="App">
 	import { getCurrentInstance, reactive, onBeforeMount, onMounted, onUnmounted, watch } from "vue";
 	import { useRoute } from "vue-router";
+	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import Utils from "@/plugins/utils";
-	import { storeToRefs } from "pinia";
 
 	const { proxy } = <any>getCurrentInstance();
 	// large / default /small

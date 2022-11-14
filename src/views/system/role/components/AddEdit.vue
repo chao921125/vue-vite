@@ -24,7 +24,7 @@
 <script lang="ts" setup name="AddEdit">
 	import { defineProps, defineEmits, defineExpose, onUpdated, reactive, ref } from "vue";
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Role } from "@/interface/role";
+	import { Role } from "@/views/interface/role";
 
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({
@@ -36,12 +36,14 @@
 		},
 	});
 	const emits = defineEmits(["result"]);
+
 	// 表单
 	const formLabelWidth = "100px";
 	const formRef = ref<FormInstance>();
 	const form = ref<Role>({});
 	const rules = reactive<FormRules>({});
 	const roleInfo = ref<Role>({});
+
 	// 弹窗
 	const dialogFormVisible = ref(false);
 	const openDialog = () => {
@@ -52,6 +54,7 @@
 		roleInfo.value = {};
 		dialogFormVisible.value = false;
 	};
+
 	// 数据信息
 	const changeRoleInfo = () => {
 		closeDialog();

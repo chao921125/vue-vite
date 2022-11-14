@@ -41,4 +41,7 @@ export default {
 		notFound: "Not Found",
 		serverError: "Server Error",
 	},
+	msg: {
+		copy: "copy success",
+	},
 };

@@ -1,15 +1,20 @@
 import type { Directive, DirectiveBinding } from "vue";
 import { ElMessage } from "element-plus";
+import { $t } from "@/plugins/language";
 
 interface ElType extends HTMLElement {
-	copyData: string | number;
+	copyData: string | number | undefined;
 	__handleClick__: any;
 }
 
-const copy: Directive = {
+export const copy: Directive = {
 	mounted(el: ElType, binding: DirectiveBinding) {
-		el.copyData = binding.value;
-		el.addEventListener("click", handClick);
+		if (binding.value) {
+			el.copyData = binding.value;
+		} else {
+			el.copyData = getTextByTag(el);
+		}
+		el.addEventListener("click", () => copyData(el.copyData));
 	},
 	updated(el: ElType, binding: DirectiveBinding) {
 		el.copyData = binding.value;
@@ -19,16 +24,27 @@ const copy: Directive = {
 	},
 };
 
-function handClick(this: any) {
-	const input = document.createElement("input");
-	input.value = this.copyData.toLocaleString();
-	document.body.appendChild(input);
-	input.select();
-	document.body.removeChild(input);
-	ElMessage({
-		type: "success",
-		message: "copy success",
-	});
+function getTextByTag(node: HTMLElement) {
+	if (node.children.length) {
+		getTextByTag(<HTMLElement>node.children[0]);
+	} else {
+		return node.innerHTML;
+	}
 }
 
-export default copy;
+function copyData(val: any) {
+	const copyText = document.createElement("textarea");
+	copyText.innerHTML = val;
+	copyText.readOnly = true;
+	copyText.style.position = "fixed";
+	copyText.style.zIndex = "-99999";
+	document.body.appendChild(copyText);
+	copyText.select();
+	copyText.setSelectionRange(0, 99999);
+	navigator.clipboard.writeText(copyText.value);
+	document.body.removeChild(copyText);
+	ElMessage({
+		type: "success",
+		message: $t("i18n.msg.copy"),
+	});
+}

@@ -44,4 +44,7 @@ export default {
 		notFound: "未找到页面",
 		serverError: "服务错误",
 	},
+	msg: {
+		copy: "复制成功",
+	},
 };
