@@ -45,6 +45,6 @@ function copyData(val: any) {
 	document.body.removeChild(copyText);
 	ElMessage({
 		type: "success",
-		message: $t("i18n.msg.copy"),
+		message: $t("message.msg.copy"),
 	});
 }

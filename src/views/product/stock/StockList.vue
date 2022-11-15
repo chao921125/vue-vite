@@ -14,9 +14,10 @@
 		</el-form-item>
 	</el-form>
 	<el-table :data="tableData" style="width: 100%">
+		<el-table-column prop="number" label="内部编码" width="120" />
 		<el-table-column prop="name" label="名称" width="120" />
 		<el-table-column prop="type" label="种类" width="120" />
-		<el-table-column prop="number" label="内部编码" width="120" />
+		<el-table-column prop="criterion" label="标准" width="120" />
 		<el-table-column prop="material" label="材质" width="120">
 			<template #default="scope"> {{ replaceNullLine(scope.row.material) }} </template>
 		</el-table-column>
@@ -99,6 +100,7 @@
 				id: 1,
 				name: "外丝接头",
 				type: "NPT螺纹",
+				criterion: "国标",
 				number: "DN1233",
 				material: "钢",
 				specification: "DN52'R33",
@@ -117,6 +119,7 @@
 				id: 1,
 				name: "扳手",
 				type: "配件",
+				criterion: "欧标",
 				number: "DN1233",
 				material: "",
 				specification: "DN52'R33",

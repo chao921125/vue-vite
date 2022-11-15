@@ -16,13 +16,13 @@ import en from "./modules/en";
 const messages = {
 	[zhCNLocale.name]: {
 		...zhCNLocale,
-		i18n: {
+		message: {
 			...znCN,
 		},
 	},
 	[enLocale.name]: {
 		...enLocale,
-		i18n: {
+		message: {
 			...en,
 		},
 	},
@@ -39,7 +39,7 @@ const i18n = createI18n({
 	missingWarn: false,
 	silentFallbackWarn: true,
 	fallbackWarn: false,
-	legacy: false,
+	legacy: true,
 	globalInjection: true,
 	locale: themeConfig.value.globalI18n || import.meta.env.VITE_LOCAL,
 	fallbackLocale: zhCNLocale.name,
