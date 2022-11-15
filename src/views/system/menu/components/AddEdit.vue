@@ -76,7 +76,7 @@
 <script lang="ts" setup name="AddEdit">
 	import { defineProps, defineEmits, defineExpose, onUpdated, reactive, ref } from "vue";
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Menu } from "@/views/interface/menu";
+	import { Menu } from "@/interface/menu";
 	import IconfontData from "@/config/iconfontData";
 
 	const propsTreeMenu = { children: "children", label: "name", disabled: "disabled" };

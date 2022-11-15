@@ -9,7 +9,7 @@
 		</el-form-item>
 	</el-form>
 	<el-table :data="tableData" style="width: 100%">
-		<el-table-column prop="name" label="单号" width="120" />
+		<el-table-column prop="name" label="名称" width="120" />
 		<el-table-column prop="type" label="种类" width="120" />
 		<el-table-column prop="number" label="内部编码" width="120" />
 		<el-table-column prop="material" label="材质" width="120">
@@ -27,13 +27,12 @@
 		</el-table-column>
 		<el-table-column prop="unit" label="单位" width="120" />
 		<el-table-column prop="desc" label="备注" />
-		<el-table-column prop="source" label="来源" />
 		<el-table-column prop="total" label="数量" width="120" fixed="right" />
 	</el-table>
 	<ElPage :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></ElPage>
 </template>
 
-<script lang="ts" setup name="StockOutLog">
+<script lang="ts" setup name="ProductOut">
 	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
 	import ElPage from "@/components/pagenation/ElPage.vue";

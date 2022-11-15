@@ -33,7 +33,7 @@
 <script lang="ts" setup name="AddEdit">
 	import { defineProps, defineEmits, defineExpose, onUpdated, reactive, ref } from "vue";
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Job } from "@/views/interface/job";
+	import { Job } from "@/interface/job";
 
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({
