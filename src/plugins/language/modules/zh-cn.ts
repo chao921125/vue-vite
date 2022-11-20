@@ -35,6 +35,9 @@ export default {
 		reviewProcess: "审核流程",
 		reviewPredict: "预测单审核",
 		reviewPurchase: "采购单审核",
+		log: "日志管理",
+		logLogin: "登录日志",
+		logAction: "操作日志",
 		demo: "示例",
 		demoIcon: "图标",
 		demoIconIfy: "iconify",
@@ -55,5 +58,10 @@ export default {
 	},
 	msg: {
 		copy: "复制成功",
+	},
+	dateTime: {
+		week: "近一周",
+		month: "近一个月",
+		monthThree: "近三个月",
 	},
 };

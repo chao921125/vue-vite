@@ -36,7 +36,7 @@
 		<el-table-column prop="total" label="数量" width="120" fixed="right" />
 		<el-table-column prop="" label="操作" width="120" fixed="right">
 			<template #default="scope">
-				<el-button type="success" link @click="openEditDepartment(scope.row)">
+				<el-button type="success" link @click="scope.row.id">
 					<el-icon><EditPen /></el-icon>
 				</el-button>
 				<el-popconfirm title="确认删除？">
