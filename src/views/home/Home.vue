@@ -72,7 +72,7 @@
 
 <script lang="ts" setup name="Home">
 	import { ref, reactive } from "vue";
-	import { $t } from "@/plugins/language";
+	import { $t } from "@/plugins/i18n";
 
 	const tI18n = ref();
 	const form = reactive({

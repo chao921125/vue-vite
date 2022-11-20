@@ -1,6 +1,6 @@
 import type { Directive, DirectiveBinding } from "vue";
 import { ElMessage } from "element-plus";
-import { $t } from "@/plugins/language";
+import { $t } from "@/plugins/i18n";
 
 interface ElType extends HTMLElement {
 	copyData: string | number | undefined;

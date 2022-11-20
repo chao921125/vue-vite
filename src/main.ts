@@ -7,14 +7,17 @@ import Router from "@/router";
 // store pinia
 import Pinia from "@/store";
 
-// vue i18n
-import I18n from "@/plugins/language";
-
 // UI element
 import ElementPlus, { ElMessage } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
+
+// vue i18n
+import I18n from "@/plugins/i18n";
+
+// util
+import Utils from "@/plugins/utils";
 
 // 三方CSS
 import "animate.css/animate.min.css";
@@ -24,9 +27,6 @@ import "@/assets/styles/index.scss";
 
 // icon
 import "@purge-icons/generated";
-
-// util
-import Utils from "@/plugins/utils";
 
 const app = createApp(App);
 
@@ -75,4 +75,4 @@ app.config.globalProperties.mittBus = mitt();
 // 全局消息提示
 app.config.globalProperties.elMessage = ElMessage;
 
-app.use(Pinia).use(Router).use(ElementPlus, { i18n: I18n.global.t }).use(I18n).mount("#app");
+app.use(Pinia).use(Router).use(ElementPlus).use(I18n).mount("#app");

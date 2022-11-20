@@ -15,16 +15,16 @@ import en from "./modules/en";
  */
 const messages = {
 	[zhCNLocale.name]: {
-		...zhCNLocale,
 		message: {
 			...znCN,
 		},
+		...zhCNLocale,
 	},
 	[enLocale.name]: {
-		...enLocale,
 		message: {
 			...en,
 		},
+		...enLocale,
 	},
 };
 

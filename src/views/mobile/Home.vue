@@ -61,7 +61,7 @@
 
 <script lang="ts" setup name="Home">
 	import { ref } from "vue";
-	import { $t } from "@/plugins/language";
+	import { $t } from "@/plugins/i18n";
 
 	let tI18n = ref();
 
