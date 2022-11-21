@@ -1,3 +1,4 @@
+// 用户
 export interface User {
 	id?: number;
 	nickName?: string;

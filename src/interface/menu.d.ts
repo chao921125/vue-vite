@@ -1,3 +1,4 @@
+// 菜单
 export interface Menu {
 	id?: number;
 	path?: string;

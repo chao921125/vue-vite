@@ -1,6 +1,6 @@
 <template>
 	<el-form ref="formSearchRef" :model="formSearch" status-icon label-width="" :inline="true">
-		<el-form-item prop="name" label="入库时间">
+		<el-form-item prop="name" label="出库时间">
 			<el-date-picker v-model="formSearch.name" type="date" placeholder="" />
 		</el-form-item>
 		<el-form-item prop="" label="">
@@ -10,8 +10,9 @@
 	</el-form>
 	<el-table :data="tableData" style="width: 100%">
 		<el-table-column prop="number" label="单号" />
-		<el-table-column prop="date" label="入库时间" />
+		<el-table-column prop="date" label="出库时间" />
 		<el-table-column prop="userName" label="操作人" />
+		<el-table-column prop="status" label="状态" />
 		<el-table-column prop="desc" label="备注" />
 		<el-table-column prop="" label="操作" width="120">
 			<template #default="scope">
@@ -24,7 +25,7 @@
 	<ElPage :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></ElPage>
 </template>
 
-<script lang="ts" setup name="ProductInput">
+<script lang="ts" setup name="OutList">
 	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
 	import ElPage from "@/components/pagenation/ElPage.vue";
@@ -65,6 +66,7 @@
 				number: "202211120113188",
 				date: "2022-11-20 22:22:11",
 				userName: "大光光",
+				status: "已完成",
 				desc: "管道一批",
 			},
 			{
@@ -72,6 +74,15 @@
 				number: "202211120113188",
 				date: "2022-11-20 22:22:11",
 				userName: "大光光",
+				status: "待审核",
+				desc: "管道一批",
+			},
+			{
+				id: 2,
+				number: "202211120113188",
+				date: "2022-11-20 22:22:11",
+				userName: "大光光",
+				status: "审核中",
 				desc: "管道一批",
 			},
 		];
