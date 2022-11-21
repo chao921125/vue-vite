@@ -1,6 +1,6 @@
 <template>
 	<el-dialog v-model="dialogFormVisible" @close="closeDialog">
-		<template #header>{{ productInfo.id ? "编辑仓库库存" : "新增仓库库存" }}</template>
+		<template #header>{{ productInfo.id ? "编辑办公区库存" : "新增办公区库存" }}</template>
 		<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
 			<el-form-item prop="number" label="内部编码">
 				<el-input v-model="form.number" placeholder=""></el-input>
@@ -59,10 +59,10 @@
 	</el-dialog>
 </template>
 
-<script lang="ts" setup name="AddEdit">
+<script lang="ts" setup name="Detail">
 	import { defineProps, defineEmits, defineExpose, onUpdated, reactive, ref } from "vue";
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Product } from "@/interface/product";
+	import { Department } from "@/interface/department";
 
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({
@@ -78,9 +78,9 @@
 	// 表单
 	const formLabelWidth = "100px";
 	const formRef = ref<FormInstance>();
-	const form = ref<Product>({});
+	const form = ref<Department>({});
 	const rules = reactive<FormRules>({});
-	const productInfo = ref<Product>({});
+	const productInfo = ref<Department>({});
 
 	// 弹窗
 	const dialogFormVisible = ref(false);

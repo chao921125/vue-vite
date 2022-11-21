@@ -17,13 +17,13 @@
 			<template #default="scope"> {{ replaceNullLine(scope.row.material) }} </template>
 		</el-table-column>
 		<el-table-column prop="specification" label="规格" width="120" />
-		<el-table-column prop="specification" label="价格" width="120">
+		<el-table-column prop="price" label="价格" width="120">
 			<template #default="scope"> {{ scope.row.price }}/{{ scope.row.priceUnit }} </template>
 		</el-table-column>
-		<el-table-column prop="specification" label="重量" width="120">
+		<el-table-column prop="weight" label="重量" width="120">
 			<template #default="scope"> {{ scope.row.weight }}/{{ scope.row.weightUnit }} </template>
 		</el-table-column>
-		<el-table-column prop="specification" label="体积" width="120">
+		<el-table-column prop="volumeLength" label="体积" width="120">
 			<template #default="scope"> {{ scope.row.volumeLength }}*{{ scope.row.volumeWight }}*{{ scope.row.volumeHeight }}/{{ scope.row.volumeUnit }} </template>
 		</el-table-column>
 		<el-table-column prop="unit" label="单位" width="120" />
@@ -111,6 +111,7 @@
 				volumeUnit: "m³",
 				unit: "个",
 				total: 123,
+				isStock: 0,
 			},
 			{
 				id: 1,
@@ -130,6 +131,7 @@
 				volumeUnit: "m³",
 				unit: "个",
 				total: 123,
+				isStock: 0,
 			},
 		];
 	};

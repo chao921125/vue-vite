@@ -6,6 +6,9 @@
 		<el-form-item prop="" label="">
 			<el-button type="primary">查询</el-button>
 			<el-button @click="resetForm(formSearchRef)">重置</el-button>
+			<el-button type="success" @click="openAddProduct">新增</el-button>
+			<el-button @click="resetForm(formSearchRef)">下载出库模板</el-button>
+			<el-button @click="resetForm(formSearchRef)">导入出库数据</el-button>
 		</el-form-item>
 	</el-form>
 	<el-table :data="tableData" style="width: 100%">
@@ -16,6 +19,16 @@
 		<el-table-column prop="desc" label="备注" />
 		<el-table-column prop="" label="操作" width="120">
 			<template #default="scope">
+				<el-button type="success" link @click="scope.row.id">
+					<el-icon><EditPen /></el-icon>
+				</el-button>
+				<el-popconfirm title="确认删除？">
+					<template #reference>
+						<el-button type="danger" link>
+							<el-icon><Delete /></el-icon>
+						</el-button>
+					</template>
+				</el-popconfirm>
 				<el-button type="success" link @click="scope.row.id">
 					<el-icon><More /></el-icon>
 				</el-button>
@@ -38,6 +51,13 @@
 		if (!formEl) return false;
 		formEl.resetFields();
 		getUserList();
+	};
+
+	const productInfo = ref();
+	const dialogForm = ref();
+	const openAddProduct = () => {
+		productInfo.value = null;
+		dialogForm.value.openDialog();
 	};
 
 	const tableData = ref<any[]>([]);

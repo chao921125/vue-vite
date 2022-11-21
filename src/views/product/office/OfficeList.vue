@@ -6,11 +6,6 @@
 		<el-form-item prop="" label="">
 			<el-button type="primary">查询</el-button>
 			<el-button @click="resetForm(formSearchRef)">重置</el-button>
-			<el-button type="success" @click="openAddUser">新增</el-button>
-			<el-button @click="resetForm(formSearchRef)">下载入库模板</el-button>
-			<el-button @click="resetForm(formSearchRef)">导入入库数据</el-button>
-			<el-button @click="resetForm(formSearchRef)">下载出库模板</el-button>
-			<el-button @click="resetForm(formSearchRef)">导入出库数据</el-button>
 		</el-form-item>
 	</el-form>
 	<el-table :data="tableData" style="width: 100%">
@@ -36,7 +31,7 @@
 		<el-table-column prop="total" label="数量" width="120" fixed="right" />
 		<el-table-column prop="" label="操作" width="120" fixed="right">
 			<template #default="scope">
-				<el-button type="success" link @click="scope.row.id">
+				<el-button type="success" link @click="openEditStock(scope.row)">
 					<el-icon><EditPen /></el-icon>
 				</el-button>
 				<el-popconfirm title="确认删除？">
@@ -50,12 +45,14 @@
 		</el-table-column>
 	</el-table>
 	<ElPage :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></ElPage>
+	<AddEdit :data="stockInfo" ref="dialogForm" @result="getStockList"></AddEdit>
 </template>
 
 <script lang="ts" setup name="StockList">
 	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
 	import ElPage from "@/components/pagenation/ElPage.vue";
+	import AddEdit from "./components/AddEdit.vue";
 	import { replaceNullLine } from "@/plugins/utils/format";
 
 	const formSearchRef = ref();
@@ -68,10 +65,10 @@
 		getUserList();
 	};
 
-	const userInfo = ref();
+	const stockInfo = ref();
 	const dialogForm = ref();
-	const openAddUser = () => {
-		userInfo.value = null;
+	const openEditStock = (item: any) => {
+		stockInfo.value = item;
 		dialogForm.value.openDialog();
 	};
 
@@ -114,6 +111,7 @@
 				volumeUnit: "m³",
 				unit: "个",
 				total: 123,
+				isStock: 1,
 			},
 			{
 				id: 1,
@@ -133,6 +131,7 @@
 				volumeUnit: "m³",
 				unit: "个",
 				total: 123,
+				isStock: 1,
 			},
 		];
 	};

@@ -6,6 +6,9 @@
 		<el-form-item prop="" label="">
 			<el-button type="primary">查询</el-button>
 			<el-button @click="resetForm(formSearchRef)">重置</el-button>
+			<el-button type="success" @click="toAddProduct">新增</el-button>
+			<el-button @click="resetForm(formSearchRef)">下载入库模板</el-button>
+			<el-button @click="resetForm(formSearchRef)">导入入库数据</el-button>
 		</el-form-item>
 	</el-form>
 	<el-table :data="tableData" style="width: 100%">
@@ -15,6 +18,16 @@
 		<el-table-column prop="desc" label="备注" />
 		<el-table-column prop="" label="操作" width="120">
 			<template #default="scope">
+				<el-button type="success" link @click="toEditProduct(scope.row.id)">
+					<el-icon><EditPen /></el-icon>
+				</el-button>
+				<el-popconfirm title="确认删除？">
+					<template #reference>
+						<el-button type="danger" link>
+							<el-icon><Delete /></el-icon>
+						</el-button>
+					</template>
+				</el-popconfirm>
 				<el-button type="success" link @click="scope.row.id">
 					<el-icon><More /></el-icon>
 				</el-button>
@@ -27,7 +40,9 @@
 <script lang="ts" setup name="InputList">
 	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
+	import { useRouter } from "vue-router";
 	import ElPage from "@/components/pagenation/ElPage.vue";
+	import RouterSetConfig from "@/config/routerSetConfig";
 
 	const formSearchRef = ref();
 	const formSearch = reactive({
@@ -36,7 +51,18 @@
 	const resetForm = (formEl: FormInstance | undefined) => {
 		if (!formEl) return false;
 		formEl.resetFields();
-		getUserList();
+		getProductList();
+	};
+
+	const productInfoId = ref();
+	const router = useRouter();
+	const toAddProduct = () => {
+		productInfoId.value = null;
+		router.push({ path: RouterSetConfig.routeEnum.order.proInputAddEdit });
+	};
+	const toEditProduct = (id: string | number) => {
+		productInfoId.value = id;
+		router.push({ path: RouterSetConfig.routeEnum.order.proInputAddEdit });
 	};
 
 	const tableData = ref<any[]>([]);
@@ -47,18 +73,18 @@
 	});
 	const pageChangeSize = (val: number) => {
 		params.pageSize = val;
-		getUserList();
+		getProductList();
 	};
 	const pageChangeCurrent = (val: number) => {
 		params.pageCurrent = val;
-		getUserList();
+		getProductList();
 	};
 	const initData = () => {
 		params.pageSize = 1;
 		params.pageTotal = 100;
-		getUserList();
+		getProductList();
 	};
-	const getUserList = () => {
+	const getProductList = () => {
 		tableData.value = [
 			{
 				id: 1,

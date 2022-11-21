@@ -1,5 +1,5 @@
 // 产品
-export interface Department {
+export interface Product {
 	id?: number;
 	name?: string;
 	number?: string;
@@ -18,4 +18,5 @@ export interface Department {
 	unit?: string;
 	total?: number;
 	desc?: string;
+	isStock?: number;
 }

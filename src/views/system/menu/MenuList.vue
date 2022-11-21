@@ -98,7 +98,7 @@
 			{
 				id: 1,
 				path: "home",
-				component: "home/Home",
+				component: "Home",
 				name: "message.menu.home",
 				title: "message.menu.home",
 				icon: "icon-home",
