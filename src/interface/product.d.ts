@@ -1,22 +1,22 @@
 // 产品
 export interface Product {
-	id?: number;
-	name?: string;
-	number?: string;
-	type?: string;
-	criterion?: string;
-	material?: string;
-	specification?: string;
-	weight?: number;
-	weightUnit?: string;
-	price?: number;
-	priceUnit?: string;
-	volumeLength?: number;
-	volumeWight?: number;
-	volumeHeight?: number;
-	volumeUnit?: string;
-	unit?: string;
-	total?: number;
-	desc?: string;
-	isStock?: number;
+	id?: number | string;
+	name?: number | string;
+	number?: number | string;
+	type?: number | string;
+	criterion?: number | string;
+	material?: number | string;
+	specification?: number | string;
+	weight?: number | string;
+	weightUnit?: number | string;
+	price?: number | string;
+	priceUnit?: number | string;
+	volumeLength?: number | string;
+	volumeWight?: number | string;
+	volumeHeight?: number | string;
+	volumeUnit?: number | string;
+	unit?: number | string;
+	total?: number | string;
+	desc?: number | string;
+	isStock?: number | string;
 }

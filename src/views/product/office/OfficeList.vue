@@ -62,7 +62,7 @@
 	const resetForm = (formEl: FormInstance | undefined) => {
 		if (!formEl) return false;
 		formEl.resetFields();
-		getUserList();
+		getStockList();
 	};
 
 	const stockInfo = ref();
@@ -80,18 +80,18 @@
 	});
 	const pageChangeSize = (val: number) => {
 		params.pageSize = val;
-		getUserList();
+		getStockList();
 	};
 	const pageChangeCurrent = (val: number) => {
 		params.pageCurrent = val;
-		getUserList();
+		getStockList();
 	};
 	const initData = () => {
 		params.pageSize = 1;
 		params.pageTotal = 100;
-		getUserList();
+		getStockList();
 	};
-	const getUserList = () => {
+	const getStockList = () => {
 		tableData.value = [
 			{
 				id: 1,

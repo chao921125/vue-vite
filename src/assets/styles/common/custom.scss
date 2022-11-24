@@ -196,7 +196,13 @@ $i: 100;
 	$i: $i - 1;
 }
 
-//$sizes: (0, 5, 10, 15, 20);
+$sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50);
+@each $size in $sizes {
+	.#{$prefix}-width-#{$size} {
+		width: #{$size}px;
+	}
+}
+
 //@for $index from 1 to 6 {
 //  .#{$prefix}-m-#{$index} { margin: #{$index}px !important; }
 //  .#{$prefix}-mt-#{$index} { margin-top: #{$index}px !important; }

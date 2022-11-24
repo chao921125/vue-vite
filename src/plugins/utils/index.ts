@@ -111,6 +111,7 @@ util.urlToObj = (url: string) => {
 	let obj = {
 		id: "",
 	};
+	if (!url) return obj;
 	// @ts-ignore
 	url.replace(/([^?=&#]+)=([^?=&#]+)/g, (_, key, value) => (obj[key] = value));
 	// @ts-ignore

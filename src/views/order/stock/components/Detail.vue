@@ -62,7 +62,7 @@
 <script lang="ts" setup name="Detail">
 	import { defineProps, defineEmits, defineExpose, onUpdated, reactive, ref } from "vue";
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Department } from "@/interface/department";
+	import { Product } from "@/interface/product";
 
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({
@@ -78,9 +78,9 @@
 	// 表单
 	const formLabelWidth = "100px";
 	const formRef = ref<FormInstance>();
-	const form = ref<Department>({});
+	const form = ref<Product>({});
 	const rules = reactive<FormRules>({});
-	const productInfo = ref<Department>({});
+	const productInfo = ref<Product>({});
 
 	// 弹窗
 	const dialogFormVisible = ref(false);

@@ -33,9 +33,14 @@
 				<el-input v-model="form.weightUnit" placeholder=""></el-input>
 			</el-form-item>
 			<el-form-item prop="weightUnit" label="体积">
-				<el-input v-model="form.volumeLength" placeholder=""></el-input>
-				<el-input v-model="form.volumeWight" placeholder=""></el-input>
-				<el-input v-model="form.volumeHeight" placeholder=""></el-input>
+				<div class="re-flex-row-between re-width-fill">
+					<label class="re-m-r-5">长</label>
+					<el-input v-model="form.volumeLength" placeholder=""></el-input>
+					<label class="re-m-r-5 re-m-l-10">宽</label>
+					<el-input v-model="form.volumeWight" placeholder=""></el-input>
+					<label class="re-m-r-5 re-m-l-10">高</label>
+					<el-input v-model="form.volumeHeight" placeholder=""></el-input>
+				</div>
 			</el-form-item>
 			<el-form-item prop="volumeUnit" label="体积单位">
 				<el-input v-model="form.volumeUnit" placeholder=""></el-input>
