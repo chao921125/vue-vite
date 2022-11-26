@@ -1,5 +1,5 @@
 <template>
-	<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
+	<el-form v-for="(item, index) in 10" :key="item + index" :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef" :inline="true">
 		<el-form-item prop="number" label="内部编码">
 			<el-input v-model="form.number" placeholder=""></el-input>
 		</el-form-item>
@@ -31,9 +31,14 @@
 			<el-input v-model="form.weightUnit" placeholder=""></el-input>
 		</el-form-item>
 		<el-form-item prop="weightUnit" label="体积">
-			<el-input v-model="form.volumeLength" placeholder=""></el-input>
-			<el-input v-model="form.volumeWight" placeholder=""></el-input>
-			<el-input v-model="form.volumeHeight" placeholder=""></el-input>
+			<div class="re-flex-row-between re-width-fill">
+				<label class="re-m-r-5">长</label>
+				<el-input v-model="form.volumeLength" placeholder=""></el-input>
+				<label class="re-m-r-5 re-m-l-10">宽</label>
+				<el-input v-model="form.volumeWight" placeholder=""></el-input>
+				<label class="re-m-r-5 re-m-l-10">高</label>
+				<el-input v-model="form.volumeHeight" placeholder=""></el-input>
+			</div>
 		</el-form-item>
 		<el-form-item prop="volumeUnit" label="体积单位">
 			<el-input v-model="form.volumeUnit" placeholder=""></el-input>
@@ -48,10 +53,23 @@
 			<el-input type="textarea" v-model="form.desc" placeholder="" :autosize="{ minRows: 2, maxRows: 5 }"></el-input>
 		</el-form-item>
 		<el-form-item prop="" label="">
-			<el-button @click="goBack">取消</el-button>
-			<el-button type="primary" @click="changeProductInfo">确认</el-button>
+			<el-button v-if="index > 0" type="danger" circle>
+				<el-icon><Minus /></el-icon>
+			</el-button>
+			<el-button v-if="index === 10 - 1" type="success" circle>
+				<el-icon><Plus /></el-icon>
+			</el-button>
 		</el-form-item>
 	</el-form>
+	<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
+		<el-form-item prop="desc" label="订单备注">
+			<el-input type="textarea" v-model="form.desc" placeholder="" :autosize="{ minRows: 2, maxRows: 5 }"></el-input>
+		</el-form-item>
+	</el-form>
+	<div class="re-flex-row-center">
+		<el-button @click="goBack">取消</el-button>
+		<el-button type="primary" @click="changeProductInfo">确认</el-button>
+	</div>
 </template>
 
 <script lang="ts" setup name="InputAddEdit">
