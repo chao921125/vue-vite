@@ -29,33 +29,9 @@ import "@/assets/styles/index.scss";
 import "@purge-icons/generated";
 
 const app = createApp(App);
-
-// log
-app.config.errorHandler = (err, vm, info) => {
-	// 处理错误
-	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
-	// 只在开发模式下打印 log
-	if (import.meta.env.NODE_ENV === "development") {
-		Utils.log.danger(">>>>>> 错误信息 >>>>>>");
-		console.log(info);
-		Utils.log.danger(">>>>>> Vue 实例 >>>>>>");
-		console.log(vm);
-		Utils.log.danger(">>>>>> Error >>>>>>");
-		console.log(err);
-	}
-};
-app.config.warnHandler = (msg, vm, trace) => {
-	// 显示在控制台
-	if (import.meta.env.NODE_ENV === "development") {
-		// `trace` 是组件的继承关系追踪
-		Utils.log.warning(">>>>>> 警告信息 >>>>>>");
-		console.log(msg);
-		Utils.log.warning(">>>>>> Vue 实例 >>>>>>");
-		console.log(vm);
-		Utils.log.warning(">>>>>> Info >>>>>>");
-		console.log(trace);
-	}
-};
+// const app = createSSRApp(App);
+Utils.Log.primary(">>>>>> 当前VUE版本 >>>>>>");
+console.log(app.version);
 
 // 注册element Icons组件
 Object.keys(Icons).forEach((key) => {
@@ -68,6 +44,10 @@ Object.keys(directives).forEach((key) => {
 	app.directive(key, (directives as { [key: string]: Directive })[key]);
 });
 
+// 全局信息定义
+// app.provide("", "");
+// inject: [""],
+
 // 全局指令
 // mitt 总线
 import mitt from "mitt";
@@ -75,4 +55,33 @@ app.config.globalProperties.mittBus = mitt();
 // 全局消息提示
 app.config.globalProperties.elMessage = ElMessage;
 
+// log
+app.config.errorHandler = (err, instance, info) => {
+	// 处理错误
+	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
+	// 只在开发模式下打印 log
+	if (import.meta.env.NODE_ENV === "development") {
+		Utils.Log.danger(">>>>>> 错误信息 >>>>>>");
+		console.log(info);
+		Utils.Log.danger(">>>>>> Vue 实例 >>>>>>");
+		console.log(instance);
+		Utils.Log.danger(">>>>>> Error >>>>>>");
+		console.log(err);
+	}
+};
+app.config.warnHandler = (msg, instance, trace) => {
+	// 显示在控制台
+	if (import.meta.env.NODE_ENV === "development") {
+		// `trace` 是组件的继承关系追踪
+		Utils.Log.warning(">>>>>> 警告信息 >>>>>>");
+		console.log(msg);
+		Utils.Log.warning(">>>>>> Vue 实例 >>>>>>");
+		console.log(instance);
+		Utils.Log.warning(">>>>>> Info >>>>>>");
+		console.log(trace);
+	}
+};
+app.config.performance = import.meta.env.NODE_ENV === "development";
+
 app.use(Pinia).use(Router).use(ElementPlus).use(I18n).mount("#app");
+// app.unmount();
