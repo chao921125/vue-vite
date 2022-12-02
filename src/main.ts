@@ -1,37 +1,43 @@
 import { createApp, type Directive } from "vue";
 import App from "./App.vue";
 
-// router
-import Router from "@/router";
+const app = createApp(App);
+// const app = createSSRApp(App);
 
 // store pinia
 import Pinia from "@/store";
+app.use(Pinia);
+
+// router
+import Router from "@/router";
+app.use(Router);
 
 // UI element
 import ElementPlus, { ElMessage } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
+app.use(ElementPlus);
 
 // vue i18n
 import I18n from "@/plugins/i18n";
+app.use(I18n);
 
-// util
+// 打印
+import print from "vue3-print-nb";
+app.use(print);
+
+// 工具
 import Utils from "@/plugins/utils";
 
-// 三方CSS
+// 三方样式
 import "animate.css/animate.min.css";
 
-// styles
-import "@/assets/styles/index.scss";
-
-// icon
+// 图标
 import "@purge-icons/generated";
 
-const app = createApp(App);
-// const app = createSSRApp(App);
-Utils.Log.primary(">>>>>> 当前VUE版本 >>>>>>");
-console.log(app.version);
+// 自定义样式
+import "@/assets/styles/index.scss";
 
 // 注册element Icons组件
 Object.keys(Icons).forEach((key) => {
@@ -44,9 +50,8 @@ Object.keys(directives).forEach((key) => {
 	app.directive(key, (directives as { [key: string]: Directive })[key]);
 });
 
-// 全局信息定义
+// 全局信息定义 使用 inject: [""],
 // app.provide("", "");
-// inject: [""],
 
 // 全局指令
 // mitt 总线
@@ -56,6 +61,7 @@ app.config.globalProperties.mittBus = mitt();
 app.config.globalProperties.elMessage = ElMessage;
 
 // log
+Utils.Log.primary(">>>>>> 当前VUE版本 >>>>>>", app.version);
 app.config.errorHandler = (err, instance, info) => {
 	// 处理错误
 	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
@@ -83,5 +89,5 @@ app.config.warnHandler = (msg, instance, trace) => {
 };
 app.config.performance = import.meta.env.NODE_ENV === "development";
 
-app.use(Pinia).use(Router).use(ElementPlus).use(I18n).mount("#app");
+app.mount("#app");
 // app.unmount();

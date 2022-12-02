@@ -48,6 +48,7 @@
   "mitt": "^3.0.0",
   "nprogress": "^0.2.0",
   "pinia": "2.0.27",
+  "print-js": "^1.6.0",
   "qs": "^6.11.0",
   "screenfull": "6.0.2",
   "vant": "^4.0.1",
@@ -56,6 +57,7 @@
   "vue-i18n": "^9.2.2",
   "vue-router": "^4.1.6",
   "vue-treeselect": "^1.0.7",
+  "vue3-print-nb": "^0.1.4",
   "xlsx": "^0.18.5"
  },
  "devDependencies": {
@@ -135,9 +137,9 @@
  },
  "resolutions": {
   "bin-wrapper": "npm:bin-wrapper-china",
-	 "inquirer": "^9.1.4",
-	 "is-stream": "^3.0.0",
-	 "npm-run-path": "^5.1.0"
+  "inquirer": "^9.1.4",
+  "is-stream": "^3.0.0",
+  "npm-run-path": "^5.1.0"
  },
  "license": "MIT",
  "author": "vue3-vite",

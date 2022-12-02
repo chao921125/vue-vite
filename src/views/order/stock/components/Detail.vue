@@ -1,27 +1,32 @@
 <template>
 	<el-dialog v-model="dialogFormVisible" @close="closeDialog" width="90%">
-		<el-table :data="tableData" style="width: 100%">
-			<el-table-column prop="number" label="内部编码" width="120" />
-			<el-table-column prop="name" label="名称" width="120" />
-			<el-table-column prop="type" label="种类" width="120" />
-			<el-table-column prop="criterion" label="标准" width="120" />
-			<el-table-column prop="material" label="材质" width="120">
-				<template #default="scope"> {{ replaceNullLine(scope.row.material) }} </template>
-			</el-table-column>
-			<el-table-column prop="specification" label="规格" width="120" />
-			<el-table-column prop="price" label="价格" width="120">
-				<template #default="scope"> {{ scope.row.price }}/{{ scope.row.priceUnit }} </template>
-			</el-table-column>
-			<el-table-column prop="weight" label="重量" width="120">
-				<template #default="scope"> {{ scope.row.weight }}/{{ scope.row.weightUnit }} </template>
-			</el-table-column>
-			<el-table-column prop="volumeLength" label="体积" width="120">
-				<template #default="scope"> {{ scope.row.volumeLength }}*{{ scope.row.volumeWight }}*{{ scope.row.volumeHeight }}/{{ scope.row.volumeUnit }} </template>
-			</el-table-column>
-			<el-table-column prop="unit" label="单位" width="120" />
-			<el-table-column prop="desc" label="备注" />
-			<el-table-column prop="total" label="数量" width="120" fixed="right" />
-		</el-table>
+		<template #default>
+			<el-button v-print="optionPrint">打印</el-button>
+			<el-table :data="tableData" id="printBox" style="width: 100%">
+				<el-table-column prop="number" label="内部编码" />
+				<el-table-column prop="name" label="名称" />
+				<el-table-column prop="type" label="种类" />
+				<el-table-column prop="criterion" label="标准" />
+				<el-table-column prop="material" label="材质">
+					<template #default="scope"> {{ replaceNullLine(scope.row.material) }} </template>
+				</el-table-column>
+				<el-table-column prop="specification" label="规格" />
+				<el-table-column prop="price" label="价格">
+					<template #default="scope"> {{ scope.row.price }}/{{ scope.row.priceUnit }} </template>
+				</el-table-column>
+				<el-table-column prop="weight" label="重量">
+					<template #default="scope"> {{ scope.row.weight }}/{{ scope.row.weightUnit }} </template>
+				</el-table-column>
+				<el-table-column prop="volumeLength" label="体积">
+					<template #default="scope">
+						{{ scope.row.volumeLength }}*{{ scope.row.volumeWight }}*{{ scope.row.volumeHeight }}/{{ scope.row.volumeUnit }}
+					</template>
+				</el-table-column>
+				<el-table-column prop="unit" label="单位" />
+				<el-table-column prop="desc" label="备注" />
+				<el-table-column prop="total" label="数量" />
+			</el-table>
+		</template>
 		<template #footer>
 			<span class="dialog-footer">
 				<el-button @click="closeDialog">取消</el-button>
@@ -32,7 +37,7 @@
 </template>
 
 <script lang="ts" setup name="Detail">
-	import { defineProps, defineExpose, onUpdated, ref } from "vue";
+	import { defineProps, defineExpose, onUpdated, ref, reactive } from "vue";
 	import { Product } from "@/interface/product";
 	import { replaceNullLine } from "@/plugins/utils/format";
 
@@ -48,6 +53,52 @@
 
 	// 表单
 	const tableData = ref<Product[]>([]);
+
+	const optionPrint = reactive({
+		// 打印指定容器
+		id: "printBox",
+		// 打印标准
+		standard: "html5",
+		// 排除标头 "<...>,<...>"
+		extraHead: "",
+		// 排除样式 "...,..."
+		extraCss: "",
+		popTitle: "popTitle",
+		// 打印指定url
+		// url: "",
+		// 预览
+		preview: false,
+		previewTitle: "", // The title of the preview window. The default is 打印预览
+		previewPrintBtnLabel: "", // The title of the preview window. The default is 打印预览
+		zIndex: "99999",
+		previewBeforeOpenCallback(vue) {
+			vue.printLoading = true;
+			console.log("正在加载预览窗口");
+		},
+		previewOpenCallback(vue) {
+			vue.printLoading = false;
+			console.log("已经加载完预览窗口");
+		},
+		// 异步打印指定url
+		// asyncUrl(reslove, vue) {
+		// 	vue.printLoading = false;
+		// 	setTimeout(() => {
+		// 		reslove("");
+		// 	}, 2000);
+		// },
+		beforeOpenCallback(vue) {
+			vue.printLoading = true;
+			console.log("打开之前");
+		},
+		openCallback(vue) {
+			vue.printLoading = false;
+			console.log("执行了打印");
+		},
+		closeCallback(vue) {
+			vue.printLoading = false;
+			console.log("关闭了打印工具");
+		},
+	});
 
 	// 弹窗
 	const dialogFormVisible = ref(false);
