@@ -1,68 +1,40 @@
 <template>
-	<el-dialog v-model="dialogFormVisible" @close="closeDialog">
-		<template #header>{{ productInfo.id ? "编辑办公区库存" : "新增办公区库存" }}</template>
-		<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
-			<el-form-item prop="number" label="内部编码">
-				<el-input v-model="form.number" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="name" label="名称">
-				<el-input v-model="form.name" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="type" label="种类">
-				<el-input v-model="form.type" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="criterion" label="标准">
-				<el-input v-model="form.criterion" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="material" label="材质">
-				<el-input v-model="form.material" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="specification" label="规格">
-				<el-input v-model="form.specification" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="price" label="价格">
-				<el-input v-model="form.price" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="priceUnit" label="价格单位">
-				<el-input v-model="form.priceUnit" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="weight" label="重量">
-				<el-input v-model="form.weight" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="weightUnit" label="重量单位">
-				<el-input v-model="form.weightUnit" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="weightUnit" label="体积">
-				<el-input v-model="form.volumeLength" placeholder=""></el-input>
-				<el-input v-model="form.volumeWight" placeholder=""></el-input>
-				<el-input v-model="form.volumeHeight" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="volumeUnit" label="体积单位">
-				<el-input v-model="form.volumeUnit" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="unit" label="单位">
-				<el-input v-model="form.unit" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="total" label="数量">
-				<el-input v-model="form.total" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="desc" label="备注">
-				<el-input type="textarea" v-model="form.desc" placeholder="" :autosize="{ minRows: 2, maxRows: 5 }"></el-input>
-			</el-form-item>
-		</el-form>
+	<el-dialog v-model="dialogFormVisible" @close="closeDialog" width="90%">
+		<el-table :data="tableData" style="width: 100%">
+			<el-table-column prop="number" label="内部编码" width="120" />
+			<el-table-column prop="name" label="名称" width="120" />
+			<el-table-column prop="type" label="种类" width="120" />
+			<el-table-column prop="criterion" label="标准" width="120" />
+			<el-table-column prop="material" label="材质" width="120">
+				<template #default="scope"> {{ replaceNullLine(scope.row.material) }} </template>
+			</el-table-column>
+			<el-table-column prop="specification" label="规格" width="120" />
+			<el-table-column prop="price" label="价格" width="120">
+				<template #default="scope"> {{ scope.row.price }}/{{ scope.row.priceUnit }} </template>
+			</el-table-column>
+			<el-table-column prop="weight" label="重量" width="120">
+				<template #default="scope"> {{ scope.row.weight }}/{{ scope.row.weightUnit }} </template>
+			</el-table-column>
+			<el-table-column prop="volumeLength" label="体积" width="120">
+				<template #default="scope"> {{ scope.row.volumeLength }}*{{ scope.row.volumeWight }}*{{ scope.row.volumeHeight }}/{{ scope.row.volumeUnit }} </template>
+			</el-table-column>
+			<el-table-column prop="unit" label="单位" width="120" />
+			<el-table-column prop="desc" label="备注" />
+			<el-table-column prop="total" label="数量" width="120" fixed="right" />
+		</el-table>
 		<template #footer>
 			<span class="dialog-footer">
 				<el-button @click="closeDialog">取消</el-button>
-				<el-button type="primary" @click="changeproductInfo">确认</el-button>
+				<el-button type="primary" @click="closeDialog">确认</el-button>
 			</span>
 		</template>
 	</el-dialog>
 </template>
 
 <script lang="ts" setup name="Detail">
-	import { defineProps, defineEmits, defineExpose, onUpdated, reactive, ref } from "vue";
-	import type { FormInstance, FormRules } from "element-plus";
+	import { defineProps, defineExpose, onUpdated, ref } from "vue";
 	import { Product } from "@/interface/product";
+	import { replaceNullLine } from "@/plugins/utils/format";
 
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({
@@ -73,14 +45,9 @@
 			},
 		},
 	});
-	const emits = defineEmits(["result"]);
 
 	// 表单
-	const formLabelWidth = "100px";
-	const formRef = ref<FormInstance>();
-	const form = ref<Product>({});
-	const rules = reactive<FormRules>({});
-	const productInfo = ref<Product>({});
+	const tableData = ref<Product[]>([]);
 
 	// 弹窗
 	const dialogFormVisible = ref(false);
@@ -88,20 +55,59 @@
 		dialogFormVisible.value = true;
 	};
 	const closeDialog = () => {
-		form.value = {};
-		productInfo.value = {};
 		dialogFormVisible.value = false;
 	};
 
 	// 数据信息
-	const changeproductInfo = () => {
-		closeDialog();
-		emits("result", true);
+	const initData = () => {
+		console.log(propsData.data);
+		tableData.value = [
+			{
+				id: 1,
+				name: "外丝接头",
+				type: "NPT螺纹",
+				criterion: "国标",
+				number: "DN1233",
+				material: "钢",
+				specification: "DN52'R33",
+				weight: 123,
+				weightUnit: "g",
+				price: 3.33,
+				priceUnit: "元",
+				volumeLength: 12,
+				volumeWight: 23,
+				volumeHeight: 33,
+				volumeUnit: "m³",
+				unit: "个",
+				total: 123,
+				isStock: 0,
+			},
+			{
+				id: 1,
+				name: "扳手",
+				type: "配件",
+				criterion: "欧标",
+				number: "DN1233",
+				material: "",
+				specification: "DN52'R33",
+				weight: 123,
+				weightUnit: "g",
+				price: 3.33,
+				priceUnit: "元",
+				volumeLength: 12,
+				volumeWight: 23,
+				volumeHeight: 33,
+				volumeUnit: "m³",
+				unit: "个",
+				total: 123,
+				isStock: 0,
+			},
+		];
 	};
+
 	onUpdated(() => {
 		if (propsData.data && dialogFormVisible.value) {
-			form.value = propsData.data;
-			productInfo.value = propsData.data;
+			initData();
 		}
 	});
 

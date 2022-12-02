@@ -28,13 +28,14 @@
 						</el-button>
 					</template>
 				</el-popconfirm>
-				<el-button type="success" link @click="scope.row.id">
+				<el-button type="success" link @click="openDetailProd(scope.row.id)">
 					<el-icon><More /></el-icon>
 				</el-button>
 			</template>
 		</el-table-column>
 	</el-table>
 	<ElPage :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></ElPage>
+	<Detail :data="productInfoId" ref="dialogForm"></Detail>
 </template>
 
 <script lang="ts" setup name="InputList">
@@ -43,6 +44,7 @@
 	import { useRouter } from "vue-router";
 	import ElPage from "@/components/pagenation/ElPage.vue";
 	import RouterSetConfig from "@/config/routerSetConfig";
+	import Detail from "./components/Detail.vue";
 
 	const formSearchRef = ref();
 	const formSearch = reactive({
@@ -63,6 +65,11 @@
 	const toEditProduct = (id: string | number) => {
 		productInfoId.value = id;
 		router.push({ path: RouterSetConfig.routeEnum.order.proInputAddEdit });
+	};
+	const dialogForm = ref();
+	const openDetailProd = (id: string | number) => {
+		productInfoId.value = id;
+		dialogForm.value.openDialog();
 	};
 
 	const tableData = ref<any[]>([]);
