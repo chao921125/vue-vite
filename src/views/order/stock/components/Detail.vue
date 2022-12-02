@@ -1,13 +1,16 @@
 <template>
 	<el-dialog v-model="dialogFormVisible" @close="closeDialog" width="90%">
 		<template #default>
+			<el-checkbox-group v-model="checkTableColumn">
+				<el-checkbox v-for="(item, index) in tableColumn" :key="index" :label="item.value" :disabled="item.disabled">{{ item.name }}</el-checkbox>
+			</el-checkbox-group>
 			<el-button v-print="optionPrint">打印</el-button>
 			<el-table :data="tableData" id="printBox" style="width: 100%">
-				<el-table-column prop="number" label="内部编码" />
-				<el-table-column prop="name" label="名称" />
-				<el-table-column prop="type" label="种类" />
-				<el-table-column prop="criterion" label="标准" />
-				<el-table-column prop="material" label="材质">
+				<el-table-column v-if="checkTableColumn.includes('number')" prop="number" label="内部编码" />
+				<el-table-column v-if="checkTableColumn.includes('name')" prop="name" label="名称" />
+				<el-table-column v-if="checkTableColumn.includes('type')" prop="type" label="种类" />
+				<el-table-column v-if="checkTableColumn.includes('criterion')" prop="criterion" label="标准" />
+				<el-table-column v-if="checkTableColumn.includes('material')" prop="material" label="材质">
 					<template #default="scope"> {{ replaceNullLine(scope.row.material) }} </template>
 				</el-table-column>
 				<el-table-column prop="specification" label="规格" />
@@ -53,6 +56,29 @@
 
 	// 表单
 	const tableData = ref<Product[]>([]);
+	const tableColumn = [
+		{
+			name: "内部编码",
+			value: "number",
+			disabled: false,
+		},
+		{
+			name: "名称",
+			value: "name",
+			disabled: false,
+		},
+		{
+			name: "种类",
+			value: "type",
+			disabled: false,
+		},
+		{
+			name: "标准",
+			value: "criterion",
+			disabled: false,
+		},
+	];
+	const checkTableColumn = ref<any[]>(["number"]);
 
 	const optionPrint = reactive({
 		// 打印指定容器
