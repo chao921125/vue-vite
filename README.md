@@ -7,6 +7,7 @@ npm-run-path
 
 ###### [**花里胡哨的不要，保证可用**]
 ###### 推荐使用pnpm安装依赖，其次yarn或者npm
+###### curl -fsSL https://get.pnpm.io/install.sh | sh -
 ###### [Vite 插件](https://github.com/vitejs/awesome-vite)
 https://vuejs.org/
 
@@ -376,7 +377,8 @@ https://hu-snail.github.io/vue3-resource/
 
 ## 3D
 [WebGL](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL_API) \
-[threejs](https://www.npmjs.com/package/three) [官网](https://threejs.org/)
+[threejs](https://www.npmjs.com/package/three) [官网](https://threejs.org/) \
+[AR model-viewer](https://github.com/google/model-viewer)
 
 # 特效
 ## 文字
@@ -433,8 +435,8 @@ https://hu-snail.github.io/vue3-resource/
 
 # 由于其他因素相关的Web 库也放这里
 ## UI
-[Bootstrap](https://getbootstrap.com/)
-[heyui](https://v2.heyui.top/)
+[Bootstrap](https://getbootstrap.com/) \
+[heyui](https://v2.heyui.top/) \
 [varletjs](https://github.com/varletjs/varlet) | [varletjs](https://varlet-varletjs.vercel.app/#/en-US/home)
 
 ## Admin server & Web
