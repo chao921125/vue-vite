@@ -1,6 +1,6 @@
 import type { Directive, DirectiveBinding } from "vue";
 import { ElMessage } from "element-plus";
-import { $t } from "@/plugins/language";
+import { $t } from "@/plugins/i18n";
 
 interface ElType extends HTMLElement {
 	copyData: string | number | undefined;
@@ -45,6 +45,6 @@ function copyData(val: any) {
 	document.body.removeChild(copyText);
 	ElMessage({
 		type: "success",
-		message: $t("i18n.msg.copy"),
+		message: $t("message.msg.copy"),
 	});
 }

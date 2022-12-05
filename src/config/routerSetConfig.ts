@@ -12,7 +12,11 @@ export default {
 	route500: "/500",
 	whiteList: ["/login", "/register", "/auth"],
 	executeList: ["/login", "/register", "/auth", "/home", "/", "/401", "/404", "/500"],
-	rolesSuper: ["admin", "common"],
-	rolesAdmin: ["admin"],
-	rolesUser: ["common"],
+	routeEnum: {
+		product: {},
+		order: {
+			proInputList: "/order/input",
+			proInputAddEdit: "/order/input/add-edit",
+		},
+	},
 };

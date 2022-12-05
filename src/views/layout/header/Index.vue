@@ -254,8 +254,10 @@
 	const userInfoName = ref("");
 	const initData = () => {
 		const userInfo = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.userInfo) || null;
-		userInfoAvatar.value = userInfo.avatar || "";
-		userInfoName.value = userInfo.userName || "";
+		if (userInfo) {
+			userInfoAvatar.value = userInfo.avatar || "";
+			userInfoName.value = userInfo.userName || "";
+		}
 		isThemGrey.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)?.isGrey || false;
 		changeGrey(isThemGrey.value);
 		isThemInvert.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)?.isInvert || false;
@@ -271,6 +273,7 @@
 			changeI18n(localI18n);
 		}
 	});
+
 	onBeforeRouteUpdate((to) => {
 		breadcrumbList.value = [];
 		initBreadcrumbList(to.path);

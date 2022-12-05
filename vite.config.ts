@@ -120,6 +120,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			// https://github.com/antfu/unplugin-auto-import#readme
 			AutoImport({
+				dts: true,
 				include: [
 					/\.[tj]s?$/, // .ts, .tsx, .js, .jsx
 					/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
@@ -127,8 +128,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					/\.vue\?vue/, // .vue
 					/\.md$/, // .md
 				],
-				dts: true,
 				imports: ["vue", "vue-router", "pinia"],
+				resolvers: [ElementPlusResolver(), VantResolver()],
 			}),
 			Components({
 				dts: true,
@@ -203,8 +204,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				// 别名必须以 / 开头、结尾
 				// "/@/": root, -- vite 内部在用，这里不能用了
 				// "/root/": __dirname, -- vite 内部在用，这里不能用了
-				"@": path.resolve(__dirname, "./src"),
 				"vue-i18n": "vue-i18n/dist/vue-i18n.cjs.js",
+				"@": path.resolve(__dirname, "./src"),
 				"#": path.resolve(__dirname, "./types"),
 			},
 			// dedupe: "", // 一般SSR+ESM使用

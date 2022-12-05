@@ -3,7 +3,7 @@ import { storeToRefs } from "pinia";
 import Router from "@/router";
 import Pinia from "@/store";
 import { useThemeConfig } from "@/store/modules/theme";
-import I18n from "@/plugins/language";
+import I18n from "@/plugins/i18n";
 import ThemeSetConfig from "@/config/themeSetConfig";
 
 import Constants from "./modules/constants";
@@ -111,6 +111,7 @@ util.urlToObj = (url: string) => {
 	let obj = {
 		id: "",
 	};
+	if (!url) return obj;
 	// @ts-ignore
 	url.replace(/([^?=&#]+)=([^?=&#]+)/g, (_, key, value) => (obj[key] = value));
 	// @ts-ignore

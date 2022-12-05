@@ -1,61 +1,43 @@
 import { createApp, type Directive } from "vue";
 import App from "./App.vue";
 
-// router
-import Router from "@/router";
+const app = createApp(App);
+// const app = createSSRApp(App);
 
 // store pinia
 import Pinia from "@/store";
+app.use(Pinia);
 
-// vue i18n
-import I18n from "@/plugins/language";
+// router
+import Router from "@/router";
+app.use(Router);
 
 // UI element
 import ElementPlus, { ElMessage } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
+app.use(ElementPlus);
 
-// 三方CSS
-import "animate.css/animate.min.css";
+// vue i18n
+import I18n from "@/plugins/i18n";
+app.use(I18n);
 
-// styles
-import "@/assets/styles/index.scss";
+// 打印
+import print from "vue3-print-nb";
+app.use(print);
 
-// icon
-import "@purge-icons/generated";
-
-// util
+// 工具
 import Utils from "@/plugins/utils";
 
-const app = createApp(App);
+// 三方样式
+import "animate.css/animate.min.css";
 
-// log
-app.config.errorHandler = (err, vm, info) => {
-	// 处理错误
-	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
-	// 只在开发模式下打印 log
-	if (import.meta.env.NODE_ENV === "development") {
-		Utils.log.danger(">>>>>> 错误信息 >>>>>>");
-		console.log(info);
-		Utils.log.danger(">>>>>> Vue 实例 >>>>>>");
-		console.log(vm);
-		Utils.log.danger(">>>>>> Error >>>>>>");
-		console.log(err);
-	}
-};
-app.config.warnHandler = (msg, vm, trace) => {
-	// 显示在控制台
-	if (import.meta.env.NODE_ENV === "development") {
-		// `trace` 是组件的继承关系追踪
-		Utils.log.warning(">>>>>> 警告信息 >>>>>>");
-		console.log(msg);
-		Utils.log.warning(">>>>>> Vue 实例 >>>>>>");
-		console.log(vm);
-		Utils.log.warning(">>>>>> Info >>>>>>");
-		console.log(trace);
-	}
-};
+// 图标
+import "@purge-icons/generated";
+
+// 自定义样式
+import "@/assets/styles/index.scss";
 
 // 注册element Icons组件
 Object.keys(Icons).forEach((key) => {
@@ -68,6 +50,9 @@ Object.keys(directives).forEach((key) => {
 	app.directive(key, (directives as { [key: string]: Directive })[key]);
 });
 
+// 全局信息定义 使用 inject: [""],
+// app.provide("", "");
+
 // 全局指令
 // mitt 总线
 import mitt from "mitt";
@@ -75,4 +60,34 @@ app.config.globalProperties.mittBus = mitt();
 // 全局消息提示
 app.config.globalProperties.elMessage = ElMessage;
 
-app.use(Pinia).use(Router).use(ElementPlus, { i18n: I18n.global.t }).use(I18n).mount("#app");
+// log
+Utils.Log.primary(">>>>>> 当前VUE版本 >>>>>>", app.version);
+app.config.errorHandler = (err, instance, info) => {
+	// 处理错误
+	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
+	// 只在开发模式下打印 log
+	if (import.meta.env.NODE_ENV === "development") {
+		Utils.Log.danger(">>>>>> 错误信息 >>>>>>");
+		console.log(info);
+		Utils.Log.danger(">>>>>> Vue 实例 >>>>>>");
+		console.log(instance);
+		Utils.Log.danger(">>>>>> Error >>>>>>");
+		console.log(err);
+	}
+};
+app.config.warnHandler = (msg, instance, trace) => {
+	// 显示在控制台
+	if (import.meta.env.NODE_ENV === "development") {
+		// `trace` 是组件的继承关系追踪
+		Utils.Log.warning(">>>>>> 警告信息 >>>>>>");
+		console.log(msg);
+		Utils.Log.warning(">>>>>> Vue 实例 >>>>>>");
+		console.log(instance);
+		Utils.Log.warning(">>>>>> Info >>>>>>");
+		console.log(trace);
+	}
+};
+app.config.performance = import.meta.env.NODE_ENV === "development";
+
+app.mount("#app");
+// app.unmount();
