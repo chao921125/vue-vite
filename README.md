@@ -377,7 +377,8 @@ https://hu-snail.github.io/vue3-resource/
 
 ## 3D
 [WebGL](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL_API) \
-[threejs](https://www.npmjs.com/package/three) [官网](https://threejs.org/) \
+[threejs](https://www.npmjs.com/package/three) [官网](https://threejs.org/) [GitHub](https://github.com/mrdoob/three.js/tree/master) \
+[babylonjs](https://www.npmjs.com/package/babylonjs) [官网](https://www.babylonjs.com/) \
 [AR model-viewer](https://github.com/google/model-viewer)
 
 # 特效
