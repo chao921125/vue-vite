@@ -2,6 +2,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import Router from "@/router";
 import Utils from "@/plugins/utils";
+import Constants from "@/plugins/constants";
 import AxiosSetConfig from "@/config/axiosSetConfig";
 import NProgress from "@/plugins/loading/progress";
 import RouterSetConfig from "@/config/routerSetConfig";
@@ -59,7 +60,7 @@ http.interceptors.request.use(
 		if (!/^https:\/\/|http:\/\//.test(<string>config.url)) {
 			// 在请求发送之前做一些处理
 			config.headers = {
-				token: Utils.Cookies.getCookie(Utils.Constants.cookieKey.token),
+				token: Utils.Cookies.getCookie(Constants.cookieKey.token),
 			};
 		}
 		AxiosCancel.addCancer(config);
@@ -165,7 +166,7 @@ http.interceptors.response.use(
 				default:
 					break;
 			}
-			if (!Utils.cookies.get(Utils.Constants.cookieKey.token)) {
+			if (!Utils.cookies.get(Constants.cookieKey.token)) {
 				Router.replace({
 					path: RouterSetConfig.routeLogin,
 				});

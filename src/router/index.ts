@@ -9,6 +9,7 @@ import { useRouterList } from "@/store/modules/routerMeta";
 import { useTagsViewRoutes } from "@/store/modules/routerTags";
 import { baseRoutes, errorRoutes } from "./route";
 import Utils from "@/plugins/utils";
+import Constants from "@/plugins/constants";
 import NProgress from "@/plugins/loading/progress";
 import RouterSetConfig from "@/config/routerSetConfig";
 import routeData from "@/config/routerData";
@@ -39,13 +40,13 @@ router.beforeEach(async (to, from, next) => {
 	NProgress.start();
 	// 取消所有请求
 	AxiosCancel.removeAllCancer();
-	const token = Utils.Storages.getSessionStorage(Utils.Constants.storageKey.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKey.token);
+	const token = Utils.Storages.getSessionStorage(Constants.storageKey.token) || Utils.Cookies.getCookie(Constants.cookieKey.token);
 	if (RouterSetConfig.whiteList.includes(to.path) && !token) {
 		next();
 	} else {
 		if (!token || token === "undefined") {
-			Utils.Storages.removeSessionStorage(Utils.Constants.storageKey.token);
-			Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
+			Utils.Storages.removeSessionStorage(Constants.storageKey.token);
+			Utils.Cookies.removeCookie(Constants.cookieKey.token);
 			next(`${RouterSetConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
 		} else if (token && (RouterSetConfig.whiteList.includes(to.path) || to.path === RouterSetConfig.routeRoot)) {
 			next(RouterSetConfig.routeHome);
@@ -87,7 +88,7 @@ const dynamicViewsModules: Record<string, Function> = Object.assign({}, { ...vie
 
 // 获取动态路由数据
 export async function getDynamicRouter() {
-	if (!(Utils.Storages.getSessionStorage(Utils.Constants.storageKey.token) || Utils.Cookies.getCookie(Utils.Constants.cookieKey.token))) return false;
+	if (!(Utils.Storages.getSessionStorage(Constants.storageKey.token) || Utils.Cookies.getCookie(Constants.cookieKey.token))) return false;
 	// await useUserInfo(Pinia).setUserInfo();
 
 	let storesRouterList = useRouterList(Pinia);
