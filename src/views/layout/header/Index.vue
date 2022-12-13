@@ -97,6 +97,7 @@
 	import { useRouter, useRoute, onBeforeRouteUpdate } from "vue-router";
 	import screenfull from "screenfull";
 	import Utils from "@/plugins/utils";
+	import Constants from "@/plugins/constants";
 	import ThemeSetConfig from "@/config/themeSetConfig";
 	import RouterSetConfig from "@/config/routerSetConfig";
 	import { storeToRefs } from "pinia";
@@ -177,7 +178,7 @@
 	const changeI18n = (lang: string) => {
 		themeConfig.value.globalI18n = lang;
 		proxy.$i18n.locale = lang;
-		Utils.Storages.setLocalStorage(Utils.Constants.storageKey.i18nLocal, lang);
+		Utils.Storages.setLocalStorage(Constants.storageKey.i18nLocal, lang);
 		setThemeConfig();
 		proxy.mittBus.emit("getI18nConfig", proxy.$i18n.messages[lang]);
 	};
@@ -201,8 +202,8 @@
 	// 退出
 	const router = useRouter();
 	const logout = () => {
-		Utils.Storages.removeSessionStorage(Utils.Constants.storageKey.token);
-		Utils.Cookies.removeCookie(Utils.Constants.cookieKey.token);
+		Utils.Storages.removeSessionStorage(Constants.storageKey.token);
+		Utils.Cookies.removeCookie(Constants.cookieKey.token);
 		router.push({ path: RouterSetConfig.routeLogin });
 	};
 	// 个人中心 end
@@ -247,20 +248,20 @@
 
 	// 本地持久化配置
 	const setThemeConfig = () => {
-		Utils.Storages.removeLocalStorage(Utils.Constants.storageKey.themeConfig);
-		Utils.Storages.setLocalStorage(Utils.Constants.storageKey.themeConfig, themeConfig.value);
+		Utils.Storages.removeLocalStorage(Constants.storageKey.themeConfig);
+		Utils.Storages.setLocalStorage(Constants.storageKey.themeConfig, themeConfig.value);
 	};
 	const userInfoAvatar = ref("");
 	const userInfoName = ref("");
 	const initData = () => {
-		const userInfo = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.userInfo) || null;
+		const userInfo = Utils.Storages.getLocalStorage(Constants.storageKey.userInfo) || null;
 		if (userInfo) {
 			userInfoAvatar.value = userInfo.avatar || "";
 			userInfoName.value = userInfo.userName || "";
 		}
-		isThemGrey.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)?.isGrey || false;
+		isThemGrey.value = Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)?.isGrey || false;
 		changeGrey(isThemGrey.value);
-		isThemInvert.value = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)?.isInvert || false;
+		isThemInvert.value = Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)?.isInvert || false;
 		changeInvert(isThemInvert.value);
 	};
 	// 渲染调用
@@ -268,7 +269,7 @@
 		initData();
 		breadcrumbList.value = [];
 		initBreadcrumbList(route.path);
-		const localI18n = Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal);
+		const localI18n = Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal);
 		if (localI18n) {
 			changeI18n(localI18n);
 		}
