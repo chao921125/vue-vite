@@ -1,3 +1,4 @@
+// 若非获取客户端本地IP，直接通过NG配置，在服务端获取即可
 export function getLocalIpList(callback) {
 	let ip_dups = {};
 	// @ts-ignore
