@@ -1,4 +1,5 @@
 import user from "./modules/user";
+import common from "./modules/common";
 
 /**
  * url *
@@ -8,7 +9,8 @@ import user from "./modules/user";
  */
 
 const api = {
-	user,
+	user: user,
+	common: common,
 };
 
 export default api;

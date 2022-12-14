@@ -1,12 +1,31 @@
-const baseUrl = "";
-const userUrl = baseUrl + "/user";
+// http://ip-api.com/json/?lang=zh-CN
+// https://ip.cn/api/index?ip=&type=0
+// http://whois.pconline.com.cn/ipJson.jsp?ip=&json=true
+
+// https://api.ipify.org?format=json
+const baseUrl = "/api";
+const uploadUrl = "/upload";
+const ip = "/ip";
+
+const useUrl = {
+	getUserInfo: `${baseUrl}/user`,
+	fileUpload: `${uploadUrl}/file`,
+	getIp: `${ip}`,
+	ctIp: "https://ip.cn/api",
+	ctIpIpify: "https://api.ipify.org?format=json",
+};
 
 export default {
 	timeout: 6000,
 	timeoutMsg: "请求超时",
 	tokenKey: "AUTH_TOKEN",
 	login: "",
-	userInfo: userUrl,
+	baseUrl: {
+		baseUrl: baseUrl,
+		uploadUrl: uploadUrl,
+		ip: ip,
+	},
+	requestUrl: useUrl,
 	status200: 200,
 	status400: 400,
 	status401: 401,

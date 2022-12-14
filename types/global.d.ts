@@ -5,8 +5,6 @@ declare interface ViteEnv {
 	NODE_ENV: string;
 	VITE_LOCAL: string;
 	VITE_TITLE: string;
-	VITE_API_URL: string;
-	VITE_API_UPLOAD_URL: string;
 	VITE_API_URL_PREFIX: string;
 	VITE_PORT: number;
 	VITE_OPEN: boolean;

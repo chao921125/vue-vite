@@ -92,6 +92,9 @@ http.interceptors.response.use(
 		// resp 是 axios 返回数据中的 data
 		const resp = response.data || null;
 		const status = response.status || 0;
+		if (response.config.url?.includes(AxiosSetConfig.baseUrl.ip)) {
+			return resp;
+		}
 		if (/^4\d{2}/.test(String(status))) {
 			Utils.Cookies.clearCookie();
 			Utils.Storages.clearSessionStorage();

@@ -5,7 +5,7 @@ let user: any = {};
 
 user.queryUserInfo = (data: any = {}) => {
 	return Axios({
-		url: AxiosSetConfig.userInfo,
+		url: AxiosSetConfig.requestUrl.getUserInfo,
 		method: "POST",
 		data,
 	});
