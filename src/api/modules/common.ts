@@ -1,6 +1,5 @@
 import Axios from "@/plugins/axios";
 import AxiosSetConfig from "@/config/axiosSetConfig";
-import Fetch from "@/plugins/axios/fetch";
 
 let common: any = {};
 
@@ -18,14 +17,6 @@ common.queryAddressByIp = (data: any = {}) => {
 		method: "GET",
 		data,
 	});
-};
-
-common.fetchIp = (data: any = {}) => {
-	Fetch.request(AxiosSetConfig.requestUrl.ctIpIpify, data, { method: "GET" });
-};
-
-common.fetchAddressByIp = (data: any = {}) => {
-	Fetch.request(AxiosSetConfig.requestUrl.ctIp + `/index?ip=${data.ip}&type=0`, data, { method: "GET", mode: "no-cors" });
 };
 
 common.uploadFile = (data: any = {}) => {
