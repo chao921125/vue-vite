@@ -299,9 +299,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		// },
 		optimizeDeps: {
 			entries: "index.md",
-			exclude: ["vue-demi"],
+			exclude: [""],
 			include: ["lodash", "@vueuse/core", "@vue/runtime-core", "element-plus", "vant", "vuedraggable", "@vue/shared", "@iconify/iconify"],
-			// keepNames: ["vue-demi"],
+			// keepNames: [""],
 		},
 		// ssr: {
 		//   external: "",
