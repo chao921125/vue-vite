@@ -16,6 +16,7 @@ export default {
 	baseUrl: {
 		baseUrl: baseUrl,
 		uploadUrl: uploadUrl,
+		ip: ip,
 	},
 	requestUrl: useUrl,
 	status200: 200,
