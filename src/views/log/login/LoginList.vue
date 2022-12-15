@@ -3,7 +3,6 @@
 		<el-form-item prop="name" label="登录时间">
 			<el-date-picker v-model="formSearch.name" type="date" placeholder="" />
 		</el-form-item>
-		<el-form-item prop="name" label="当前IP"> {{ ipInfo.ip }} - {{ ipInfo.address }} </el-form-item>
 		<el-form-item prop="" label="">
 			<el-button type="primary">查询</el-button>
 			<el-button @click="resetForm(formSearchRef)">重置</el-button>
@@ -22,8 +21,6 @@
 	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
 	import ElPage from "@/components/pagenation/ElPage.vue";
-	import api from "@/api";
-	import { getIp1 } from "@/plugins/utils/ip";
 
 	const formSearchRef = ref();
 	const formSearch = reactive({
@@ -83,23 +80,7 @@
 		];
 	};
 
-	const ipInfo = ref<any>({});
-	const getIp = () => {
-		api.common.queryIp({}).then((res: any) => {
-			if (res) {
-				ipInfo.value = res;
-			}
-		});
-		api.common.fetchAddressByIp({ ip: localStorage.getItem("ip") }).then((res: any) => {
-			console.log(res);
-		});
-	};
-
 	onMounted(() => {
-		getIp1().then((res: any) => {
-			console.log(res);
-		});
-		getIp();
 		initData();
 	});
 </script>

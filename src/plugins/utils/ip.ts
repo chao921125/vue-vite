@@ -1,4 +1,5 @@
 // 若非获取客户端本地IP，直接通过NG配置，在服务端获取即可
+import Fetch from "@/plugins/axios/fetch";
 export function getLocalIpList(callback) {
 	let ip_dups = {};
 	// @ts-ignore
@@ -99,7 +100,27 @@ export function getLocalIps() {
 	};
 }
 
-export function getIp1() {
+export function getIp() {
+	return Fetch.request("https://ip.cn/api/index?ip=&type=0", {}, { method: "GET" });
+}
+
+export function getIpPconline() {
+	return Fetch.request("http://whois.pconline.com.cn/ipJson.jsp?ip=&json=true", {}, { method: "GET" });
+}
+
+export function getIpApi() {
+	return Fetch.request("http://ip-api.com/json/?lang=zh-CN", {}, { method: "GET" });
+}
+
+export function getIpVore() {
+	return Fetch.request("https://api.vore.top/api/IPdata?ip=", {}, { method: "GET", mode: "no-cors" });
+}
+
+export function getIpUser() {
+	return Fetch.request("https://ip.useragentinfo.com/json?ip=", {}, { method: "GET" });
+}
+
+export function getIpIpify() {
 	return fetch("https://api.ipify.org?format=json")
 		.then((response) => {
 			return response.json();
@@ -107,4 +128,38 @@ export function getIp1() {
 		.then((data) => {
 			return data;
 		});
+}
+
+export function getIp138() {
+	let data;
+	let xmlHttpRequest;
+	if (window.ActiveXObject) {
+		xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+	} else if (window.XMLHttpRequest) {
+		xmlHttpRequest = new XMLHttpRequest();
+	}
+	xmlHttpRequest.onreadystatechange = function () {
+		if (xmlHttpRequest.readyState == 4) {
+			if (xmlHttpRequest.status == 200) {
+				data = xmlHttpRequest.responseText;
+			} else {
+				alert("error:HTTP状态码为:" + xmlHttpRequest.status);
+			}
+		}
+	};
+	xmlHttpRequest.open("get", "https://2022.ip138.com", false);
+	xmlHttpRequest.send(null);
+	let datalist = data.split("\n");
+	let patt = [/[0-9]+.[0-9]+.[0-9]+.[0-9]+/, /来自/, []];
+	// @ts-ignore
+	for (let i in datalist) {
+		// @ts-ignore
+		if (patt[0].test(datalist[i]) && patt[1].test(datalist[i])) {
+			// @ts-ignore
+			patt[2].push(patt[0].exec(datalist[i])[0]);
+			// @ts-ignore
+			patt[2].push(datalist[i].substr(patt[1].exec(datalist[i]).index + 3));
+		}
+	}
+	return patt[2];
 }

@@ -11,6 +11,12 @@
 					<el-button @click="testI18nMessage">待审核</el-button>
 				</el-badge>
 			</el-col>
+			<el-col :span="9">
+				浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }} <br />
+				操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }} <br />
+				登录IP：{{ ipInfo.ip }} - {{ ipInfo.country }} {{ ipInfo.province }} {{ ipInfo.city }} {{ ipInfo.isp }} {{ ipInfo.net }} <br />
+				登录IP：{{ ip.ip }}
+			</el-col>
 		</el-row>
 	</el-skeleton>
 	<el-skeleton :rows="1" animated :loading="isLoading">
@@ -71,8 +77,11 @@
 </template>
 
 <script lang="ts" setup name="Home">
-	import { ref, reactive } from "vue";
+	import { ref, reactive, onMounted } from "vue";
 	import { $t } from "@/plugins/i18n";
+	import UA from "ua-parser-js";
+	import { getIpApi, getIpIpify, getIpUser } from "@/plugins/utils/ip";
+	// import api from "@/api";
 
 	const tI18n = ref();
 	const form = reactive({
@@ -121,6 +130,27 @@
 	const searchCount = () => {
 		console.log(form.date);
 	};
+
+	const uaInfo = ref<any>();
+	const getUaInfo = () => {
+		uaInfo.value = UA(navigator.userAgent);
+	};
+
+	const ipInfo = ref<any>({});
+	const ip = ref<any>({});
+
+	onMounted(() => {
+		getUaInfo();
+		getIpIpify().then((res: any) => {
+			ip.value = res;
+		});
+		getIpApi().then((res) => {
+			console.log(res);
+		});
+		getIpUser().then((res) => {
+			ipInfo.value = res;
+		});
+	});
 </script>
 
 <style scoped lang="scss">
