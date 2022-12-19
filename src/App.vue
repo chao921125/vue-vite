@@ -52,6 +52,7 @@
 
 	onUnmounted(() => {
 		proxy.mittBus.off("getI18nConfig");
+		proxy.mittBus.off("getSizeConfig");
 	});
 
 	const route = useRoute();
