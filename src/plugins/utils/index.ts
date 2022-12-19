@@ -6,14 +6,12 @@ import { useThemeConfig } from "@/store/modules/theme";
 import I18n from "@/plugins/i18n";
 import ThemeSetConfig from "@/config/themeSetConfig";
 
-import Constants from "./modules/constants";
 import Cookies from "./modules/cookie";
 import Storages from "./modules/storage";
 import DB from "./modules/db";
 import Log from "./modules/log";
 
 const util: any = {
-	Constants: Constants,
 	Cookies: Cookies,
 	Storages: Storages,
 	Log: Log,

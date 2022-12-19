@@ -11,6 +11,7 @@
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import Utils from "@/plugins/utils";
+	import Constants from "@/plugins/constants";
 
 	const { proxy } = <any>getCurrentInstance();
 	// large / default /small
@@ -27,16 +28,16 @@
 	onBeforeMount(() => {
 		Utils.setCssCdn();
 		Utils.setJsCdn();
-		if (!Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)) {
-			Utils.Storages.setLocalStorage(Utils.Constants.storageKey.themeConfig, themeConfig.value);
+		if (!Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)) {
+			Utils.Storages.setLocalStorage(Constants.storageKey.themeConfig, themeConfig.value);
 			(config.i18n as unknown as string | null) = themeConfig.value.globalI18n;
 		}
 	});
 
 	onMounted(() => {
 		initData();
-		if (Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig)) {
-			storeThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Utils.Constants.storageKey.themeConfig));
+		if (Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)) {
+			storeThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig));
 		}
 		proxy.mittBus.on("getI18nConfig", (local: string) => {
 			(config.i18n as unknown as string | null) = local;
@@ -46,7 +47,7 @@
 		});
 	});
 	const initData = () => {
-		proxy.mittBus.emit("getI18nConfig", Utils.Storages.getLocalStorage(Utils.Constants.storageKey.i18nLocal) || import.meta.env.VITE_LOCAL);
+		proxy.mittBus.emit("getI18nConfig", Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal) || import.meta.env.VITE_LOCAL);
 	};
 
 	onUnmounted(() => {

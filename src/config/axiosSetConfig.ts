@@ -1,12 +1,24 @@
-const baseUrl = "";
-const userUrl = baseUrl + "/user";
+const baseUrl = "/api";
+const uploadUrl = "/upload";
+const ip = "/ip";
+
+const useUrl = {
+	getUserInfo: `${baseUrl}/user`,
+	fileUpload: `${uploadUrl}/file`,
+	getIp: `${ip}`,
+};
 
 export default {
 	timeout: 6000,
 	timeoutMsg: "请求超时",
 	tokenKey: "AUTH_TOKEN",
 	login: "",
-	userInfo: userUrl,
+	baseUrl: {
+		baseUrl: baseUrl,
+		uploadUrl: uploadUrl,
+		ip: ip,
+	},
+	requestUrl: useUrl,
 	status200: 200,
 	status400: 400,
 	status401: 401,

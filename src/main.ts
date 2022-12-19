@@ -61,7 +61,8 @@ app.config.globalProperties.mittBus = mitt();
 app.config.globalProperties.elMessage = ElMessage;
 
 // log
-Utils.Log.primary(">>>>>> 当前VUE版本 >>>>>>", app.version);
+Utils.Log.primary(">>>>>> 当前VUE版本 >>>>>>");
+Utils.Log.primary(app.version);
 app.config.errorHandler = (err, instance, info) => {
 	// 处理错误
 	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子

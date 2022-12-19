@@ -7,16 +7,16 @@ function typeColor(type: string = "default") {
 			color = "#000000";
 			break;
 		case "primary":
-			color = "#3488ff";
+			color = "#00EEEE";
 			break;
 		case "success":
-			color = "#43B883";
+			color = "#00CD00";
 			break;
 		case "warning":
-			color = "#e6a23c";
+			color = "#EEAD0E";
 			break;
 		case "danger":
-			color = "#f56c6c";
+			color = "#FF4040";
 			break;
 		default:
 			break;

@@ -27,6 +27,7 @@
 	import { useRoute, useRouter } from "vue-router";
 	import type { FormInstance } from "element-plus";
 	import Utils from "@/plugins/utils";
+	import Constants from "@/plugins/constants";
 	import ValidateForm from "@/plugins/validate/validateForm";
 
 	const formUserRef = ref<FormInstance>();
@@ -45,8 +46,8 @@
 	const router = useRouter();
 
 	const loginUser = () => {
-		Utils.Cookies.setCookie(Utils.Constants.cookieKey.token, Math.random().toString(36));
-		Utils.Storages.setSessionStorage(Utils.Constants.storageKey.token, Math.random().toString(36));
+		Utils.Cookies.setCookie(Constants.cookieKey.token, Math.random().toString(36));
+		Utils.Storages.setSessionStorage(Constants.storageKey.token, Math.random().toString(36));
 		if (route.query?.redirect && route.query?.redirect !== "/") {
 			router.push({
 				path: <string>route.query?.redirect,

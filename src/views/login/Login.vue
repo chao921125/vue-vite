@@ -26,6 +26,7 @@
 	import { useRoute, useRouter } from "vue-router";
 	import type { FormInstance } from "element-plus";
 	import Utils from "@/plugins/utils";
+	import Constants from "@/plugins/constants";
 	import ValidateForm from "@/plugins/validate/validateForm";
 
 	const { proxy } = <any>getCurrentInstance();
@@ -47,14 +48,14 @@
 		formEl.validate((valid) => {
 			if (valid) {
 				proxy.elMessage.success("登录成功");
-				Utils.Cookies.setCookie(Utils.Constants.cookieKey.token, Math.random().toString(36));
-				Utils.Storages.setSessionStorage(Utils.Constants.storageKey.token, Math.random().toString(36));
+				Utils.Cookies.setCookie(Constants.cookieKey.token, Math.random().toString(36));
+				Utils.Storages.setSessionStorage(Constants.storageKey.token, Math.random().toString(36));
 				const userInfo = {
 					id: 1,
 					userName: formUser.userName,
 					avatar: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
 				};
-				Utils.Storages.setLocalStorage(Utils.Constants.storageKey.userInfo, userInfo);
+				Utils.Storages.setLocalStorage(Constants.storageKey.userInfo, userInfo);
 				if (route.query?.redirect && route.query?.redirect !== "/") {
 					router.push({
 						path: <string>route.query?.redirect,
