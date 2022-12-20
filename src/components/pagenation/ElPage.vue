@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup name="ElPage">
-	import { defineProps, defineEmits, defineExpose, reactive } from "vue";
+	import { reactive } from "vue";
 
 	const propsData = defineProps({
 		current: {

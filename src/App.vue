@@ -25,6 +25,10 @@
 
 	const storeThemeConfig = useThemeConfig(Pinia);
 	const { themeConfig } = storeToRefs(storeThemeConfig);
+	const initData = () => {
+		proxy.mittBus.emit("getI18nConfig", Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal) || import.meta.env.VITE_LOCAL);
+	};
+
 	onBeforeMount(() => {
 		Utils.setCssCdn();
 		Utils.setJsCdn();
@@ -46,15 +50,10 @@
 			config.size = size;
 		});
 	});
-	const initData = () => {
-		proxy.mittBus.emit("getI18nConfig", Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal) || import.meta.env.VITE_LOCAL);
-	};
-
 	onUnmounted(() => {
 		proxy.mittBus.off("getI18nConfig");
 		proxy.mittBus.off("getSizeConfig");
 	});
-
 	const route = useRoute();
 	watch(
 		() => route.path,

@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup name="SubItem">
-	import { defineProps, computed } from "vue";
+	import { computed } from "vue";
 
 	const props = defineProps({
 		menus: {
