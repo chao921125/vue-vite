@@ -14,8 +14,8 @@
 			<el-col :span="9">
 				浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }} <br />
 				操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }} <br />
-				登录IP：{{ ipInfo.ip }} - {{ ipInfo.country }} {{ ipInfo.province }} {{ ipInfo.city }} {{ ipInfo.isp }} {{ ipInfo.net }} <br />
-				登录IP：{{ ip.ip }}
+				真实IP：{{ ipInfo.ip }} - {{ ipInfo.country }} {{ ipInfo.province }} {{ ipInfo.city }} {{ ipInfo.isp }} {{ ipInfo.net }} <br />
+				模拟IP：{{ ip.ip }}
 			</el-col>
 		</el-row>
 	</el-skeleton>
