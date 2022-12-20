@@ -26,7 +26,7 @@
 	const storeThemeConfig = useThemeConfig(Pinia);
 	const { themeConfig } = storeToRefs(storeThemeConfig);
 	const initData = () => {
-		proxy.mittBus.emit("getI18nConfig", Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal) || import.meta.env.VITE_LOCAL);
+		proxy.mittBus.emit("getI18nConfig", Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal));
 	};
 
 	onBeforeMount(() => {
@@ -35,6 +35,9 @@
 		if (!Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)) {
 			Utils.Storages.setLocalStorage(Constants.storageKey.themeConfig, themeConfig.value);
 			(config.i18n as unknown as string | null) = themeConfig.value.globalI18n;
+		}
+		if (!Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal)) {
+			Utils.Storages.setLocalStorage(Constants.storageKey.i18nLocal, import.meta.env.VITE_LOCAL);
 		}
 	});
 
