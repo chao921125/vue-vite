@@ -119,6 +119,9 @@ https://hu-snail.github.io/vue3-resource/
 [vue-style-loader](https://www.npmjs.com/package/vue-style-loader) \
 [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler)
 
+[//]: # (浏览器样式补全)
+[浏览器样式补全 autoprefixer](https://www.npmjs.com/package/autoprefixer)
+
 ## 语法检查 -D
 [eslint](https://www.npmjs.com/package/eslint) \
 [prettier](https://www.npmjs.com/package/prettier) || 个人推荐这个 \
@@ -353,7 +356,6 @@ https://hu-snail.github.io/vue3-resource/
 [postcss-write-svg](https://www.npmjs.com/package/postcss-write-svg) \
 **rem方案** \
 [~~amfe-flexible~~](https://www.npmjs.com/package/amfe-flexible) || 不再推荐 lib-flexible 按照比例缩放展示，基于不同设备（Android、iOS、brow）的px值 \
-[~~autoprefixer~~](https://www.npmjs.com/package/autoprefixer) \
 [~~postcss-pxtorem~~](https://www.npmjs.com/package/postcss-pxtorem) \
 [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem) \
 [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)

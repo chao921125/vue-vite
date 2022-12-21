@@ -106,15 +106,26 @@ util.open = (url: string) => {
  * }
  * */
 util.urlToObj = (url: string) => {
-	let obj = {
-		id: "",
-	};
+	let obj: any = {};
 	if (!url) return obj;
 	// @ts-ignore
 	url.replace(/([^?=&#]+)=([^?=&#]+)/g, (_, key, value) => (obj[key] = value));
 	// @ts-ignore
 	url.replace(/#([^?=&#]+)/g, (_, hash) => (obj["HASH"] = hash));
 	return obj;
+};
+
+// 判断手机
+util.isMobile = () => {
+	return navigator.userAgent.match(
+		/(phone|pad|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows phone)/i,
+	);
+};
+// 判断微信
+util.isWeixin = () => {
+	const ua = navigator.userAgent.toLowerCase();
+	// @ts-ignore
+	return ua.match(/MicroMessenger/i) === "micromessenger";
 };
 
 export default util;

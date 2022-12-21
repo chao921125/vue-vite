@@ -19,6 +19,8 @@ import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
 app.use(ElementPlus);
 
+import "vant/lib/index.css";
+
 // vue i18n
 import I18n from "@/plugins/i18n";
 app.use(I18n);

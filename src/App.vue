@@ -6,12 +6,13 @@
 
 <script lang="ts" setup name="App">
 	import { getCurrentInstance, reactive, onBeforeMount, onMounted, onUnmounted, watch } from "vue";
-	import { useRoute } from "vue-router";
+	import { useRoute, useRouter } from "vue-router";
 	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import Utils from "@/plugins/utils";
 	import Constants from "@/plugins/constants";
+	import RouterSetConfig from "@/config/routerSetConfig";
 
 	const { proxy } = <any>getCurrentInstance();
 	// large / default /small
@@ -25,6 +26,12 @@
 
 	const storeThemeConfig = useThemeConfig(Pinia);
 	const { themeConfig } = storeToRefs(storeThemeConfig);
+	const route = useRoute();
+	const router = useRouter();
+	const initData = () => {
+		proxy.mittBus.emit("getI18nConfig", Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal));
+	};
+
 	onBeforeMount(() => {
 		Utils.setCssCdn();
 		Utils.setJsCdn();
@@ -32,30 +39,31 @@
 			Utils.Storages.setLocalStorage(Constants.storageKey.themeConfig, themeConfig.value);
 			(config.i18n as unknown as string | null) = themeConfig.value.globalI18n;
 		}
+		if (!Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal)) {
+			Utils.Storages.setLocalStorage(Constants.storageKey.i18nLocal, import.meta.env.VITE_LOCAL);
+		}
 	});
 
 	onMounted(() => {
-		initData();
-		if (Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)) {
-			storeThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig));
+		if (Utils.isMobile()) {
+			router.replace({ path: RouterSetConfig.routeEquipment });
+		} else {
+			initData();
+			if (Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)) {
+				storeThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig));
+			}
+			proxy.mittBus.on("getI18nConfig", (local: string) => {
+				(config.i18n as unknown as string | null) = local;
+			});
+			proxy.mittBus.on("getSizeConfig", (size: string) => {
+				config.size = size;
+			});
 		}
-		proxy.mittBus.on("getI18nConfig", (local: string) => {
-			(config.i18n as unknown as string | null) = local;
-		});
-		proxy.mittBus.on("getSizeConfig", (size: string) => {
-			config.size = size;
-		});
 	});
-	const initData = () => {
-		proxy.mittBus.emit("getI18nConfig", Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal) || import.meta.env.VITE_LOCAL);
-	};
-
 	onUnmounted(() => {
 		proxy.mittBus.off("getI18nConfig");
 		proxy.mittBus.off("getSizeConfig");
 	});
-
-	const route = useRoute();
 	watch(
 		() => route.path,
 		() => {

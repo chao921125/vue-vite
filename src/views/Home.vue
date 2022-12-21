@@ -14,8 +14,8 @@
 			<el-col :span="9">
 				浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }} <br />
 				操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }} <br />
-				登录IP：{{ ipInfo.ip }} - {{ ipInfo.country }} {{ ipInfo.province }} {{ ipInfo.city }} {{ ipInfo.isp }} {{ ipInfo.net }} <br />
-				登录IP：{{ ip.ip }}
+				真实IP：{{ ipInfo.ip }} - {{ ipInfo.country }} {{ ipInfo.province }} {{ ipInfo.city }} {{ ipInfo.isp }} {{ ipInfo.net }} <br />
+				模拟IP：{{ ip.ip }}
 			</el-col>
 		</el-row>
 	</el-skeleton>
@@ -74,6 +74,14 @@
 			</el-col>
 		</el-row>
 	</el-skeleton>
+	<el-row>
+		<el-col :span="12">
+			<div id="echartsAmount" style="height: 300px"></div>
+		</el-col>
+		<el-col :span="12">
+			<div id="echartsAmount1" style="height: 300px"></div>
+		</el-col>
+	</el-row>
 </template>
 
 <script lang="ts" setup name="Home">
@@ -82,6 +90,7 @@
 	import UA from "ua-parser-js";
 	import { getIpApi, getIpIpify, getIpUser } from "@/plugins/utils/ip";
 	// import api from "@/api";
+	import Echarts from "@/plugins/echarts";
 
 	const tI18n = ref();
 	const form = reactive({
@@ -139,6 +148,44 @@
 	const ipInfo = ref<any>({});
 	const ip = ref<any>({});
 
+	import * as echarts from "echarts";
+	const initData = () => {
+		let chartDom = document.getElementById("echartsAmount")!;
+		let myChart = echarts.init(chartDom);
+
+		myChart.setOption({
+			xAxis: {
+				type: "category",
+				data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+			},
+			yAxis: {
+				type: "value",
+			},
+			series: [
+				{
+					data: [150, 230, 224, 218, 135, 147, 260],
+					type: "line",
+				},
+			],
+		});
+
+		Echarts("echartsAmount1", {
+			xAxis: {
+				type: "category",
+				data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+			},
+			yAxis: {
+				type: "value",
+			},
+			series: [
+				{
+					data: [150, 230, 224, 218, 135, 147, 260],
+					type: "line",
+				},
+			],
+		});
+	};
+
 	onMounted(() => {
 		getUaInfo();
 		getIpIpify().then((res: any) => {
@@ -150,6 +197,7 @@
 		getIpUser().then((res) => {
 			ipInfo.value = res;
 		});
+		initData();
 	});
 </script>
 

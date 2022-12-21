@@ -32,7 +32,7 @@
 
 <script lang="ts" setup name="Layout">
 	import { ref, reactive, computed, getCurrentInstance, watch, onBeforeMount } from "vue";
-	import { useRoute } from "vue-router";
+	import { useRoute, useRouter } from "vue-router";
 	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
@@ -40,6 +40,7 @@
 	import AdminMenu from "./menu/Index.vue";
 	import AdminHeader from "./header/Index.vue";
 	import AdminFooter from "./footer/Index.vue";
+	import Utils from "@/plugins/utils";
 
 	// 设置是否为权限管理端
 	const isAdmin = ref(true);
@@ -62,13 +63,15 @@
 	});
 	// 开启展示 底部
 	const isShowFooter = themeConfig.value.isFooter;
+	const router = useRouter();
 	// 动态修改菜单的宽高
 	// eslint-disable-next-line vue/return-in-computed-property
 	const styleCollapse = computed(() => {
 		const { isCollapse } = themeConfig.value;
 		// 处理移动端
-		if (state.clientWidth < 1000) {
-			console.log("TODO 处理移动端");
+		if (Utils.isMobile()) {
+			console.log("TODO 处理Mobile端");
+			router.replace({ path: RouterSetConfig.routeEquipment });
 		} else {
 			// 管理端
 			if (isAdmin.value) {

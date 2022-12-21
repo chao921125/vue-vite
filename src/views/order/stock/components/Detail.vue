@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts" setup name="Detail">
-	import { defineProps, defineExpose, onUpdated, ref, reactive } from "vue";
+	import { onUpdated, ref, reactive } from "vue";
 	import { Product } from "@/interface/product";
 	import { replaceNullLine } from "@/plugins/utils/format";
 
