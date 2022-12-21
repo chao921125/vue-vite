@@ -10,8 +10,9 @@ export default {
 	route403: "/403",
 	route404: "/404",
 	route500: "/500",
+	routeEquipment: "/equipment",
 	whiteList: ["/login", "/register", "/auth"],
-	executeList: ["/login", "/register", "/auth", "/home", "/", "/401", "/404", "/500"],
+	executeList: ["/login", "/register", "/auth", "/equipment", "/no-data", "/home", "/", "/401", "/404", "/500"],
 	routeEnum: {
 		product: {},
 		order: {

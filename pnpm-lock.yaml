@@ -27,6 +27,7 @@ specifiers:
   '@vue/test-utils': ^2.2.6
   '@vueuse/core': ^9.7.0
   '@vueuse/shared': ^9.7.0
+  amfe-flexible: ^2.2.1
   animate.css: ^4.1.1
   autoprefixer: ^10.4.13
   axios: ^1.2.1
@@ -166,6 +167,7 @@ devDependencies:
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.2+vue@3.2.45
   '@vue/compiler-sfc': 3.2.45
   '@vue/test-utils': 2.2.6_vue@3.2.45
+  amfe-flexible: 2.2.1
   autoprefixer: 10.4.13_postcss@8.4.20
   chai: 4.3.7
   commitizen: 4.2.6
@@ -2707,6 +2709,10 @@ packages:
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
       uri-js: 4.4.1
+    dev: true
+
+  /amfe-flexible/2.2.1:
+    resolution: {integrity: sha512-L2VfvDzoETBjhRptg5u/IUuzHSuxm22JpSRb404p/TBGeRfwWmmNEbB+TFPIP/sS/+pbM18bCFH9QnMojLuPNw==}
     dev: true
 
   /animate.css/4.1.1:

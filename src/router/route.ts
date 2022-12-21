@@ -112,6 +112,16 @@ export const baseRoutes: Array<RouteRecordRaw> = [
 			isHide: true,
 		},
 	},
+	{
+		path: "/equipment",
+		name: "equipment",
+		component: () => import("@/views/error/Equipment.vue"),
+		meta: {
+			title: "message.title.serverError",
+			name: "message.title.serverError",
+			isHide: true,
+		},
+	},
 ];
 
 export default baseRoutes;
