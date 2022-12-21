@@ -115,10 +115,17 @@ util.urlToObj = (url: string) => {
 	return obj;
 };
 
+// 判断手机
 util.isMobile = () => {
 	return navigator.userAgent.match(
 		/(phone|pad|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows phone)/i,
 	);
+};
+// 判断微信
+util.isWeixin = () => {
+	const ua = navigator.userAgent.toLowerCase();
+	// @ts-ignore
+	return ua.match(/MicroMessenger/i) === "micromessenger";
 };
 
 export default util;
