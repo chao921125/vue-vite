@@ -26,7 +26,7 @@
   "commit": "git pull && git add -A && git-cz && git push"
  },
  "dependencies": {
-  "@babel/runtime": "^7.20.6",
+  "@babel/runtime": "^7.20.7",
   "@element-plus/icons-vue": "^2.0.10",
   "@iconify/iconify": "^3.0.1",
   "@vue/runtime-core": "^3.2.45",
@@ -119,7 +119,7 @@
   "unplugin-auto-import": "^0.12.1",
   "unplugin-vue-components": "^0.22.12",
   "unplugin-vue-define-options": "^1.1.1",
-  "vite": "^4.0.2",
+  "vite": "^4.0.3",
   "vite-plugin-cdn-import": "^0.3.5",
   "vite-plugin-components": "^0.13.3",
   "vite-plugin-compression": "^0.5.1",
