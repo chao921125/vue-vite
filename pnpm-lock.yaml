@@ -13,6 +13,7 @@ specifiers:
   '@iconify/json': ^2.1.157
   '@iconify/vue': ^4.0.2
   '@types/lodash-es': ^4.17.6
+  '@types/mockjs': ^1.0.7
   '@types/node': ^18.11.18
   '@types/nprogress': ^0.2.0
   '@types/qs': ^6.9.7
@@ -157,6 +158,7 @@ devDependencies:
   '@iconify/json': 2.1.157
   '@iconify/vue': 4.0.2_vue@3.2.45
   '@types/lodash-es': 4.17.6
+  '@types/mockjs': 1.0.7
   '@types/node': 18.11.18
   '@types/nprogress': 0.2.0
   '@types/qs': 6.9.7
