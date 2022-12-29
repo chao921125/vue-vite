@@ -17,11 +17,13 @@ import vueSetupExtend from "vite-plugin-vue-setup-extend";
 import viteCompression from "vite-plugin-compression";
 import windiCSS from "vite-plugin-windicss";
 // 自动导入模块
-import AutoImport from "unplugin-auto-import/vite";
+import autoImport from "unplugin-auto-import/vite";
 import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
-import Components from "unplugin-vue-components/vite";
-
+import components from "unplugin-vue-components/vite";
+// 图标
 import purgeIcons from "vite-plugin-purge-icons";
+// Mock
+import { viteMockServe } from "vite-plugin-mock";
 // 处理变量
 // @ts-ignore
 import pkg from "./package.json";
@@ -119,7 +121,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				targets: ["defaults", "not IE 11"],
 			}),
 			// https://github.com/antfu/unplugin-auto-import#readme
-			AutoImport({
+			autoImport({
 				dts: true,
 				include: [
 					/\.[tj]s?$/, // .ts, .tsx, .js, .jsx
@@ -131,9 +133,20 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				imports: ["vue", "vue-router", "pinia"],
 				resolvers: [ElementPlusResolver(), VantResolver()],
 			}),
-			Components({
+			components({
 				dts: true,
 				resolvers: [ElementPlusResolver(), VantResolver()],
+			}),
+			// 热重载，包含配置文件的修改
+			viteRestart({
+				restart: ["vite.config.[jt]s"],
+			}),
+			viteMockServe({
+				mockPath: envConfig.VITE_MOCK_PATH,
+				localEnabled: envConfig.VITE_MOCK,
+				prodEnabled: envConfig.VITE_MOCK,
+				// injectCode: "",
+				logger: envConfig.VITE_MOCK,
 			}),
 			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
 			// * cdn 引入（vue、element-plus）
@@ -153,10 +166,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					// 	css: "https://unpkg.com/element-plus/dist/index.css"
 					// }
 				],
-			}),
-			// 热重载，包含配置文件的修改
-			viteRestart({
-				restart: ["vite.config.[jt]s"],
 			}),
 			createHtmlPlugin({
 				minify: true,

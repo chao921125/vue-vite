@@ -19,6 +19,11 @@ import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
 app.use(ElementPlus);
 
+// 注册element Icons组件
+Object.keys(Icons).forEach((key) => {
+	app.component(key, Icons[key as keyof typeof Icons]);
+});
+
 import "vant/lib/index.css";
 
 // vue i18n
@@ -40,11 +45,6 @@ import "@purge-icons/generated";
 
 // 自定义样式
 import "@/assets/styles/index.scss";
-
-// 注册element Icons组件
-Object.keys(Icons).forEach((key) => {
-	app.component(key, Icons[key as keyof typeof Icons]);
-});
 
 // 自定义指令
 import * as directives from "@/plugins/directive";
