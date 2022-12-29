@@ -145,7 +145,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				mockPath: envConfig.VITE_MOCK_PATH,
 				localEnabled: envConfig.VITE_MOCK,
 				prodEnabled: envConfig.VITE_MOCK,
-				injectCode: "",
+				// injectCode: "",
 				logger: envConfig.VITE_MOCK,
 			}),
 			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
