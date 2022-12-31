@@ -10,7 +10,7 @@ specifiers:
   '@commitlint/config-conventional': ^17.3.0
   '@element-plus/icons-vue': ^2.0.10
   '@iconify/iconify': ^3.0.1
-  '@iconify/json': ^2.1.158
+  '@iconify/json': ^2.1.159
   '@iconify/vue': ^4.0.2
   '@types/lodash-es': ^4.17.6
   '@types/node': ^18.11.18
@@ -34,14 +34,14 @@ specifiers:
   axios: ^1.2.2
   chai: ^4.3.7
   commitizen: ^4.2.6
-  core-js: ^3.27.0
+  core-js: ^3.27.1
   css-loader: ^6.7.3
   cz-git: ^1.4.1
   dayjs: ^1.11.7
   echarts: ^5.4.1
   echarts-gl: ^2.0.9
   echarts-wordcloud: ^2.1.0
-  element-plus: ^2.2.27
+  element-plus: ^2.2.28
   esbuild: ^0.16.12
   eslint: ^8.30.0
   eslint-config-prettier: ^8.5.0
@@ -69,7 +69,7 @@ specifiers:
   print-js: ^1.6.0
   qs: ^6.11.0
   rimraf: ^3.0.2
-  rollup-plugin-visualizer: ^5.8.3
+  rollup-plugin-visualizer: ^5.9.0
   sass: ^1.57.1
   sass-loader: ^13.2.0
   screenfull: 6.0.2
@@ -126,12 +126,12 @@ dependencies:
   '@vueuse/shared': 9.9.0_vue@3.2.45
   animate.css: 4.1.1
   axios: 1.2.2
-  core-js: 3.27.0
+  core-js: 3.27.1
   dayjs: 1.11.7
   echarts: 5.4.1
   echarts-gl: 2.0.9_echarts@5.4.1
   echarts-wordcloud: 2.1.0_echarts@5.4.1
-  element-plus: 2.2.27_vue@3.2.45
+  element-plus: 2.2.28_vue@3.2.45
   js-cookie: 3.0.1
   lodash: 4.17.21
   lodash-es: 4.17.21
@@ -155,7 +155,7 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 17.3.0
   '@commitlint/config-conventional': 17.3.0
-  '@iconify/json': 2.1.158
+  '@iconify/json': 2.1.159
   '@iconify/vue': 4.0.2_vue@3.2.45
   '@types/lodash-es': 4.17.6
   '@types/node': 18.11.18
@@ -193,7 +193,7 @@ devDependencies:
   postcss-pxtorem: 6.0.0_postcss@8.4.20
   prettier: 2.8.1
   rimraf: 3.0.2
-  rollup-plugin-visualizer: 5.8.3
+  rollup-plugin-visualizer: 5.9.0
   sass: 1.57.1
   sass-loader: 13.2.0_sass@1.57.1
   style-resources-loader: 1.5.0
@@ -1906,8 +1906,8 @@ packages:
     dependencies:
       '@iconify/types': 2.0.0
 
-  /@iconify/json/2.1.158:
-    resolution: {integrity: sha512-7rw3LTk6Y9aLyVESGoFADBJiYpsLdNRV7GCEarh3HpbR4jdDH29s8kF6yJybgYoBfb01J6h6PzDgjujSxlNUaQ==}
+  /@iconify/json/2.1.159:
+    resolution: {integrity: sha512-LBJDXNsHMBhBZ2BfN2Es/cB8GmI9+2305biJz/C2riYyUWNIU1BnrM5EzDL4i0FwKq6s7I2C+j2wtBJ3pCeQjA==}
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 0.3.9
@@ -2442,7 +2442,7 @@ packages:
       vite: ^4.0.0
     dependencies:
       '@babel/standalone': 7.20.6
-      core-js: 3.27.0
+      core-js: 3.27.1
       magic-string: 0.27.0
       regenerator-runtime: 0.13.11
       systemjs: 6.13.0
@@ -3365,8 +3365,8 @@ packages:
       browserslist: 4.21.4
     dev: true
 
-  /core-js/3.27.0:
-    resolution: {integrity: sha512-wY6cKosevs430KRkHUIsvepDXHGjlXOZO3hYXNyqpD6JvB0X28aXyv0t1Y1vZMwE7SoKmtfa6IASHCPN52FwBQ==}
+  /core-js/3.27.1:
+    resolution: {integrity: sha512-GutwJLBChfGCpwwhbYoqfv03LAfmiz7e7D/BNxzeMxwQf10GRSzqiOjx7AmtEk+heiD/JWmBuyBPgFtx0Sg1ww==}
     requiresBuild: true
 
   /corser/2.0.1:
@@ -3785,8 +3785,8 @@ packages:
     resolution: {integrity: sha512-M8WEXFuKXMYMVr45fo8mq0wUrrJHheiKZf6BArTKk9ZBYCKJEOU5H8cdWgDT+qCVZf7Na4lVUaZsA+h6uA9+PA==}
     dev: true
 
-  /element-plus/2.2.27_vue@3.2.45:
-    resolution: {integrity: sha512-P04HDOZBYDdvlYuleuCZRULzAc5xJVOBfLDK9xWxVo0vyo8ntdaXS5sTU+/76vrNzuO3FhLn9kvrsbiJEVa1jg==}
+  /element-plus/2.2.28_vue@3.2.45:
+    resolution: {integrity: sha512-BsxF7iEaBydmRfw1Tt++EO9jRBjbtJr7ZRIrnEwz4J3Cwa1IzHCNCcx3ZwcYTlJq9CYFxv94JnbNr1EbkTou3A==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
@@ -6865,8 +6865,8 @@ packages:
       terser: 5.15.1
     dev: true
 
-  /rollup-plugin-visualizer/5.8.3:
-    resolution: {integrity: sha512-QGJk4Bqe4AOat5AjipOh8esZH1nck5X2KFpf4VytUdSUuuuSwvIQZjMGgjcxe/zXexltqaXp5Vx1V3LmnQH15Q==}
+  /rollup-plugin-visualizer/5.9.0:
+    resolution: {integrity: sha512-bbDOv47+Bw4C/cgs0czZqfm8L82xOZssk4ayZjG40y9zbXclNk7YikrZTDao6p7+HDiGxrN0b65SgZiVm9k1Cg==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
@@ -6876,6 +6876,7 @@ packages:
         optional: true
     dependencies:
       open: 8.4.0
+      picomatch: 2.3.1
       source-map: 0.7.4
       yargs: 17.6.2
     dev: true
