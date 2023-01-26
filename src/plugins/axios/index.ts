@@ -31,7 +31,7 @@ function errorLog(err) {
 	// 打印到控制台
 	if (import.meta.env.NODE_ENV === "development") {
 		Utils.log.danger(">>>>>> Error >>>>>>");
-		console.log(err);
+		Utils.log.danger(err);
 	}
 	// 显示提示
 	/* Message({
@@ -91,9 +91,12 @@ http.interceptors.response.use(
 		AxiosCancel.removeCancer(response.config);
 		// resp 是 axios 返回数据中的 data
 		const resp = response.data || null;
-		const status = response.status || 0;
+		const status = response.status || 200;
 		if (response.config.url?.includes(AxiosSetConfig.baseUrl.ip)) {
 			return resp;
+		}
+		if (response.request.responseType === "blob" || response.request.responseType === "arraybuffer") {
+			return response.data;
 		}
 		if (/^4\d{2}/.test(String(status))) {
 			Utils.Cookies.clearCookie();
