@@ -36,7 +36,9 @@
 		},
 		sizes: {
 			type: Array,
-			default: () => [10, 50, 100, 200],
+			default: () => {
+				return [10, 50, 100, 200];
+			},
 		},
 	});
 	const emits = defineEmits(["changeSize", "changeCurrent"]);
