@@ -22,21 +22,32 @@
 
 	const propsData = defineProps({
 		current: {
+			required: true,
 			type: Number,
 			default: 1,
+		},
+		limit: {
+			type: Number,
+			default: 10,
 		},
 		total: {
 			type: Number,
 			default: 0,
+		},
+		sizes: {
+			type: Array,
+			default: () => {
+				return [10, 50, 100, 200];
+			},
 		},
 	});
 	const emits = defineEmits(["changeSize", "changeCurrent"]);
 
 	const pageOption = reactive({
 		pageCurrent: propsData.current,
-		pageSize: 50,
+		pageSize: propsData.limit,
 		pageTotal: propsData.total,
-		pageSizes: [10, 50, 100, 200],
+		pageSizes: propsData.sizes,
 		small: false,
 		disabled: false,
 		background: false,
