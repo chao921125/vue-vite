@@ -1,0 +1,2 @@
+let fileEl: HTMLElement = document.querySelector("#file") as HTMLElement;
+        fileEl.click();
