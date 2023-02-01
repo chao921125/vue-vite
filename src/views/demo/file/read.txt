@@ -1,2 +1,7 @@
+1、解决按钮模拟点击 触发 file
+
 let fileEl: HTMLElement = document.querySelector("#file") as HTMLElement;
         fileEl.click();
+
+2、文件切片上传
+https://github.com/shenmaxg/file-upload-react
