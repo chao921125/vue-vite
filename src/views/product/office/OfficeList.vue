@@ -44,14 +44,14 @@
 			</template>
 		</el-table-column>
 	</el-table>
-	<ElPage :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></ElPage>
+	<RePagination :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></RePagination>
 	<AddEdit :data="stockInfo" ref="dialogForm" @result="getStockList"></AddEdit>
 </template>
 
 <script lang="ts" setup name="StockList">
 	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
-	import ElPage from "@/components/pagenation/ElPage.vue";
+	import RePagination from "@/components/pagenation/RePagination.vue";
 	import AddEdit from "./components/AddEdit.vue";
 	import { replaceNullLine } from "@/plugins/utils/format";
 

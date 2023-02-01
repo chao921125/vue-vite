@@ -35,7 +35,7 @@
 			</template>
 		</el-table-column>
 	</el-table>
-	<ElPage :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></ElPage>
+	<RePagination :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></RePagination>
 	<AddEdit :data="jobInfo" ref="dialogForm" @result="getJobList"></AddEdit>
 </template>
 
@@ -43,7 +43,7 @@
 	import { ref, reactive, onMounted } from "vue";
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
-	import ElPage from "@/components/pagenation/ElPage.vue";
+	import RePagination from "@/components/pagenation/RePagination.vue";
 	import AddEdit from "./components/AddEdit.vue";
 
 	const formSearchRef = ref();

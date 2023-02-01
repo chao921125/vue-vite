@@ -38,14 +38,14 @@
 			</template>
 		</el-table-column>
 	</el-table>
-	<ElPage :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></ElPage>
+	<RePagination :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></RePagination>
 	<AddEdit :data="menuInfo" ref="dialogForm" @result="getMenuList"></AddEdit>
 </template>
 
 <script lang="ts" setup name="MenuList">
 	import { ref, reactive, onMounted } from "vue";
 	import type { FormInstance } from "element-plus";
-	import ElPage from "@/components/pagenation/ElPage.vue";
+	import RePagination from "@/components/pagenation/RePagination.vue";
 	import AddEdit from "./components/AddEdit.vue";
 
 	const formSearchRef = ref();
