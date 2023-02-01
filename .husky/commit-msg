@@ -1,5 +1,5 @@
 #!/bin/sh
-
+# 执行命令
 # shellcheck source=./_/husky.sh
 . "$(dirname "$0")/_/husky.sh"
 
