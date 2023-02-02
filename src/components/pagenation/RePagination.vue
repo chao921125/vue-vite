@@ -40,6 +40,10 @@
 				return [10, 20, 50, 100, 200];
 			},
 		},
+		autoScroll: {
+			type: Boolean,
+			default: true,
+		},
 	});
 	const emits = defineEmits(["changeSize", "changeCurrent", "pagination"]);
 
@@ -58,10 +62,16 @@
 	const pageChangeSize = (val: number) => {
 		emits("changeSize", val);
 		emits("pagination", { page: pageOption.pageSizes, limit: val });
+		if (propsData.autoScroll) {
+			scrollTo(0, 800);
+		}
 	};
 	const pageChangeCurrent = (val: number) => {
 		emits("changeCurrent", val);
 		emits("pagination", { page: val, limit: pageOption.pageCurrent });
+		if (propsData.autoScroll) {
+			scrollTo(0, 800);
+		}
 	};
 
 	defineExpose({
