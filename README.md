@@ -219,9 +219,9 @@ https://hu-snail.github.io/vue3-resource/
 [vue-qr](https://www.npmjs.com/package/vue-qr)
 
 ## 日期格式化
-[moment](https://www.npmjs.com/package/moment) \
 [date-fns](https://www.npmjs.com/package/date-fns) \
-[dayjs](https://www.npmjs.com/package/dayjs)
+[dayjs](https://www.npmjs.com/package/dayjs) \
+[~~~moment~~~ 不再推荐](https://www.npmjs.com/package/moment)
 
 ## 日历
 [vue-functional-calendar](https://www.npmjs.com/package/vue-functional-calendar) \
