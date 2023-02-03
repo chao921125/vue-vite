@@ -1,11 +1,9 @@
 [//]: # (后续需要删除的包)
 #### TODO delete pkg
 ```javascript
-is-stream
-npm-run-path
 ```
 
-###### [**花里胡哨的不要，保证可用**]
+###### [**已在公司作为模板商用**]
 ###### 推荐使用pnpm安装依赖，其次yarn或者npm
 ###### curl -fsSL https://get.pnpm.io/install.sh | sh -
 ###### [Vite 插件](https://github.com/vitejs/awesome-vite)
@@ -72,16 +70,6 @@ src下的config目录是系统默认参数，及部分数据配置
 - [ ] 标签TAG
 - [ ] 按钮级别权限控制（此项并不在我的计划之内）
 
-# 优秀项目推荐
-## 示例集合
-### https://github.com/vitejs/awesome-vite
-
-## Vue 3 cli
-## Vue 3 vite
-##### [vue3-antd-admin](http://www.lelebk.com/docs/)
-##### []()
-## Vue 2
-##### [Vue Antd Admin](https://iczer.gitee.io/vue-antd-admin-docs/)
 # 基础核心依赖 https://vue3js.cn/
 ## 推荐一个插件比较全的网站
 https://hu-snail.github.io/vue3-resource/
@@ -231,9 +219,9 @@ https://hu-snail.github.io/vue3-resource/
 [vue-qr](https://www.npmjs.com/package/vue-qr)
 
 ## 日期格式化
-[moment](https://www.npmjs.com/package/moment) \
 [date-fns](https://www.npmjs.com/package/date-fns) \
-[dayjs](https://www.npmjs.com/package/dayjs)
+[dayjs](https://www.npmjs.com/package/dayjs) \
+[~~~moment~~~ 不再推荐](https://www.npmjs.com/package/moment)
 
 ## 日历
 [vue-functional-calendar](https://www.npmjs.com/package/vue-functional-calendar) \
@@ -442,12 +430,26 @@ https://hu-snail.github.io/vue3-resource/
 [heyui](https://v2.heyui.top/) \
 [varletjs](https://github.com/varletjs/varlet) | [varletjs](https://varlet-varletjs.vercel.app/#/en-US/home)
 
-## Admin server & Web
+# 优秀项目推荐
+## 示例集合
+### https://github.com/vitejs/awesome-vite
+
+https://github.com/nekobc1998923/vitecamp \
+https://github.com/XPoet/vite-vue3-starter \
+https://github.com/xxxsf/vue3-h5-template \
+
+### other vite doc
+https://github.com/sl1673495/blogs \
+https://github.com/cuixiaorui/mini-vue \
+
+## Vue 3 vite
+##### [vue3-antd-admin](http://www.lelebk.com/docs/)
+##### []()
+### Admin server & Web
 https://github.com/jeecgboot \
 https://github.com/flipped-aurora \
 https://gitee.com/likeadmin \
-
-## Admin vite
+### Admin vite
 https://github.com/vbenjs/vue-vben-admin \
 https://github.com/xiaoxian521/vue-pure-admin \
 https://github.com/jekip/naive-ui-admin \
@@ -462,18 +464,8 @@ https://github.com/jeecgboot/jeecgboot-vue3 \
 https://github.com/lyt-Top/vue-next-admin \
 https://github.com/jzfai/vue3-admin-plus \
 https://github.com/tobe-fe-dalao/fast-vue3 \
-
 https://github.com/gmingchen/vue3-element-plus-admin/tree/vite-pinia \
 https://github.com/lin-xin/vue-manage-system \
-
-## other vite
-https://github.com/nekobc1998923/vitecamp \
-https://github.com/XPoet/vite-vue3-starter \
-https://github.com/xxxsf/vue3-h5-template \
-
-## doc
-https://github.com/sl1673495/blogs \
-https://github.com/cuixiaorui/mini-vue \
 
 ## project
 https://github.com/geekskai/vue3-jd-h5 \
