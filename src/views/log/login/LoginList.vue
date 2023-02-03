@@ -14,13 +14,13 @@
 		<el-table-column prop="ip" label="登录IP" />
 		<el-table-column prop="desc" label="登录设备" />
 	</el-table>
-	<ElPage :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></ElPage>
+	<RePagination :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></RePagination>
 </template>
 
 <script lang="ts" setup name="LoginList">
 	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
-	import ElPage from "@/components/pagenation/ElPage.vue";
+	import RePagination from "@/components/pagenation/RePagination.vue";
 
 	const formSearchRef = ref();
 	const formSearch = reactive({

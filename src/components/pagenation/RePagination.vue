@@ -17,7 +17,7 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="ElPage">
+<script lang="ts" setup name="RePagination">
 	import { reactive } from "vue";
 
 	const propsData = defineProps({
@@ -37,17 +37,22 @@
 		sizes: {
 			type: Array,
 			default: () => {
-				return [10, 50, 100, 200];
+				return [10, 20, 50, 100, 200];
 			},
 		},
+		autoScroll: {
+			type: Boolean,
+			default: true,
+		},
 	});
-	const emits = defineEmits(["changeSize", "changeCurrent"]);
+	const emits = defineEmits(["changeSize", "changeCurrent", "pagination"]);
 
 	const pageOption = reactive({
 		pageCurrent: propsData.current,
 		pageSize: propsData.limit,
 		pageTotal: propsData.total,
 		pageSizes: propsData.sizes,
+		pagerCount: 7,
 		small: false,
 		disabled: false,
 		background: false,
@@ -56,9 +61,17 @@
 
 	const pageChangeSize = (val: number) => {
 		emits("changeSize", val);
+		emits("pagination", { page: pageOption.pageSizes, limit: val });
+		if (propsData.autoScroll) {
+			scrollTo(0, 800);
+		}
 	};
 	const pageChangeCurrent = (val: number) => {
 		emits("changeCurrent", val);
+		emits("pagination", { page: val, limit: pageOption.pageCurrent });
+		if (propsData.autoScroll) {
+			scrollTo(0, 800);
+		}
 	};
 
 	defineExpose({

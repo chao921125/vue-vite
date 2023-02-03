@@ -35,13 +35,13 @@
 			</template>
 		</el-table-column>
 	</el-table>
-	<ElPage :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></ElPage>
+	<RePagination :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></RePagination>
 </template>
 
 <script lang="ts" setup name="OutList">
 	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
-	import ElPage from "@/components/pagenation/ElPage.vue";
+	import RePagination from "@/components/pagenation/RePagination.vue";
 
 	const formSearchRef = ref();
 	const formSearch = reactive({
