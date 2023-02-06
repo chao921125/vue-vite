@@ -40,9 +40,6 @@ import Utils from "@/plugins/utils";
 // 三方样式
 import "animate.css/animate.min.css";
 
-// 图标
-import "@purge-icons/generated";
-
 // 自定义样式
 import "@/assets/styles/index.scss";
 

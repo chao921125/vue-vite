@@ -2,7 +2,7 @@
 #### TODO delete pkg
 ```javascript
 ```
-
+三方包引入尽可能小写，自定义尽可能大写。
 ###### [**已在公司作为模板商用**]
 ###### 推荐使用pnpm安装依赖，其次yarn或者npm
 ###### curl -fsSL https://get.pnpm.io/install.sh | sh -
