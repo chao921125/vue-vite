@@ -16,12 +16,14 @@ import importToCDN from "vite-plugin-cdn-import";
 import vueSetupExtend from "vite-plugin-vue-setup-extend";
 import viteCompression from "vite-plugin-compression";
 import windiCSS from "vite-plugin-windicss";
-// 自动导入模块
+// 模块
 import autoImport from "unplugin-auto-import/vite";
 import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
-import components from "unplugin-vue-components/vite";
 // 图标
-import purgeIcons from "vite-plugin-purge-icons";
+import icons from "unplugin-icons/vite";
+import IconsResolver from "unplugin-icons/resolver";
+// 自动导入模块
+import components from "unplugin-vue-components/vite";
 // Mock
 import { viteMockServe } from "vite-plugin-mock";
 // 处理变量
@@ -116,9 +118,12 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			windiCSS(),
 			// * name 可以写在 script 标签上
 			vueSetupExtend(),
-			purgeIcons({}),
 			legacy({
 				targets: ["defaults", "not IE 11"],
+			}),
+			icons({
+				compiler: "vue3",
+				autoInstall: true,
 			}),
 			// https://github.com/antfu/unplugin-auto-import#readme
 			autoImport({
@@ -130,12 +135,12 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					/\.vue\?vue/, // .vue
 					/\.md$/, // .md
 				],
-				imports: ["vue", "vue-router", "pinia"],
+				imports: ["vue", "vue-router", "pinia", { "@vueuse/core": ["useMouse", ["useFetch", "useMyFetch"]], axios: [["default", "axios"]] }],
 				resolvers: [ElementPlusResolver(), VantResolver()],
 			}),
 			components({
 				dts: true,
-				resolvers: [ElementPlusResolver(), VantResolver()],
+				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
 			}),
 			// 热重载，包含配置文件的修改
 			viteRestart({
