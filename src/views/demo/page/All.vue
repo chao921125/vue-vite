@@ -6,7 +6,6 @@
 </template>
 
 <script lang="ts" setup name="All">
-	import { ref } from "vue";
 	import { $t } from "@/plugins/i18n";
 
 	const tI18n = ref();

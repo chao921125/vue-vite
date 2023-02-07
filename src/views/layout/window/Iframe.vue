@@ -7,11 +7,8 @@
 </template>
 
 <script lang="ts" setup name="Iframe">
-	import { onMounted, nextTick, watch, computed, reactive } from "vue";
-	import { useRoute } from "vue-router";
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
-	import { storeToRefs } from "pinia";
 
 	const storeThemeConfig = useThemeConfig(Pinia);
 	const { themeConfig } = storeToRefs(storeThemeConfig);

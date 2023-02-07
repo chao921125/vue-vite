@@ -31,9 +31,6 @@
 </template>
 
 <script lang="ts" setup name="Layout">
-	import { ref, reactive, computed, getCurrentInstance, watch, onBeforeMount } from "vue";
-	import { useRoute, useRouter } from "vue-router";
-	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import RouterSetConfig from "@/config/routerSetConfig";

@@ -7,8 +7,6 @@
 </template>
 
 <script lang="ts" setup name="Link">
-	import { onMounted, ref } from "vue";
-	import { useRoute } from "vue-router";
 	import Utils from "@/plugins/utils";
 
 	const linkUrl = ref("");

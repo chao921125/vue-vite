@@ -28,10 +28,7 @@
 </template>
 
 <script lang="ts" setup name="Menu">
-	import { computed, reactive, onBeforeMount, watch } from "vue";
-	import { useRouter, useRoute } from "vue-router";
 	import SubMenu from "./SubMenu.vue";
-	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
 	import ColorSetConfig from "@/config/colorSetConfig";
 	import { useThemeConfig } from "@/store/modules/theme";

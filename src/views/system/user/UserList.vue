@@ -42,7 +42,6 @@
 </template>
 
 <script lang="ts" setup name="UserList">
-	import { ref, reactive, onMounted } from "vue";
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";

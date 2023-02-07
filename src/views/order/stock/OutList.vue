@@ -39,7 +39,6 @@
 </template>
 
 <script lang="ts" setup name="OutList">
-	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
 
 	const formSearchRef = ref();

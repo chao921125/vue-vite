@@ -39,9 +39,7 @@
 </template>
 
 <script lang="ts" setup name="InputList">
-	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
-	import { useRouter } from "vue-router";
 	import RouterSetConfig from "@/config/routerSetConfig";
 	import Detail from "./components/Detail.vue";
 

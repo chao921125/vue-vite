@@ -36,7 +36,6 @@
 </template>
 
 <script lang="ts" setup name="RoleList">
-	import { ref, reactive, onMounted } from "vue";
 	import type { FormInstance } from "element-plus";
 	import AddEdit from "./components/AddEdit.vue";
 

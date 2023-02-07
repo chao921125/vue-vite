@@ -135,7 +135,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					/\.vue\?vue/, // .vue
 					/\.md$/, // .md
 				],
-				imports: ["vue", "vue-router", "pinia", { "@vueuse/core": ["useMouse", ["useFetch", "useMyFetch"]], axios: [["default", "axios"]] }],
+				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core"],
 				resolvers: [ElementPlusResolver(), VantResolver()],
 			}),
 			components({

@@ -40,7 +40,6 @@
 </template>
 
 <script lang="ts" setup name="PredictList">
-	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
 	// import AddEdit from "./components/AddEdit.vue";
 

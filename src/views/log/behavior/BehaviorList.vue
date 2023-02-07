@@ -19,7 +19,6 @@
 </template>
 
 <script lang="ts" setup name="BehaviorList">
-	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
 	import api from "@/api";
 

@@ -93,14 +93,11 @@
 </template>
 
 <script lang="ts" setup name="Header">
-	import { ref, computed, onMounted, getCurrentInstance } from "vue";
-	import { useRouter, useRoute, onBeforeRouteUpdate } from "vue-router";
 	import screenfull from "screenfull";
 	import Utils from "@/plugins/utils";
 	import Constants from "@/plugins/constants";
 	import ThemeSetConfig from "@/config/themeSetConfig";
 	import RouterSetConfig from "@/config/routerSetConfig";
-	import { storeToRefs } from "pinia";
 	import Pinia from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";

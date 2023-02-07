@@ -40,7 +40,6 @@
 </template>
 
 <script lang="ts" setup name="SaleList">
-	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
 	// import AddEdit from "./components/AddEdit.vue";
 

@@ -57,11 +57,13 @@
     "types/**/*.d.ts",
     "build/**/*.ts",
     "build/**/*.d.ts",
-    "vite.config.ts"
+    "vite.config.ts",
+    "auto-imports.d.ts",
+    "components.d.ts"
   ],
   "exclude": [
     "node_modules", "dist", "**/*.js", "tests"
   ],
-  "references": [{ "path": "./tsconfig.node.json" }],
+  "references": [{ "path": "./tsconfig.node.json" }]
 
 }

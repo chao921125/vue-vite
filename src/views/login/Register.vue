@@ -23,8 +23,6 @@
 </template>
 
 <script lang="ts" setup name="Register">
-	import { ref, reactive } from "vue";
-	import { useRoute, useRouter } from "vue-router";
 	import type { FormInstance } from "element-plus";
 	import Utils from "@/plugins/utils";
 	import Constants from "@/plugins/constants";

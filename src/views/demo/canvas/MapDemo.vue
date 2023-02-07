@@ -5,8 +5,6 @@
 </template>
 
 <script lang="ts">
-	import { defineComponent, onMounted, reactive, onUnmounted } from "vue";
-
 	export default defineComponent({
 		name: "MapDemo",
 		setup() {

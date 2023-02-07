@@ -18,8 +18,6 @@
 </template>
 
 <script lang="ts" setup name="RePagination">
-	import { reactive } from "vue";
-
 	const propsData = defineProps({
 		current: {
 			required: true,

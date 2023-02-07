@@ -3,8 +3,6 @@
 </template>
 
 <script lang="ts" setup name="Home">
-	import { ref } from "vue";
-
 	const isLoading = ref(true);
 	setTimeout(() => {
 		isLoading.value = false;

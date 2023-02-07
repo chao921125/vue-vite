@@ -55,8 +55,6 @@
 </template>
 
 <script lang="ts" setup name="OutAddEdit">
-	import { reactive, ref } from "vue";
-	import { useRouter } from "vue-router";
 	import type { FormInstance, FormRules } from "element-plus";
 	import { Product } from "@/interface/product";
 

@@ -12,8 +12,6 @@
 </template>
 
 <script lang="ts" setup name="AnimationCss">
-	import { ref } from "vue";
-
 	const htmlTest = "<div style='color: red'>1231233</div>";
 	const text = ref("");
 	const textHtml = ref("");
