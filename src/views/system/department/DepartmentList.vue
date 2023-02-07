@@ -43,7 +43,6 @@
 	import { ref, reactive, onMounted } from "vue";
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
-	import RePagination from "@/components/pagenation/RePagination.vue";
 	import AddEdit from "./components/AddEdit.vue";
 
 	const formSearchRef = ref();

@@ -21,7 +21,6 @@
 <script lang="ts" setup name="BehaviorList">
 	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
-	import RePagination from "@/components/pagenation/RePagination.vue";
 	import api from "@/api";
 
 	const formSearchRef = ref();

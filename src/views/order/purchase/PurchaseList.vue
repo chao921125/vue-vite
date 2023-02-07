@@ -43,7 +43,6 @@
 <script lang="ts" setup name="PurchaseList">
 	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
-	import RePagination from "@/components/pagenation/RePagination.vue";
 	// import AddEdit from "./components/AddEdit.vue";
 
 	const formSearchRef = ref();

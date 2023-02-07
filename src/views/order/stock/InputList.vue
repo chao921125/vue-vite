@@ -42,7 +42,6 @@
 	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
 	import { useRouter } from "vue-router";
-	import RePagination from "@/components/pagenation/RePagination.vue";
 	import RouterSetConfig from "@/config/routerSetConfig";
 	import Detail from "./components/Detail.vue";
 
