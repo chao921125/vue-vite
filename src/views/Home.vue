@@ -85,7 +85,6 @@
 </template>
 
 <script lang="ts" setup name="Home">
-	import { ref, reactive, onMounted } from "vue";
 	import { $t } from "@/plugins/i18n";
 	import UA from "ua-parser-js";
 	import { getIpApi, getIpIpify, getIpUser } from "@/plugins/utils/ip";

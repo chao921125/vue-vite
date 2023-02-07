@@ -5,8 +5,6 @@
 </template>
 
 <script lang="ts" setup name="Device">
-	import { onMounted } from "vue";
-	import { useRouter } from "vue-router";
 	import Utils from "@/plugins/utils";
 	import RouterSetConfig from "@/config/routerSetConfig";
 

@@ -39,9 +39,7 @@
 </template>
 
 <script lang="ts" setup name="OutList">
-	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
-	import RePagination from "@/components/pagenation/RePagination.vue";
 
 	const formSearchRef = ref();
 	const formSearch = reactive({

@@ -75,8 +75,6 @@
 </template>
 
 <script lang="ts" setup name="InputAddEdit">
-	import { reactive, ref, onMounted } from "vue";
-	import { useRoute, useRouter } from "vue-router";
 	import type { FormInstance, FormRules } from "element-plus";
 	import { Product } from "@/interface/product";
 

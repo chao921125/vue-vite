@@ -49,9 +49,7 @@
 </template>
 
 <script lang="ts" setup name="StockList">
-	import { onMounted, reactive, ref } from "vue";
 	import { FormInstance } from "element-plus";
-	import RePagination from "@/components/pagenation/RePagination.vue";
 	import AddEdit from "./components/AddEdit.vue";
 	import { replaceNullLine } from "@/plugins/utils/format";
 

@@ -22,7 +22,6 @@
 </template>
 
 <script lang="ts" setup name="AddEdit">
-	import { onUpdated, reactive, ref } from "vue";
 	import type { FormInstance, FormRules } from "element-plus";
 	import { Role } from "@/interface/role";
 
