@@ -43,6 +43,7 @@ export default {
 		demoIcon: "Icon",
 		demoIconIfy: "iconify",
 		demoAnimaCss: "Animation.css",
+		demoXlsx: "Xlsx",
 		demoMap: "CV Drag Scale",
 		demoMapOne: "CV Map Division",
 		demoMapTwo: "CV Drag",

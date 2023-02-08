@@ -64,8 +64,8 @@ declare module "@vue/runtime-core" {
 		RePagination: typeof import("./src/components/pagenation/RePagination.vue")["default"];
 		RouterLink: typeof import("vue-router")["RouterLink"];
 		RouterView: typeof import("vue-router")["RouterView"];
-		TempScriptSetup: typeof import("./src/components/TempScriptSetup.vue")["default"];
-		TempSetup: typeof import("./src/components/TempSetup.vue")["default"];
+		TempScriptSetup: typeof import("@/views/TempScriptSetup.vue")["default"];
+		TempSetup: typeof import("@/views/TempSetup.vue")["default"];
 		VanButton: typeof import("vant/es")["Button"];
 		VanCol: typeof import("vant/es")["Col"];
 		VanRow: typeof import("vant/es")["Row"];
