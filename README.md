@@ -322,6 +322,9 @@ https://hu-snail.github.io/vue3-resource/
 ## 绘图 3D
 [three.js](https://www.npmjs.com/package/three) || three.js
 
+## office 预览、上传、导出、导入 包含：xls，xlsx，doc，docx，pdf，csv
+[数据表格 handsontable](https://github.com/handsontable/handsontable)
+
 ## 代码提交信息校验 -D
 [husky](https://www.npmjs.com/package/husky) \
 [commitizen](https://www.npmjs.com/package/commitizen) \
