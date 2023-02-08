@@ -23,6 +23,7 @@ specifiers:
   '@typescript-eslint/types': ^5.50.0
   '@vitejs/plugin-legacy': ^4.0.1
   '@vitejs/plugin-vue': ^4.0.0
+  '@vue-office/excel': ^0.1.1
   '@vue/compiler-sfc': 3.2.47
   '@vue/runtime-core': ^3.2.47
   '@vue/shared': ^3.2.47
@@ -120,6 +121,7 @@ dependencies:
   '@babel/runtime': 7.20.13
   '@element-plus/icons-vue': 2.0.10_vue@3.2.47
   '@iconify/iconify': 3.1.0
+  '@vue-office/excel': 0.1.1_vue@3.2.47
   '@vue/runtime-core': 3.2.47
   '@vue/shared': 3.2.47
   '@vueuse/core': 9.12.0_vue@3.2.47
@@ -3737,6 +3739,20 @@ packages:
       magic-string: 0.27.0
       vue: 3.2.47
     dev: true
+
+  /@vue-office/excel/0.1.1_vue@3.2.47:
+    resolution: {integrity: sha512-Ks1Ei/TbAWbYDfN9S57ayGuu0Cwt6fWGITc1mNRqfMxMIVEJ1+5sypMH4mqXvF+RBPhDoz0rN/dmoOR4QdrkMQ==}
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.7.1
+      vue: ^2.0.0 || >=3.0.0
+      vue-demi: ^0.13.11
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.2.47
+    dev: false
 
   /@vue/compiler-core/3.2.45:
     resolution: {integrity: sha512-rcMj7H+PYe5wBV3iYeUgbCglC+pbpN8hBLTJvRiK2eKQiWqu+fG9F+8sW99JdL4LQi7Re178UOxn09puSXvn4A==}
