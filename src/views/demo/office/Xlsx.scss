@@ -1,0 +1,16 @@
+.file-upload {
+	display: none;
+	z-index: -99999;
+}
+.file-reader-box {
+	table {
+		tbody {
+			tr {
+				td {
+					padding: 0 20px;
+					border: 1px solid #000000;
+				}
+			}
+		}
+	}
+}

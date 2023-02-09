@@ -1,11 +1,5 @@
-<template>Template</template>
+<template>body</template>
 
-<script lang="ts">
-	export default defineComponent({
-		// eslint-disable-next-line vue/no-reserved-component-names
-		name: "Svg",
-		setup() {},
-	});
-</script>
+<script lang="ts" setup name="Svg"></script>
 
 <style scoped lang="scss"></style>
