@@ -83,15 +83,18 @@
 	const proxy = <any>getCurrentInstance();
 	const handleDrop = (event: any) => {
 		proxy.elMessage.info("aaaa");
+		event.stopPropagation();
 		event.preventDefault();
 		if (isLoading) return false;
 		fileChange(event.dataTransfer.files);
 	};
 	const handleDragover = (event: any) => {
+		event.stopPropagation();
 		event.preventDefault();
 		event.dataTransfer.dropEffect = "copy";
 	};
 	const handleDragleave = (event: any) => {
+		event.stopPropagation();
 		event.preventDefault();
 	};
 
