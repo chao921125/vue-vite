@@ -1,6 +1,7 @@
 <template>
-	<input type="file" ref="fileUpload" class="file-upload" multiple accept=".xlsx, xls" @change="fileChange" />
-	<div @drop="handleDrop" @dragover="handleDragover">
+	<input type="file" ref="fileUpload" class="file-upload" multiple accept=".xlsx, xls, .csv" @change="fileChange" />
+	<div @drop="handleDrop" @dragover="handleDragover" @dragleave="handleDragleave" style="border: 1px dotted #000000">
+		<span>Drop a spreadsheet file here to upload sites</span>
 		<el-button :loading="isLoading" size="mini" type="primary" @click="handleUpload">upload</el-button>
 	</div>
 	<div v-for="(item, index) in fileObj.fileList" :key="index">
@@ -79,20 +80,22 @@
 	const handleUpload = () => {
 		fileUpload.value.click();
 	};
-	const handleDrop = (e: any) => {
-		e.stopPropagation();
-		e.preventDefault();
+	const proxy = <any>getCurrentInstance();
+	const handleDrop = (event: any) => {
+		proxy.elMessage.info("aaaa");
+		event.stopPropagation();
+		event.preventDefault();
 		if (isLoading) return false;
-		if (fileObj.fileList.length) {
-			fileObj.fileList = [...fileObj.fileList, ...e.dataTransfer.files];
-		} else {
-			fileObj.fileList = e.dataTransfer.files;
-		}
+		fileChange(event.dataTransfer.files);
 	};
-	const handleDragover = (e: any) => {
-		e.stopPropagation();
-		e.preventDefault();
-		e.dataTransfer.dropEffect = "copy";
+	const handleDragover = (event: any) => {
+		event.stopPropagation();
+		event.preventDefault();
+		event.dataTransfer.dropEffect = "copy";
+	};
+	const handleDragleave = (event: any) => {
+		event.stopPropagation();
+		event.preventDefault();
 	};
 
 	onMounted(() => {
