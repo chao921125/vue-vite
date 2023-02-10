@@ -1,4 +1,5 @@
 <template>
+	<div>如果借助于element的话，那么获取File对象则是file.raw；这里只做一个示例，原生的无语深度获取。</div>
 	<input type="file" ref="fileUpload" class="file-upload" multiple accept=".xlsx, xls, .csv" @change="fileChange" />
 	<div @drop="handleDrop" @dragover="handleDragover" @dragleave="handleDragleave" style="border: 1px dotted #000000">
 		<span>Drop a spreadsheet file here to upload sites</span>
@@ -10,29 +11,61 @@
 		<el-link :underline="false" type="primary" class="re-m-l-10">下载</el-link>
 		<el-link :underline="false" type="danger" class="re-m-l-10">删除</el-link>
 	</div>
-	<div v-html="fileObj.fileReader" class="file-reader-box"></div>
+	<div v-html="fileObj.fileReaderHtml" class="file-reader-box"></div>
+	<div class="table-box" v-loading="isLoading">
+		<table v-if="fileObj.fileReader.headers.length > 0" class="excel-table" border="0" cellpadding="0" cellspacing="0">
+			<thead>
+				<tr class="excel-column">
+					<th class="column-item" scope="col"></th>
+					<th class="column-item" scope="col" v-for="(item, index) in fileObj.fileReader.headers" :key="item">
+						{{ String.fromCharCode(65 + (index % 26)) }}
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="excel-row">
+					<th class="row-item" scope="row">{{ 1 }}</th>
+					<td v-for="(item, index) in fileObj.fileReader.headers" :key="index">{{ item }}</td>
+				</tr>
+				<tr class="excel-row" v-for="(item, index) in fileObj.fileReader.dataList" :key="index">
+					<th class="row-item" scope="row">{{ index + 2 }}</th>
+					<td v-for="(itemH, index) in fileObj.fileReader.headers" :key="item + index">{{ item[itemH] }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </template>
 
 <script lang="ts" setup name="Xlsx">
 	import * as XLSX from "xlsx/xlsx.mjs";
 
-	const fileUrl = ref("");
 	const fileUpload = ref();
 	const isLoading = ref(false);
 	const fileObj = reactive({
 		fileList: <any>[{ id: "id-xxxxxxx", name: "file.xlsx", url: "https://domain.com/id-xxxxxxx" }],
-		fileReader: "",
+		fileReaderHtml: "",
+		fileReader: {
+			headers: [],
+			dataList: [],
+		},
 	});
 
-	const initData = () => {
-		if (fileUrl) {
-			readXlsxOnline();
+	const initData = () => {};
+	const previewFile = (index: number) => {
+		if (fileObj.fileList[index].url) {
+			readXlsxOnline(index);
 		} else {
-			readXlsxLocal();
+			readXlsxLocal(index);
 		}
 	};
-	const previewFile = (index: number) => {
-		console.log(index);
+	const fileChange = (file: any) => {
+		if (fileObj.fileList.length) {
+			fileObj.fileList = [...fileObj.fileList, ...file.target.files];
+		} else {
+			fileObj.fileList = file.target.files;
+		}
+	};
+	const readXlsxLocal = (index: number) => {
 		const file = fileObj.fileList[index];
 		const reader = new FileReader();
 		reader.onload = (e: any) => {
@@ -41,9 +74,33 @@
 			const firstSheetName = workbook.SheetNames[0];
 			const worksheet = workbook.Sheets[firstSheetName];
 			const header = getHeaderRow(worksheet);
-			const results = XLSX.utils.sheet_to_html(worksheet);
-			console.log({ header, results });
-			fileObj.fileReader = results;
+			fileObj.fileReaderHtml = XLSX.utils.sheet_to_html(worksheet);
+			fileObj.fileReader.headers = header;
+			fileObj.fileReader.dataList = XLSX.utils.sheet_to_json(worksheet);
+		};
+		reader.readAsArrayBuffer(file);
+	};
+	const readXlsxOnline = (index: number) => {
+		// 获取远程url
+		// 设置请求 responseType: "blob",
+		let xhr = new XMLHttpRequest();
+		xhr.open("get", "url", true);
+		xhr.responseType = "arraybuffer";
+		xhr.onload = () => {
+			console.log(xhr.status, xhr.response);
+			console.log(new Uint8Array(xhr.response));
+		};
+		const file = fileObj.fileList[index];
+		const reader = new FileReader();
+		reader.onload = (e: any) => {
+			const data = e.target.result;
+			const workbook = XLSX.read(data, { type: "array" });
+			const firstSheetName = workbook.SheetNames[0];
+			const worksheet = workbook.Sheets[firstSheetName];
+			const header = getHeaderRow(worksheet);
+			fileObj.fileReaderHtml = XLSX.utils.sheet_to_html(worksheet);
+			fileObj.fileReader.headers = header;
+			fileObj.fileReader.dataList = XLSX.utils.sheet_to_json(worksheet);
 		};
 		reader.readAsArrayBuffer(file);
 	};
@@ -62,19 +119,6 @@
 			headers.push(hdr);
 		}
 		return headers;
-	};
-	const fileChange = (file: any) => {
-		if (fileObj.fileList.length) {
-			fileObj.fileList = [...fileObj.fileList, ...file.target.files];
-		} else {
-			fileObj.fileList = file.target.files;
-		}
-	};
-	const readXlsxLocal = () => {
-		XLSX.utils.sheet_to_html();
-	};
-	const readXlsxOnline = () => {
-		XLSX.utils.sheet_to_html();
 	};
 
 	const handleUpload = () => {

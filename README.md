@@ -53,7 +53,7 @@ src下的config目录是系统默认参数，及部分数据配置
 6、interface尽量抽取出来，且抽取到最小粒度
 # 配置解释
 大家根据使用的包来自行搜索下吧，大部分配置都是兼容、打包等
-1、不建议在本项目中使用自带的Link和Iframe，因为存在多个Link的时候出现问题，且点击Link后再切换Iframe有一个bug： \
+1、不建议在本项目中使用自带的Link和Iframe，因为存在多个Link的时候出现问题，且点击Link后再切换Iframe有一个bug：
 
 # 已完成
 - [x] 基础插件配置，语法校验
@@ -76,14 +76,14 @@ https://hu-snail.github.io/vue3-resource/
 ### 无特殊说明均对应最新版
 ## 脚手架
 [vite](https://www.npmjs.com/package/vite) || [官网](https://cn.vitejs.dev/) \
-[vue-cli](https://www.npmjs.com/package/@vue/cli) \
+[vue-cli](https://www.npmjs.com/package/@vue/cli)
 ## vue
-[vue3](https://www.npmjs.com/package/vue) || [官网](https://v3.cn.vuejs.org/) \
+[vue3](https://www.npmjs.com/package/vue) || [官网](https://v3.cn.vuejs.org/)
 ## 路由管理
-[vue-router](https://www.npmjs.com/package/vue-router) || [官网](https://vue3js.cn/) \
+[vue-router](https://www.npmjs.com/package/vue-router) || [官网](https://vue3js.cn/)
 ## 状态管理
 [Pinia](https://www.npmjs.com/package/pinia) || [官网](https://pinia.web3doc.top/) \
-[vuex](https://www.npmjs.com/package/vuex) || [官网](https://next.vuex.vuejs.org/) \
+[vuex](https://www.npmjs.com/package/vuex) || [官网](https://next.vuex.vuejs.org/)
 ## js核心
 [core-js](https://www.npmjs.com/package/core-js)
 
@@ -132,9 +132,7 @@ https://hu-snail.github.io/vue3-resource/
 [ant-design-vue](https://www.npmjs.com/package/ant-design-vue) || PC 社区维护 请自行斟酌 [官网](https://2x.antdv.com/components/overview/) \
 [vuetifyjs](https://www.npmjs.com/package/vuetify) || PC [官网](https://vuetifyjs.com/) \
 [vuetifyjs](https://www.npmjs.com/package/vuetify) || PC [官网](https://next.vuetifyjs.com/en/) \
-
 [bootstrap-vue](https://www.npmjs.com/package/bootstrap-vue) || vue2 PC [官网](https://dev.bootstrap-vue.org/docs/) \
-
 [vant@next](https://www.npmjs.com/package/vant) || M [官网](https://vant-contrib.gitee.io/vant/v3/) \
 [mui uni-app](https://www.npmjs.com/package/mui) || M [官网](https://dev.dcloud.net.cn/mui/) \
 [mui](https://www.npmjs.com/package/mui) || M [官网](https://mui.com/) \
@@ -143,7 +141,6 @@ https://hu-snail.github.io/vue3-resource/
 [VARLET](https://www.npmjs.com/package/@varlet/ui) || M [官网](https://varlet.gitee.io/varlet-ui/#/zh-CN/home) \
 [Wave UI](https://www.npmjs.com/package/wave-ui) || M [官网](https://antoniandre.github.io/wave-ui/) \
 [ionicframework](https://www.npmjs.com/package/ionicframework) || M [官网](https://ionicframework.com/docs/) \
-
 [quasar](https://www.npmjs.com/package/quasar) || [官网](https://quasar.dev/) \
 [heyui](https://www.npmjs.com/package/heyui@next) || [官网](https://v2.heyui.top/) \
 [BalmUI](https://www.npmjs.com/package/balm-core) || [官网](https://next-material.balmjs.com/#/) \
@@ -152,7 +149,7 @@ https://hu-snail.github.io/vue3-resource/
 [primefaces](https://www.npmjs.com/package/primefaces) || [官网](https://primefaces.org/primevue/showcase/#/setup) \
 [Vuestic UI](https://www.npmjs.com/package/vuestic-ui) || [官网](https://vuestic.dev/) \
 [iDux](https://www.npmjs.com/package/@idux/cdk) || [官网](https://idux.site/) \
-[relaxplus](https://www.npmjs.com/package/relaxplus) || [官网](https://bsie.gitee.io/relaxplus/#/) \
+[relaxplus](https://www.npmjs.com/package/relaxplus) || [官网](https://bsie.gitee.io/relaxplus/#/)
 
 ## 静态UI PC H5
 [H5 zeptojs](https://www.zeptojs.com.cn/) \
@@ -241,7 +238,7 @@ https://hu-snail.github.io/vue3-resource/
 [Trumbowyg](https://alex-d.github.io/Trumbowyg/) \
 [slate](https://github.com/ianstormtaylor/slate) \
 [squire](https://github.com/neilj/Squire) \
-[summernote](https://summernote.org/) \
+[summernote](https://summernote.org/)
 
 ## Markdown编辑器
 [Vditor 官网](https://b3log.org/vditor/) \
@@ -252,7 +249,7 @@ https://hu-snail.github.io/vue3-resource/
 [vue-clipboard2](https://www.npmjs.com/package/vue-clipboard2)
 
 ## Loading动画
-[three-dots 等待效果](https://nzbin.github.io/three-dots/) \
+[three-dots 等待效果](https://nzbin.github.io/three-dots/)
 
 ## 开屏渲染动画
 [animate css库](https://www.npmjs.com/package/animate.css/) [官网](https://animate.style/) \
@@ -274,11 +271,11 @@ https://hu-snail.github.io/vue3-resource/
 [ianlunn 鼠标放上效果](https://github.com/IanLunn/Hover) | [官网](http://ianlunn.github.io/Hover/) \
 [animxyz](https://animxyz.com/) \
 [elrumordelaluz 鼠标放上效果](https://elrumordelaluz.github.io/reshake/) \
-
 [基本形状](https://csslayout.io/) \
 [案例 特效 1](https://codepen.io/) \
 [案例 css技巧 1](https://csscoco.com/inspiration/#/) \
 [案例 css技巧 2](https://chokcoco.github.io/CSS-Inspiration/#/) \
+[]()
 
 # 数据操作
 ## 加密解密
@@ -288,7 +285,8 @@ https://hu-snail.github.io/vue3-resource/
 [jsencrypt](https://www.npmjs.com/package/jsencrypt) \
 [jsrsasign](https://www.npmjs.com/package/jsrsasign) \
 [base64-js](https://www.npmjs.com/package/base64-js) \
-[js-base64](https://www.npmjs.com/package/js-base64)
+[js-base64](https://www.npmjs.com/package/js-base64) \
+[]()
 
 ## ua签名
 [ua-parser-js](https://www.npmjs.com/package/ua-parser-js)
@@ -323,7 +321,12 @@ https://hu-snail.github.io/vue3-resource/
 [three.js](https://www.npmjs.com/package/three) || three.js
 
 ## office 预览、上传、导出、导入 包含：xls，xlsx，doc，docx，pdf，csv
-[数据表格 handsontable](https://github.com/handsontable/handsontable)
+[文件类型判断 file-type](https://www.npmjs.com/package/file-type) \
+[Office Excel handsontable](https://github.com/handsontable/handsontable) \
+[Office Word mammoth](https://github.com/mwilliamson/mammoth.js) \
+[PDF pdfjs-dist](https://github.com/mozilla/pdf.js) \
+[PDF vue-pdf vue2](https://www.npmjs.com/package/vue-pdf) \
+[@vue-office docx excel pdf v2需要安装依赖 vue-demi](https://github.com/501351981/vue-office)
 
 ## 代码提交信息校验 -D
 [husky](https://www.npmjs.com/package/husky) \
@@ -416,6 +419,7 @@ https://hu-snail.github.io/vue3-resource/
 [vant](https://github.com/CharleeWa/vue3-vant-mobile) \
 [Tencent](https://github.com/Tencent/weui/) \
 [vite](https://github.com/LZHD/vue-vite-h5) \
+[]()
 
 # 小程序端UI
 [vant](https://github.com/vant-ui/vant-weapp) \
@@ -426,6 +430,7 @@ https://hu-snail.github.io/vue3-resource/
 [ColorUI 更新频率慢](https://github.com/weilanwl/ColorUI) \
 [touchwx 不推荐，停更了](https://github.com/uileader/touchwx) \
 [iview 不推荐，停更了](https://github.com/TalkingData/iview-weapp) \
+[]()
 
 # 由于其他因素相关的Web 库也放这里
 ## UI
@@ -480,6 +485,7 @@ https://github.com/Yin-Hongwei/music-website \
 https://github.com/pipipi-pikachu/PPTist \
 https://github.com/Codennnn/vue-color-avatar \
 https://github.com/youlaitech/youlai-mall \
+[]()
 
 [//]: # (loading)
 http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading
