@@ -63,9 +63,6 @@ http.interceptors.request.use(
 				token: Utils.Cookies.getCookie(Constants.cookieKey.token),
 			};
 		}
-		if (config.method?.toLowerCase() === "get") {
-			config.params = config.data;
-		}
 		AxiosCancel.addCancer(config);
 		return config;
 	},
