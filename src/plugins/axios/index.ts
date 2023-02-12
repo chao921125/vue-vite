@@ -46,7 +46,7 @@ const defaultHeader: AxiosRequestConfig = {
 	timeout: AxiosSetConfig.timeout,
 	timeoutErrorMessage: AxiosSetConfig.timeoutMsg,
 	withCredentials: true,
-	headers: { Accept: "application/json, text/plain, */*", "Content-Type": "application/json", "X-Requested-With": "XMLHttpRequest" },
+	headers: { Accept: "application/json, text/plain, */*", "Content-Type": "application/json;charset=utf-8", "X-Requested-With": "XMLHttpRequest" },
 };
 
 // 创建一个 axios 实例
@@ -54,18 +54,21 @@ const http: AxiosInstance = axios.create(defaultHeader);
 
 // 请求拦截器
 http.interceptors.request.use(
-	(config: AxiosRequestConfig) => {
+	(config: AxiosRequestConfig): any => {
 		NProgress.start();
-		config.data = JSON.stringify(config.data);
-		if (!/^https:\/\/|http:\/\//.test(<string>config.url)) {
-			// 在请求发送之前做一些处理
-			config.headers = {
-				token: Utils.Cookies.getCookie(Constants.cookieKey.token),
-			};
+		if (Utils.Cookies.getCookie(Constants.cookieKey.token)) {
+			// @ts-ignore
+			config.headers["token"] = "Bearer " + Utils.Cookies.getCookie(Constants.cookieKey.token);
+			// @ts-ignore
+			config.headers["Authorization"] = "Bearer " + Utils.Cookies.getCookie(Constants.cookieKey.token);
 		}
-		if (config.method?.toLowerCase() === "get") {
-			config.params = config.data;
-		}
+		// config.data = JSON.stringify(config.data);
+		// if (!/^https:\/\/|http:\/\//.test(<string>config.url)) {
+		// 	// 在请求发送之前做一些处理
+		// 	config.headers = {
+		// 		token: Utils.Cookies.getCookie(Constants.cookieKey.token),
+		// 	};
+		// }
 		AxiosCancel.addCancer(config);
 		return config;
 	},
