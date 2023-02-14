@@ -139,11 +139,12 @@
 			});
 		}
 		setBreadcrumbList(menuList.value);
-		breadcrumbList.value.unshift({
-			name: menuList.value[0].path,
-			title: menuList.value[0].title,
-			path: "/" + menuList.value[0].path,
-		});
+		// 去掉包含首页的面包屑
+		// breadcrumbList.value.unshift({
+		// 	name: menuList.value[0].path,
+		// 	title: menuList.value[0].title,
+		// 	path: "/" + menuList.value[0].path,
+		// });
 	};
 	const setBreadcrumbList = (array: Array<any>) => {
 		array.forEach((item: any) => {
@@ -279,5 +280,5 @@
 </script>
 
 <style scoped lang="scss">
-	@import "./index.scss";
+	@import "./index";
 </style>

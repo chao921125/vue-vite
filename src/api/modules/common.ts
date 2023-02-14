@@ -23,7 +23,26 @@ common.uploadFile = (data: any = {}) => {
 	return Axios({
 		url: AxiosSetConfig.requestUrl.fileUpload,
 		method: "POST",
+		headers: { "Content-Type": "multipart/form-data" },
 		data: data,
+	});
+};
+
+common.previewFile = (data: any) => {
+	return Axios({
+		url: AxiosSetConfig.requestUrl.fileUpload,
+		method: "GET",
+		responseType: "blob",
+		params: data,
+	});
+};
+
+common.previewFileById = (data: any) => {
+	return Axios({
+		url: AxiosSetConfig.requestUrl.fileUpload + `/${data}`,
+		method: "GET",
+		responseType: "blob",
+		params: data,
 	});
 };
 

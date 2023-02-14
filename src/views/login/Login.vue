@@ -14,7 +14,7 @@
 					<el-input v-model="formUser.password" type="password" placeholder="user password" />
 				</el-form-item>
 				<el-form-item label="" prop="">
-					<el-button @click="loginUser(formUserRef)">login</el-button>
+					<el-button @click="loginUser(formUserRef)" :loading="isLoading">login</el-button>
 				</el-form-item>
 			</el-form>
 		</el-col>
@@ -41,9 +41,11 @@
 	const route = useRoute();
 	const router = useRouter();
 
+	const isLoading = ref<Boolean>(false);
 	const loginUser = (formEl: FormInstance | undefined) => {
 		if (!formEl) return false;
 		formEl.validate((valid) => {
+			isLoading.value = true;
 			if (valid) {
 				proxy.elMessage.success("登录成功");
 				Utils.Cookies.setCookie(Constants.cookieKey.token, Math.random().toString(36));
@@ -67,9 +69,13 @@
 				return false;
 			}
 		});
+
+		onMounted(() => {
+			isLoading.value = false;
+		});
 	};
 </script>
 
 <style scoped lang="scss">
-	@import "login.scss";
+	@import "login";
 </style>

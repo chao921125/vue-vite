@@ -58,6 +58,8 @@ import mitt from "mitt";
 app.config.globalProperties.mittBus = mitt();
 // 全局消息提示
 app.config.globalProperties.elMessage = ElMessage;
+// provide app.provide("fn", FN) 配合 inject inject("fn") 使用
+// app.provide("", "");
 
 // log
 Utils.Log.primary(">>>>>> 当前VUE版本 >>>>>>");
