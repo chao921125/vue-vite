@@ -43,12 +43,14 @@ src下的config目录是系统默认参数，及部分数据配置
 5、API前端使用及后端接口命名规则对应： \
 列举，可以对此进行变更
 
-| 接口  | 前端     | 后端         |
-|-----|--------|------------|
-| 读取  | search | read/get   |
-| 写入  | add    | create/set |
-| 编辑  | edit   | update     |
-| 删除  | remove | delete     |
+| 接口  | 前端           | 后端         |
+|-----|--------------|------------|
+| 读取  | query/search | read/get   |
+| 写入  | save/add     | create/set |
+| 编辑  | edit         | update     |
+| 删除  | remove       | delete     |
+| 上传  | upload       | import     |
+| 下载  | download     | export     |
 
 6、interface尽量抽取出来，且抽取到最小粒度
 # 配置解释
@@ -56,14 +58,7 @@ src下的config目录是系统默认参数，及部分数据配置
 1、不建议在本项目中使用自带的Link和Iframe，因为存在多个Link的时候出现问题，且点击Link后再切换Iframe有一个bug：
 
 # 已完成 Admin
-- [x] vite基础插件配置，prettier语法校验
-- [x] axios请求，取消请求
-- [x] 动态路由（同时支持静态路由配置，一切简化）
-- [x] 国际化目前用的vue-i18n，多环境切换
-- [x] 三个图标库Element Icon、Iconify、IconFont使用
-- [x] 换肤
-- [x] 全屏
-- [x] 不断完善的各种demo
+- [x] 基本的admin功能都已涵盖，
 
 # 基础核心依赖 https://vue3js.cn/
 ## 推荐一个插件比较全的网站
