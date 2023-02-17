@@ -43,14 +43,14 @@ src下的config目录是系统默认参数，及部分数据配置
 5、API前端使用及后端接口命名规则对应： \
 列举，可以对此进行变更
 
-| 接口  | 前端           | 后端         |
-|-----|--------------|------------|
-| 读取  | query/search | read/get   |
-| 写入  | save/add     | create/set |
-| 编辑  | edit         | update     |
-| 删除  | remove       | delete     |
-| 上传  | upload       | import     |
-| 下载  | download     | export     |
+| 接口  | 前端             | 后端           |
+|-----|----------------|--------------|
+| 读取  | search / query | read / get   |
+| 写入  | save / add     | create / set |
+| 编辑  | edit           | update       |
+| 删除  | remove         | delete       |
+| 上传  | upload         | import       |
+| 下载  | download       | export       |
 
 6、interface尽量抽取出来，且抽取到最小粒度
 # 配置解释

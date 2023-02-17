@@ -137,10 +137,12 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				],
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core"],
 				resolvers: [ElementPlusResolver(), VantResolver()],
+				directoryAsNamespace: true,
 			}),
 			components({
 				dts: true,
 				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
+				directoryAsNamespace: true,
 			}),
 			// 热重载，包含配置文件的修改
 			viteRestart({
