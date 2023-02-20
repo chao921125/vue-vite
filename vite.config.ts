@@ -137,7 +137,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				],
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core"],
 				resolvers: [ElementPlusResolver(), VantResolver()],
-				directoryAsNamespace: true,
 			}),
 			components({
 				dts: true,

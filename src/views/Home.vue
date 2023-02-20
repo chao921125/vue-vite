@@ -1,6 +1,13 @@
 <template>
 	<el-skeleton :rows="1" animated :loading="isLoading">
 		<el-row>
+			<el-col :span="12">
+				浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }} <br />
+				操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }} <br />
+				是否代理：{{ ipReal.ip.toString() === ipProxy.ip ? "否" : "是" }} <br />
+				真实IP：{{ ipReal.ip }} - {{ ipReal.country }} {{ ipReal.province }} {{ ipReal.city }} {{ ipReal.isp }} {{ ipReal.net }} <br />
+				代理IP：{{ ipProxy.ip }} - {{ ipProxyInfo.country }} {{ ipProxyInfo.city }} {{ ipProxyInfo.regionName }}
+			</el-col>
 			<el-col :span="3">
 				<el-badge :value="12" class="item">
 					<el-button @click="testI18nMessage">库存预警</el-button>
@@ -10,12 +17,6 @@
 				<el-badge :value="0" class="item">
 					<el-button @click="testI18nMessage">待审核</el-button>
 				</el-badge>
-			</el-col>
-			<el-col :span="9">
-				浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }} <br />
-				操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }} <br />
-				真实IP：{{ ipInfo.ip }} - {{ ipInfo.country }} {{ ipInfo.province }} {{ ipInfo.city }} {{ ipInfo.isp }} {{ ipInfo.net }} <br />
-				模拟IP：{{ ip.ip }}
 			</el-col>
 		</el-row>
 	</el-skeleton>
@@ -144,8 +145,9 @@
 		uaInfo.value = UA(navigator.userAgent);
 	};
 
-	const ipInfo = ref<any>({});
-	const ip = ref<any>({});
+	const ipReal = ref<any>({});
+	const ipProxy = ref<any>({});
+	const ipProxyInfo = ref<any>({});
 
 	import * as echarts from "echarts";
 	const initData = () => {
@@ -188,18 +190,18 @@
 	onMounted(() => {
 		getUaInfo();
 		getIpIpify().then((res: any) => {
-			ip.value = res;
+			ipProxy.value = res;
 		});
 		getIpApi().then((res) => {
-			console.log(res);
+			ipProxyInfo.value = res;
 		});
 		getIpUser().then((res) => {
-			ipInfo.value = res;
+			ipReal.value = res;
 		});
 		initData();
 	});
 </script>
 
 <style scoped lang="scss">
-	@import "./home.scss";
+	@import "./home";
 </style>
