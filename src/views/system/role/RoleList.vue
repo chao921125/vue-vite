@@ -12,6 +12,11 @@
 	<el-table :data="tableData" v-loading="isLoadData" style="width: 100%">
 		<el-table-column prop="name" label="名称" width="120" />
 		<el-table-column prop="number" label="编码" width="120" />
+		<el-table-column prop="status" label="状态" width="100">
+			<template #default="scope">
+				<el-tag class="ml-2" :type="scope.row.status ? 'success' : 'danger'">{{ scope.row.status ? "开始" : "关闭" }}</el-tag>
+			</template>
+		</el-table-column>
 		<el-table-column prop="desc" label="描述" />
 		<el-table-column prop="" label="操作" width="120">
 			<template #default="scope">

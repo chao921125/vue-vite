@@ -16,7 +16,7 @@
 		<el-table-column prop="departmentName" label="部门" width="120" />
 		<el-table-column prop="jobName" label="岗位" width="120" />
 		<el-table-column prop="roleName" label="角色" width="120" />
-		<el-table-column prop="status" label="状态" width="60">
+		<el-table-column prop="status" label="状态" width="80">
 			<template #default="scope">
 				<el-tag :type="scope.row.status ? 'success' : 'danger'">{{ StatusUse[scope.row.status] }}</el-tag>
 			</template>
