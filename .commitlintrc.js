@@ -1,5 +1,8 @@
 // @see: https://cz-git.qbenben.com/zh/guide
 /** @type {import('cz-git').UserConfig} */
+import pkg from "./package.json";
+// const pkg = require("./package.json");
+const version = pkg.version;
 
 module.exports = {
 	ignores: [(commit) => commit.includes("init")],
@@ -44,71 +47,70 @@ module.exports = {
 		},
 		types: [
 			{
-				value: "feat",
+				value: `feat: v${version}: `,
 				name: "feat:     🚀  A new feature",
 				emoji: "🚀",
 			},
+			// { value: "特性", name: "特性:   🚀  新增功能", emoji: "🚀" },
 			{
-				value: "fix",
+				value: `fix: v${version}: `,
 				name: "fix:      🧩  A bug fix",
 				emoji: "🧩",
 			},
+			// { value: "修复", name: "修复:   🧩  修复缺陷", emoji: "🧩" },
 			{
-				value: "docs",
+				value: `docs: v${version}: `,
 				name: "docs:     📚  Documentation only changes",
 				emoji: "📚",
 			},
+			// { value: "文档", name: "文档:   📚  文档变更", emoji: "📚" },
 			{
-				value: "style",
+				value: `style: v${version}: `,
 				name: "style:    🎨  Changes that do not affect the meaning of the code",
 				emoji: "🎨",
 			},
+			// { value: "格式", name: "格式:   🎨  代码格式（不影响功能，例如空格、分号等格式修正）", emoji: "🎨" },
 			{
-				value: "refactor",
+				value: `refactor: v${version}: `,
 				name: "refactor: ♻️   A code change that neither fixes a bug nor adds a feature",
 				emoji: "♻️",
 			},
+			// { value: "重构", name: "重构:   ♻️  代码重构（不包括 bug 修复、功能新增）", emoji: "♻️" },
 			{
-				value: "perf",
+				value: `perf: v${version}: `,
 				name: "perf:     ⚡️  A code change that improves performance",
 				emoji: "⚡️",
 			},
+			// { value: "性能", name: "性能:   ⚡️  性能优化", emoji: "⚡️" },
 			{
-				value: "test",
+				value: `test: v${version}: `,
 				name: "test:     ✅  Adding missing tests or correcting existing tests",
 				emoji: "✅",
 			},
+			// { value: "测试", name: "测试:   ✅  添加疏漏测试或已有测试改动", emoji: "✅" },
 			{
-				value: "build",
+				value: `build: v${version}: `,
 				name: "build:    📦️   Changes that affect the build system or external dependencies",
 				emoji: "📦️",
 			},
+			// { value: "构建", name: "构建:   📦️  构建流程、外部依赖变更（如升级 npm 包、修改 webpack 配置等）", emoji: "📦️" },
 			{
-				value: "ci",
+				value: `ci: v${version}: `,
 				name: "ci:       🎡  Changes to our CI configuration files and scripts",
 				emoji: "🎡",
 			},
+			// { value: "集成", name: "集成:   🎡  修改 CI 配置、脚本", emoji: "🎡" },
 			{
-				value: "chore",
+				value: `chore: v${version}: `,
 				name: "chore:    🔨  Other changes that don't modify src or test files",
 				emoji: "🔨",
 			},
+			// { value: "回退", name: "回退:   ⏪️  回滚 commit", emoji: "⏪️" },
 			{
-				value: "revert",
+				value: `revert: v${version}: `,
 				name: "revert:   ⏪️  Reverts a previous commit",
 				emoji: "⏪️",
 			},
-			// 中文版
-			// { value: "特性", name: "特性:   🚀  新增功能", emoji: "🚀" },
-			// { value: "修复", name: "修复:   🧩  修复缺陷", emoji: "🧩" },
-			// { value: "文档", name: "文档:   📚  文档变更", emoji: "📚" },
-			// { value: "格式", name: "格式:   🎨  代码格式（不影响功能，例如空格、分号等格式修正）", emoji: "🎨" },
-			// { value: "重构", name: "重构:   ♻️  代码重构（不包括 bug 修复、功能新增）", emoji: "♻️" },
-			// { value: "性能", name: "性能:   ⚡️  性能优化", emoji: "⚡️" },
-			// { value: "测试", name: "测试:   ✅  添加疏漏测试或已有测试改动", emoji: "✅" },
-			// { value: "构建", name: "构建:   📦️  构建流程、外部依赖变更（如升级 npm 包、修改 webpack 配置等）", emoji: "📦️" },
-			// { value: "集成", name: "集成:   🎡  修改 CI 配置、脚本", emoji: "🎡" },
-			// { value: "回退", name: "回退:   ⏪️  回滚 commit", emoji: "⏪️" },
 			// { value: "其他", name: "其他:   🔨  对构建过程或辅助工具和库的更改（不影响源文件、测试用例）", emoji: "🔨" }
 		],
 		useEmoji: true,

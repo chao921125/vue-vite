@@ -1,7 +1,7 @@
 {
  "name": "vue-next-vite",
  "description": "vue-next-vite",
- "version": "0.0.10",
+ "version": "0.0.132",
  "private": true,
  "scripts": {
   "serve": "npm run dev",
