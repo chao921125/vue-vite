@@ -7,23 +7,6 @@ interface ElType extends HTMLElement {
 	__handleClick__: any;
 }
 
-export const copy: Directive = {
-	mounted(el: ElType, binding: DirectiveBinding) {
-		if (binding.value) {
-			el.copyData = binding.value;
-		} else {
-			el.copyData = getTextByTag(el);
-		}
-		el.addEventListener("click", () => copyData(el.copyData));
-	},
-	updated(el: ElType, binding: DirectiveBinding) {
-		el.copyData = binding.value;
-	},
-	beforeUnmount(el: ElType) {
-		el.removeEventListener("click", el.__handleClick__);
-	},
-};
-
 function getTextByTag(node: HTMLElement) {
 	if (node.children.length) {
 		getTextByTag(<HTMLElement>node.children[0]);
@@ -48,3 +31,22 @@ function copyData(val: any) {
 		message: $t("message.msg.copy"),
 	});
 }
+
+const copy: Directive = {
+	mounted(el: ElType, binding: DirectiveBinding) {
+		if (binding.value) {
+			el.copyData = binding.value;
+		} else {
+			el.copyData = getTextByTag(el);
+		}
+		el.addEventListener("click", () => copyData(el.copyData));
+	},
+	updated(el: ElType, binding: DirectiveBinding) {
+		el.copyData = binding.value;
+	},
+	beforeUnmount(el: ElType) {
+		el.removeEventListener("click", el.__handleClick__);
+	},
+};
+
+export default copy;

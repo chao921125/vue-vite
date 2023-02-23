@@ -12,18 +12,21 @@ app.use(Pinia);
 import Router from "@/router";
 app.use(Router);
 
-// UI element
+// UI
+// element
 import ElementPlus, { ElMessage } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
 app.use(ElementPlus);
 
+// 全局组件 已通过autoimport实现自动全局引入，无需这里自动指定，对应的目录为src/components/*
 // 注册element Icons组件
 Object.keys(Icons).forEach((key) => {
 	app.component(key, Icons[key as keyof typeof Icons]);
 });
 
+// vant
 import "vant/lib/index.css";
 
 // vue i18n
@@ -52,7 +55,7 @@ Object.keys(directives).forEach((key) => {
 // 全局信息定义 使用 inject: [""],
 // app.provide("", "");
 
-// 全局指令
+// 全局指令集 通过getCurrentInstance
 // mitt 总线
 import mitt from "mitt";
 app.config.globalProperties.mittBus = mitt();

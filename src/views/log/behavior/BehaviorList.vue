@@ -3,7 +3,6 @@
 		<el-form-item prop="name" label="操作时间">
 			<el-date-picker v-model="formSearch.name" type="date" placeholder="" />
 		</el-form-item>
-		<el-form-item prop="name" label="当前IP"> {{ ipInfo.ip }} - {{ ipInfo.address }} </el-form-item>
 		<el-form-item prop="" label="">
 			<el-button type="primary">查询</el-button>
 			<el-button @click="resetForm(formSearchRef)">重置</el-button>
@@ -20,7 +19,6 @@
 
 <script lang="ts" setup name="BehaviorList">
 	import { FormInstance } from "element-plus";
-	import api from "@/api";
 
 	const formSearchRef = ref();
 	const formSearch = reactive({
@@ -80,17 +78,7 @@
 		];
 	};
 
-	const ipInfo = ref<any>({});
-	const getIp = () => {
-		api.common.queryIp({}).then((res: any) => {
-			if (res) {
-				ipInfo.value = res;
-			}
-		});
-	};
-
 	onMounted(() => {
-		getIp();
 		initData();
 	});
 </script>

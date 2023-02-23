@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 . "$(dirname "$0")/_/husky.sh"
 . "$(dirname "$0")/common.sh"
 
@@ -6,3 +6,4 @@
 
 # Format and submit code according to lintstagedrc.js configuration
 npm run lint:lint-staged
+npx lint-staged

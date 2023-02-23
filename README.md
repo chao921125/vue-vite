@@ -1,29 +1,16 @@
 [//]: # (后续需要删除的包)
-#### TODO delete pkg
-```javascript
-```
-三方包引入尽可能小写，自定义尽可能大写。
+
+# 避坑指南 及 注意事项
 ###### [**已在公司作为模板商用**]
+###### 三方包引入尽可能小写，自定义尽可能大写。
 ###### 推荐使用pnpm安装依赖，其次yarn或者npm
+###### nodejs >= 16 && nvm && pnpm
 ###### curl -fsSL https://get.pnpm.io/install.sh | sh -
 ###### [Vite 插件](https://github.com/vitejs/awesome-vite)
 https://vuejs.org/
 
-# 避坑指南 及 注意事项
-## 开发问题 Typescript 和 TSX
-TS的泛型<T> 在结合 tsx 的时候使用as形式 \
-我建议的组合，大家仅当参考 \
-VUE + JS \
-VUE + TS \
-VUE + JSX \
-VUE + TSX \
-组件调用问题，父子调用最好以这种方式存在，否则在调用函数的时候会有问题
-```javascript
-// Parent
-<script lang="ts" setup></script>
-// Child
-<script lang="ts"></script>
-```
+###### 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式 \
+
 ## 安装及打包
 避免使用vue-tsc，目前和typescript、jsx出现各种冲突 \
 使用pnpm安装包的时候需要修改package.json的文件，删除掉resolutions里面的// \
