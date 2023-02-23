@@ -3,7 +3,7 @@
 ###### [**已在公司作为模板商用**]
 ###### 三方包引入尽可能小写，自定义尽可能大写。
 ###### 推荐使用pnpm安装依赖，其次yarn或者npm
-###### nodejs >= 16 && nvm
+###### nodejs >= 16 && nvm && pnpm
 ###### curl -fsSL https://get.pnpm.io/install.sh | sh -
 ###### [Vite 插件](https://github.com/vitejs/awesome-vite)
 https://vuejs.org/
