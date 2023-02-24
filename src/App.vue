@@ -5,8 +5,9 @@
 </template>
 
 <script lang="ts" setup name="App">
-	import Pinia from "@/store";
+	import Pinia, { getStoreRefs } from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
+	// import { getStoreRefs, appStore } from "@/store";
 	import Utils from "@/plugins/utils";
 	import Constants from "@/plugins/constants";
 	import RouterSetConfig from "@/config/routerSetConfig";
@@ -22,7 +23,8 @@
 	});
 
 	const storeThemeConfig = useThemeConfig(Pinia);
-	const { themeConfig } = storeToRefs(storeThemeConfig);
+	const { themeConfig } = getStoreRefs(storeThemeConfig);
+	// const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 	const route = useRoute();
 	const router = useRouter();
 	const initData = () => {

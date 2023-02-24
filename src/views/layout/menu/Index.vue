@@ -29,7 +29,7 @@
 
 <script lang="ts" setup name="Menu">
 	import SubMenu from "./SubMenu.vue";
-	import Pinia from "@/store";
+	import Pinia, { getStoreRefs } from "@/store";
 	import ColorSetConfig from "@/config/colorSetConfig";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
@@ -37,14 +37,14 @@
 	const colorSet = ColorSetConfig;
 	// 折叠菜单
 	const storeThemeConfig = useThemeConfig(Pinia);
-	const { themeConfig } = storeToRefs(storeThemeConfig);
+	const { themeConfig } = getStoreRefs(storeThemeConfig);
 	const isColl = computed(() => {
 		let { isCollapse } = themeConfig.value;
 		return !isCollapse;
 	});
 	// 渲染菜单
 	const storeRouterList = useRouterList(Pinia);
-	const { menuList } = storeToRefs(storeRouterList);
+	const { menuList } = getStoreRefs(storeRouterList);
 	const state = reactive({ menuList: Array<any> });
 	const setMenu = () => {
 		(state.menuList as any) = menuList.value || [];

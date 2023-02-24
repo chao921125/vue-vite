@@ -11,7 +11,8 @@ export const useAuth = defineStore("auth", {
 	},
 	actions: {
 		setRoles(data: AuthConfigState) {
-			this.role = data;
+			// this.role = data;
+			Object.assign(this.role, data);
 		},
 	},
 });

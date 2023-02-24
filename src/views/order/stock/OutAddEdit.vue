@@ -56,7 +56,7 @@
 
 <script lang="ts" setup name="OutAddEdit">
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Product } from "@/interface/product";
+	import { Product } from "@/interface/data";
 
 	// 表单
 	const formLabelWidth = "100px";

@@ -51,7 +51,8 @@ export const useThemeConfig = defineStore("themeConfig", {
 	}),
 	actions: {
 		setThemeConfig(data: ThemeConfigState) {
-			this.themeConfig = data;
+			// this.themeConfig = data;
+			Object.assign(this.themeConfig, data);
 		},
 	},
 });

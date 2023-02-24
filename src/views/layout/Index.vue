@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts" setup name="Layout">
-	import Pinia from "@/store";
+	import Pinia, { getStoreRefs } from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import RouterSetConfig from "@/config/routerSetConfig";
 	import AdminMenu from "./menu/Index.vue";
@@ -44,7 +44,7 @@
 	isAdmin.value = RouterSetConfig.isAdminIframe;
 	// 修改项目设置
 	const storesThemeConfig = useThemeConfig(Pinia);
-	const { themeConfig } = storeToRefs(storesThemeConfig);
+	const { themeConfig } = getStoreRefs(storesThemeConfig);
 	const state = reactive({
 		clientWidth: 0,
 	});
@@ -95,5 +95,5 @@
 </script>
 
 <style scoped lang="scss">
-	@import "./index.scss";
+	@import "./index";
 </style>

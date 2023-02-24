@@ -10,7 +10,8 @@
  * isHide   		是否隐藏此路由
  * isKeepAlive	是否缓存组件状态
  * isAffix  		是否固定在 tagsView 栏上
- * roles    		仅仅当前端控制权限时，此项必须
+ * roles    		判断是否有当前角色，仅仅当前端控制权限时，此项必须
+ * permission   判断当前操作权限，仅仅当前端控制权限时，此项必须
  * icon     		必填 菜单、tagsView 图标，阿里：加 `iconfont xxx`，fontawesome：加 `fa xxx`
  * children
  */
@@ -50,7 +51,8 @@ export default {
 			isDisable: 0,
 			isHide: 0,
 			isHideSubMenu: 0,
-			roles: ["C", "R", "U", "D"],
+			roles: ["admin", "system"],
+			permission: ["C", "R", "U", "D"],
 			children: [
 				{
 					id: 21,
@@ -67,7 +69,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -85,7 +88,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 			],
@@ -105,7 +109,8 @@ export default {
 			isDisable: 0,
 			isHide: 0,
 			isHideSubMenu: 0,
-			roles: ["C", "R", "U", "D"],
+			roles: ["admin", "system"],
+			permission: ["C", "R", "U", "D"],
 			children: [
 				{
 					id: 31,
@@ -122,7 +127,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [
 						{
 							id: 311,
@@ -139,7 +145,8 @@ export default {
 							isDisable: 0,
 							isHide: 1,
 							isHideSubMenu: 0,
-							roles: ["C", "R", "U", "D"],
+							roles: ["admin", "system"],
+							permission: ["C", "R", "U", "D"],
 							children: [],
 						},
 					],
@@ -159,7 +166,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -177,7 +185,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -195,7 +204,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -213,7 +223,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 			],
@@ -233,7 +244,8 @@ export default {
 			isDisable: 0,
 			isHide: 0,
 			isHideSubMenu: 0,
-			roles: ["C", "R", "U", "D"],
+			roles: ["admin", "system"],
+			permission: ["C", "R", "U", "D"],
 			children: [
 				{
 					id: 41,
@@ -250,7 +262,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -268,7 +281,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -286,7 +300,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 			],
@@ -306,7 +321,8 @@ export default {
 			isDisable: 0,
 			isHide: 0,
 			isHideSubMenu: 0,
-			roles: ["C", "R", "U", "D"],
+			roles: ["admin", "system"],
+			permission: ["C", "R", "U", "D"],
 			children: [],
 		},
 		{
@@ -324,7 +340,8 @@ export default {
 			isDisable: 0,
 			isHide: 0,
 			isHideSubMenu: 0,
-			roles: ["C", "R", "U", "D"],
+			roles: ["admin", "system"],
+			permission: ["C", "R", "U", "D"],
 			children: [
 				{
 					id: 81,
@@ -341,7 +358,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -359,7 +377,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -377,7 +396,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -395,7 +415,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -413,7 +434,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 			],
@@ -433,7 +455,8 @@ export default {
 			isDisable: 0,
 			isHide: 0,
 			isHideSubMenu: 0,
-			roles: ["C", "R", "U", "D"],
+			roles: ["admin", "system"],
+			permission: ["C", "R", "U", "D"],
 			children: [
 				{
 					id: 991,
@@ -450,7 +473,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -468,7 +492,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -486,7 +511,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -504,7 +530,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -522,7 +549,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 			],
@@ -542,8 +570,28 @@ export default {
 			isDisable: 0,
 			isHide: 0,
 			isHideSubMenu: 0,
-			roles: ["C", "R", "U", "D"],
+			roles: ["admin", "system"],
+			permission: ["C", "R", "U", "D"],
 			children: [
+				{
+					id: 99000,
+					path: "icon",
+					component: "demo/page/All",
+					name: "message.menu.demoPage",
+					title: "message.menu.demoPage",
+					icon: "icon-appstore",
+					isLink: 0,
+					isIframe: 0,
+					address: "",
+					isAffix: 1,
+					isKeepAlive: 1,
+					isDisable: 0,
+					isHide: 0,
+					isHideSubMenu: 1,
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
+					children: [],
+				},
 				{
 					id: 99001,
 					path: "icon",
@@ -559,7 +607,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -577,7 +626,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 				{
@@ -595,7 +645,8 @@ export default {
 					isDisable: 0,
 					isHide: 0,
 					isHideSubMenu: 1,
-					roles: ["C", "R", "U", "D"],
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
 					children: [],
 				},
 			],
@@ -615,7 +666,8 @@ export default {
 			isDisable: 0,
 			isHide: 0,
 			isHideSubMenu: 0,
-			roles: ["C", "R", "U", "D"],
+			roles: ["admin", "system"],
+			permission: ["C", "R", "U", "D"],
 			children: [],
 		},
 		{
@@ -633,7 +685,8 @@ export default {
 			isDisable: 0,
 			isHide: 0,
 			isHideSubMenu: 0,
-			roles: ["C", "R", "U", "D"],
+			roles: ["admin", "system"],
+			permission: ["C", "R", "U", "D"],
 			children: [],
 		},
 	],
