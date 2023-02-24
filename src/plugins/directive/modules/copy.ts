@@ -34,7 +34,6 @@ function copyData(val: any) {
 
 export const copy: Directive = {
 	mounted(el: ElType, binding: DirectiveBinding) {
-		console.log(el);
 		if (binding.value) {
 			el.copyData = binding.value;
 		} else {

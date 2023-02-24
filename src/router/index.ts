@@ -2,11 +2,10 @@
  * 路由入口
  */
 import { createRouter, createWebHashHistory, RouteRecordName, RouteRecordRaw } from "vue-router";
-import { storeToRefs } from "pinia";
-import Pinia from "@/store";
+import Pinia, { getStoreRefs } from "@/store";
 // import { useUserInfo } from "@/store/modules/user";
 import { useRouterList } from "@/store/modules/routerMeta";
-import { useTagsViewRoutes } from "@/store/modules/routerTags";
+import { useRouterTags } from "@/store/modules/routerTags";
 import { baseRoutes, errorRoutes } from "./route";
 import Utils from "@/plugins/utils";
 import Constants from "@/plugins/constants";
@@ -52,7 +51,7 @@ router.beforeEach(async (to, from, next) => {
 			next(RouterSetConfig.routeHome);
 		} else {
 			const storesRouterList = useRouterList(Pinia);
-			const { routerList } = storeToRefs(storesRouterList);
+			const { routerList } = getStoreRefs(storesRouterList);
 			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {
 					// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
@@ -196,7 +195,7 @@ function componentImport(viewsModules: Record<string, Function>, component: stri
 
 // 存放tag数据
 export async function setTags(data: any[]) {
-	const storesTagsView = useTagsViewRoutes(Pinia);
+	const storesTagsView = useRouterTags(Pinia);
 	await storesTagsView.setTagsViewRoutes(data);
 }
 

@@ -7,6 +7,8 @@ const app = createApp(App);
 // store pinia
 import Pinia from "@/store";
 app.use(Pinia);
+// import Pinia, { registerStore } from "@/store";
+// registerStore();
 
 // router
 import Router from "@/router";

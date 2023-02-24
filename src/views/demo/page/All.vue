@@ -1,6 +1,6 @@
 <template>
 	<el-button v-copy="'copyData'">test copy</el-button>
-	<el-button v-auth>test auth</el-button>
+	<el-button v-auth="['system']">test auth</el-button>
 	<el-button @click="testI18nMessage">test i18n {{ tI18n }}</el-button>
 </template>
 

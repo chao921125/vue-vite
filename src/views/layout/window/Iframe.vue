@@ -7,11 +7,11 @@
 </template>
 
 <script lang="ts" setup name="Iframe">
-	import Pinia from "@/store";
+	import Pinia, { getStoreRefs } from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 
 	const storeThemeConfig = useThemeConfig(Pinia);
-	const { themeConfig } = storeToRefs(storeThemeConfig);
+	const { themeConfig } = getStoreRefs(storeThemeConfig);
 	const iframeHeight = computed(() => {
 		if (themeConfig.value.isTagsView) {
 			return "120px";

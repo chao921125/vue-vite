@@ -16,10 +16,12 @@ export const useRouterList = defineStore("routerList", {
 	}),
 	actions: {
 		async setRouterList(data: Array<string>) {
-			this.routerList = data;
+			// this.routerList = data;
+			Object.assign(this.routerList, data);
 		},
 		async setMenuList(data: Array<any>) {
-			this.menuList = data;
+			// this.menuList = data;
+			Object.assign(this.menuList, data);
 		},
 		async setColumnsMenuHover(bool: Boolean) {
 			this.isColumnsMenuHover = bool;
