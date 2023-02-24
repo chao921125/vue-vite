@@ -1,43 +1,54 @@
 <template>
-	<el-form ref="formSearchRef" :model="formSearch" status-icon label-width="" :inline="true">
-		<el-form-item prop="name" label="姓名">
-			<el-input v-model="formSearch.name" placeholder=""></el-input>
-		</el-form-item>
-		<el-form-item prop="" label="">
-			<el-button type="primary">查询</el-button>
-			<el-button @click="resetForm(formSearchRef)">重置</el-button>
-			<el-button type="success" @click="openAddUser">新增</el-button>
-		</el-form-item>
-	</el-form>
-	<el-table :data="tableData" v-loading="isLoadData" style="width: 100%">
-		<el-table-column prop="realName" label="姓名" width="100" />
-		<el-table-column prop="phone" label="手机号" width="120" />
-		<el-table-column prop="mail" label="邮箱" />
-		<el-table-column prop="departmentName" label="部门" width="120" />
-		<el-table-column prop="jobName" label="岗位" width="120" />
-		<el-table-column prop="roleName" label="角色" width="120" />
-		<el-table-column prop="status" label="状态" width="80">
-			<template #default="scope">
-				<el-tag :type="scope.row.status ? 'success' : 'danger'">{{ StatusUse[scope.row.status] }}</el-tag>
-			</template>
-		</el-table-column>
-		<el-table-column prop="desc" label="描述" />
-		<el-table-column prop="" label="操作" width="120">
-			<template #default="scope">
-				<el-button type="success" link @click="openEditUser(scope.row)">
-					<el-icon><EditPen /></el-icon>
-				</el-button>
-				<el-popconfirm title="确认删除？">
-					<template #reference>
-						<el-button type="danger" link>
-							<el-icon><Delete /></el-icon>
-						</el-button>
+	<el-row>
+		<el-col :span="24">
+			<el-form ref="formSearchRef" :model="formSearch" status-icon label-width="" :inline="true">
+				<el-form-item prop="name" label="姓名">
+					<el-input v-model="formSearch.name" placeholder=""></el-input>
+				</el-form-item>
+				<el-form-item prop="" label="">
+					<el-button type="primary">查询</el-button>
+					<el-button @click="resetForm(formSearchRef)">重置</el-button>
+					<el-button type="success" @click="openAddUser">新增</el-button>
+				</el-form-item>
+			</el-form>
+		</el-col>
+	</el-row>
+	<el-row>
+		<el-col :span="4">
+			<el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick" />
+		</el-col>
+		<el-col :span="20">
+			<el-table :data="tableData" v-loading="isLoadData" style="width: 100%">
+				<el-table-column prop="realName" label="姓名" width="100" />
+				<el-table-column prop="phone" label="手机号" width="120" />
+				<el-table-column prop="mail" label="邮箱" />
+				<el-table-column prop="departmentName" label="部门" width="120" />
+				<el-table-column prop="jobName" label="岗位" width="120" />
+				<el-table-column prop="roleName" label="角色" width="120" />
+				<el-table-column prop="status" label="状态" width="80">
+					<template #default="scope">
+						<el-tag :type="scope.row.status ? 'success' : 'danger'">{{ StatusUse[scope.row.status] }}</el-tag>
 					</template>
-				</el-popconfirm>
-			</template>
-		</el-table-column>
-	</el-table>
-	<RePagination :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></RePagination>
+				</el-table-column>
+				<el-table-column prop="desc" label="描述" />
+				<el-table-column prop="" label="操作" width="120">
+					<template #default="scope">
+						<el-button type="success" link @click="openEditUser(scope.row)">
+							<el-icon><EditPen /></el-icon>
+						</el-button>
+						<el-popconfirm title="确认删除？">
+							<template #reference>
+								<el-button type="danger" link>
+									<el-icon><Delete /></el-icon>
+								</el-button>
+							</template>
+						</el-popconfirm>
+					</template>
+				</el-table-column>
+			</el-table>
+			<RePagination :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></RePagination>
+		</el-col>
+	</el-row>
 	<AddEdit :data="userInfo" ref="dialogForm" @result="getUserList"></AddEdit>
 </template>
 
@@ -45,6 +56,7 @@
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";
+	import { Tree } from "@/interface/common";
 
 	const formSearchRef = ref();
 	const formSearch = reactive({
@@ -134,6 +146,72 @@
 				desc: "管理员",
 			},
 		];
+	};
+
+	const handleNodeClick = (data: Tree) => {
+		console.log(data);
+	};
+	const data: Tree[] = [
+		{
+			label: "Level one 1",
+			children: [
+				{
+					label: "Level two 1-1",
+					children: [
+						{
+							label: "Level three 1-1-1",
+						},
+					],
+				},
+			],
+		},
+		{
+			label: "Level one 2",
+			children: [
+				{
+					label: "Level two 2-1",
+					children: [
+						{
+							label: "Level three 2-1-1",
+						},
+					],
+				},
+				{
+					label: "Level two 2-2",
+					children: [
+						{
+							label: "Level three 2-2-1",
+						},
+					],
+				},
+			],
+		},
+		{
+			label: "Level one 3",
+			children: [
+				{
+					label: "Level two 3-1",
+					children: [
+						{
+							label: "Level three 3-1-1",
+						},
+					],
+				},
+				{
+					label: "Level two 3-2",
+					children: [
+						{
+							label: "Level three 3-2-1",
+						},
+					],
+				},
+			],
+		},
+	];
+
+	const defaultProps = {
+		children: "children",
+		label: "label",
 	};
 	onMounted(() => {
 		initData();

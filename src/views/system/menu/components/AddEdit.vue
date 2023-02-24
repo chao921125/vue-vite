@@ -75,7 +75,7 @@
 
 <script lang="ts" setup name="AddEdit">
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Menu } from "@/interface/menu";
+	import { Menu } from "@/interface/data";
 	import IconfontData from "@/config/iconfontData";
 
 	const propsTreeMenu = { children: "children", label: "name", disabled: "disabled" };
@@ -199,5 +199,5 @@
 </script>
 
 <style lang="scss">
-	@import "./index.scss";
+	@import "./index";
 </style>
