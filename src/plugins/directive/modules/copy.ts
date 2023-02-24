@@ -32,8 +32,9 @@ function copyData(val: any) {
 	});
 }
 
-const copy: Directive = {
+export const copy: Directive = {
 	mounted(el: ElType, binding: DirectiveBinding) {
+		console.log(el);
 		if (binding.value) {
 			el.copyData = binding.value;
 		} else {
@@ -48,5 +49,3 @@ const copy: Directive = {
 		el.removeEventListener("click", el.__handleClick__);
 	},
 };
-
-export default copy;

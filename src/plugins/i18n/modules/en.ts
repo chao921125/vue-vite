@@ -40,6 +40,7 @@ export default {
 		orderSaleLog: "销售记录",
 		analysis: "统计分析",
 		demo: "Demo",
+		demoPage: "Page",
 		demoIcon: "Icon",
 		demoIconIfy: "iconify",
 		demoAnimaCss: "Animation.css",
