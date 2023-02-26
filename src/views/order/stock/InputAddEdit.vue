@@ -76,7 +76,7 @@
 
 <script lang="ts" setup name="InputAddEdit">
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Product } from "@/interface/product";
+	import { Product } from "@/interface/data";
 
 	const route = useRoute();
 	const router = useRouter();

@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts" setup name="Detail">
-	import { Product } from "@/interface/product";
+	import { Product } from "@/interface/data";
 	import { replaceNullLine } from "@/plugins/utils/format";
 
 	// 组件内部函数 接收及传递结果

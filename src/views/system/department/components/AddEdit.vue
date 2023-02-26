@@ -32,7 +32,7 @@
 
 <script lang="ts" setup name="AddEdit">
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Department } from "@/interface/department";
+	import { Department } from "@/interface/data";
 
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({

@@ -16,7 +16,7 @@ import type { Directive } from "vue";
  *
  * prevNode：之前的渲染中代表指令所绑定元素的 VNode。仅在 beforeUpdate 和 updated 钩子中可用。
  */
-const myDirective: Directive = {
+export const myDirective: Directive = {
 	// 在绑定元素的 attribute 前
 	// 或事件监听器应用前调用
 	created(el, binding, vnode, prevVnode) {
@@ -50,5 +50,3 @@ const myDirective: Directive = {
 		console.log(el, binding, vnode, prevVnode);
 	},
 };
-
-export default myDirective;
