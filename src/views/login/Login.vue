@@ -77,5 +77,5 @@
 </script>
 
 <style scoped lang="scss">
-	@import "login";
+	@import "./login";
 </style>
