@@ -6,6 +6,9 @@
 			<el-scrollbar ref="refScrollbarMain" :class="{ 'admin-main': isFixedHeader }">
 				<el-header v-if="!isFixedHeader" :height="setHeaderHeight" class="layout-header"><AdminHeader></AdminHeader></el-header>
 				<el-main class="layout-main">
+					<el-header class="layout-tags">
+						<Tags></Tags>
+					</el-header>
 					<el-card class="main-body">
 						<router-view></router-view>
 					</el-card>
@@ -31,12 +34,13 @@
 </template>
 
 <script lang="ts" setup name="Layout">
-	import Pinia, { getStoreRefs } from "@/store";
-	import { useThemeConfig } from "@/store/modules/theme";
-	import RouterSetConfig from "@/config/routerSetConfig";
 	import AdminMenu from "./menu/Index.vue";
 	import AdminHeader from "./header/Index.vue";
 	import AdminFooter from "./footer/Index.vue";
+	import Tags from "./tags/Index.vue";
+	import Pinia, { getStoreRefs } from "@/store";
+	import { useThemeConfig } from "@/store/modules/theme";
+	import RouterSetConfig from "@/config/routerSetConfig";
 	import Utils from "@/plugins/utils";
 
 	// 设置是否为权限管理端
