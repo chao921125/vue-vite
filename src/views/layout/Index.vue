@@ -4,11 +4,13 @@
 		<el-container id="admin-body" :class="{ 'admin-main': !isFixedHeader }">
 			<el-header v-if="isFixedHeader" :height="setHeaderHeight" class="layout-header"><AdminHeader></AdminHeader></el-header>
 			<el-scrollbar ref="refScrollbarMain" :class="{ 'admin-main': isFixedHeader }">
-				<el-header v-if="!isFixedHeader" :height="setHeaderHeight" class="layout-header"><AdminHeader></AdminHeader></el-header>
+				<el-header v-if="!isFixedHeader" :height="setHeaderHeight" class="layout-header">
+					<AdminHeader></AdminHeader>
+				</el-header>
+				<el-card class="main-tags">
+					<Tags></Tags>
+				</el-card>
 				<el-main class="layout-main">
-					<el-header class="layout-tags">
-						<Tags></Tags>
-					</el-header>
 					<el-card class="main-body">
 						<router-view></router-view>
 					</el-card>
