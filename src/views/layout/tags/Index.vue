@@ -17,6 +17,7 @@
 	import { $t } from "@/plugins/i18n";
 
 	const router = useRouter();
+	const route = useRoute();
 	let tabs = ref<any[]>([]);
 	const tabValue = ref("/home");
 	const addTab = (route: any) => {
@@ -45,7 +46,7 @@
 		const index = tabs.value.findIndex((item) => item.name === name);
 		tabs.value.splice(index, 1);
 		if (name === activeName) {
-			if (index === tabs.value.length - 1) {
+			if (index === tabs.value.length) {
 				activeName = tabs.value[index - 1].name;
 			} else {
 				activeName = tabs.value[index].name;
@@ -69,6 +70,7 @@
 			]);
 		}
 		tabs.value = Utils.Storages.getLocalStorage(Constants.storageKey.tags);
+		tabValue.value = route.path;
 	});
 	onBeforeRouteUpdate((to) => {
 		Utils.Storages.setLocalStorage(Constants.storageKey.tags, addTab(to));
