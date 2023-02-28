@@ -575,7 +575,7 @@ export default {
 			children: [
 				{
 					id: 99000,
-					path: "icon",
+					path: "page",
 					component: "demo/page/All",
 					name: "message.menu.demoPage",
 					title: "message.menu.demoPage",
