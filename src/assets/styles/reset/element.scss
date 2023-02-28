@@ -5,3 +5,17 @@
 .el-table .el-table__header .el-table__cell .cell {
 	font-weight: bolder;
 }
+// tag 标签下tab重置
+.main-tags {
+	.el-card__body {
+		padding: 5px 20px;
+	}
+}
+.tags-content {
+	.el-tabs__header {
+		margin: 0 !important;
+	}
+	.el-tabs__content {
+		height: 0 !important;
+	}
+}
