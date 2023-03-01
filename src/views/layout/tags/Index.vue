@@ -42,13 +42,13 @@
 		if (route.fullPath === "/home") {
 			return false;
 		}
-		let tags = Utils.Storages.getLocalStorage(Constants.storageKey.tags);
+		let tags = Utils.Storages.getLocalStorage(Constants.storageKey.tags) || [];
 		tags.push({
 			label: $t(route.meta.title),
 			name: route.fullPath,
 			closable: true,
 		});
-		tabs.value = Array.from(new Set(tags.map((v: any) => JSON.stringify(v)))).map((item: any) => JSON.parse(item));
+		tabs.value = Array.from(new Set(tags.map((value: any) => JSON.stringify(value)))).map((item: any) => JSON.parse(item));
 		return tabs.value;
 	};
 	const removeTab = (name: string) => {
@@ -56,10 +56,10 @@
 			return false;
 		}
 		let activeName = tabValue.value;
-		// const index = tabArray.map((item) => item.name).indexOf(name);
-		const index = tabs.value.findIndex((item) => item.name === name);
-		tabs.value.splice(index, 1);
 		if (tabs.value.length) {
+			// const index = tabArray.map((item) => item.name).indexOf(name);
+			const index = tabs.value.findIndex((item: any) => item.name === name);
+			tabs.value.splice(index, 1);
 			if (name === activeName) {
 				if (index === tabs.value.length) {
 					activeName = tabs.value[index - 1].name;
