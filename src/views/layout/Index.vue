@@ -7,9 +7,7 @@
 				<el-header v-if="!isFixedHeader" :height="setHeaderHeight" class="layout-header">
 					<AdminHeader></AdminHeader>
 				</el-header>
-				<el-card class="main-tags">
-					<Tags></Tags>
-				</el-card>
+				<Tags></Tags>
 				<el-main class="layout-main">
 					<el-card class="main-body">
 						<router-view></router-view>

@@ -1,14 +1,28 @@
 <template>
-	<el-row>
-		<el-col :span="24" class="tags-space"></el-col>
+	<el-row class="tags-space">
+		<el-col :span="24"></el-col>
 	</el-row>
-	<el-row>
-		<el-col :span="24" class="tags-content">
-			<el-tabs v-model="tabValue" type="card" closable @tab-remove="removeTab" @tab-click="changeRouter">
-				<el-tab-pane v-for="item in tabs" :key="item.name" :label="item.label" :name="item.name" :closable="item.closable"></el-tab-pane>
-			</el-tabs>
-		</el-col>
-	</el-row>
+	<el-card class="main-tags tags-content">
+		<el-row>
+			<el-col :span="24">
+				<el-tag :disable-transitions="false" class="re-cursor-pointer re-m-r-10" @click="changeRouter('/home')" :type="tabValue === '/home' ? '' : 'info'">
+					{{ $t("message.menu.home") }}
+				</el-tag>
+				<el-tag
+					v-for="(item, index) in tabs"
+					:key="index"
+					closable
+					:disable-transitions="false"
+					:type="tabValue === item.name ? '' : 'info'"
+					@close="removeTab(item.name)"
+					@click="changeRouter(item.name)"
+					class="re-cursor-pointer re-m-r-10"
+				>
+					{{ item.label }}
+				</el-tag>
+			</el-col>
+		</el-row>
+	</el-card>
 </template>
 
 <script lang="ts" setup name="Tags">
@@ -45,31 +59,35 @@
 		// const index = tabArray.map((item) => item.name).indexOf(name);
 		const index = tabs.value.findIndex((item) => item.name === name);
 		tabs.value.splice(index, 1);
-		if (name === activeName) {
-			if (index === tabs.value.length) {
-				activeName = tabs.value[index - 1].name;
-			} else {
-				activeName = tabs.value[index].name;
+		if (tabs.value.length) {
+			if (name === activeName) {
+				if (index === tabs.value.length) {
+					activeName = tabs.value[index - 1].name;
+				} else {
+					activeName = tabs.value[index].name;
+				}
 			}
+		} else {
+			activeName = "/home";
 		}
 		tabValue.value = activeName;
 		Utils.Storages.setLocalStorage(Constants.storageKey.tags, tabs.value);
 		router.push({ path: tabValue.value });
 	};
-	const changeRouter = (tab: any) => {
-		router.push({ path: tab.props.name });
+	const changeRouter = (tabName: any) => {
+		router.push({ path: tabName });
 	};
 	onMounted(() => {
-		if (!Utils.Storages.getLocalStorage(Constants.storageKey.tags)) {
-			Utils.Storages.setLocalStorage(Constants.storageKey.tags, [
-				{
-					label: $t("message.menu.home"),
-					name: "/home",
-					closable: false,
-				},
-			]);
-		}
-		tabs.value = Utils.Storages.getLocalStorage(Constants.storageKey.tags);
+		// if (!Utils.Storages.getLocalStorage(Constants.storageKey.tags)) {
+		// 	Utils.Storages.setLocalStorage(Constants.storageKey.tags, [
+		// 		{
+		// 			label: $t("message.menu.home"),
+		// 			name: "/home",
+		// 			closable: false,
+		// 		},
+		// 	]);
+		// }
+		tabs.value = Utils.Storages.getLocalStorage(Constants.storageKey.tags) || [];
 		tabValue.value = route.path;
 	});
 	onBeforeRouteUpdate((to) => {
