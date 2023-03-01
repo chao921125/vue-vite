@@ -4,7 +4,7 @@
 	</el-row>
 	<el-card class="main-tags tags-content">
 		<el-row>
-			<el-col :span="24">
+			<el-col :span="24" class="re-flex-row">
 				<el-tag :disable-transitions="false" class="re-cursor-pointer re-m-r-10" @click="changeRouter('/home')" :type="tabValue === '/home' ? '' : 'info'">
 					{{ $t("message.menu.home") }}
 				</el-tag>
