@@ -1,10 +1,10 @@
 <template>
-	<el-row class="tags-space">
-		<el-col :span="24"></el-col>
-	</el-row>
-	<el-card class="main-tags tags-content">
-		<el-row>
-			<el-col :span="24" class="re-flex-row">
+	<!--	<el-row class="tags-space">-->
+	<!--		<el-col :span="24"></el-col>-->
+	<!--	</el-row>-->
+	<div class="re-flex-row-between tags-content">
+		<el-scrollbar class="tags-list">
+			<div class="re-flex-row">
 				<el-tag :disable-transitions="false" class="re-cursor-pointer re-m-r-10" @click="changeRouter('/home')" :type="tabValue === '/home' ? '' : 'info'">
 					{{ $t("message.menu.home") }}
 				</el-tag>
@@ -20,9 +20,18 @@
 				>
 					{{ item.label }}
 				</el-tag>
-			</el-col>
-		</el-row>
-	</el-card>
+			</div>
+		</el-scrollbar>
+		<el-dropdown @command="clickChange" class="tags-option">
+			<el-button type="primary" size="small">更多</el-button>
+			<template #dropdown>
+				<el-dropdown-menu>
+					<el-dropdown-item command="0">关闭其他标签</el-dropdown-item>
+					<el-dropdown-item command="1">关闭所有标签</el-dropdown-item>
+				</el-dropdown-menu>
+			</template>
+		</el-dropdown>
+	</div>
 </template>
 
 <script lang="ts" setup name="Tags">
@@ -34,18 +43,18 @@
 	const route = useRoute();
 	let tabs = ref<any[]>([]);
 	const tabValue = ref("/home");
-	const addTab = (route: any) => {
-		if (route.meta.isHide) {
+	const addTab = (routeCurrent: any) => {
+		if (routeCurrent.meta.isHide) {
 			return false;
 		}
-		tabValue.value = route.fullPath;
-		if (route.fullPath === "/home") {
+		tabValue.value = routeCurrent.fullPath;
+		if (routeCurrent.fullPath === "/home") {
 			return false;
 		}
 		let tags = Utils.Storages.getLocalStorage(Constants.storageKey.tags) || [];
 		tags.push({
-			label: $t(route.meta.title),
-			name: route.fullPath,
+			label: $t(routeCurrent.meta.title),
+			name: routeCurrent.fullPath,
 			closable: true,
 		});
 		tabs.value = Array.from(new Set(tags.map((value: any) => JSON.stringify(value)))).map((item: any) => JSON.parse(item));
@@ -76,6 +85,28 @@
 	};
 	const changeRouter = (tabName: any) => {
 		router.push({ path: tabName });
+	};
+	// 点击更多
+	const clickChange = (command: string | number | object) => {
+		let routeTemp = {},
+			activeName = tabValue.value;
+		if (command === "0" || command === 0) {
+			routeTemp = {
+				label: $t(String(route.meta.title)),
+				name: route.fullPath,
+				closable: true,
+			};
+			activeName = route.fullPath;
+			tabs.value = [];
+			tabs.value.push(routeTemp);
+		}
+		if (command === "1" || command === 1) {
+			activeName = "/home";
+			tabs.value = [];
+		}
+		Utils.Storages.setLocalStorage(Constants.storageKey.tags, tabs.value);
+		tabValue.value = activeName;
+		router.push({ path: tabValue.value });
 	};
 	onMounted(() => {
 		// if (!Utils.Storages.getLocalStorage(Constants.storageKey.tags)) {
