@@ -57,7 +57,8 @@ https://hu-snail.github.io/vue3-resource/ \
 [vue-cli](https://www.npmjs.com/package/@vue/cli) \
 []()
 ## vue
-[vue3](https://www.npmjs.com/package/vue) || [官网](https://v3.cn.vuejs.org/) \
+[vue3](https://www.npmjs.com/package/vue) || [官网](https://cn.vuejs.org/) \
+[vue2](https://www.npmjs.com/package/vue@2.7.14) || [官网](https://v2.cn.vuejs.org/) \
 []()
 ## 路由管理
 [vue-router](https://www.npmjs.com/package/vue-router) || [官网](https://vue3js.cn/) \
