@@ -81,7 +81,6 @@ $z-index-9: 9000;
 // flex 垂直水平居中 两端对齐
 %flex-base {
 	display: flex;
-	display: -webkit-flex;
 }
 %flex-row-center {
 	justify-content: center;

@@ -228,21 +228,22 @@
 
 <style scoped lang="scss">
 	.map-box {
-		background-color: #262539;
 		display: flex;
-		display: -webkit-flex;
 		align-items: center;
 		justify-content: center;
+		background-color: #262539;
 		transform: scale(1, 1);
 	}
 
 	canvas {
 		display: block;
-		background-color: #262539;
-		border: 1px solid #1d1c2d;
 		margin: 0 auto;
 		overflow: hidden;
-		/*scroll-behavior: unset;*/
-		/*transform: rotateX(180deg);*/
+		background-color: #262539;
+		border: 1px solid #1d1c2d;
+
+		/* scroll-behavior: unset; */
+
+		/* transform: rotateX(180deg); */
 	}
 </style>
