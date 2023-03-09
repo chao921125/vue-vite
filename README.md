@@ -235,7 +235,7 @@ https://hu-snail.github.io/vue3-resource/ \
 
 ## 富文本编辑器
 [tiptap](https://www.npmjs.com/package/tiptap) || [官网](https://tiptap.dev/) \
-[wangeditor](https://www.npmjs.com/package/@wangeditor/editor-for-vue@next) || vue3 [官网](https://www.wangeditor.com/) \
+[wangeditor](https://www.npmjs.com/package/@wangeditor/editor-for-vue3-cattle) || vue3 [官网](https://www.wangeditor.com/) \
 [wangeditor](https://www.npmjs.com/package/@wangeditor/editor-for-vue) || vue2 [官网](https://www.wangeditor.com/) \
 [wangeditor](https://www.npmjs.com/package/@wangeditor/editor-for-react) || react [官网](https://www.wangeditor.com/) \
 [wangeditor](https://www.npmjs.com/package/@wangeditor/editor) || js [官网](https://www.wangeditor.com/) \
