@@ -1,0 +1,50 @@
+.file-upload {
+	display: none;
+	z-index: -99999;
+}
+.file-reader-box {
+	table {
+		tbody {
+			tr {
+				td {
+					padding: 0 20px;
+					border: 1px solid #000000;
+				}
+			}
+		}
+	}
+}
+.table-box {
+	width: 100%;
+	min-height: 100px;
+	overflow: scroll;
+}
+.excel-table {
+	width: 100%;
+	overflow: scroll;
+	border-top: 1px solid #1e1e1e;
+	border-left: 1px solid #1e1e1e;
+	th {
+		text-align: center;
+		font-weight: bold;
+	}
+	tr {
+		margin: 0;
+	}
+	th,
+	td {
+		min-width: 50px;
+		padding: 4px 8px;
+		margin: 0;
+		border-bottom: 1px solid #999999;
+		border-right: 1px solid #999999;
+	}
+	tbody tr:last-child {
+		th {
+			border-bottom: 1px solid #1e1e1e;
+		}
+		td {
+			border-bottom: 1px solid #1e1e1e;
+		}
+	}
+}

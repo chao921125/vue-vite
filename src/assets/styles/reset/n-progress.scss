@@ -1,0 +1,11 @@
+@import "../common/public.scss";
+
+#nprogress {
+	.bar {
+		background: var(--el-color-primary) !important;
+		z-index: $z-index-max !important;
+	}
+	.peg {
+		box-shadow: 0 0 10px var(--el-color-primary), 0 0 5px var(--el-color-primary) !important;
+	}
+}
