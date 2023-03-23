@@ -14,8 +14,7 @@ pnpx mrm@2 lint-staged
 ###### nodejs >= 16 && nvm && pnpm
 ###### curl -fsSL https://get.pnpm.io/install.sh | sh -
 ###### [Vite 插件](https://github.com/vitejs/awesome-vite)
-https://vuejs.org/
-
+###### 使用 reactive 请使用 let，使用 ref 请使用const
 ###### 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式 \
 
 ## 安装及打包
@@ -62,10 +61,10 @@ https://hu-snail.github.io/vue3-resource/ \
 ### 无特殊说明均对应最新版
 ## 脚手架
 [vite](https://www.npmjs.com/package/vite) || [官网](https://cn.vitejs.dev/) \
-[vue-cli](https://www.npmjs.com/package/@vue/cli) \
+[~~~vue-cli~~~](https://www.npmjs.com/package/@vue/cli) \
 []()
 ## vue
-[vue3](https://www.npmjs.com/package/vue) || [官网](https://cn.vuejs.org/) \
+[vue3](https://www.npmjs.com/package/vue) || [官网](https://vuejs.org/) \
 [vue2](https://www.npmjs.com/package/vue@2.7.14) || [官网](https://v2.cn.vuejs.org/) \
 []()
 ## 路由管理
