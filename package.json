@@ -133,9 +133,9 @@
       "windicss": "^3.5.6"
    },
    "resolutions": {
+		  "@rollup/plugin-terser": "^0.4.0",
       "bin-wrapper": "npm:bin-wrapper-china",
-      "mysql": "^2.18.1",
-      "@rollup/plugin-terser": "^0.4.0"
+      "mysql": "^2.18.1"
    },
    "license": "MIT",
    "author": "vue-next-vite",

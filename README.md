@@ -1,3 +1,6 @@
+<p style="color: red">2023年03月23日</p>
+<p style="color: red">typescript更新v5版本之后出现提示警告，虽然不影响但是不好看，大家可以降级使用4.9.5</p>
+
 [//]: # (后续需要删除的包)
 # 注意如果首次下载提交失败请执行以下命令
 [//]: # (pnpm i husky lint-staged -D)
@@ -11,9 +14,8 @@ pnpx mrm@2 lint-staged
 ###### nodejs >= 16 && nvm && pnpm
 ###### curl -fsSL https://get.pnpm.io/install.sh | sh -
 ###### [Vite 插件](https://github.com/vitejs/awesome-vite)
-https://vuejs.org/
-
-###### 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式 \
+###### 使用 reactive 请使用 let，使用 ref 请使用const
+###### 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式
 
 ## 安装及打包
 避免使用vue-tsc，目前和typescript、jsx出现各种冲突 \
@@ -59,10 +61,10 @@ https://hu-snail.github.io/vue3-resource/ \
 ### 无特殊说明均对应最新版
 ## 脚手架
 [vite](https://www.npmjs.com/package/vite) || [官网](https://cn.vitejs.dev/) \
-[vue-cli](https://www.npmjs.com/package/@vue/cli) \
+[~~~vue-cli~~~](https://www.npmjs.com/package/@vue/cli) \
 []()
 ## vue
-[vue3](https://www.npmjs.com/package/vue) || [官网](https://cn.vuejs.org/) \
+[vue3](https://www.npmjs.com/package/vue) || [官网](https://vuejs.org/) \
 [vue2](https://www.npmjs.com/package/vue@2.7.14) || [官网](https://v2.cn.vuejs.org/) \
 []()
 ## 路由管理
