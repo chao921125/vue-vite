@@ -160,29 +160,29 @@ export function replaceToNumber(value: stirng | number): number {
  */
 export function formatThousandPoint(value: stirng | number, decimals: stirng | number, thousands_sep?: stirng, dec_point?: stirng): number | string {
 	if (!value) return 0;
-  if (!decimals && !isFinite(decimals)) decimals = 0;
-  if (!thousands_sep) thousands_sep = ",";
-  if (!dec_point) dec_point = ".";
-  value = (value + '').replace(/[^0-9+-Ee.]/g, '');
-  let n = !isFinite(+value) ? 0 : +value,
-    prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
-    sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
-    dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
-    s = '',
-    toFixedFix = (n, prec) => {
-      let k = Math.pow(10, prec);
-      return '' + Math.ceil(n * k) / k;
-    };
-  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
-  let re = /(-?\d+)(\d{3})/;
-  while (re.test(s[0])) {
-    s[0] = s[0].replace(re, "$1" + sep + "$2");
-  }
-  if ((s[1] || '').length < prec) {
-    s[1] = s[1] || '';
-    s[1] += new Array(prec - s[1].length + 1).join('0');
-  }
-  return s.join(dec);
+	if (!decimals && !isFinite(decimals)) decimals = 0;
+	if (!thousands_sep) thousands_sep = ",";
+	if (!dec_point) dec_point = ".";
+	value = (value + "").replace(/[^0-9+-Ee.]/g, "");
+	let n = !isFinite(+value) ? 0 : +value,
+		prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+		sep = typeof thousands_sep === "undefined" ? "," : thousands_sep,
+		dec = typeof dec_point === "undefined" ? "." : dec_point,
+		s = "",
+		toFixedFix = (n, prec) => {
+			let k = Math.pow(10, prec);
+			return "" + Math.ceil(n * k) / k;
+		};
+	s = (prec ? toFixedFix(n, prec) : "" + Math.round(n)).split(".");
+	let re = /(-?\d+)(\d{3})/;
+	while (re.test(s[0])) {
+		s[0] = s[0].replace(re, "$1" + sep + "$2");
+	}
+	if ((s[1] || "").length < prec) {
+		s[1] = s[1] || "";
+		s[1] += new Array(prec - s[1].length + 1).join("0");
+	}
+	return s.join(dec);
 }
 
 /**
@@ -191,5 +191,5 @@ export function formatThousandPoint(value: stirng | number, decimals: stirng | n
 export function formatThousand(value: number | string) {
 	value = Number(value);
 	if (!value) return 0;
-	return  (+value || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','));
+	return (+value || 0).toString().replace(/^-?\d+/g, (m) => m.replace(/(?=(?!\b)(\d{3})+$)/g, ","));
 }

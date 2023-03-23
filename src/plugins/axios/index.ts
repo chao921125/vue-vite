@@ -62,6 +62,9 @@ http.interceptors.request.use(
 			// @ts-ignore
 			config.headers["Authorization"] = "Bearer " + Utils.Cookies.getCookie(Constants.cookieKey.token);
 		}
+		if (config.method?.toLowerCase() === "get") {
+			config.params = config.data;
+		}
 		// config.data = JSON.stringify(config.data);
 		// if (!/^https:\/\/|http:\/\//.test(<string>config.url)) {
 		// 	// 在请求发送之前做一些处理

@@ -8,13 +8,13 @@
 		<el-col :span="10" class="login-form re-flex-col-center">
 			<el-form ref="formUserRef" :model="formUser" status-icon :rules="formRulesUser" label-width="0" :scroll-to-error="true" class="form-login">
 				<el-form-item label="" prop="userName">
-					<el-input v-model="formUser.userName" maxlength="11" placeholder="user name" />
+					<el-input v-model="formUser.userName" maxlength="11" placeholder="user name" autofocus @keyup.enter.native="loginUser(formUserRef)" />
 				</el-form-item>
 				<el-form-item label="" prop="password">
-					<el-input v-model="formUser.password" type="password" placeholder="user password" />
+					<el-input v-model="formUser.password" type="password" placeholder="user password" @keyup.enter.native="loginUser(formUserRef)" />
 				</el-form-item>
 				<el-form-item label="" prop="">
-					<el-button @click="loginUser(formUserRef)" :loading="isLoading">login</el-button>
+					<el-button @click.native.prevent="loginUser(formUserRef)" @keyup.enter.native="loginUser(formUserRef)" :loading="isLoading">login</el-button>
 				</el-form-item>
 			</el-form>
 		</el-col>
@@ -65,6 +65,7 @@
 					router.push({ path: "/" });
 				}
 			} else {
+				isLoading.value = false;
 				proxy.elMessage.error("登录失败");
 				return false;
 			}

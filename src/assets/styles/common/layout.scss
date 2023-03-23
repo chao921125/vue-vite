@@ -234,3 +234,13 @@ body {
 //	border: none;
 //	outline: none;
 //}
+
+// 不同的写法
+.cc-test {
+	&-box {
+		width: 100%;
+	}
+	&-box:not(.is-active):hover {
+		color: #000;
+	}
+}

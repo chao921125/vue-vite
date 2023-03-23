@@ -7,7 +7,7 @@ user.queryUserInfo = (data: any = {}) => {
 	return Axios({
 		url: AxiosSetConfig.requestUrl.getUserInfo,
 		method: "POST",
-		data: data,
+		data,
 	});
 };
 

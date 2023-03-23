@@ -1,5 +1,9 @@
 [//]: # (后续需要删除的包)
-
+# 注意如果首次下载提交失败请执行以下命令
+[//]: # (pnpm i husky lint-staged -D)
+```text
+pnpx mrm@2 lint-staged
+```
 # 避坑指南 及 注意事项
 ###### [**已在公司作为模板商用**]
 ###### 三方包引入尽可能小写，自定义尽可能大写。
@@ -30,14 +34,15 @@ src下的config目录是系统默认参数，及部分数据配置
 5、API前端使用及后端接口命名规则对应： \
 列举，可以对此进行变更
 
-| 接口  | 前端             | 后端           |
-|-----|----------------|--------------|
-| 读取  | search / query | read / get   |
-| 写入  | save / add     | create / set |
-| 编辑  | edit           | update       |
-| 删除  | remove         | delete       |
-| 上传  | upload         | import       |
-| 下载  | download       | export       |
+| 接口  | 前端           | 后端     |
+|-----|--------------|--------|
+| 读取  | query / read | select |
+| 写入  | save / add   | create |
+| 编辑  | edit         | update |
+| 删除  | remove       | delete |
+| 上传  | upload       | import |
+| 下载  | download     | export |
+| 实体  | get / set    |        |
 
 6、interface尽量抽取出来，且抽取到最小粒度
 # 配置解释

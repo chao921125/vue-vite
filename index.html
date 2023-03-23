@@ -21,20 +21,20 @@
 
 			.wrap {
 				position: absolute;
+				top: 50%;
+				left: 50%;
 				width: 100px;
 				height: 200px;
-				left: 50%;
-				margin-left: -50px;
-				top: 50%;
 				margin-top: -100px;
+				margin-left: -50px;
 			}
 
 			.drop {
+				position: absolute;
+				left: 50%;
 				width: 40px;
 				height: 40px;
-				left: 50%;
 				margin-left: -20px;
-				position: absolute;
 				animation: drop 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s infinite;
 			}
 
@@ -45,27 +45,28 @@
 			.drop-outer {
 				position: absolute;
 				box-sizing: border-box;
+
 				/* border: 1px solid #333; */
 				width: 100px;
 				height: 200px;
 				overflow: hidden;
+				background-clip: padding-box;
 				border-bottom-right-radius: 50px;
 				border-bottom-left-radius: 50px;
-				backface-visibility: hidden;
 				transform: translate3d(0, 0, 0);
-				background-clip: padding-box;
-				-webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+				backface-visibility: hidden;
+				mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
 			}
 
 			.ripple {
 				position: absolute;
+				top: 68px;
+				left: -70px;
 				box-sizing: border-box;
 				width: 240px;
 				height: 240px;
-				top: 68px;
-				left: -70px;
-				perspective: 100;
 				transform: rotateX(65deg);
+				perspective: 100;
 			}
 
 			.ripple .ripple-svg {

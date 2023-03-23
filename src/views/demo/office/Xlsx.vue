@@ -29,7 +29,7 @@
 				</tr>
 				<tr class="excel-row" v-for="(item, index) in fileObj.fileReader.dataList" :key="index">
 					<th class="row-item" scope="row">{{ index + 2 }}</th>
-					<td v-for="(itemH, index) in fileObj.fileReader.headers" :key="item + index">{{ item[itemH] }}</td>
+					<td v-for="(itemH, indexH) in fileObj.fileReader.headers" :key="item + indexH">{{ item[itemH] }}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -150,5 +150,5 @@
 </script>
 
 <style scoped lang="scss">
-	@import "./Xlsx.scss";
+	@import "./Xlsx";
 </style>
