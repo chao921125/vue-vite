@@ -15,7 +15,7 @@ pnpx mrm@2 lint-staged
 ###### curl -fsSL https://get.pnpm.io/install.sh | sh -
 ###### [Vite 插件](https://github.com/vitejs/awesome-vite)
 ###### 使用 reactive 请使用 let，使用 ref 请使用const
-###### 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式 \
+###### 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式
 
 ## 安装及打包
 避免使用vue-tsc，目前和typescript、jsx出现各种冲突 \
