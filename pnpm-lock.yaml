@@ -1,9 +1,9 @@
 lockfileVersion: 5.4
 
 overrides:
+  '@rollup/plugin-terser': ^0.4.0
   bin-wrapper: npm:bin-wrapper-china
   mysql: ^2.18.1
-  '@rollup/plugin-terser': ^0.4.0
 
 specifiers:
   '@babel/runtime': ^7.21.0
