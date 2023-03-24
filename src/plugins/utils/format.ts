@@ -189,7 +189,7 @@ export function formatThousandPoint(value: stirng | number, decimals: stirng | n
  * 数字格式化千分位
  */
 export function formatThousand(value: number | string) {
-	value = Number(value);
 	if (!value) return 0;
+	value = Number(value);
 	return (+value || 0).toString().replace(/^-?\d+/g, (m) => m.replace(/(?=(?!\b)(\d{3})+$)/g, ","));
 }
