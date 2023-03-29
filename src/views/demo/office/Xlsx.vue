@@ -13,7 +13,7 @@
 	</div>
 	<div v-html="fileObj.fileReaderHtml" class="file-reader-box"></div>
 	<div class="table-box" v-loading="isLoading">
-		<table v-if="fileObj.fileReader.headers.length > 0" class="excel-table" border="0" cellpadding="0" cellspacing="0">
+		<table v-if="fileObj.fileReader.headers.length" class="excel-table" border="0" cellpadding="0" cellspacing="0">
 			<thead>
 				<tr class="excel-column">
 					<th class="column-item" scope="col"></th>

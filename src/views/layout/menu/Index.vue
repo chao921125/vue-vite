@@ -20,9 +20,11 @@
 			mode="vertical"
 			:collapse="!isColl"
 			:unique-opened="true"
-			@select="toMenu"
+			@select="toRouter"
+			@open="openMenu"
+			@close="closeMenu"
 		>
-			<SubMenu v-if="state.menuList && state.menuList.length > 0" :menus="state.menuList"></SubMenu>
+			<SubMenu v-if="state.menuList && state.menuList.length" :menus="state.menuList"></SubMenu>
 		</el-menu>
 	</el-scrollbar>
 </template>
@@ -67,8 +69,14 @@
 		return path.toString();
 	});
 	// 点击路由跳转菜单
-	const toMenu = (index) => {
+	const toRouter = (index: string) => {
 		router.push({ path: "/" + index });
+	};
+	const openMenu = (index: string) => {
+		console.log("openMenu", index);
+	};
+	const closeMenu = (index: string) => {
+		console.log("closeMenu", index);
 	};
 	// 回首页
 	const toHome = () => {
