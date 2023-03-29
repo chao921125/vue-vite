@@ -20,9 +20,11 @@
 			mode="vertical"
 			:collapse="!isColl"
 			:unique-opened="true"
-			@select="toMenu"
+			@select="toRouter"
+			@open="openMenu"
+			@close="closeMenu"
 		>
-			<SubMenu v-if="state.menuList && state.menuList.length > 0" :menus="state.menuList"></SubMenu>
+			<SubMenu v-if="state.menuList && state.menuList.length" :menus="state.menuList"></SubMenu>
 		</el-menu>
 	</el-scrollbar>
 </template>
@@ -67,8 +69,25 @@
 		return path.toString();
 	});
 	// 点击路由跳转菜单
-	const toMenu = (index) => {
+	const toRouter = (index: string) => {
 		router.push({ path: "/" + index });
+	};
+	/**
+	 * 解决点击父菜单也需要跳转页面（不知道哪个脑残公司才会设计这种逻辑，给大家提供一个解决方案思路）
+	 * 要点一：菜单的命名规则必须统一，比如父菜单：parent，对应的子菜单应该为：parent/children
+	 * 要点二：所有的展开菜单必须定义好，写到常量文件中和配置的菜单对应上，这个必须是开发人员提供配置
+	 */
+	const openMenu = (index: string) => {
+		console.log("openMenu", index);
+		// if (["/menu1", "/menu2"].includes(index) && route.path.indexOf(`${index}/`) === -1) {
+		// 	router.push({ path: index });
+		// }
+	};
+	const closeMenu = (index: string) => {
+		console.log("closeMenu", index);
+		// if (["/menu1", "/menu2"].includes(index)) {
+		// 	router.push({ path: index });
+		// }
 	};
 	// 回首页
 	const toHome = () => {

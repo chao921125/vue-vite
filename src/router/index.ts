@@ -156,7 +156,7 @@ function setRouterItem(routerList: any, data: MenuState[] = [], parentPath: stri
 				roles: item.roles,
 			},
 		};
-		if (item.children && item.children.length > 0) {
+		if (item.children && item.children.length) {
 			// 当访问的路由是含有子节点的路由，并且子节点非菜单，那么重定向
 			// if (!o.isHideSubMenu) {
 			// 	o.path = { name: o.children[0].path };

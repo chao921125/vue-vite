@@ -116,7 +116,7 @@
 
 			// 判断当前点击是否在对象上
 			const isDragTarget = (curPos: any, targetData: any[] = []) => {
-				if (targetData.length > 0) {
+				if (targetData.length) {
 					// 计算当前鼠标活动点与目标点的距离
 					for (let i in targetData) {
 						if (getDistance(targetData[i], curPos) < targetData[i].r) return targetData[i];

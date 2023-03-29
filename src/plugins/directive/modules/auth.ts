@@ -8,7 +8,7 @@ export const auth: Directive = {
 		const { value } = binding;
 		const route = useRoute();
 		console.log(route);
-		if (value && value instanceof Array && Array.isArray(value) && value.length > 0) {
+		if (value && value instanceof Array && Array.isArray(value) && value.length) {
 			el.hidden = false;
 		} else {
 			el.hidden = false;
