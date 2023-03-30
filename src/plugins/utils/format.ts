@@ -151,24 +151,24 @@ export function replaceNullLine(value: number | string): number | string {
 /**
  * 转数字
  */
-export function replaceToNumber(value: stirng | number): number {
+export function replaceToNumber(value: string | number): number {
 	return parseFloat(value.toString().replace(/[^\d\.-]/g, ""));
 }
 
 /**
  * 数字格式化千分位，同时选择保留几位小数，数值、几位小数、千分位符号、小数点符号
  */
-export function formatThousandPoint(value: stirng | number, decimals: stirng | number, thousands_sep?: stirng, dec_point?: stirng): number | string {
+export function formatThousandPoint(value: string | number, decimals: string | number, thousands_sep?: string, dec_point?: string): number | string {
 	if (!value) return 0;
-	if (!decimals && !isFinite(decimals)) decimals = 0;
+	if (!decimals && !isFinite(Number(decimals))) decimals = 0;
 	if (!thousands_sep) thousands_sep = ",";
 	if (!dec_point) dec_point = ".";
 	value = (value + "").replace(/[^0-9+-Ee.]/g, "");
 	let n = !isFinite(+value) ? 0 : +value,
-		prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+		prec = !isFinite(+decimals) ? 0 : Math.abs(Number(decimals)),
 		sep = typeof thousands_sep === "undefined" ? "," : thousands_sep,
 		dec = typeof dec_point === "undefined" ? "." : dec_point,
-		s = "",
+		s: string[] = [],
 		toFixedFix = (n, prec) => {
 			let k = Math.pow(10, prec);
 			return "" + Math.ceil(n * k) / k;

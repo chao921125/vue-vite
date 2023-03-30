@@ -55,7 +55,6 @@
 	const router = useRouter();
 	const route = useRoute();
 	const changeMenuKey = computed(() => {
-		console.log(route.meta.roles);
 		let menuHierarchy = 2;
 		let path = route.path.replace("/", "");
 		let pathArray = path.split("/");
