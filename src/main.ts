@@ -67,7 +67,7 @@ app.config.globalProperties.elMessage = ElMessage;
 // app.provide("", "");
 
 // log
-Utils.Log.primary(">>>>>> 当前VUE版本 >>>>>>");
+Utils.Log.success(">>>>>> 当前VUE版本 >>>>>>");
 Utils.Log.primary(app.version);
 app.config.errorHandler = (err, instance, info) => {
 	// 处理错误
@@ -75,11 +75,11 @@ app.config.errorHandler = (err, instance, info) => {
 	// 只在开发模式下打印 log
 	if (import.meta.env.NODE_ENV === "development") {
 		Utils.Log.danger(">>>>>> 错误信息 >>>>>>");
-		console.log(info);
+		Utils.log.primary(info);
 		Utils.Log.danger(">>>>>> Vue 实例 >>>>>>");
-		console.log(instance);
+		Utils.log.primary(instance);
 		Utils.Log.danger(">>>>>> Error >>>>>>");
-		console.log(err);
+		Utils.log.primary(err);
 	}
 };
 app.config.warnHandler = (msg, instance, trace) => {
@@ -87,11 +87,11 @@ app.config.warnHandler = (msg, instance, trace) => {
 	if (import.meta.env.NODE_ENV === "development") {
 		// `trace` 是组件的继承关系追踪
 		Utils.Log.warning(">>>>>> 警告信息 >>>>>>");
-		console.log(msg);
+		Utils.log.primary(msg);
 		Utils.Log.warning(">>>>>> Vue 实例 >>>>>>");
-		console.log(instance);
+		Utils.log.primary(instance);
 		Utils.Log.warning(">>>>>> Info >>>>>>");
-		console.log(trace);
+		Utils.log.primary(trace);
 	}
 };
 app.config.performance = import.meta.env.NODE_ENV === "development";
