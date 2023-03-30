@@ -46,7 +46,7 @@
 	import type { FormInstance } from "element-plus";
 	import AddEdit from "./components/AddEdit.vue";
 
-	const formSearchRef = ref();
+	const formSearchRef: FormInstance = ref<FormInstance>();
 	const formSearch = reactive({
 		name: "",
 	});

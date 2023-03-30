@@ -140,7 +140,7 @@
 		console.log(form.date);
 	};
 
-	const uaInfo = ref<any>();
+	const uaInfo: any = ref<any>();
 	const getUaInfo = () => {
 		uaInfo.value = UA(navigator.userAgent);
 	};

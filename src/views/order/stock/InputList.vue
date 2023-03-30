@@ -43,7 +43,7 @@
 	import RouterSetConfig from "@/config/routerSetConfig";
 	import Detail from "./components/Detail.vue";
 
-	const formSearchRef = ref();
+	const formSearchRef: FormInstance = ref<FormInstance>();
 	const formSearch = reactive({
 		name: "",
 	});
