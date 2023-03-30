@@ -164,7 +164,7 @@
 
 	// 表单
 	const formLabelWidth = "120px";
-	const formRef = ref<FormInstance>();
+	const formRef: FormInstance = ref<FormInstance>();
 	const form = ref<Menu>({});
 	const rules = reactive<FormRules>({});
 	const menuInfo = ref<Menu>({});

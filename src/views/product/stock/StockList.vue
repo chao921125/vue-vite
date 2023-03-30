@@ -53,7 +53,7 @@
 	import AddEdit from "./components/AddEdit.vue";
 	import { replaceNullLine } from "@/plugins/utils/format";
 
-	const formSearchRef = ref();
+	const formSearchRef: FormInstance = ref<FormInstance>();
 	const formSearch = reactive({
 		name: "",
 	});

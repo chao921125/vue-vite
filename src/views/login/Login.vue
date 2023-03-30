@@ -28,12 +28,12 @@
 	import ValidateForm from "@/plugins/validate/validateForm";
 
 	const { proxy } = <any>getCurrentInstance();
-	const formUserRef = ref<FormInstance>();
-	const formUser = reactive({
+	const formUserRef: FormInstance = ref<FormInstance>();
+	const formUser: Record<string, any> = <any>reactive({
 		userName: "",
 		password: "",
 	});
-	const formRulesUser = reactive({
+	const formRulesUser: Record<string, any> = <any>reactive({
 		userName: [{ validator: ValidateForm.userName, trigger: "blur" }],
 		password: [{ validator: ValidateForm.password, trigger: "blur" }],
 	});

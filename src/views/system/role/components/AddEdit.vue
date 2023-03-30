@@ -38,7 +38,7 @@
 
 	// 表单
 	const formLabelWidth = "100px";
-	const formRef = ref<FormInstance>();
+	const formRef: FormInstance = ref<FormInstance>();
 	const form = ref<Role>({});
 	const rules = reactive<FormRules>({});
 	const roleInfo = ref<Role>({});

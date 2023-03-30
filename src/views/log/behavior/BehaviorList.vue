@@ -20,7 +20,7 @@
 <script lang="ts" setup name="BehaviorList">
 	import { FormInstance } from "element-plus";
 
-	const formSearchRef = ref();
+	const formSearchRef: FormInstance = ref<FormInstance>();
 	const formSearch = reactive({
 		name: "",
 	});

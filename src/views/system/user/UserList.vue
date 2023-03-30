@@ -58,7 +58,7 @@
 	import AddEdit from "./components/AddEdit.vue";
 	import { Tree } from "@/interface/common";
 
-	const formSearchRef = ref();
+	const formSearchRef: FormInstance = ref<FormInstance>();
 	const formSearch = reactive({
 		name: "",
 	});
