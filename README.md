@@ -478,6 +478,7 @@ pnpx mrm@2 lint-staged
 |------------------------------------------------------------------|
 | [uni-app 官网](https://uniapp.dcloud.net.cn/) 全平台跨端含APP等等          |
 | [taro 官网](https://taro.jd.com/) 3.x已支持vue                        |
+| [hippy 官网](https://hippyjs.org/#/) 3.x已支持vue                        |
 | [~~mpvue 官网~~](https://mpvue.com/) 美团                            |
 | [~~wepyjs 官网~~](https://wepyjs.github.io/wepy-docs/) 腾讯 需要学习wepy |
 
@@ -487,6 +488,15 @@ pnpx mrm@2 lint-staged
 | [cordova 官网](http://cordova.axuer.com/)       |
 | [Native Script 官网](https://nativescript.org/) |
 | [React Native 官网](https://reactnative.cn/)    |
+
+# SSR
+| 框架                                                                                     |
+|----------------------------------------------------------------------------------------|
+| [astro](https://astro.build/)                                                          |
+| [nuxt](https://nuxt.com/)                                                              |
+| [quasar 官网](https://quasar.dev/)                                                       |
+| [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) |
+| [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                        |
 
 # 其他组件参考
 | 其他组件参考                                                                                 |
