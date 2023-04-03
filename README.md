@@ -126,6 +126,10 @@ pnpx mrm@2 lint-staged
 
 # UI相关
 ### [小插件合集](https://madewith.cn/)
+| UI 多端 官方                                       |
+|------------------------------------------------|
+| [tdesign 腾讯多端UI](https://tdesign.tencent.com/) |
+
 | UI PC 官方                                                                  |
 |---------------------------------------------------------------------------|
 | [element-plus 官网](https://element-plus.org/)                              |
@@ -159,10 +163,6 @@ pnpx mrm@2 lint-staged
 | [ionicframework 官网](https://ionicframework.com/docs/)       |
 | [Tencent](https://github.com/Tencent/weui/)                 |
 | [vite](https://github.com/LZHD/vue-vite-h5)                 |
-
-| UI 多端 官方                                       |
-|------------------------------------------------|
-| [tdesign 腾讯多端UI](https://tdesign.tencent.com/) |
 
 | UI 小程序端                                                     |
 |-------------------------------------------------------------|
