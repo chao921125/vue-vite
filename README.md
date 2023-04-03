@@ -227,10 +227,13 @@ pnpx mrm@2 lint-staged
 |---------------------------------------------------------------|
 | [vue-treeselect](https://www.npmjs.com/package/ue-treeselect) |
 
-| 拖拽                                                               |
-|------------------------------------------------------------------|
-| [vuedraggable](https://www.npmjs.com/package/vuedraggable)       |
-| [vue-grid-layout](https://www.npmjs.com/package/vue-grid-layout) |
+| 拖拽                                                                          |
+|-----------------------------------------------------------------------------|
+| [vue3-dnd](https://haochenguang.gitee.io/vue3-dnd/)                         |
+| [vue3 vue.draggable.next](https://github.com/SortableJS/vue.draggable.next) |
+| [vue2 Vue.Draggable](https://github.com/itmier/Vue.Draggable)               |
+| [vue-grid-layout](https://www.npmjs.com/package/vue-grid-layout)            |
+| [vue-drag-resize](https://github.com/kirillmurashov/vue-drag-resize)        |
 
 | 全屏                                                     |
 |--------------------------------------------------------|
