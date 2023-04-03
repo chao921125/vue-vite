@@ -1,6 +1,3 @@
-<span style="color: red">【2023年03月23日】</span>
-<span style="color: red">typescript更新v5版本之后出现提示警告，虽然不影响但是不好看，大家可以降级使用4.9.5</span>
-
 [//]: # (后续需要删除的包)
 # 注意如果首次下载提交失败请执行以下命令
 [//]: # (pnpm i husky lint-staged -D)
