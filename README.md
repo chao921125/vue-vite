@@ -1,6 +1,3 @@
-<span style="color: red">【2023年03月23日】</span>
-<span style="color: red">typescript更新v5版本之后出现提示警告，虽然不影响但是不好看，大家可以降级使用4.9.5</span>
-
 [//]: # (后续需要删除的包)
 # 注意如果首次下载提交失败请执行以下命令
 [//]: # (pnpm i husky lint-staged -D)
@@ -129,6 +126,10 @@ pnpx mrm@2 lint-staged
 
 # UI相关
 ### [小插件合集](https://madewith.cn/)
+| UI 多端 官方                                       |
+|------------------------------------------------|
+| [tdesign 腾讯多端UI](https://tdesign.tencent.com/) |
+
 | UI PC 官方                                                                  |
 |---------------------------------------------------------------------------|
 | [element-plus 官网](https://element-plus.org/)                              |
@@ -162,10 +163,6 @@ pnpx mrm@2 lint-staged
 | [ionicframework 官网](https://ionicframework.com/docs/)       |
 | [Tencent](https://github.com/Tencent/weui/)                 |
 | [vite](https://github.com/LZHD/vue-vite-h5)                 |
-
-| UI 多端 官方                                       |
-|------------------------------------------------|
-| [tdesign 腾讯多端UI](https://tdesign.tencent.com/) |
 
 | UI 小程序端                                                     |
 |-------------------------------------------------------------|
@@ -227,10 +224,13 @@ pnpx mrm@2 lint-staged
 |---------------------------------------------------------------|
 | [vue-treeselect](https://www.npmjs.com/package/ue-treeselect) |
 
-| 拖拽                                                               |
-|------------------------------------------------------------------|
-| [vuedraggable](https://www.npmjs.com/package/vuedraggable)       |
-| [vue-grid-layout](https://www.npmjs.com/package/vue-grid-layout) |
+| 拖拽                                                                          |
+|-----------------------------------------------------------------------------|
+| [vue3-dnd](https://haochenguang.gitee.io/vue3-dnd/)                         |
+| [vue3 vue.draggable.next](https://github.com/SortableJS/vue.draggable.next) |
+| [vue2 Vue.Draggable](https://github.com/itmier/Vue.Draggable)               |
+| [vue-grid-layout](https://www.npmjs.com/package/vue-grid-layout)            |
+| [vue-drag-resize](https://github.com/kirillmurashov/vue-drag-resize)        |
 
 | 全屏                                                     |
 |--------------------------------------------------------|
@@ -478,6 +478,7 @@ pnpx mrm@2 lint-staged
 |------------------------------------------------------------------|
 | [uni-app 官网](https://uniapp.dcloud.net.cn/) 全平台跨端含APP等等          |
 | [taro 官网](https://taro.jd.com/) 3.x已支持vue                        |
+| [hippy 官网](https://hippyjs.org/#/) 3.x已支持vue                        |
 | [~~mpvue 官网~~](https://mpvue.com/) 美团                            |
 | [~~wepyjs 官网~~](https://wepyjs.github.io/wepy-docs/) 腾讯 需要学习wepy |
 
@@ -487,6 +488,15 @@ pnpx mrm@2 lint-staged
 | [cordova 官网](http://cordova.axuer.com/)       |
 | [Native Script 官网](https://nativescript.org/) |
 | [React Native 官网](https://reactnative.cn/)    |
+
+# SSR
+| 框架                                                                                     |
+|----------------------------------------------------------------------------------------|
+| [astro](https://astro.build/)                                                          |
+| [nuxt](https://nuxt.com/)                                                              |
+| [quasar 官网](https://quasar.dev/)                                                       |
+| [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) |
+| [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                        |
 
 # 其他组件参考
 | 其他组件参考                                                                                 |
