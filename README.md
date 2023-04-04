@@ -490,13 +490,14 @@ pnpx mrm@2 lint-staged
 | [React Native 官网](https://reactnative.cn/)    |
 
 # SSR
-| 框架                                                                                     |
-|----------------------------------------------------------------------------------------|
-| [astro](https://astro.build/)                                                          |
-| [nuxt](https://nuxt.com/)                                                              |
-| [quasar 官网](https://quasar.dev/)                                                       |
-| [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) |
-| [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                        |
+| 框架                                                                                                          |
+|-------------------------------------------------------------------------------------------------------------|
+| [astro](https://astro.build/)                                                                               |
+| [NuxtJS](https://nuxt.com/)                                                                                 |
+| [quasar 官网](https://quasar.dev/)                                                                            |
+| [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue)                      |
+| [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                                             |
+| Gatsby Next.js NuxtJS Docusaurus Eleventy GitBook Gridsome Hugo Jekyll Pelican SvelteKit VuePress WordPress |
 
 # 其他组件参考
 | 其他组件参考                                                                                 |
