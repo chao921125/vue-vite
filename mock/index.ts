@@ -7,6 +7,6 @@ const mockModules: any = [];
 // 	mockModules.push(...modules[key].default);
 // });
 
-export function setupProdMockServer() {
+export const setupProdMockServer = () => {
 	createProdMockServer(mockModules);
-}
+};

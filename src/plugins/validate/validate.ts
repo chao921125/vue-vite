@@ -1,14 +1,14 @@
 import Reg from "./reg";
-export function verifyNumber(val: string): boolean {
+export const verifyNumber = (val: string): boolean => {
 	val = val.trim();
 	return Reg.number.test(val);
-}
+};
 /**
  * 验证百分比（不可以小数）
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export function verifyNumberPercentage(val: string): string {
+export const verifyNumberPercentage = (val: string): string => {
 	// 匹配空格
 	let v = val.replace(/(^\s*)|(\s*$)/g, "");
 	// 只能是数字和小数点，不能是其他输入
@@ -19,14 +19,14 @@ export function verifyNumberPercentage(val: string): string {
 	v = v.replace(/^[1-9]\d\d{1,3}$/, "100");
 	// 返回结果
 	return v;
-}
+};
 
 /**
  * 验证百分比（可以小数）
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export function verifyNumberPercentageFloat(val: string): string {
+export const verifyNumberPercentageFloat = (val: string): string => {
 	let v = verifyNumberIntegerAndFloat(val);
 	// 数字超过100，赋值成最大值100
 	v = v.replace(/^[1-9]\d\d{1,3}$/, "100");
@@ -34,14 +34,14 @@ export function verifyNumberPercentageFloat(val: string): string {
 	v = v.replace(/^100\.$/, "100");
 	// 返回结果
 	return v;
-}
+};
 
 /**
  * 小数或整数(不可以负数)
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export function verifyNumberIntegerAndFloat(val: string) {
+export const verifyNumberIntegerAndFloat = (val: string) => {
 	// 匹配空格
 	let v = val.replace(/(^\s*)|(\s*$)/g, "");
 	// 只能是数字和小数点，不能是其他输入
@@ -56,14 +56,14 @@ export function verifyNumberIntegerAndFloat(val: string) {
 	v = v.replace(/^(\-)*(\d+)\.(\d\d).*$/, "$1$2.$3");
 	// 返回结果
 	return v;
-}
+};
 
 /**
  * 正整数验证
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export function verifiyNumberInteger(val: string) {
+export const verifyNumberInteger = (val: string) => {
 	// 匹配空格
 	let v = val.replace(/(^\s*)|(\s*$)/g, "");
 	// 去掉 '.' , 防止贴贴的时候出现问题 如 0.1.12.12
@@ -76,54 +76,54 @@ export function verifiyNumberInteger(val: string) {
 	v = v.replace(/[^\d]/g, "");
 	// 返回结果
 	return v;
-}
+};
 
 /**
  * 去掉中文及空格
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export function verifyCnAndSpace(val: string) {
+export const verifyCnAndSpace = (val: string) => {
 	// 匹配中文与空格
 	let v = val.replace(/[\u4e00-\u9fa5\s]+/g, "");
 	// 匹配空格
 	v = v.replace(/(^\s*)|(\s*$)/g, "");
 	// 返回结果
 	return v;
-}
+};
 
 /**
  * 去掉英文及空格
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export function verifyEnAndSpace(val: string) {
+export const verifyEnAndSpace = (val: string) => {
 	// 匹配英文与空格
 	let v = val.replace(/[a-zA-Z]+/g, "");
 	// 匹配空格
 	v = v.replace(/(^\s*)|(\s*$)/g, "");
 	// 返回结果
 	return v;
-}
+};
 
 /**
  * 禁止输入空格
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export function verifyAndSpace(val: string) {
+export const verifyAndSpace = (val: string) => {
 	// 匹配空格
 	let v = val.replace(/(^\s*)|(\s*$)/g, "");
 	// 返回结果
 	return v;
-}
+};
 
 /**
  * 金额用 `,` 区分开
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export function verifyNumberComma(val: string) {
+export const verifyNumberComma = (val: string) => {
 	// 调用小数或整数(不可以负数)方法
 	let v: any = verifyNumberIntegerAndFloat(val);
 	// 字符串转成数组
@@ -134,7 +134,7 @@ export function verifyNumberComma(val: string) {
 	v = v.join(".");
 	// 返回结果
 	return v;
-}
+};
 
 /**
  * 匹配文字变色（搜索时）
@@ -143,12 +143,12 @@ export function verifyNumberComma(val: string) {
  * @param color 搜索到时字体高亮颜色
  * @returns 返回处理后的字符串
  */
-export function verifyTextColor(val: string, text = "", color = "red") {
+export const verifyTextColor = (val: string, text = "", color = "red") => {
 	// 返回内容，添加颜色
 	let v = text.replace(new RegExp(val, "gi"), `<span style='color: ${color}'>${val}</span>`);
 	// 返回结果
 	return v;
-}
+};
 
 /**
  * 数字转中文大写
@@ -156,7 +156,7 @@ export function verifyTextColor(val: string, text = "", color = "red") {
  * @param unit 默认：仟佰拾亿仟佰拾万仟佰拾元角分
  * @returns 返回处理后的字符串
  */
-export function verifyNumberCnUppercase(val: any, unit = "仟佰拾亿仟佰拾万仟佰拾元角分", v = "") {
+export const verifyNumberCnUppercase = (val: any, unit = "仟佰拾亿仟佰拾万仟佰拾元角分", v = "") => {
 	// 当前内容字符串添加 2个0，为什么??
 	val += "00";
 	// 返回某个指定的字符串值在字符串中首次出现的位置，没有出现，则该方法返回 -1
@@ -180,68 +180,68 @@ export function verifyNumberCnUppercase(val: any, unit = "仟佰拾亿仟佰拾�
 		.replace(/^元/, "零元");
 	// 返回结果
 	return v;
-}
+};
 
 /**
  * 手机号码
  * @param val 当前值字符串
  * @returns 返回 true: 手机号码正确
  */
-export function verifyPhone(val: string) {
+export const verifyPhone = (val: string) => {
 	// false: 手机号码不正确
 	if (!/^((12[0-9])|(13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0|1,5-9]))\d{8}$/.test(val)) return false;
 	// true: 手机号码正确
 	else return true;
-}
+};
 
 /**
  * 国内电话号码
  * @param val 当前值字符串
  * @returns 返回 true: 国内电话号码正确
  */
-export function verifyTelPhone(val: string) {
+export const verifyTelPhone = (val: string) => {
 	// false: 国内电话号码不正确
 	if (!/\d{3}-\d{8}|\d{4}-\d{7}/.test(val)) return false;
 	// true: 国内电话号码正确
 	else return true;
-}
+};
 
 /**
  * 登录账号 (字母开头，允许5-16字节，允许字母数字下划线)
  * @param val 当前值字符串
  * @returns 返回 true: 登录账号正确
  */
-export function verifyAccount(val: string) {
+export const verifyAccount = (val: string) => {
 	// false: 登录账号不正确
 	if (!/^[a-zA-Z][a-zA-Z0-9_]{4,15}$/.test(val)) return false;
 	// true: 登录账号正确
 	else return true;
-}
+};
 
 /**
  * 密码 (以字母开头，长度在6~16之间，只能包含字母、数字和下划线)
  * @param val 当前值字符串
  * @returns 返回 true: 密码正确
  */
-export function verifyPassword(val: string) {
+export const verifyPassword = (val: string) => {
 	// false: 密码不正确
 	if (!/^[a-zA-Z]\w{5,15}$/.test(val)) return false;
 	// true: 密码正确
 	else return true;
-}
+};
 
 /**
  * 强密码 (字母+数字+特殊字符，长度在6-16之间)
  * @param val 当前值字符串
  * @returns 返回 true: 强密码正确
  */
-export function verifyPasswordPowerful(val: string) {
+export const verifyPasswordPowerful = (val: string) => {
 	// false: 强密码不正确
 	if (!/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&\.*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&\.*]+$)(?![\d!@#$%^&\.*]+$)[a-zA-Z\d!@#$%^&\.*]{6,16}$/.test(val))
 		return false;
 	// true: 强密码正确
 	else return true;
-}
+};
 
 /**
  * 密码强度
@@ -251,7 +251,7 @@ export function verifyPasswordPowerful(val: string) {
  * @description 强：字母+数字+特殊字符
  * @returns 返回处理后的字符串：弱、中、强
  */
-export function verifyPasswordStrength(val: string) {
+export const verifyPasswordStrength = (val: string) => {
 	let v = "";
 	// 弱：纯数字，纯字母，纯特殊字符
 	if (/^(?:\d+|[a-zA-Z]+|[!@#$%^&\.*]+){6,16}$/.test(val)) v = "弱";
@@ -261,27 +261,27 @@ export function verifyPasswordStrength(val: string) {
 	if (/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&\.*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&\.*]+$)(?![\d!@#$%^&\.*]+$)[a-zA-Z\d!@#$%^&\.*]{6,16}$/.test(val)) v = "强";
 	// 返回结果
 	return v;
-}
+};
 
 /**
  * IP地址
  * @param val 当前值字符串
  * @returns 返回 true: IP地址正确
  */
-export function verifyIPAddress(val: string) {
+export const verifyIPAddress = (val: string) => {
 	// false: IP地址不正确
 	if (!/^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/.test(val))
 		return false;
 	// true: IP地址正确
 	else return true;
-}
+};
 
 /**
  * 邮箱
  * @param val 当前值字符串
  * @returns 返回 true: 邮箱正确
  */
-export function verifyEmail(val: string) {
+export const verifyEmail = (val: string) => {
 	// false: 邮箱不正确
 	if (
 		!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
@@ -291,50 +291,50 @@ export function verifyEmail(val: string) {
 		return false;
 	// true: 邮箱正确
 	else return true;
-}
+};
 
 /**
  * 身份证
  * @param val 当前值字符串
  * @returns 返回 true: 身份证正确
  */
-export function verifyIdCard(val: string) {
+export const verifyIdCard = (val: string) => {
 	// false: 身份证不正确
 	if (!/^[1-9]\d{5}(18|19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/.test(val)) return false;
 	// true: 身份证正确
 	else return true;
-}
+};
 
 /**
  * 姓名
  * @param val 当前值字符串
  * @returns 返回 true: 姓名正确
  */
-export function verifyFullName(val: string) {
+export const verifyFullName = (val: string) => {
 	// false: 姓名不正确
 	if (!/^[\u4e00-\u9fa5]{1,6}(·[\u4e00-\u9fa5]{1,6}){0,2}$/.test(val)) return false;
 	// true: 姓名正确
 	else return true;
-}
+};
 
 /**
  * 邮政编码
  * @param val 当前值字符串
  * @returns 返回 true: 邮政编码正确
  */
-export function verifyPostalCode(val: string) {
+export const verifyPostalCode = (val: string) => {
 	// false: 邮政编码不正确
 	if (!/^[1-9][0-9]{5}$/.test(val)) return false;
 	// true: 邮政编码正确
 	else return true;
-}
+};
 
 /**
  * url 处理
  * @param val 当前值字符串
  * @returns 返回 true: url 正确
  */
-export function verifyUrl(val: string) {
+export const verifyUrl = (val: string) => {
 	// false: url不正确
 	if (
 		!/^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})).?)(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(
@@ -344,14 +344,14 @@ export function verifyUrl(val: string) {
 		return false;
 	// true: url正确
 	else return true;
-}
+};
 
 /**
  * 车牌号
  * @param val 当前值字符串
  * @returns 返回 true：车牌号正确
  */
-export function verifyCarNum(val: string) {
+export const verifyCarNum = (val: string) => {
 	// false: 车牌号不正确
 	if (
 		!/^(([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z](([0-9]{5}[DF])|([DF]([A-HJ-NP-Z0-9])[0-9]{4})))|([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳使领]))$/.test(
@@ -361,4 +361,4 @@ export function verifyCarNum(val: string) {
 		return false;
 	// true：车牌号正确
 	else return true;
-}
+};

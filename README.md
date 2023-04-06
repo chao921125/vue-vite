@@ -26,7 +26,7 @@ pnpx mrm@2 lint-staged
 # 命名规范及解释
 1. 命名遵循驼峰规则：demoUser
 2. 配置文件均按照xxConfig，参数设置均按照xxSetting，数据配置均按照xxOption：
-3. 封装的函数均按照function格式导出，业务函数均按照() => {}格式书写：export function FN() {}
+3. 封装的函数均按照export FN = () => {}，内部调用函数用普通的function FN() {}
 4. Store中对外函数命名均为useXx：
 5. API前端使用及后端接口命名规则对应：
 6. interface尽量抽取出来，且抽取到最小粒度
@@ -490,13 +490,14 @@ pnpx mrm@2 lint-staged
 | [React Native 官网](https://reactnative.cn/)    |
 
 # SSR
-| 框架                                                                                     |
-|----------------------------------------------------------------------------------------|
-| [astro](https://astro.build/)                                                          |
-| [nuxt](https://nuxt.com/)                                                              |
-| [quasar 官网](https://quasar.dev/)                                                       |
-| [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) |
-| [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                        |
+| 框架                                                                                                          |
+|-------------------------------------------------------------------------------------------------------------|
+| [astro](https://astro.build/)                                                                               |
+| [NuxtJS](https://nuxt.com/)                                                                                 |
+| [quasar 官网](https://quasar.dev/)                                                                            |
+| [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue)                      |
+| [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                                             |
+| Gatsby Next.js NuxtJS Docusaurus Eleventy GitBook Gridsome Hugo Jekyll Pelican SvelteKit VuePress WordPress |
 
 # 其他组件参考
 | 其他组件参考                                                                                 |

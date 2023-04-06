@@ -45,7 +45,7 @@ const i18n = createI18n({
 	messages,
 });
 
-export function readLocal(prefix = zhCNLocale.name) {
+export const readLocal = (prefix = zhCNLocale.name) => {
 	// const languageKeys = import.meta.glob("./modules/*.ts");
 	// export const routerArray: object = {};
 	// Object.keys(languageKeys).forEach((item: string) => {
@@ -58,15 +58,15 @@ export function readLocal(prefix = zhCNLocale.name) {
 			return [matched, value.default];
 		}),
 	)[prefix];
-}
+};
 
 // 以下两种方式均可以实现在js中动态国际化
-export function $t(args: string) {
+export const $t = (args: string) => {
 	return i18n.global.t(args);
-}
-export function transI18n(args: string) {
+};
+export const transI18n = (args: string) => {
 	const { t } = useI18n();
 	return t(args);
-}
+};
 
 export default i18n;

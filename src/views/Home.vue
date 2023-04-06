@@ -187,6 +187,13 @@
 		});
 	};
 
+	const viewImg = (url: string) => {
+		const image = new Image();
+		image.src = url;
+		const imgWindow = window.open(url);
+		imgWindow.document.write(image.outerHTML);
+	};
+
 	onMounted(() => {
 		getUaInfo();
 		getIpIpify().then((res: any) => {
