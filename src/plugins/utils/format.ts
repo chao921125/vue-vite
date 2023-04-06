@@ -81,7 +81,7 @@ function getWeek(dateTime: Date): number {
  * @description param 3天：   60 * 60* 24 * 1000 * 3
  * @returns 返回拼接后的时间字符串
  */
-export function formatPast(param: string | Date, format: string = "YYYY-mm-dd"): string {
+export const formatPast = (param: string | Date, format: string = "YYYY-mm-dd"): string => {
 	// 传入格式处理、存储转换值
 	let t: any, s: number;
 	// 获取js 时间戳
@@ -114,7 +114,7 @@ export function formatPast(param: string | Date, format: string = "YYYY-mm-dd"):
 		let date = typeof param === "string" || "object" ? new Date(param) : param;
 		return formatDate(date, format);
 	}
-}
+};
 
 /**
  * 时间问候语
@@ -122,7 +122,7 @@ export function formatPast(param: string | Date, format: string = "YYYY-mm-dd"):
  * @description param 调用 `formatAxis(new Date())` 输出 `上午好`
  * @returns 返回拼接后的时间字符串
  */
-export function formatAxis(param: Date): string {
+export const formatAxis = (param: Date): string => {
 	let hour: number = new Date(param).getHours();
 	if (hour < 6) return "凌晨好";
 	else if (hour < 9) return "早上好";
@@ -132,33 +132,33 @@ export function formatAxis(param: Date): string {
 	else if (hour < 19) return "傍晚好";
 	else if (hour < 22) return "晚上好";
 	else return "夜里好";
-}
+};
 
-export function replaceChar(value: string): string {
+export const replaceChar = (value: string): string => {
 	if (!value) return "******";
 	// const reg = /[a-zA-Z0-9]{3}\w*[a-zA-Z0-9]{4}/;
 	// return pwd.replace(reg, "$1****$2");
 	return value.slice(0, 2) + "****" + value.slice(value.length - 2);
-}
+};
 
-export function replaceNullLine(value: number | string): number | string {
+export const replaceNullLine = (value: number | string): number | string => {
 	if (!value) {
 		return "-";
 	}
 	return value;
-}
+};
 
 /**
  * 转数字
  */
-export function replaceToNumber(value: string | number): number {
+export const replaceToNumber = (value: string | number): number => {
 	return parseFloat(value.toString().replace(/[^\d\.-]/g, ""));
-}
+};
 
 /**
  * 数字格式化千分位，同时选择保留几位小数，数值、几位小数、千分位符号、小数点符号
  */
-export function formatThousandPoint(value: string | number, decimals: string | number, thousands_sep?: string, dec_point?: string): number | string {
+export const formatThousandPoint = (value: string | number, decimals: string | number, thousands_sep?: string, dec_point?: string): number | string => {
 	if (!value) return 0;
 	if (!decimals && !isFinite(Number(decimals))) decimals = 0;
 	if (!thousands_sep) thousands_sep = ",";
@@ -183,13 +183,13 @@ export function formatThousandPoint(value: string | number, decimals: string | n
 		s[1] += new Array(prec - s[1].length + 1).join("0");
 	}
 	return s.join(dec);
-}
+};
 
 /**
  * 数字格式化千分位
  */
-export function formatThousand(value: number | string) {
+export const formatThousand = (value: number | string) => {
 	if (!value) return 0;
 	value = Number(value);
 	return (+value || 0).toString().replace(/^-?\d+/g, (m) => m.replace(/(?=(?!\b)(\d{3})+$)/g, ","));
-}
+};

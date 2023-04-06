@@ -43,7 +43,7 @@ function position() {
  * @param {number} duration
  * @param {Function} callback
  */
-export function scrollTo(to, duration, callback) {
+export const scrollTo = (to, duration, callback) => {
 	const start = position();
 	const change = to - start;
 	const increment = 20;
@@ -68,4 +68,4 @@ export function scrollTo(to, duration, callback) {
 		}
 	};
 	animateScroll();
-}
+};

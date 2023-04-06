@@ -1,6 +1,6 @@
 import type { ProxyOptions } from "vite";
 
-export function getEnvConfig(env: Recordable): ViteEnv {
+export const getEnvConfig = (env: Recordable): ViteEnv => {
 	let envConfig: any = {};
 	for (const envName of Object.keys(env)) {
 		let envValue = env[envName].replace(/\\n/g, "\n");
@@ -18,7 +18,7 @@ export function getEnvConfig(env: Recordable): ViteEnv {
 		envConfig[envName] = envValue;
 	}
 	return envConfig;
-}
+};
 
 type ProxyItem = [string, string];
 
@@ -28,7 +28,7 @@ type ProxyTargetList = Record<string, ProxyOptions>;
 
 const httpsRE = /^https:\/\//;
 
-export function createProxy(list: ProxyList = []) {
+export const createProxy = (list: ProxyList = []) => {
 	const rel: ProxyTargetList = {};
 	for (const [prefix, target] of list) {
 		const isHttps = httpsRE.test(target);
@@ -43,4 +43,4 @@ export function createProxy(list: ProxyList = []) {
 		};
 	}
 	return rel;
-}
+};

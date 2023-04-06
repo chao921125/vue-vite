@@ -6,7 +6,7 @@ const cookieSetting: any = {
 	expires: 7,
 };
 
-export function setCookiePri(cname: string, cvalue: any, exdays?: number) {
+export const setCookiePri = (cname: string, cvalue: any, exdays?: number) => {
 	if (!cname) {
 		cname = "";
 	}
@@ -20,9 +20,9 @@ export function setCookiePri(cname: string, cvalue: any, exdays?: number) {
 	d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
 	const expires = "expires=" + d.toUTCString();
 	document.cookie = cname + "=" + JSON.stringify(cvalue) + "; " + expires;
-}
+};
 
-export function getCookiePri(cname: string) {
+export const getCookiePri = (cname: string) => {
 	if (!cname) {
 		return "";
 	}
@@ -35,7 +35,7 @@ export function getCookiePri(cname: string) {
 		}
 	}
 	return "";
-}
+};
 
 cookie.setCookie = (key: string = "default", value: any = null, setting: any = {}) => {
 	if (!value) return false;

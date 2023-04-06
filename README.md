@@ -26,7 +26,7 @@ pnpx mrm@2 lint-staged
 # 命名规范及解释
 1. 命名遵循驼峰规则：demoUser
 2. 配置文件均按照xxConfig，参数设置均按照xxSetting，数据配置均按照xxOption：
-3. 封装的函数均按照function格式导出，业务函数均按照() => {}格式书写：export function FN() {}
+3. 封装的函数均按照export FN = () => {}，内部调用函数用普通的function FN() {}
 4. Store中对外函数命名均为useXx：
 5. API前端使用及后端接口命名规则对应：
 6. interface尽量抽取出来，且抽取到最小粒度

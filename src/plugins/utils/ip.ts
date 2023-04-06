@@ -1,6 +1,6 @@
 // 若非获取客户端本地IP，直接通过NG配置，在服务端获取即可
 import Fetch from "@/plugins/axios/fetch";
-export function getLocalIpList(callback) {
+export const getLocalIpList = (callback) => {
 	let ip_dups = {};
 	// @ts-ignore
 	let RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
@@ -61,10 +61,10 @@ export function getLocalIpList(callback) {
 			handleCandidate(ice.candidate.candidate);
 		}
 	};
-}
+};
 // getLocalIp((ip) => {console.log(ip);});
 
-export function getLocalIps() {
+export const getLocalIps = () => {
 	// @ts-ignore
 	let myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
 	// RTCPeerConnection是WebRTC用于构建点对点之间稳定、高效的流传输的组件。兼容火狐、谷歌等
@@ -98,29 +98,29 @@ export function getLocalIps() {
 		// @ts-ignore
 		ice.candidate.candidate.match(ipRegex).forEach(ipIterate);
 	};
-}
+};
 
-export function getIp() {
+export const getIp = () => {
 	return Fetch.request("https://ip.cn/api/index?ip=&type=0", {}, { method: "GET" });
-}
+};
 
-export function getIpPconline() {
+export const getIpPconline = () => {
 	return Fetch.request("http://whois.pconline.com.cn/ipJson.jsp?ip=&json=true", {}, { method: "GET" });
-}
+};
 
-export function getIpApi() {
+export const getIpApi = () => {
 	return Fetch.request("http://ip-api.com/json/?lang=zh-CN", {}, { method: "GET" });
-}
+};
 
-export function getIpVore() {
+export const getIpVore = () => {
 	return Fetch.request("https://api.vore.top/api/IPdata?ip=", {}, { method: "GET", mode: "no-cors" });
-}
+};
 
-export function getIpUser() {
+export const getIpUser = () => {
 	return Fetch.request("https://ip.useragentinfo.com/json?ip=", {}, { method: "GET" });
-}
+};
 
-export function getIpIpify() {
+export const getIpIpify = () => {
 	return fetch("https://api.ipify.org?format=json")
 		.then((response) => {
 			return response.json();
@@ -128,9 +128,9 @@ export function getIpIpify() {
 		.then((data) => {
 			return data;
 		});
-}
+};
 
-export function getIp138() {
+export const getIp138 = () => {
 	let data;
 	let xmlHttpRequest;
 	if (window.ActiveXObject) {
@@ -162,4 +162,4 @@ export function getIp138() {
 		}
 	}
 	return patt[2];
-}
+};
