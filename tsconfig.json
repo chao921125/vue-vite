@@ -62,7 +62,7 @@
     "components.d.ts"
   ],
   "exclude": [
-    "node_modules", "dist", "**/*.js", "tests"
+    "node_modules", "dist", "tests"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 

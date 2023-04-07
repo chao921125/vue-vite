@@ -142,7 +142,7 @@ devDependencies:
     version: 5.57.1
   '@vitejs/plugin-legacy':
     specifier: ^4.0.2
-    version: 4.0.2(terser@5.15.1)(vite@4.2.1)
+    version: 4.0.2(terser@5.16.8)(vite@4.2.1)
   '@vitejs/plugin-vue':
     specifier: ^4.1.0
     version: 4.1.0(vite@4.2.1)(vue@3.2.47)
@@ -222,11 +222,11 @@ devDependencies:
     specifier: ^5.9.0
     version: 5.9.0(rollup@2.79.1)
   sass:
-    specifier: ^1.60.0
-    version: 1.60.0
+    specifier: ^1.61.0
+    version: 1.61.0
   sass-loader:
     specifier: ^13.2.2
-    version: 13.2.2(sass@1.60.0)(webpack@5.78.0)
+    version: 13.2.2(sass@1.61.0)(webpack@5.78.0)
   style-resources-loader:
     specifier: ^1.5.0
     version: 1.5.0(webpack@5.78.0)
@@ -277,7 +277,7 @@ devDependencies:
     version: 1.3.3(rollup@2.79.1)(vue@3.2.47)
   vite:
     specifier: ^4.2.1
-    version: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1)
+    version: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8)
   vite-plugin-cdn-import:
     specifier: ^0.3.5
     version: 0.3.5(rollup@2.79.1)
@@ -2622,7 +2622,7 @@ packages:
       eslint-visitor-keys: 3.4.0
     dev: true
 
-  /@vitejs/plugin-legacy@4.0.2(terser@5.15.1)(vite@4.2.1):
+  /@vitejs/plugin-legacy@4.0.2(terser@5.16.8)(vite@4.2.1):
     resolution: {integrity: sha512-ivnt9sCkgwJTYTWLjuvY6H/HTuiQC1EgzAPkiAvi0yNAssiqOJjyjhG3hAK5LFUUorE0w9kGxn8K0f/74DlbxQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -2636,8 +2636,8 @@ packages:
       magic-string: 0.30.0
       regenerator-runtime: 0.13.11
       systemjs: 6.14.0
-      terser: 5.15.1
-      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1)
+      terser: 5.16.8
+      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2649,7 +2649,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1)
+      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8)
       vue: 3.2.47
     dev: true
 
@@ -7164,7 +7164,7 @@ packages:
       jest-worker: 26.6.2
       rollup: 2.79.1
       serialize-javascript: 4.0.0
-      terser: 5.15.1
+      terser: 5.16.8
     dev: true
 
   /rollup-plugin-visualizer@5.9.0(rollup@2.79.1):
@@ -7232,7 +7232,7 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass-loader@13.2.2(sass@1.60.0)(webpack@5.78.0):
+  /sass-loader@13.2.2(sass@1.61.0)(webpack@5.78.0):
     resolution: {integrity: sha512-nrIdVAAte3B9icfBiGWvmMhT/D+eCDwnk+yA7VE/76dp/WkHX+i44Q/pfo71NYbwj0Ap+PGsn0ekOuU1WFJ2AA==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -7253,13 +7253,13 @@ packages:
     dependencies:
       klona: 2.0.6
       neo-async: 2.6.2
-      sass: 1.60.0
+      sass: 1.61.0
       webpack: 5.78.0(esbuild@0.17.15)
     dev: true
 
-  /sass@1.60.0:
-    resolution: {integrity: sha512-updbwW6fNb5gGm8qMXzVO7V4sWf7LMXnMly/JEyfbfERbVH46Fn6q02BX7/eHTdKpE7d+oTkMMQpFWNUMfFbgQ==}
-    engines: {node: '>=12.0.0'}
+  /sass@1.61.0:
+    resolution: {integrity: sha512-PDsN7BrVkNZK2+dj/dpKQAWZavbAQ87IXqVvw2+oEYI+GwlTWkvbQtL7F2cCNbMqJEYKPh1EcjSxsnqIb/kyaQ==}
+    engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
       chokidar: 3.5.3
@@ -8393,7 +8393,7 @@ packages:
       chalk: 4.1.2
       debug: 4.3.4
       fs-extra: 10.1.0
-      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1)
+      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -8415,7 +8415,7 @@ packages:
       html-minifier-terser: 6.1.0
       node-html-parser: 5.4.2
       pathe: 0.2.0
-      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1)
+      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8)
     dev: true
 
   /vite-plugin-mock@2.9.6(mockjs@1.1.0)(rollup@2.79.1)(vite@4.2.1):
@@ -8435,7 +8435,7 @@ packages:
       fast-glob: 3.2.12
       mockjs: 1.1.0
       path-to-regexp: 6.2.1
-      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1)
+      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -8459,7 +8459,7 @@ packages:
       json5: 2.2.3
       local-pkg: 0.4.3
       picocolors: 1.0.0
-      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1)
+      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8)
       yaml: 2.2.1
     transitivePeerDependencies:
       - supports-color
@@ -8477,7 +8477,7 @@ packages:
       fast-glob: 3.2.12
       pretty-bytes: 6.0.0
       rollup: 3.19.1
-      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1)
+      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8)
       workbox-build: 6.5.4
       workbox-window: 6.5.4
     transitivePeerDependencies:
@@ -8490,7 +8490,7 @@ packages:
       vite: ^2.9.0 || ^3.0.0 || ^4.0.0
     dependencies:
       micromatch: 4.0.5
-      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1)
+      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8)
     dev: true
 
   /vite-plugin-style-import@2.0.0(vite@4.2.1):
@@ -8505,7 +8505,7 @@ packages:
       fs-extra: 10.1.0
       magic-string: 0.25.9
       pathe: 0.2.0
-      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1)
+      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8)
     dev: true
 
   /vite-plugin-vue-setup-extend@0.4.0(vite@4.2.1):
@@ -8515,7 +8515,7 @@ packages:
     dependencies:
       '@vue/compiler-sfc': 3.2.47
       magic-string: 0.25.9
-      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1)
+      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8)
     dev: true
 
   /vite-plugin-windicss@1.8.10(vite@4.2.1):
@@ -8526,13 +8526,13 @@ packages:
       '@windicss/plugin-utils': 1.8.10
       debug: 4.3.4
       kolorist: 1.6.0
-      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1)
+      vite: 4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8)
       windicss: 3.5.6
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.60.0)(terser@5.15.1):
+  /vite@4.2.1(@types/node@18.15.11)(less@4.1.3)(sass@1.61.0)(terser@5.16.8):
     resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -8563,8 +8563,8 @@ packages:
       postcss: 8.4.21
       resolve: 1.22.1
       rollup: 3.19.1
-      sass: 1.60.0
-      terser: 5.15.1
+      sass: 1.61.0
+      terser: 5.16.8
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
