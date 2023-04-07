@@ -46,23 +46,14 @@
   },
   "plugins": [],
   "include": [
-    "src/**/*.js",
-    "src/**/*.ts",
-    "src/**/*.d.js",
-    "src/**/*.d.ts",
-    "src/**/*.jsx",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "types/**/*.ts",
-    "types/**/*.d.ts",
-    "build/**/*.ts",
-    "build/**/*.d.ts",
-    "vite.config.ts",
-    "auto-imports.d.ts",
-    "components.d.ts"
+    "src/**/*",
+    "types/**/*",
+    "build/**/*",
   ],
   "exclude": [
-    "node_modules", "dist", "tests"
+    "node_modules",
+		"dist",
+		"tests",
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 
