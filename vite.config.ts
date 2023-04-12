@@ -18,7 +18,7 @@ import viteCompression from "vite-plugin-compression";
 import windiCSS from "vite-plugin-windicss";
 // 模块
 import autoImport from "unplugin-auto-import/vite";
-import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 // 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
@@ -136,11 +136,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					/\.md$/, // .md
 				],
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core"],
-				resolvers: [ElementPlusResolver(), VantResolver()],
+				resolvers: [ElementPlusResolver()],
 			}),
 			components({
 				dts: true,
-				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
+				resolvers: [ElementPlusResolver(), IconsResolver()],
 				directoryAsNamespace: true,
 			}),
 			// 热重载，包含配置文件的修改
@@ -212,6 +212,12 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					ext: ".gz",
 				}),
 		],
+		optimizeDeps: {
+			entries: "index.md",
+			exclude: [""],
+			include: ["lodash", "@vueuse/core", "@vue/runtime-core", "element-plus", "vuedraggable", "@vue/shared"],
+			// keepNames: [""],
+		},
 		// publicDir: "public", // 静态资源根路径，false关闭
 		// cacheDir: "node_modules/.vite", // 缓存路径
 		resolve: {
@@ -312,12 +318,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		//   proxy: {},
 		//   cors: true,
 		// },
-		optimizeDeps: {
-			entries: "index.md",
-			exclude: [""],
-			include: ["lodash", "@vueuse/core", "@vue/runtime-core", "element-plus", "vant", "vuedraggable", "@vue/shared", "@iconify/iconify"],
-			// keepNames: [""],
-		},
 		// ssr: {
 		//   external: "",
 		//   noExternal: "",

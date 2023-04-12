@@ -93,20 +93,24 @@ pnpx mrm@2 lint-staged
 |--------------------------------------------------------|
 | [typescript 官网](https://www.tslang.cn/)                |
 
-| 样式组件 -D  注意重写组件样式的引用                                                            |
-|---------------------------------------------------------------------------------|
-| [sass<=>坑逼一个，小心慎用](https://sass-lang.com/)                                      |
-| [sass-loader](https://webpack.docschina.org/)                                   |
-| [node-sass](https://www.npmjs.com/package/node-sass)                            |
-| [less](https://less.bootcss.com/)                                               |
-| [less-loader](https://www.npmjs.com/package/less-loader)                        |
-| [style-resources-loader](https://www.npmjs.com/package/style-resources-loader)  |
-| [svg-sprite-loader](https://www.npmjs.com/package/svg-sprite-loader)            |
-| [text-loader](https://www.npmjs.com/package/text-loader)                        |
-| [vue-style-loader](https://www.npmjs.com/package/vue-style-loader)              |
-| [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler)    |
-| [//]: # (浏览器样式补全)                                                               |
-| [浏览器样式补全 autoprefixer](https://www.npmjs.com/package/autoprefixer)              |
+| 样式组件 -D  注意重写组件样式的引用                                                           |
+|--------------------------------------------------------------------------------|
+| [sass<=>坑逼一个，小心慎用](https://sass-lang.com/)                                     |
+| [sass-loader](https://webpack.docschina.org/)                                  |
+| [node-sass](https://www.npmjs.com/package/node-sass)                           |
+| [less](https://less.bootcss.com/)                                              |
+| [less-loader](https://www.npmjs.com/package/less-loader)                       |
+| [style-resources-loader](https://www.npmjs.com/package/style-resources-loader) |
+| [svg-sprite-loader](https://www.npmjs.com/package/svg-sprite-loader)           |
+| [text-loader](https://www.npmjs.com/package/text-loader)                       |
+| [vue-style-loader](https://www.npmjs.com/package/vue-style-loader)             |
+| [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler)   |
+| [//]: # (浏览器样式补全)                                                              |
+| [浏览器样式补全 autoprefixer](https://www.npmjs.com/package/autoprefixer)             |
+| 快速样式CSS                                                                        |
+| [unocss](https://unocss.dev/)                                                  |
+| [tailwindcss](https://tailwindcss.com/)                                        |
+| [windicss](https://windicss.org/)                                              |
 
 | 语法检查 -D                                                                        |
 |--------------------------------------------------------------------------------|
