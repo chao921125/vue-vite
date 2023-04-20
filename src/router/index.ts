@@ -69,7 +69,6 @@ router.beforeEach(async (to, from, next) => {
 			}
 		}
 	}
-	NProgress.done();
 });
 
 // 路由加载后，关闭loading

@@ -15,10 +15,11 @@ import legacy from "@vitejs/plugin-legacy";
 import importToCDN from "vite-plugin-cdn-import";
 import vueSetupExtend from "vite-plugin-vue-setup-extend";
 import viteCompression from "vite-plugin-compression";
-import windiCSS from "vite-plugin-windicss";
 // 模块
 import autoImport from "unplugin-auto-import/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+// CSS 预构建
+import UnoCSS from "unocss/vite";
 // 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
@@ -115,12 +116,13 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// 插件
 			vue(),
 			// * vite 可以使用 jsx/tsx 语法
-			windiCSS(),
 			// * name 可以写在 script 标签上
 			vueSetupExtend(),
+			// 浏览器上兼容
 			legacy({
 				targets: ["defaults", "not IE 11"],
 			}),
+			UnoCSS(),
 			icons({
 				compiler: "vue3",
 				autoInstall: true,
@@ -149,8 +151,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			viteMockServe({
 				mockPath: envConfig.VITE_MOCK_PATH,
-				localEnabled: envConfig.VITE_MOCK,
-				prodEnabled: envConfig.VITE_MOCK,
+				enable: envConfig.VITE_MOCK,
 				// injectCode: "",
 				logger: envConfig.VITE_MOCK,
 			}),
