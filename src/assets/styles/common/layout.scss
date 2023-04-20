@@ -1,5 +1,3 @@
-@import "./public.scss";
-
 // 优化显示
 :root {
 	--re-color-white: #ffffff;
@@ -190,7 +188,7 @@ body {
 		@extend .el-scrollbar;
 		padding: 15px;
 	}
-	.layout-mian-height-50 {
+	.layout-main-h-50 {
 		height: calc(100vh - 50px);
 	}
 	.layout-columns-warp {

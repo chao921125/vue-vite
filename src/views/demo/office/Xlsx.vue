@@ -7,9 +7,9 @@
 	</div>
 	<div v-for="(item, index) in fileObj.fileList" :key="index">
 		<el-link :underline="false" type="info">{{ item.name }}</el-link>
-		<el-link :underline="false" type="success" class="re-m-l-10" @click="previewFile(index)">预览</el-link>
-		<el-link :underline="false" type="primary" class="re-m-l-10">下载</el-link>
-		<el-link :underline="false" type="danger" class="re-m-l-10">删除</el-link>
+		<el-link :underline="false" type="success" class="re-ml-10" @click="previewFile(index)">预览</el-link>
+		<el-link :underline="false" type="primary" class="re-ml-10">下载</el-link>
+		<el-link :underline="false" type="danger" class="re-ml-10">删除</el-link>
 	</div>
 	<div v-html="fileObj.fileReaderHtml" class="file-reader-box"></div>
 	<div class="table-box" v-loading="isLoading">

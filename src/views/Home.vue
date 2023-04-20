@@ -22,7 +22,7 @@
 	</el-skeleton>
 	<el-skeleton :rows="1" animated :loading="isLoading">
 		<el-row>
-			<el-col :span="24" class="re-m-tb-20">
+			<el-col :span="24" class="re-mtb-20">
 				<el-date-picker
 					v-model="form.date"
 					type="daterange"
@@ -59,14 +59,14 @@
 					<div class="re-flex-row-between count-item">统计时间：<span class="count-date">2022-08-31 - 2022-11-31</span></div>
 				</el-card>
 			</el-col>
-			<el-col :span="8" class="re-m-t-20">
+			<el-col :span="8" class="re-mt-20">
 				<el-card>
 					<div class="count-title">出库金额</div>
 					<div class="re-flex-row-between count-item">金额：<span class="count-num">999999999</span></div>
 					<div class="re-flex-row-between count-item">统计时间：<span class="count-date">2022-08-31 - 2022-11-31</span></div>
 				</el-card>
 			</el-col>
-			<el-col :span="8" class="re-m-t-20">
+			<el-col :span="8" class="re-mt-20">
 				<el-card>
 					<div class="count-title">库存金额</div>
 					<div class="re-flex-row-between count-item">金额：<span class="count-num">999999999</span></div>
