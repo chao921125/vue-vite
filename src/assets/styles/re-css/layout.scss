@@ -1,5 +1,3 @@
-@import "./public.scss";
-
 // 在这里写公用的class
 // 占位符
 .#{$prefix}-place {
@@ -57,52 +55,52 @@
 }
 
 // 100%
-.#{$prefix}-width-auto {
+.#{$prefix}-w-auto {
 	width: auto;
 }
-.#{$prefix}-height-auto {
+.#{$prefix}-h-auto {
 	height: auto;
 }
 .#{$prefix}-box-fill {
 	@extend %wh-fill;
 }
-.#{$prefix}-width-fill {
+.#{$prefix}-w-fill {
 	@extend %width-fill;
 }
-.#{$prefix}-height-fill {
+.#{$prefix}-h-fill {
 	@extend %height-fill;
 }
-.#{$prefix}-width-fill-min {
+.#{$prefix}-w-fill-min {
 	min-width: 100%;
 }
-.#{$prefix}-height-fill-min {
+.#{$prefix}-h-fill-min {
 	min-height: 100%;
 }
-.#{$prefix}-width-fill-max {
+.#{$prefix}-w-fill-max {
 	max-width: 100%;
 }
-.#{$prefix}-height-fill-max {
+.#{$prefix}-h-fill-max {
 	max-height: 100%;
 }
 .#{$prefix}-box-full {
 	@extend %wh-full;
 }
-.#{$prefix}-width-full {
+.#{$prefix}-w-full {
 	@extend %width-full;
 }
-.#{$prefix}-height-full {
+.#{$prefix}-h-full {
 	@extend %height-full;
 }
-.#{$prefix}-width-full-min {
+.#{$prefix}-w-full-min {
 	min-width: 100vw;
 }
-.#{$prefix}-height-full-min {
+.#{$prefix}-h-full-min {
 	min-height: 100vh;
 }
-.#{$prefix}-width-full-max {
+.#{$prefix}-w-full-max {
 	max-width: 100vw;
 }
-.#{$prefix}-height-full-max {
+.#{$prefix}-h-full-max {
 	max-height: 100vh;
 }
 
@@ -148,49 +146,49 @@
 }
 
 // 边距相关
-$i: 100;
+$i: 500;
 @while $i > 0 {
 	.#{$prefix}-m-#{$i} {
 		margin: #{$i}px;
 	}
-	.#{$prefix}-m-tb-#{$i} {
+	.#{$prefix}-mtb-#{$i} {
 		margin: #{$i}px 0;
 	}
-	.#{$prefix}-m-lr-#{$i} {
+	.#{$prefix}-mlr-#{$i} {
 		margin: 0 #{$i}px;
 	}
-	.#{$prefix}-m-t-#{$i} {
+	.#{$prefix}-mt-#{$i} {
 		margin-top: #{$i}px;
 	}
-	.#{$prefix}-m-r-#{$i} {
+	.#{$prefix}-mr-#{$i} {
 		margin-right: #{$i}px;
 	}
-	.#{$prefix}-m-b-#{$i} {
+	.#{$prefix}-mb-#{$i} {
 		margin-bottom: #{$i}px;
 	}
-	.#{$prefix}-m-l-#{$i} {
+	.#{$prefix}-ml-#{$i} {
 		margin-left: #{$i}px;
 	}
 
 	.#{$prefix}-p-#{$i} {
 		padding: #{$i}px;
 	}
-	.#{$prefix}-p-tb-#{$i} {
+	.#{$prefix}-ptb-#{$i} {
 		margin: #{$i}px 0;
 	}
-	.#{$prefix}-p-lr-#{$i} {
+	.#{$prefix}-plr-#{$i} {
 		margin: 0 #{$i}px;
 	}
-	.#{$prefix}-p-t-#{$i} {
+	.#{$prefix}-pt-#{$i} {
 		padding-top: #{$i}px;
 	}
-	.#{$prefix}-p-r-#{$i} {
+	.#{$prefix}-pr-#{$i} {
 		padding-right: #{$i}px;
 	}
-	.#{$prefix}-p-b-#{$i} {
+	.#{$prefix}-pb-#{$i} {
 		padding-bottom: #{$i}px;
 	}
-	.#{$prefix}-p-l-#{$i} {
+	.#{$prefix}-pl-#{$i} {
 		padding-left: #{$i}px;
 	}
 	$i: $i - 1;
@@ -198,7 +196,7 @@ $i: 100;
 
 $sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50);
 @each $size in $sizes {
-	.#{$prefix}-width-#{$size} {
+	.#{$prefix}-w-#{$size} {
 		width: #{$size}px;
 	}
 }
@@ -228,7 +226,7 @@ $sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50);
 	bottom: 0;
 }
 
-.transition-width-1s {
+.transition-w-1s {
 	transition: width 1s;
 	-moz-transition: width 1s; /* Firefox 4 */
 	-webkit-transition: width 1s; /* Safari 和 Chrome */

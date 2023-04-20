@@ -1,13 +1,13 @@
 <template>
-	<el-row :gutter="10" justify="space-between" class="re-height-fill">
+	<el-row :gutter="10" justify="space-between" class="re-h-fill">
 		<!--		面包屑导航-->
 		<el-col :xs="24" :sm="12">
-			<div class="re-height-fill re-flex-row-center-ai">
+			<div class="re-h-fill re-flex-row-center-ai">
 				<el-icon @click="changeCollapse" class="re-cursor-pointer" :size="18">
 					<Fold v-if="isColl"></Fold>
 					<Expand v-else></Expand>
 				</el-icon>
-				<el-breadcrumb separator-icon="ArrowRight" class="re-m-l-20">
+				<el-breadcrumb separator-icon="ArrowRight" class="re-ml-20">
 					<transition-group name="breadcrumb">
 						<el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="index" :to="{ path: item.path }">
 							{{ $t(item.title) }}
@@ -18,9 +18,9 @@
 		</el-col>
 		<!--		右侧快捷栏-->
 		<el-col :xs="24" :sm="12">
-			<div class="re-height-fill re-flex-row-reverse">
+			<div class="re-h-fill re-flex-row-reverse">
 				<el-dropdown ref="dropdownUser" trigger="hover">
-					<el-avatar :src="userInfoAvatar" fit="cover" class="re-cursor-pointer user-avatar re-m-l-10" @click="showDropdownUser" />
+					<el-avatar :src="userInfoAvatar" fit="cover" class="re-cursor-pointer user-avatar re-ml-10" @click="showDropdownUser" />
 					<template #dropdown>
 						<el-dropdown-menu>
 							<el-dropdown-item>
@@ -34,16 +34,16 @@
 						</el-dropdown-menu>
 					</template>
 				</el-dropdown>
-				<div class="re-m-l-10">{{ userInfoName }}</div>
+				<div class="re-ml-10">{{ userInfoName }}</div>
 				<el-tooltip effect="dark" :content="isScreenFull ? '退出全屏' : '全屏'" placement="bottom">
-					<i v-if="isScreenFull" class="iconfont icon-fullscreen-exit re-cursor-pointer re-m-l-10" @click="changeScreenFull"></i>
-					<i v-else class="iconfont icon-fullscreen re-cursor-pointer re-m-l-10" @click="changeScreenFull"></i>
+					<i v-if="isScreenFull" class="iconfont icon-fullscreen-exit re-cursor-pointer re-ml-10" @click="changeScreenFull"></i>
+					<i v-else class="iconfont icon-fullscreen re-cursor-pointer re-ml-10" @click="changeScreenFull"></i>
 				</el-tooltip>
 				<el-tooltip effect="dark" content="设置" placement="bottom">
-					<i class="iconfont icon-pifu re-cursor-pointer re-m-l-10" @click="isShowDrawer = true"></i>
+					<i class="iconfont icon-pifu re-cursor-pointer re-ml-10" @click="isShowDrawer = true"></i>
 				</el-tooltip>
 				<el-dropdown ref="dropdownLanguage" trigger="hover" @command="changeI18n">
-					<i class="iconfont icon-duoyuyan re-cursor-pointer re-m-l-10" @click="showDropdownLanguage"></i>
+					<i class="iconfont icon-duoyuyan re-cursor-pointer re-ml-10" @click="showDropdownLanguage"></i>
 					<template #dropdown>
 						<el-dropdown-menu>
 							<el-dropdown-item v-for="(item, index) in i18ns" :key="index" :command="item.value">
@@ -53,7 +53,7 @@
 					</template>
 				</el-dropdown>
 				<el-dropdown ref="dropdownComponents" trigger="hover" @command="changeSize">
-					<i class="iconfont icon-zujian2 re-cursor-pointer re-m-l-10" @click="showDropdownComponents"></i>
+					<i class="iconfont icon-zujian2 re-cursor-pointer re-ml-10" @click="showDropdownComponents"></i>
 					<template #dropdown>
 						<el-dropdown-menu>
 							<el-dropdown-item v-for="(item, index) in sizes" :key="index" :command="item.value">

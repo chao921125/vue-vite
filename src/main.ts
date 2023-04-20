@@ -29,11 +29,14 @@ Object.keys(Icons).forEach((key) => {
 });
 
 // vant
-import "vant/lib/index.css";
+// import "vant/lib/index.css";
 
 // vue i18n
 import I18n from "@/plugins/i18n";
 app.use(I18n);
+
+// unocss
+import "virtual:uno.css";
 
 // 打印
 import print from "vue3-print-nb";

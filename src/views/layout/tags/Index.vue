@@ -5,7 +5,7 @@
 	<div class="re-flex-row-between tags-content">
 		<el-scrollbar class="tags-list">
 			<div class="re-flex-row">
-				<el-tag :disable-transitions="false" class="re-cursor-pointer re-m-r-10" @click="changeRouter('/home')" :type="tabValue === '/home' ? '' : 'info'">
+				<el-tag :disable-transitions="false" class="re-cursor-pointer re-mr-10" @click="changeRouter('/home')" :type="tabValue === '/home' ? '' : 'info'">
 					{{ $t("message.menu.home") }}
 				</el-tag>
 				<el-tag
@@ -16,7 +16,7 @@
 					:type="tabValue === item.name ? '' : 'info'"
 					@close="removeTab(item.name)"
 					@click="changeRouter(item.name)"
-					class="re-cursor-pointer re-m-r-10"
+					class="re-cursor-pointer re-mr-10"
 				>
 					{{ item.label }}
 				</el-tag>

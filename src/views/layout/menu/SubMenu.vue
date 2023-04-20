@@ -4,7 +4,7 @@
 			<el-sub-menu v-if="!item.isHideSubMenu && item.children && item.children.length" :key="item.id + index" :index="item.path" v-bind="$attrs">
 				<template #title>
 					<i class="iconfont" :class="item.icon"></i>
-					<span class="re-m-l-5">{{ $t(item.title) }}</span>
+					<span class="re-ml-5">{{ $t(item.title) }}</span>
 				</template>
 				<SubMenu :menus="item.children" :basePath="item.path + '/'"></SubMenu>
 			</el-sub-menu>
@@ -12,7 +12,7 @@
 				<!-- 此处图标可以自定义 -->
 				<i class="iconfont" :class="item.icon"></i>
 				<template #title>
-					<span class="re-m-l-5">{{ $t(item.title) }}</span>
+					<span class="re-ml-5">{{ $t(item.title) }}</span>
 				</template>
 			</el-menu-item>
 		</template>

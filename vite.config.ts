@@ -15,10 +15,11 @@ import legacy from "@vitejs/plugin-legacy";
 import importToCDN from "vite-plugin-cdn-import";
 import vueSetupExtend from "vite-plugin-vue-setup-extend";
 import viteCompression from "vite-plugin-compression";
-import windiCSS from "vite-plugin-windicss";
 // 模块
 import autoImport from "unplugin-auto-import/vite";
-import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+// CSS 预构建
+import UnoCSS from "unocss/vite";
 // 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
@@ -115,12 +116,13 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// 插件
 			vue(),
 			// * vite 可以使用 jsx/tsx 语法
-			windiCSS(),
 			// * name 可以写在 script 标签上
 			vueSetupExtend(),
+			// 浏览器上兼容
 			legacy({
 				targets: ["defaults", "not IE 11"],
 			}),
+			UnoCSS(),
 			icons({
 				compiler: "vue3",
 				autoInstall: true,
@@ -136,11 +138,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					/\.md$/, // .md
 				],
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core"],
-				resolvers: [ElementPlusResolver(), VantResolver()],
+				resolvers: [ElementPlusResolver()],
 			}),
 			components({
 				dts: true,
-				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
+				resolvers: [ElementPlusResolver(), IconsResolver()],
 				directoryAsNamespace: true,
 			}),
 			// 热重载，包含配置文件的修改
@@ -149,8 +151,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			viteMockServe({
 				mockPath: envConfig.VITE_MOCK_PATH,
-				localEnabled: envConfig.VITE_MOCK,
-				prodEnabled: envConfig.VITE_MOCK,
+				enable: envConfig.VITE_MOCK,
 				// injectCode: "",
 				logger: envConfig.VITE_MOCK,
 			}),
@@ -212,6 +213,12 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					ext: ".gz",
 				}),
 		],
+		optimizeDeps: {
+			entries: "index.md",
+			exclude: [""],
+			include: ["lodash", "@vueuse/core", "@vue/runtime-core", "element-plus", "vuedraggable", "@vue/shared"],
+			// keepNames: [""],
+		},
 		// publicDir: "public", // 静态资源根路径，false关闭
 		// cacheDir: "node_modules/.vite", // 缓存路径
 		resolve: {
@@ -312,12 +319,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		//   proxy: {},
 		//   cors: true,
 		// },
-		optimizeDeps: {
-			entries: "index.md",
-			exclude: [""],
-			include: ["lodash", "@vueuse/core", "@vue/runtime-core", "element-plus", "vant", "vuedraggable", "@vue/shared", "@iconify/iconify"],
-			// keepNames: [""],
-		},
 		// ssr: {
 		//   external: "",
 		//   noExternal: "",

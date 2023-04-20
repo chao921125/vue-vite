@@ -1,13 +1,11 @@
 // ***注意在scss中无法使用变量对应变量对应值，只能变量对应一个确定的值***
+// font icon 字体
 @import "./fonts/font.css";
 @import "./icon/iconfont.css";
-// 全局重置必须在此位置
-@import "./reset/reset.scss";
-// 定义的文件在这里
-@import "./common/custom.scss";
+// 自定义公共的style
+@import "./re-css/index.scss";
+// 基础布局style
 @import "./common/layout.scss";
 // 重写三方UI的样式文件在这里
-@import "./reset/element.scss";
-@import "./reset/n-progress";
-// 自定义的动画效果在这里
-@import "./animate/transition.scss";
+@import "./common/element";
+@import "./common/n-progress";

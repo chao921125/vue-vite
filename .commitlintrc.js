@@ -18,7 +18,7 @@ module.exports = {
 		"type-enum": [
 			2,
 			"always",
-			["feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert", "wip", "workflow", "types", "release"],
+			["feat", "fix", "doc", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert", "wip", "workflow", "types", "release"],
 		],
 	},
 	prompt: {
@@ -59,8 +59,8 @@ module.exports = {
 			},
 			// { value: "修复", name: "修复:   🧩  修复缺陷", emoji: "🧩" },
 			{
-				value: `docs: v${version}: `,
-				name: "docs:     📚  Documentation only changes",
+				value: `doc: v${version}: `,
+				name: "doc:     📚  Documentation only changes",
 				emoji: "📚",
 			},
 			// { value: "文档", name: "文档:   📚  文档变更", emoji: "📚" },
