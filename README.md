@@ -46,12 +46,6 @@ pnpx mrm@2 lint-staged
 ##### 大家根据使用的包来自行搜索下吧，大部分配置都是兼容、打包等
 1. 不建议在本项目中使用自带的Link和Iframe，因为存在多个Link的时候出现问题，且点击Link后再切换Iframe有一个bug：
 
-# 已完成
-- [x] 基本的插件已实现
-- [x] 国际化实现
-- [x] 部分插件demo实现
-- [x] 基本的web功能都已涵盖
-- [x] 基本的admin功能都已涵盖
 # 基础核心依赖
 ### 无特殊说明均对应最新版
 | 推荐一个插件比较全的网站                                               |
@@ -521,7 +515,20 @@ pnpx mrm@2 lint-staged
 | [Cocos(C/TS) 2D、2.5大佬！](https://www.unrealengine.com/zh-CN/)                           |
 | [Unreal(C++) 这是一个追求画质的游戏引擎](https://www.unrealengine.com/zh-CN/)                       |
 
+# 其他
+| [//]: # (loading)                                                            |
+|------------------------------------------------------------------------------|
+| http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading |
+| https://juejin.cn/post/7037036742985121800                                   |
+
 # 优秀项目推荐
+| other vite doc                         |
+|----------------------------------------|
+| https://github.com/sl1673495/blogs     |
+| https://github.com/cuixiaorui/mini-vue |
+| https://github.com/antfu/vitesse       |
+| https://github.com/vuejs/vitepress     |
+
 | 示例集合                                       |
 |--------------------------------------------|
 | [组件](https://madewith.cn/)                 |
@@ -529,17 +536,6 @@ pnpx mrm@2 lint-staged
 | https://github.com/nekobc1998923/vitecamp  |
 | https://github.com/XPoet/vite-vue3-starter |
 | https://github.com/xxxsf/vue3-h5-template  |
-
-
-| other vite doc                         |
-|----------------------------------------|
-| https://github.com/sl1673495/blogs     |
-| https://github.com/cuixiaorui/mini-vue |
-
-
-| Vue 3 vite                                     |
-|------------------------------------------------|
-| [vue3-antd-admin](http://www.lelebk.com/docs/) |
 
 | Admin server & Web                |
 |-----------------------------------|
@@ -550,11 +546,13 @@ pnpx mrm@2 lint-staged
 | Admin vite                                                           |
 |----------------------------------------------------------------------|
 | https://github.com/vbenjs/vue-vben-admin                             |
-| https://github.com/xiaoxian521/vue-pure-admin                        |
+| https://github.com/vbenjs/vben-admin-thin-next                       |
+| https://github.com/pure-admin/vue-pure-admin                         |
 | https://github.com/jekip/naive-ui-admin                              |
 | https://github.com/HalseySpicy/Geeker-Admin                          |
 | https://github.com/newbee-ltd/vue3-admin                             |
 | https://github.com/buqiyuan/vite-vue3-admin                          |
+| https://github.com/llyyayx/vue3-antd-admin                           |
 | https://github.com/buqiyuan/vite-vue3-lowcode                        |
 | https://github.com/RainManGO/vue3-composition-admin/tree/vite        |
 | https://github.com/cmdparkour/vue-admin-box                          |
@@ -565,23 +563,47 @@ pnpx mrm@2 lint-staged
 | https://github.com/tobe-fe-dalao/fast-vue3                           |
 | https://github.com/gmingchen/vue3-element-plus-admin/tree/vite-pinia |
 | https://github.com/lin-xin/vue-manage-system                         |
+| https://github.com/iamhmx/vue-next-admin                             |
+| https://github.com/un-pany/v3-admin-vite                             |
+| https://github.com/flipped-aurora/gin-vue-admin                      |
+| https://github.com/xushanpei/vite_vue3_ts                            |
+| https://github.com/yangzongzhuan/RuoYi-Vue3                          |
+| https://github.com/moon-studio/vite-vue-bpmn-process                 |
+| https://github.com/flipped-aurora/gin-vue-admin                      |
+| https://github.com/ywanzhou/vue3-template                            |
+| https://github.com/cool-team-official/cool-admin-vue                 |
+| https://github.com/Yiuman/bpmn-vue-activiti                          |
+| https://github.com/peng-xiao-shuai/vite-vue-admin                    |
+| https://github.com/wuufeii/vue3-admin-vite                           |
+| https://github.com/talktao/Vue3-Vite-Vant-TS-H5                      |
+| https://github.com/GeekQiaQia/vue3.0-template-admin                  |
+| https://github.com/zeorcpt/vue3-vant-mobile                          |
+| https://github.com/lyt-Top/vue-next-admin                            |
+| https://github.com/ZANJIAHAO1008/Admin-Frame-Vue3                    |
+| https://github.com/yangzongzhuan/RuoYi-Cloud-Vue3                    |
+| https://github.com/cmdparkour/vue-admin-box                          |
+| https://github.com/honghuangdc/soybean-admin                         |
+| https://github.com/liyupi/sql-generator                              |
+| https://github.com/vite-pwa/vite-plugin-pwa                          |
+| https://github.com/electron-vite/electron-vite-vue                   |
+| https://github.com/Codennnn/vue-color-avatar                         |
+| https://github.com/newbee-ltd/vue3-admin                             |
+| https://github.com/GeekQiaQia/vue3.0-template-admin                  |
+| https://github.com/zclzone/vue-naive-admin                           |
 
-
-| project                                               |
+| mobile & project                                      |
 |-------------------------------------------------------|
 | https://github.com/geekskai/vue3-jd-h5                |
 | https://github.com/biubiubiu01/vue3-bigData           |
 | https://github.com/jeecgboot/jeecg-boot               |
-| https://github.com/flipped-aurora/gin-vue-admin       |
 | https://github.com/biaochenxuying/blog-vue-typescript |
 | https://github.com/Yin-Hongwei/music-website          |
 | https://github.com/pipipi-pikachu/PPTist              |
 | https://github.com/Codennnn/vue-color-avatar          |
 | https://github.com/youlaitech/youlai-mall             |
-
-
-| [//]: # (loading)                                                            |
-|------------------------------------------------------------------------------|
-| http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading |
-| https://juejin.cn/post/7037036742985121800                                   |
-
+| https://github.com/buqiyuan/vite-vue3-lowcode         |
+| https://github.com/buqiyuan/vue3-antd-admin           |
+| https://github.com/ynzy/vite-vue3-h5-template         |
+| https://github.com/Sujb-sus/vue3-vite2-ts-blog-h5     |
+| https://github.com/buqiyuan/vite-vue3-h5              |
+| https://github.com/xsf0105/vue3-h5-template           |
