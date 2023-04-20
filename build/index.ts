@@ -1,4 +1,4 @@
-import type { ProxyOptions } from "vite";
+import type { ProxyOptions, BuildOptions } from "vite";
 
 export const getEnvConfig = (env: Recordable): ViteEnv => {
 	let envConfig: any = {};
@@ -43,4 +43,48 @@ export const createProxy = (list: ProxyList = []) => {
 		};
 	}
 	return rel;
+};
+
+export const getBuild = (isBuild: boolean): BuildOptions => {
+	return {
+		target: "modules",
+		// polyfillDynamicImport: "", // boolean
+		outDir: "dist", // path.join(__dirname, "dist/render"),
+		assetsDir: "assets",
+		assetsInlineLimit: 5120, // 5MB
+		// 如果设置为false，整个项目中的所有 CSS 将被提取到一个 CSS 文件中
+		cssCodeSplit: true,
+		// cssTarget: true,
+		sourcemap: false,
+		rollupOptions: {
+			output: {
+				// Static resource classification and packaging
+				chunkFileNames: "assets/js/[name]-[hash].js",
+				entryFileNames: "assets/js/[name]-[hash].js",
+				assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+				compact: true,
+				manualChunks: {
+					vue: ["vue", "vue-router", "pinia"],
+					echarts: ["echarts"],
+				},
+			},
+		},
+		// commonjsOptions: "",
+		// dynamicImportVarsOptions: "",
+		// lib: "",
+		// manifest: false, // manifest.json
+		// ssrManifest: false,
+		// ssr: false,
+		minify: "terser", // boolean | "terser" | "esbuild"
+		terserOptions: {
+			compress: {
+				drop_console: isBuild, // 生产环境去除console
+				drop_debugger: isBuild, // 生产环境去除debugger
+			},
+		},
+		// write: true,
+		// emptyOutDir: "", // outDiroutDir--emptyOutDir
+		chunkSizeWarningLimit: 2048,
+		// watch: 1024,
+	};
 };
