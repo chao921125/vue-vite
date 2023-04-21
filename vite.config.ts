@@ -176,8 +176,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			createHtmlPlugin({
 				minify: true,
-				// entry: "src/main.ts",
-				// template: "public/index.html",
+				entry: "src/main.ts",
+				template: "public/index.html",
 				inject: {
 					data: {
 						title: envConfig.VITE_TITLE,
