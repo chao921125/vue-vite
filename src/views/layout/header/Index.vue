@@ -98,12 +98,12 @@
 	import Constants from "@/plugins/constants";
 	import ThemeSetConfig from "@/config/themeSetConfig";
 	import RouterSetConfig from "@/config/routerSetConfig";
-	import Pinia, { getStoreRefs } from "@/store";
+	import Store, { getStoreRefs } from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
 	import { Sunny, Moon } from "@element-plus/icons-vue";
 
-	const storeThemeConfig = useThemeConfig(Pinia);
+	const storeThemeConfig = useThemeConfig(Store);
 	const { themeConfig } = getStoreRefs(storeThemeConfig);
 	// 折叠菜单 start
 	const isColl = computed(() => {
@@ -117,7 +117,7 @@
 	// 折叠菜单 end
 	// 面包屑导航 start
 	const route = useRoute();
-	const storesRouterList = useRouterList(Pinia);
+	const storesRouterList = useRouterList(Store);
 	const { menuList } = getStoreRefs(storesRouterList);
 	const breadcrumbList = ref<any[]>([]);
 	const initBreadcrumbList = (path: string) => {

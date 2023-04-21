@@ -2,7 +2,7 @@
  * 路由入口
  */
 import { createRouter, createWebHashHistory, RouteRecordName, RouteRecordRaw } from "vue-router";
-import Pinia, { getStoreRefs } from "@/store";
+import Store, { getStoreRefs } from "@/store";
 // import { useUserInfo } from "@/store/modules/user";
 import { useRouterList } from "@/store/modules/routerMeta";
 import { useRouterTags } from "@/store/modules/routerTags";
@@ -50,7 +50,7 @@ router.beforeEach(async (to, from, next) => {
 		} else if (token && (RouterSetConfig.whiteList.includes(to.path) || to.path === RouterSetConfig.routeRoot)) {
 			next(RouterSetConfig.routeHome);
 		} else {
-			const storesRouterList = useRouterList(Pinia);
+			const storesRouterList = useRouterList(Store);
 			const { routerList } = getStoreRefs(storesRouterList);
 			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {
@@ -87,9 +87,9 @@ const dynamicViewsModules: Record<string, Function> = Object.assign({}, { ...vie
 // 获取动态路由数据
 export async function getDynamicRouter() {
 	if (!(Utils.Storages.getSessionStorage(Constants.storageKey.token) || Utils.Cookies.getCookie(Constants.cookieKey.token))) return false;
-	// await useUserInfo(Pinia).setUserInfo();
+	// await useUserInfo(Store).setUserInfo();
 
-	let storesRouterList = useRouterList(Pinia);
+	let storesRouterList = useRouterList(Store);
 	await storesRouterList.setMenuList(requestData);
 
 	await setAddRoute(requestData);
@@ -110,7 +110,7 @@ export async function setAddRoute(data: any[]) {
 
 // 存储原始数据
 async function setRouterList(data: any[]) {
-	let storesRouterList = useRouterList(Pinia);
+	let storesRouterList = useRouterList(Store);
 	await storesRouterList.setRouterList(data);
 }
 
@@ -194,7 +194,7 @@ function componentImport(viewsModules: Record<string, Function>, component: stri
 
 // 存放tag数据
 export async function setTags(data: any[]) {
-	const storesTagsView = useRouterTags(Pinia);
+	const storesTagsView = useRouterTags(Store);
 	await storesTagsView.setTagsViewRoutes(data);
 }
 

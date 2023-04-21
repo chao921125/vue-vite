@@ -2,7 +2,7 @@
 import { createPinia, storeToRefs } from "pinia";
 
 // 创建
-const pinia = createPinia();
+const store = createPinia();
 
 // 不必额外导入，直接使用此方法
 export const getStoreRefs = (store: any) => {
@@ -35,4 +35,4 @@ export const getStoreRefs = (store: any) => {
 // 	appStore.useUserInfo = useUserInfo();
 // };
 // 导出
-export default pinia;
+export default store;

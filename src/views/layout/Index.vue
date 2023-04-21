@@ -38,7 +38,7 @@
 	import AdminHeader from "./header/Index.vue";
 	import AdminFooter from "./footer/Index.vue";
 	import Tags from "./tags/Index.vue";
-	import Pinia, { getStoreRefs } from "@/store";
+	import Store, { getStoreRefs } from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import RouterSetConfig from "@/config/routerSetConfig";
 	import Utils from "@/plugins/utils";
@@ -47,7 +47,7 @@
 	const isAdmin = ref(true);
 	isAdmin.value = RouterSetConfig.isAdminIframe;
 	// 修改项目设置
-	const storesThemeConfig = useThemeConfig(Pinia);
+	const storesThemeConfig = useThemeConfig(Store);
 	const { themeConfig } = getStoreRefs(storesThemeConfig);
 	const state = reactive({
 		clientWidth: 0,
