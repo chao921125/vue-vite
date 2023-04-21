@@ -46,14 +46,16 @@
   },
   "plugins": [],
   "include": [
-    "src/**/*",
-    "types/**/*",
-    "build/**/*",
-  ],
+		"src/**/*",
+		"types/**/*",
+		"build/**/*"
+	],
   "exclude": [
     "node_modules",
 		"dist",
 		"tests",
+		"auto-imports.d.ts",
+		"components.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 

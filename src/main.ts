@@ -5,9 +5,9 @@ const app = createApp(App);
 // const app = createSSRApp(App);
 
 // store pinia
-import Pinia from "@/store";
-app.use(Pinia);
-// import Pinia, { registerStore } from "@/store";
+import Store from "@/store";
+app.use(Store);
+// import Store, { registerStore } from "@/store";
 // registerStore();
 
 // router

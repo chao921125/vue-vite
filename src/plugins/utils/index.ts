@@ -1,6 +1,6 @@
 import { nextTick } from "vue";
 import Router from "@/router";
-import Pinia, { getStoreRefs } from "@/store";
+import Store, { getStoreRefs } from "@/store";
 import { useThemeConfig } from "@/store/modules/theme";
 import I18n from "@/plugins/i18n";
 import ThemeSetConfig from "@/config/themeSetConfig";
@@ -22,7 +22,7 @@ const util: any = {
  * @param titleText
  */
 util.setTitle = async () => {
-	const storeThemeConfig = useThemeConfig(Pinia);
+	const storeThemeConfig = useThemeConfig(Store);
 	const { themeConfig } = getStoreRefs(storeThemeConfig);
 	const globalTitle: string = themeConfig.value.globalTitle;
 	await nextTick(() => {
