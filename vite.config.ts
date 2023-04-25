@@ -57,7 +57,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		};
 	}
 	const defaultConfig: UserConfig = {
-		// root: "/public/index.html", // 入口，可以指定到public文件夹
+		// root: path.resolve(__dirname, ""), // "./public/index.html", // 入口，可以指定到public文件夹
 		base: isBuild ? "./" : envConfig.VITE_PUBLIC_PATH, // 公共基础路径
 		// mode: "development", // 指令覆盖构建模式 --mode
 		server: {
@@ -176,14 +176,37 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			createHtmlPlugin({
 				minify: true,
-				entry: "/src/main.ts",
-				template: "/public/index.html",
-				inject: {
-					data: {
-						title: envConfig.VITE_TITLE,
-						injectScript: `<script src="./inject.js"></script>`,
+				pages: [
+					{
+						template: "/public/index.html",
+						filename: "index.html",
+						entry: "/src/main.ts",
+						injectOptions: {
+							data: {
+								title: envConfig.VITE_TITLE,
+								injectScript: `<script src="./inject.js"></script>`,
+							},
+						},
 					},
-				},
+					{
+						template: "/public/color/index.html",
+						filename: "color.html",
+						injectOptions: {
+							data: {
+								title: envConfig.VITE_TITLE,
+								injectScript: `<script src="./inject.js"></script>`,
+							},
+						},
+					},
+				],
+				// template: "/public/index.html",
+				// entry: "/src/main.ts",
+				// inject: {
+				//   data: {
+				//     title: envConfig.VITE_TITLE,
+				//     injectScript: `<script src="./inject.js"></script>`,
+				//   },
+				// },
 			}),
 			// * 是否生成包预览
 			envConfig.VITE_REPORT && visualizer(),
@@ -271,6 +294,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		// envPrefix: "", // 配置.env变量以VUE_还是默认的VITE_
 		build: {
 			target: "modules",
+			// modulePreload: true,
 			// polyfillDynamicImport: "", // boolean
 			outDir: "dist", // path.join(__dirname, "dist/render"),
 			assetsDir: "assets",
@@ -280,7 +304,12 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// cssTarget: true,
 			sourcemap: false,
 			rollupOptions: {
+				// input: {
+				//   index: path.resolve(__dirname, "/public/index.html"),
+				//   color: path.resolve(__dirname, "/public/color/index.html"),
+				// },
 				output: {
+					dir: "dist",
 					// Static resource classification and packaging
 					chunkFileNames: "assets/js/[name]-[hash].js",
 					entryFileNames: "assets/js/[name]-[hash].js",
@@ -306,7 +335,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				},
 			},
 			// write: true,
-			// emptyOutDir: "", // outDiroutDir--emptyOutDir
+			// emptyOutDir: true, // outDiroutDir--emptyOutDir
+			// copyPublicDir: true,
+			reportCompressedSize: true,
 			chunkSizeWarningLimit: 2048,
 			// watch: 1024,
 		},

@@ -13,6 +13,7 @@
       "build:dev": "vue-tsc --noEmit --skipLibCheck && vite build --mode development",
       "build:test": "vue-tsc --noEmit --skipLibCheck && vite build --mode test",
       "build:prod": "vue-tsc --noEmit --skipLibCheck && vite build --mode production",
+		  "build:ig": "vite build --mode production",
       "build:no-cache": "npm clean:cache && npm run build",
       "clean:cache": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && pnpm install",
       "clean:lib": "rimraf node_modules",
