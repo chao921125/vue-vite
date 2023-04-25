@@ -28,6 +28,9 @@ Object.keys(Icons).forEach((key) => {
 	app.component(key, Icons[key as keyof typeof Icons]);
 });
 
+// 图标
+import "virtual:svg-icons-register";
+
 // vant
 // import "vant/lib/index.css";
 

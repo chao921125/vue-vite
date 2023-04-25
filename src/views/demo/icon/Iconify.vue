@@ -52,10 +52,20 @@
 			<code>iconfont &lt;i class="iconfont icon-detail"&gt;&lt;/i&gt; <i class="iconfont icon-detail" /></code>
 		</el-col>
 	</el-row>
+	<el-row>
+		<el-col :span="24">
+			<icon-svg name="democrat" class="icon"></icon-svg>
+		</el-col>
+	</el-row>
 </template>
 
 <script lang="ts" setup name="Iconify">
 	// import { Icon } from "@iconify/vue";
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+	.icon {
+		font-size: 200px;
+		color: #ff0000;
+	}
+</style>
