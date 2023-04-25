@@ -37,7 +37,7 @@
 		</el-row>
 	</el-skeleton>
 	<el-skeleton :rows="1" animated :loading="isLoading">
-		<el-row gutter="20">
+		<el-row :gutter="20">
 			<el-col :span="8">
 				<el-card>
 					<div class="count-title">采购金额</div>
@@ -187,12 +187,12 @@
 		});
 	};
 
-	const viewImg = (url: string) => {
-		const image = new Image();
-		image.src = url;
-		const imgWindow = window.open(url);
-		imgWindow.document.write(image.outerHTML);
-	};
+	// const viewImg = (url: string) => {
+	// 	const image = new Image();
+	// 	image.src = url;
+	// 	const imgWindow = window.open(url);
+	// 	imgWindow?.document.write(image.outerHTML);
+	// };
 
 	onMounted(() => {
 		getUaInfo();

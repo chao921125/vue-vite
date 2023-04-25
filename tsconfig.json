@@ -53,6 +53,7 @@
 		"components.d.ts"
 	],
   "exclude": [
+		"**/*.js",
     "node_modules",
 		"dist",
 		"tests"

@@ -41,7 +41,7 @@
 	const route = useRoute();
 	const router = useRouter();
 
-	const isLoading = ref<Boolean>(false);
+	const isLoading = ref<boolean>(false);
 	const loginUser = (formEl: FormInstance | undefined) => {
 		if (!formEl) return false;
 		formEl.validate((valid) => {

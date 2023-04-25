@@ -3,7 +3,7 @@
 	<input type="file" ref="fileUpload" class="file-upload" multiple accept=".xlsx, xls, .csv" @change="fileChange" />
 	<div @drop="handleDrop" @dragover="handleDragover" @dragleave="handleDragleave" style="border: 1px dotted #000000">
 		<span>Drop a spreadsheet file here to upload sites</span>
-		<el-button :loading="isLoading" size="mini" type="primary" @click="handleUpload">upload</el-button>
+		<el-button :loading="isLoading" size="small" type="primary" @click="handleUpload">upload</el-button>
 	</div>
 	<div v-for="(item, index) in fileObj.fileList" :key="index">
 		<el-link :underline="false" type="info">{{ item.name }}</el-link>
