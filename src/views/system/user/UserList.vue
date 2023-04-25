@@ -59,7 +59,7 @@
 	import { Tree } from "@/interface/common";
 
 	const formSearchRef: FormInstance = ref<FormInstance>();
-	const formSearch = reactive({
+	const formSearch: any = reactive({
 		name: "",
 	});
 	const resetForm = (formEl: FormInstance | undefined) => {
@@ -68,7 +68,7 @@
 		getUserList();
 	};
 
-	const params = reactive({
+	const params: any = reactive({
 		pageCurrent: 1,
 		pageSize: 10,
 		pageTotal: 0,

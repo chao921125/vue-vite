@@ -29,12 +29,12 @@
 	import ValidateForm from "@/plugins/validate/validateForm";
 
 	const formUserRef: FormInstance = ref<FormInstance>();
-	const formUser = reactive({
+	const formUser: any = reactive({
 		userName: "",
 		password: "",
 		rePassword: "",
 	});
-	const formRulesUser = reactive({
+	const formRulesUser: any = reactive({
 		userName: [{ validator: ValidateForm.userName, trigger: "blur" }],
 		password: [{ validator: ValidateForm.password, trigger: "blur" }],
 		rePassword: [{ validator: ValidateForm.rePassword, reForm: formUser, reColumn: "password", trigger: "blur" }],
