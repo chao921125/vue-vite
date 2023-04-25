@@ -62,6 +62,7 @@
    "devDependencies": {
       "@commitlint/cli": "^17.6.1",
       "@commitlint/config-conventional": "^17.6.1",
+      "@types/echarts": "^4.9.17",
       "@types/lodash-es": "^4.17.7",
       "@types/node": "^18.16.0",
       "@types/nprogress": "^0.2.0",

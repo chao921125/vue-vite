@@ -28,7 +28,7 @@
 	import Constants from "@/plugins/constants";
 	import ValidateForm from "@/plugins/validate/validateForm";
 
-	const formUserRef: FormInstance = ref<FormInstance>();
+	const formUserRef = ref<FormInstance>();
 	const formUser: any = reactive({
 		userName: "",
 		password: "",

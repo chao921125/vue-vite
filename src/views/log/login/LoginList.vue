@@ -20,7 +20,7 @@
 <script lang="ts" setup name="LoginList">
 	import { FormInstance } from "element-plus";
 
-	const formSearchRef: FormInstance = ref<FormInstance>();
+	const formSearchRef = ref<FormInstance>();
 	const formSearch: any = reactive({
 		name: "",
 	});

@@ -28,7 +28,7 @@
 	import ValidateForm from "@/plugins/validate/validateForm";
 
 	const { proxy } = <any>getCurrentInstance();
-	const formUserRef: FormInstance = ref<FormInstance>();
+	const formUserRef = ref<FormInstance>();
 	const formUser: Record<string, any> = <any>reactive({
 		userName: "",
 		password: "",
