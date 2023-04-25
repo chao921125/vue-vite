@@ -43,7 +43,7 @@
 	// let officeUrl = 'http://view.officeapps.live.com/op/view.aspx?src='+url
 	const fileUpload = ref();
 	const isLoading = ref(false);
-	const fileObj = reactive({
+	const fileObj: any = reactive({
 		fileList: <any>[{ id: "id-xxxxxxx", name: "file.xlsx", url: "https://domain.com/id-xxxxxxx" }],
 		fileReaderHtml: "",
 		fileReader: {

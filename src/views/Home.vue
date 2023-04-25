@@ -93,7 +93,7 @@
 	import Echarts from "@/plugins/echarts";
 
 	const tI18n = ref();
-	const form = reactive({
+	const form: any = reactive({
 		date: ["2022-08-31", "2022-11-31"],
 	});
 

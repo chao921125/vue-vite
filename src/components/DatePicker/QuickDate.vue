@@ -28,7 +28,7 @@
 
 	const emit = defineEmits(["change", "getDays"]);
 
-	const dateOptions = reactive({
+	const dateOptions: any = reactive({
 		shortcuts: [
 			{
 				text: "Last week",
