@@ -60,7 +60,7 @@
 		],
 	});
 
-	const dateValue = ref<any[]>([]);
+	const dateValue: any = ref<any[]>([]);
 
 	const changeDate = (value: any[]) => {
 		emit("getDays", Math.abs(differenceInDays(value[0], value[1])));
