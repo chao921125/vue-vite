@@ -48,14 +48,14 @@
   "include": [
 		"src/**/*",
 		"types/**/*",
-		"build/**/*"
+		"build/**/*",
+		"auto-imports.d.ts",
+		"components.d.ts"
 	],
   "exclude": [
     "node_modules",
 		"dist",
-		"tests",
-		"auto-imports.d.ts",
-		"components.d.ts"
+		"tests"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 
