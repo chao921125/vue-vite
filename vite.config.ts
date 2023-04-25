@@ -57,7 +57,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		};
 	}
 	const defaultConfig: UserConfig = {
-		// root: path.resolve(__dirname, ""), // "./public/index.html", // 入口，可以指定到public文件夹
+		root: path.resolve(__dirname, ""), // "./public/index.html", // 入口，可以指定到public文件夹
 		base: isBuild ? "./" : envConfig.VITE_PUBLIC_PATH, // 公共基础路径
 		// mode: "development", // 指令覆盖构建模式 --mode
 		server: {
