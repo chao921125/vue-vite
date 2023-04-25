@@ -25,7 +25,6 @@ declare module "@vue/runtime-core" {
 		ElCard: typeof import("element-plus/es")["ElCard"];
 		ElCheckbox: typeof import("element-plus/es")["ElCheckbox"];
 		ElCheckboxGroup: typeof import("element-plus/es")["ElCheckboxGroup"];
-		ElCheckTag: typeof import("element-plus/es")["ElCheckTag"];
 		ElCol: typeof import("element-plus/es")["ElCol"];
 		ElColorPicker: typeof import("element-plus/es")["ElColorPicker"];
 		ElConfigProvider: typeof import("element-plus/es")["ElConfigProvider"];
@@ -49,7 +48,6 @@ declare module "@vue/runtime-core" {
 		ElMenu: typeof import("element-plus/es")["ElMenu"];
 		ElMenuItem: typeof import("element-plus/es")["ElMenuItem"];
 		ElOption: typeof import("element-plus/es")["ElOption"];
-		ElPagination: typeof import("element-plus/es")["ElPagination"];
 		ElPopconfirm: typeof import("element-plus/es")["ElPopconfirm"];
 		ElRow: typeof import("element-plus/es")["ElRow"];
 		ElScrollbar: typeof import("element-plus/es")["ElScrollbar"];
@@ -59,23 +57,14 @@ declare module "@vue/runtime-core" {
 		ElSwitch: typeof import("element-plus/es")["ElSwitch"];
 		ElTable: typeof import("element-plus/es")["ElTable"];
 		ElTableColumn: typeof import("element-plus/es")["ElTableColumn"];
-		ElTabPane: typeof import("element-plus/es")["ElTabPane"];
-		ElTabs: typeof import("element-plus/es")["ElTabs"];
 		ElTag: typeof import("element-plus/es")["ElTag"];
 		ElTooltip: typeof import("element-plus/es")["ElTooltip"];
 		ElTree: typeof import("element-plus/es")["ElTree"];
 		ElTreeSelect: typeof import("element-plus/es")["ElTreeSelect"];
-		HelloWorld: typeof import("./src/components/HelloWorld.vue")["default"];
-		IMaterialSymbols10kOutline: typeof import("~icons/material-symbols/10k-outline")["default"];
-		IMdiAccountReactivate: typeof import("~icons/mdi/account-reactivate")["default"];
-		Index: typeof import("./src/components/back/Index.vue")["default"];
 		PagenationRePagination: typeof import("./src/components/pagenation/RePagination.vue")["default"];
-		RePagination: typeof import("./src/components/pagenation/RePagination.vue")["default"];
 		RouterLink: typeof import("vue-router")["RouterLink"];
 		RouterView: typeof import("vue-router")["RouterView"];
 		Svg: typeof import("./src/components/svg/Index.vue")["default"];
-		VanCol: typeof import("vant/es")["Col"];
-		VanRow: typeof import("vant/es")["Row"];
 	}
 	export interface ComponentCustomProperties {
 		vLoading: typeof import("element-plus/es")["ElLoadingDirective"];
