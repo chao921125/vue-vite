@@ -45,7 +45,7 @@
 	});
 	const emits = defineEmits(["changeSize", "changeCurrent", "pagination"]);
 
-	const pageOption = reactive({
+	const pageOption: any = reactive({
 		pageCurrent: propsData.current,
 		pageSize: propsData.limit,
 		pageTotal: propsData.total,

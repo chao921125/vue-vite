@@ -79,7 +79,7 @@
 	];
 	const checkTableColumn = ref<any[]>(["number"]);
 
-	const optionPrint = reactive({
+	const optionPrint: any = reactive({
 		// 打印指定容器
 		id: "printBox",
 		// 打印标准

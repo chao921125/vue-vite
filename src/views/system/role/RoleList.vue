@@ -45,7 +45,7 @@
 	import AddEdit from "./components/AddEdit.vue";
 
 	const formSearchRef = ref();
-	const formSearch = reactive({
+	const formSearch: any = reactive({
 		name: "",
 	});
 	const resetForm = (formEl: FormInstance | undefined) => {
@@ -54,7 +54,7 @@
 		getRoleList();
 	};
 
-	const params = reactive({
+	const params: any = reactive({
 		pageCurrent: 1,
 		pageSize: 10,
 		pageTotal: 0,

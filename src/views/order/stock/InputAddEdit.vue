@@ -4,7 +4,7 @@
 			<el-form-item prop="number" label="内部编码">
 				<el-input v-model="form.number" placeholder=""></el-input>
 			</el-form-item>
-			<el-form-item :prop="item.name" label="名称" :rules="rules.name">
+			<el-form-item prop="name" label="名称" :rules="rules.name">
 				<el-input v-model="item.name" placeholder=""></el-input>
 			</el-form-item>
 			<el-form-item prop="type" label="种类">
@@ -83,7 +83,7 @@
 
 	// 表单
 	const formLabelWidth = "100px";
-	const formRef: FormInstance = ref<FormInstance>();
+	const formRef = ref<FormInstance>();
 	const form = ref<Product>({});
 	const rules = reactive<FormRules>({
 		name: [{ required: true, message: "", trigger: "blur" }],

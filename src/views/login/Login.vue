@@ -28,7 +28,7 @@
 	import ValidateForm from "@/plugins/validate/validateForm";
 
 	const { proxy } = <any>getCurrentInstance();
-	const formUserRef: FormInstance = ref<FormInstance>();
+	const formUserRef = ref<FormInstance>();
 	const formUser: Record<string, any> = <any>reactive({
 		userName: "",
 		password: "",
@@ -41,7 +41,7 @@
 	const route = useRoute();
 	const router = useRouter();
 
-	const isLoading = ref<Boolean>(false);
+	const isLoading = ref<boolean>(false);
 	const loginUser = (formEl: FormInstance | undefined) => {
 		if (!formEl) return false;
 		formEl.validate((valid) => {

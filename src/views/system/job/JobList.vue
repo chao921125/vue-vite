@@ -44,8 +44,8 @@
 	import { StatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";
 
-	const formSearchRef: FormInstance = ref<FormInstance>();
-	const formSearch = reactive({
+	const formSearchRef = ref<FormInstance>();
+	const formSearch: any = reactive({
 		name: "",
 	});
 	const resetForm = (formEl: FormInstance | undefined) => {
@@ -54,7 +54,7 @@
 		getJobList();
 	};
 
-	const params = reactive({
+	const params: any = reactive({
 		pageCurrent: 1,
 		pageSize: 10,
 		pageTotal: 0,

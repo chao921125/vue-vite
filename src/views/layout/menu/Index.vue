@@ -47,7 +47,7 @@
 	// 渲染菜单
 	const storeRouterList = useRouterList(Store);
 	const { menuList } = getStoreRefs(storeRouterList);
-	const state = reactive({ menuList: Array<any> });
+	const state: any = reactive({ menuList: Array<any> });
 	const setMenu = () => {
 		(state.menuList as any) = menuList.value || [];
 	};

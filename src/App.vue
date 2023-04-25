@@ -14,7 +14,7 @@
 
 	const { proxy } = <any>getCurrentInstance();
 	// large / default /small
-	const config = reactive({
+	const config: any = reactive({
 		i18n: import.meta.env.VITE_LOCAL,
 		size: "default",
 		buttonSpace: {

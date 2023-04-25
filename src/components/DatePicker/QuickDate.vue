@@ -28,7 +28,7 @@
 
 	const emit = defineEmits(["change", "getDays"]);
 
-	const dateOptions = reactive({
+	const dateOptions: any = reactive({
 		shortcuts: [
 			{
 				text: "Last week",
@@ -60,7 +60,7 @@
 		],
 	});
 
-	const dateValue = ref<any[]>([]);
+	const dateValue: any = ref<any[]>([]);
 
 	const changeDate = (value: any[]) => {
 		emit("getDays", Math.abs(differenceInDays(value[0], value[1])));

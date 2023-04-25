@@ -49,7 +49,7 @@
 	// 修改项目设置
 	const storesThemeConfig = useThemeConfig(Store);
 	const { themeConfig } = getStoreRefs(storesThemeConfig);
-	const state = reactive({
+	const state: any = reactive({
 		clientWidth: 0,
 	});
 	// 固定header

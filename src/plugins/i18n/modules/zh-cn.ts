@@ -43,7 +43,7 @@ export default {
 		demoPage: "页面",
 		demoIcon: "图标",
 		demoIconIfy: "iconify",
-		demoAnimaCss: "Animation.css",
+		demoAnimaCss: "动画",
 		demoXlsx: "Xlsx",
 		demoMap: "CV拖拽缩放",
 		demoMapOne: "CV分割地图",

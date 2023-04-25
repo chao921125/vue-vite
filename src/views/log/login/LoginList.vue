@@ -20,8 +20,8 @@
 <script lang="ts" setup name="LoginList">
 	import { FormInstance } from "element-plus";
 
-	const formSearchRef: FormInstance = ref<FormInstance>();
-	const formSearch = reactive({
+	const formSearchRef = ref<FormInstance>();
+	const formSearch: any = reactive({
 		name: "",
 	});
 	const resetForm = (formEl: FormInstance | undefined) => {
@@ -31,7 +31,7 @@
 	};
 
 	const tableData = ref<any[]>([]);
-	const params = reactive({
+	const params: any = reactive({
 		pageCurrent: 1,
 		pageSize: 10,
 		pageTotal: 100,

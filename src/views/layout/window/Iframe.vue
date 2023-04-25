@@ -18,7 +18,7 @@
 		}
 		return "100px";
 	});
-	const iframeObj = reactive({
+	const iframeObj: any = reactive({
 		url: "",
 		loading: true,
 	});

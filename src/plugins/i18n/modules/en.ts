@@ -43,7 +43,7 @@ export default {
 		demoPage: "Page",
 		demoIcon: "Icon",
 		demoIconIfy: "iconify",
-		demoAnimaCss: "Animation.css",
+		demoAnimaCss: "Animation",
 		demoXlsx: "Xlsx",
 		demoMap: "CV Drag Scale",
 		demoMapOne: "CV Map Division",
