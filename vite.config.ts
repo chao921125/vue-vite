@@ -286,8 +286,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			target: "modules",
 			// modulePreload: true,
 			// polyfillDynamicImport: "", // boolean
-			outDir: "dist", // path.join(__dirname, "dist/render"),
-			assetsDir: "assets",
+			outDir: path.join(__dirname, "dist"), // path.join(__dirname, "dist/render"),
+			assetsDir: path.join(__dirname, "assets"),
 			assetsInlineLimit: 5120, // 5MB
 			// 如果设置为false，整个项目中的所有 CSS 将被提取到一个 CSS 文件中
 			cssCodeSplit: true,
@@ -295,11 +295,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			sourcemap: false,
 			rollupOptions: {
 				input: {
-					index: path.resolve(__dirname, "/public/index.html"),
-					color: path.resolve(__dirname, "/public/color.html"),
+					index: path.resolve(__dirname, "/index.html"),
+					color: path.resolve(__dirname, "/color.html"),
 				},
 				output: {
-					// dir: "dist",
+					dir: "dist",
 					// Static resource classification and packaging
 					chunkFileNames: "assets/js/[name]-[hash].js",
 					entryFileNames: "assets/js/[name]-[hash].js",
