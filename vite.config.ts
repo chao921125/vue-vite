@@ -23,6 +23,7 @@ import UnoCSS from "unocss/vite";
 // 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 // 自动导入模块
 import components from "unplugin-vue-components/vite";
 // Mock
@@ -122,10 +123,18 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			legacy({
 				targets: ["defaults", "not IE 11"],
 			}),
+			// 原子css
 			UnoCSS(),
+			// 图标
 			icons({
 				compiler: "vue3",
 				autoInstall: true,
+			}),
+			createSvgIconsPlugin({
+				// Specify the icon folder to be cached
+				iconDirs: [path.resolve(process.cwd(), "/src/assets/svg")],
+				// Specify symbolId format
+				symbolId: "svg-[dir]-[name]",
 			}),
 			// https://github.com/antfu/unplugin-auto-import#readme
 			autoImport({
