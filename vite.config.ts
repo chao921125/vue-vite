@@ -4,11 +4,11 @@ import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import dayjs from "dayjs";
 import path from "path";
-import { createHtmlPlugin } from "vite-plugin-html";
 // 热重载
 import viteRestart from "vite-plugin-restart";
 // build 构建
 import { visualizer } from "rollup-plugin-visualizer";
+import { ViteEjsPlugin } from "vite-plugin-ejs";
 // 向上兼容浏览器
 import legacy from "@vitejs/plugin-legacy";
 // CDN 配置
@@ -183,40 +183,21 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					// }
 				],
 			}),
-			createHtmlPlugin({
-				minify: true,
-				pages: [
-					{
-						template: "/public/index.html",
-						filename: "index.html",
-						entry: "/src/main.ts",
-						injectOptions: {
-							data: {
-								title: envConfig.VITE_TITLE,
-								injectScript: `<script src="./inject.js"></script>`,
-							},
-						},
+			ViteEjsPlugin(
+				(viteConfig) => {
+					// viteConfig is the current viteResolved config.
+					return {
+						root: viteConfig.root,
+						title: envConfig.VITE_TITLE,
+					};
+				},
+				{
+					ejs: {
+						// ejs options goes here.
+						beautify: true,
 					},
-					{
-						template: "/public/color/index.html",
-						filename: "color.html",
-						injectOptions: {
-							data: {
-								title: envConfig.VITE_TITLE,
-								injectScript: `<script src="./inject.js"></script>`,
-							},
-						},
-					},
-				],
-				// template: "/public/index.html",
-				// entry: "/src/main.ts",
-				// inject: {
-				//   data: {
-				//     title: envConfig.VITE_TITLE,
-				//     injectScript: `<script src="./inject.js"></script>`,
-				//   },
-				// },
-			}),
+				},
+			),
 			// * 是否生成包预览
 			envConfig.VITE_REPORT && visualizer(),
 			{
@@ -305,18 +286,18 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			target: "modules",
 			// modulePreload: true,
 			// polyfillDynamicImport: "", // boolean
-			outDir: "dist", // path.join(__dirname, "dist/render"),
-			assetsDir: "assets",
+			outDir: path.join(__dirname, "dist"), // path.join(__dirname, "dist/render"),
+			assetsDir: path.join(__dirname, "assets"),
 			assetsInlineLimit: 5120, // 5MB
 			// 如果设置为false，整个项目中的所有 CSS 将被提取到一个 CSS 文件中
 			cssCodeSplit: true,
 			// cssTarget: true,
 			sourcemap: false,
 			rollupOptions: {
-				// input: {
-				//   index: path.resolve(__dirname, "/public/index.html"),
-				//   color: path.resolve(__dirname, "/public/color/index.html"),
-				// },
+				input: {
+					index: path.resolve(__dirname, "/index.html"),
+					color: path.resolve(__dirname, "/color.html"),
+				},
 				output: {
 					dir: "dist",
 					// Static resource classification and packaging
