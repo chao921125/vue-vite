@@ -1,22 +1,18 @@
-.*
 /dist/*
-/node_modules/**
-/public/*
-/docs
-node_modules
 /node_modules
+/public
+/docs
 /src/libs/
-/assets
+/src/assets
 
 /.vscode
 /.idea
 /.git
 
 *.local
-*.output.js
 **/*.svg
 **/*.sh
-*.conf
-*.conf.js
 *.md
 *.json
+auto-imports.d.ts
+components.d.ts
