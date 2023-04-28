@@ -1,4 +1,4 @@
-[//]: # (后续需要删除的包)
+[预览地址](https://vue-vite-ts.vercel.app/#/login?redirect=/&params={})
 # 注意如果首次下载提交失败请执行以下命令
 [//]: # (pnpm i husky lint-staged -D)
 ```text
@@ -522,29 +522,30 @@ pnpx mrm@2 lint-staged
 | https://juejin.cn/post/7037036742985121800                                   |
 
 # 优秀项目推荐
-| other vite doc                         |
-|----------------------------------------|
-| https://github.com/sl1673495/blogs     |
-| https://github.com/cuixiaorui/mini-vue |
-| https://github.com/antfu/vitesse       |
-| https://github.com/vuejs/vitepress     |
+| vite doc                           |
+|------------------------------------|
+| https://github.com/sl1673495/blogs |
+| https://github.com/antfu/vitesse   |
+| https://github.com/vuejs/vitepress |
 
-| 示例集合                                       |
+| 各种插件                                       |
 |--------------------------------------------|
 | [组件](https://madewith.cn/)                 |
 | https://github.com/vitejs/awesome-vite     |
 | https://github.com/nekobc1998923/vitecamp  |
-| https://github.com/XPoet/vite-vue3-starter |
-| https://github.com/xxxsf/vue3-h5-template  |
 
-| Admin server & Web                |
-|-----------------------------------|
-| https://github.com/jeecgboot      |
-| https://github.com/flipped-aurora |
-| https://gitee.com/likeadmin       |
+| Admin server & Web                 |
+|------------------------------------|
+| https://github.com/jeecgboot       |
+| https://gitee.com/likeadmin        |
+| https://github.com/yangzongzhuan   |
 
 | Admin vite                                                           |
 |----------------------------------------------------------------------|
+| https://github.com/XPoet/vite-vue3-starter                           |
+| https://github.com/cuixiaorui/mini-vue                               |
+| https://github.com/YunaiV/ruoyi-vue-pro                              |
+| https://github.com/flipped-aurora                                    |
 | https://github.com/vbenjs/vue-vben-admin                             |
 | https://github.com/vbenjs/vben-admin-thin-next                       |
 | https://github.com/pure-admin/vue-pure-admin                         |
@@ -557,7 +558,6 @@ pnpx mrm@2 lint-staged
 | https://github.com/RainManGO/vue3-composition-admin/tree/vite        |
 | https://github.com/cmdparkour/vue-admin-box                          |
 | https://github.com/GeekQiaQia/vue3.0-template-admin                  |
-| https://github.com/jeecgboot/jeecgboot-vue3                          |
 | https://github.com/lyt-Top/vue-next-admin                            |
 | https://github.com/jzfai/vue3-admin-plus                             |
 | https://github.com/tobe-fe-dalao/fast-vue3                           |
@@ -567,7 +567,6 @@ pnpx mrm@2 lint-staged
 | https://github.com/un-pany/v3-admin-vite                             |
 | https://github.com/flipped-aurora/gin-vue-admin                      |
 | https://github.com/xushanpei/vite_vue3_ts                            |
-| https://github.com/yangzongzhuan/RuoYi-Vue3                          |
 | https://github.com/moon-studio/vite-vue-bpmn-process                 |
 | https://github.com/flipped-aurora/gin-vue-admin                      |
 | https://github.com/ywanzhou/vue3-template                            |
@@ -580,7 +579,6 @@ pnpx mrm@2 lint-staged
 | https://github.com/zeorcpt/vue3-vant-mobile                          |
 | https://github.com/lyt-Top/vue-next-admin                            |
 | https://github.com/ZANJIAHAO1008/Admin-Frame-Vue3                    |
-| https://github.com/yangzongzhuan/RuoYi-Cloud-Vue3                    |
 | https://github.com/cmdparkour/vue-admin-box                          |
 | https://github.com/honghuangdc/soybean-admin                         |
 | https://github.com/liyupi/sql-generator                              |
@@ -593,6 +591,7 @@ pnpx mrm@2 lint-staged
 
 | mobile & project                                      |
 |-------------------------------------------------------|
+| https://github.com/xxxsf/vue3-h5-template             |
 | https://github.com/geekskai/vue3-jd-h5                |
 | https://github.com/biubiubiu01/vue3-bigData           |
 | https://github.com/jeecgboot/jeecg-boot               |
@@ -607,3 +606,5 @@ pnpx mrm@2 lint-staged
 | https://github.com/Sujb-sus/vue3-vite2-ts-blog-h5     |
 | https://github.com/buqiyuan/vite-vue3-h5              |
 | https://github.com/xsf0105/vue3-h5-template           |
+
+[//]: # (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)
