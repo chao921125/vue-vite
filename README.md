@@ -534,16 +534,18 @@ pnpx mrm@2 lint-staged
 | https://github.com/vitejs/awesome-vite     |
 | https://github.com/nekobc1998923/vitecamp  |
 
-| Admin server & Web                         |
-|--------------------------------------------|
-| https://github.com/jeecgboot               |
-| https://github.com/flipped-aurora          |
-| https://gitee.com/likeadmin                |
-| https://github.com/cuixiaorui/mini-vue     |
-| https://github.com/XPoet/vite-vue3-starter |
+| Admin server & Web                 |
+|------------------------------------|
+| https://github.com/jeecgboot       |
+| https://gitee.com/likeadmin        |
+| https://github.com/yangzongzhuan   |
 
 | Admin vite                                                           |
 |----------------------------------------------------------------------|
+| https://github.com/XPoet/vite-vue3-starter                           |
+| https://github.com/cuixiaorui/mini-vue                               |
+| https://github.com/YunaiV/ruoyi-vue-pro                              |
+| https://github.com/flipped-aurora                                    |
 | https://github.com/vbenjs/vue-vben-admin                             |
 | https://github.com/vbenjs/vben-admin-thin-next                       |
 | https://github.com/pure-admin/vue-pure-admin                         |
@@ -556,7 +558,6 @@ pnpx mrm@2 lint-staged
 | https://github.com/RainManGO/vue3-composition-admin/tree/vite        |
 | https://github.com/cmdparkour/vue-admin-box                          |
 | https://github.com/GeekQiaQia/vue3.0-template-admin                  |
-| https://github.com/jeecgboot/jeecgboot-vue3                          |
 | https://github.com/lyt-Top/vue-next-admin                            |
 | https://github.com/jzfai/vue3-admin-plus                             |
 | https://github.com/tobe-fe-dalao/fast-vue3                           |
@@ -566,7 +567,6 @@ pnpx mrm@2 lint-staged
 | https://github.com/un-pany/v3-admin-vite                             |
 | https://github.com/flipped-aurora/gin-vue-admin                      |
 | https://github.com/xushanpei/vite_vue3_ts                            |
-| https://github.com/yangzongzhuan/RuoYi-Vue3                          |
 | https://github.com/moon-studio/vite-vue-bpmn-process                 |
 | https://github.com/flipped-aurora/gin-vue-admin                      |
 | https://github.com/ywanzhou/vue3-template                            |
@@ -579,7 +579,6 @@ pnpx mrm@2 lint-staged
 | https://github.com/zeorcpt/vue3-vant-mobile                          |
 | https://github.com/lyt-Top/vue-next-admin                            |
 | https://github.com/ZANJIAHAO1008/Admin-Frame-Vue3                    |
-| https://github.com/yangzongzhuan/RuoYi-Cloud-Vue3                    |
 | https://github.com/cmdparkour/vue-admin-box                          |
 | https://github.com/honghuangdc/soybean-admin                         |
 | https://github.com/liyupi/sql-generator                              |
