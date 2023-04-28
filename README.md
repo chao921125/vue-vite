@@ -522,26 +522,25 @@ pnpx mrm@2 lint-staged
 | https://juejin.cn/post/7037036742985121800                                   |
 
 # 优秀项目推荐
-| other vite doc                         |
-|----------------------------------------|
-| https://github.com/sl1673495/blogs     |
-| https://github.com/cuixiaorui/mini-vue |
-| https://github.com/antfu/vitesse       |
-| https://github.com/vuejs/vitepress     |
+| vite doc                           |
+|------------------------------------|
+| https://github.com/sl1673495/blogs |
+| https://github.com/antfu/vitesse   |
+| https://github.com/vuejs/vitepress |
 
-| 示例集合                                       |
+| 各种插件                                       |
 |--------------------------------------------|
 | [组件](https://madewith.cn/)                 |
 | https://github.com/vitejs/awesome-vite     |
 | https://github.com/nekobc1998923/vitecamp  |
-| https://github.com/XPoet/vite-vue3-starter |
-| https://github.com/xxxsf/vue3-h5-template  |
 
-| Admin server & Web                |
-|-----------------------------------|
-| https://github.com/jeecgboot      |
-| https://github.com/flipped-aurora |
-| https://gitee.com/likeadmin       |
+| Admin server & Web                         |
+|--------------------------------------------|
+| https://github.com/jeecgboot               |
+| https://github.com/flipped-aurora          |
+| https://gitee.com/likeadmin                |
+| https://github.com/cuixiaorui/mini-vue     |
+| https://github.com/XPoet/vite-vue3-starter |
 
 | Admin vite                                                           |
 |----------------------------------------------------------------------|
@@ -593,6 +592,7 @@ pnpx mrm@2 lint-staged
 
 | mobile & project                                      |
 |-------------------------------------------------------|
+| https://github.com/xxxsf/vue3-h5-template             |
 | https://github.com/geekskai/vue3-jd-h5                |
 | https://github.com/biubiubiu01/vue3-bigData           |
 | https://github.com/jeecgboot/jeecg-boot               |
@@ -607,3 +607,5 @@ pnpx mrm@2 lint-staged
 | https://github.com/Sujb-sus/vue3-vite2-ts-blog-h5     |
 | https://github.com/buqiyuan/vite-vue3-h5              |
 | https://github.com/xsf0105/vue3-h5-template           |
+
+[//]: # (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)
