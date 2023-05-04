@@ -59,7 +59,7 @@
 
 <script lang="ts" setup name="AddEdit">
 	import type { FormInstance, FormRules } from "element-plus";
-	import { User } from "@/interface/data";
+	import { IUser } from "@/interface/data";
 
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({
@@ -75,7 +75,7 @@
 	// 表单
 	const formLabelWidth = "100px";
 	const formRef = ref<FormInstance>();
-	const form = ref<User>({});
+	const form = ref<IUser>({});
 	const rules = reactive<FormRules>({});
 
 	// 弹窗
