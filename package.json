@@ -5,10 +5,9 @@
    "private": true,
    "scripts": {
       "serve": "npm run dev",
-      "dev": "vite --mode development --host",
-      "test": "vite --mode test --host",
-      "prod": "vite --mode production --host",
-      "preview": "vite preview",
+      "dev": "vite --host --open --mode development",
+      "test": "vite --host --open --mode test",
+      "prod": "vite --host --open --mode production",
       "build": "npm run build:prod",
       "build:dev": "vue-tsc --noEmit --skipLibCheck && vite build --mode development",
       "build:test": "vue-tsc --noEmit --skipLibCheck && vite build --mode test",
@@ -21,6 +20,7 @@
       "lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
       "lint:lint-staged": "lint-staged",
       "prepare": "husky install",
+		  "preview": "vite preview",
       "test:gzip": "http-server dist --cors --gzip -c-1",
       "test:br": "http-server dist --cors --brotli -c-1"
    },
