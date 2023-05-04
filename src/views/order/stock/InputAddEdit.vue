@@ -76,7 +76,7 @@
 
 <script lang="ts" setup name="InputAddEdit">
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Product } from "@/interface/data";
+	import { IProduct } from "@/interface/data";
 
 	const route = useRoute();
 	const router = useRouter();
@@ -84,11 +84,11 @@
 	// 表单
 	const formLabelWidth = "100px";
 	const formRef = ref<FormInstance>();
-	const form = ref<Product>({});
+	const form = ref<IProduct>({});
 	const rules = reactive<FormRules>({
 		name: [{ required: true, message: "", trigger: "blur" }],
 	});
-	const formList = ref<Product[]>([]);
+	const formList = ref<IProduct[]>([]);
 
 	const removeForm = (index: number) => {
 		formList.value.splice(index, 1);

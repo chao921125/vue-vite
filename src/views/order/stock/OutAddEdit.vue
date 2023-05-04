@@ -56,12 +56,12 @@
 
 <script lang="ts" setup name="OutAddEdit">
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Product } from "@/interface/data";
+	import { IProduct } from "@/interface/data";
 
 	// 表单
 	const formLabelWidth = "100px";
 	const formRef = ref<FormInstance>();
-	const form = ref<Product>({});
+	const form = ref<IProduct>({});
 	const rules = reactive<FormRules>({});
 
 	// 数据信息

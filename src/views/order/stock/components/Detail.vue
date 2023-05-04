@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts" setup name="Detail">
-	import { Product } from "@/interface/data";
+	import { IProduct } from "@/interface/data";
 	import { replaceNullLine } from "@/plugins/utils/format";
 
 	// 组件内部函数 接收及传递结果
@@ -54,7 +54,7 @@
 	});
 
 	// 表单
-	const tableData = ref<Product[]>([]);
+	const tableData = ref<IProduct[]>([]);
 	const tableColumn = [
 		{
 			name: "内部编码",

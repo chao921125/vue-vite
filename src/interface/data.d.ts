@@ -1,5 +1,5 @@
 // 部门
-export interface Department {
+export interface IDepartment {
 	id?: number;
 	name?: string;
 	number?: string;
@@ -9,7 +9,7 @@ export interface Department {
 	desc?: string;
 }
 // 岗位
-export interface Job {
+export interface IJob {
 	id?: number;
 	name?: string;
 	number?: string;
@@ -19,7 +19,7 @@ export interface Job {
 	desc?: string;
 }
 // 菜单
-export interface Menu {
+export interface IMenu {
 	id?: number;
 	path?: string;
 	component?: string;
@@ -40,14 +40,14 @@ export interface Menu {
 	sort?: number;
 }
 // 角色
-export interface Role {
+export interface IRole {
 	id?: number;
 	name?: string;
 	number?: string;
 	desc?: string;
 }
 // 用户
-export interface User {
+export interface IUser {
 	id?: number;
 	nickName?: string;
 	avatar?: string;
@@ -68,7 +68,7 @@ export interface User {
 	desc?: string;
 }
 // 产品
-export interface Product {
+export interface IProduct {
 	id?: number | string;
 	name?: number | string;
 	number?: number | string;

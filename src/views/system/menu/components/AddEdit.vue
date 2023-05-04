@@ -75,7 +75,7 @@
 
 <script lang="ts" setup name="AddEdit">
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Menu } from "@/interface/data";
+	import { IMenu } from "@/interface/data";
 	import IconfontData from "@/config/iconfontData";
 
 	const propsTreeMenu = { children: "children", label: "name", disabled: "disabled" };
@@ -165,9 +165,9 @@
 	// 表单
 	const formLabelWidth = "120px";
 	const formRef = ref<FormInstance>();
-	const form = ref<Menu>({});
+	const form = ref<IMenu>({});
 	const rules = reactive<FormRules>({});
-	const menuInfo = ref<Menu>({});
+	const menuInfo = ref<IMenu>({});
 
 	// 弹窗
 	const dialogFormVisible = ref(false);

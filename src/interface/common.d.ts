@@ -1,4 +1,4 @@
-export interface Tree {
+export interface ITree {
 	label: string;
-	children?: Tree[];
+	children?: ITree[];
 }

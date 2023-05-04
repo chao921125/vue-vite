@@ -56,7 +56,7 @@
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";
-	import { Tree } from "@/interface/common";
+	import { ITree } from "@/interface/common";
 
 	const formSearchRef = ref<FormInstance>();
 	const formSearch: any = reactive({
@@ -148,10 +148,10 @@
 		];
 	};
 
-	const handleNodeClick = (data: Tree) => {
+	const handleNodeClick = (data: ITree) => {
 		console.log(data);
 	};
-	const data: Tree[] = [
+	const data: ITree[] = [
 		{
 			label: "Level one 1",
 			children: [

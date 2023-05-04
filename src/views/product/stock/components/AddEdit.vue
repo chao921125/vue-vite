@@ -66,7 +66,7 @@
 
 <script lang="ts" setup name="AddEdit">
 	import type { FormInstance, FormRules } from "element-plus";
-	import { Product } from "@/interface/data";
+	import { IProduct } from "@/interface/data";
 
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({
@@ -82,9 +82,9 @@
 	// 表单
 	const formLabelWidth = "100px";
 	const formRef = ref<FormInstance>();
-	const form = ref<Product>({});
+	const form = ref<IProduct>({});
 	const rules = reactive<FormRules>({});
-	const productInfo = ref<Product>({});
+	const productInfo = ref<IProduct>({});
 
 	// 弹窗
 	const dialogFormVisible = ref(false);
