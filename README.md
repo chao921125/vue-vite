@@ -534,11 +534,12 @@ pnpx mrm@2 lint-staged
 | https://github.com/vitejs/awesome-vite     |
 | https://github.com/nekobc1998923/vitecamp  |
 
-| Admin server & Web                 |
-|------------------------------------|
-| https://github.com/jeecgboot       |
-| https://gitee.com/likeadmin        |
-| https://github.com/yangzongzhuan   |
+| Admin server & Web                                         |
+|------------------------------------------------------------|
+| https://github.com/jeecgboot                               |
+| https://gitee.com/likeadmin                                |
+| https://github.com/yangzongzhuan                           |
+| [ant-simple-pro](https://github.com/lgf196/ant-simple-pro) |
 
 | Admin vite                                                           |
 |----------------------------------------------------------------------|
