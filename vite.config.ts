@@ -4,6 +4,7 @@ import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import dayjs from "dayjs";
 import path from "path";
+import fs from "fs";
 // 热重载
 import viteRestart from "vite-plugin-restart";
 // build 构建
@@ -15,17 +16,16 @@ import legacy from "@vitejs/plugin-legacy";
 import importToCDN from "vite-plugin-cdn-import";
 import vueSetupExtend from "vite-plugin-vue-setup-extend";
 import viteCompression from "vite-plugin-compression";
-// 模块
+// 自动导入模块
 import autoImport from "unplugin-auto-import/vite";
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
+import components from "unplugin-vue-components/vite";
 // CSS 预构建
 import UnoCSS from "unocss/vite";
 // 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
-// 自动导入模块
-import components from "unplugin-vue-components/vite";
 // Mock
 import { viteMockServe } from "vite-plugin-mock";
 // 处理变量
@@ -48,6 +48,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 	let dynamicConfig: UserConfig;
 	// 动态添加的一些配置
 	if (isBuild) {
+		// 新建一个build文件，用来告诉用户是否需要刷新页面升级，正常来说不需要告知用户
+		fs.writeFileSync(path.join(__dirname, "./public/build.json"), JSON.stringify({ version: `${Date.now()}` }));
 		dynamicConfig = {
 			// dev specific config
 		};
@@ -147,11 +149,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					/\.md$/, // .md
 				],
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core"],
-				resolvers: [ElementPlusResolver()],
+				resolvers: [ElementPlusResolver(), VantResolver()],
 			}),
 			components({
 				dts: true,
-				resolvers: [ElementPlusResolver(), IconsResolver()],
+				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
 				directoryAsNamespace: true,
 			}),
 			// 热重载，包含配置文件的修改

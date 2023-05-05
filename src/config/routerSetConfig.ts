@@ -3,6 +3,7 @@ export default {
 	isAdminIframe: true,
 	// 是否为动态路由方式
 	isRequestRoutes: true,
+	// 常用路由罗列，如果是动态路由，请和配置的路由名称保持一致！！！
 	routeLogin: "/login",
 	routeRoot: "/",
 	routeHome: "/home",
@@ -20,4 +21,5 @@ export default {
 			proInputAddEdit: "/order/input/add-edit",
 		},
 	},
+	routeMHome: "/m-home",
 };

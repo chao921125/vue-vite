@@ -1,5 +1,5 @@
 <template>
-	<van-button>aaa</van-button>
+	<van-button class="btn-font">aaa</van-button>
 </template>
 
 <script lang="ts" setup name="Home">
@@ -9,4 +9,8 @@
 	}, 2000);
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+	.btn-font {
+		font-size: 20px;
+	}
+</style>

@@ -65,6 +65,9 @@ declare module '@vue/runtime-core' {
     PagenationRePagination: typeof import('./src/components/pagenation/RePagination.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VanButton: typeof import('vant/es')['Button']
+    VanCol: typeof import('vant/es')['Col']
+    VanRow: typeof import('vant/es')['Row']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
