@@ -79,7 +79,7 @@
 	import IconfontData from "@/config/iconfontData";
 
 	const propsTreeMenu = { children: "children", label: "name", disabled: "disabled" };
-	const optionSelectMenu = ref<Menu[]>([]);
+	const optionSelectMenu = ref<IMenu[]>([]);
 	optionSelectMenu.value = [
 		{
 			id: 1,

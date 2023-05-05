@@ -35,7 +35,7 @@ export interface IMenu {
 	isAffix?: number;
 	roles?: Array<string>;
 	icon?: string;
-	children?: Array<Menu>;
+	children?: Array<IMenu>;
 	parent?: any;
 	sort?: number;
 }
