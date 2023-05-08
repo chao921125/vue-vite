@@ -34,12 +34,12 @@
 		if (Utils.isMobile() || screenWidth.value < ThemeSetConfig.screenMobile) {
 			isMobile.value = true;
 			if (!route.path.includes(RouterSetConfig.routeMobile)) {
-				router.replace({ path: RouterSetConfig.routeMHome });
+				router.replace({ path: route.path.replace(/[\/]+(?!.*\/)/gi, `/${RouterSetConfig.routeMobile}`) });
 			}
 		} else {
 			isMobile.value = false;
 			if (route.path.includes(RouterSetConfig.routeMobile)) {
-				router.replace({ path: RouterSetConfig.routeHome });
+				router.replace({ path: route.path.replace(`${RouterSetConfig.routeMobile}`, "") });
 			}
 		}
 	};
