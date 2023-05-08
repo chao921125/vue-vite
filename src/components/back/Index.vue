@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup name="Back">
-	const propsData = defineProps({
+	const props = defineProps({
 		url: {
 			type: String,
 			default: "",
@@ -11,8 +11,8 @@
 	});
 	const router = useRouter();
 	const goBack = () => {
-		if (propsData.url) {
-			router.push({ path: propsData.url });
+		if (props.url) {
+			router.push({ path: props.url });
 		} else {
 			router.back();
 		}

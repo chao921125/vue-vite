@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup name="RePagination">
-	const propsData = defineProps({
+	const props = defineProps({
 		current: {
 			required: true,
 			type: Number,
@@ -46,10 +46,10 @@
 	const emits = defineEmits(["changeSize", "changeCurrent", "pagination"]);
 
 	const pageOption: any = reactive({
-		pageCurrent: propsData.current,
-		pageSize: propsData.limit,
-		pageTotal: propsData.total,
-		pageSizes: propsData.sizes,
+		pageCurrent: props.current,
+		pageSize: props.limit,
+		pageTotal: props.total,
+		pageSizes: props.sizes,
 		pagerCount: 7,
 		small: false,
 		disabled: false,
@@ -60,14 +60,14 @@
 	const pageChangeSize = (val: number) => {
 		emits("changeSize", val);
 		emits("pagination", { page: pageOption.pageSizes, limit: val });
-		if (propsData.autoScroll) {
+		if (props.autoScroll) {
 			scrollTo(0, 800);
 		}
 	};
 	const pageChangeCurrent = (val: number) => {
 		emits("changeCurrent", val);
 		emits("pagination", { page: val, limit: pageOption.pageCurrent });
-		if (propsData.autoScroll) {
+		if (props.autoScroll) {
 			scrollTo(0, 800);
 		}
 	};
