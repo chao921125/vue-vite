@@ -21,5 +21,6 @@ export default {
 			proInputAddEdit: "/order/input/add-edit",
 		},
 	},
+	routeMobile: "m-",
 	routeMHome: "/m-home",
 };

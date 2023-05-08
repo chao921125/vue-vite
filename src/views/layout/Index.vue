@@ -10,6 +10,7 @@
 	import Mobile from "./frame/Mobile.vue";
 	import Utils from "@/plugins/utils";
 	import RouterSetConfig from "@/config/routerSetConfig";
+	import ThemeSetConfig from "@/config/themeSetConfig";
 
 	// 获取默认设备大小
 	const isMobile = ref(Utils.isMobile());
@@ -18,6 +19,7 @@
 	const isAdmin = ref(true);
 	isAdmin.value = RouterSetConfig.isAdminIframe;
 	const router = useRouter();
+	const route = useRoute();
 	const screenWidth = ref(useWindowSize().width.value);
 	onMounted(() => {
 		changeWindow();
@@ -29,12 +31,16 @@
 		};
 	});
 	const changeWindow = () => {
-		if (Utils.isMobile() || screenWidth.value < 991) {
+		if (Utils.isMobile() || screenWidth.value < ThemeSetConfig.screenMobile) {
 			isMobile.value = true;
-			router.replace({ path: RouterSetConfig.routeMHome });
+			if (!route.path.includes(RouterSetConfig.routeMobile)) {
+				router.replace({ path: RouterSetConfig.routeMHome });
+			}
 		} else {
 			isMobile.value = false;
-			router.replace({ path: RouterSetConfig.routeHome });
+			if (route.path.includes(RouterSetConfig.routeMobile)) {
+				router.replace({ path: RouterSetConfig.routeHome });
+			}
 		}
 	};
 </script>
