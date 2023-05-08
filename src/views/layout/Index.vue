@@ -34,6 +34,7 @@
 		if (Utils.isMobile() || screenWidth.value < ThemeSetConfig.screenMobile) {
 			isMobile.value = true;
 			if (!route.path.includes(RouterSetConfig.routeMobile)) {
+				// 匹配指定内容，并获取到最后一个
 				router.replace({ path: route.path.replace(/[\/]+(?!.*\/)/gi, `/${RouterSetConfig.routeMobile}`) });
 			}
 		} else {
