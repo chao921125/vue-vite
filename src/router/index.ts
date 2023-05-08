@@ -120,7 +120,7 @@ function getRouter(data: MenuState[] = []) {
 		{
 			path: "/",
 			name: "/",
-			redirect: { path: Utils.isMobile() ? RouterSetConfig.routeMHome : RouterSetConfig.routeHome },
+			redirect: { path: "/" },
 			component: () => import("@/views/layout/Index.vue"),
 			meta: { title: "message.title.login" },
 			children: [],

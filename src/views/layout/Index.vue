@@ -1,13 +1,7 @@
 <template>
-	<template v-if="isMobile">
-		<Mobile></Mobile>
-	</template>
-	<template v-else-if="isAdmin">
-		<Admin></Admin>
-	</template>
-	<template v-else>
-		<Web></Web>
-	</template>
+	<Mobile v-if="isMobile"></Mobile>
+	<Admin v-else-if="isAdmin"></Admin>
+	<Web v-else></Web>
 </template>
 
 <script lang="ts" setup name="Layout">
@@ -16,21 +10,33 @@
 	import Mobile from "./frame/Mobile.vue";
 	import Utils from "@/plugins/utils";
 	import RouterSetConfig from "@/config/routerSetConfig";
-	// 判断是否为手机端
-	const isMobile = () => {
-		return Utils.isMobile();
-	};
+
+	// 获取默认设备大小
+	const isMobile = ref(Utils.isMobile());
+
 	// 设置是否为权限管理端
 	const isAdmin = ref(true);
 	isAdmin.value = RouterSetConfig.isAdminIframe;
 	const router = useRouter();
+	const screenWidth = ref(useWindowSize().width.value);
 	onMounted(() => {
-		if (Utils.isMobile()) {
+		changeWindow();
+		window.onresize = () => {
+			return (() => {
+				screenWidth.value = useWindowSize().width.value;
+				changeWindow();
+			})();
+		};
+	});
+	const changeWindow = () => {
+		if (Utils.isMobile() || screenWidth.value < 991) {
+			isMobile.value = true;
 			router.replace({ path: RouterSetConfig.routeMHome });
 		} else {
+			isMobile.value = false;
 			router.replace({ path: RouterSetConfig.routeHome });
 		}
-	});
+	};
 </script>
 
 <style scoped lang="scss"></style>
