@@ -2,7 +2,7 @@
 	<van-button class="btn-font">aaa</van-button>
 </template>
 
-<script lang="ts" setup name="Home">
+<script lang="ts" setup name="MHome">
 	const isLoading = ref(true);
 	setTimeout(() => {
 		isLoading.value = false;

@@ -18,8 +18,8 @@ import vueSetupExtend from "vite-plugin-vue-setup-extend";
 import viteCompression from "vite-plugin-compression";
 // 自动导入模块
 import autoImport from "unplugin-auto-import/vite";
-import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
 import components from "unplugin-vue-components/vite";
+import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
 // CSS 预构建
 import UnoCSS from "unocss/vite";
 // 图标
@@ -149,7 +149,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					/\.md$/, // .md
 				],
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core"],
-				resolvers: [ElementPlusResolver(), VantResolver()],
+				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
 			}),
 			components({
 				dts: true,
