@@ -158,9 +158,6 @@ devDependencies:
   '@vue/test-utils':
     specifier: ^2.3.2
     version: 2.3.2(vue@3.2.47)
-  amfe-flexible:
-    specifier: ^2.2.1
-    version: 2.2.1
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.23)
@@ -215,9 +212,9 @@ devDependencies:
   postcss-html:
     specifier: ^1.5.0
     version: 1.5.0
-  postcss-pxtorem:
-    specifier: ^6.0.0
-    version: 6.0.0(postcss@8.4.23)
+  postcss-px-to-viewport:
+    specifier: ^1.1.1
+    version: 1.1.1
   prettier:
     specifier: ^2.8.8
     version: 2.8.8
@@ -3343,10 +3340,6 @@ packages:
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
       uri-js: 4.4.1
-    dev: true
-
-  /amfe-flexible@2.2.1:
-    resolution: {integrity: sha512-L2VfvDzoETBjhRptg5u/IUuzHSuxm22JpSRb404p/TBGeRfwWmmNEbB+TFPIP/sS/+pbM18bCFH9QnMojLuPNw==}
     dev: true
 
   /animate.css@4.1.1:
@@ -7707,11 +7700,10 @@ packages:
       postcss: 5.2.18
     dev: true
 
-  /postcss-pxtorem@6.0.0(postcss@8.4.23):
-    resolution: {integrity: sha512-ZRXrD7MLLjLk2RNGV6UA4f5Y7gy+a/j1EqjAfp9NdcNYVjUMvg5HTYduTjSkKBkRkfqbg/iKrjMO70V4g1LZeg==}
-    peerDependencies:
-      postcss: ^8.0.0
+  /postcss-px-to-viewport@1.1.1:
+    resolution: {integrity: sha512-2x9oGnBms+e0cYtBJOZdlwrFg/mLR4P1g2IFu7jYKvnqnH/HLhoKyareW2Q/x4sg0BgklHlP1qeWo2oCyPm8FQ==}
     dependencies:
+      object-assign: 4.1.1
       postcss: 8.4.23
     dev: true
 

@@ -3,24 +3,22 @@ module.exports = {
 		autoprefixer: {
 			overrideBrowserslist: ["Android >= 4.1", "iOS >= 7.1", "Chrome > 31", "ff > 31", "ie >= 8"],
 		},
-		"postcss-pxtorem": {
-			rootValue: ({ file }) => {
-				return file.indexOf("vant") !== -1 ? 37.5 : 75;
-			}, //换算基数，1rem相当于10px,值为37.5时,1rem为20px,淘宝的flex默认为1rem为10px 结果为：设计稿元素尺寸/16，比如元素宽320px,最终页面会换算成 20rem
-			propList: ["*"],
-			unitPrecision: 6, //允许REM单位增长到的十进制数字。
-			// propWhiteList: [],  //默认值是一个空数组，这意味着禁用白名单并启用所有属性。
-			propBlackList: ["font-size", "border"], //黑名单
-			// exclude: (file) => {
-			//   const patterns = ["/src/views/mobile"];
-			//   return patterns.find((el) => file.includes(el)) === null;
-			// }, //默认false，可以（reg）利用正则表达式排除某些文件夹的方法，例如/(node_module)\/如果想把前端UI框架内的px也转换成rem，请把此属性设为默认值
-			exclude: /(node_module)|(?!mobile)*|(?!van)*/gi,
-			selectorBlackList: [], //要忽略并保留为px的选择器
-			// ignoreIdentifier: false,  //（boolean/string）忽略单个属性的方法，启用ignoreidentifier后，replace将自动设置为true。
-			replace: true, // （布尔值）替换包含REM的规则，而不是添加回退。
-			mediaQuery: false, //（布尔值）允许在媒体查询中转换px。
-			minPixelValue: 1, //设置要替换的最小像素值(3px会被转rem)。 默认 0
+		"postcss-px-to-viewport": {
+			unitToConvert: "px", // 需要转换的单位，默认为"px"
+			viewportWidth: 750, //  设计稿的视口宽度
+			unitPrecision: 5, // 单位转换后保留的精度
+			propList: ["*"], // 能转化为vw的属性列表
+			viewportUnit: "vw", //  希望使用的视口单位
+			fontViewportUnit: "vw", // 字体使用的视口单位
+			selectorBlackList: [".ignore"], // 需要忽略的CSS选择器
+			minPixelValue: 1, // 最小的转换数值，如果为1的话，只有大于1的值会被转换
+			mediaQuery: false, // 媒体查询里的单位是否需要转换单位
+			replace: true, // 是否直接更换属性值，而不添加备用属性
+			exclude: /(node_module)|(?!mobile*)*|(?!van*)*/gi, // 忽略某些文件夹下的文件或特定文件
+			include: undefined, // 如果设置了include，那将只有匹配到的文件才会被转换，例如只转换 "src/mobile" 下的文件 (include: /\/src\/mobile\//)
+			landscape: false, // 是否添加根据 landscapeWidth 生成的媒体查询条件 @media (orientation: landscape)
+			landscapeUnit: "vw", // 横屏时使用的单位
+			landscapeWidth: 568, // 横屏时使用的视口宽度
 		},
 	},
 };

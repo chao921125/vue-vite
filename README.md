@@ -411,18 +411,18 @@ pnpx mrm@2 lint-staged
 | [cz-customizable](https://www.npmjs.com/package/cz-customizable)                     |
 
 
-| 适配移动端 -D                                                                             |
-|--------------------------------------------------------------------------------------|
-| **rem方案过时啦，用vw方案解决吧**                                                                |
-| [postcss-loader 将px转rem](https://www.npmjs.com/package/postcss-loader)               |
-| **vw方案 需要依赖style-loader 且需要删除@vue/cli-plugin-eslint**                                |
-| [postcss-px-to-viewport](https://www.npmjs.com/package/postcss-px-to-viewport)       |
-| **rem方案**                                                                            |
-| [lib-flexible](https://www.npmjs.com/package/lib-flexible)                           |
-| [postcss-pxtorem](https://www.npmjs.com/package/postcss-pxtorem)                     |
-| [~~amfe-flexible~~](https://www.npmjs.com/package/amfe-flexible)                     |
-| [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem)     |
-| [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)                   |
+| 适配移动端 -D                                                                               |
+|----------------------------------------------------------------------------------------|
+| **rem方案过时啦，用vw方案解决吧**                                                                  |
+| [postcss-loader 将px转rem](https://www.npmjs.com/package/postcss-loader)                 |
+| **vw方案 需要依赖style-loader 且需要删除@vue/cli-plugin-eslint**                                  |
+| [postcss-px-to-viewport](https://www.npmjs.com/package/postcss-px-to-viewport)         |
+| **rem方案**                                                                              |
+| [~~lib-flexible~~](https://www.npmjs.com/package/lib-flexible)                         |
+| [postcss-pxtorem](https://www.npmjs.com/package/postcss-pxtorem)                       |
+| [amfe-flexible](https://www.npmjs.com/package/amfe-flexible)                           |
+| [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem)       |
+| [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)                     |
 
 
 | 移动端调试 -D                                           |

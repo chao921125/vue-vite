@@ -32,7 +32,6 @@ Object.keys(Icons).forEach((key) => {
 import "vant/lib/index.css";
 
 // px转rem
-import "amfe-flexible";
 
 // 图标
 import "virtual:svg-icons-register";
