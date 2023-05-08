@@ -82,6 +82,17 @@ pnpx mrm@2 lint-staged
 | [axios 官网](http://axios-js.com/)   |
 | [qs](https://github.com/ljharb/qs) |
 
+| postcss插件库                                                                       |
+|----------------------------------------------------------------------------------|
+| [postcss](https://www.npmjs.com/package/postcss)                                 |
+| [cssnano](https://www.npmjs.com/package/cssnano)                                 |
+| [postcss-preset-env](https://www.npmjs.com/package/postcss-preset-env)           |
+| [postcss-import](https://www.npmjs.com/package/postcss-import)                   |
+| [postcss-url](https://www.npmjs.com/package/postcss-url)                         |
+| [postcss-viewport-units](https://www.npmjs.com/package/postcss-viewport-units)   |
+| [postcss-write-svg](https://www.npmjs.com/package/postcss-write-svg)             |
+| [cssnano-preset-advanced](https://www.npmjs.com/package/cssnano-preset-advanced) |
+
 # 解析相关
 | TS                                                     |
 |--------------------------------------------------------|
@@ -400,26 +411,18 @@ pnpx mrm@2 lint-staged
 | [cz-customizable](https://www.npmjs.com/package/cz-customizable)                     |
 
 
-| 适配移动端 -D                                                                                                                |
-|-------------------------------------------------------------------------------------------------------------------------|
-| **rem方案过时啦，用vw方案解决吧**                                                                                                   |
-| [postcss](https://www.npmjs.com/package/postcss)                                                                        |
-| [postcss-loader 将px转rem](https://www.npmjs.com/package/postcss-loader)                                                  |
-| **vw方案 需要依赖style-loader 且需要删除@vue/cli-plugin-eslint**                                                                   |
-| [cssnano](https://www.npmjs.com/package/cssnano)                                                                        |
-| [cssnano-preset-advanced](https://www.npmjs.com/package/cssnano-preset-advanced)                                        |
-| [postcss-aspect-ratio-mini](https://www.npmjs.com/package/postcss-aspect-ratio-mini)                                    |
-| [postcss-cssnext](https://www.npmjs.com/package/postcss-cssnext)                                                        |
-| [postcss-import](https://www.npmjs.com/package/postcss-import)                                                          |
-| [postcss-px-to-viewport](https://www.npmjs.com/package/postcss-px-to-viewport)                                          |
-| [postcss-url](https://www.npmjs.com/package/postcss-url)                                                                |
-| [postcss-viewport-units](https://www.npmjs.com/package/postcss-viewport-units)                                          |
-| [postcss-write-svg](https://www.npmjs.com/package/postcss-write-svg)                                                    |
-| **rem方案**                                                                                                               |
-| [~~amfe-flexible~~](https://www.npmjs.com/package/amfe-flexible)不再推荐 lib-flexible 按照比例缩放展示，基于不同设备（Android、iOS、brow）的px值 |
-| [~~postcss-pxtorem~~](https://www.npmjs.com/package/postcss-pxtorem)                                                    |
-| [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem)                                        |
-| [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)                                                      |
+| 适配移动端 -D                                                                               |
+|----------------------------------------------------------------------------------------|
+| **rem方案过时啦，用vw方案解决吧**                                                                  |
+| [postcss-loader 将px转rem](https://www.npmjs.com/package/postcss-loader)                 |
+| **vw方案 需要依赖style-loader 且需要删除@vue/cli-plugin-eslint**                                  |
+| [postcss-px-to-viewport](https://www.npmjs.com/package/postcss-px-to-viewport)         |
+| **rem方案**                                                                              |
+| [~~lib-flexible~~](https://www.npmjs.com/package/lib-flexible)                         |
+| [postcss-pxtorem](https://www.npmjs.com/package/postcss-pxtorem)                       |
+| [amfe-flexible](https://www.npmjs.com/package/amfe-flexible)                           |
+| [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem)       |
+| [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)                     |
 
 
 | 移动端调试 -D                                           |

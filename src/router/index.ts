@@ -48,7 +48,7 @@ router.beforeEach(async (to, from, next) => {
 			Utils.Cookies.removeCookie(Constants.cookieKey.token);
 			next(`${RouterSetConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
 		} else if (token && (RouterSetConfig.whiteList.includes(to.path) || to.path === RouterSetConfig.routeRoot)) {
-			next(RouterSetConfig.routeHome);
+			next(Utils.isMobile() ? RouterSetConfig.routeMHome : RouterSetConfig.routeHome);
 		} else {
 			const storesRouterList = useRouterList(Store);
 			const { routerList } = getStoreRefs(storesRouterList);

@@ -45,7 +45,7 @@
 
 	onMounted(() => {
 		if (Utils.isMobile()) {
-			router.replace({ path: RouterSetConfig.routeEquipment });
+			router.replace({ path: RouterSetConfig.routeMHome });
 		} else {
 			initData();
 			if (Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)) {

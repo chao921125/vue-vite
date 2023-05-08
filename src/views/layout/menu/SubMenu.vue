@@ -1,6 +1,6 @@
 <template>
 	<template v-for="(item, index) in menuList">
-		<template v-if="!item.isHide">
+		<template v-if="!item.isHide && !item.isMobile">
 			<el-sub-menu v-if="!item.isHideSubMenu && item.children && item.children.length" :key="item.id + index" :index="item.path" v-bind="$attrs">
 				<template #title>
 					<i class="iconfont" :class="item.icon"></i>
