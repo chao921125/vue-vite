@@ -28,7 +28,6 @@
 	});
 	// 开启展示 底部
 	const isShowFooter = themeConfig.value.isFooter;
-	const router = useRouter();
 
 	// 切换路由之后，滚动到顶部
 	const { proxy } = <any>getCurrentInstance();

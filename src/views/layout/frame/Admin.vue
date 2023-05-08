@@ -48,7 +48,6 @@
 	});
 	// 开启展示 底部
 	const isShowFooter = themeConfig.value.isFooter;
-	const router = useRouter();
 	// 动态修改菜单的宽高
 	// eslint-disable-next-line vue/return-in-computed-property
 	const styleCollapse = computed(() => {
