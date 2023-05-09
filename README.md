@@ -1,8 +1,22 @@
 [预览地址](https://vue-vite-ts.vercel.app/#/login?redirect=/&params={})
-# 注意如果首次下载提交失败请执行以下命令
+# 用前必看
 [//]: # (pnpm add husky lint-staged -D)
 ```text
+1. 如果build失败或者运行一场请执行
 pnpx mrm@2 lint-staged
+
+2. vite-plugin-mock 会有各种问题不再建议试用，大家去尝试别的包
+
+      "vite-plugin-mock": "^3.0.0",
+
+// Mock
+import { viteMockServe } from "vite-plugin-mock";
+			viteMockServe({
+				mockPath: envConfig.VITE_MOCK_PATH,
+				enable: envConfig.VITE_MOCK,
+				// injectCode: "",
+				logger: envConfig.VITE_MOCK,
+			}),
 ```
 # 避坑指南 及 注意事项
 [**已在公司作为模板商用**]

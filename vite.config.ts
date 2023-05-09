@@ -26,8 +26,6 @@ import UnoCSS from "unocss/vite";
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
-// Mock
-import { viteMockServe } from "vite-plugin-mock";
 // 处理变量
 // @ts-ignore
 import pkg from "./package.json";
@@ -159,12 +157,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// 热重载，包含配置文件的修改
 			viteRestart({
 				restart: ["vite.config.[jt]s"],
-			}),
-			viteMockServe({
-				mockPath: envConfig.VITE_MOCK_PATH,
-				enable: envConfig.VITE_MOCK,
-				// injectCode: "",
-				logger: envConfig.VITE_MOCK,
 			}),
 			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
 			// * cdn 引入（vue、element-plus）
