@@ -208,6 +208,24 @@ import { viteMockServe } from "vite-plugin-mock";
 | [heyui](https://v2.heyui.top/)                                       |
 | [varletjs varletjs](https://varlet-varletjs.vercel.app/#/en-US/home) |
 
+| 图表                                                               |
+|------------------------------------------------------------------|
+| [👍Apache ECharts 官网](https://echarts.apache.org/zh/index.html)  |
+| [👍antv antd全家桶 官网](https://antv.vision/zh)                        |
+| [👍FusionCharts 官网](https://www.fusioncharts.com/)                 |
+| [👍C3.js 官网](https://c3js.org/)                                    |
+| [👍D3.js 官网](https://d3js.org/)                                    |
+| [Chart.js 官网](https://chartjs.bootcss.com/)                      |
+| [plotly 官网](https://plotly.com/)                                 |
+| [nvd3 官网](https://nvd3.org/)                                     |
+| [dygraphs 官网](https://dygraphs.com/)                             |
+| [cytoscape 官网](https://js.cytoscape.org/)                        |
+| [sigmajs 官网](https://www.sigmajs.org/)                           |
+| [ember-charts 官网](https://emberobserver.com/addons/ember-charts) |
+| [flotcharts 官网](https://www.flotcharts.org/)                     |
+| [plottablejs 官网](http://plottablejs.org/)                        |
+| [Highcharts 官网 付费](https://www.highcharts.com/)                  |
+| [amcharts 官网 付费](https://www.amcharts.com/)                      |
 
 | 图标                                                   |
 |------------------------------------------------------|
