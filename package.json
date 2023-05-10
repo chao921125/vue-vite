@@ -4,6 +4,7 @@
    "version": "1.21.232",
    "private": true,
    "scripts": {
+		  "review": "npm run build && npm run dev",
       "serve": "npm run dev",
       "dev": "vite --host --open --mode development",
       "test": "vite --host --open --mode test",
@@ -141,15 +142,15 @@
       "mysql": "^2.18.1"
    },
    "license": "MIT",
-   "author": "vue-next-vite",
-   "homepage": "https://github.com/vitejs/awesome-vite#plugins",
+   "author": "chao921125",
+   "homepage": "https://github.com/chao921125",
    "main": "vue-next-vite",
    "repository": {
       "type": "git",
-      "url": "https://github.com/vitejs/awesome-vite#plugins"
+      "url": "https://github.com/chao921125"
    },
    "bugs": {
-      "url": "https://github.com/vitejs/awesome-vite#plugins"
+      "url": "https://github.com/chao921125"
    },
    "browserslist": [
       "defaults",
@@ -159,7 +160,7 @@
       "not op_mini all"
    ],
    "engines": {
-      "node": ">=16"
+      "node": ">=14.18.0"
    },
    "lint-staged": {
       "*.{js,jsx,ts,tsx}": [
