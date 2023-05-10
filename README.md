@@ -65,24 +65,18 @@ import { viteMockServe } from "vite-plugin-mock";
 | [Vite 插件](https://github.com/vitejs/awesome-vite)          |
 | [vue3js](https://vue3js.cn/)                               |
 
-| 脚手架                                                     |
-|---------------------------------------------------------|
-| [vite 官网](https://cn.vitejs.dev/)                       |
-| [~~~vue-cli~~~](https://www.npmjs.com/package/@vue/cli) |
-
-| vue                             |
-|---------------------------------|
-| [vue3 官网](https://vuejs.org/)   |
-| [官网](https://v2.cn.vuejs.org/)  |
-
-| 路由管理                                                      |
+| 脚手架                                                       |
 |-----------------------------------------------------------|
+| [vite 官网](https://cn.vitejs.dev/)                         |
+| [~~~vue-cli~~~](https://www.npmjs.com/package/@vue/cli)   |
+| vue                                                       |
+| [vue3 官网](https://vuejs.org/)                             |
+| [vue2 官网](https://v2.cn.vuejs.org/)                       |
+| 路由管理                                                      |
 | [vue-router 官网](https://www.npmjs.com/package/vue-router) |
-
-| 状态管理                                    |
-|-----------------------------------------|
-| [Pinia 官网](https://pinia.web3doc.top/)  |
-| [vuex 官网](https://next.vuex.vuejs.org/) |
+| 状态管理                                                      |
+| [Pinia 官网](https://pinia.web3doc.top/)                    |
+| [vuex 官网](https://next.vuex.vuejs.org/)                   |
 
 | js核心                                           |
 |------------------------------------------------|
@@ -133,7 +127,6 @@ import { viteMockServe } from "vite-plugin-mock";
 | [eslint](https://www.npmjs.com/package/eslint)                                 |
 | [prettier](https://www.npmjs.com/package/prettier) 个人推荐这个                      |
 | [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier) |
-
 
 | 节点和浏览器的BDD / TDD断言库                                  |                                  
 |------------------------------------------------------|
