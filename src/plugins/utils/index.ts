@@ -5,17 +5,7 @@ import { useThemeConfig } from "@/store/modules/theme";
 import I18n from "@/plugins/i18n";
 import ThemeConfig from "@/config/themeConfig";
 
-import Cookies from "./modules/cookie";
-import Storages from "./modules/storage";
-import DB from "./modules/db";
-import Log from "./modules/log";
-
-const util: any = {
-	Cookies: Cookies,
-	Storages: Storages,
-	Log: Log,
-	DB: DB,
-};
+const util: any = {};
 
 /**
  * @description 更新标题

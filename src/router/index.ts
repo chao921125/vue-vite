@@ -8,6 +8,8 @@ import { useRouterList } from "@/store/modules/routerMeta";
 import { useRouterTags } from "@/store/modules/routerTags";
 import { baseRoutes, errorRoutes } from "./route";
 import Utils from "@/plugins/utils";
+import Storage from "@/plugins/utils/storage";
+import Cookie from "@/plugins/utils/cookie";
 import Constants from "@/plugins/constants";
 import NProgress from "@/plugins/loading/progress";
 import RouterConfig from "@/config/routerConfig";
@@ -39,13 +41,13 @@ router.beforeEach(async (to, from, next) => {
 	NProgress.start();
 	// 取消所有请求
 	AxiosCancel.removeAllCancer();
-	const token = Utils.Storages.getSessionStorage(Constants.storageKey.token) || Utils.Cookies.getCookie(Constants.cookieKey.token);
+	const token = Storage.getSessionStorage(Constants.storageKey.token) || Cookie.getCookie(Constants.cookieKey.token);
 	if (RouterConfig.whiteList.includes(to.path) && !token) {
 		next();
 	} else {
 		if (!token || token === "undefined") {
-			Utils.Storages.removeSessionStorage(Constants.storageKey.token);
-			Utils.Cookies.removeCookie(Constants.cookieKey.token);
+			Storage.removeSessionStorage(Constants.storageKey.token);
+			Cookie.removeCookie(Constants.cookieKey.token);
 			next(`${RouterConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
 		} else if (token && (RouterConfig.whiteList.includes(to.path) || to.path === RouterConfig.routeRoot)) {
 			next(Utils.isMobile() ? RouterConfig.routeMHome : RouterConfig.routeHome);
@@ -86,7 +88,7 @@ const dynamicViewsModules: Record<string, Function> = Object.assign({}, { ...vie
 
 // 获取动态路由数据
 export async function getDynamicRouter() {
-	if (!(Utils.Storages.getSessionStorage(Constants.storageKey.token) || Utils.Cookies.getCookie(Constants.cookieKey.token))) return false;
+	if (!(Storage.getSessionStorage(Constants.storageKey.token) || Cookie.getCookie(Constants.cookieKey.token))) return false;
 	// await useUserInfo(Store).setUserInfo();
 
 	let storesRouterList = useRouterList(Store);

@@ -9,6 +9,7 @@
 	import { useThemeConfig } from "@/store/modules/theme";
 	// import { getStoreRefs, appStore } from "@/store";
 	import Utils from "@/plugins/utils";
+	import Storage from "@/plugins/utils/storage";
 	import Constants from "@/plugins/constants";
 	import RouterConfig from "@/config/routerConfig";
 
@@ -28,18 +29,18 @@
 	const route = useRoute();
 	const router = useRouter();
 	const initData = () => {
-		proxy.mittBus.emit("getI18nConfig", Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocale));
+		proxy.mittBus.emit("getI18nConfig", Storage.getLocalStorage(Constants.storageKey.i18nLocale));
 	};
 
 	onBeforeMount(() => {
 		Utils.setCssCdn();
 		Utils.setJsCdn();
-		if (!Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)) {
-			Utils.Storages.setLocaleStorage(Constants.storageKey.themeConfig, themeConfig.value);
+		if (!Storage.getLocalStorage(Constants.storageKey.themeConfig)) {
+			Storage.setLocaleStorage(Constants.storageKey.themeConfig, themeConfig.value);
 			(config.i18n as unknown as string | null) = themeConfig.value.globalI18n;
 		}
-		if (!Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocale)) {
-			Utils.Storages.setLocaleStorage(Constants.storageKey.i18nLocale, import.meta.env.VITE_LOCAL);
+		if (!Storage.getLocalStorage(Constants.storageKey.i18nLocale)) {
+			Storage.setLocaleStorage(Constants.storageKey.i18nLocale, import.meta.env.VITE_LOCAL);
 		}
 	});
 
@@ -48,8 +49,8 @@
 			router.replace({ path: RouterConfig.routeMHome });
 		} else {
 			initData();
-			if (Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)) {
-				storeThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig));
+			if (Storage.getLocalStorage(Constants.storageKey.themeConfig)) {
+				storeThemeConfig.setThemeConfig(Storage.getLocalStorage(Constants.storageKey.themeConfig));
 			}
 			proxy.mittBus.on("getI18nConfig", (locale: string) => {
 				(config.i18n as unknown as string | null) = locale;

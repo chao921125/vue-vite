@@ -48,7 +48,7 @@ import print from "vue3-print-nb";
 app.use(print);
 
 // 工具
-import Utils from "@/plugins/utils";
+import Log from "@/plugins/utils/log";
 
 // 三方样式
 import "animate.css/animate.min.css";
@@ -75,31 +75,31 @@ app.config.globalProperties.elMessage = ElMessage;
 // app.provide("", "");
 
 // log
-Utils.Log.success(">>>>>> 当前VUE版本 >>>>>>");
-Utils.Log.primary(app.version);
+Log.success(">>>>>> 当前VUE版本 >>>>>>");
+Log.primary(app.version);
 app.config.errorHandler = (err, instance, info) => {
 	// 处理错误
 	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
 	// 只在开发模式下打印 log
 	if (import.meta.env.NODE_ENV === "development") {
-		Utils.Log.danger(">>>>>> 错误信息 >>>>>>");
-		Utils.log.primary(info);
-		Utils.Log.danger(">>>>>> Vue 实例 >>>>>>");
-		Utils.log.primary(instance);
-		Utils.Log.danger(">>>>>> Error >>>>>>");
-		Utils.log.primary(err);
+		Log.danger(">>>>>> 错误信息 >>>>>>");
+		Log.primary(info);
+		Log.danger(">>>>>> Vue 实例 >>>>>>");
+		Log.primary(instance);
+		Log.danger(">>>>>> Error >>>>>>");
+		Log.primary(err);
 	}
 };
 app.config.warnHandler = (msg, instance, trace) => {
 	// 显示在控制台
 	if (import.meta.env.NODE_ENV === "development") {
 		// `trace` 是组件的继承关系追踪
-		Utils.Log.warning(">>>>>> 警告信息 >>>>>>");
-		Utils.log.primary(msg);
-		Utils.Log.warning(">>>>>> Vue 实例 >>>>>>");
-		Utils.log.primary(instance);
-		Utils.Log.warning(">>>>>> Info >>>>>>");
-		Utils.log.primary(trace);
+		Log.warning(">>>>>> 警告信息 >>>>>>");
+		Log.primary(msg);
+		Log.warning(">>>>>> Vue 实例 >>>>>>");
+		Log.primary(instance);
+		Log.warning(">>>>>> Info >>>>>>");
+		Log.primary(trace);
 	}
 };
 app.config.performance = import.meta.env.NODE_ENV === "development";

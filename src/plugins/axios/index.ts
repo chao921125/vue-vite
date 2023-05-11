@@ -1,7 +1,9 @@
 // https://www.axios-http.cn/
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import Router from "@/router";
-import Utils from "@/plugins/utils";
+import Log from "@/plugins/utils/log";
+import Storage from "@/plugins/utils/storage";
+import Cookie from "@/plugins/utils/cookie";
 import Constants from "@/plugins/constants";
 import AxiosConfig from "@/config/axiosConfig";
 import NProgress from "@/plugins/loading/progress";
@@ -30,8 +32,8 @@ function errorLog(err) {
 
 	// 打印到控制台
 	if (import.meta.env.NODE_ENV === "development") {
-		Utils.log.danger(">>>>>> Error >>>>>>");
-		Utils.log.danger(err);
+		Log.danger(">>>>>> Error >>>>>>");
+		Log.danger(err);
 	}
 	// 显示提示
 	/* Message({
@@ -56,11 +58,11 @@ const http: AxiosInstance = axios.create(defaultHeader);
 http.interceptors.request.use(
 	(config: AxiosRequestConfig): any => {
 		NProgress.start();
-		if (Utils.Cookies.getCookie(Constants.cookieKey.token)) {
+		if (Cookie.getCookie(Constants.cookieKey.token)) {
 			// @ts-ignore
-			config.headers["token"] = "Bearer " + Utils.Cookies.getCookie(Constants.cookieKey.token);
+			config.headers["token"] = "Bearer " + Cookie.getCookie(Constants.cookieKey.token);
 			// @ts-ignore
-			config.headers["Authorization"] = "Bearer " + Utils.Cookies.getCookie(Constants.cookieKey.token);
+			config.headers["Authorization"] = "Bearer " + Cookie.getCookie(Constants.cookieKey.token);
 		}
 		if (config.method?.toLowerCase() === "get") {
 			config.params = config.data;
@@ -69,7 +71,7 @@ http.interceptors.request.use(
 		// if (!/^https:\/\/|http:\/\//.test(<string>config.url)) {
 		// 	// 在请求发送之前做一些处理
 		// 	config.headers = {
-		// 		token: Utils.Cookies.getCookie(Constants.cookieKey.token),
+		// 		token: Cookie.getCookie(Constants.cookieKey.token),
 		// 	};
 		// }
 		AxiosCancel.addCancer(config);
@@ -108,8 +110,8 @@ http.interceptors.response.use(
 			return response.data;
 		}
 		if (/^4\d{2}/.test(String(status))) {
-			Utils.Cookies.clearCookie();
-			Utils.Storages.clearSessionStorage();
+			Cookie.clearCookie();
+			Storage.clearSessionStorage();
 			const toUrl = status === 404 ? RouterConfig.route404 : RouterConfig.route403;
 			await Router.replace({ path: toUrl });
 		} else if (/^3\d{2}/.test(String(status))) {
@@ -181,7 +183,7 @@ http.interceptors.response.use(
 				default:
 					break;
 			}
-			if (!Utils.cookies.get(Constants.cookieKey.token)) {
+			if (!Cookie.get(Constants.cookieKey.token)) {
 				Router.replace({
 					path: RouterConfig.routeLogin,
 				});

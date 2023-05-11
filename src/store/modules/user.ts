@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
 import Cookies from "js-cookie";
 import { IUserInfoStates } from "@/interface/store";
-import Utils from "@/plugins/utils";
+import Storage from "@/plugins/utils/storage";
+import Cookie from "@/plugins/utils/cookie";
 import Constants from "@/plugins/constants";
 
 /**
@@ -55,12 +56,12 @@ export const useUserInfo = defineStore("userInfo", {
 				authBtnList: defaultAuthBtnList,
 			};
 			// 存储用户信息到浏览器缓存
-			Utils.Storages.setSessionStorage(Constants.storageKey.userInfo, userInfo);
-			Utils.Storages.setLocalStorage(Constants.storageKey.userInfo, userInfo);
-			Utils.Cookies.setCookie(Constants.storageKey.userInfo, userInfo);
+			Storage.setSessionStorage(Constants.storageKey.userInfo, userInfo);
+			Storage.setLocalStorage(Constants.storageKey.userInfo, userInfo);
+			Cookie.setCookie(Constants.storageKey.userInfo, userInfo);
 
-			if (Utils.Storages.getSessionStorage(Constants.storageKey.userInfo) || Utils.Cookies.getCookie(Constants.storageKey.userInfo)) {
-				this.userInfo = Utils.Storages.getSessionStorage(Constants.storageKey.userInfo) || Utils.Cookies.getCookie(Constants.storageKey.userInfo);
+			if (Storage.getSessionStorage(Constants.storageKey.userInfo) || Cookie.getCookie(Constants.storageKey.userInfo)) {
+				this.userInfo = Storage.getSessionStorage(Constants.storageKey.userInfo) || Cookie.getCookie(Constants.storageKey.userInfo);
 			} else {
 				this.userInfo = userInfo;
 			}
