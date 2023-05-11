@@ -10,7 +10,7 @@
 	// import { getStoreRefs, appStore } from "@/store";
 	import Utils from "@/plugins/utils";
 	import Constants from "@/plugins/constants";
-	import RouterSetConfig from "@/config/routerSetConfig";
+	import RouterConfig from "@/config/routerConfig";
 
 	const { proxy } = <any>getCurrentInstance();
 	// large / default /small
@@ -45,7 +45,7 @@
 
 	onMounted(() => {
 		if (Utils.isMobile()) {
-			router.replace({ path: RouterSetConfig.routeMHome });
+			router.replace({ path: RouterConfig.routeMHome });
 		} else {
 			initData();
 			if (Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)) {

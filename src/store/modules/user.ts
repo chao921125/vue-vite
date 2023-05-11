@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import Cookies from "js-cookie";
-import { UserInfoStates } from "../interface";
+import { UserInfoStates } from "../../interface/store";
 import Utils from "@/plugins/utils";
 import Constants from "@/plugins/constants";
 

@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
-import { DemoState, DemoStates } from "@/store/interface";
+import { IDemoState, IDemoStates } from "@/interface/demo";
 
 export const useDemo = defineStore("demo", {
-	state: (): DemoStates => {
+	state: (): IDemoStates => {
 		return {
 			demo: {
 				id: 0,
@@ -12,12 +12,12 @@ export const useDemo = defineStore("demo", {
 	},
 	getters: {
 		getDemoById: (state) => state.demo.id + 1,
-		getDemo(): DemoState {
+		getDemo(): IDemoState {
 			return this.demo;
 		},
 	},
 	actions: {
-		setDemo(data: DemoState) {
+		setDemo(data: IDemoState) {
 			this.demo = data;
 		},
 	},

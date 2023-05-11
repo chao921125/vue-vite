@@ -42,7 +42,7 @@ module.exports = {
 	// 	},
 	// ],
 	/* 继承某些已有的规则 */
-	extends: ["plugin:vue/vue3-recommended", "plugin:@typescript-eslint/recommended", "prettier", "plugin:prettier/recommended",],
+	extends: ["plugin:vue/vue3-recommended", "plugin:@typescript-eslint/recommended", "prettier", "plugin:prettier/recommended"],
 	// plugins: [
 	// 	"vue",
 	// 	"@typescript-eslint",
@@ -62,11 +62,13 @@ module.exports = {
 		"no-unused-vars": [
 			"error",
 			{
-				vars: "all", args: "none", ignoreRestSiblings: false
+				vars: "all",
+				args: "none",
+				ignoreRestSiblings: false,
 			},
 		], // 禁止定义未使用的变量
 		"space-before-function-paren": "off", // 强制在 function的左括号之前使用一致的空格
-		"no-multiple-empty-lines": ["error", { max: 1, },], // 不允许多个空行
+		"no-multiple-empty-lines": ["error", { max: 1 }], // 不允许多个空行
 		"no-var": "error", // 要求使用 let 或 const 而不是 var
 		"prefer-const": "off", // 此规则旨在标记使用 let 关键字声明但在初始分配后从未重新分配的变量，要求使用 const
 

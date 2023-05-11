@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { RouterListState } from "../interface";
+import { RouterListState } from "../../interface/store";
 
 /**
  * 路由列表
@@ -23,10 +23,10 @@ export const useRouterList = defineStore("routerList", {
 			// this.menuList = data;
 			Object.assign(this.menuList, data);
 		},
-		async setColumnsMenuHover(bool: Boolean) {
+		async setColumnsMenuHover(bool: boolean) {
 			this.isColumnsMenuHover = bool;
 		},
-		async setColumnsNavHover(bool: Boolean) {
+		async setColumnsNavHover(bool: boolean) {
 			this.isColumnsNavHover = bool;
 		},
 	},

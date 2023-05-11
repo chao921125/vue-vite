@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
-import { AuthConfigStates, AuthConfigState } from "@/store/interface";
+import { IAuthConfigStates, IAuthConfigState } from "@/interface/store";
 
 export const useAuth = defineStore("auth", {
-	state: (): AuthConfigStates => {
+	state: (): IAuthConfigStates => {
 		return {
 			role: {
 				roles: [],
@@ -10,7 +10,7 @@ export const useAuth = defineStore("auth", {
 		};
 	},
 	actions: {
-		setRoles(data: AuthConfigState) {
+		setRoles(data: IAuthConfigState) {
 			// this.role = data;
 			Object.assign(this.role, data);
 		},

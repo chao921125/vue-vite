@@ -1,11 +1,11 @@
 import Axios from "@/plugins/axios";
-import AxiosSetConfig from "@/config/axiosSetConfig";
+import AxiosConfig from "@/config/axiosConfig";
 
 let common: any = {};
 
 common.queryIp = (data: any = {}) => {
 	return Axios({
-		url: AxiosSetConfig.requestUrl.getIp + "/index?ip=&type=0",
+		url: AxiosConfig.requestUrl.getIp + "/index?ip=&type=0",
 		method: "GET",
 		data,
 	});
@@ -13,7 +13,7 @@ common.queryIp = (data: any = {}) => {
 
 common.queryAddressByIp = (data: any = {}) => {
 	return Axios({
-		url: AxiosSetConfig.requestUrl.getIp + `/index?ip=${data.ip}&type=0`,
+		url: AxiosConfig.requestUrl.getIp + `/index?ip=${data.ip}&type=0`,
 		method: "GET",
 		data,
 	});
@@ -21,7 +21,7 @@ common.queryAddressByIp = (data: any = {}) => {
 
 common.uploadFile = (data: any = {}) => {
 	return Axios({
-		url: AxiosSetConfig.requestUrl.fileUpload,
+		url: AxiosConfig.requestUrl.fileUpload,
 		method: "POST",
 		headers: { "Content-Type": "multipart/form-data" },
 		data,
@@ -30,7 +30,7 @@ common.uploadFile = (data: any = {}) => {
 
 common.previewFile = (data: any) => {
 	return Axios({
-		url: AxiosSetConfig.requestUrl.fileUpload,
+		url: AxiosConfig.requestUrl.fileUpload,
 		method: "GET",
 		responseType: "blob",
 		data,
@@ -39,7 +39,7 @@ common.previewFile = (data: any) => {
 
 common.previewFileById = (data: any) => {
 	return Axios({
-		url: AxiosSetConfig.requestUrl.fileUpload + `/${data}`,
+		url: AxiosConfig.requestUrl.fileUpload + `/${data}`,
 		method: "GET",
 		responseType: "blob",
 		data,

@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { TagsViewRoutesState } from "../interface";
+import { TagsViewRoutesState } from "../../interface/store";
 import Utils from "@/plugins/utils";
 
 /**
@@ -17,7 +17,7 @@ export const useRouterTags = defineStore("tagsViewRoutes", {
 			// this.tagsViewRoutes = data;
 			Object.assign(this.tagsViewRoutes, data);
 		},
-		setCurrenFullscreen(bool: Boolean) {
+		setCurrenFullscreen(bool: boolean) {
 			Utils.Storages.setSessionStorage("isTagsViewCurrenFull", bool);
 			Utils.Cookies.setCookie("isTagsViewCurrenFull", bool);
 			this.isTagsViewCurrenFull = bool;

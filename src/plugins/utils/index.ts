@@ -3,7 +3,7 @@ import Router from "@/router";
 import Store, { getStoreRefs } from "@/store";
 import { useThemeConfig } from "@/store/modules/theme";
 import I18n from "@/plugins/i18n";
-import ThemeSetConfig from "@/config/themeSetConfig";
+import ThemeConfig from "@/config/themeConfig";
 
 import Cookies from "./modules/cookie";
 import Storages from "./modules/storage";
@@ -40,7 +40,7 @@ const setTitleI18n = (value: any) => {
 	let tagsViewName: any = import.meta.env.VITE_TITLE;
 	const { query, params, meta } = value;
 	if (query?.tagsViewName || params?.tagsViewName) {
-		if (ThemeSetConfig.i18nKey.test(query?.tagsViewName) || ThemeSetConfig.i18nKey.test(params?.tagsViewName)) {
+		if (ThemeConfig.i18nKey.test(query?.tagsViewName) || ThemeConfig.i18nKey.test(params?.tagsViewName)) {
 			// 国际化
 			const urlTagsParams = (query?.tagsViewName && JSON.parse(query?.tagsViewName)) || (params?.tagsViewName && JSON.parse(params?.tagsViewName));
 			tagsViewName = urlTagsParams[I18n.global.locale];

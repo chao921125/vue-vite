@@ -32,11 +32,11 @@
 <script lang="ts" setup name="Menu">
 	import SubMenu from "./SubMenu.vue";
 	import Store, { getStoreRefs } from "@/store";
-	import ColorSetConfig from "@/config/colorSetConfig";
+	import ColorConfig from "@/config/colorConfig";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
 
-	const colorSet = ColorSetConfig;
+	const colorSet = ColorConfig;
 	// 折叠菜单
 	const storeThemeConfig = useThemeConfig(Store);
 	const { themeConfig } = getStoreRefs(storeThemeConfig);
