@@ -8,9 +8,8 @@ import enLocale from "element-plus/lib/locale/lang/en";
 import znCN from "./modules/zh-cn";
 import en from "./modules/en";
 
-// 定义语言国际化内容
 /**
- * 说明：
+ * 说明：定义语言国际化内容
  */
 const messages = {
 	[zhCNLocale.name]: {
