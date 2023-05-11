@@ -176,7 +176,7 @@
 	const changeI18n = (lang: string) => {
 		themeConfig.value.globalI18n = lang;
 		proxy.$i18n.locale = lang;
-		Utils.Storages.setLocalStorage(Constants.storageKey.i18nLocal, lang);
+		Utils.Storages.setLocalStorage(Constants.storageKey.i18nLocale, lang);
 		setThemeConfig();
 		proxy.mittBus.emit("getI18nConfig", proxy.$i18n.messages[lang]);
 	};
@@ -267,7 +267,7 @@
 		initData();
 		breadcrumbList.value = [];
 		initBreadcrumbList(route.path);
-		const localI18n = Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal);
+		const localI18n = Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocale);
 		if (localI18n) {
 			changeI18n(localI18n);
 		}

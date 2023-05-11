@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { RouterListState } from "../../interface/store";
+import { IRouterListState } from "@/interface/store";
 
 /**
  * 路由列表
@@ -8,7 +8,7 @@ import { RouterListState } from "../../interface/store";
  * @methods setColumnsNavHover 设置分栏布局最左侧导航鼠标移入 boolean
  */
 export const useRouterList = defineStore("routerList", {
-	state: (): RouterListState => ({
+	state: (): IRouterListState => ({
 		routerList: [],
 		menuList: [],
 		isColumnsMenuHover: false,

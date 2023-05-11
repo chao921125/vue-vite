@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
-import { ThemeConfigStates, ThemeConfigState } from "../../interface/store";
+import { IThemeConfigStates, IThemeConfigState } from "@/interface/store";
 
 /**
  * 布局配置
  */
 export const useThemeConfig = defineStore("themeConfig", {
-	state: (): ThemeConfigStates => ({
+	state: (): IThemeConfigStates => ({
 		themeConfig: {
 			// 默认初始语言，可选值"<zh-cn|en|zh-tw>"，默认 zh-cn
 			globalI18n: "zh-cn",
@@ -50,7 +50,7 @@ export const useThemeConfig = defineStore("themeConfig", {
 		},
 	}),
 	actions: {
-		setThemeConfig(data: ThemeConfigState) {
+		setThemeConfig(data: IThemeConfigState) {
 			// this.themeConfig = data;
 			Object.assign(this.themeConfig, data);
 		},

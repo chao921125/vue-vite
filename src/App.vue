@@ -15,7 +15,7 @@
 	const { proxy } = <any>getCurrentInstance();
 	// large / default /small
 	const config: any = reactive({
-		i18n: import.meta.env.VITE_LOCAL,
+		i18n: import.meta.env.VITE_LOCALE,
 		size: "default",
 		buttonSpace: {
 			autoInsertSpace: false,
@@ -28,18 +28,18 @@
 	const route = useRoute();
 	const router = useRouter();
 	const initData = () => {
-		proxy.mittBus.emit("getI18nConfig", Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal));
+		proxy.mittBus.emit("getI18nConfig", Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocale));
 	};
 
 	onBeforeMount(() => {
 		Utils.setCssCdn();
 		Utils.setJsCdn();
 		if (!Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)) {
-			Utils.Storages.setLocalStorage(Constants.storageKey.themeConfig, themeConfig.value);
+			Utils.Storages.setLocaleStorage(Constants.storageKey.themeConfig, themeConfig.value);
 			(config.i18n as unknown as string | null) = themeConfig.value.globalI18n;
 		}
-		if (!Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal)) {
-			Utils.Storages.setLocalStorage(Constants.storageKey.i18nLocal, import.meta.env.VITE_LOCAL);
+		if (!Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocale)) {
+			Utils.Storages.setLocaleStorage(Constants.storageKey.i18nLocale, import.meta.env.VITE_LOCAL);
 		}
 	});
 
@@ -51,8 +51,8 @@
 			if (Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)) {
 				storeThemeConfig.setThemeConfig(Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig));
 			}
-			proxy.mittBus.on("getI18nConfig", (local: string) => {
-				(config.i18n as unknown as string | null) = local;
+			proxy.mittBus.on("getI18nConfig", (locale: string) => {
+				(config.i18n as unknown as string | null) = locale;
 			});
 			proxy.mittBus.on("getSizeConfig", (size: string) => {
 				config.size = size;

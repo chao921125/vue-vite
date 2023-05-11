@@ -45,7 +45,7 @@ const i18n = createI18n({
 	messages,
 });
 
-export const readLocal = (prefix = zhCNLocale.name) => {
+export const readLocale = (prefix = zhCNLocale.name) => {
 	// const languageKeys = import.meta.glob("./modules/*.ts");
 	// export const routerArray: object = {};
 	// Object.keys(languageKeys).forEach((item: string) => {

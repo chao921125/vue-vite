@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { TagsViewRoutesState } from "../../interface/store";
+import { ITagsViewRoutesState } from "@/interface/store";
 import Utils from "@/plugins/utils";
 
 /**
@@ -8,7 +8,7 @@ import Utils from "@/plugins/utils";
  * @methods setCurrenFullscreen 设置开启/关闭全屏时的 boolean 状态
  */
 export const useRouterTags = defineStore("tagsViewRoutes", {
-	state: (): TagsViewRoutesState => ({
+	state: (): ITagsViewRoutesState => ({
 		tagsViewRoutes: [],
 		isTagsViewCurrenFull: false,
 	}),
