@@ -1,12 +1,17 @@
-import { createProdMockServer } from "vite-plugin-mock/es/createProdMockServer";
+// @ts-ignore
+import { createProdMockServer } from "vite-plugin-mock/client";
 
-// const modules: any = import.meta.glob("./modules/*.(j)?(t)?s", { eager: true });
-const mockModules: any = [];
+// @ts-ignore
+const modules: any = import.meta.glob("./modules/*.(j)?(t)?s", { eager: true, import: "default" });
+const mockModules: any[] = [];
 
-// Object.keys(modules).forEach((key: string) => {
-// 	mockModules.push(...modules[key].default);
-// });
+Object.keys(modules).forEach((key: string) => {
+	if (key.includes("/_")) {
+		return false;
+	}
+	mockModules.push(...modules[key].default);
+});
 
 export const setupProdMockServer = () => {
-	createProdMockServer(mockModules);
+	createProdMockServer(mockModules).then((res: any) => res);
 };

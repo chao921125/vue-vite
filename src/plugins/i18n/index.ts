@@ -2,28 +2,27 @@ import { createI18n, useI18n } from "vue-i18n";
 import Store, { getStoreRefs } from "@/store";
 import { useThemeConfig } from "@/store/modules/theme";
 
-import zhCNLocale from "element-plus/lib/locale/lang/zh-cn";
-import enLocale from "element-plus/lib/locale/lang/en";
+import zhCN from "element-plus/lib/locale/lang/zh-cn";
+import en from "element-plus/lib/locale/lang/en";
 
-import znCN from "./modules/zh-cn";
-import en from "./modules/en";
+import znCNLocale from "./modules/zh-cn";
+import enLocale from "./modules/en";
 
-// 定义语言国际化内容
 /**
- * 说明：
+ * 说明：定义语言国际化内容
  */
 const messages = {
-	[zhCNLocale.name]: {
+	[zhCN.name]: {
 		message: {
-			...znCN,
+			...znCNLocale,
 		},
-		...zhCNLocale,
+		...zhCN,
 	},
-	[enLocale.name]: {
+	[en.name]: {
 		message: {
-			...en,
+			...enLocale,
 		},
-		...enLocale,
+		...en,
 	},
 };
 
@@ -41,11 +40,11 @@ const i18n = createI18n({
 	legacy: true,
 	globalInjection: true,
 	locale: themeConfig.value.globalI18n || import.meta.env.VITE_LOCAL,
-	fallbackLocale: zhCNLocale.name,
+	fallbackLocale: zhCN.name,
 	messages,
 });
 
-export const readLocal = (prefix = zhCNLocale.name) => {
+export const readLocale = (prefix = zhCN.name) => {
 	// const languageKeys = import.meta.glob("./modules/*.ts");
 	// export const routerArray: object = {};
 	// Object.keys(languageKeys).forEach((item: string) => {

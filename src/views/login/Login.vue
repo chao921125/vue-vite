@@ -23,7 +23,8 @@
 
 <script lang="ts" setup name="Login">
 	import type { FormInstance } from "element-plus";
-	import Utils from "@/plugins/utils";
+	import Storage from "@/plugins/utils/storage";
+	import Cookie from "@/plugins/utils/cookie";
 	import Constants from "@/plugins/constants";
 	import ValidateForm from "@/plugins/validate/validateForm";
 
@@ -48,14 +49,14 @@
 			isLoading.value = true;
 			if (valid) {
 				proxy.elMessage.success("登录成功");
-				Utils.Cookies.setCookie(Constants.cookieKey.token, Math.random().toString(36));
-				Utils.Storages.setSessionStorage(Constants.storageKey.token, Math.random().toString(36));
+				Cookie.setCookie(Constants.cookieKey.token, Math.random().toString(36));
+				Storage.setSessionStorage(Constants.storageKey.token, Math.random().toString(36));
 				const userInfo = {
 					id: 1,
 					userName: formUser.userName,
 					avatar: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
 				};
-				Utils.Storages.setLocalStorage(Constants.storageKey.userInfo, userInfo);
+				Storage.setLocalStorage(Constants.storageKey.userInfo, userInfo);
 				if (route.query?.redirect && route.query?.redirect !== "/") {
 					router.push({
 						path: <string>route.query?.redirect,

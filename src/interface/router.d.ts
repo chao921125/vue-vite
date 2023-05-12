@@ -1,4 +1,4 @@
-export interface MenuState {
+export interface IMenuState {
 	path: string;
 	component: string;
 	name: string;
@@ -13,5 +13,5 @@ export interface MenuState {
 	isHide: boolean | number;
 	isHideSubMenu: boolean | number;
 	roles: string[];
-	children: MenuState[];
+	children: IMenuState[];
 }

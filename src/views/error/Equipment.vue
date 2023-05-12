@@ -6,12 +6,12 @@
 
 <script lang="ts" setup name="Device">
 	import Utils from "@/plugins/utils";
-	import RouterSetConfig from "@/config/routerSetConfig";
+	import RouterConfig from "@/config/routerConfig";
 
 	const router = useRouter();
 	onMounted(() => {
 		if (!Utils.isMobile()) {
-			router.push({ path: RouterSetConfig.routeHome });
+			router.push({ path: RouterConfig.routeHome });
 		}
 	});
 </script>

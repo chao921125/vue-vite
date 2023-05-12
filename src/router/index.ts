@@ -8,16 +8,18 @@ import { useRouterList } from "@/store/modules/routerMeta";
 import { useRouterTags } from "@/store/modules/routerTags";
 import { baseRoutes, errorRoutes } from "./route";
 import Utils from "@/plugins/utils";
+import Storage from "@/plugins/utils/storage";
+import Cookie from "@/plugins/utils/cookie";
 import Constants from "@/plugins/constants";
 import NProgress from "@/plugins/loading/progress";
-import RouterSetConfig from "@/config/routerSetConfig";
+import RouterConfig from "@/config/routerConfig";
 import routeData from "@/config/routerData";
-import { MenuState } from "@/router/interface";
+import { IMenuState } from "@/interface/router";
 import AxiosCancel from "@/plugins/axios/cancel";
 
 // 配置文件修改是否从后端获取路由
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可
-const isRequestRoutes = RouterSetConfig.isRequestRoutes;
+const isRequestRoutes = RouterConfig.isRequestRoutes;
 
 // 默认获取菜单及路由为静态数据
 let requestData: any = [];
@@ -39,16 +41,16 @@ router.beforeEach(async (to, from, next) => {
 	NProgress.start();
 	// 取消所有请求
 	AxiosCancel.removeAllCancer();
-	const token = Utils.Storages.getSessionStorage(Constants.storageKey.token) || Utils.Cookies.getCookie(Constants.cookieKey.token);
-	if (RouterSetConfig.whiteList.includes(to.path) && !token) {
+	const token = Storage.getSessionStorage(Constants.storageKey.token) || Cookie.getCookie(Constants.cookieKey.token);
+	if (RouterConfig.whiteList.includes(to.path) && !token) {
 		next();
 	} else {
 		if (!token || token === "undefined") {
-			Utils.Storages.removeSessionStorage(Constants.storageKey.token);
-			Utils.Cookies.removeCookie(Constants.cookieKey.token);
-			next(`${RouterSetConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
-		} else if (token && (RouterSetConfig.whiteList.includes(to.path) || to.path === RouterSetConfig.routeRoot)) {
-			next(Utils.isMobile() ? RouterSetConfig.routeMHome : RouterSetConfig.routeHome);
+			Storage.removeSessionStorage(Constants.storageKey.token);
+			Cookie.removeCookie(Constants.cookieKey.token);
+			next(`${RouterConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
+		} else if (token && (RouterConfig.whiteList.includes(to.path) || to.path === RouterConfig.routeRoot)) {
+			next(Utils.isMobile() ? RouterConfig.routeMHome : RouterConfig.routeHome);
 		} else {
 			const storesRouterList = useRouterList(Store);
 			const { routerList } = getStoreRefs(storesRouterList);
@@ -86,7 +88,7 @@ const dynamicViewsModules: Record<string, Function> = Object.assign({}, { ...vie
 
 // 获取动态路由数据
 export async function getDynamicRouter() {
-	if (!(Utils.Storages.getSessionStorage(Constants.storageKey.token) || Utils.Cookies.getCookie(Constants.cookieKey.token))) return false;
+	if (!(Storage.getSessionStorage(Constants.storageKey.token) || Cookie.getCookie(Constants.cookieKey.token))) return false;
 	// await useUserInfo(Store).setUserInfo();
 
 	let storesRouterList = useRouterList(Store);
@@ -114,7 +116,7 @@ async function setRouterList(data: any[]) {
 	await storesRouterList.setRouterList(data);
 }
 
-function getRouter(data: MenuState[] = []) {
+function getRouter(data: IMenuState[] = []) {
 	if (data.length === 0) return [];
 	let rootRouter: Array<RouteRecordRaw> = [
 		{
@@ -133,7 +135,7 @@ function getRouter(data: MenuState[] = []) {
 	return rootRouter;
 }
 
-function setRouterItem(routerList: any, data: MenuState[] = [], parentPath: string = "") {
+function setRouterItem(routerList: any, data: IMenuState[] = [], parentPath: string = "") {
 	if (data.length === 0) return [];
 	data.forEach((item: any) => {
 		let path = parentPath + "/" + item.path;

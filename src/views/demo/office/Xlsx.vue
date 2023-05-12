@@ -57,7 +57,7 @@
 		if (fileObj.fileList[index].url) {
 			readXlsxOnline(index);
 		} else {
-			readXlsxLocal(index);
+			readXlsxLocale(index);
 		}
 	};
 	const fileChange = (file: any) => {
@@ -67,7 +67,7 @@
 			fileObj.fileList = file.target.files;
 		}
 	};
-	const readXlsxLocal = (index: number) => {
+	const readXlsxLocale = (index: number) => {
 		const file = fileObj.fileList[index];
 		const reader = new FileReader();
 		reader.onload = (e: any) => {

@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { RouterListState } from "../interface";
+import { IRouterListState } from "@/interface/store";
 
 /**
  * 路由列表
@@ -8,7 +8,7 @@ import { RouterListState } from "../interface";
  * @methods setColumnsNavHover 设置分栏布局最左侧导航鼠标移入 boolean
  */
 export const useRouterList = defineStore("routerList", {
-	state: (): RouterListState => ({
+	state: (): IRouterListState => ({
 		routerList: [],
 		menuList: [],
 		isColumnsMenuHover: false,
@@ -23,10 +23,10 @@ export const useRouterList = defineStore("routerList", {
 			// this.menuList = data;
 			Object.assign(this.menuList, data);
 		},
-		async setColumnsMenuHover(bool: Boolean) {
+		async setColumnsMenuHover(bool: boolean) {
 			this.isColumnsMenuHover = bool;
 		},
-		async setColumnsNavHover(bool: Boolean) {
+		async setColumnsNavHover(bool: boolean) {
 			this.isColumnsNavHover = bool;
 		},
 	},

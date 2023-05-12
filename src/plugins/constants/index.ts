@@ -2,7 +2,7 @@ export default {
 	storageKey: {
 		token: "auth-token",
 		themeConfig: "theme-config",
-		i18nLocal: "i18n-local",
+		i18nLocale: "i18n-locale",
 		userInfo: "user-info",
 		tags: "tags",
 	},

@@ -40,7 +40,7 @@
 
 <script lang="ts" setup name="InputList">
 	import { FormInstance } from "element-plus";
-	import RouterSetConfig from "@/config/routerSetConfig";
+	import RouterConfig from "@/config/routerConfig";
 	import Detail from "./components/Detail.vue";
 
 	const formSearchRef = ref<FormInstance>();
@@ -57,11 +57,11 @@
 	const router = useRouter();
 	const toAddProduct = () => {
 		productInfoId.value = null;
-		router.push({ path: RouterSetConfig.routeEnum.order.proInputAddEdit });
+		router.push({ path: RouterConfig.routeEnum.order.proInputAddEdit });
 	};
 	const toEditProduct = (id: string | number) => {
 		productInfoId.value = id;
-		router.push({ path: RouterSetConfig.routeEnum.order.proInputAddEdit });
+		router.push({ path: RouterConfig.routeEnum.order.proInputAddEdit });
 	};
 	const dialogForm = ref();
 	const openDetailProd = (id: string | number) => {

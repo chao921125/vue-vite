@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
-import { TagsViewRoutesState } from "../interface";
-import Utils from "@/plugins/utils";
+import { ITagsViewRoutesState } from "@/interface/store";
+import Storage from "@/plugins/utils/storage";
+import Cookie from "@/plugins/utils/cookie";
 
 /**
  * TagsView 路由列表
@@ -8,7 +9,7 @@ import Utils from "@/plugins/utils";
  * @methods setCurrenFullscreen 设置开启/关闭全屏时的 boolean 状态
  */
 export const useRouterTags = defineStore("tagsViewRoutes", {
-	state: (): TagsViewRoutesState => ({
+	state: (): ITagsViewRoutesState => ({
 		tagsViewRoutes: [],
 		isTagsViewCurrenFull: false,
 	}),
@@ -17,9 +18,9 @@ export const useRouterTags = defineStore("tagsViewRoutes", {
 			// this.tagsViewRoutes = data;
 			Object.assign(this.tagsViewRoutes, data);
 		},
-		setCurrenFullscreen(bool: Boolean) {
-			Utils.Storages.setSessionStorage("isTagsViewCurrenFull", bool);
-			Utils.Cookies.setCookie("isTagsViewCurrenFull", bool);
+		setCurrenFullscreen(bool: boolean) {
+			Storage.setSessionStorage("isTagsViewCurrenFull", bool);
+			Cookie.setCookie("isTagsViewCurrenFull", bool);
 			this.isTagsViewCurrenFull = bool;
 		},
 	},

@@ -94,10 +94,11 @@
 
 <script lang="ts" setup name="Header">
 	import screenfull from "screenfull";
-	import Utils from "@/plugins/utils";
+	import Storage from "@/plugins/utils/storage";
+	import Cookie from "@/plugins/utils/cookie";
 	import Constants from "@/plugins/constants";
-	import ThemeSetConfig from "@/config/themeSetConfig";
-	import RouterSetConfig from "@/config/routerSetConfig";
+	import ThemeConfig from "@/config/themeConfig";
+	import RouterConfig from "@/config/routerConfig";
 	import Store, { getStoreRefs } from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
@@ -121,7 +122,7 @@
 	const { menuList } = getStoreRefs(storesRouterList);
 	const breadcrumbList = ref<any[]>([]);
 	const initBreadcrumbList = (path: string) => {
-		if (RouterSetConfig.executeList.includes(path)) {
+		if (RouterConfig.executeList.includes(path)) {
 			breadcrumbList.value.push({
 				name: menuList.value[0].path,
 				title: menuList.value[0].title,
@@ -172,16 +173,16 @@
 		dropdownLanguage.value.handleOpen();
 	};
 	// i18n
-	const i18ns = ThemeSetConfig.i18nKeys;
+	const i18ns = ThemeConfig.i18nKeys;
 	const changeI18n = (lang: string) => {
 		themeConfig.value.globalI18n = lang;
 		proxy.$i18n.locale = lang;
-		Utils.Storages.setLocalStorage(Constants.storageKey.i18nLocal, lang);
+		Storage.setLocalStorage(Constants.storageKey.i18nLocale, lang);
 		setThemeConfig();
 		proxy.mittBus.emit("getI18nConfig", proxy.$i18n.messages[lang]);
 	};
 	// 组件大小
-	const sizes = ThemeSetConfig.sizeKeys;
+	const sizes = ThemeConfig.sizeKeys;
 	const changeSize = (size: string) => {
 		themeConfig.value.globalComponentSize = size;
 		setThemeConfig();
@@ -200,9 +201,9 @@
 	// 退出
 	const router = useRouter();
 	const logout = () => {
-		Utils.Storages.removeSessionStorage(Constants.storageKey.token);
-		Utils.Cookies.removeCookie(Constants.cookieKey.token);
-		router.push({ path: RouterSetConfig.routeLogin });
+		Storage.removeSessionStorage(Constants.storageKey.token);
+		Cookie.removeCookie(Constants.cookieKey.token);
+		router.push({ path: RouterConfig.routeLogin });
 	};
 	// 个人中心 end
 
@@ -246,20 +247,20 @@
 
 	// 本地持久化配置
 	const setThemeConfig = () => {
-		Utils.Storages.removeLocalStorage(Constants.storageKey.themeConfig);
-		Utils.Storages.setLocalStorage(Constants.storageKey.themeConfig, themeConfig.value);
+		Storage.removeLocalStorage(Constants.storageKey.themeConfig);
+		Storage.setLocalStorage(Constants.storageKey.themeConfig, themeConfig.value);
 	};
 	const userInfoAvatar = ref("");
 	const userInfoName = ref("");
 	const initData = () => {
-		const userInfo = Utils.Storages.getLocalStorage(Constants.storageKey.userInfo) || null;
+		const userInfo = Storage.getLocalStorage(Constants.storageKey.userInfo) || null;
 		if (userInfo) {
 			userInfoAvatar.value = userInfo.avatar || "";
 			userInfoName.value = userInfo.userName || "";
 		}
-		isThemGrey.value = Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)?.isGrey || false;
+		isThemGrey.value = Storage.getLocalStorage(Constants.storageKey.themeConfig)?.isGrey || false;
 		changeGrey(isThemGrey.value);
-		isThemInvert.value = Utils.Storages.getLocalStorage(Constants.storageKey.themeConfig)?.isInvert || false;
+		isThemInvert.value = Storage.getLocalStorage(Constants.storageKey.themeConfig)?.isInvert || false;
 		changeInvert(isThemInvert.value);
 	};
 	// 渲染调用
@@ -267,7 +268,7 @@
 		initData();
 		breadcrumbList.value = [];
 		initBreadcrumbList(route.path);
-		const localI18n = Utils.Storages.getLocalStorage(Constants.storageKey.i18nLocal);
+		const localI18n = Storage.getLocalStorage(Constants.storageKey.i18nLocale);
 		if (localI18n) {
 			changeI18n(localI18n);
 		}

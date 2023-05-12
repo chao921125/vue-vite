@@ -1,11 +1,13 @@
 // https://www.axios-http.cn/
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import Router from "@/router";
-import Utils from "@/plugins/utils";
+import Log from "@/plugins/utils/log";
+import Storage from "@/plugins/utils/storage";
+import Cookie from "@/plugins/utils/cookie";
 import Constants from "@/plugins/constants";
-import AxiosSetConfig from "@/config/axiosSetConfig";
+import AxiosConfig from "@/config/axiosConfig";
 import NProgress from "@/plugins/loading/progress";
-import RouterSetConfig from "@/config/routerSetConfig";
+import RouterConfig from "@/config/routerConfig";
 import AxiosCancel from "./cancel";
 
 // axios.request(config)
@@ -30,8 +32,8 @@ function errorLog(err) {
 
 	// 打印到控制台
 	if (import.meta.env.NODE_ENV === "development") {
-		Utils.log.danger(">>>>>> Error >>>>>>");
-		Utils.log.danger(err);
+		Log.danger(">>>>>> Error >>>>>>");
+		Log.danger(err);
 	}
 	// 显示提示
 	/* Message({
@@ -43,8 +45,8 @@ function errorLog(err) {
 
 const defaultHeader: AxiosRequestConfig = {
 	baseURL: import.meta.env.VITE_API_URL_PREFIX || "",
-	timeout: AxiosSetConfig.timeout,
-	timeoutErrorMessage: AxiosSetConfig.timeoutMsg,
+	timeout: AxiosConfig.timeout,
+	timeoutErrorMessage: AxiosConfig.timeoutMsg,
 	withCredentials: true,
 	headers: { Accept: "application/json, text/plain, */*", "Content-Type": "application/json;charset=utf-8", "X-Requested-With": "XMLHttpRequest" },
 };
@@ -56,11 +58,11 @@ const http: AxiosInstance = axios.create(defaultHeader);
 http.interceptors.request.use(
 	(config: AxiosRequestConfig): any => {
 		NProgress.start();
-		if (Utils.Cookies.getCookie(Constants.cookieKey.token)) {
+		if (Cookie.getCookie(Constants.cookieKey.token)) {
 			// @ts-ignore
-			config.headers["token"] = "Bearer " + Utils.Cookies.getCookie(Constants.cookieKey.token);
+			config.headers["token"] = "Bearer " + Cookie.getCookie(Constants.cookieKey.token);
 			// @ts-ignore
-			config.headers["Authorization"] = "Bearer " + Utils.Cookies.getCookie(Constants.cookieKey.token);
+			config.headers["Authorization"] = "Bearer " + Cookie.getCookie(Constants.cookieKey.token);
 		}
 		if (config.method?.toLowerCase() === "get") {
 			config.params = config.data;
@@ -69,7 +71,7 @@ http.interceptors.request.use(
 		// if (!/^https:\/\/|http:\/\//.test(<string>config.url)) {
 		// 	// 在请求发送之前做一些处理
 		// 	config.headers = {
-		// 		token: Utils.Cookies.getCookie(Constants.cookieKey.token),
+		// 		token: Cookie.getCookie(Constants.cookieKey.token),
 		// 	};
 		// }
 		AxiosCancel.addCancer(config);
@@ -101,19 +103,19 @@ http.interceptors.response.use(
 		// resp 是 axios 返回数据中的 data
 		const resp = response.data || null;
 		const status = response.status || 200;
-		if (response.config.url?.includes(AxiosSetConfig.baseUrl.ip)) {
+		if (response.config.url?.includes(AxiosConfig.baseUrl.ip)) {
 			return resp;
 		}
 		if (response.request.responseType === "blob" || response.request.responseType === "arraybuffer") {
 			return response.data;
 		}
 		if (/^4\d{2}/.test(String(status))) {
-			Utils.Cookies.clearCookie();
-			Utils.Storages.clearSessionStorage();
-			const toUrl = status === 404 ? RouterSetConfig.route404 : RouterSetConfig.route403;
+			Cookie.clearCookie();
+			Storage.clearSessionStorage();
+			const toUrl = status === 404 ? RouterConfig.route404 : RouterConfig.route403;
 			await Router.replace({ path: toUrl });
 		} else if (/^3\d{2}/.test(String(status))) {
-			await Router.replace({ path: RouterSetConfig.routeRoot });
+			await Router.replace({ path: RouterConfig.routeRoot });
 		} else if (/^5\d{2}/.test(String(status))) {
 		} else {
 			// 这个状态码是和后端约定的
@@ -181,9 +183,9 @@ http.interceptors.response.use(
 				default:
 					break;
 			}
-			if (!Utils.cookies.get(Constants.cookieKey.token)) {
+			if (!Cookie.get(Constants.cookieKey.token)) {
 				Router.replace({
-					path: RouterSetConfig.routeLogin,
+					path: RouterConfig.routeLogin,
 				});
 			}
 		}

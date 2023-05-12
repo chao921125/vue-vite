@@ -1,8 +1,19 @@
 [预览地址](https://vue-vite-ts.vercel.app/#/login?redirect=/&params={})
-# 注意如果首次下载提交失败请执行以下命令
+# 用前必看
 [//]: # (pnpm add husky lint-staged -D)
 ```text
+1. 如果build失败或者运行一场请执行
 pnpx mrm@2 lint-staged
+
+2. vite-plugin-mock 会有各种问题不再建议试用，大家去尝试别的包
+// Mock
+import { viteMockServe } from "vite-plugin-mock";
+			viteMockServe({
+				mockPath: envConfig.VITE_MOCK_PATH,
+				enable: envConfig.VITE_MOCK,
+				// injectCode: "",
+				logger: envConfig.VITE_MOCK,
+			}),
 ```
 # 避坑指南 及 注意事项
 [**已在公司作为模板商用**]
@@ -54,24 +65,18 @@ pnpx mrm@2 lint-staged
 | [Vite 插件](https://github.com/vitejs/awesome-vite)          |
 | [vue3js](https://vue3js.cn/)                               |
 
-| 脚手架                                                     |
-|---------------------------------------------------------|
-| [vite 官网](https://cn.vitejs.dev/)                       |
-| [~~~vue-cli~~~](https://www.npmjs.com/package/@vue/cli) |
-
-| vue                             |
-|---------------------------------|
-| [vue3 官网](https://vuejs.org/)   |
-| [官网](https://v2.cn.vuejs.org/)  |
-
-| 路由管理                                                      |
+| 脚手架                                                       |
 |-----------------------------------------------------------|
+| [vite 官网](https://cn.vitejs.dev/)                         |
+| [~~~vue-cli~~~](https://www.npmjs.com/package/@vue/cli)   |
+| vue                                                       |
+| [vue3 官网](https://vuejs.org/)                             |
+| [vue2 官网](https://v2.cn.vuejs.org/)                       |
+| 路由管理                                                      |
 | [vue-router 官网](https://www.npmjs.com/package/vue-router) |
-
-| 状态管理                                    |
-|-----------------------------------------|
-| [Pinia 官网](https://pinia.web3doc.top/)  |
-| [vuex 官网](https://next.vuex.vuejs.org/) |
+| 状态管理                                                      |
+| [Pinia 官网](https://pinia.web3doc.top/)                    |
+| [vuex 官网](https://next.vuex.vuejs.org/)                   |
 
 | js核心                                           |
 |------------------------------------------------|
@@ -122,7 +127,6 @@ pnpx mrm@2 lint-staged
 | [eslint](https://www.npmjs.com/package/eslint)                                 |
 | [prettier](https://www.npmjs.com/package/prettier) 个人推荐这个                      |
 | [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier) |
-
 
 | 节点和浏览器的BDD / TDD断言库                                  |                                  
 |------------------------------------------------------|
@@ -197,6 +201,24 @@ pnpx mrm@2 lint-staged
 | [heyui](https://v2.heyui.top/)                                       |
 | [varletjs varletjs](https://varlet-varletjs.vercel.app/#/en-US/home) |
 
+| 图表                                                               |
+|------------------------------------------------------------------|
+| [👍Apache ECharts 官网](https://echarts.apache.org/zh/index.html)  |
+| [👍antv antd全家桶 官网](https://antv.vision/zh)                        |
+| [👍FusionCharts 官网](https://www.fusioncharts.com/)                 |
+| [👍C3.js 官网](https://c3js.org/)                                    |
+| [👍D3.js 官网](https://d3js.org/)                                    |
+| [Chart.js 官网](https://chartjs.bootcss.com/)                      |
+| [plotly 官网](https://plotly.com/)                                 |
+| [nvd3 官网](https://nvd3.org/)                                     |
+| [dygraphs 官网](https://dygraphs.com/)                             |
+| [cytoscape 官网](https://js.cytoscape.org/)                        |
+| [sigmajs 官网](https://www.sigmajs.org/)                           |
+| [ember-charts 官网](https://emberobserver.com/addons/ember-charts) |
+| [flotcharts 官网](https://www.flotcharts.org/)                     |
+| [plottablejs 官网](http://plottablejs.org/)                        |
+| [Highcharts 官网 付费](https://www.highcharts.com/)                  |
+| [amcharts 官网 付费](https://www.amcharts.com/)                      |
 
 | 图标                                                   |
 |------------------------------------------------------|
@@ -360,10 +382,10 @@ pnpx mrm@2 lint-staged
 | [lodash](https://www.npmjs.com/package/lodash) |
 | [lowdb](https://www.npmjs.com/package/lowdb)   |
 
-| 国际化                                                  |
-|------------------------------------------------------|
-| [vue-i18n](https://www.npmjs.com/package/vue-i18n)   |
-| [i18n-next](https://www.npmjs.com/package/i18n-next) |
+| 国际化                                                                      |
+|--------------------------------------------------------------------------|
+| [i18n-next 支持VUE/React/Server......](https://github.com/i18next) |
+| [vue-i18n](https://www.npmjs.com/package/vue-i18n)                       |
 
 | 复制粘贴                                                 |
 |------------------------------------------------------|

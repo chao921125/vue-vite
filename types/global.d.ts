@@ -3,7 +3,7 @@ declare type Recordable<T = any> = Record<string, T>;
 
 declare interface ViteEnv {
 	NODE_ENV: string;
-	VITE_LOCAL: string;
+	VITE_LOCALE: string;
 	VITE_TITLE: string;
 	VITE_API_URL_PREFIX: string;
 	VITE_PORT: number;

@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts" setup name="Tags">
-	import Utils from "@/plugins/utils";
+	import Storage from "@/plugins/utils/storage";
 	import Constants from "@/plugins/constants";
 	import { $t } from "@/plugins/i18n";
 
@@ -51,7 +51,7 @@
 		if (routeCurrent.fullPath === "/home") {
 			return false;
 		}
-		let tags = Utils.Storages.getLocalStorage(Constants.storageKey.tags) || [];
+		let tags = Storage.getLocalStorage(Constants.storageKey.tags) || [];
 		tags.push({
 			label: $t(routeCurrent.meta.title),
 			name: routeCurrent.fullPath,
@@ -80,7 +80,7 @@
 			activeName = "/home";
 		}
 		tabValue.value = activeName;
-		Utils.Storages.setLocalStorage(Constants.storageKey.tags, tabs.value);
+		Storage.setLocalStorage(Constants.storageKey.tags, tabs.value);
 		router.push({ path: tabValue.value });
 	};
 	const changeRouter = (tabName: any) => {
@@ -104,13 +104,13 @@
 			activeName = "/home";
 			tabs.value = [];
 		}
-		Utils.Storages.setLocalStorage(Constants.storageKey.tags, tabs.value);
+		Storage.setLocalStorage(Constants.storageKey.tags, tabs.value);
 		tabValue.value = activeName;
 		router.push({ path: tabValue.value });
 	};
 	onMounted(() => {
-		// if (!Utils.Storages.getLocalStorage(Constants.storageKey.tags)) {
-		// 	Utils.Storages.setLocalStorage(Constants.storageKey.tags, [
+		// if (!Storage.getLocalStorage(Constants.storageKey.tags)) {
+		// 	Storage.setLocalStorage(Constants.storageKey.tags, [
 		// 		{
 		// 			label: $t("message.menu.home"),
 		// 			name: "/home",
@@ -118,11 +118,11 @@
 		// 		},
 		// 	]);
 		// }
-		tabs.value = Utils.Storages.getLocalStorage(Constants.storageKey.tags) || [];
+		tabs.value = Storage.getLocalStorage(Constants.storageKey.tags) || [];
 		tabValue.value = route.path;
 	});
 	onBeforeRouteUpdate((to) => {
-		Utils.Storages.setLocalStorage(Constants.storageKey.tags, addTab(to));
+		Storage.setLocalStorage(Constants.storageKey.tags, addTab(to));
 	});
 </script>
 

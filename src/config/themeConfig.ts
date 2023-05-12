@@ -2,7 +2,7 @@ export default {
 	screenMobile: 991,
 	screenNormal: 992,
 	screenData: 3840,
-	i18nDef: import.meta.env.VITE_LOCAL,
+	i18nDef: import.meta.env.VITE_LOCALE,
 	i18nKey: /\/zh-cn|en-us|zh-tw\//,
 	i18nKeys: [
 		{

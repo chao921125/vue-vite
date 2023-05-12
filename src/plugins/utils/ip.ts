@@ -50,7 +50,7 @@ export const getLocalIpList = (callback) => {
 	);
 	setTimeout(() => {
 		// @ts-ignore
-		let lines = pc.localDescription.sdp.split("\n");
+		let lines = pc.localeDescription.sdp.split("\n");
 		lines.forEach((line) => {
 			if (line.indexOf("a=candidate:") === 0) handleCandidate(line);
 		});
@@ -62,9 +62,9 @@ export const getLocalIpList = (callback) => {
 		}
 	};
 };
-// getLocalIp((ip) => {console.log(ip);});
+// getLocaleIp((ip) => {console.log(ip);});
 
-export const getLocalIps = () => {
+export const getlocalIPs = () => {
 	// @ts-ignore
 	let myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
 	// RTCPeerConnection是WebRTC用于构建点对点之间稳定、高效的流传输的组件。兼容火狐、谷歌等

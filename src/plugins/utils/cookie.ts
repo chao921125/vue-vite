@@ -67,7 +67,7 @@ cookie.removeCookie = (key: string = "default") => {
 
 cookie.clearCookie = () => {
 	let keys = Cookies.get();
-	if (!keys || keys.length === 0) return false;
+	if (!keys || keys.toString().length === 0) return false;
 	for (let key in keys) {
 		Cookies.remove(key);
 	}
