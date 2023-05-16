@@ -153,45 +153,12 @@
    "bugs": {
       "url": "https://github.com/chao921125"
    },
-   "browserslist": [
-      "defaults",
-      "> 1%",
-      "last 2 versions",
-      "not ie 11",
-      "not op_mini all"
-   ],
    "engines": {
 		 "node": ">=14.18.0",
 		 "pnpm": ">=6.20.0",
 		 "npm": ">=6.14.18",
 		 "yarn": ">=3.0.0"
 	 },
-   "lint-staged": {
-      "*.{js,jsx,ts,tsx}": [
-         "eslint --fix",
-         "prettier --write"
-      ],
-      "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
-         "prettier --write--parser json"
-      ],
-      "package.json": [
-         "prettier --write"
-      ],
-      "*.vue": [
-         "stylelint --fix",
-         "eslint --fix",
-         "prettier --write"
-      ],
-      "*.{css,scss,less,styl,html}": [
-         "stylelint --fix",
-         "prettier --write"
-      ],
-      "*.md": [
-         "prettier --write"
-      ],
-      "*.js": "eslint --cache --fix",
-      "*.css": "stylelint --fix"
-   },
    "config": {
       "commitizen": {
          "path": "node_modules/cz-git"

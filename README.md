@@ -5,6 +5,8 @@
 1. 如果build失败或者运行一场请执行
 pnpx mrm@2 lint-staged
 
+// pnpx husky install
+
 2. vite-plugin-mock 会有各种问题不再建议试用，大家去尝试别的包
 // Mock
 import { viteMockServe } from "vite-plugin-mock";

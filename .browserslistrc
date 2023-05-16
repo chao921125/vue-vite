@@ -1,0 +1,11 @@
+defaults
+> 1%
+last 2 versions
+not ie 11
+not op_mini all
+
+Android >= 4.0
+iOS >= 7
+Chrome > 31
+ff > 31
+ie >= 8
