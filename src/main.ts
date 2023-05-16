@@ -18,7 +18,7 @@ app.use(Router);
 // element
 import ElementPlus, { ElMessage } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
-import "element-plus/dist/index.css";
+// import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
 app.use(ElementPlus);
 
