@@ -384,10 +384,10 @@ import { viteMockServe } from "vite-plugin-mock";
 | [lodash](https://www.npmjs.com/package/lodash) |
 | [lowdb](https://www.npmjs.com/package/lowdb)   |
 
-| 国际化                                                                      |
-|--------------------------------------------------------------------------|
+| 国际化                                                              |
+|------------------------------------------------------------------|
 | [i18n-next 支持VUE/React/Server......](https://github.com/i18next) |
-| [vue-i18n](https://www.npmjs.com/package/vue-i18n)                       |
+| [vue-i18n](https://www.npmjs.com/package/vue-i18n)               |
 
 | 复制粘贴                                                 |
 |------------------------------------------------------|

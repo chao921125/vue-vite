@@ -10,6 +10,7 @@ import viteRestart from "vite-plugin-restart";
 // build 构建
 import { visualizer } from "rollup-plugin-visualizer";
 import { ViteEjsPlugin } from "vite-plugin-ejs";
+import { VitePWA } from "vite-plugin-pwa";
 // 向上兼容浏览器
 import legacy from "@vitejs/plugin-legacy";
 // CDN 配置
@@ -158,6 +159,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			viteRestart({
 				restart: ["vite.config.[jt]s"],
 			}),
+			// 渐进式配置
+			VitePWA({}),
 			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
 			// * cdn 引入（vue、element-plus）
 			importToCDN({
