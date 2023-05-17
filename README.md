@@ -206,10 +206,10 @@ import { viteMockServe } from "vite-plugin-mock";
 | 图表                                                               |
 |------------------------------------------------------------------|
 | [👍Apache ECharts 官网](https://echarts.apache.org/zh/index.html)  |
-| [👍antv antd全家桶 官网](https://antv.vision/zh)                        |
-| [👍FusionCharts 官网](https://www.fusioncharts.com/)                 |
-| [👍C3.js 官网](https://c3js.org/)                                    |
-| [👍D3.js 官网](https://d3js.org/)                                    |
+| [👍antv antd全家桶 官网](https://antv.vision/zh)                      |
+| [👍FusionCharts 官网](https://www.fusioncharts.com/)               |
+| [👍C3.js 官网](https://c3js.org/)                                  |
+| [👍D3.js 官网](https://d3js.org/)                                  |
 | [Chart.js 官网](https://chartjs.bootcss.com/)                      |
 | [plotly 官网](https://plotly.com/)                                 |
 | [nvd3 官网](https://nvd3.org/)                                     |

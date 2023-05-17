@@ -81,28 +81,28 @@ app.config.errorHandler = (err, instance, info) => {
 	// 处理错误
 	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
 	// 只在开发模式下打印 log
-	if (import.meta.env.NODE_ENV === "development") {
+	if (import.meta.env.VITE_NODE_ENV === "development") {
 		Log.danger(">>>>>> 错误信息 >>>>>>");
 		Log.primary(info);
 		Log.danger(">>>>>> Vue 实例 >>>>>>");
-		Log.primary(instance);
+		Log.primary(JSON.stringify(instance?.$attrs));
 		Log.danger(">>>>>> Error >>>>>>");
 		Log.primary(err);
 	}
 };
 app.config.warnHandler = (msg, instance, trace) => {
 	// 显示在控制台
-	if (import.meta.env.NODE_ENV === "development") {
+	if (import.meta.env.VITE_NODE_ENV === "development") {
 		// `trace` 是组件的继承关系追踪
 		Log.warning(">>>>>> 警告信息 >>>>>>");
 		Log.primary(msg);
 		Log.warning(">>>>>> Vue 实例 >>>>>>");
-		Log.primary(instance);
+		Log.primary(JSON.stringify(instance?.$attrs));
 		Log.warning(">>>>>> Info >>>>>>");
 		Log.primary(trace);
 	}
 };
-app.config.performance = import.meta.env.NODE_ENV === "development";
+app.config.performance = import.meta.env.VITE_NODE_ENV === "development";
 
 app.mount("#app");
 // app.unmount();

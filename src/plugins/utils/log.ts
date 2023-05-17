@@ -24,7 +24,7 @@ function typeColor(type: string = "default") {
 	return color;
 }
 
-function colorful(textArr: any) {
+function colorful(textArr: any[]) {
 	console.log(`%c${textArr.map((t) => t.text || "").join("%c")}`, ...textArr.map((t) => `color: ${typeColor(t.type)};`));
 }
 

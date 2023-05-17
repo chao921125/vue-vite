@@ -2,7 +2,7 @@
 declare type Recordable<T = any> = Record<string, T>;
 
 declare interface ViteEnv {
-	NODE_ENV: string;
+	VITE_NODE_ENV: string;
 	VITE_LOCALE: string;
 	VITE_TITLE: string;
 	VITE_API_URL_PREFIX: string;
@@ -15,7 +15,6 @@ declare interface ViteEnv {
 	VITE_REPORT: boolean;
 	VITE_BUILD_GZIP: boolean;
 	VITE_PUBLIC_PATH: string;
-	VITE_BUILD_COMPRESS: string;
 	VITE_BUILD_IMAGE: boolean;
 	VITE_PWA: boolean;
 }

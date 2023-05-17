@@ -31,6 +31,7 @@ specifiers:
   animate.css: ^4.1.1
   autoprefixer: ^10.4.14
   axios: ^1.4.0
+  browserslist: ^4.21.5
   chai: ^4.3.7
   core-js: ^3.30.2
   css-loader: ^6.7.3
@@ -62,7 +63,7 @@ specifiers:
   pinia: 2.0.36
   postcss: ^8.4.23
   postcss-html: ^1.5.0
-  postcss-px-to-viewport: ^1.1.1
+  postcss-px-to-viewport-8-plugin: ^1.2.2
   prettier: ^2.8.8
   print-js: ^1.6.0
   qs: ^6.11.2
@@ -75,13 +76,13 @@ specifiers:
   style-resources-loader: ^1.5.0
   stylelint: ^15.6.2
   stylelint-config-html: ^1.1.0
-  stylelint-config-prettier: ^9.0.5
   stylelint-config-recess-order: ^4.0.0
   stylelint-config-recommended: ^12.0.0
   stylelint-config-recommended-vue: ^1.4.0
   stylelint-config-standard: ^33.0.0
   stylelint-config-standard-scss: ^9.0.0
   stylelint-order: ^6.0.3
+  stylelint-prettier: ^3.0.0
   terser: ^5.17.4
   ts-node: ^10.9.1
   typescript: ^5.0.4
@@ -165,6 +166,7 @@ devDependencies:
   '@vue/compiler-sfc': 3.3.2
   '@vue/test-utils': 2.3.2_vue@3.3.2
   autoprefixer: 10.4.14_postcss@8.4.23
+  browserslist: 4.21.5
   chai: 4.3.7
   css-loader: 6.7.3_webpack@5.82.1
   esbuild: 0.17.19
@@ -182,7 +184,7 @@ devDependencies:
   npm-run-all: 4.1.5
   postcss: 8.4.23
   postcss-html: 1.5.0
-  postcss-px-to-viewport: 1.1.1
+  postcss-px-to-viewport-8-plugin: 1.2.2
   prettier: 2.8.8
   rimraf: 5.0.0
   rollup-plugin-visualizer: 5.9.0_rollup@2.79.1
@@ -192,13 +194,13 @@ devDependencies:
   style-resources-loader: 1.5.0_webpack@5.82.1
   stylelint: 15.6.2
   stylelint-config-html: 1.1.0_fxnva74cz3clutsck3p6zi3baa
-  stylelint-config-prettier: 9.0.5_stylelint@15.6.2
   stylelint-config-recess-order: 4.0.0_stylelint@15.6.2
   stylelint-config-recommended: 12.0.0_stylelint@15.6.2
   stylelint-config-recommended-vue: 1.4.0_fxnva74cz3clutsck3p6zi3baa
   stylelint-config-standard: 33.0.0_stylelint@15.6.2
   stylelint-config-standard-scss: 9.0.0_euag7okizbuveqnnr6pdv3d6yi
   stylelint-order: 6.0.3_stylelint@15.6.2
+  stylelint-prettier: 3.0.0_oc4dndsiefxv6sspxihof2zrhe
   terser: 5.17.4
   ts-node: 10.9.1_vyxhtn3gmap2whkbnrz2avj22a
   typescript: 5.0.4
@@ -3322,7 +3324,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001487
-      electron-to-chromium: 1.4.396
+      electron-to-chromium: 1.4.397
       node-releases: 2.0.10
       update-browserslist-db: 1.0.11_browserslist@4.21.5
     dev: true
@@ -4135,8 +4137,8 @@ packages:
       jake: 10.8.6
     dev: true
 
-  /electron-to-chromium/1.4.396:
-    resolution: {integrity: sha512-pqKTdqp/c5vsrc0xUPYXTDBo9ixZuGY8es4ZOjjd6HD6bFYbu5QA09VoW3fkY4LF1T0zYk86lN6bZnNlBuOpdQ==}
+  /electron-to-chromium/1.4.397:
+    resolution: {integrity: sha512-jwnPxhh350Q/aMatQia31KAIQdhEsYS0fFZ0BQQlN9tfvOEwShu6ZNwI4kL/xBabjcB/nTy6lSt17kNIluJZ8Q==}
     dev: true
 
   /element-plus/2.3.4_vue@3.3.2:
@@ -5332,8 +5334,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /is-core-module/2.12.0:
-    resolution: {integrity: sha512-RECHCBCd/viahWmwj6enj19sKbHfJrddi/6cBDsNTKbNq0f7VeaUkBo60BqzvPqo/W54ChS62Z5qyun7cfOMqQ==}
+  /is-core-module/2.12.1:
+    resolution: {integrity: sha512-Q4ZuBAe2FUsKtyQJoQHlvP8OvBERxO3jEmy1I7hcRXcJBGGHFh/aJBswbXuS9sgrDH2QUO8ilkwNPHvHMd8clg==}
     dependencies:
       has: 1.0.3
     dev: true
@@ -6419,7 +6421,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       hosted-git-info: 4.1.0
-      is-core-module: 2.12.0
+      is-core-module: 2.12.1
       semver: 7.5.1
       validate-npm-package-license: 3.0.4
     dev: true
@@ -6870,11 +6872,10 @@ packages:
       postcss: 5.2.18
     dev: true
 
-  /postcss-px-to-viewport/1.1.1:
-    resolution: {integrity: sha512-2x9oGnBms+e0cYtBJOZdlwrFg/mLR4P1g2IFu7jYKvnqnH/HLhoKyareW2Q/x4sg0BgklHlP1qeWo2oCyPm8FQ==}
+  /postcss-px-to-viewport-8-plugin/1.2.2:
+    resolution: {integrity: sha512-ej1qFciV9jHFCAFf1/R4F7Fh34MjFoFqtr4kW02NZkCayzMRPzmPx/3Mf5f6fhXvZ9NEqULrHREce1rRAUwwLw==}
     dependencies:
       object-assign: 4.1.1
-      postcss: 8.4.23
     dev: true
 
   /postcss-resolve-nested-selector/0.1.1:
@@ -7218,7 +7219,7 @@ packages:
     resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
     hasBin: true
     dependencies:
-      is-core-module: 2.12.0
+      is-core-module: 2.12.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
@@ -7899,16 +7900,6 @@ packages:
       stylelint: 15.6.2
     dev: true
 
-  /stylelint-config-prettier/9.0.5_stylelint@15.6.2:
-    resolution: {integrity: sha512-U44lELgLZhbAD/xy/vncZ2Pq8sh2TnpiPvo38Ifg9+zeioR+LAkHu0i6YORIOxFafZoVg0xqQwex6e6F25S5XA==}
-    engines: {node: '>= 12'}
-    hasBin: true
-    peerDependencies:
-      stylelint: '>= 11.x < 15'
-    dependencies:
-      stylelint: 15.6.2
-    dev: true
-
   /stylelint-config-recess-order/4.0.0_stylelint@15.6.2:
     resolution: {integrity: sha512-sOb+OofMryBR91CbzgV2FavpONqiIeAE7cfrgyUHqePblWBKsYzoUuWThI5EjPRA7KKeovm6ykr7twWYLeafPQ==}
     peerDependencies:
@@ -7987,6 +7978,18 @@ packages:
     dependencies:
       postcss: 8.4.23
       postcss-sorting: 8.0.2_postcss@8.4.23
+      stylelint: 15.6.2
+    dev: true
+
+  /stylelint-prettier/3.0.0_oc4dndsiefxv6sspxihof2zrhe:
+    resolution: {integrity: sha512-kIks1xw6np0zElokMT2kP6ar3S4MBoj6vUtPJuND1pFELMpZxVS/0uHPR4HDAVn0WAD3I5oF0IA3qBFxBpMkLg==}
+    engines: {node: ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      prettier: '>=2.0.0'
+      stylelint: '>=14.0.0'
+    dependencies:
+      prettier: 2.8.8
+      prettier-linter-helpers: 1.0.0
       stylelint: 15.6.2
     dev: true
 

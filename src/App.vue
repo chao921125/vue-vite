@@ -36,11 +36,11 @@
 		Utils.setCssCdn();
 		Utils.setJsCdn();
 		if (!Storage.getLocalStorage(Constants.storageKey.themeConfig)) {
-			Storage.setLocaleStorage(Constants.storageKey.themeConfig, themeConfig.value);
+			Storage.setLocalStorage(Constants.storageKey.themeConfig, themeConfig.value);
 			(config.i18n as unknown as string | null) = themeConfig.value.globalI18n;
 		}
 		if (!Storage.getLocalStorage(Constants.storageKey.i18nLocale)) {
-			Storage.setLocaleStorage(Constants.storageKey.i18nLocale, import.meta.env.VITE_LOCAL);
+			Storage.setLocalStorage(Constants.storageKey.i18nLocale, import.meta.env.VITE_LOCAL);
 		}
 	});
 

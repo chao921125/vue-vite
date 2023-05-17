@@ -9,7 +9,7 @@ module.exports = {
 		"stylelint-config-standard-scss", // 配置stylelint scss插件
 		"stylelint-config-recommended-vue/scss", // 配置 vue 中 scss 样式格式化
 		"stylelint-config-recess-order", // 配置stylelint css属性书写顺序插件,
-		"stylelint-config-prettier", // 配置stylelint和prettier兼容
+		"stylelint-prettier", // 配置stylelint和prettier兼容
 	],
 	ignoreFiles: ["**/*.js", "**/*.jsx", "**/*.tsx", "**/*.ts"],
 	overrides: [
