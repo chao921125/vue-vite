@@ -16,9 +16,10 @@ app.use(Router);
 
 // UI
 // element
-import ElementPlus, { ElMessage } from "element-plus";
+import ElementPlus, { ElMessage, ElMessageBox, ElNotification } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
-// import "element-plus/dist/index.css";
+// 按需引入解决Message等样式失效，需引入
+import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
 app.use(ElementPlus);
 
@@ -71,6 +72,8 @@ import mitt from "mitt";
 app.config.globalProperties.mittBus = mitt();
 // 全局消息提示
 app.config.globalProperties.elMessage = ElMessage;
+app.config.globalProperties.elMessageBox = ElMessageBox;
+app.config.globalProperties.elNotification = ElNotification;
 // provide app.provide("fn", FN) 配合 inject inject("fn") 使用
 // app.provide("", "");
 
@@ -83,11 +86,14 @@ app.config.errorHandler = (err, instance, info) => {
 	// 只在开发模式下打印 log
 	if (import.meta.env.VITE_NODE_ENV === "development") {
 		Log.danger(">>>>>> 错误信息 >>>>>>");
-		Log.primary(info);
+		console.log(err);
+		Log.primary(err);
 		Log.danger(">>>>>> Vue 实例 >>>>>>");
+		console.log(instance);
 		Log.primary(instance);
 		Log.danger(">>>>>> Error >>>>>>");
-		Log.primary(err);
+		console.log(info);
+		Log.primary(info);
 	}
 };
 app.config.warnHandler = (msg, instance, trace) => {
@@ -95,10 +101,13 @@ app.config.warnHandler = (msg, instance, trace) => {
 	if (import.meta.env.VITE_NODE_ENV === "development") {
 		// `trace` 是组件的继承关系追踪
 		Log.warning(">>>>>> 警告信息 >>>>>>");
+		console.log(msg);
 		Log.primary(msg);
 		Log.warning(">>>>>> Vue 实例 >>>>>>");
+		console.log(instance);
 		Log.primary(instance);
 		Log.warning(">>>>>> Info >>>>>>");
+		console.log(trace);
 		Log.primary(trace);
 	}
 };
