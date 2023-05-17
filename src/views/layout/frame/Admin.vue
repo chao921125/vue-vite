@@ -29,6 +29,7 @@
 	import Tags from "../tags/Index.vue";
 	import Store, { getStoreRefs } from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
+	import { ElScrollbar } from "element-plus";
 
 	// 修改项目设置
 	const storesThemeConfig = useThemeConfig(Store);
@@ -62,7 +63,7 @@
 	watch(
 		() => route.path,
 		() => {
-			proxy.$refs.refScrollbarMain.wrap$.scrollTop = 0;
+			proxy.$refs.refScrollbarMain.wrapRef.scrollTop = 0;
 		},
 	);
 	onBeforeMount(() => {

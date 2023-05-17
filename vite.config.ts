@@ -1,5 +1,5 @@
 // https://vitejs.dev/config/ 中文文档 https://cn.vitejs.dev/
-import type { UserConfig, ConfigEnv } from "vite";
+import type { UserConfig, ConfigEnv, PluginOption } from "vite";
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import dayjs from "dayjs";
@@ -12,6 +12,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 import { ViteEjsPlugin } from "vite-plugin-ejs";
 import { VitePWA } from "vite-plugin-pwa";
 // 向上兼容浏览器
+import browserslist from "browserslist";
 import legacy from "@vitejs/plugin-legacy";
 // CDN 配置
 import importToCDN from "vite-plugin-cdn-import";
@@ -44,6 +45,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 	const env = loadEnv(mode, root);
 	const envConfig = getEnvConfig(env);
 	const isBuild = command.includes("build");
+	const browserslistConfig = browserslist.loadConfig({ path: "." });
 	let dynamicConfig: UserConfig;
 	// 动态添加的一些配置
 	if (isBuild) {
@@ -62,54 +64,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		root: path.resolve(__dirname, ""), // "./public/index.html", // 入口，可以指定到public文件夹
 		base: isBuild ? "./" : envConfig.VITE_PUBLIC_PATH, // 公共基础路径
 		// mode: "development", // 指令覆盖构建模式 --mode
-		server: {
-			// host: "localhost",
-			port: envConfig.VITE_PORT,
-			strictPort: true, // 存在冲突端口，则继续下找可用端口
-			// https: "", // boolean | https.ServerOptions
-			open: envConfig.VITE_OPEN, // boolean | string
-			proxy: createProxy(envConfig.VITE_PROXY),
-			// {
-			// 	// string shorthand
-			// 	// "/foo": "http://localhost:4567/foo",
-			// 	"/api": {
-			// 		target: "http://jsonplaceholder.typicode.com",
-			// 		changeOrigin: true,
-			// 		rewrite: path => path.replace(/^\/api/, ""),
-			// 	},
-			// 	// with RegEx
-			// 	// "^/fallback/.*": {
-			// 	//   target: "http://jsonplaceholder.typicode.com",
-			// 	//   changeOrigin: true,
-			// 	//   rewrite: (path) => path.replace(/^\/fallback/, "")
-			// 	// },
-			// 	// 使用 proxy 实例
-			// 	// "api": {
-			// 	//   target: "http://jsonplaceholder.typicode.com",
-			// 	//   changeOrigin: true,
-			// 	//   configure: () => {
-			// 	//      // proxy http-proxy
-			// 	//   },
-			// 	// },
-			// 	// '/socket.io': {
-			// 	// 	target: 'ws://localhost:3000',
-			// 	// 	ws: true
-			// 	// }
-			// },
-			cors: true, // boolean | CorsOptions
-			// headers: false, // OutgoingHttpHeaders 指定服务器响应的 header
-			// force: false, // boolean 依赖构建
-			hmr: true, // boolean | { protocol?: string, host?: string, port?: number, path?: string, timeout?: number, overlay?: boolean }
-			// watch: "", // object
-			// middlewareMode: "",
-			// fs: {
-			//  strict: "",
-			//  allow: "",
-			//  deny: "",
-			// },
-			// origin: "",
-		},
 		define: {
+			// 定义全局常量替换方式
 			// setting vue-i18-next
 			// Suppress warning
 			__APP_INFO__: JSON.stringify(__APP_INFO__),
@@ -122,7 +78,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			vueSetupExtend(),
 			// 浏览器上兼容
 			legacy({
-				targets: ["defaults", "not IE 11"],
+				targets: browserslistConfig,
 			}),
 			// 原子css
 			UnoCSS(),
@@ -196,7 +152,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				},
 			),
 			// * 是否生成包预览
-			envConfig.VITE_REPORT && visualizer(),
+			envConfig.VITE_REPORT &&
+				visualizer({
+					emitFile: true,
+					filename: "stats.html",
+				}),
 			{
 				name: "@rollup/plugin-commonjs",
 				transform(code: string, filename: string | string[]) {
@@ -223,12 +183,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					ext: ".gz",
 				}),
 		],
-		optimizeDeps: {
-			entries: "index.md",
-			exclude: [""],
-			include: ["lodash", "@vueuse/core", "@vue/runtime-core", "element-plus", "vuedraggable", "@vue/shared"],
-			// keepNames: [""],
-		},
 		// publicDir: "public", // 静态资源根路径，false关闭
 		// cacheDir: "node_modules/.vite", // 缓存路径
 		resolve: {
@@ -263,6 +217,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					additionalData: `@import "@/assets/styles/global.scss";`,
 				},
 			},
+			// devSourcemap: false,
 		},
 		// json: {
 		//   namedExports: true, // 按名称导入
@@ -276,19 +231,70 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		},
 		// assetsInclude: "", // 静态资源处理
 		logLevel: "info", // 可以根据开发环境动态改变 "info" | "warn" | "error" | "silent"
-		clearScreen: true, // --clearScreen
+		// customLogger: looger,
+		clearScreen: false, // --clearScreen
 		// envDir: "", // 配置.env文件相关
 		// envPrefix: "", // 配置.env变量以VUE_还是默认的VITE_
+		// appType: "", // 'spa' | 'mpa' | 'custom'
+		server: {
+			// host: "localhost",
+			port: envConfig.VITE_PORT,
+			strictPort: true, // 存在冲突端口，则继续下找可用端口
+			// https: "", // boolean | https.ServerOptions
+			open: envConfig.VITE_OPEN, // boolean | string
+			proxy: createProxy(envConfig.VITE_PROXY),
+			// {
+			// 	// string shorthand
+			// 	// "/foo": "http://localhost:4567/foo",
+			// 	"/api": {
+			// 		target: "http://jsonplaceholder.typicode.com",
+			// 		changeOrigin: true,
+			// 		rewrite: path => path.replace(/^\/api/, ""),
+			// 	},
+			// 	// with RegEx
+			// 	// "^/fallback/.*": {
+			// 	//   target: "http://jsonplaceholder.typicode.com",
+			// 	//   changeOrigin: true,
+			// 	//   rewrite: (path) => path.replace(/^\/fallback/, "")
+			// 	// },
+			// 	// 使用 proxy 实例
+			// 	// "api": {
+			// 	//   target: "http://jsonplaceholder.typicode.com",
+			// 	//   changeOrigin: true,
+			// 	//   configure: () => {
+			// 	//      // proxy http-proxy
+			// 	//   },
+			// 	// },
+			// 	// '/socket.io': {
+			// 	// 	target: 'ws://localhost:3000',
+			// 	// 	ws: true
+			// 	// }
+			// },
+			cors: true, // boolean | CorsOptions
+			// headers: false, // OutgoingHttpHeaders 指定服务器响应的 header
+			hmr: true, // boolean | { protocol?: string, host?: string, port?: number, path?: string, timeout?: number, overlay?: boolean }
+			// watch: "", // object
+			// middlewareMode: "",
+			// base: "", // string | undefined
+			// fs: {
+			//  strict: "",
+			//  allow: "",
+			//  deny: "",
+			// },
+			// origin: "",
+			// sourcemapIgnoreList: "", // false | (sourcePath: string, sourcemapPath: string) => boolean
+		},
 		build: {
 			target: "modules",
 			// modulePreload: true,
 			// polyfillDynamicImport: "", // boolean
 			outDir: path.join(__dirname, "dist"), // path.join(__dirname, "dist/render"),
 			assetsDir: path.join(__dirname, "assets"),
-			assetsInlineLimit: 5120, // 5MB
+			assetsInlineLimit: 5120, // 5KB
 			// 如果设置为false，整个项目中的所有 CSS 将被提取到一个 CSS 文件中
 			cssCodeSplit: true,
-			// cssTarget: true,
+			// cssTarget: true, // 与 build.target 一致
+			// cssMinify: true, // 与 build.minify 一致
 			sourcemap: false,
 			rollupOptions: {
 				input: {
@@ -305,6 +311,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					manualChunks: {
 						vue: ["vue", "vue-router", "pinia"],
 						echarts: ["echarts"],
+						elementPlus: ["element-plus"],
 					},
 				},
 			},
@@ -336,11 +343,26 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		//   open: "",
 		//   proxy: {},
 		//   cors: true,
+		//   headers: "", // OutgoingHttpHeaders
 		// },
+		optimizeDeps: {
+			entries: "index.md",
+			exclude: [""],
+			include: ["lodash", "@vueuse/core", "@vue/runtime-core", "element-plus", "vuedraggable", "@vue/shared"],
+			// esbuildOptions: "",
+			force: false,
+			// disabled: "build", // boolean | 'build' | 'dev'
+		},
 		// ssr: {
 		//   external: "",
 		//   noExternal: "",
 		//   target: "",
+		//   format: "esm",
+		// },
+		// worker: {
+		//   format: "iife", // 'es' | 'iife'
+		//   plugins: [],
+		//   rollupOptions: {},
 		// },
 	};
 	return Object.assign(defaultConfig, dynamicConfig);

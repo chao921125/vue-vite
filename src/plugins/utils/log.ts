@@ -24,8 +24,21 @@ function typeColor(type: string = "default") {
 	return color;
 }
 
-function colorful(textArr: any) {
-	console.log(`%c${textArr.map((t) => t.text || "").join("%c")}`, ...textArr.map((t) => `color: ${typeColor(t.type)};`));
+function colorful(textArr: any[]) {
+	console.log(
+		`%c${textArr
+			.map((t) => {
+				if (t.text && (typeof t.text === "string" || t.text.message)) {
+					return t.text;
+				} else if (t.text) {
+					return Object.keys(t.text).map((key) => key);
+				} else {
+					return "";
+				}
+			})
+			.join("%c")}`,
+		...textArr.map((t) => `color: ${typeColor(t.type)};`),
+	);
 }
 
 log.capsule = function (title: string, info: string, type: string = "primary") {
