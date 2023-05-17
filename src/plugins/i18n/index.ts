@@ -32,7 +32,7 @@ const { themeConfig } = getStoreRefs(storeThemeConfig);
 
 // 导出语言国际化
 // https://vue-i18n.intlify.dev/guide/essentials/fallback.html#explicit-fallback-with-one-locale
-const i18n = createI18n({
+export const i18n = createI18n({
 	silentTranslationWarn: true,
 	missingWarn: false,
 	silentFallbackWarn: true,
