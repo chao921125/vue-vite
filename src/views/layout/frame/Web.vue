@@ -13,13 +13,11 @@
 </template>
 
 <script lang="ts" setup name="LayoutWeb">
-	import Store, { getStoreRefs } from "@/store";
-	import { useThemeConfig } from "@/store/modules/theme";
+	import { getStoreRefs, appStore } from "@/store";
 	import { ElScrollbar } from "element-plus";
 
 	// 修改项目设置
-	const storesThemeConfig = useThemeConfig(Store);
-	const { themeConfig } = getStoreRefs(storesThemeConfig);
+	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 	const state: any = reactive({
 		clientWidth: 0,
 	});

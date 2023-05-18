@@ -1,7 +1,6 @@
 import { nextTick } from "vue";
 import Router from "@/router";
-import Store, { getStoreRefs } from "@/store";
-import { useThemeConfig } from "@/store/modules/theme";
+import { getStoreRefs, appStore } from "@/store";
 import I18n from "@/plugins/i18n";
 import ThemeConfig from "@/config/themeConfig";
 
@@ -12,8 +11,7 @@ const util: any = {};
  * @param titleText
  */
 util.setTitle = async () => {
-	const storeThemeConfig = useThemeConfig(Store);
-	const { themeConfig } = getStoreRefs(storeThemeConfig);
+	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 	const globalTitle: string = themeConfig.value.globalTitle;
 	await nextTick(() => {
 		let title: any = "";
@@ -33,7 +31,7 @@ const setTitleI18n = (value: any) => {
 		if (ThemeConfig.i18nKey.test(query?.tagsViewName) || ThemeConfig.i18nKey.test(params?.tagsViewName)) {
 			// 国际化
 			const urlTagsParams = (query?.tagsViewName && JSON.parse(query?.tagsViewName)) || (params?.tagsViewName && JSON.parse(params?.tagsViewName));
-			tagsViewName = urlTagsParams[I18n.global.locale];
+			tagsViewName = urlTagsParams[I18n.global.locale.value];
 		} else {
 			// 非国际化
 			tagsViewName = query?.tagsViewName || params?.tagsViewName;

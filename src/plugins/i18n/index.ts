@@ -1,34 +1,21 @@
 import { createI18n, useI18n } from "vue-i18n";
-import Store, { getStoreRefs } from "@/store";
-import { useThemeConfig } from "@/store/modules/theme";
+import { getStoreRefs, appStore } from "@/store";
 
+// 引入国际化文件
 import zhCN from "element-plus/lib/locale/lang/zh-cn";
 import en from "element-plus/lib/locale/lang/en";
 
-import znCNLocale from "./modules/zh-cn";
-import enLocale from "./modules/en";
-
-/**
- * 说明：定义语言国际化内容
- */
-const messages = {
-	[zhCN.name]: {
-		message: {
-			...znCNLocale,
-		},
-		...zhCN,
-	},
-	[en.name]: {
-		message: {
-			...enLocale,
-		},
-		...en,
-	},
+export const elI18n = {
+	[zhCN.name]: zhCN,
+	[en.name]: en,
 };
 
+// 保持和element plus语言一致
+import znCNLocale from "./modules/zh-cn";
+import enLocale from "./modules/en-us";
+
 // 读取 pinia 默认语言
-const storeThemeConfig = useThemeConfig(Store);
-const { themeConfig } = getStoreRefs(storeThemeConfig);
+const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 
 // 导出语言国际化
 // https://vue-i18n.intlify.dev/guide/essentials/fallback.html#explicit-fallback-with-one-locale
@@ -37,11 +24,24 @@ export const i18n = createI18n({
 	missingWarn: false,
 	silentFallbackWarn: true,
 	fallbackWarn: false,
-	legacy: true,
+	legacy: false,
 	globalInjection: true,
 	locale: themeConfig.value.globalI18n || import.meta.env.VITE_LOCAL,
 	fallbackLocale: zhCN.name,
-	messages,
+	messages: {
+		[zhCN.name]: {
+			message: {
+				...znCNLocale,
+			},
+			...zhCN,
+		},
+		[en.name]: {
+			message: {
+				...enLocale,
+			},
+			...en,
+		},
+	},
 });
 
 export const readLocale = (prefix = zhCN.name) => {
@@ -63,7 +63,7 @@ export const readLocale = (prefix = zhCN.name) => {
 export const $t = (args: string) => {
 	return i18n.global.t(args);
 };
-export const transI18n = (args: string) => {
+export const useI18nMessage = (args: string) => {
 	const { t } = useI18n();
 	return t(args);
 };

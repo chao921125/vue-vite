@@ -23,6 +23,13 @@
 	<el-skeleton :rows="1" animated :loading="isLoading">
 		<el-row>
 			<el-col :span="24" class="re-mtb-20">
+				<el-pagination
+					v-model:current-page="pageObj.current"
+					v-model:page-size="pageObj.size"
+					:page-sizes="[100, 200, 300, 400]"
+					layout="total, sizes, prev, pager, next, jumper"
+					:total="pageObj.total"
+				/>
 				<el-date-picker
 					v-model="form.date"
 					type="daterange"
@@ -95,6 +102,12 @@
 	const tI18n = ref();
 	const form: any = reactive({
 		date: ["2022-08-31", "2022-11-31"],
+	});
+
+	const pageObj = reactive({
+		current: 1,
+		size: 10,
+		total: 100,
 	});
 
 	const shortcuts = [
