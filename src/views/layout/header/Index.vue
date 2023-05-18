@@ -179,7 +179,7 @@
 		proxy.$i18n.locale = lang;
 		Storage.setLocalStorage(Constants.storageKey.i18nLocale, lang);
 		setThemeConfig();
-		proxy.mittBus.emit("getI18nConfig", proxy.$i18n.messages[lang]);
+		proxy.mittBus.emit("getI18nConfig", lang);
 	};
 	// 组件大小
 	const sizes = ThemeConfig.sizeKeys;
