@@ -18,14 +18,16 @@ const messages = {
 		message: {
 			...znCNLocale,
 		},
-		...zhCN,
 	},
 	[en.name]: {
 		message: {
 			...enLocale,
 		},
-		...en,
 	},
+};
+export const elMessages = {
+	[zhCN.name]: zhCN,
+	[en.name]: en,
 };
 
 // 读取 pinia 默认语言
