@@ -7,7 +7,7 @@
 <script lang="ts" setup name="App">
 	import Store, { getStoreRefs } from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
-	import { elMessages } from "@/plugins/i18n";
+	import { elI18n } from "@/plugins/i18n";
 	// import { getStoreRefs, appStore } from "@/store";
 	import Utils from "@/plugins/utils";
 	import Storage from "@/plugins/utils/storage";
@@ -18,7 +18,7 @@
 	const { proxy } = <any>getCurrentInstance();
 	// large / default /small
 	const config: any = reactive({
-		i18n: elMessages[ThemeConfig.i18nDef],
+		i18n: elI18n[ThemeConfig.i18nDef],
 		size: "default",
 		buttonSpace: {
 			autoInsertSpace: false,
@@ -39,7 +39,7 @@
 		Utils.setJsCdn();
 		if (!Storage.getLocalStorage(Constants.storageKey.themeConfig)) {
 			Storage.setLocalStorage(Constants.storageKey.themeConfig, themeConfig.value);
-			config.i18n = elMessages[themeConfig.value.globalI18n];
+			config.i18n = elI18n[themeConfig.value.globalI18n];
 		}
 		if (!Storage.getLocalStorage(Constants.storageKey.i18nLocale)) {
 			Storage.setLocalStorage(Constants.storageKey.i18nLocale, import.meta.env.VITE_LOCAL);
@@ -55,7 +55,7 @@
 				storeThemeConfig.setThemeConfig(Storage.getLocalStorage(Constants.storageKey.themeConfig));
 			}
 			proxy.mittBus.on("getI18nConfig", (locale: string) => {
-				config.i18n = elMessages[locale];
+				config.i18n = elI18n[locale];
 			});
 			proxy.mittBus.on("getSizeConfig", (size: string) => {
 				config.size = size;

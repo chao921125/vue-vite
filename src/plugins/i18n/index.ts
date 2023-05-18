@@ -6,29 +6,14 @@ import { useThemeConfig } from "@/store/modules/theme";
 import zhCN from "element-plus/lib/locale/lang/zh-cn";
 import en from "element-plus/lib/locale/lang/en";
 
-// 保持和element plus语言一致
-import znCNLocale from "./modules/zh-cn";
-import enLocale from "./modules/en";
-
-/**
- * 说明：定义语言国际化内容
- */
-const messages = {
-	[zhCN.name]: {
-		message: {
-			...znCNLocale,
-		},
-	},
-	[en.name]: {
-		message: {
-			...enLocale,
-		},
-	},
-};
-export const elMessages = {
+export const elI18n = {
 	[zhCN.name]: zhCN,
 	[en.name]: en,
 };
+
+// 保持和element plus语言一致
+import znCNLocale from "./modules/zh-cn";
+import enLocale from "./modules/en-us";
 
 // 读取 pinia 默认语言
 const storeThemeConfig = useThemeConfig(Store);
@@ -45,7 +30,20 @@ export const i18n = createI18n({
 	globalInjection: true,
 	locale: themeConfig.value.globalI18n || import.meta.env.VITE_LOCAL,
 	fallbackLocale: zhCN.name,
-	messages,
+	messages: {
+		[zhCN.name]: {
+			message: {
+				...znCNLocale,
+			},
+			...zhCN,
+		},
+		[en.name]: {
+			message: {
+				...enLocale,
+			},
+			...en,
+		},
+	},
 });
 
 export const readLocale = (prefix = zhCN.name) => {
