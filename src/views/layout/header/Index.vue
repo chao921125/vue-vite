@@ -103,6 +103,7 @@
 	import { useThemeConfig } from "@/store/modules/theme";
 	import { useRouterList } from "@/store/modules/routerMeta";
 	import { Sunny, Moon } from "@element-plus/icons-vue";
+	import Utils from "@/plugins/utils";
 
 	const storeThemeConfig = useThemeConfig(Store);
 	const { themeConfig } = getStoreRefs(storeThemeConfig);
@@ -180,6 +181,7 @@
 		Storage.setLocalStorage(Constants.storageKey.i18nLocale, lang);
 		setThemeConfig();
 		proxy.mittBus.emit("getI18nConfig", lang);
+		Utils.setTitle();
 	};
 	// 组件大小
 	const sizes = ThemeConfig.sizeKeys;
