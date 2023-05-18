@@ -121,7 +121,7 @@
       "unplugin-auto-import": "^0.16.0",
       "unplugin-icons": "^0.16.1",
       "unplugin-vue-components": "^0.24.1",
-      "vite": "4.3.5",
+      "vite": "^4.3.7",
       "vite-plugin-cdn-import": "^0.3.5",
       "vite-plugin-compression": "^0.5.1",
       "vite-plugin-ejs": "^1.6.4",
@@ -136,7 +136,6 @@
    "resolutions": {
       "bin-wrapper": "npm:bin-wrapper-china",
 		 	"mysql": "2.18.1",
-		 	"vite": "4.3.5",
       "webpack": "5.82.1"
    },
    "license": "MIT",
