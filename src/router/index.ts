@@ -37,8 +37,9 @@ export const router = createRouter({
 
 // 路由加载前
 router.beforeEach(async (to, from, next) => {
-	console.log("router from", from.path, to.path);
 	NProgress.start();
+	Storage.setLocalStorage(Constants.storageKey.routerPrev, from.path);
+	Storage.setLocalStorage(Constants.storageKey.routerNext, to.path);
 	// 取消所有请求
 	AxiosCancel.removeAllCancer();
 	const token = Storage.getSessionStorage(Constants.storageKey.token) || Cookie.getCookie(Constants.cookieKey.token);

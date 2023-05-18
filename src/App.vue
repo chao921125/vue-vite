@@ -1,5 +1,5 @@
 <template>
-	<el-config-provider :locale="config.i18n" :size="config.size" :button="config.buttonSpace">
+	<el-config-provider :locale="elI18n" :size="config.size" :button="config.buttonSpace">
 		<RouterView />
 	</el-config-provider>
 </template>
@@ -7,16 +7,18 @@
 <script lang="ts" setup name="App">
 	import Store, { getStoreRefs } from "@/store";
 	import { useThemeConfig } from "@/store/modules/theme";
+	import { useI18n } from "vue-i18n";
 	// import { getStoreRefs, appStore } from "@/store";
 	import Utils from "@/plugins/utils";
 	import Storage from "@/plugins/utils/storage";
 	import Constants from "@/plugins/constants";
 	import RouterConfig from "@/config/routerConfig";
+	import ThemeConfig from "@/config/themeConfig";
 
 	const { proxy } = <any>getCurrentInstance();
 	// large / default /small
 	const config: any = reactive({
-		i18n: import.meta.env.VITE_LOCALE,
+		i18n: ThemeConfig.i18nDef,
 		size: "default",
 		buttonSpace: {
 			autoInsertSpace: false,
@@ -32,6 +34,11 @@
 		proxy.mittBus.emit("getI18nConfig", Storage.getLocalStorage(Constants.storageKey.i18nLocale));
 	};
 
+	// 国际化插件生效配置
+	const { messages, locale } = useI18n();
+	const elI18n = computed(() => {
+		return messages.value[locale.value];
+	});
 	onBeforeMount(() => {
 		Utils.setCssCdn();
 		Utils.setJsCdn();

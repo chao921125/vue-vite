@@ -2,9 +2,11 @@ import { createI18n, useI18n } from "vue-i18n";
 import Store, { getStoreRefs } from "@/store";
 import { useThemeConfig } from "@/store/modules/theme";
 
+// 引入国际化文件
 import zhCN from "element-plus/lib/locale/lang/zh-cn";
 import en from "element-plus/lib/locale/lang/en";
 
+// 保持和element plus语言一致
 import znCNLocale from "./modules/zh-cn";
 import enLocale from "./modules/en";
 
@@ -37,7 +39,7 @@ export const i18n = createI18n({
 	missingWarn: false,
 	silentFallbackWarn: true,
 	fallbackWarn: false,
-	legacy: true,
+	legacy: false,
 	globalInjection: true,
 	locale: themeConfig.value.globalI18n || import.meta.env.VITE_LOCAL,
 	fallbackLocale: zhCN.name,
@@ -63,7 +65,7 @@ export const readLocale = (prefix = zhCN.name) => {
 export const $t = (args: string) => {
 	return i18n.global.t(args);
 };
-export const transI18n = (args: string) => {
+export const useI18nMessage = (args: string) => {
 	const { t } = useI18n();
 	return t(args);
 };

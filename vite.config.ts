@@ -103,7 +103,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					/\.vue\?vue/, // .vue
 					/\.md$/, // .md
 				],
-				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core"],
+				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core", "vue-i18n"],
 				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
 			}),
 			components({
@@ -190,6 +190,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				// 别名必须以 / 开头、结尾
 				// "/@/": root, -- vite 内部在用，这里不能用了
 				// "/root/": __dirname, -- vite 内部在用，这里不能用了
+				// remove i18n waring
 				"vue-i18n": "vue-i18n/dist/vue-i18n.cjs.js",
 				"@": path.resolve(__dirname, "./src"),
 				"#": path.resolve(__dirname, "./types"),
