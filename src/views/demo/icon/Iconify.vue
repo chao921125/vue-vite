@@ -24,9 +24,9 @@
 			iconify 示例：<el-link :underline="false" type="primary" target="_blank" href="https://icon-sets.iconify.design/">官网</el-link>
 		</el-col>
 		<el-col :span="24">
-			<p> 由于本项目未使用该包，借此只提供使用方法不提供展示demo，如需要使用该图标库，请在 package.json 文件中添加以下内容 </p>
-			<p> dependencies "@iconify/iconify": "^0.0.0", </p>
-			<p> devDependencies "@iconify/json": "^0.0.0","@iconify/vue": "^0.0.0", </p>
+			<p>由于本项目未使用该包，借此只提供使用方法不提供展示demo，如需要使用该图标库，请在 package.json 文件中添加以下内容</p>
+			<p>dependencies "@iconify/iconify": "^0.0.0",</p>
+			<p>devDependencies "@iconify/json": "^0.0.0","@iconify/vue": "^0.0.0",</p>
 		</el-col>
 		<el-col :span="24">
 			<code>

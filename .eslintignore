@@ -21,4 +21,4 @@ index.html
 *.scss
 *.woff
 *.ttf
-!.eslintrc.js
+!.eslintrc.mjs
