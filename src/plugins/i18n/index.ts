@@ -1,6 +1,5 @@
 import { createI18n, useI18n } from "vue-i18n";
-import Store, { getStoreRefs } from "@/store";
-import { useThemeConfig } from "@/store/modules/theme";
+import { getStoreRefs, appStore } from "@/store";
 
 // 引入国际化文件
 import zhCN from "element-plus/lib/locale/lang/zh-cn";
@@ -16,8 +15,7 @@ import znCNLocale from "./modules/zh-cn";
 import enLocale from "./modules/en-us";
 
 // 读取 pinia 默认语言
-const storeThemeConfig = useThemeConfig(Store);
-const { themeConfig } = getStoreRefs(storeThemeConfig);
+const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 
 // 导出语言国际化
 // https://vue-i18n.intlify.dev/guide/essentials/fallback.html#explicit-fallback-with-one-locale

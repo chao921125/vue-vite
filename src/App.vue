@@ -5,10 +5,8 @@
 </template>
 
 <script lang="ts" setup name="App">
-	import Store, { getStoreRefs } from "@/store";
-	import { useThemeConfig } from "@/store/modules/theme";
+	import { getStoreRefs, appStore } from "@/store";
 	import { elI18n } from "@/plugins/i18n";
-	// import { getStoreRefs, appStore } from "@/store";
 	import Utils from "@/plugins/utils";
 	import Storage from "@/plugins/utils/storage";
 	import Constants from "@/plugins/constants";
@@ -25,9 +23,7 @@
 		},
 	});
 
-	const storeThemeConfig = useThemeConfig(Store);
-	const { themeConfig } = getStoreRefs(storeThemeConfig);
-	// const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
+	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 	const route = useRoute();
 	const router = useRouter();
 	const initData = () => {
@@ -52,7 +48,7 @@
 		} else {
 			initData();
 			if (Storage.getLocalStorage(Constants.storageKey.themeConfig)) {
-				storeThemeConfig.setThemeConfig(Storage.getLocalStorage(Constants.storageKey.themeConfig));
+				appStore.useThemeConfig.setThemeConfig(Storage.getLocalStorage(Constants.storageKey.themeConfig));
 			}
 			proxy.mittBus.on("getI18nConfig", (locale: string) => {
 				config.i18n = elI18n[locale];

@@ -2,10 +2,7 @@
  * 路由入口
  */
 import { createRouter, createWebHashHistory, RouteRecordName, RouteRecordRaw } from "vue-router";
-import Store, { getStoreRefs } from "@/store";
-// import { useUserInfo } from "@/store/modules/user";
-import { useRouterList } from "@/store/modules/routerMeta";
-import { useRouterTags } from "@/store/modules/routerTags";
+import { getStoreRefs, appStore } from "@/store";
 import { baseRoutes, errorRoutes } from "./route";
 import Utils from "@/plugins/utils";
 import Storage from "@/plugins/utils/storage";
@@ -53,8 +50,7 @@ router.beforeEach(async (to, from, next) => {
 		} else if (token && (RouterConfig.whiteList.includes(to.path) || to.path === RouterConfig.routeRoot)) {
 			next(Utils.isMobile() ? RouterConfig.routeMHome : RouterConfig.routeHome);
 		} else {
-			const storesRouterList = useRouterList(Store);
-			const { routerList } = getStoreRefs(storesRouterList);
+			const { routerList } = getStoreRefs(appStore.useRouterList);
 			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {
 					// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
@@ -92,8 +88,7 @@ export async function getDynamicRouter() {
 	if (!(Storage.getSessionStorage(Constants.storageKey.token) || Cookie.getCookie(Constants.cookieKey.token))) return false;
 	// await useUserInfo(Store).setUserInfo();
 
-	let storesRouterList = useRouterList(Store);
-	await storesRouterList.setMenuList(requestData);
+	await appStore.useRouterList.setMenuList(requestData);
 
 	await setAddRoute(requestData);
 }
@@ -113,8 +108,7 @@ export async function setAddRoute(data: any[]) {
 
 // 存储原始数据
 async function setRouterList(data: any[]) {
-	let storesRouterList = useRouterList(Store);
-	await storesRouterList.setRouterList(data);
+	await appStore.useRouterList.setRouterList(data);
 }
 
 function getRouter(data: IMenuState[] = []) {
@@ -197,8 +191,7 @@ function componentImport(viewsModules: Record<string, Function>, component: stri
 
 // 存放tag数据
 export async function setTags(data: any[]) {
-	const storesTagsView = useRouterTags(Store);
-	await storesTagsView.setTagsViewRoutes(data);
+	await appStore.useRouterTags.setTagsViewRoutes(data);
 }
 
 export default router;

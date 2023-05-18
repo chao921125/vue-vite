@@ -99,14 +99,11 @@
 	import Constants from "@/plugins/constants";
 	import ThemeConfig from "@/config/themeConfig";
 	import RouterConfig from "@/config/routerConfig";
-	import Store, { getStoreRefs } from "@/store";
-	import { useThemeConfig } from "@/store/modules/theme";
-	import { useRouterList } from "@/store/modules/routerMeta";
+	import { getStoreRefs, appStore } from "@/store";
 	import { Sunny, Moon } from "@element-plus/icons-vue";
 	import Utils from "@/plugins/utils";
 
-	const storeThemeConfig = useThemeConfig(Store);
-	const { themeConfig } = getStoreRefs(storeThemeConfig);
+	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 	// 折叠菜单 start
 	const isColl = computed(() => {
 		let { isCollapse } = themeConfig.value;
@@ -119,8 +116,7 @@
 	// 折叠菜单 end
 	// 面包屑导航 start
 	const route = useRoute();
-	const storesRouterList = useRouterList(Store);
-	const { menuList } = getStoreRefs(storesRouterList);
+	const { menuList } = getStoreRefs(appStore.useRouterList);
 	const breadcrumbList = ref<any[]>([]);
 	const initBreadcrumbList = (path: string) => {
 		if (RouterConfig.executeList.includes(path)) {

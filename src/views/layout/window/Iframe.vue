@@ -7,11 +7,9 @@
 </template>
 
 <script lang="ts" setup name="Iframe">
-	import Store, { getStoreRefs } from "@/store";
-	import { useThemeConfig } from "@/store/modules/theme";
+	import { getStoreRefs, appStore } from "@/store";
 
-	const storeThemeConfig = useThemeConfig(Store);
-	const { themeConfig } = getStoreRefs(storeThemeConfig);
+	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 	const iframeHeight = computed(() => {
 		if (themeConfig.value.isTagsView) {
 			return "120px";

@@ -31,22 +31,18 @@
 
 <script lang="ts" setup name="Menu">
 	import SubMenu from "./SubMenu.vue";
-	import Store, { getStoreRefs } from "@/store";
+	import Store, { getStoreRefs, appStore } from "@/store";
 	import ColorConfig from "@/config/colorConfig";
-	import { useThemeConfig } from "@/store/modules/theme";
-	import { useRouterList } from "@/store/modules/routerMeta";
 
 	const colorSet = ColorConfig;
 	// 折叠菜单
-	const storeThemeConfig = useThemeConfig(Store);
-	const { themeConfig } = getStoreRefs(storeThemeConfig);
+	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 	const isColl = computed(() => {
 		let { isCollapse } = themeConfig.value;
 		return !isCollapse;
 	});
 	// 渲染菜单
-	const storeRouterList = useRouterList(Store);
-	const { menuList } = getStoreRefs(storeRouterList);
+	const { menuList } = getStoreRefs(appStore.useRouterList);
 	const state: any = reactive({ menuList: Array<any> });
 	const setMenu = () => {
 		(state.menuList as any) = menuList.value || [];
