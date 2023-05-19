@@ -532,15 +532,14 @@ import { viteMockServe } from "vite-plugin-mock";
 | [百度，这是一个神奇的东西](https://baijiahao.baidu.com/s?id=1629138670094636894&wfr=spider&for=pc) |
 | [水墨文档](https://github.com/huangwei9527/Ink-wash-docs)                                  |
 | [聊天](https://www.npmjs.com/package/vue-beautiful-chat)                                 |
-| [createjs](https://www.createjs.com/)                                                  |
-| [Phaser 还有人用吗？](https://www.phaser-china.com/)                                         |
 
 # 游戏
-| 游戏                                                                                     |
-|----------------------------------------------------------------------------------------|
-| [Unity 3D(C/JS) 3D大佬！](https://www.unrealengine.com/zh-CN/)                            |
-| [Cocos(C/TS) 2D、2.5大佬！](https://www.unrealengine.com/zh-CN/)                           |
-| [Unreal(C++) 这是一个追求画质的游戏引擎](https://www.unrealengine.com/zh-CN/)                       |
+| 游戏                                                               |
+|------------------------------------------------------------------|
+| [Unity 3D(C/JS) 3D大佬！](https://www.unrealengine.com/zh-CN/)      |
+| [Cocos(C/TS) 2D、2.5大佬！](https://www.unrealengine.com/zh-CN/)     |
+| [Unreal(C++) 这是一个追求画质的游戏引擎](https://www.unrealengine.com/zh-CN/) |
+| [小游戏 createjs](https://www.createjs.com/)                        |
 
 # 其他
 | [//]: # (loading)                                                            |
@@ -549,6 +548,11 @@ import { viteMockServe } from "vite-plugin-mock";
 | https://juejin.cn/post/7037036742985121800                                   |
 
 # 优秀项目推荐
+
+| 项目示例                                                    |
+|---------------------------------------------------------|
+| [聊天](https://github.com/gmingchen/vue3-element-plus-im) |
+
 | vite doc                           |
 |------------------------------------|
 | https://github.com/sl1673495/blogs |
