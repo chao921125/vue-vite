@@ -467,13 +467,6 @@ import { viteMockServe } from "vite-plugin-mock";
 | [vue-core-video-player](https://www.npmjs.com/package/vue-core-video-player) |
 
 
-| 游戏                                                                                                                                    |
-|---------------------------------------------------------------------------------------------------------------------------------------|
-| [Eva.js](https://www.npmjs.com/package/@eva/eva.js)                                                                                   |
-| [Eva-plugin-renderer](https://www.npmjs.com/package/@eva/plugin-renderer)                                                             |
-| [Eva-plugin-renderer-img](https://www.npmjs.com/package/@eva/plugin-renderer-img) [官网](https://eva-engine.gitee.io/#/tutorials/intro) |
-
-
 | 3D                                                                                                                                 |
 |------------------------------------------------------------------------------------------------------------------------------------|
 | [WebGL](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL_API)                                                                |
@@ -482,11 +475,22 @@ import { viteMockServe } from "vite-plugin-mock";
 | [AR model-viewer](https://github.com/google/model-viewer)                                                                          |
 
 
+| 游戏                                                                                                                                    |
+|---------------------------------------------------------------------------------------------------------------------------------------|
+| [Eva.js](https://www.npmjs.com/package/@eva/eva.js)                                                                                   |
+| [Eva-plugin-renderer](https://www.npmjs.com/package/@eva/plugin-renderer)                                                             |
+| [Eva-plugin-renderer-img](https://www.npmjs.com/package/@eva/plugin-renderer-img) [官网](https://eva-engine.gitee.io/#/tutorials/intro) |
+
+
 # 特效
 | 文字                                                     |
 |--------------------------------------------------------|
 | [vue-textra](https://www.npmjs.com/package/vue-textra) |
 
+| Loading                                                                      |
+|------------------------------------------------------------------------------|
+| http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading |
+| https://juejin.cn/post/7037036742985121800                                   |
 
 | 展示异常                                               |
 |----------------------------------------------------|
@@ -503,7 +507,7 @@ import { viteMockServe } from "vite-plugin-mock";
 |------------------------------------------------------------------|
 | [uni-app 官网](https://uniapp.dcloud.net.cn/) 全平台跨端含APP等等          |
 | [taro 官网](https://taro.jd.com/) 3.x已支持vue                        |
-| [hippy 官网](https://hippyjs.org/#/) 3.x已支持vue                        |
+| [hippy 官网](https://hippyjs.org/#/) 3.x已支持vue                     |
 | [~~mpvue 官网~~](https://mpvue.com/) 美团                            |
 | [~~wepyjs 官网~~](https://wepyjs.github.io/wepy-docs/) 腾讯 需要学习wepy |
 
@@ -526,32 +530,21 @@ import { viteMockServe } from "vite-plugin-mock";
 | [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                                             |
 | Gatsby Next.js NuxtJS Docusaurus Eleventy GitBook Gridsome Hugo Jekyll Pelican SvelteKit VuePress WordPress |
 
-# 其他组件参考
-| 其他组件参考                                                                                 |
-|----------------------------------------------------------------------------------------|
-| [百度，这是一个神奇的东西](https://baijiahao.baidu.com/s?id=1629138670094636894&wfr=spider&for=pc) |
-| [水墨文档](https://github.com/huangwei9527/Ink-wash-docs)                                  |
-| [聊天](https://www.npmjs.com/package/vue-beautiful-chat)                                 |
-
 # 游戏
-| 游戏                                                               |
+| 游戏开发框架                                                           |
 |------------------------------------------------------------------|
 | [Unity 3D(C/JS) 3D大佬！](https://www.unrealengine.com/zh-CN/)      |
 | [Cocos(C/TS) 2D、2.5大佬！](https://www.unrealengine.com/zh-CN/)     |
 | [Unreal(C++) 这是一个追求画质的游戏引擎](https://www.unrealengine.com/zh-CN/) |
 | [小游戏 createjs](https://www.createjs.com/)                        |
 
-# 其他
-| [//]: # (loading)                                                            |
-|------------------------------------------------------------------------------|
-| http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading |
-| https://juejin.cn/post/7037036742985121800                                   |
-
 # 优秀项目推荐
 
-| 项目示例                                                    |
-|---------------------------------------------------------|
-| [聊天](https://github.com/gmingchen/vue3-element-plus-im) |
+| 项目示例                                                            |
+|-----------------------------------------------------------------|
+| [水墨文档 vue2 停更](https://github.com/huangwei9527/Ink-wash-docs)   |
+| [聊天室](https://github.com/gmingchen/vue3-element-plus-im)        |
+| [聊天悬浮](https://www.npmjs.com/package/vue-beautiful-chat)        |
 
 | vite doc                           |
 |------------------------------------|
