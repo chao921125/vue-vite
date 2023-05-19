@@ -117,9 +117,9 @@ function getRouter(data: IMenuState[] = []) {
 		{
 			path: "/",
 			name: "/",
-			redirect: { path: "/" },
+			redirect: { path: "" },
 			component: () => import("@/views/layout/Index.vue"),
-			meta: { title: "message.title.login" },
+			meta: { title: "message.title.home" },
 			children: [],
 		},
 	];

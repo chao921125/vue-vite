@@ -52,6 +52,7 @@ export default {
 		testIframe: "Iframe",
 	},
 	title: {
+		home: "home",
 		login: "Login",
 		register: "Register",
 		auth: "Auth",
