@@ -18,7 +18,6 @@
  * children
  */
 export default {
-	menuEnum: [],
 	menus: [
 		{
 			id: 1,

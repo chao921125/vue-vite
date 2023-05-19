@@ -10,7 +10,7 @@ import Cookie from "@/plugins/utils/cookie";
 import Constants from "@/plugins/constants";
 import NProgress from "@/plugins/loading/progress";
 import RouterConfig from "@/config/routerConfig";
-import routeData from "@/config/routerData";
+import RouteData from "@/config/routerData";
 import { IMenuState } from "@/interface/router";
 import AxiosCancel from "@/plugins/axios/cancel";
 
@@ -54,9 +54,9 @@ router.beforeEach(async (to, from, next) => {
 			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {
 					// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
-					requestData = routeData.menus;
+					requestData = RouteData.menus;
 				} else {
-					requestData = routeData.menus;
+					requestData = RouteData.menus;
 				}
 				// 后端控制路由：路由数据初始化，防止刷新时丢失
 				await getDynamicRouter();
@@ -117,9 +117,9 @@ function getRouter(data: IMenuState[] = []) {
 		{
 			path: "/",
 			name: "/",
-			redirect: { path: "/" },
+			redirect: { path: "" },
 			component: () => import("@/views/layout/Index.vue"),
-			meta: { title: "message.title.login" },
+			meta: { title: "message.title.home" },
 			children: [],
 		},
 	];
