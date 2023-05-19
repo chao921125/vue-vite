@@ -23,6 +23,7 @@ export default class AlphaVideo {
 			height: 400,
 			onError() {},
 			onPlay() {},
+			onEnd() {},
 		};
 		this.options = {
 			...defaultOption,
