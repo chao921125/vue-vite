@@ -124,4 +124,4 @@ export const baseRoutes: Array<RouteRecordRaw> = [
 	},
 ];
 
-export default baseRoutes;
+export default [...errorRoutes, ...baseRoutes];
