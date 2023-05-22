@@ -18,7 +18,7 @@
 					@click="changeRouter(item.name)"
 					class="re-cursor-pointer re-mr-10"
 				>
-					{{ item.label }}
+					{{ $t(item.label) }}
 				</el-tag>
 			</div>
 		</el-scrollbar>
@@ -53,7 +53,7 @@
 		}
 		let tags = Storage.getLocalStorage(Constants.storageKey.tags) || [];
 		tags.push({
-			label: $t(routeCurrent.meta.title),
+			label: routeCurrent.meta.title,
 			name: routeCurrent.fullPath,
 			closable: true,
 		});
@@ -92,7 +92,7 @@
 			activeName = tabValue.value;
 		if (command === "0" || command === 0) {
 			routeTemp = {
-				label: $t(String(route.meta.title)),
+				label: String(route.meta.title!),
 				name: route.fullPath,
 				closable: true,
 			};

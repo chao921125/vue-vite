@@ -95,7 +95,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			// https://github.com/antfu/unplugin-auto-import#readme
 			autoImport({
-				dts: true,
 				include: [
 					/\.[tj]s?$/, // .ts, .tsx, .js, .jsx
 					/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
@@ -104,6 +103,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					/\.md$/, // .md
 				],
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core", "vue-i18n"],
+				dirs: ["./hooks", "./components", "./components/**"],
+				dts: true,
 				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
 			}),
 			components({
