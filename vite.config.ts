@@ -1,5 +1,5 @@
 // https://vitejs.dev/config/ 中文文档 https://cn.vitejs.dev/
-import type { UserConfig, ConfigEnv, PluginOption } from "vite";
+import type { UserConfig, ConfigEnv } from "vite";
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import dayjs from "dayjs";
@@ -95,7 +95,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			// https://github.com/antfu/unplugin-auto-import#readme
 			autoImport({
-				dts: true,
 				include: [
 					/\.[tj]s?$/, // .ts, .tsx, .js, .jsx
 					/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
@@ -104,6 +103,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					/\.md$/, // .md
 				],
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core", "vue-i18n"],
+				dirs: ["./hooks", "./components", "./components/**"],
+				dts: true,
 				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
 			}),
 			components({

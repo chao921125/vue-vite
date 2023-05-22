@@ -55,50 +55,50 @@
 }
 
 // 100%
-.#{$prefix}-w-auto {
-	width: auto;
-}
-.#{$prefix}-h-auto {
-	height: auto;
-}
 .#{$prefix}-box-fill {
 	@extend %wh-fill;
-}
-.#{$prefix}-w-fill {
-	@extend %width-fill;
-}
-.#{$prefix}-h-fill {
-	@extend %height-fill;
-}
-.#{$prefix}-w-fill-min {
-	min-width: 100%;
-}
-.#{$prefix}-h-fill-min {
-	min-height: 100%;
-}
-.#{$prefix}-w-fill-max {
-	max-width: 100%;
-}
-.#{$prefix}-h-fill-max {
-	max-height: 100%;
 }
 .#{$prefix}-box-full {
 	@extend %wh-full;
 }
+.#{$prefix}-w-auto {
+	width: auto;
+}
+.#{$prefix}-w-fill {
+	@extend %width-fill;
+}
+.#{$prefix}-w-fill-min {
+	min-width: 100%;
+}
+.#{$prefix}-w-fill-max {
+	max-width: 100%;
+}
 .#{$prefix}-w-full {
 	@extend %width-full;
-}
-.#{$prefix}-h-full {
-	@extend %height-full;
 }
 .#{$prefix}-w-full-min {
 	min-width: 100vw;
 }
-.#{$prefix}-h-full-min {
-	min-height: 100vh;
-}
 .#{$prefix}-w-full-max {
 	max-width: 100vw;
+}
+.#{$prefix}-h-auto {
+	height: auto;
+}
+.#{$prefix}-h-fill {
+	@extend %height-fill;
+}
+.#{$prefix}-h-fill-min {
+	min-height: 100%;
+}
+.#{$prefix}-h-fill-max {
+	max-height: 100%;
+}
+.#{$prefix}-h-full {
+	@extend %height-full;
+}
+.#{$prefix}-h-full-min {
+	min-height: 100vh;
 }
 .#{$prefix}-h-full-max {
 	max-height: 100vh;
@@ -174,10 +174,10 @@ $i: 500;
 		padding: #{$i}px;
 	}
 	.#{$prefix}-ptb-#{$i} {
-		margin: #{$i}px 0;
+		padding: #{$i}px 0;
 	}
 	.#{$prefix}-plr-#{$i} {
-		margin: 0 #{$i}px;
+		padding: 0 #{$i}px;
 	}
 	.#{$prefix}-pt-#{$i} {
 		padding-top: #{$i}px;
@@ -194,26 +194,23 @@ $i: 500;
 	$i: $i - 1;
 }
 
-$sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50);
+//@for $index from 1 to 500 {
+//  .#{$prefix}-zIndex-#{$index} { margin: #{$index}px !important; }
+//}
+
+$sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
 @each $size in $sizes {
+	.#{$prefix}-box-#{$size} {
+		width: #{$size}px;
+		height: #{$size}px;
+	}
 	.#{$prefix}-w-#{$size} {
 		width: #{$size}px;
 	}
+	.#{$prefix}-h-#{$size} {
+		height: #{$size}px;
+	}
 }
-
-//@for $index from 1 to 6 {
-//  .#{$prefix}-m-#{$index} { margin: #{$index}px !important; }
-//  .#{$prefix}-mt-#{$index} { margin-top: #{$index}px !important; }
-//  .#{$prefix}-mr-#{$index} { margin-right: #{$index}px !important; }
-//  .#{$prefix}-mb-#{$index} { margin-bottom: #{$index}px !important; }
-//  .#{$prefix}-ml-#{$index} { margin-left: #{$index}px !important; }
-//
-//  .#{$prefix}-p-#{$index} { padding: #{$index}px !important; }
-//  .#{$prefix}-pt-#{$index} { padding-top: #{$index}px !important; }
-//  .#{$prefix}-pr-#{$index} { padding-right: #{$index}px !important; }
-//  .#{$prefix}-pb-#{$index} { padding-bottom: #{$index}px !important; }
-//  .#{$prefix}-pl-#{$index} { padding-left: #{$index}px !important; }
-//}
 
 .fixed-top-center {
 	@extend %text-center;

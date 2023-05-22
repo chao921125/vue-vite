@@ -63,7 +63,7 @@ declare module '@vue/runtime-core' {
     ElTree: typeof import('element-plus/es')['ElTree']
     ElTreeSelect: typeof import('element-plus/es')['ElTreeSelect']
     IconSvg: typeof import('./src/components/icon-svg/Index.vue')['default']
-    PagenationRePagination: typeof import('./src/components/pagenation/RePagination.vue')['default']
+    RePagination: typeof import('./src/components/re-pagination/Index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     VanButton: typeof import('vant/es')['Button']

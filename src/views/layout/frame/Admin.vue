@@ -13,7 +13,7 @@
 						<router-view></router-view>
 					</el-card>
 				</el-main>
-				<el-footer v-if="isShowFooter"><AdminFooter></AdminFooter></el-footer>
+				<el-footer v-if="isShowFooter" class="re-flex-row-center"><AdminFooter></AdminFooter></el-footer>
 			</el-scrollbar>
 			<el-backtop target=".admin-main .el-scrollbar__wrap" :visibility-height="300" :right="20" :bottom="20">
 				<el-icon :size="20"><ArrowUpBold /></el-icon>

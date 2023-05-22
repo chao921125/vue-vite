@@ -164,7 +164,7 @@
 
 	import * as echarts from "echarts";
 	const initData = () => {
-		let chartDom = document.getElementById("echartsAmount")!;
+		let chartDom = document.getElementById("echartsAmount") as HTMLElement;
 		let myChart = echarts.init(chartDom);
 
 		myChart.setOption({

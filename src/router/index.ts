@@ -1,7 +1,7 @@
 /**
  * 路由入口
  */
-import { createRouter, createWebHashHistory, RouteRecordName, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordName, RouteRecordRaw } from "vue-router";
 import { getStoreRefs, appStore } from "@/store";
 import { baseRoutes, errorRoutes } from "./route";
 import Utils from "@/plugins/utils";
@@ -24,8 +24,9 @@ let requestData: any = [];
 // 动态路由刷新404，所以先行去掉匹配不存在路由重定向至404页
 if (isRequestRoutes) baseRoutes[0].children = [];
 
+// createWebHashHistory() hash路由#
 export const router = createRouter({
-	history: createWebHashHistory(),
+	history: createWebHistory(),
 	routes: baseRoutes,
 	strict: false,
 	// 切换页面，滚动到最顶部
