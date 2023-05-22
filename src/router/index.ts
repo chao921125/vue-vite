@@ -1,7 +1,7 @@
 /**
  * 路由入口
  */
-import { createRouter, createWebHashHistory, RouteRecordName, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordName, RouteRecordRaw } from "vue-router";
 import { getStoreRefs, appStore } from "@/store";
 import { baseRoutes, errorRoutes } from "./route";
 import Utils from "@/plugins/utils";
@@ -25,7 +25,7 @@ let requestData: any = [];
 if (isRequestRoutes) baseRoutes[0].children = [];
 
 export const router = createRouter({
-	history: createWebHashHistory(),
+	history: createWebHistory(),
 	routes: baseRoutes,
 	strict: false,
 	// 切换页面，滚动到最顶部

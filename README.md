@@ -17,15 +17,10 @@ viteMockServe({
 # 避坑指南 及 注意事项
 [**已在公司作为模板商用**]
 - 三方包引入尽可能小写，自定义尽可能大写。
-- 推荐使用pnpm安装依赖，其次yarn或者npm
-- curl -fsSL https://get.pnpm.io/install.sh | sh -
+- 推荐使用pnpm(curl -fsSL https://get.pnpm.io/install.sh | sh -)安装依赖，其次yarn或者npm
 - 使用 reactive 请使用 let，使用 ref 请使用const
 - 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式
-## 安装及打包
 - package.json添加"type": "module",需要修改*.js为*.cjs
-- 避免使用vue-tsc，目前和typescript、jsx出现各种冲突
-- 使用pnpm安装包的时候需要修改package.json的文件，删除掉resolutions里面的//
-- npm安装依赖包出现错误或安装失败，选择yarn安装
 - 注意所有配置菜单的数据，均由前端提供
 - ！！！注意VUE3中的reactive使用，如果需要更新视图需要抽出interface。！！！
 
@@ -35,12 +30,11 @@ viteMockServe({
 
 # 命名规范及解释
 1. 命名遵循驼峰规则：demoUser
-2. 配置文件均按照xxConfig，参数设置均按照xxSetting，数据配置均按照xxOption：
-3. 封装的函数均按照export FN = () => {}，内部调用函数用普通的function FN() {}
-4. Store中对外函数命名均为useXx：
-5. API前端使用及后端接口命名规则对应：
-6. interface尽量抽取出来，且抽取到最小粒度
-##### 列举，可以对此进行变更
+2. 配置文件均按照xxConfig，数据配置均按照xxOption/xxData：
+3. 封装的函数均按照export const FN = () => {}，内部调用函数用普通的function FN() {}
+4. Store中对外函数命名均为useXx
+5. interface尽量抽取出来，且抽取到最小粒度
+##### API前端使用及后端接口命名规则对应：列举，可以对此进行变更
 
 | 接口  | 前端           | 后端     |
 |-----|--------------|--------|
@@ -52,12 +46,10 @@ viteMockServe({
 | 下载  | download     | export |
 | 实体  | get / set    |        |
 
-# 配置解释
-##### 大家根据使用的包来自行搜索下吧，大部分配置都是兼容、打包等
-1. 不建议在本项目中使用自带的Link和Iframe，因为存在多个Link的时候出现问题，且点击Link后再切换Iframe有一个bug：
 
 # 基础核心依赖
 ### 无特殊说明均对应最新版
+##### 大家根据使用的包来自行搜索下吧，大部分配置都是兼容、打包等
 | 推荐一个插件比较全的网站                                               |
 |------------------------------------------------------------|
 | [vue3-resource](https://hu-snail.github.io/vue3-resource/) |
