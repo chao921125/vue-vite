@@ -64,6 +64,18 @@ export const getLocalIpList = (callback) => {
 };
 // getLocaleIp((ip) => {console.log(ip);});
 
+/**
+ * 淘宝获取本地IP
+ * ipCallback({ip:"123.58.106.170"})
+ */
+export const getLocalIpByTaoBao = () => {
+	return Fetch.request("https://www.taobao.com/help/getip.php", {}, { method: "GET" });
+};
+// http://www.net.cn/static/customercare/yourip.asp
+// https://www.ip.cn/
+// https://www.ip138.com/
+// https://www.hao7188.com/
+// https://www.lingfengyun.com/
 export const getlocalIPs = () => {
 	// @ts-ignore
 	let myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
@@ -108,6 +120,8 @@ export const getIpPconline = () => {
 	return Fetch.request("http://whois.pconline.com.cn/ipJson.jsp?ip=&json=true", {}, { method: "GET" });
 };
 
+// 获取最后一层ip，即无法获取正确的真实IP
+// https://ipapi.co/json/
 export const getIpApi = () => {
 	return Fetch.request("http://ip-api.com/json/?lang=zh-CN", {}, { method: "GET" });
 };
@@ -117,7 +131,7 @@ export const getIpVore = () => {
 };
 
 export const getIpUser = () => {
-	return Fetch.request("https://ip.useragentinfo.com/json?ip=", {}, { method: "GET" });
+	return Fetch.request("https://ip.useragentinfo.com/json", {}, { method: "GET" });
 };
 
 export const getIpIpify = () => {

@@ -1,5 +1,5 @@
 // https://vitejs.dev/config/ 中文文档 https://cn.vitejs.dev/
-import type { UserConfig, ConfigEnv, PluginOption } from "vite";
+import type { UserConfig, ConfigEnv } from "vite";
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import dayjs from "dayjs";
