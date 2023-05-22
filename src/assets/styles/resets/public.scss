@@ -174,10 +174,10 @@ $i: 500;
 		padding: #{$i}px;
 	}
 	.#{$prefix}-ptb-#{$i} {
-		margin: #{$i}px 0;
+		padding: #{$i}px 0;
 	}
 	.#{$prefix}-plr-#{$i} {
-		margin: 0 #{$i}px;
+		padding: 0 #{$i}px;
 	}
 	.#{$prefix}-pt-#{$i} {
 		padding-top: #{$i}px;
