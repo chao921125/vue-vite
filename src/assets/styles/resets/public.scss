@@ -194,26 +194,17 @@ $i: 500;
 	$i: $i - 1;
 }
 
-$sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50);
+//@for $index from 1 to 500 {
+//  .#{$prefix}-zIndex-#{$index} { margin: #{$index}px !important; }
+//}
+
+$sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
 @each $size in $sizes {
 	.#{$prefix}-w-#{$size} {
-		width: #{$size}px;
+		width: #{$size};
+		height: #{$size};
 	}
 }
-
-//@for $index from 1 to 6 {
-//  .#{$prefix}-m-#{$index} { margin: #{$index}px !important; }
-//  .#{$prefix}-mt-#{$index} { margin-top: #{$index}px !important; }
-//  .#{$prefix}-mr-#{$index} { margin-right: #{$index}px !important; }
-//  .#{$prefix}-mb-#{$index} { margin-bottom: #{$index}px !important; }
-//  .#{$prefix}-ml-#{$index} { margin-left: #{$index}px !important; }
-//
-//  .#{$prefix}-p-#{$index} { padding: #{$index}px !important; }
-//  .#{$prefix}-pt-#{$index} { padding-top: #{$index}px !important; }
-//  .#{$prefix}-pr-#{$index} { padding-right: #{$index}px !important; }
-//  .#{$prefix}-pb-#{$index} { padding-bottom: #{$index}px !important; }
-//  .#{$prefix}-pl-#{$index} { padding-left: #{$index}px !important; }
-//}
 
 .fixed-top-center {
 	@extend %text-center;
