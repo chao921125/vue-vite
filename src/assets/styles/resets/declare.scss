@@ -19,8 +19,8 @@ $menu-collapse-width: 64px;
 $menu-item-height: 50px;
 
 // 定位的值，只需要从这里取值或者修改
-$z-index-max: 9999;
-$z-index-min: 1;
+$z-index-max: 99999;
+$z-index-min: -1;
 $z-index-1: 1000;
 $z-index-2: 2000;
 $z-index-3: 3000;

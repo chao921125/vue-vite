@@ -30,7 +30,7 @@ Object.keys(Icons).forEach((key) => {
 });
 
 // vant
-// import "vant/lib/index.css";
+import "vant/lib/index.css";
 
 // px转rem
 
@@ -57,7 +57,7 @@ import "animate.css/animate.min.css";
 // 自定义样式
 import "@/assets/styles/index.scss";
 
-// 自定义指令
+// 全局自定义指令
 import * as directives from "@/plugins/directive";
 Object.keys(directives).forEach((key) => {
 	app.directive(key, (directives as { [key: string]: Directive })[key]);
