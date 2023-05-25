@@ -96,7 +96,7 @@ viteMockServe({
 
 | 样式组件 -D  注意重写组件样式的引用                                                                                          |
 |---------------------------------------------------------------------------------------------------------------|
-| [sass<=>坑逼一个，小心慎用](https://sass-lang.com/)                                                                    |
+| [sass](https://sass-lang.com/)                                                                    |
 | [sass-loader](https://webpack.docschina.org/)                                                                 |
 | [node-sass](https://www.npmjs.com/package/node-sass)                                                          |
 | [less](https://less.bootcss.com/)                                                                             |
