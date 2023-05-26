@@ -188,7 +188,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			viteMockServe({
 				mockPath: envConfig.VITE_MOCK_PATH,
 				// configPath: envConfig.VITE_MOCK_PATH,
-				watchFiles: true,
+				watchFiles: false,
 				enable: envConfig.VITE_MOCK,
 				logger: envConfig.VITE_MOCK,
 			}),

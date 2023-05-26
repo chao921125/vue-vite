@@ -134,7 +134,6 @@
 		 	"mysql": "2.18.1"
    },
    "peerDependencies": {
-		 	"mysql": ">=2.18.1",
 		 	"mysql2": ">=3.3.2"
    },
    "license": "MIT",
