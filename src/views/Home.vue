@@ -23,6 +23,7 @@
 	<el-skeleton :rows="1" animated :loading="isLoading">
 		<el-row>
 			<el-col :span="24" class="re-mtb-20">
+				<el-button @click="testMockApi">mock test</el-button>
 				<el-pagination
 					v-model:current-page="pageObj.current"
 					v-model:page-size="pageObj.size"
@@ -96,7 +97,7 @@
 	import { $t } from "@/plugins/i18n";
 	import UA from "ua-parser-js";
 	import { getIpApi, getIpIpify, getIpUser } from "@/plugins/utils/ip";
-	// import api from "@/api";
+	import api from "@/api";
 	import Echarts from "@/plugins/echarts";
 
 	const tI18n = ref();
@@ -206,6 +207,12 @@
 	// 	const imgWindow = window.open(url);
 	// 	imgWindow?.document.write(image.outerHTML);
 	// };
+
+	const testMockApi = () => {
+		api.mock.queryUserInfo().then((res: any) => {
+			console.log(res);
+		});
+	};
 
 	onMounted(() => {
 		getUaInfo();

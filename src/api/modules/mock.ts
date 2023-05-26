@@ -1,11 +1,11 @@
 import Axios from "@/plugins/axios";
-import AxiosConfig from "@/config/axiosConfig";
+// import AxiosConfig from "@/config/axiosConfig";
 
 export default {
 	queryUserInfo: (data: any = {}) => {
 		return Axios({
-			url: AxiosConfig.requestUrl.getUserInfo,
-			method: "POST",
+			url: "/api/get",
+			method: "get",
 			data,
 		});
 	},

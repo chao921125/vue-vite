@@ -28,6 +28,8 @@ import UnoCSS from "unocss/vite";
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+// Mock
+import { viteMockServe } from "vite-plugin-mock";
 // 处理变量
 // @ts-ignore
 import pkg from "./package.json";
@@ -80,6 +82,77 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			legacy({
 				targets: browserslistConfig,
 			}),
+			// 热重载，包含配置文件的修改
+			viteRestart({
+				restart: ["vite.config.[jt]s"],
+			}),
+			// 渐进式配置
+			VitePWA({}),
+			ViteEjsPlugin(
+				(viteConfig) => {
+					// viteConfig is the current viteResolved config.
+					return {
+						root: viteConfig.root,
+						title: envConfig.VITE_TITLE,
+					};
+				},
+				{
+					ejs: {
+						// ejs options goes here.
+						beautify: true,
+					},
+				},
+			),
+			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
+			// * cdn 引入（vue、element-plus）
+			importToCDN({
+				modules: [
+					// vue按需引入会导致依赖vue的插件出现问题(列如:pinia/vuex)
+					// {
+					// 	name: "vue",
+					// 	var: "Vue",
+					// 	path: "https://unpkg.com/vue@next"
+					// },
+					// 使用cdn引入element-plus时,开发环境还是需要在main.js中引入element-plus,可以不用引入css
+					// {
+					// 	name: "element-plus",
+					// 	var: "ElementPlus",
+					// 	path: "https://unpkg.com/element-plus",
+					// 	css: "https://unpkg.com/element-plus/dist/index.css"
+					// }
+				],
+			}),
+			// * 是否生成包预览
+			envConfig.VITE_REPORT &&
+				visualizer({
+					emitFile: true,
+					filename: "stats.html",
+				}),
+			// * gzip compress
+			envConfig.VITE_BUILD_GZIP &&
+				viteCompression({
+					verbose: true,
+					disable: false,
+					threshold: 10240,
+					algorithm: "gzip",
+					ext: ".gz",
+				}),
+			{
+				name: "@rollup/plugin-commonjs",
+				transform(code: string, filename: string | string[]) {
+					if (filename.includes(`/node_modules/`)) {
+						return code;
+					}
+
+					const cjsRegexp = /(const|let|var)[\n\s]+(\w+)[\n\s]*=[\n\s]*require\(['|'](.+)['|']\)/g;
+					const res = code.match(cjsRegexp);
+					if (res) {
+						// const Store = require("electron-store") -> import Store from "electron-store"
+						code = code.replace(cjsRegexp, `import $2 from "$3"`);
+					}
+					return code;
+				},
+			},
 			// 原子css
 			UnoCSS(),
 			// 图标
@@ -112,77 +185,13 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
 				directoryAsNamespace: true,
 			}),
-			// 热重载，包含配置文件的修改
-			viteRestart({
-				restart: ["vite.config.[jt]s"],
+			viteMockServe({
+				mockPath: envConfig.VITE_MOCK_PATH,
+				// configPath: envConfig.VITE_MOCK_PATH,
+				watchFiles: false,
+				enable: envConfig.VITE_MOCK,
+				logger: envConfig.VITE_MOCK,
 			}),
-			// 渐进式配置
-			VitePWA({}),
-			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
-			// * cdn 引入（vue、element-plus）
-			importToCDN({
-				modules: [
-					// vue按需引入会导致依赖vue的插件出现问题(列如:pinia/vuex)
-					// {
-					// 	name: "vue",
-					// 	var: "Vue",
-					// 	path: "https://unpkg.com/vue@next"
-					// },
-					// 使用cdn引入element-plus时,开发环境还是需要在main.js中引入element-plus,可以不用引入css
-					// {
-					// 	name: "element-plus",
-					// 	var: "ElementPlus",
-					// 	path: "https://unpkg.com/element-plus",
-					// 	css: "https://unpkg.com/element-plus/dist/index.css"
-					// }
-				],
-			}),
-			ViteEjsPlugin(
-				(viteConfig) => {
-					// viteConfig is the current viteResolved config.
-					return {
-						root: viteConfig.root,
-						title: envConfig.VITE_TITLE,
-					};
-				},
-				{
-					ejs: {
-						// ejs options goes here.
-						beautify: true,
-					},
-				},
-			),
-			// * 是否生成包预览
-			envConfig.VITE_REPORT &&
-				visualizer({
-					emitFile: true,
-					filename: "stats.html",
-				}),
-			{
-				name: "@rollup/plugin-commonjs",
-				transform(code: string, filename: string | string[]) {
-					if (filename.includes(`/node_modules/`)) {
-						return code;
-					}
-
-					const cjsRegexp = /(const|let|var)[\n\s]+(\w+)[\n\s]*=[\n\s]*require\(['|'](.+)['|']\)/g;
-					const res = code.match(cjsRegexp);
-					if (res) {
-						// const Store = require("electron-store") -> import Store from "electron-store"
-						code = code.replace(cjsRegexp, `import $2 from "$3"`);
-					}
-					return code;
-				},
-			},
-			// * gzip compress
-			envConfig.VITE_BUILD_GZIP &&
-				viteCompression({
-					verbose: true,
-					disable: false,
-					threshold: 10240,
-					algorithm: "gzip",
-					ext: ".gz",
-				}),
 		],
 		// publicDir: "public", // 静态资源根路径，false关闭
 		// cacheDir: "node_modules/.vite", // 缓存路径

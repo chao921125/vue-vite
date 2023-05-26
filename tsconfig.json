@@ -49,6 +49,7 @@
 		"src/**/*",
 		"types/**/*",
 		"build/**/*",
+		"mock/**/*",
 		"auto-imports.d.ts",
 		"components.d.ts"
 	],
