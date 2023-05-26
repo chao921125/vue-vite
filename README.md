@@ -90,9 +90,10 @@ viteMockServe({
 | [cssnano-preset-advanced](https://www.npmjs.com/package/cssnano-preset-advanced) |
 
 # 解析相关
-| TS                                                     |
-|--------------------------------------------------------|
-| [typescript 官网](https://www.tslang.cn/)                |
+| TS                                                         |
+|------------------------------------------------------------|
+| [typescript 官网](https://www.tslang.cn/)                    |
+| [ts-node 官网 ts-node **.ts](https://typestrong.org/ts-node) |
 
 | 样式组件 -D  注意重写组件样式的引用                                                                                          |
 |---------------------------------------------------------------------------------------------------------------|
