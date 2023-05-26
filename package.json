@@ -133,6 +133,10 @@
       "bin-wrapper": "npm:bin-wrapper-china",
 		 	"mysql": "2.18.1"
    },
+   "peerDependencies": {
+		 	"mysql": ">=2.18.1",
+		 	"mysql2": ">=3.3.2"
+   },
    "license": "MIT",
    "author": "chao921125",
    "homepage": "https://github.com/chao921125",
