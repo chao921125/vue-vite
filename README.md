@@ -242,6 +242,9 @@ viteMockServe({
 | [swiper 支持PC、H5](https://www.swiper.com.cn/) 结合 [vue-awesome-swiper](https://www.swiper.com.cn/) 使用 |
 | [vue-concise-slider](https://www.npmjs.com/package/vue-concise-slider)                              |
 | [@splidejs/vue-splide](https://www.npmjs.com/package/@splidejs/vue-splide)                          |
+| [vue2 seamless 无缝滚动](https://www.npmjs.com/package/vue-seamless-scroll)                             |
+| [vue3 seamless 无缝滚动](https://www.npmjs.com/package/vue3-seamless-scroll)                            |
+| [vue3 infinite 无限滚动](https://www.npmjs.com/package/vue3-infinite-list)                              |
 
 
 | 树                                                             |
