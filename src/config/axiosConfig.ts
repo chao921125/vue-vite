@@ -3,6 +3,7 @@ const uploadUrl = "/upload";
 const ip = "/ip";
 
 const useUrl = {
+	loginUser: `${baseUrl}/login`,
 	getUserInfo: `${baseUrl}/user`,
 	fileUpload: `${uploadUrl}/file`,
 	getIp: `${ip}`,

@@ -4,13 +4,23 @@ export default [
 	{
 		url: `${Config.baseUrl}/login`,
 		method: "post",
-		response: () => {
-			return {
-				code: 0,
-				data: {
-					name: "get",
-				},
-			};
+		response: ({ query }) => {
+			if (query.length === 0) {
+				return {
+					code: 500,
+					message: "",
+					data: {
+						name: query.name,
+					},
+				};
+			} else {
+				return {
+					code: 0,
+					data: {
+						name: query.name,
+					},
+				};
+			}
 		},
 	},
 	{
