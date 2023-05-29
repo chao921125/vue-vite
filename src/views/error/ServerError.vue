@@ -1,5 +1,5 @@
 <template>500</template>
 
-<script lang="ts" setup name="500"></script>
+<script lang="ts" setup name="serverError"></script>
 
 <style scoped lang="scss"></style>

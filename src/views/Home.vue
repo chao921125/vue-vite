@@ -209,7 +209,7 @@
 	// };
 
 	const testMockApi = () => {
-		api.mock.queryUserInfo().then((res: any) => {
+		api.mock.queryUserInfo({ id: 1 }).then((res: any) => {
 			console.log(res);
 		});
 	};

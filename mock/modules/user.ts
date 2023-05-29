@@ -1,11 +1,37 @@
 import { MockMethod } from "vite-plugin-mock";
+import Config from "../config";
 export default [
 	{
-		url: "/mock-login", // 注意，这里只能是string格式
+		url: `${Config.baseUrl}/login`,
+		method: "post",
+		response: ({ query }) => {
+			if (query.length === 0) {
+				return {
+					code: 500,
+					message: "",
+					data: {
+						name: query.name,
+					},
+				};
+			} else {
+				return {
+					code: 0,
+					data: {
+						name: query.name,
+					},
+				};
+			}
+		},
+	},
+	{
+		url: `${Config.baseUrl}/register`,
 		method: "post",
 		response: () => {
 			return {
-				menusList: [1, 2, 3, 4],
+				code: 0,
+				data: {
+					name: "get",
+				},
 			};
 		},
 	},

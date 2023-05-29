@@ -43,7 +43,7 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/401",
 		name: "noPower",
-		component: () => import("@/views/error/401.vue"),
+		component: () => import("@/views/error/NoPower.vue"),
 		meta: {
 			title: "message.title.noPower",
 			name: "message.title.noPower",
@@ -53,7 +53,7 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/404",
 		name: "notFound",
-		component: () => import("@/views/error/404.vue"),
+		component: () => import("@/views/error/NotFound.vue"),
 		meta: {
 			title: "message.title.notFound",
 			name: "message.title.notFound",
@@ -63,7 +63,7 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/500",
 		name: "serverError",
-		component: () => import("@/views/error/500.vue"),
+		component: () => import("@/views/error/ServerError.vue"),
 		meta: {
 			title: "message.title.serverError",
 			name: "message.title.serverError",
@@ -85,7 +85,7 @@ export const baseRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/login",
 		name: "login",
-		component: () => import("@/views/login/Login.vue"),
+		component: () => import("@/views/user/Login.vue"),
 		meta: {
 			title: "message.title.login",
 			name: "message.title.login",
@@ -95,7 +95,7 @@ export const baseRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/register",
 		name: "register",
-		component: () => import("@/views/login/Register.vue"),
+		component: () => import("@/views/user/Register.vue"),
 		meta: {
 			title: "message.title.register",
 			name: "message.title.register",
@@ -105,7 +105,7 @@ export const baseRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/auth",
 		name: "auth",
-		component: () => import("@/views/login/Auth.vue"),
+		component: () => import("@/views/user/Auth.vue"),
 		meta: {
 			title: "message.title.auth",
 			name: "message.title.auth",

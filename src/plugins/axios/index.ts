@@ -183,7 +183,7 @@ http.interceptors.response.use(
 				default:
 					break;
 			}
-			if (!Cookie.get(Constants.cookieKey.token)) {
+			if (!Cookie.getCookie(Constants.cookieKey.token)) {
 				Router.replace({
 					path: RouterConfig.routeLogin,
 				});
