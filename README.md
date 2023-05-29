@@ -4,15 +4,6 @@
 ```text
 1. 如果build失败或者运行一场请执行
 pnpx mrm@2 lint-staged
-
-2. vite-plugin-mock 在新的vite中会有各种问题，目前未修复
-import { viteMockServe } from "vite-plugin-mock";
-viteMockServe({
-	mockPath: envConfig.VITE_MOCK_PATH,
-	enable: envConfig.VITE_MOCK,
-	// injectCode: "",
-	logger: envConfig.VITE_MOCK,
-}),
 ```
 # 避坑指南 及 注意事项
 [**已在公司作为模板商用**]

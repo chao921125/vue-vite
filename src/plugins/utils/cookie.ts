@@ -6,7 +6,7 @@ const cookieSetting: any = {
 	expires: 7,
 };
 
-export const setCookiePri = (cname: string, cvalue: any, exdays?: number) => {
+export const setCookieCustomize = (cname: string, cvalue: any, exdays?: number) => {
 	if (!cname) {
 		cname = "";
 	}
@@ -22,7 +22,7 @@ export const setCookiePri = (cname: string, cvalue: any, exdays?: number) => {
 	document.cookie = cname + "=" + JSON.stringify(cvalue) + "; " + expires;
 };
 
-export const getCookiePri = (cname: string) => {
+export const getCookieCustomize = (cname: string) => {
 	if (!cname) {
 		return "";
 	}

@@ -9,7 +9,7 @@
       "dev": "vite --host --open --mode development",
       "test": "vite --host --open --mode preview",
       "prod": "vite --host --open --mode production",
-      "build": "npm run build:prod",
+      "build": "npm run build:test",
       "build:dev": "vue-tsc --noEmit --skipLibCheck && vite build --mode development",
       "build:test": "vue-tsc --noEmit --skipLibCheck && vite build --mode preview",
       "build:prod": "vue-tsc --noEmit --skipLibCheck && vite build --mode production",
