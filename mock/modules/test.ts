@@ -7,7 +7,8 @@ export default [
 			return {
 				code: 0,
 				data: {
-					name: "vben",
+					name: "get",
+					query: query,
 				},
 			};
 		},
@@ -19,7 +20,7 @@ export default [
 		response: {
 			code: 0,
 			data: {
-				name: "vben",
+				name: "post",
 			},
 		},
 	},

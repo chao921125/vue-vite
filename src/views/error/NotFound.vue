@@ -1,5 +1,5 @@
 <template>404</template>
 
-<script lang="ts" setup name="404"></script>
+<script lang="ts" setup name="notFound"></script>
 
 <style scoped lang="scss"></style>
