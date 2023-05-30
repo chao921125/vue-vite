@@ -12,8 +12,9 @@ import { createProdMockServer } from "vite-plugin-mock/client";
 // 	mockModules.push(...modules[key].default);
 // });
 
-import test from "./modules/test";
-const mockModules: any[] = [...test];
+// import test from "./modules/test";
+import user from "./modules/user";
+const mockModules: any[] = [...user];
 
 export const setupProdMockServer = () => {
 	createProdMockServer(mockModules);

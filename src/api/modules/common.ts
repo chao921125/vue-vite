@@ -9,7 +9,7 @@ export default {
 	},
 	previewFileById: (data: any) => {
 		return Axios({
-			url: AxiosConfig.requestUrl.fileUpload + `/${data}`,
+			url: `${AxiosConfig.uploadUrl}/login/${data}`,
 			method: "GET",
 			responseType: "blob",
 			data,
@@ -17,7 +17,7 @@ export default {
 	},
 	previewFile: (data: any) => {
 		return Axios({
-			url: AxiosConfig.requestUrl.fileUpload,
+			url: `${AxiosConfig.uploadUrl}`,
 			method: "GET",
 			responseType: "blob",
 			data,
@@ -25,7 +25,7 @@ export default {
 	},
 	uploadFile: (data: any = {}) => {
 		return Axios({
-			url: AxiosConfig.requestUrl.fileUpload,
+			url: `${AxiosConfig.uploadUrl}`,
 			method: "POST",
 			headers: { "Content-Type": "multipart/form-data" },
 			data,
@@ -33,14 +33,14 @@ export default {
 	},
 	queryAddressByIp: (data: any = {}) => {
 		return Axios({
-			url: AxiosConfig.requestUrl.getIp + `/index?ip=${data.ip}&type=0`,
+			url: `${AxiosConfig.ipUrl}/index?ip=${data.ip}&type=0`,
 			method: "GET",
 			data,
 		});
 	},
 	queryIp: (data: any = {}) => {
 		return Axios({
-			url: AxiosConfig.requestUrl.getIp + "/index?ip=&type=0",
+			url: `${AxiosConfig.uploadUrl}/index?ip=&type=0`,
 			method: "GET",
 			data,
 		});

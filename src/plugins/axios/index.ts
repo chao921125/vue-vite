@@ -103,7 +103,7 @@ http.interceptors.response.use(
 		// resp 是 axios 返回数据中的 data
 		const resp = response.data || null;
 		const status = response.status || 200;
-		if (response.config.url?.includes(AxiosConfig.baseUrl.ip)) {
+		if (response.config.url?.includes(AxiosConfig.ipUrl)) {
 			return resp;
 		}
 		if (response.request.responseType === "blob" || response.request.responseType === "arraybuffer") {
