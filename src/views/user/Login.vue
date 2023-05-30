@@ -27,6 +27,7 @@
 	import Cookie from "@/plugins/utils/cookie";
 	import Constants from "@/plugins/constants";
 	import ValidateForm from "@/plugins/validate/validateForm";
+	import api from "@/api";
 
 	const { proxy } = <any>getCurrentInstance();
 	const formUserRef = ref<FormInstance>();
@@ -48,6 +49,9 @@
 		formEl.validate((valid) => {
 			isLoading.value = true;
 			if (valid) {
+				api.userApi.loginUser(formUser).then((res: any) => {
+					console.log(res);
+				});
 				proxy.elMessage.success("登录成功");
 				Cookie.setCookie(Constants.cookieKey.token, Math.random().toString(36));
 				Storage.setSessionStorage(Constants.storageKey.token, Math.random().toString(36));
@@ -58,10 +62,10 @@
 				};
 				Storage.setLocalStorage(Constants.storageKey.userInfo, userInfo);
 				if (route.query?.redirect && route.query?.redirect !== "/") {
-					router.push({
-						path: <string>route.query?.redirect,
-						query: Object.keys(<string>route.query?.params).length ? JSON.parse(<string>route.query?.params) : "",
-					});
+					// router.push({
+					// 	path: <string>route.query?.redirect,
+					// 	query: Object.keys(<string>route.query?.params).length ? JSON.parse(<string>route.query?.params) : "",
+					// });
 				} else {
 					router.push({ path: "/" });
 				}

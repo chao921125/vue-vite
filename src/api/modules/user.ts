@@ -4,14 +4,14 @@ import AxiosConfig from "@/config/axiosConfig";
 export default {
 	loginUser: (data: any = {}) => {
 		return Axios({
-			url: AxiosConfig.requestUrl.loginUser,
+			url: `${AxiosConfig.baseUrl}/login`,
 			method: "POST",
 			data,
 		});
 	},
 	queryUserInfo: (data: any = {}) => {
 		return Axios({
-			url: AxiosConfig.requestUrl.getUserInfo,
+			url: `${AxiosConfig.baseUrl}/user-info`,
 			method: "POST",
 			data,
 		});

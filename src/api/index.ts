@@ -1,6 +1,6 @@
-import user from "./modules/user";
-import common from "./modules/common";
 import mock from "./modules/mock";
+import common from "./modules/common";
+import user from "./modules/user";
 
 /**
  * url *
@@ -10,9 +10,9 @@ import mock from "./modules/mock";
  */
 
 const api = {
-	user: user,
-	common: common,
-	mock: mock,
+	mockApi: mock,
+	commonApi: common,
+	userApi: user,
 };
 
 export default api;

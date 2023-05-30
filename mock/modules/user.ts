@@ -5,6 +5,7 @@ export default [
 		url: `${Config.baseUrl}/login`,
 		method: "post",
 		response: ({ query }) => {
+			console.log(query);
 			if (query.length === 0) {
 				return {
 					code: 500,
