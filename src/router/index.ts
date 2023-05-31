@@ -13,6 +13,7 @@ import RouterConfig from "@/config/routerConfig";
 import RouteData from "@/config/routerData";
 import { IMenuState } from "@/interface/router";
 import AxiosCancel from "@/plugins/axios/cancel";
+import api from "@/api";
 
 // 配置文件修改是否从后端获取路由
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可
@@ -55,7 +56,12 @@ router.beforeEach(async (to, from, next) => {
 			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {
 					// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
-					requestData = RouteData.menus;
+					const { data } = await api.systemApi.getMenuList({});
+					if (data.list) {
+						requestData = data.list;
+					} else {
+						next(`${RouterConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
+					}
 				} else {
 					requestData = RouteData.menus;
 				}

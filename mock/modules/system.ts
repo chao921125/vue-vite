@@ -309,7 +309,7 @@ const menuList = [
 export default [
 	{
 		url: `${Config.baseUrl}/menu-list`,
-		method: "post",
+		method: "get",
 		response: () => {
 			return {
 				code: 0,

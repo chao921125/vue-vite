@@ -23,7 +23,6 @@
 	<el-skeleton :rows="1" animated :loading="isLoading">
 		<el-row>
 			<el-col :span="24" class="re-mtb-20">
-				<el-button @click="testMockApi">mock test</el-button>
 				<el-pagination
 					v-model:current-page="pageObj.current"
 					v-model:page-size="pageObj.size"
@@ -165,7 +164,7 @@
 
 	import * as echarts from "echarts";
 	const initData = () => {
-		let chartDom = document.getElementById("echartsAmount") as HTMLElement;
+		let chartDom = document.getElementById("echartsAmount") as HTMLDivElement;
 		let myChart = echarts.init(chartDom);
 
 		myChart.setOption({
@@ -207,12 +206,6 @@
 	// 	const imgWindow = window.open(url);
 	// 	imgWindow?.document.write(image.outerHTML);
 	// };
-
-	const testMockApi = () => {
-		api.mockApi.queryUserInfo({ id: 1 }).then((res: any) => {
-			console.log(res);
-		});
-	};
 
 	onMounted(() => {
 		getUaInfo();
