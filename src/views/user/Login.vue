@@ -49,18 +49,24 @@
 		formEl.validate((valid) => {
 			isLoading.value = true;
 			if (valid) {
-				api.userApi.loginUser(formUser).then((res: any) => {
-					console.log(res);
-				});
-				proxy.elMessage.success("登录成功");
-				Cookie.setCookie(Constants.cookieKey.token, Math.random().toString(36));
-				Storage.setSessionStorage(Constants.storageKey.token, Math.random().toString(36));
-				const userInfo = {
-					id: 1,
-					userName: formUser.userName,
-					avatar: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
-				};
-				Storage.setLocalStorage(Constants.storageKey.userInfo, userInfo);
+				api.userApi
+					.loginUser(formUser)
+					.then((res: any) => {
+						console.log(res);
+						isLoading.value = false;
+					})
+					.catch(() => {
+						isLoading.value = false;
+					});
+				// proxy.elMessage.success("登录成功");
+				// Cookie.setCookie(Constants.cookieKey.token, Math.random().toString(36));
+				// Storage.setSessionStorage(Constants.storageKey.token, Math.random().toString(36));
+				// const userInfo = {
+				// 	id: 1,
+				// 	userName: formUser.userName,
+				// 	avatar: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
+				// };
+				// Storage.setLocalStorage(Constants.storageKey.userInfo, userInfo);
 				if (route.query?.redirect && route.query?.redirect !== "/") {
 					// router.push({
 					// 	path: <string>route.query?.redirect,

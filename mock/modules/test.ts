@@ -3,12 +3,15 @@ export default [
 	{
 		url: "/api/get",
 		method: "get",
-		response: ({ query }) => {
+		response: ({ url, body, query, headers }) => {
 			return {
 				code: 0,
 				data: {
 					name: "get",
-					query: query,
+					url: url,
+					body: body, // post
+					query: query, // get
+					headers: headers,
 				},
 			};
 		},

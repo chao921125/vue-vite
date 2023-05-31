@@ -9,6 +9,7 @@ import AxiosConfig from "@/config/axiosConfig";
 import NProgress from "@/plugins/loading/progress";
 import RouterConfig from "@/config/routerConfig";
 import AxiosCancel from "./cancel";
+import { ElMessage } from "element-plus";
 
 // axios.request(config)
 // axios.get(url[, config])
@@ -36,11 +37,11 @@ function errorLog(err) {
 		Log.danger(err);
 	}
 	// 显示提示
-	/* Message({
+	ElMessage({
 		message: err.message,
 		type: "error",
-		duration: 5 * 1000
-	}) */
+		duration: 5 * 1000,
+	});
 }
 
 const defaultHeader: AxiosRequestConfig = {
@@ -122,21 +123,22 @@ http.interceptors.response.use(
 			const { code } = resp;
 			Object.assign(resp.data, { code: resp.code });
 			// 根据 code 进行判断
-			if (code || code === null || code === undefined) {
+			if (code === null || code === undefined) {
 				return resp;
 			} else {
 				// 有 code 代表这是一个后端接口 可以进行进一步的判断
 				switch (code) {
+					case 0:
+						// [ 示例 ] code === 0 代表没有错误
+						return resp;
 					case 200:
 						// [ 示例 ] code === 0 代表没有错误
 						return resp;
-					case "xxx":
-						// [ 示例 ] 其它和后台约定的 code
-						errorCreate(`[ code: xxx ] ${resp.msg}: ${response.config.url}`);
+					case 400:
+						errorCreate(`[ code: 400 ] ${resp.message}`);
 						break;
 					default:
-						// 不是正确的 code
-						errorCreate(`${resp.msg}: ${response.config.url}`);
+						errorCreate(`${resp.message}`);
 						break;
 				}
 				return resp;

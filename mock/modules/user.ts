@@ -1,37 +1,67 @@
 import { MockMethod } from "vite-plugin-mock";
 import Config from "../config";
+
 export default [
-	{
-		url: `${Config.baseUrl}/login`,
-		method: "post",
-		response: ({ query }) => {
-			console.log(query);
-			if (query.length === 0) {
-				return {
-					code: 500,
-					message: "",
-					data: {
-						name: query.name,
-					},
-				};
-			} else {
-				return {
-					code: 0,
-					data: {
-						name: query.name,
-					},
-				};
-			}
-		},
-	},
 	{
 		url: `${Config.baseUrl}/register`,
 		method: "post",
 		response: () => {
 			return {
 				code: 0,
+				message: "",
 				data: {
 					name: "get",
+				},
+			};
+		},
+	},
+	{
+		url: `${Config.baseUrl}/login`,
+		method: "post",
+		response: ({ body }) => {
+			const user = ["admin", "user"];
+			if (user.includes(body.userName)) {
+				return {
+					code: 0,
+					message: "",
+					data: {
+						name: body.userName,
+						token: new Date().getTime(),
+					},
+				};
+			} else {
+				return {
+					code: 400,
+					message: "no user",
+					data: {},
+				};
+			}
+		},
+	},
+	{
+		url: `${Config.baseUrl}/user-info`,
+		method: "get",
+		response: () => {
+			return {
+				code: 0,
+				message: "",
+				data: {
+					name: "get",
+				},
+			};
+		},
+	},
+	{
+		url: `${Config.baseUrl}/user-list`,
+		method: "get",
+		response: ({ query }) => {
+			return {
+				code: 0,
+				message: "",
+				data: {
+					pageSize: query.pageSize,
+					total: 20,
+					rows: [],
 				},
 			};
 		},

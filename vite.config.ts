@@ -121,7 +121,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// * 是否生成包预览
 			envConfig.VITE_REPORT &&
 				visualizer({
-					emitFile: true,
+					emitFile: false,
 					filename: "stats.html",
 				}),
 			// * gzip compress
@@ -129,7 +129,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				viteCompression({
 					verbose: true,
 					disable: false,
-					threshold: 10240,
+					threshold: 1024,
 					algorithm: "gzip",
 					ext: ".gz",
 				}),

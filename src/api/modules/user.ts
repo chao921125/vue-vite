@@ -12,7 +12,7 @@ export default {
 	queryUserInfo: (data: any = {}) => {
 		return Axios({
 			url: `${AxiosConfig.baseUrl}/user-info`,
-			method: "POST",
+			method: "GET",
 			data,
 		});
 	},
