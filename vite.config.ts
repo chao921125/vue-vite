@@ -53,14 +53,10 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 	if (isBuild) {
 		// 新建一个build文件，用来告诉用户是否需要刷新页面升级，正常来说不需要告知用户
 		fs.writeFileSync(path.join(__dirname, "./public/build.json"), JSON.stringify({ version: `${Date.now()}` }));
-		dynamicConfig = {
-			// dev specific config
-		};
+		dynamicConfig = {};
 	} else {
 		// command === "build"
-		dynamicConfig = {
-			// build specific config
-		};
+		dynamicConfig = {};
 	}
 	const defaultConfig: UserConfig = {
 		root: path.resolve(__dirname, ""), // "./public/index.html", // 入口，可以指定到public文件夹
@@ -104,14 +100,14 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				},
 			),
 			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
-			// * cdn 引入（vue、element-plus）
+			// * cdn 引入（vue、element-plus）//cdn.jsdelivr.net/npm/
 			importToCDN({
 				modules: [
 					// vue按需引入会导致依赖vue的插件出现问题(列如:pinia/vuex)
 					// {
 					// 	name: "vue",
 					// 	var: "Vue",
-					// 	path: "https://unpkg.com/vue@next"
+					// 	path: "https://unpkg.com/vue@3"
 					// },
 					// 使用cdn引入element-plus时,开发环境还是需要在main.js中引入element-plus,可以不用引入css
 					// {
@@ -357,12 +353,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		//   headers: "", // OutgoingHttpHeaders
 		// },
 		optimizeDeps: {
-			entries: "index.md",
+			// entries: "optimize.js",
 			exclude: [""],
-			include: ["lodash", "@vueuse/core", "@vue/runtime-core", "element-plus", "vuedraggable", "@vue/shared"],
+			include: ["lodash", "lodash-es", "@vueuse/core", "@vue/runtime-core", "element-plus", "vuedraggable", "@vue/shared"],
 			// esbuildOptions: "",
 			force: false,
-			// disabled: "build", // boolean | 'build' | 'dev'
 		},
 		// ssr: {
 		//   external: "",
