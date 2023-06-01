@@ -48,7 +48,7 @@
 				// 拖拽对象索引
 				dragTargetIndex: null,
 				// 拖拽对象的数据
-				dragData: <any>[],
+				dragData: [] as any,
 				// 拖拽对象的偏移量
 				dragOffsetPosition: null,
 			});

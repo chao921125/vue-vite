@@ -9,7 +9,7 @@
 - 三方包引入尽可能小写，自定义尽可能大写。
 - 推荐使用pnpm(curl -fsSL https://get.pnpm.io/install.sh | sh -)安装依赖，其次yarn或者npm
 - 使用 reactive 请使用 let，使用 ref 请使用const
-- 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式
+- 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式(兼容jsx)
 - package.json添加"type": "module",需要修改*.js为*.cjs
 - 注意所有配置菜单的数据，均由前端提供
 - ！！！注意VUE3中的reactive使用，如果需要更新视图需要抽出interface。！！！
@@ -66,10 +66,12 @@
 |------------------------------------------------|
 | [core-js](https://github.com/zloirock/core-js) |
 
-| http请求                             |
-|------------------------------------|
-| [axios 官网](http://axios-js.com/)   |
-| [qs](https://github.com/ljharb/qs) |
+| 网络请求                                                                                      |
+|-------------------------------------------------------------------------------------------|
+| [axios 官网](http://axios-js.com/)                                                          |
+| [ws 官网 ts 需安装 @types/ws](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSockets_API) |
+| [socket.io socket.io-client](https://socket.io/zh-CN/)                                    |
+| [qs 序列化参数，并非网络请求](https://github.com/ljharb/qs)                                           |
 
 # 解析相关
 | TS                                                         |

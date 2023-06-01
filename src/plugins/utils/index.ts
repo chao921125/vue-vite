@@ -38,7 +38,7 @@ const setTitleI18n = (value: any) => {
 		}
 	} else {
 		// 非自定义 tagsView 名称
-		tagsViewName = I18n.global.t(<any>meta.title);
+		tagsViewName = I18n.global.t(meta.title as any);
 	}
 	return tagsViewName;
 };

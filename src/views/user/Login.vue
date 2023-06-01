@@ -29,16 +29,16 @@
 	import ValidateForm from "@/plugins/validate/validateForm";
 	import api from "@/api";
 
-	const { proxy } = <any>getCurrentInstance();
+	const { proxy } = getCurrentInstance() as any;
 	const formUserRef = ref<FormInstance>();
-	const formUser: Record<string, any> = <any>reactive({
+	const formUser: Record<string, any> = reactive({
 		userName: "",
 		password: "",
-	});
-	const formRulesUser: Record<string, any> = <any>reactive({
+	}) as any;
+	const formRulesUser: Record<string, any> = reactive({
 		userName: [{ validator: ValidateForm.userName, trigger: "blur" }],
 		password: [{ validator: ValidateForm.password, trigger: "blur" }],
-	});
+	}) as any;
 
 	const route = useRoute();
 	const router = useRouter();

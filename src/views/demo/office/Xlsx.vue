@@ -44,7 +44,7 @@
 	const fileUpload = ref();
 	const isLoading = ref(false);
 	const fileObj: any = reactive({
-		fileList: <any>[{ id: "id-xxxxxxx", name: "file.xlsx", url: "https://domain.com/id-xxxxxxx" }],
+		fileList: [{ id: "id-xxxxxxx", name: "file.xlsx", url: "https://domain.com/id-xxxxxxx" }] as any,
 		fileReaderHtml: "",
 		fileReader: {
 			headers: [],
@@ -107,7 +107,7 @@
 		reader.readAsArrayBuffer(file);
 	};
 	const getHeaderRow = (sheet: any) => {
-		const headers = <any>[];
+		const headers = [] as any;
 		const range = XLSX.utils.decode_range(sheet["!ref"]);
 		let C;
 		const R = range.s.r;
@@ -126,7 +126,7 @@
 	const handleUpload = () => {
 		fileUpload.value.click();
 	};
-	const proxy = <any>getCurrentInstance();
+	const proxy = getCurrentInstance() as any;
 	const handleDrop = (event: any) => {
 		proxy.elMessage.info("aaaa");
 		event.stopPropagation();
