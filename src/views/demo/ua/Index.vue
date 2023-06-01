@@ -2,10 +2,10 @@
 	<el-skeleton :rows="1" animated :loading="isLoading">
 		<el-row>
 			<el-col :span="24">
-				浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }} <br />
-				操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }} <br />
-				是否代理：{{ ipReal.ip && ipReal.ip.toString() === ipProxy.ip ? "否" : "是" }} <br />
-				真实IP：{{ ipReal.ip }} - {{ ipReal.country }} {{ ipReal.province }} {{ ipReal.city }} {{ ipReal.isp }} {{ ipReal.net }} <br />
+				浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }} <br /><br />
+				操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }} <br /><br />
+				是否代理：{{ ipReal.ip && ipReal.ip.toString() === ipProxy.ip ? "否" : "是" }} <br /><br />
+				真实IP：{{ ipReal.ip }} - {{ ipReal.country }} {{ ipReal.province }} {{ ipReal.city }} {{ ipReal.isp }} {{ ipReal.net }} <br /><br />
 				代理IP：{{ ipProxy.ip }} - {{ ipProxyInfo.country }} {{ ipProxyInfo.city }} {{ ipProxyInfo.regionName }}
 			</el-col>
 		</el-row>
@@ -38,16 +38,16 @@
 		getUaInfo();
 		getIpIpify().then((res: any) => {
 			ipProxy.value = res;
-			isLoading.value = false;
 		});
 		getIpApi().then((res) => {
 			ipProxyInfo.value = res;
-			isLoading.value = false;
 		});
 		getIpUser().then((res) => {
 			ipReal.value = res;
-			isLoading.value = false;
 		});
+		setTimeout(() => {
+			isLoading.value = false;
+		}, 6000);
 	});
 </script>
 
