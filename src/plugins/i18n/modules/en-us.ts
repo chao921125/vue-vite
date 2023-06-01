@@ -49,6 +49,7 @@ export default {
 		demoMapOne: "CV Map Division",
 		demoMapTwo: "CV Drag",
 		demoUa: "UA&IP",
+		demoEchart: "Echart",
 		testLink: "Link",
 		testIframe: "Iframe",
 	},

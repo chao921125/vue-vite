@@ -49,6 +49,7 @@ export default {
 		demoMapOne: "CV分割地图",
 		demoMapTwo: "CV拖拽",
 		demoUa: "UA&IP",
+		demoEchart: "图表Echart",
 		testLink: "链接",
 		testIframe: "Iframe",
 	},
