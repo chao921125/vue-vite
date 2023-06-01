@@ -45,12 +45,6 @@ export const i18n = createI18n({
 });
 
 export const readLocale = (prefix = zhCN.name) => {
-	// const languageKeys = import.meta.glob("./modules/*.ts");
-	// export const routerArray: object = {};
-	// Object.keys(languageKeys).forEach((item: string) => {
-	// 	console.log("==========", item);
-	// });
-
 	return Object.fromEntries(
 		Object.entries(import.meta.glob("./modules/*.(j)?(t)?s", { eager: true })).map(([key, value]: any) => {
 			const matched = key.match(/([A-Za-z0-9-_]+)\./i)[1];
