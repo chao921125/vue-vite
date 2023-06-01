@@ -8,7 +8,7 @@ https://github.com/shenmaxg/file-upload-react
 
 
 3、fetch 请求及解析
-fetch("/api/v1/user-model/create", {
+fetch("/create", {
             method: "post",
             headers: {
                 token: Storage.getItem("unity-token") || getCookie('ua_once') || getCookie('ua_user'),

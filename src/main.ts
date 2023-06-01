@@ -21,7 +21,14 @@ import * as Icons from "@element-plus/icons-vue";
 // 按需引入解决Message等样式失效，需引入
 import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
-app.use(ElementPlus);
+if (import.meta.env.VITE_NODE_ENV === "development") {
+	app.use(ElementPlus);
+}
+
+// 全局消息提示
+app.config.globalProperties.elMessage = ElMessage;
+app.config.globalProperties.elMessageBox = ElMessageBox;
+app.config.globalProperties.elNotification = ElNotification;
 
 // 全局组件 已通过autoimport实现自动全局引入，无需这里自动指定，对应的目录为src/components/*
 // 注册element Icons组件
@@ -70,10 +77,7 @@ Object.keys(directives).forEach((key) => {
 // mitt 总线
 import mitt from "mitt";
 app.config.globalProperties.mittBus = mitt();
-// 全局消息提示
-app.config.globalProperties.elMessage = ElMessage;
-app.config.globalProperties.elMessageBox = ElMessageBox;
-app.config.globalProperties.elNotification = ElNotification;
+
 // provide app.provide("fn", FN) 配合 inject inject("fn") 使用
 // app.provide("", "");
 

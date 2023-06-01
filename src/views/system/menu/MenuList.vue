@@ -276,8 +276,8 @@
 					},
 					{
 						id: 99002,
-						path: "anim-css",
-						component: "demo/animation/AnimationCss",
+						path: "internal",
+						component: "demo/animation/Internal",
 						name: "message.menu.demoAnimaCss",
 						title: "message.menu.demoAnimaCss",
 						icon: "icon-appstore",

@@ -2,22 +2,25 @@
 # 用前必看
 [//]: # (pnpx husky install)
 ```text
-1. 如果build失败或者运行一场请执行
-pnpx mrm@2 lint-staged
+1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
 ```
 # 避坑指南 及 注意事项
 [**已在公司作为模板商用**]
 - 三方包引入尽可能小写，自定义尽可能大写。
 - 推荐使用pnpm(curl -fsSL https://get.pnpm.io/install.sh | sh -)安装依赖，其次yarn或者npm
 - 使用 reactive 请使用 let，使用 ref 请使用const
-- 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式
+- 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式(兼容jsx)
 - package.json添加"type": "module",需要修改*.js为*.cjs
 - 注意所有配置菜单的数据，均由前端提供
 - ！！！注意VUE3中的reactive使用，如果需要更新视图需要抽出interface。！！！
-
-# 对应包使用解释
 - 项目本身配置99%都在vite.config.ts里面，参数设置都在根目录下，而非src下
 - src下的config目录是系统默认参数，及部分数据配置
+
+# 关于手机端适配（脱离业务场景谈解决方案都是耍流氓）
+1. 最古老的解决方案：使用媒体查询，但建议企业官网等页面较少的网站，且对网站设计者和开发者水平有一定的要求。
+2. 切换URL改变页面呈现方式：通过监听获取当前是否是移动端，然后改变对应的URL。需要设计两套UI，开发者需要写两套页面及样式。优点是灵活，缺点是需要较长的时间。
+3. rem 计算：目前最多的，通过对根字体的设置，自动换算
+4. vw 计算：当下及以后的趋势，本项目就是采用的此计算方式，不打算采用和rem混用的方式了
 
 # 命名规范及解释
 1. 命名遵循驼峰规则：demoUser
@@ -39,15 +42,14 @@ pnpx mrm@2 lint-staged
 
 
 # 基础核心依赖
-### 无特殊说明均对应最新版
-##### 大家根据使用的包来自行搜索下吧，大部分配置都是兼容、打包等
-| 推荐一个插件比较全的网站                                               |
+###### 无特殊说明均对应最新版
+| 插件比较全的网站                                                   |
 |------------------------------------------------------------|
+| [Vite 官方推荐插件](https://github.com/vitejs/awesome-vite)      |
 | [vue3-resource](https://hu-snail.github.io/vue3-resource/) |
-| [Vite 插件](https://github.com/vitejs/awesome-vite)          |
 | [vue3js](https://vue3js.cn/)                               |
 
-| 脚手架                                                       |
+| 核心依赖                                                      |
 |-----------------------------------------------------------|
 | [vite 官网](https://cn.vitejs.dev/)                         |
 | [~~~vue-cli~~~](https://www.npmjs.com/package/@vue/cli)   |
@@ -64,10 +66,37 @@ pnpx mrm@2 lint-staged
 |------------------------------------------------|
 | [core-js](https://github.com/zloirock/core-js) |
 
-| http请求                             |
-|------------------------------------|
-| [axios 官网](http://axios-js.com/)   |
-| [qs](https://github.com/ljharb/qs) |
+| 网络请求                                                                                      |
+|-------------------------------------------------------------------------------------------|
+| [axios 官网](http://axios-js.com/)                                                          |
+| [ws 官网 ts 需安装 @types/ws](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSockets_API) |
+| [socket.io socket.io-client](https://socket.io/zh-CN/)                                    |
+| [qs 序列化参数，并非网络请求](https://github.com/ljharb/qs)                                           |
+
+# 解析相关
+| TS                                                         |
+|------------------------------------------------------------|
+| [typescript 官网](https://www.tslang.cn/)                    |
+| [ts-node 官网 ts-node **.ts](https://typestrong.org/ts-node) |
+
+| 样式组件 -D  注意重写组件样式的引用                                                           |
+|--------------------------------------------------------------------------------|
+| [sass](https://sass-lang.com/)                                                 |
+| [sass-loader](https://webpack.docschina.org/)                                  |
+| [node-sass](https://www.npmjs.com/package/node-sass)                           |
+| [less](https://less.bootcss.com/)                                              |
+| [less-loader](https://www.npmjs.com/package/less-loader)                       |
+| [style-resources-loader](https://www.npmjs.com/package/style-resources-loader) |
+| [svg-sprite-loader](https://www.npmjs.com/package/svg-sprite-loader)           |
+| [text-loader](https://www.npmjs.com/package/text-loader)                       |
+| [vue-style-loader](https://www.npmjs.com/package/vue-style-loader)             |
+| [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler)   |
+| [//]: # (浏览器样式补全)                                                              |
+| [浏览器样式补全 autoprefixer](https://www.npmjs.com/package/autoprefixer)             |
+| 快速样式CSS                                                                        |
+| [unocss](https://unocss.dev/)                                                  |
+| [windicss](https://windicss.org/)                                              |
+| [tailwindcss](https://tailwindcss.com/) [doc](https://www.tailwindcss.cn/docs) |
 
 | postcss插件库                                                                       |
 |----------------------------------------------------------------------------------|
@@ -80,45 +109,11 @@ pnpx mrm@2 lint-staged
 | [postcss-write-svg](https://www.npmjs.com/package/postcss-write-svg)             |
 | [cssnano-preset-advanced](https://www.npmjs.com/package/cssnano-preset-advanced) |
 
-# 解析相关
-| TS                                                         |
-|------------------------------------------------------------|
-| [typescript 官网](https://www.tslang.cn/)                    |
-| [ts-node 官网 ts-node **.ts](https://typestrong.org/ts-node) |
-
-| 样式组件 -D  注意重写组件样式的引用                                                                                          |
-|---------------------------------------------------------------------------------------------------------------|
-| [sass](https://sass-lang.com/)                                                                    |
-| [sass-loader](https://webpack.docschina.org/)                                                                 |
-| [node-sass](https://www.npmjs.com/package/node-sass)                                                          |
-| [less](https://less.bootcss.com/)                                                                             |
-| [less-loader](https://www.npmjs.com/package/less-loader)                                                      |
-| [style-resources-loader](https://www.npmjs.com/package/style-resources-loader)                                |
-| [svg-sprite-loader](https://www.npmjs.com/package/svg-sprite-loader)                                          |
-| [text-loader](https://www.npmjs.com/package/text-loader)                                                      |
-| [vue-style-loader](https://www.npmjs.com/package/vue-style-loader)                                            |
-| [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler)                                  |
-| [//]: # (浏览器样式补全)                                                                                             |
-| [浏览器样式补全 autoprefixer](https://www.npmjs.com/package/autoprefixer)                                            |
-| 快速样式CSS                                                                                                       |
-| [unocss](https://unocss.dev/)                                                                                 |
-| [windicss](https://windicss.org/)                                                                             |
-| [tailwindcss](https://tailwindcss.com/) [doc](https://www.tailwindcss.cn/docs)                                |
-
 | 语法检查 -D                                                                        |
 |--------------------------------------------------------------------------------|
 | [eslint](https://www.npmjs.com/package/eslint)                                 |
 | [prettier](https://www.npmjs.com/package/prettier) 个人推荐这个                      |
 | [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier) |
-
-| 节点和浏览器的BDD / TDD断言库                                  |                                  
-|------------------------------------------------------|
-| [chai](https://www.npmjs.com/package/chai)           |
-| [cross-env](https://www.npmjs.com/package/cross-env) |
-
-| 环境配置获取                                          |
-|-------------------------------------------------|
-| [dotenv](https://www.npmjs.com/package/dotenv)  |
 
 # UI相关
 ### [小插件合集](https://madewith.cn/)
@@ -262,27 +257,11 @@ pnpx mrm@2 lint-staged
 |----------------------------------------------------------|
 | [html2canvas](https://www.npmjs.com/package/html2canvas) |
 
-| cookie管理                                             |
-|------------------------------------------------------|
-| [js-cookie](https://www.npmjs.com/package/js-cookie) |
-
-| 文件上传及保存                                                         |
-|-----------------------------------------------------------------|
-| [file-saver](https://www.npmjs.com/package/file-saver)          |
-| [Uppy 官网](https://uppy.io/docs/vue/)                            |
-| [Vue-filepond 官网](https://github.com/pqina/vue-filepond#readme) |
-
 | 二维码                                                  |
 |------------------------------------------------------|
 | [qrcode](https://www.npmjs.com/package/qrcode)       |
 | [qrcodejs2](https://www.npmjs.com/package/qrcodejs2) |
 | [vue-qr](https://www.npmjs.com/package/vue-qr)       |
-
-| 日期格式化                                                     |
-|-----------------------------------------------------------|
-| [date-fns](https://www.npmjs.com/package/date-fns)        |
-| [dayjs](https://www.npmjs.com/package/dayjs)              |
-| [~~~moment~~~ 不再推荐](https://www.npmjs.com/package/moment) |
 
 | 日历                                                                               |
 |----------------------------------------------------------------------------------|
@@ -317,39 +296,28 @@ pnpx mrm@2 lint-staged
 |----------------------------------------------------------------|
 | [vue-clipboard2](https://www.npmjs.com/package/vue-clipboard2) |
 
-| Loading动画                                              |
-|--------------------------------------------------------|
-| [three-dots 等待效果](https://nzbin.github.io/three-dots/) |
-
-| 开屏渲染动画                                                                         |
-|--------------------------------------------------------------------------------|
-| [animate css库 官网](https://animate.style/)                                      |
-| [gsap库](https://www.npmjs.com/package/gsap/) [官网](https://greensock.com/gsap/) |
-| [angrytools](https://angrytools.com/)                                          | 
-| [angrytools](https://angrytools.com/css/animation/)                            |
-| [animejs](https://animejs.com/)                                                |
-| [csshake](https://elrumordelaluz.github.io/csshake/)                           |
-| [animista](https://animista.net/)                                              |
-| [minimamente](https://www.minimamente.com/project/magic/)                      |
-| [vue-kinesis](https://www.npmjs.com/package/vue-kinesis)                       |
-| [tsparticles 粒子动画](https://www.npmjs.com/package/tsparticles)                  |
-| [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx)                       |
-| [vue-page-transition 过渡](https://www.npmjs.com/package/vue-page-transition)    |
-| [Animatopy](https://sarthology.github.io/Animatopy/)                           |
-| [wickedCSS](https://github.com/kristofferandreasen/wickedCSS)                  |
-| [cssanimation](https://github.com/yesiamrocks/cssanimation.io)                 |
-
-| 鼠标动画                                                               |
-|--------------------------------------------------------------------|
-| [ianlunn 鼠标放上效果 官网](http://ianlunn.github.io/Hover/)               |
-| [animxyz](https://animxyz.com/)                                    |
-| [elrumordelaluz 鼠标放上效果](https://elrumordelaluz.github.io/reshake/) |
-| [基本形状](https://csslayout.io/)                                      |
-| [案例 特效 1](https://codepen.io/)                                     |
-| [案例 css技巧 1](https://csscoco.com/inspiration/#/)                   |
-| [案例 css技巧 2](https://chokcoco.github.io/CSS-Inspiration/#/)        |
-
 # 数据操作
+| 节点和浏览器的BDD / TDD断言库                                  |                                  
+|------------------------------------------------------|
+| [chai](https://www.npmjs.com/package/chai)           |
+| [cross-env](https://www.npmjs.com/package/cross-env) |
+
+| cookie管理                                             |
+|------------------------------------------------------|
+| [js-cookie](https://www.npmjs.com/package/js-cookie) |
+
+| 文件上传及保存                                                         |
+|-----------------------------------------------------------------|
+| [file-saver](https://www.npmjs.com/package/file-saver)          |
+| [Uppy 官网](https://uppy.io/docs/vue/)                            |
+| [Vue-filepond 官网](https://github.com/pqina/vue-filepond#readme) |
+
+| 日期格式化                                                     |
+|-----------------------------------------------------------|
+| [date-fns](https://www.npmjs.com/package/date-fns)        |
+| [dayjs](https://www.npmjs.com/package/dayjs)              |
+| [~~~moment~~~ 不再推荐](https://www.npmjs.com/package/moment) |
+
 | 加密解密                                                 |
 |------------------------------------------------------|
 | [crypto-js](https://www.npmjs.com/package/crypto-js) |
@@ -401,7 +369,6 @@ pnpx mrm@2 lint-staged
 |-------------------------------------------------|
 | [three.js](https://www.npmjs.com/package/three) |
 
-
 | office 预览、上传、导出、导入 包含：xls，xlsx，doc，docx，pdf，csv                                         |
 |-----------------------------------------------------------------------------------------|
 | [文件类型判断 file-type](https://www.npmjs.com/package/file-type)                             |
@@ -411,6 +378,73 @@ pnpx mrm@2 lint-staged
 | [PDF vue-pdf vue2](https://www.npmjs.com/package/vue-pdf)                               |
 | [@vue-office docx excel pdf v2需要安装依赖 vue-demi](https://github.com/501351981/vue-office) |
 
+| 支付                                                                                                              |
+|-----------------------------------------------------------------------------------------------------------------|
+| [stripejs](https://www.npmjs.com/package/stripe) [官网](https://stripe.com/docs)                                  |
+| [vue-stripe-elements-plus](https://www.npmjs.com/package/vue-stripe-elements-plus) [官网](https://vuestripe.com/) |
+| [vue-stripe](https://www.npmjs.com/package/@vue-stripe/vue-stripe) [官网](https://vuestripe.com/)                 |
+
+| 视频播放                                                                         |
+|------------------------------------------------------------------------------|
+| [vue-video-player](https://www.npmjs.com/package/vue-video-player)           |
+| [vue-core-video-player](https://www.npmjs.com/package/vue-core-video-player) |
+
+| 3D                                                                                                                                 |
+|------------------------------------------------------------------------------------------------------------------------------------|
+| [WebGL](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL_API)                                                                |
+| [threejs](https://www.npmjs.com/package/three) [官网](https://threejs.org/) [GitHub](https://github.com/mrdoob/three.js/tree/master) |
+| [babylonjs](https://www.npmjs.com/package/babylonjs) [官网](https://www.babylonjs.com/)                                              |
+| [AR model-viewer](https://github.com/google/model-viewer)                                                                          |
+
+| 游戏                                                                                                                                    |
+|---------------------------------------------------------------------------------------------------------------------------------------|
+| [Eva.js](https://www.npmjs.com/package/@eva/eva.js)                                                                                   |
+| [Eva-plugin-renderer](https://www.npmjs.com/package/@eva/plugin-renderer)                                                             |
+| [Eva-plugin-renderer-img](https://www.npmjs.com/package/@eva/plugin-renderer-img) [官网](https://eva-engine.gitee.io/#/tutorials/intro) |
+
+# 特效
+| Loading动画                                                                    |
+|------------------------------------------------------------------------------|
+| [three-dots 等待效果](https://nzbin.github.io/three-dots/)                       |
+| http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading |
+| https://juejin.cn/post/7037036742985121800                                   |
+
+| 开屏渲染动画                                                                         |
+|--------------------------------------------------------------------------------|
+| [animate css库 官网](https://animate.style/)                                      |
+| [gsap库](https://www.npmjs.com/package/gsap/) [官网](https://greensock.com/gsap/) |
+| [angrytools](https://angrytools.com/)                                          | 
+| [angrytools](https://angrytools.com/css/animation/)                            |
+| [animejs](https://animejs.com/)                                                |
+| [csshake](https://elrumordelaluz.github.io/csshake/)                           |
+| [animista](https://animista.net/)                                              |
+| [minimamente](https://www.minimamente.com/project/magic/)                      |
+| [vue-kinesis](https://www.npmjs.com/package/vue-kinesis)                       |
+| [tsparticles 粒子动画](https://www.npmjs.com/package/tsparticles)                  |
+| [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx)                       |
+| [vue-page-transition 过渡](https://www.npmjs.com/package/vue-page-transition)    |
+| [Animatopy](https://sarthology.github.io/Animatopy/)                           |
+| [wickedCSS](https://github.com/kristofferandreasen/wickedCSS)                  |
+| [cssanimation](https://github.com/yesiamrocks/cssanimation.io)                 |
+
+| 鼠标动画                                                               |
+|--------------------------------------------------------------------|
+| [ianlunn 鼠标放上效果 官网](http://ianlunn.github.io/Hover/)               |
+| [animxyz](https://animxyz.com/)                                    |
+| [elrumordelaluz 鼠标放上效果](https://elrumordelaluz.github.io/reshake/) |
+| [基本形状](https://csslayout.io/)                                      |
+| [案例 特效 1](https://codepen.io/)                                     |
+| [案例 css技巧 1](https://csscoco.com/inspiration/#/)                   |
+| [案例 css技巧 2](https://chokcoco.github.io/CSS-Inspiration/#/)        |
+
+| 文字                                                     |
+|--------------------------------------------------------|
+| [vue-textra](https://www.npmjs.com/package/vue-textra) |
+
+# 构建
+| 环境配置获取                                          |
+|-------------------------------------------------|
+| [dotenv](https://www.npmjs.com/package/dotenv)  |
 
 | 代码提交信息校验 -D                                                                          |
 |--------------------------------------------------------------------------------------|
@@ -419,7 +453,7 @@ pnpx mrm@2 lint-staged
 | [cz-conventional-changelog](https://www.npmjs.com/package/cz-conventional-changelog) |
 | [cz-customizable](https://www.npmjs.com/package/cz-customizable)                     |
 
-
+# 移动端
 | 适配移动端 -D                                                                               |
 |----------------------------------------------------------------------------------------|
 | **rem方案过时啦，用vw方案解决吧**                                                                  |
@@ -433,60 +467,10 @@ pnpx mrm@2 lint-staged
 | [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem)       |
 | [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)                     |
 
-
-| 移动端调试 -D                                           |
-|----------------------------------------------------|
-| [vconsole](https://www.npmjs.com/package/vconsole) |
-
-
-| 支付                                                                                                              |
-|-----------------------------------------------------------------------------------------------------------------|
-| [stripejs](https://www.npmjs.com/package/stripe) [官网](https://stripe.com/docs)                                  |
-| [vue-stripe-elements-plus](https://www.npmjs.com/package/vue-stripe-elements-plus) [官网](https://vuestripe.com/) |
-| [vue-stripe](https://www.npmjs.com/package/@vue-stripe/vue-stripe) [官网](https://vuestripe.com/)                 |
-
-
-| 视频播放                                                                         |
-|------------------------------------------------------------------------------|
-| [vue-video-player](https://www.npmjs.com/package/vue-video-player)           |
-| [vue-core-video-player](https://www.npmjs.com/package/vue-core-video-player) |
-
-
-| 3D                                                                                                                                 |
-|------------------------------------------------------------------------------------------------------------------------------------|
-| [WebGL](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL_API)                                                                |
-| [threejs](https://www.npmjs.com/package/three) [官网](https://threejs.org/) [GitHub](https://github.com/mrdoob/three.js/tree/master) |
-| [babylonjs](https://www.npmjs.com/package/babylonjs) [官网](https://www.babylonjs.com/)                                              |
-| [AR model-viewer](https://github.com/google/model-viewer)                                                                          |
-
-
-| 游戏                                                                                                                                    |
-|---------------------------------------------------------------------------------------------------------------------------------------|
-| [Eva.js](https://www.npmjs.com/package/@eva/eva.js)                                                                                   |
-| [Eva-plugin-renderer](https://www.npmjs.com/package/@eva/plugin-renderer)                                                             |
-| [Eva-plugin-renderer-img](https://www.npmjs.com/package/@eva/plugin-renderer-img) [官网](https://eva-engine.gitee.io/#/tutorials/intro) |
-
-
-# 特效
-| 文字                                                     |
-|--------------------------------------------------------|
-| [vue-textra](https://www.npmjs.com/package/vue-textra) |
-
-| Loading                                                                      |
-|------------------------------------------------------------------------------|
-| http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading |
-| https://juejin.cn/post/7037036742985121800                                   |
-
-| 展示异常                                               |
-|----------------------------------------------------|
-| [vue-show](https://www.npmjs.com/package/vue-show) |
-
-
 | 移动端日志                                              |
 |----------------------------------------------------|
 | [eruda](https://www.npmjs.com/package/eruda)       |
 | [vconsole](https://www.npmjs.com/package/vconsole) |
-
 
 | 跨端框架推荐：包含小程序啥的                                                   |
 |------------------------------------------------------------------|
@@ -495,7 +479,6 @@ pnpx mrm@2 lint-staged
 | [hippy 官网](https://hippyjs.org/#/) 3.x已支持vue                     |
 | [~~mpvue 官网~~](https://mpvue.com/) 美团                            |
 | [~~wepyjs 官网~~](https://wepyjs.github.io/wepy-docs/) 腾讯 需要学习wepy |
-
 
 | APP开发                                                              |
 |--------------------------------------------------------------------|

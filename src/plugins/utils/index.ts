@@ -38,7 +38,7 @@ const setTitleI18n = (value: any) => {
 		}
 	} else {
 		// 非自定义 tagsView 名称
-		tagsViewName = I18n.global.t(<any>meta.title);
+		tagsViewName = I18n.global.t(meta.title as any);
 	}
 	return tagsViewName;
 };
@@ -102,6 +102,22 @@ util.urlToObj = (url: string) => {
 	return obj;
 };
 
+/**
+ * @param opts
+ * navigator.userAgent 不可靠容易被修改 /Mobi|Android|iPhone/i.test(navigator.userAgent)
+ */
+export function isMobileTouch1() {
+	return "ontouchstart" in document.documentElement;
+}
+// 另一种写法
+export function isMobileTouch2() {
+	try {
+		document.createEvent("TouchEvent");
+		return true;
+	} catch (e) {
+		return false;
+	}
+}
 // 判断手机
 util.isMobile = (opts) => {
 	const mobileRE =

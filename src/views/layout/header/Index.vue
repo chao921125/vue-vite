@@ -156,7 +156,7 @@
 	};
 	// 面包屑导航 end
 	// 个人中心 start
-	const { proxy } = <any>getCurrentInstance();
+	const { proxy } = getCurrentInstance() as any;
 	const dropdownUser = ref();
 	const dropdownComponents = ref();
 	const dropdownLanguage = ref();

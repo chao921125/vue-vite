@@ -1,6 +1,7 @@
 /**
+ * 本地静态路由数据配置
  * 路由菜单配置，数据格式必须遵循一下规则，否则请自定义修改
- * true false 也可以用0 和 1代替，必须为数值或者字符串
+ * **** true false 也可以用0 和 1代替，必须为数值或者字符串 ****
  * path					必填 请求路径
  * component		必填 组件路径，由开发人员填写
  * name					选填 必须英文，默认不展示，直接replaceAll '/'
@@ -221,8 +222,8 @@ export default {
 				},
 				{
 					id: 903,
-					path: "anim-css",
-					component: "demo/animation/AnimationCss",
+					path: "internal",
+					component: "demo/animation/Internal",
 					name: "message.menu.demoAnimaCss",
 					title: "message.menu.demoAnimaCss",
 					icon: "icon-appstore",
@@ -245,6 +246,46 @@ export default {
 					component: "demo/office/Xlsx",
 					name: "message.menu.demoXlsx",
 					title: "message.menu.demoXlsx",
+					icon: "icon-appstore",
+					isLink: 0,
+					isIframe: 0,
+					address: "",
+					isAffix: 1,
+					isKeepAlive: 1,
+					isDisable: 0,
+					isHide: 0,
+					isHideSubMenu: 1,
+					isMobile: 0,
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
+					children: [],
+				},
+				{
+					id: 905,
+					path: "ua-ip",
+					component: "demo/ua/Index",
+					name: "message.menu.demoUa",
+					title: "message.menu.demoUa",
+					icon: "icon-appstore",
+					isLink: 0,
+					isIframe: 0,
+					address: "",
+					isAffix: 1,
+					isKeepAlive: 1,
+					isDisable: 0,
+					isHide: 0,
+					isHideSubMenu: 1,
+					isMobile: 0,
+					roles: ["admin", "system"],
+					permission: ["C", "R", "U", "D"],
+					children: [],
+				},
+				{
+					id: 906,
+					path: "echart",
+					component: "demo/chart/Echart",
+					name: "message.menu.demoEchart",
+					title: "message.menu.demoEchart",
 					icon: "icon-appstore",
 					isLink: 0,
 					isIframe: 0,

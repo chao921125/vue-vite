@@ -1,0 +1,46 @@
+<template>
+	<el-skeleton :rows="1" animated :loading="isLoading">
+		<el-row>
+			<el-col :span="24">
+				浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }} <br /><br />
+				操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }} <br /><br />
+				是否代理：{{ ipReal.ip && ipReal.ip.toString() === ipProxy.ip ? "否" : "是" }} <br /><br />
+				真实IP：{{ ipReal.ip }} - {{ ipReal.country }} {{ ipReal.province }} {{ ipReal.city }} {{ ipReal.isp }} {{ ipReal.net }} <br /><br />
+				代理IP：{{ ipProxy.ip }} - {{ ipProxyInfo.country }} {{ ipProxyInfo.city }} {{ ipProxyInfo.regionName }}
+			</el-col>
+		</el-row>
+	</el-skeleton>
+</template>
+
+<script lang="ts" setup name="Ua">
+	import { getIpApi, getIpIpify, getIpUser } from "@/plugins/utils/ip";
+	import UA from "ua-parser-js";
+
+	const isLoading = ref(true);
+	const uaInfo = ref<any>();
+	const getUaInfo = () => {
+		uaInfo.value = UA(navigator.userAgent) as any;
+	};
+
+	const ipReal = ref<any>({});
+	const ipProxy = ref<any>({});
+	const ipProxyInfo = ref<any>({});
+
+	onMounted(() => {
+		getUaInfo();
+		getIpIpify().then((res: any) => {
+			ipProxy.value = res;
+		});
+		getIpApi().then((res) => {
+			ipProxyInfo.value = res;
+		});
+		getIpUser().then((res) => {
+			ipReal.value = res;
+		});
+		setTimeout(() => {
+			isLoading.value = false;
+		}, 3000);
+	});
+</script>
+
+<style scoped lang="scss"></style>

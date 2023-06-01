@@ -1,5 +1,5 @@
 <template>
-	<div>如果借助于element的话，那么获取File对象则是file.raw；这里只做一个示例，原生的无语深度获取。</div>
+	<div>如果借助于element的话，那么获取File对象则是file.raw；这里只做一个示例，原生的无需深度获取。</div>
 	<input type="file" ref="fileUpload" class="file-upload" multiple accept=".xlsx, xls, .csv" @change="fileChange" />
 	<div @drop="handleDrop" @dragover="handleDragover" @dragleave="handleDragleave" style="border: 1px dotted #000000">
 		<span>Drop a spreadsheet file here to upload sites</span>
@@ -7,7 +7,7 @@
 	</div>
 	<div v-for="(item, index) in fileObj.fileList" :key="index">
 		<el-link :underline="false" type="info">{{ item.name }}</el-link>
-		<el-link :underline="false" type="success" class="re-ml-10" @click="previewFile(index)">预览</el-link>
+		<el-link :underline="false" type="success" class="re-ml-10" @click="previewFile(Number(index))">预览</el-link>
 		<el-link :underline="false" type="primary" class="re-ml-10">下载</el-link>
 		<el-link :underline="false" type="danger" class="re-ml-10">删除</el-link>
 	</div>
@@ -44,7 +44,7 @@
 	const fileUpload = ref();
 	const isLoading = ref(false);
 	const fileObj: any = reactive({
-		fileList: <any>[{ id: "id-xxxxxxx", name: "file.xlsx", url: "https://domain.com/id-xxxxxxx" }],
+		fileList: [{ id: "id-xxxxxxx", name: "file.xlsx", url: "https://domain.com/id-xxxxxxx" }] as any,
 		fileReaderHtml: "",
 		fileReader: {
 			headers: [],
@@ -107,7 +107,7 @@
 		reader.readAsArrayBuffer(file);
 	};
 	const getHeaderRow = (sheet: any) => {
-		const headers = <any>[];
+		const headers = [] as any;
 		const range = XLSX.utils.decode_range(sheet["!ref"]);
 		let C;
 		const R = range.s.r;
@@ -126,7 +126,7 @@
 	const handleUpload = () => {
 		fileUpload.value.click();
 	};
-	const proxy = <any>getCurrentInstance();
+	const proxy = getCurrentInstance() as any;
 	const handleDrop = (event: any) => {
 		proxy.elMessage.info("aaaa");
 		event.stopPropagation();

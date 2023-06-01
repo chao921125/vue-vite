@@ -29,16 +29,16 @@
 	import ValidateForm from "@/plugins/validate/validateForm";
 	import api from "@/api";
 
-	const { proxy } = <any>getCurrentInstance();
+	const { proxy } = getCurrentInstance() as any;
 	const formUserRef = ref<FormInstance>();
-	const formUser: Record<string, any> = <any>reactive({
+	const formUser: Record<string, any> = reactive({
 		userName: "",
 		password: "",
-	});
-	const formRulesUser: Record<string, any> = <any>reactive({
+	}) as any;
+	const formRulesUser: Record<string, any> = reactive({
 		userName: [{ validator: ValidateForm.userName, trigger: "blur" }],
 		password: [{ validator: ValidateForm.password, trigger: "blur" }],
-	});
+	}) as any;
 
 	const route = useRoute();
 	const router = useRouter();
@@ -49,26 +49,26 @@
 		formEl.validate((valid) => {
 			isLoading.value = true;
 			if (valid) {
-				api.userApi.loginUser(formUser).then((res: any) => {
-					console.log(res);
-				});
-				proxy.elMessage.success("登录成功");
-				Cookie.setCookie(Constants.cookieKey.token, Math.random().toString(36));
-				Storage.setSessionStorage(Constants.storageKey.token, Math.random().toString(36));
-				const userInfo = {
-					id: 1,
-					userName: formUser.userName,
-					avatar: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
-				};
-				Storage.setLocalStorage(Constants.storageKey.userInfo, userInfo);
-				if (route.query?.redirect && route.query?.redirect !== "/") {
-					// router.push({
-					// 	path: <string>route.query?.redirect,
-					// 	query: Object.keys(<string>route.query?.params).length ? JSON.parse(<string>route.query?.params) : "",
-					// });
-				} else {
-					router.push({ path: "/" });
-				}
+				api.userApi
+					.loginUser(formUser)
+					.then((res: any) => {
+						proxy.elMessage.success("登录成功");
+						Cookie.setCookie(Constants.cookieKey.token, res.data.token);
+						Storage.setSessionStorage(Constants.storageKey.token, res.data.token);
+						Storage.setLocalStorage(Constants.storageKey.userInfo, res.data);
+						if (route.query?.redirect && route.query?.redirect !== "/") {
+							router.push({
+								path: <string>route.query?.redirect,
+								query: Object.keys(<string>route.query?.params).length ? JSON.parse(<string>route.query?.params) : "",
+							});
+						} else {
+							router.push({ path: "/" });
+						}
+						isLoading.value = false;
+					})
+					.catch(() => {
+						isLoading.value = false;
+					});
 			} else {
 				isLoading.value = false;
 				proxy.elMessage.error("登录失败");

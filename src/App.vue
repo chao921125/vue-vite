@@ -13,7 +13,7 @@
 	import RouterConfig from "@/config/routerConfig";
 	import ThemeConfig from "@/config/themeConfig";
 
-	const { proxy } = <any>getCurrentInstance();
+	const { proxy } = getCurrentInstance() as any;
 	// large / default /small
 	const config: any = reactive({
 		i18n: elI18n[ThemeConfig.i18nDef],

@@ -21,15 +21,8 @@
 	const router = useRouter();
 	const route = useRoute();
 	const screenWidth = ref(useWindowSize().width.value);
-	onMounted(() => {
-		changeWindow();
-		window.onresize = () => {
-			return (() => {
-				screenWidth.value = useWindowSize().width.value;
-				changeWindow();
-			})();
-		};
-	});
+
+	// 如果使用媒体查询解决手机适配，那么请修改此处
 	const changeWindow = () => {
 		if (Utils.isMobile() || screenWidth.value < ThemeConfig.screenMobile) {
 			isMobile.value = true;
@@ -44,6 +37,16 @@
 			}
 		}
 	};
+
+	onMounted(() => {
+		changeWindow();
+		window.onresize = () => {
+			return (() => {
+				screenWidth.value = useWindowSize().width.value;
+				changeWindow();
+			})();
+		};
+	});
 </script>
 
 <style scoped lang="scss"></style>

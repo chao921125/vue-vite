@@ -3,7 +3,7 @@ export default {
 	screenNormal: 992,
 	screenData: 3840,
 	i18nDef: import.meta.env.VITE_LOCALE,
-	i18nKey: /\/zh-cn|en-us|zh-tw\//,
+	i18nKey: /\/zh-cn|en|zh-tw\//,
 	i18nKeys: [
 		{
 			label: "中文简体",

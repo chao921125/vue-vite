@@ -13,16 +13,19 @@ import RouterConfig from "@/config/routerConfig";
 import RouteData from "@/config/routerData";
 import { IMenuState } from "@/interface/router";
 import AxiosCancel from "@/plugins/axios/cancel";
+import api from "@/api";
 
 // 配置文件修改是否从后端获取路由
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可
 const isRequestRoutes = RouterConfig.isRequestRoutes;
 
-// 默认获取菜单及路由为静态数据
-let requestData: any = [];
-
 // 动态路由刷新404，所以先行去掉匹配不存在路由重定向至404页
 if (isRequestRoutes) baseRoutes[0].children = [];
+// 纯静态配置，下面代码注释掉或删掉即可
+baseRoutes[0].children = [];
+
+// 默认获取菜单及路由为静态数据
+let requestData: any = [];
 
 // createWebHashHistory() hash路由#
 export const router = createRouter({
@@ -55,7 +58,8 @@ router.beforeEach(async (to, from, next) => {
 			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {
 					// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
-					requestData = RouteData.menus;
+					const { data } = await api.systemApi.getMenuList({});
+					requestData = data.list || [];
 				} else {
 					requestData = RouteData.menus;
 				}

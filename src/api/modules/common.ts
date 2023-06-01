@@ -2,10 +2,11 @@ import Axios from "@/plugins/axios";
 import AxiosConfig from "@/config/axiosConfig";
 
 export default {
-	getImgLocal: (name: string) => {
+	getImgLocale: (name: string, suffix?: string) => {
 		if (!name) return "";
-		// return `/src/assets/images/${type}.png`;
-		return new URL(`/src/assets/images/${name}.png`, import.meta.url).href;
+		if (!suffix) suffix = "png";
+		// return `/src/assets/images/${type}.${suffix}`;
+		return new URL(`/src/assets/images/${name}.${suffix}`, import.meta.url).href;
 	},
 	previewFileById: (data: any) => {
 		return Axios({

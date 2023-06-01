@@ -31,7 +31,7 @@
 
 	const drawChart = () => {
 		if (!props.seriesData?.length) return false;
-		let chartDom = <HTMLElement>document.getElementById(`${props.id}`)!;
+		let chartDom = document.getElementById(`${props.id}`)! as HTMLDivElement;
 		let myChart = echarts.getInstanceByDom(chartDom);
 		if (!myChart) {
 			myChart = echarts.init(chartDom);
@@ -40,7 +40,7 @@
 		let option: EChartsOption;
 
 		option = {
-			color: <any>props.color,
+			color: props.color as any,
 			tooltip: {
 				trigger: "item",
 			},
@@ -49,7 +49,7 @@
 					name: props.seriesName,
 					type: "pie",
 					radius: "50%",
-					data: <any>props.seriesData,
+					data: props.seriesData as any,
 					emphasis: {
 						itemStyle: {
 							shadowBlur: 10,

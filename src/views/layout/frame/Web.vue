@@ -29,7 +29,7 @@
 	const isShowFooter = themeConfig.value.isFooter;
 
 	// 切换路由之后，滚动到顶部
-	const { proxy } = <any>getCurrentInstance();
+	const { proxy } = getCurrentInstance() as any;
 	const route = useRoute();
 	// 监听路由的变化
 	watch(
