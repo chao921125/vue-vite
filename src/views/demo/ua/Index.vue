@@ -17,17 +17,9 @@
 	import UA from "ua-parser-js";
 
 	const isLoading = ref(true);
-	declare interface IBrowser {
-		name?: string;
-		version?: string;
-	}
-	declare interface IUaInfo {
-		browser?: IBrowser;
-		os?: IBrowser;
-	}
-	const uaInfo = ref<IUaInfo>();
+	const uaInfo = ref<any>();
 	const getUaInfo = () => {
-		uaInfo.value = <IUaInfo>UA(navigator.userAgent);
+		uaInfo.value = UA(navigator.userAgent) as any;
 	};
 
 	const ipReal = ref<any>({});
@@ -47,7 +39,7 @@
 		});
 		setTimeout(() => {
 			isLoading.value = false;
-		}, 6000);
+		}, 3000);
 	});
 </script>
 
