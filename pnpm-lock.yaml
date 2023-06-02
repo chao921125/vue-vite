@@ -1,5 +1,8 @@
-lockfileVersion: 5.4
+lockfileVersion: '6.1'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 overrides:
   bin-wrapper: npm:bin-wrapper-china
   mysql: 2.18.1
