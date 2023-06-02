@@ -59,6 +59,8 @@ const http: AxiosInstance = axios.create(defaultHeader);
 http.interceptors.request.use(
 	(config: AxiosRequestConfig): any => {
 		NProgress.start();
+		// @ts-ignore
+		config.headers["apifoxToken"] = "UpBZTbFlKA6vpmezjXyVjFrs4gCfy4o2";
 		if (Cookie.getCookie(Constants.cookieKey.token)) {
 			// @ts-ignore
 			config.headers["token"] = "Bearer " + Cookie.getCookie(Constants.cookieKey.token);
