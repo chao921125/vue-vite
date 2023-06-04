@@ -1,5 +1,4 @@
-[预览地址](https://vue-vite-ts.vercel.app/#/login?redirect=/&params={})
-# 用前必看
+# 用前必看：不再提供预览地址，成本不足
 [//]: # (pnpx husky install)
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
