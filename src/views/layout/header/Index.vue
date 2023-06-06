@@ -18,7 +18,35 @@
 		</el-col>
 		<!--		右侧快捷栏-->
 		<el-col :xs="24" :sm="12">
-			<div class="re-h-fill re-flex-row-reverse">
+			<div class="re-h-fill re-flex-row-end">
+				<el-dropdown ref="dropdownComponents" trigger="hover" @command="changeSize">
+					<i class="iconfont icon-zujian2 re-cursor-pointer re-ml-10" @click="showDropdownComponents"></i>
+					<template #dropdown>
+						<el-dropdown-menu>
+							<el-dropdown-item v-for="(item, index) in sizes" :key="index" :command="item.value">
+								<span>{{ item.label }}</span>
+							</el-dropdown-item>
+						</el-dropdown-menu>
+					</template>
+				</el-dropdown>
+				<el-dropdown ref="dropdownLanguage" trigger="hover" @command="changeI18n">
+					<i class="iconfont icon-duoyuyan re-cursor-pointer re-ml-10" @click="showDropdownLanguage"></i>
+					<template #dropdown>
+						<el-dropdown-menu>
+							<el-dropdown-item v-for="(item, index) in i18ns" :key="index" :command="item.value">
+								<span>{{ item.label }}</span>
+							</el-dropdown-item>
+						</el-dropdown-menu>
+					</template>
+				</el-dropdown>
+				<el-tooltip effect="dark" content="设置" placement="bottom">
+					<i class="iconfont icon-pifu re-cursor-pointer re-ml-10" @click="isShowDrawer = true"></i>
+				</el-tooltip>
+				<el-tooltip effect="dark" :content="isScreenFull ? '退出全屏' : '全屏'" placement="bottom">
+					<i v-if="isScreenFull" class="iconfont icon-fullscreen-exit re-cursor-pointer re-ml-10" @click="changeScreenFull"></i>
+					<i v-else class="iconfont icon-fullscreen re-cursor-pointer re-ml-10" @click="changeScreenFull"></i>
+				</el-tooltip>
+				<div class="re-ml-10">{{ userInfoName }}</div>
 				<el-dropdown ref="dropdownUser" trigger="hover">
 					<el-avatar :src="userInfoAvatar" fit="cover" class="re-cursor-pointer user-avatar re-ml-10" @click="showDropdownUser" />
 					<template #dropdown>
@@ -30,34 +58,6 @@
 							<el-dropdown-item @click="logout">
 								<el-icon><SwitchButton></SwitchButton></el-icon>
 								<span>退出登录</span>
-							</el-dropdown-item>
-						</el-dropdown-menu>
-					</template>
-				</el-dropdown>
-				<div class="re-ml-10">{{ userInfoName }}</div>
-				<el-tooltip effect="dark" :content="isScreenFull ? '退出全屏' : '全屏'" placement="bottom">
-					<i v-if="isScreenFull" class="iconfont icon-fullscreen-exit re-cursor-pointer re-ml-10" @click="changeScreenFull"></i>
-					<i v-else class="iconfont icon-fullscreen re-cursor-pointer re-ml-10" @click="changeScreenFull"></i>
-				</el-tooltip>
-				<el-tooltip effect="dark" content="设置" placement="bottom">
-					<i class="iconfont icon-pifu re-cursor-pointer re-ml-10" @click="isShowDrawer = true"></i>
-				</el-tooltip>
-				<el-dropdown ref="dropdownLanguage" trigger="hover" @command="changeI18n">
-					<i class="iconfont icon-duoyuyan re-cursor-pointer re-ml-10" @click="showDropdownLanguage"></i>
-					<template #dropdown>
-						<el-dropdown-menu>
-							<el-dropdown-item v-for="(item, index) in i18ns" :key="index" :command="item.value">
-								<span>{{ item.label }}</span>
-							</el-dropdown-item>
-						</el-dropdown-menu>
-					</template>
-				</el-dropdown>
-				<el-dropdown ref="dropdownComponents" trigger="hover" @command="changeSize">
-					<i class="iconfont icon-zujian2 re-cursor-pointer re-ml-10" @click="showDropdownComponents"></i>
-					<template #dropdown>
-						<el-dropdown-menu>
-							<el-dropdown-item v-for="(item, index) in sizes" :key="index" :command="item.value">
-								<span>{{ item.label }}</span>
 							</el-dropdown-item>
 						</el-dropdown-menu>
 					</template>
