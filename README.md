@@ -452,6 +452,13 @@
 | [cz-conventional-changelog](https://www.npmjs.com/package/cz-conventional-changelog) |
 | [cz-customizable](https://www.npmjs.com/package/cz-customizable)                     |
 
+# 测试
+| 本项目并没有测试用例，如果大家需要的话请自行添加，以下是测试集成依赖                                      |
+|-------------------------------------------------------------------------|
+| [@vue/test-utils 推荐 这个可以作为核心 配合jest使用更好](https://test-utils.vuejs.org/) |
+| [jestjs](https://jestjs.io/)                                            |
+| [mochajs webpack](https://mochajs.org/)                                 |
+
 # 移动端
 | 适配移动端 -D                                                                               |
 |----------------------------------------------------------------------------------------|
