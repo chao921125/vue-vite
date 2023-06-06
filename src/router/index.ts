@@ -195,15 +195,15 @@ function routeToComponent(routes: any[]) {
 	});
 }
 
-function componentImport(viewsModules: Record<string, Function>, component: string) {
-	const keys = Object.keys(viewsModules);
+function componentImport(viewsModule: Record<string, Function>, component: string) {
+	const keys = Object.keys(viewsModule);
 	const matchKeys = keys.filter((key) => {
 		const k = key.replace(/..\/views|../, "");
 		return k.startsWith(`${component}`) || k.startsWith(`/${component}`);
 	});
 	if (matchKeys?.length === 1) {
 		const matchKey = matchKeys[0];
-		return viewsModules[matchKey];
+		return viewsModule[matchKey];
 	}
 	if (matchKeys?.length > 1) {
 		return false;
