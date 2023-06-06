@@ -254,7 +254,7 @@
 		const userInfo = Storage.getLocalStorage(Constants.storageKey.userInfo) || null;
 		if (userInfo) {
 			userInfoAvatar.value = userInfo.avatar || "";
-			userInfoName.value = userInfo.userName || "";
+			userInfoName.value = userInfo.name || "";
 		}
 		isThemGrey.value = Storage.getLocalStorage(Constants.storageKey.themeConfig)?.isGrey || false;
 		changeGrey(isThemGrey.value);
