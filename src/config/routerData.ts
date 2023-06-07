@@ -1,21 +1,25 @@
 /**
- * 本地静态路由数据配置
+ * update router
+ * 本地静态路由数据配置，该配置由开发人员维护
  * 路由菜单配置，数据格式必须遵循一下规则，否则请自定义修改
  * **** true false 也可以用0 和 1代替，必须为数值或者字符串 ****
  * path					必填 请求路径
- * component		必填 组件路径，由开发人员填写
- * name					选填 必须英文，默认不展示，直接replaceAll '/'
- * title				必填 菜单栏及 tagsView 栏、菜单搜索名称（国际化）
+ * component		必填 组件路径，默认在views/目录下，但不用填写views/
+ * name         必填 必须英文，默认不展示，直接replaceAll '/' 不填写时，默认为当前组件名
+ * icon         菜单、tagsView 图标，阿里：加 `iconfont xxx`，fontawesome：加 `fa xxx`
+ * title        必填 菜单栏及 tagsView 栏、菜单搜索名称（国际化）
+ * auth					必填 是否授权登录可访问 默认true
  * isLink   		是否超链接菜单与 isIframe 互斥
  * isIframe 		是否内嵌窗口与 isLink 互斥
  * address 			当 isLink isIframe两者为true时此项必填
  * isHide   		是否隐藏此路由
+ * isHideSubMenu是否隐藏对应子路由
  * isKeepAlive	是否缓存组件状态
  * isAffix  		是否固定在 tagsView 栏上
+ * isDisable  	是否禁用
  * isMobile  		是否为手机端
- * roles    		判断是否有当前角色，仅仅当前端控制权限时，此项必须
+ * roles    		判断是否有当前角色，仅仅当前端控制权限时，此项必须，不建议前端去搞这玩意
  * permission   判断当前操作权限，仅仅当前端控制权限时，此项必须
- * icon     		必填 菜单、tagsView 图标，阿里：加 `iconfont xxx`，fontawesome：加 `fa xxx`
  * children
  */
 export default {
@@ -27,14 +31,15 @@ export default {
 			name: "message.menu.home",
 			title: "message.menu.home",
 			icon: "icon-home",
+			auth: 1,
 			isLink: 0,
 			isIframe: 0,
 			address: "",
+			isHide: 0,
+			isHideSubMenu: 0,
 			isAffix: 1,
 			isKeepAlive: 1,
 			isDisable: 0,
-			isHide: 0,
-			isHideSubMenu: 0,
 			isMobile: 0,
 			roles: ["admin", "system"],
 			permission: ["C", "R", "U", "D"],
@@ -47,6 +52,7 @@ export default {
 			name: "message.menu.system",
 			title: "message.menu.system",
 			icon: "icon-setting",
+			auth: 1,
 			isLink: 0,
 			isIframe: 0,
 			address: "",
@@ -66,6 +72,7 @@ export default {
 					name: "message.menu.systemUser",
 					title: "message.menu.systemUser",
 					icon: "icon-user",
+					auth: 1,
 					isLink: 0,
 					isIframe: 0,
 					address: "",
@@ -86,6 +93,7 @@ export default {
 					name: "message.menu.systemRole",
 					title: "message.menu.systemRole",
 					icon: "icon-user",
+					auth: 1,
 					isLink: 0,
 					isIframe: 0,
 					address: "",
@@ -106,6 +114,7 @@ export default {
 					name: "message.menu.systemDepartment",
 					title: "message.menu.systemDepartment",
 					icon: "icon-user",
+					auth: 1,
 					isLink: 0,
 					isIframe: 0,
 					address: "",
@@ -126,6 +135,7 @@ export default {
 					name: "message.menu.systemJob",
 					title: "message.menu.systemJob",
 					icon: "icon-user",
+					auth: 1,
 					isLink: 0,
 					isIframe: 0,
 					address: "",
@@ -146,6 +156,7 @@ export default {
 					name: "message.menu.systemMenu",
 					title: "message.menu.systemMenu",
 					icon: "icon-layout",
+					auth: 1,
 					isLink: 0,
 					isIframe: 0,
 					address: "",
@@ -168,6 +179,7 @@ export default {
 			name: "message.menu.demo",
 			title: "message.menu.demo",
 			icon: "icon-changyongshili",
+			auth: 1,
 			isLink: 0,
 			isIframe: 0,
 			address: "",
@@ -187,6 +199,7 @@ export default {
 					name: "message.menu.demoPage",
 					title: "message.menu.demoPage",
 					icon: "icon-appstore",
+					auth: 1,
 					isLink: 0,
 					isIframe: 0,
 					address: "",
@@ -207,6 +220,7 @@ export default {
 					name: "message.menu.demoIcon",
 					title: "message.menu.demoIcon",
 					icon: "icon-appstore",
+					auth: 1,
 					isLink: 0,
 					isIframe: 0,
 					address: "",
@@ -227,6 +241,7 @@ export default {
 					name: "message.menu.demoAnimaCss",
 					title: "message.menu.demoAnimaCss",
 					icon: "icon-appstore",
+					auth: 1,
 					isLink: 0,
 					isIframe: 0,
 					address: "",
@@ -247,6 +262,7 @@ export default {
 					name: "message.menu.demoXlsx",
 					title: "message.menu.demoXlsx",
 					icon: "icon-appstore",
+					auth: 1,
 					isLink: 0,
 					isIframe: 0,
 					address: "",
@@ -267,6 +283,7 @@ export default {
 					name: "message.menu.demoUa",
 					title: "message.menu.demoUa",
 					icon: "icon-appstore",
+					auth: 1,
 					isLink: 0,
 					isIframe: 0,
 					address: "",
@@ -287,6 +304,7 @@ export default {
 					name: "message.menu.demoEchart",
 					title: "message.menu.demoEchart",
 					icon: "icon-appstore",
+					auth: 1,
 					isLink: 0,
 					isIframe: 0,
 					address: "",
@@ -309,6 +327,7 @@ export default {
 			name: "message.menu.testLink",
 			title: "message.menu.testLink",
 			icon: "icon-home",
+			auth: 1,
 			isLink: 1,
 			isIframe: 0,
 			address: "https://cn.bing.com/",
@@ -329,6 +348,7 @@ export default {
 			name: "message.menu.testIframe",
 			title: "message.menu.testIframe",
 			icon: "icon-home",
+			auth: 1,
 			isLink: 0,
 			isIframe: 1,
 			address: "https://nodejs.org/zh-cn/",
@@ -349,6 +369,7 @@ export default {
 			name: "message.menu.home",
 			title: "message.menu.home",
 			icon: "icon-home",
+			auth: 1,
 			isLink: 0,
 			isIframe: 0,
 			address: "",

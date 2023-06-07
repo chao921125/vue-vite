@@ -82,7 +82,12 @@ router.afterEach(() => {
 
 /**
  * 处理路由数据
- * 其实处理路由的逻辑很简单，就是拦截配置、动态加载，加载之前转为路由即可
+ * 动态路由处理思路：
+ * 1、配置静态路由（无需登录即访问的，比如登录/注册/404等）
+ * 2、拦截处理配置
+ * 3、获取动态路由（将菜单存放状态管理中/将处理后的路由存放状态管理中，方便改变数据及时渲染）
+ * 4、处理获取到的路由数据转为路由并动态添加进去
+ * 5、渲染
  */
 
 const viewsModules: any = import.meta.glob("../views/**/**.{vue,tsx}");
@@ -116,6 +121,10 @@ async function setRouterList(data: any[]) {
 	await appStore.useRouterList.setRouterList(data);
 }
 
+/**
+ * update router
+ * @param data
+ */
 function getRouter(data: IMenuState[] = []) {
 	if (data.length === 0) return [];
 	let rootRouter: Array<RouteRecordRaw> = [
@@ -124,7 +133,7 @@ function getRouter(data: IMenuState[] = []) {
 			name: "/",
 			redirect: { path: "" },
 			component: () => import("@/views/layout/Index.vue"),
-			meta: { title: "message.title.home" },
+			meta: { title: "message.title.home", name: "message.title.home", auth: false, isHide: false },
 			children: [],
 		},
 	];
@@ -134,7 +143,9 @@ function getRouter(data: IMenuState[] = []) {
 	rootRouter[0].children = [...rootRouter[0].children, ...errorRoutes];
 	return rootRouter;
 }
-
+/**
+ * update router
+ */
 function setRouterItem(routerList: any, data: IMenuState[] = [], parentPath: string = "") {
 	if (data.length === 0) return [];
 	data.forEach((item: any) => {
@@ -145,16 +156,21 @@ function setRouterItem(routerList: any, data: IMenuState[] = [], parentPath: str
 			name: name,
 			component: item.component,
 			meta: {
-				title: item.title,
 				name: item.name,
+				title: item.title,
 				icon: item.icon,
-				isHide: item.isHide,
-				isKeepAlive: item.isKeepAlive,
-				isAffix: item.isAffix,
-				isLink: item.isLink,
-				isIframe: item.isIframe,
-				address: item.address,
-				roles: item.roles,
+				auth: item.auth || false,
+				isLink: item.isLink || false,
+				isIframe: item.isIframe || false,
+				address: item.address || "",
+				isHide: item.isHide || false,
+				isHideSubMenu: item.isHideSubMenu || false,
+				isKeepAlive: item.isKeepAlive || false,
+				isAffix: item.isAffix || false,
+				isDisable: item.isDisable || false,
+				isMobile: item.isMobile || false,
+				roles: item.roles || [],
+				permission: item.permission || [],
 			},
 		};
 		if (item.children && item.children.length) {
@@ -179,15 +195,15 @@ function routeToComponent(routes: any[]) {
 	});
 }
 
-function componentImport(viewsModules: Record<string, Function>, component: string) {
-	const keys = Object.keys(viewsModules);
+function componentImport(viewsModule: Record<string, Function>, component: string) {
+	const keys = Object.keys(viewsModule);
 	const matchKeys = keys.filter((key) => {
 		const k = key.replace(/..\/views|../, "");
 		return k.startsWith(`${component}`) || k.startsWith(`/${component}`);
 	});
 	if (matchKeys?.length === 1) {
 		const matchKey = matchKeys[0];
-		return viewsModules[matchKey];
+		return viewsModule[matchKey];
 	}
 	if (matchKeys?.length > 1) {
 		return false;
