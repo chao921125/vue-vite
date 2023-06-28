@@ -123,12 +123,11 @@
 | UI PC 官方                                                                  |
 |---------------------------------------------------------------------------|
 | [element-plus 官网](https://element-plus.org/)                              |
-| [vue2 elementUI 官网](https://element.eleme.io/)                            |
 | [arco 字节 官网](https://arco.design/)                                        |
+| [bootstrap 兼容版 直接install](https://getbootstrap.com/)                      |
 | [ant-design-vue 官网 社区维护 请自行斟酌](https://2x.antdv.com/components/overview/) |
-| [vue2 vuetifyjs 官网](https://vuetifyjs.com/)                               |
-| [vuetifyjs 官网](https://next.vuetifyjs.com/en/)                            |
-| [vue2 bootstrap-vue 官网](https://dev.bootstrap-vue.org/docs/)              |
+| [vuetifyjs 官网](https://vuetifyjs.com/)                                    |
+| [bootstrap4 vue 官网](https://dev.bootstrap-vue.org/)                       |
 | [quasar 官网](https://quasar.dev/)                                          |
 | [heyui 官网](https://v2.heyui.top/)                                         |
 | [BalmUI 官网](https://next-material.balmjs.com/#/)                          |
@@ -139,6 +138,10 @@
 | [iDux 官网](https://idux.site/)                                             |
 | [relaxplus 官网](https://bsie.gitee.io/relaxplus/#/)                        |
 
+| VUE2 UI PC 官方                                              |
+|------------------------------------------------------------|
+| [elementUI 官网](https://element.eleme.io/)                  |
+| [vuetifyjs 官网](https://v2.vuetifyjs.com/zh-Hans/)          |
 
 | UI Mobile 官方                                                |
 |-------------------------------------------------------------|
