@@ -50,6 +50,7 @@ export default {
 		demoMapTwo: "CV Drag",
 		demoUa: "UA&IP",
 		demoEchart: "Echart",
+		demoSwiper: "Swiper",
 		testLink: "Link",
 		testIframe: "Iframe",
 	},

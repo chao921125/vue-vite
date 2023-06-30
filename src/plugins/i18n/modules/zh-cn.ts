@@ -50,6 +50,7 @@ export default {
 		demoMapTwo: "CV拖拽",
 		demoUa: "UA&IP",
 		demoEchart: "图表Echart",
+		demoSwiper: "幻灯片Swiper",
 		testLink: "链接",
 		testIframe: "Iframe",
 	},
