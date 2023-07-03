@@ -158,7 +158,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			createSvgIconsPlugin({
 				// 指定 SVG图标 保存的文件夹路径
-				iconDirs: [path.resolve(process.cwd(), "/src/assets/svgs")],
+				iconDirs: [path.resolve(process.cwd(), "src/assets/svgs")],
 				// 指定 使用svg图标的格式
 				symbolId: "svg-[dir]-[name]",
 			}),
