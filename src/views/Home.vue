@@ -12,7 +12,7 @@
 	const isLoading = ref(true);
 	setTimeout(() => {
 		isLoading.value = false;
-	}, 3000);
+	}, 1500);
 </script>
 
 <style scoped lang="scss">

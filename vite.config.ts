@@ -157,9 +157,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				autoInstall: true,
 			}),
 			createSvgIconsPlugin({
-				// Specify the icon folder to be cached
-				iconDirs: [path.resolve(process.cwd(), "/src/assets/svg")],
-				// Specify symbolId format
+				// 指定 SVG图标 保存的文件夹路径
+				iconDirs: [path.resolve(process.cwd(), "src/assets/svgs")],
+				// 指定 使用svg图标的格式
 				symbolId: "svg-[dir]-[name]",
 			}),
 			// https://github.com/antfu/unplugin-auto-import#readme

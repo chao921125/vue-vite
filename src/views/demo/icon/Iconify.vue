@@ -52,9 +52,11 @@
 			<code>iconfont &lt;i class="iconfont icon-detail"&gt;&lt;/i&gt; <i class="iconfont icon-detail" /></code>
 		</el-col>
 	</el-row>
+	<el-divider />
 	<el-row>
+		<el-col :span="24"> svg 示例 </el-col>
 		<el-col :span="24">
-			<icon-svg name="democrat" class="icon"></icon-svg>
+			<icon-svg name="accessibility-outline" class="svg-icon-cus"></icon-svg>
 		</el-col>
 	</el-row>
 </template>

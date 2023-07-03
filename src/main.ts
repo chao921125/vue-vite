@@ -41,7 +41,7 @@ import "vant/lib/index.css";
 
 // px转rem
 
-// 图标
+// svg 图标
 import "virtual:svg-icons-register";
 
 // vue i18n
@@ -64,6 +64,9 @@ import "animate.css/animate.min.css";
 // 自定义样式
 import "@/assets/styles/index.scss";
 
+// import { register } from "swiper/element/bundle";
+// register();
+
 // 全局自定义指令
 import * as directives from "@/plugins/directive";
 Object.keys(directives).forEach((key) => {
@@ -80,6 +83,10 @@ app.config.globalProperties.mittBus = mitt();
 
 // provide app.provide("fn", FN) 配合 inject inject("fn") 使用
 // app.provide("", "");
+
+// 手动引入自定义插件对象，注册整个项目中的全局组件
+// import globalComponent from "@/components/index.ts";
+// app.use(globalComponent)
 
 // log
 Log.success(">>>>>> 当前VUE版本 >>>>>>");
@@ -98,6 +105,7 @@ app.config.errorHandler = (err, instance, info) => {
 		Log.danger(">>>>>> Error >>>>>>");
 		console.log(info);
 		Log.primary(info);
+		return false;
 	}
 };
 app.config.warnHandler = (msg, instance, trace) => {
