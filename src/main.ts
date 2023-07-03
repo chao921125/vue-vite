@@ -64,6 +64,9 @@ import "animate.css/animate.min.css";
 // 自定义样式
 import "@/assets/styles/index.scss";
 
+// import { register } from "swiper/element/bundle";
+// register();
+
 // 全局自定义指令
 import * as directives from "@/plugins/directive";
 Object.keys(directives).forEach((key) => {
