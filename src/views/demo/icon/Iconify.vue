@@ -62,7 +62,6 @@
 </template>
 
 <script lang="ts" setup name="Iconify">
-	import IconSvg from "@/components/icon-svg/Index.vue";
 	// import { Icon } from "@iconify/vue";
 </script>
 
