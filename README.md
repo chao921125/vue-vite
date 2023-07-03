@@ -1,4 +1,4 @@
-# 用前必看：不再提供预览地址，成本不足
+# 用前必看：不再提供预览地址
 [//]: # (pnpx husky install)
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
@@ -6,14 +6,14 @@
 # 避坑指南 及 注意事项
 [**已在公司作为模板商用**]
 - 三方包引入尽可能小写，自定义尽可能大写。
-- 推荐使用pnpm(curl -fsSL https://get.pnpm.io/install.sh | sh -)安装依赖，其次yarn或者npm
-- 使用 reactive 请使用 let，使用 ref 请使用const
-- 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式(兼容jsx)
 - package.json添加"type": "module",需要修改*.js为*.cjs
+- 推荐使用pnpm(curl -fsSL https://get.pnpm.io/install.sh | sh -)安装依赖，其次yarn或者npm
 - 注意所有配置菜单的数据，均由前端提供
-- ！！！注意VUE3中的reactive使用，如果需要更新视图需要抽出interface。！！！
 - 项目本身配置99%都在vite.config.ts里面，参数设置都在根目录下，而非src下
 - src下的config目录是系统默认参数，及部分数据配置
+- 使用 reactive 请使用 let，使用 ref 请使用const
+- ！！！注意VUE3中的reactive使用，如果需要更新视图需要抽出interface。！！！
+- 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式(兼容jsx)
 
 # 关于手机端适配（脱离业务场景谈解决方案都是耍流氓）
 1. 最古老的解决方案：使用媒体查询，但建议企业官网等页面较少的网站，且对网站设计者和开发者水平有一定的要求。
