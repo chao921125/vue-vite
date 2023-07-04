@@ -7,9 +7,8 @@
 </template>
 
 <script lang="ts" setup name="SwiperAll">
-	import { Swiper, SwiperSlide } from "swiper/swiper-vue";
+	import { Swiper, SwiperSlide } from "swiper/vue";
 	import { EffectFade, Autoplay } from "swiper/modules";
-
 	import "swiper/css";
 	import "swiper/css/effect-fade";
 </script>
