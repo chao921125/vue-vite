@@ -110,12 +110,18 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					// 	path: "https://unpkg.com/vue@3"
 					// },
 					// 使用cdn引入element-plus时,开发环境还是需要在main.js中引入element-plus,可以不用引入css
-					// {
-					// 	name: "element-plus",
-					// 	var: "ElementPlus",
-					// 	path: "https://unpkg.com/element-plus",
-					// 	css: "https://unpkg.com/element-plus/dist/index.css"
-					// }
+					{
+						name: "element-plus",
+						var: "ElementPlus",
+						path: "https://unpkg.com/element-plus",
+						css: "https://unpkg.com/element-plus/dist/index.css",
+					},
+					{
+						name: "vant",
+						var: "Vant",
+						path: "https://fastly.jsdelivr.net/npm/vant@4/lib/vant.min.js",
+						css: "https://fastly.jsdelivr.net/npm/vant@4/lib/index.css",
+					},
 				],
 			}),
 			// * 是否生成包预览

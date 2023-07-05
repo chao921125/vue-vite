@@ -178,7 +178,6 @@
 | [Framework7](https://framework7.io/)                                 |
 | [Foundation](https://get.foundation/index.html)                      |
 | [Onsen UI](https://onsen.io/)                                        |
-| [Ionic](https://ionicframework.com/)                                 |
 | [heyui](https://v2.heyui.top/)                                       |
 | [varletjs varletjs](https://varlet-varletjs.vercel.app/#/en-US/home) |
 
@@ -233,7 +232,6 @@
 | [vue2 seamless 无缝滚动](https://www.npmjs.com/package/vue-seamless-scroll)                             |
 | [vue3 seamless 无缝滚动](https://www.npmjs.com/package/vue3-seamless-scroll)                            |
 | [vue3 infinite 无限滚动](https://www.npmjs.com/package/vue3-infinite-list)                              |
-
 
 | 树                                                             |
 |---------------------------------------------------------------|
