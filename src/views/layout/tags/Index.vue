@@ -37,6 +37,7 @@
 <script lang="ts" setup name="Tags">
 	import Storage from "@/plugins/utils/storage";
 	import Constants from "@/plugins/constants";
+	import RouterConfig from "@/config/routerConfig";
 	import { $t } from "@/plugins/i18n";
 
 	const router = useRouter();
@@ -61,7 +62,7 @@
 		return tabs.value;
 	};
 	const removeTab = (name: string) => {
-		if (name === "/home") {
+		if (name === RouterConfig.routeHome) {
 			return false;
 		}
 		let activeName = tabValue.value;
@@ -70,14 +71,16 @@
 			const index = tabs.value.findIndex((item: any) => item.name === name);
 			tabs.value.splice(index, 1);
 			if (name === activeName) {
-				if (index === tabs.value.length) {
+				if (!tabs.value.length) {
+					activeName = RouterConfig.routeHome;
+				} else if (index === tabs.value.length) {
 					activeName = tabs.value[index - 1].name;
 				} else {
 					activeName = tabs.value[index].name;
 				}
 			}
 		} else {
-			activeName = "/home";
+			activeName = RouterConfig.routeHome;
 		}
 		tabValue.value = activeName;
 		Storage.setLocalStorage(Constants.storageKey.tags, tabs.value);
@@ -101,7 +104,7 @@
 			tabs.value.push(routeTemp);
 		}
 		if (command === "1" || command === 1) {
-			activeName = "/home";
+			activeName = RouterConfig.routeHome;
 			tabs.value = [];
 		}
 		Storage.setLocalStorage(Constants.storageKey.tags, tabs.value);

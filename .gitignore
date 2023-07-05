@@ -19,6 +19,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+.stylelintcache*
 
 # Editor directories and files
 .DS_Store

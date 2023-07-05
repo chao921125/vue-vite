@@ -21,6 +21,8 @@ import * as Icons from "@element-plus/icons-vue";
 // 按需引入解决Message等样式失效，需引入
 import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
+// import "element-plus/theme-chalk/src/message.scss";
+
 if (import.meta.env.VITE_NODE_ENV === "development") {
 	app.use(ElementPlus);
 }
@@ -38,8 +40,6 @@ Object.keys(Icons).forEach((key) => {
 
 // vant
 import "vant/lib/index.css";
-
-// px转rem
 
 // svg 图标
 import "virtual:svg-icons-register";
@@ -91,36 +91,42 @@ app.config.globalProperties.mittBus = mitt();
 // log
 Log.success(">>>>>> 当前VUE版本 >>>>>>");
 Log.primary(app.version);
+// 防止错误和警告死循环，手动终止
+let isErrorNumMax: number = 10;
+let isErrorNum: number = 0;
+let isShowError: boolean = false;
+let isWanNumMax: number = 10;
+let isWanNum: number = 0;
+let isShowWan: boolean = false;
 app.config.errorHandler = (err, instance, info) => {
 	// 处理错误
 	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
 	// 只在开发模式下打印 log
-	if (import.meta.env.VITE_NODE_ENV === "development") {
+	if (import.meta.env.VITE_NODE_ENV === "development" && !isShowError) {
+		if (++isErrorNum > isErrorNumMax) {
+			isShowError = true;
+		}
 		Log.danger(">>>>>> 错误信息 >>>>>>");
-		console.log(err);
-		Log.primary(err);
+		Log.primary(err || "");
 		Log.danger(">>>>>> Vue 实例 >>>>>>");
-		console.log(instance);
-		Log.primary(instance);
+		Log.primary(instance || "");
 		Log.danger(">>>>>> Error >>>>>>");
-		console.log(info);
-		Log.primary(info);
-		return false;
+		Log.primary(info || "");
 	}
 };
 app.config.warnHandler = (msg, instance, trace) => {
 	// 显示在控制台
-	if (import.meta.env.VITE_NODE_ENV === "development") {
+	if (import.meta.env.VITE_NODE_ENV === "development" && !isShowWan) {
+		if (++isWanNum > isWanNumMax) {
+			isShowWan = true;
+		}
 		// `trace` 是组件的继承关系追踪
 		Log.warning(">>>>>> 警告信息 >>>>>>");
-		console.log(msg);
-		Log.primary(msg);
+		Log.primary(msg || "");
 		Log.warning(">>>>>> Vue 实例 >>>>>>");
-		console.log(instance);
-		Log.primary(instance);
+		Log.primary(instance || "");
 		Log.warning(">>>>>> Info >>>>>>");
-		console.log(trace);
-		Log.primary(trace);
+		Log.primary(trace || "");
 	}
 };
 app.config.performance = import.meta.env.VITE_NODE_ENV === "development";
