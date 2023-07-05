@@ -1,3 +1,11 @@
+// 暗黑主题下的样式
+@forward 'element-plus/theme-chalk/src/dark/var.scss' with (
+  $bg-color: (
+    'page': #0a0a0a,
+    '': #626aef,
+    'overlay': #1d1e1f,
+  )
+);
 // 优化显示
 :root {
 	--re-color-white: #ffffff;

@@ -74,19 +74,19 @@
 		<el-row :gutter="20" class="re-flex-row-center-ai" justify="space-between">
 			<el-col :span="6" class="re-text-left">暗黑</el-col>
 			<el-col :span="18" class="re-text-right">
-				<el-switch v-model="isThemDark" inline-prompt disabled :active-icon="Sunny" :inactive-icon="Moon" @change="changeDark" />
+				<el-switch v-model="isThemDark" :disabled="isThemGrey || isThemInvert" inline-prompt :active-icon="Sunny" :inactive-icon="Moon" @change="changeDark" />
 			</el-col>
 		</el-row>
 		<el-row :gutter="20" class="re-flex-row-center-ai" justify="space-between">
 			<el-col :span="6" class="re-text-left">灰色</el-col>
 			<el-col :span="18" class="re-text-right">
-				<el-switch v-model="isThemGrey" inline-prompt @change="changeGrey" />
+				<el-switch v-model="isThemGrey" :disabled="isThemDark || isThemInvert" inline-prompt @change="changeGrey" />
 			</el-col>
 		</el-row>
 		<el-row :gutter="20" class="re-flex-row-center-ai" justify="space-between">
 			<el-col :span="6" class="re-text-left">色弱</el-col>
 			<el-col :span="18" class="re-text-right">
-				<el-switch v-model="isThemInvert" inline-prompt @change="changeInvert" />
+				<el-switch v-model="isThemInvert" :disabled="isThemDark || isThemGrey" inline-prompt @change="changeInvert" />
 			</el-col>
 		</el-row>
 	</el-drawer>
@@ -210,6 +210,9 @@
 	const changeColorPicker = () => {
 		console.log("color is ", colorPicker.value);
 	};
+	// 暗黑模式 有两种方式，利用vueuse和自定义
+	// const isDark = useDark()
+	// const toggleDark = useToggle(isDark)
 	const isThemDark = ref();
 	const changeDark = (e) => {
 		themeConfig.value.isDark = e;
