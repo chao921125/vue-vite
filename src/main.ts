@@ -91,33 +91,35 @@ app.config.globalProperties.mittBus = mitt();
 // log
 Log.success(">>>>>> 当前VUE版本 >>>>>>");
 Log.primary(app.version);
-let MsgErrorNum: number = 0;
-let MsgError: any[] = [];
-let isShowMsgError: boolean = false;
+// 防止错误和警告死循环，手动终止
+let isErrorNumMax: number = 10;
+let isErrorNum: number = 0;
+let isShowError: boolean = false;
+let isWanNumMax: number = 10;
+let isWanNum: number = 0;
+let isShowWan: boolean = false;
 app.config.errorHandler = (err, instance, info) => {
 	// 处理错误
 	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
 	// 只在开发模式下打印 log
-	if (import.meta.env.VITE_NODE_ENV === "development" && !isShowMsgError) {
+	if (import.meta.env.VITE_NODE_ENV === "development" && !isShowError) {
+		if (++isErrorNum > isErrorNumMax) {
+			isShowError = true;
+		}
 		Log.danger(">>>>>> 错误信息 >>>>>>");
 		Log.primary(err || "");
 		Log.danger(">>>>>> Vue 实例 >>>>>>");
 		Log.primary(instance || "");
 		Log.danger(">>>>>> Error >>>>>>");
 		Log.primary(info || "");
-		MsgError.push(err);
-		console.log(++MsgErrorNum);
-		console.log(JSON.stringify(MsgError));
-		if (MsgError.length > 1) {
-			let start = MsgError[0];
-			let end = MsgError[MsgError.length - 1];
-			isShowMsgError = start === end;
-		}
 	}
 };
 app.config.warnHandler = (msg, instance, trace) => {
 	// 显示在控制台
-	if (import.meta.env.VITE_NODE_ENV === "development") {
+	if (import.meta.env.VITE_NODE_ENV === "development" && !isShowWan) {
+		if (++isWanNum > isWanNumMax) {
+			isShowWan = true;
+		}
 		// `trace` 是组件的继承关系追踪
 		Log.warning(">>>>>> 警告信息 >>>>>>");
 		Log.primary(msg || "");
