@@ -91,6 +91,7 @@ app.config.globalProperties.mittBus = mitt();
 // log
 Log.success(">>>>>> 当前VUE版本 >>>>>>");
 Log.primary(app.version);
+let MsgErrorNum: number = 0;
 let MsgError: any[] = [];
 let isShowMsgError: boolean = false;
 app.config.errorHandler = (err, instance, info) => {
@@ -104,12 +105,14 @@ app.config.errorHandler = (err, instance, info) => {
 		Log.primary(instance || "");
 		Log.danger(">>>>>> Error >>>>>>");
 		Log.primary(info || "");
-		MsgError.push(info);
-	}
-	if (MsgError.length > 1) {
-		let start = MsgError[0];
-		let end = MsgError[MsgError.length - 1];
-		isShowMsgError = start === end;
+		MsgError.push(err);
+		console.log(++MsgErrorNum);
+		console.log(JSON.stringify(MsgError));
+		if (MsgError.length > 1) {
+			let start = MsgError[0];
+			let end = MsgError[MsgError.length - 1];
+			isShowMsgError = start === end;
+		}
 	}
 };
 app.config.warnHandler = (msg, instance, trace) => {

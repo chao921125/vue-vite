@@ -9,7 +9,7 @@
  * @description format 季度 + 星期 + 几周："YYYY-mm-dd HH:MM:SS WWW QQQQ ZZZ"
  * @returns 返回拼接后的时间字符串
  */
-function formatDate(date: Date, format: string): string {
+export const formatDate = (date: Date, format: string): string => {
 	let we = date.getDay(); // 星期
 	let z = getWeek(date); // 周
 	let qut = Math.floor((date.getMonth() + 3) / 3).toString(); // 季度
@@ -48,7 +48,7 @@ function formatDate(date: Date, format: string): string {
 		if (r) format = format.replace(r[1], RegExp.$1.length == 1 ? opt[k] : opt[k].padStart(RegExp.$1.length, "0"));
 	}
 	return format;
-}
+};
 
 /**
  * 获取当前日期是第几周
