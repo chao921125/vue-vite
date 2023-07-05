@@ -14,6 +14,9 @@
 					<el-input v-model="formUser.password" type="password" placeholder="user password" @keyup.enter.native="loginUser(formUserRef)" />
 				</el-form-item>
 				<el-form-item label="" prop="">
+					<label>账号：admin/user 密码：随意</label>
+				</el-form-item>
+				<el-form-item label="" prop="">
 					<el-button @click.native.prevent="loginUser(formUserRef)" @keyup.enter.native="loginUser(formUserRef)" :loading="isLoading">login</el-button>
 				</el-form-item>
 			</el-form>
