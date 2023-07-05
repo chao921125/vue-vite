@@ -1,6 +1,6 @@
 <template>
 	<el-row>
-		<el-col :span="24">基本示例 动画 自动播放</el-col>
+		<el-col :span="24">基本示例 动画 自动播放 手动滑动后自动播放失效</el-col>
 		<el-col :span="24">
 			<swiper loop :modules="[EffectFade, Autoplay]" autoplay effect="fade">
 				<swiper-slide style="background-color: #44eeaa">Slide 1</swiper-slide>
@@ -11,7 +11,7 @@
 	</el-row>
 	<el-divider />
 	<el-row>
-		<el-col :span="24">动画 自动播放 禁止手动控制 class="swiper-no-swiping"</el-col>
+		<el-col :span="24">基本示例 动画 自动播放 禁止手动控制 class="swiper-no-swiping"</el-col>
 		<el-col :span="24">
 			<swiper loop :modules="[EffectFade, Autoplay]" autoplay effect="fade" class="swiper-no-swiping">
 				<swiper-slide style="background-color: #44eeaa">Slide 1</swiper-slide>
