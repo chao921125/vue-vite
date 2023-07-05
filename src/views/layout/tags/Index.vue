@@ -70,7 +70,9 @@
 			const index = tabs.value.findIndex((item: any) => item.name === name);
 			tabs.value.splice(index, 1);
 			if (name === activeName) {
-				if (index === tabs.value.length) {
+				if (!tabs.value.length) {
+					activeName = "/home";
+				} else if (index === tabs.value.length) {
 					activeName = tabs.value[index - 1].name;
 				} else {
 					activeName = tabs.value[index].name;
