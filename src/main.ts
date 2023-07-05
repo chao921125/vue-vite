@@ -21,6 +21,8 @@ import * as Icons from "@element-plus/icons-vue";
 // 按需引入解决Message等样式失效，需引入
 import "element-plus/dist/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
+// import "element-plus/theme-chalk/src/message.scss";
+
 if (import.meta.env.VITE_NODE_ENV === "development") {
 	app.use(ElementPlus);
 }
@@ -38,8 +40,6 @@ Object.keys(Icons).forEach((key) => {
 
 // vant
 import "vant/lib/index.css";
-
-// px转rem
 
 // svg 图标
 import "virtual:svg-icons-register";
