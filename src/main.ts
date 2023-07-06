@@ -41,15 +41,14 @@ Object.keys(Icons).forEach((key) => {
 // vant
 import "vant/lib/index.css";
 
-// svg 图标
+// svg font icon 字体、图标
 import "virtual:svg-icons-register";
+import "@/assets/fonts/font.css";
+import "@/assets/icon/iconfont.css";
 
 // vue i18n
 import I18n from "@/plugins/i18n";
 app.use(I18n);
-
-// unocss
-import "virtual:uno.css";
 
 // 打印
 import print from "vue3-print-nb";
@@ -57,6 +56,9 @@ app.use(print);
 
 // 工具
 import Log from "@/plugins/utils/log";
+
+// unocss
+import "virtual:uno.css";
 
 // 三方样式
 import "animate.css/animate.min.css";

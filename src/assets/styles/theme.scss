@@ -21,7 +21,7 @@ $--colors: (
 
 // we can add this to custom namespace, default is 'el'
 @forward "element-plus/theme-chalk/src/mixins/config.scss" with (
-  $namespace: "ep"
+  $namespace: "el"
 );
 
 // You should use them in scss, because we calculate it by sass.
@@ -33,10 +33,10 @@ $--colors: (
 );
 
 // if you want to import all
-// @use "element-plus/theme-chalk/src/index.scss" as *;
+@use "element-plus/theme-chalk/src/index.scss" as *;
 
 // You can comment it to hide debug info.
 // @debug $--colors;
 
 // custom dark variables
-//@use "./common/element-dark.scss";
+@use "./common/dark.scss";

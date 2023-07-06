@@ -1,192 +1,194 @@
+@use "declare.scss";
+
 // 在这里写公用的class
 // 占位符
-.#{$prefix}-place {
+.#{declare.$prefix}-place {
 	width: 1px;
 	height: 1px;
 }
 
 // Flex 基础布局
-.#{$prefix}-flex-auto {
-	@extend %flex-base;
+.#{declare.$prefix}-flex-auto {
+	@include declare.flex-base;
 	flex: 1;
 	overflow: hidden;
 }
-.#{$prefix}-flex-row {
-	@extend %flex-base;
+.#{declare.$prefix}-flex-row {
+	@include declare.flex-base;
 	flex-direction: row;
 }
-.#{$prefix}-flex-row-end {
-	@extend %flex-base;
+.#{declare.$prefix}-flex-row-end {
+	@include declare.flex-base;
 	flex-direction: row;
 	align-items: center;
 	justify-content: flex-end;
 }
-.#{$prefix}-flex-row-center {
-	@extend %flex-base;
-	@extend %flex-row-center;
+.#{declare.$prefix}-flex-row-center {
+	@include declare.flex-base;
+	@include declare.flex-row-center;
 }
-.#{$prefix}-flex-row-center-jc {
-	@extend %flex-base;
+.#{declare.$prefix}-flex-row-center-jc {
+	@include declare.flex-base;
 	justify-content: center;
 }
-.#{$prefix}-flex-row-center-ai {
-	@extend %flex-base;
+.#{declare.$prefix}-flex-row-center-ai {
+	@include declare.flex-base;
 	align-items: center;
 }
-.#{$prefix}-flex-row-between {
-	@extend %flex-base;
+.#{declare.$prefix}-flex-row-between {
+	@include declare.flex-base;
 	justify-content: space-between;
 	align-items: center;
 }
-.#{$prefix}-flex-row-reverse {
-	@extend %flex-base;
+.#{declare.$prefix}-flex-row-reverse {
+	@include declare.flex-base;
 	flex-direction: row-reverse;
 	align-items: center;
 }
-.#{$prefix}-flex-col {
-	@extend %flex-base;
+.#{declare.$prefix}-flex-col {
+	@include declare.flex-base;
 	flex-direction: column;
 }
-.#{$prefix}-flex-col-center {
-	@extend %flex-base;
-	@extend %flex-center-col;
+.#{declare.$prefix}-flex-col-center {
+	@include declare.flex-base;
+	@include declare.flex-col-center;
 }
 
 // 100%
-.#{$prefix}-box-fill {
-	@extend %wh-fill;
+.#{declare.$prefix}-box-fill {
+	@include declare.wh-fill;
 }
-.#{$prefix}-box-full {
-	@extend %wh-full;
+.#{declare.$prefix}-box-full {
+	@include declare.wh-full;
 }
-.#{$prefix}-w-auto {
+.#{declare.$prefix}-w-auto {
 	width: auto;
 }
-.#{$prefix}-w-fill {
-	@extend %width-fill;
+.#{declare.$prefix}-w-fill {
+	@include declare.width-fill;
 }
-.#{$prefix}-w-fill-min {
+.#{declare.$prefix}-w-fill-min {
 	min-width: 100%;
 }
-.#{$prefix}-w-fill-max {
+.#{declare.$prefix}-w-fill-max {
 	max-width: 100%;
 }
-.#{$prefix}-w-full {
-	@extend %width-full;
+.#{declare.$prefix}-w-full {
+	@include declare.width-full;
 }
-.#{$prefix}-w-full-min {
+.#{declare.$prefix}-w-full-min {
 	min-width: 100vw;
 }
-.#{$prefix}-w-full-max {
+.#{declare.$prefix}-w-full-max {
 	max-width: 100vw;
 }
-.#{$prefix}-h-auto {
+.#{declare.$prefix}-h-auto {
 	height: auto;
 }
-.#{$prefix}-h-fill {
-	@extend %height-fill;
+.#{declare.$prefix}-h-fill {
+	@include declare.height-fill;
 }
-.#{$prefix}-h-fill-min {
+.#{declare.$prefix}-h-fill-min {
 	min-height: 100%;
 }
-.#{$prefix}-h-fill-max {
+.#{declare.$prefix}-h-fill-max {
 	max-height: 100%;
 }
-.#{$prefix}-h-full {
-	@extend %height-full;
+.#{declare.$prefix}-h-full {
+	@include declare.height-full;
 }
-.#{$prefix}-h-full-min {
+.#{declare.$prefix}-h-full-min {
 	min-height: 100vh;
 }
-.#{$prefix}-h-full-max {
+.#{declare.$prefix}-h-full-max {
 	max-height: 100vh;
 }
 
 // 文字相关
-.#{$prefix}-text-center {
-	@extend %text-center;
+.#{declare.$prefix}-text-center {
+	@include declare.text-center;
 }
-.#{$prefix}-text-left {
-	@extend %text-left;
+.#{declare.$prefix}-text-left {
+	@include declare.text-left;
 }
-.#{$prefix}-text-right {
-	@extend %text-right;
+.#{declare.$prefix}-text-right {
+	@include declare.text-right;
 }
 
 // 变成 小手 帮助 移动
-.#{$prefix}-cursor-default {
+.#{declare.$prefix}-cursor-default {
 	cursor: default;
 }
-.#{$prefix}-cursor-pointer {
+.#{declare.$prefix}-cursor-pointer {
 	cursor: pointer;
 }
-.#{$prefix}-cursor-help {
+.#{declare.$prefix}-cursor-help {
 	cursor: help;
 }
-.#{$prefix}-cursor-move {
+.#{declare.$prefix}-cursor-move {
 	cursor: move;
 }
 
 // 浮动相关
-.#{$prefix}-fl {
+.#{declare.$prefix}-fl {
 	float: left;
 }
-.#{$prefix}-fr {
+.#{declare.$prefix}-fr {
 	float: right;
 }
-.#{$prefix}-clearfix:before,
-.#{$prefix}-clearfix:after {
+.#{declare.$prefix}-clearfix:before,
+.#{declare.$prefix}-clearfix:after {
 	display: table;
 	content: "";
 }
-.#{$prefix}-clearfix:after {
+.#{declare.$prefix}-clearfix:after {
 	clear: both;
 }
 
 // 边距相关
 $i: 500;
 @while $i > 0 {
-	.#{$prefix}-m-#{$i} {
+	.#{declare.$prefix}-m-#{$i} {
 		margin: #{$i}px;
 	}
-	.#{$prefix}-mtb-#{$i} {
+	.#{declare.$prefix}-mtb-#{$i} {
 		margin: #{$i}px 0;
 	}
-	.#{$prefix}-mlr-#{$i} {
+	.#{declare.$prefix}-mlr-#{$i} {
 		margin: 0 #{$i}px;
 	}
-	.#{$prefix}-mt-#{$i} {
+	.#{declare.$prefix}-mt-#{$i} {
 		margin-top: #{$i}px;
 	}
-	.#{$prefix}-mr-#{$i} {
+	.#{declare.$prefix}-mr-#{$i} {
 		margin-right: #{$i}px;
 	}
-	.#{$prefix}-mb-#{$i} {
+	.#{declare.$prefix}-mb-#{$i} {
 		margin-bottom: #{$i}px;
 	}
-	.#{$prefix}-ml-#{$i} {
+	.#{declare.$prefix}-ml-#{$i} {
 		margin-left: #{$i}px;
 	}
 
-	.#{$prefix}-p-#{$i} {
+	.#{declare.$prefix}-p-#{$i} {
 		padding: #{$i}px;
 	}
-	.#{$prefix}-ptb-#{$i} {
+	.#{declare.$prefix}-ptb-#{$i} {
 		padding: #{$i}px 0;
 	}
-	.#{$prefix}-plr-#{$i} {
+	.#{declare.$prefix}-plr-#{$i} {
 		padding: 0 #{$i}px;
 	}
-	.#{$prefix}-pt-#{$i} {
+	.#{declare.$prefix}-pt-#{$i} {
 		padding-top: #{$i}px;
 	}
-	.#{$prefix}-pr-#{$i} {
+	.#{declare.$prefix}-pr-#{$i} {
 		padding-right: #{$i}px;
 	}
-	.#{$prefix}-pb-#{$i} {
+	.#{declare.$prefix}-pb-#{$i} {
 		padding-bottom: #{$i}px;
 	}
-	.#{$prefix}-pl-#{$i} {
+	.#{declare.$prefix}-pl-#{$i} {
 		padding-left: #{$i}px;
 	}
 	$i: $i - 1;
@@ -198,25 +200,25 @@ $i: 500;
 
 $sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
 @each $size in $sizes {
-	.#{$prefix}-box-#{$size} {
+	.#{declare.$prefix}-box-#{$size} {
 		width: #{$size}px;
 		height: #{$size}px;
 	}
-	.#{$prefix}-w-#{$size} {
+	.#{declare.$prefix}-w-#{$size} {
 		width: #{$size}px;
 	}
-	.#{$prefix}-h-#{$size} {
+	.#{declare.$prefix}-h-#{$size} {
 		height: #{$size}px;
 	}
 }
 
 .fixed-top-center {
-	@extend %text-center;
+	@include declare.text-center;
 	position: fixed;
 	top: 0;
 }
 .fixed-bottom {
-	@extend %text-center;
+	@include declare.text-center;
 	position: fixed;
 	bottom: 0;
 }

@@ -1,21 +1,24 @@
-// ****全局重置、定义 顺序不可以更换****
-// 全局重置
-@import "./resets/reset.scss";
-// 全局声明
-@import "./resets/declare.scss";
-// 全局布局
-@import "./resets/public.scss";
-// 全局动画
-@import "./resets/animate.scss";
-
-// 注意在scss中无法使用变量对应变量对应值，只能变量对应一个确定的值
-// font icon 字体
-@import "./fonts/font.css";
-@import "./icon/iconfont.css";
-
-// 基础布局style
-@import "./common/layout.scss";
-
-// 重写三方UI的样式文件在这里
-@import "./common/element.scss";
-@import "./common/n-progress.scss";
+/*
+注意点
+	0、注意在scss中无法使用变量对应变量对应值，只能变量对应一个确定的值
+	1、舍弃 @import & @extend 改为 @use & @mixin @include
+	2、@while 尽量配合 @function 使用，单独定义适用 @each & @for
+	3、@each 迭代固定数组，@for 迭代一个上限值
+*/
+// ****全局style，重置、定义，顺序不可以更换****
+// 重置
+@use "sass:meta";
+@use "resets/reset.scss";
+// 声明
+@use "resets/declare.scss";
+// 公共css定义
+@use "resets/public.scss";
+// 动画
+@use "resets/animate.scss";
+// ****自定义style，包括对三方的重写****
+// 基础布局
+@include meta.load-css("common/layout.scss");
+// UI element
+@include meta.load-css("common/element.scss");
+// 进度条
+@include meta.load-css("common/n-progress.scss");
