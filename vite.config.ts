@@ -238,7 +238,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				},
 				scss: {
 					javascriptEnabled: true,
-					additionalData: `@use "@/assets/styles/theme.scss";`,
+					additionalData: `@use "@/assets/styles/theme.scss" as *;`,
 				},
 			},
 			// devSourcemap: false,

@@ -13,9 +13,6 @@
 	<el-scrollbar>
 		<el-menu
 			class="menu-box"
-			:background-color="colorSet.menuBg"
-			:active-text-color="colorSet.menuTextActive"
-			:text-color="colorSet.menuText"
 			:default-active="changeMenuKey"
 			mode="vertical"
 			:collapse="!isColl"
@@ -32,9 +29,7 @@
 <script lang="ts" setup name="Menu">
 	import SubMenu from "./SubMenu.vue";
 	import Store, { getStoreRefs, appStore } from "@/store";
-	import ColorConfig from "@/config/colorConfig";
 
-	const colorSet = ColorConfig;
 	// 折叠菜单
 	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 	const isColl = computed(() => {

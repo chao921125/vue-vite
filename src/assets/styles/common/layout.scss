@@ -13,7 +13,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-tap-highlight-color: transparent;
-	background-color: var(--re-bg-main-color);
+	background-color: var(--el-bg-color-overlay);
 	overflow: hidden;
 	#app {
 		@include declare.full;
@@ -49,7 +49,7 @@ body {
 	width: 100%;
 	height: 100%;
 	.layout-aside {
-		//background-color: var(--re-color-white);
+		background-color: var(--el-bg-color);
 		box-shadow: 2px 0 6px rgb(0 21 41 / 1%);
 		height: inherit;
 		position: relative;
@@ -106,7 +106,7 @@ body {
 	}
 	.layout-header {
 		height: 60px;
-		//background-color: var(--re-color-white);
+		background-color: var(--el-bg-color);
 	}
 	.layout-main {
 		padding: 20px;
@@ -114,7 +114,7 @@ body {
 		width: 100%;
 		.main-body {
 			min-height: calc(100vh - 60px - 40px - 50px);
-			//background-color: var(--re-color-white);
+			background-color: var(--el-bg-color);
 		}
 	}
 	.el-scrollbar {
