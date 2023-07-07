@@ -238,8 +238,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				},
 				scss: {
 					javascriptEnabled: true,
-					// additionalData: `@import "@/assets/styles/global.scss";`,
-					additionalData: `@use "@/assets/styles/common/element-dark.scss";`,
+					additionalData: `@use "@/assets/styles/theme.scss";`,
 				},
 			},
 			// devSourcemap: false,

@@ -32,12 +32,12 @@ $z-index-8: 8000;
 $z-index-9: 9000;
 
 // 禁止用户选中
-%unable-select {
+@mixin unable-select {
 	user-select: none;
 }
 
 // 填满父元素 position: relative | absolute;
-%full {
+@mixin full {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -46,55 +46,55 @@ $z-index-9: 9000;
 }
 
 // 文字 居中 左 右
-%text-center {
+@mixin text-center {
 	text-align: center;
 }
-%text-left {
+@mixin text-left {
 	text-align: left;
 }
-%text-right {
+@mixin text-right {
 	text-align: right;
 }
 
 // 填充 宽高
-%wh-full {
+@mixin wh-full {
 	width: 100vw;
 	height: 100vh;
 }
-%width-full {
+@mixin width-full {
 	width: 100vw;
 }
-%height-full {
+@mixin height-full {
 	height: 100vh;
 }
-%wh-fill {
+@mixin wh-fill {
 	width: 100%;
 	height: 100%;
 }
-%width-fill {
+@mixin width-fill {
 	width: 100%;
 }
-%height-fill {
+@mixin height-fill {
 	height: 100%;
 }
 
 // flex 垂直水平居中 两端对齐
-%flex-base {
+@mixin flex-base {
 	display: flex;
 }
-%flex-row-center {
+@mixin flex-row-center {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 }
-%flex-center-col {
+@mixin flex-col-center {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
 // 将元素模拟成卡片外观
-%card {
+@mixin card {
 	//border: 1px solid $color-border-white;
 	background: #fff;
 	border-radius: 4px;

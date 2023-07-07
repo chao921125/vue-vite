@@ -1,20 +1,5 @@
-// 优化显示
-:root {
-	--re-color-white: #ffffff;
-	--re-bg-main-color: #f8f8f8;
-	--re-bg-color: #f5f5ff;
-	--re-border-color-light: #f1f2f3;
-	--re-color-primary-lighter: #ecf5ff;
-	--re-color-success-lighter: #f0f9eb;
-	--re-color-warning-lighter: #fdf6ec;
-	--re-color-danger-lighter: #fef0f0;
-	--re-color-dark-hover: #0000001a;
-	--re-color-menu-hover: rgba(0, 0, 0, 0.2);
-	--re-color-user-hover: rgba(0, 0, 0, 0.04);
-	--re-color-seting-main: #e9eef3;
-	--re-color-seting-aside: #d3dce6;
-	--re-color-seting-header: #b3c0d1;
-}
+@use "./root.scss";
+@use "../resets/declare.scss";
 
 html,
 body {
@@ -31,7 +16,7 @@ body {
 	background-color: var(--re-bg-main-color);
 	overflow: hidden;
 	#app {
-		@extend %full;
+		@include declare.full;
 		a {
 			text-decoration: none;
 		}
@@ -128,7 +113,7 @@ body {
 		overflow: hidden;
 		width: 100%;
 		.main-body {
-			min-height: calc(100vh - 60px - 40px - 25px);
+			min-height: calc(100vh - 60px - 40px - 50px);
 			//background-color: var(--re-color-white);
 		}
 	}
