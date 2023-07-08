@@ -4,36 +4,33 @@ import App from "./App.vue";
 const app = createApp(App);
 // const app = createSSRApp(App);
 
-// store pinia
-import Store from "@/store";
-app.use(Store);
-// import Store, { registerStore } from "@/store";
-// registerStore();
-
-// router
+// 路由管理 router
 import Router from "@/router";
 app.use(Router);
 
-// UI
+// 状态管理 pinia
+import Store from "@/store";
+app.use(Store);
+
+// mitt 总线 全局指令集 通过getCurrentInstance
+import mitt from "mitt";
+app.config.globalProperties.mittBus = mitt();
+
+/*
+ * UI start
+ * */
 // element
-import ElementPlus, { ElMessage, ElMessageBox, ElNotification } from "element-plus";
+import { ElMessage, ElMessageBox, ElNotification } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
-// 按需引入解决Message等样式失效，需引入
+// element 按需引入解决Message等样式失效，需引入
 import "element-plus/dist/index.css";
-import "element-plus/theme-chalk/dark/css-vars.css";
-// import "element-plus/theme-chalk/src/message.scss";
 
-if (import.meta.env.VITE_NODE_ENV === "development") {
-	app.use(ElementPlus);
-}
-
-// 全局消息提示
+// element 全局消息提示
 app.config.globalProperties.elMessage = ElMessage;
 app.config.globalProperties.elMessageBox = ElMessageBox;
 app.config.globalProperties.elNotification = ElNotification;
 
-// 全局组件 已通过autoimport实现自动全局引入，无需这里自动指定，对应的目录为src/components/*
-// 注册element Icons组件
+// element 注册element Icons组件
 Object.keys(Icons).forEach((key) => {
 	app.component(key, Icons[key as keyof typeof Icons]);
 });
@@ -41,11 +38,23 @@ Object.keys(Icons).forEach((key) => {
 // vant
 import "vant/lib/index.css";
 
+// unocss
+import "virtual:uno.css";
+
 // svg font icon 字体、图标
 import "virtual:svg-icons-register";
 import "@/assets/fonts/font.css";
 import "@/assets/icon/iconfont.css";
 
+// 自定义样式
+import "@/assets/styles/index.scss";
+/*
+ * UI end
+ * */
+
+/*
+ * 三方插件库 start
+ * */
 // vue i18n
 import I18n from "@/plugins/i18n";
 app.use(I18n);
@@ -57,18 +66,15 @@ app.use(print);
 // 工具
 import Log from "@/plugins/utils/log";
 
-// unocss
-import "virtual:uno.css";
-
-// 三方样式
+// 动画
 import "animate.css/animate.min.css";
+/*
+ * 三方插件库 end
+ * */
 
-// 自定义样式
-import "@/assets/styles/index.scss";
-
-// import { register } from "swiper/element/bundle";
-// register();
-
+/*
+ * 自定义 start
+ * */
 // 全局自定义指令
 import * as directives from "@/plugins/directive";
 Object.keys(directives).forEach((key) => {
@@ -78,19 +84,20 @@ Object.keys(directives).forEach((key) => {
 // 全局信息定义 使用 inject: [""],
 // app.provide("", "");
 
-// 全局指令集 通过getCurrentInstance
-// mitt 总线
-import mitt from "mitt";
-app.config.globalProperties.mittBus = mitt();
-
 // provide app.provide("fn", FN) 配合 inject inject("fn") 使用
 // app.provide("", "");
 
 // 手动引入自定义插件对象，注册整个项目中的全局组件
 // import globalComponent from "@/components/index.ts";
 // app.use(globalComponent)
+/*
+ * 自定义 end
+ * */
 
-// log
+/*
+ * 启动运行日志 start
+ * */
+// config log
 Log.success(">>>>>> 当前VUE版本 >>>>>>");
 Log.primary(app.version);
 // 防止错误和警告死循环，手动终止
@@ -132,6 +139,9 @@ app.config.warnHandler = (msg, instance, trace) => {
 	}
 };
 app.config.performance = import.meta.env.VITE_NODE_ENV === "development";
+/*
+ * 启动运行日志 end
+ * */
 
 app.mount("#app");
 // app.unmount();

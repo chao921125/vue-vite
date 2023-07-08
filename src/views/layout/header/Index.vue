@@ -211,20 +211,21 @@
 		console.log("color is ", colorPicker.value);
 	};
 	// 暗黑模式 有两种方式，利用vueuse和自定义
-	// const isDark = useDark()
-	// const toggleDark = useToggle(isDark)
-	const isThemDark = ref();
+	const isDark = useDark();
+	const toggleDark = useToggle(isDark);
+	const isThemDark = ref(themeConfig.value.isDark);
 	const changeDark = (e) => {
 		themeConfig.value.isDark = e;
 		setThemeConfig();
-		let html = document.documentElement as HTMLElement;
-		if (e) {
-			html.setAttribute("class", "dark");
-		} else {
-			html.removeAttribute("class");
-		}
+		toggleDark();
+		// let html = document.documentElement as HTMLElement;
+		// if (e) {
+		// 	html.setAttribute("class", "dark");
+		// } else {
+		// 	html.removeAttribute("class");
+		// }
 	};
-	const isThemGrey = ref();
+	const isThemGrey = ref(themeConfig.value.isGrey);
 	const changeGrey = (e) => {
 		themeConfig.value.isGrey = e;
 		setThemeConfig();
@@ -234,7 +235,7 @@
 			document.querySelector("body")!.removeAttribute("style");
 		}
 	};
-	const isThemInvert = ref();
+	const isThemInvert = ref(themeConfig.value.isInvert);
 	const changeInvert = (e) => {
 		themeConfig.value.isInvert = e;
 		setThemeConfig();

@@ -1,4 +1,4 @@
-@use "declare.scss";
+@use "./declare.scss";
 
 // 在这里写公用的class
 // 占位符
@@ -146,8 +146,7 @@
 }
 
 // 边距相关
-$i: 500;
-@while $i > 0 {
+@for $i from 1 to 500 {
 	.#{declare.$prefix}-m-#{$i} {
 		margin: #{$i}px;
 	}
@@ -191,11 +190,9 @@ $i: 500;
 	.#{declare.$prefix}-pl-#{$i} {
 		padding-left: #{$i}px;
 	}
-	$i: $i - 1;
 }
-
-//@for $index from 1 to 500 {
-//  .#{$prefix}-zIndex-#{$index} { margin: #{$index}px !important; }
+//@while $i > 0 {
+//	$i: $i - 1;
 //}
 
 $sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
