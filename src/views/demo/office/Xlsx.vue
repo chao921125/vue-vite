@@ -150,5 +150,5 @@
 </script>
 
 <style scoped lang="scss">
-	@import "./Xlsx";
+	@use "./Xlsx";
 </style>
