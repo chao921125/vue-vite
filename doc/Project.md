@@ -10,6 +10,7 @@
 - [x] Mock数据
 - [x] 代码格式化：prettier + eslint
 - [x] 动态组件导入：省去每个组件内使用 import
+- [x] 代码提交校验，若不需要需要删除 package.json 中的 commitizen 相关配置
 - [ ] 注意：由于使用了vw，大家若不需要直接删除即可
 ![登录](img-01.png)
 ![首页](img-02.png)
