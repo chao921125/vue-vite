@@ -24,7 +24,7 @@ import components from "unplugin-vue-components/vite";
 import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
 // CSS 预构建
 import UnoCSS from "unocss/vite";
-import { presetAttributify, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from "unocss";
+// import { presetAttributify, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from "unocss";
 // 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
@@ -157,17 +157,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				},
 			},
 			// 原子css
-			UnoCSS({
-				presets: [
-					presetUno(),
-					presetAttributify(),
-					presetIcons({
-						scale: 1.2,
-						warn: true,
-					}),
-				],
-				transformers: [transformerDirectives(), transformerVariantGroup()],
-			}),
+			UnoCSS(),
 			// 图标
 			icons({
 				compiler: "vue3",

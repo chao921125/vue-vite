@@ -59,5 +59,5 @@
 </script>
 
 <style scoped lang="scss">
-	@use "./login";
+	@use "./login.scss";
 </style>

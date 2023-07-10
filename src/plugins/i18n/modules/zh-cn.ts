@@ -51,6 +51,7 @@ export default {
 		demoUa: "UA&IP",
 		demoEchart: "图表Echart",
 		demoSwiper: "幻灯片Swiper",
+		demoWifi: "Wifi-Card",
 		testLink: "链接",
 		testIframe: "Iframe",
 	},

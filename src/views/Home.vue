@@ -17,5 +17,5 @@
 </script>
 
 <style scoped lang="scss">
-	@use "./home";
+	@use "./home.scss";
 </style>

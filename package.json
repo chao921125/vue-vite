@@ -49,6 +49,7 @@
 		"nprogress": "^0.2.0",
 		"pinia": "2.1.4",
 		"print-js": "^1.6.0",
+		"qrcode.vue": "^3.4.0",
 		"qs": "^6.11.2",
 		"screenfull": "6.0.2",
 		"swiper": "^10.0.4",

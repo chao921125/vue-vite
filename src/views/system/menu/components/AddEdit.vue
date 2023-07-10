@@ -199,5 +199,5 @@
 </script>
 
 <style lang="scss">
-	@use "./index";
+	@use "./index.scss";
 </style>
