@@ -22,13 +22,13 @@
 				:style="`maring-left: ${formWifi.direction ? '20px' : '0'};`"
 			>
 				<el-form-item label="WIFI 名称" prop="ssid" v-show="!formWifi.hiddenSSID" style="maring-top: 10px">
-					<el-input v-model="formWifi.ssid" placeholder="WIFI 名称" @change="onChangeSettings" />
+					<el-input v-model="formWifi.ssid" placeholder="WIFI 名称" @input="onChangeSettings" />
 				</el-form-item>
 				<el-form-item label="用户名" prop="eapIdentity" v-show="formWifi.encryptionMode === 'WPA2-EAP'" style="maring-top: 10px">
-					<el-input v-model="formWifi.eapIdentity" placeholder="用户名" @change="onChangeSettings" />
+					<el-input v-model="formWifi.eapIdentity" placeholder="用户名" @input="onChangeSettings" />
 				</el-form-item>
 				<el-form-item label="WIFI 密码" prop="password" v-show="!formWifi.hidePassword" style="maring-top: 10px">
-					<el-input v-model="formWifi.password" placeholder="WIFI 密码" @change="onChangeSettings" />
+					<el-input v-model="formWifi.password" placeholder="WIFI 密码" @input="onChangeSettings" />
 				</el-form-item>
 			</el-form>
 		</div>
