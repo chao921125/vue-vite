@@ -28,6 +28,7 @@
 	import WifiCard from "./components/WifiCard.vue";
 	import WifiSettings from "./components/WifiSettings.vue";
 	import printJS from "print-js";
+	import html2canvas from "html2canvas";
 
 	const wifiInfo = reactive({
 		// 设置
@@ -68,6 +69,28 @@
 				printable: "printCard",
 				type: "html",
 				documentTitle: "WiFi Card - " + wifiInfo.settings.ssid,
+			});
+			const element = document.querySelector("#printCard") as HTMLElement;
+			html2canvas(element, {
+				useCORS: true,
+				allowTaint: true,
+				scale: window.devicePixelRatio * 2,
+				windowWidth: element.scrollWidth,
+				windowHeight: element.scrollHeight,
+			}).then((canvas: any) => {
+				console.log(canvas);
+				let imgUrl = canvas.toDataURL("image/png");
+				let linkTemp = document.createElement("a");
+				linkTemp.style.display = "none";
+				linkTemp.href = imgUrl;
+				linkTemp.setAttribute("download", new Date().getTime().toString());
+				if (typeof linkTemp.download === "undefined") {
+					linkTemp.setAttribute("target", "_blank");
+				}
+				document.body.appendChild(linkTemp);
+				linkTemp.click();
+				document.body.removeChild(linkTemp);
+				window.URL.revokeObjectURL(imgUrl);
 			});
 		}
 	};
