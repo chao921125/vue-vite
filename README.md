@@ -58,10 +58,10 @@
 | 路由管理                                                      |
 | [vue-router 官网](https://www.npmjs.com/package/vue-router) |
 | 状态管理                                                      |
-| [Pinia 官网](https://pinia.web3doc.top/)                    |
+| [👍Pinia 官网](https://pinia.web3doc.top/)                  |
 | [vuex 官网](https://next.vuex.vuejs.org/)                   |
 
-| js核心                                           |
+| JavaScript标准库                                  |
 |------------------------------------------------|
 | [core-js](https://github.com/zloirock/core-js) |
 
@@ -202,6 +202,8 @@
 
 | 图标                                                   |
 |------------------------------------------------------|
+| [iconfont 官网](https://www.iconfont.cn/)              |
+| [iconify 官网](https://icon-sets.iconify.design/)      |
 | [iconpark 官网](https://iconpark.oceanengine.com/home) |
 
 | 其他三方库                                                                                      |
@@ -257,11 +259,12 @@
 |----------------------------------------------------------|
 | [html2canvas](https://www.npmjs.com/package/html2canvas) |
 
-| 二维码                                                  |
-|------------------------------------------------------|
-| [qrcode](https://www.npmjs.com/package/qrcode)       |
-| [qrcodejs2](https://www.npmjs.com/package/qrcodejs2) |
-| [vue-qr](https://www.npmjs.com/package/vue-qr)       |
+| 二维码                                                    |
+|--------------------------------------------------------|
+| [qrcode](https://www.npmjs.com/package/qrcode)         |
+| [vue-qr](https://www.npmjs.com/package/vue-qr)         |
+| [qrcode.vue](https://www.npmjs.com/package/qrcode.vue) |
+| [qrcodejs2](https://www.npmjs.com/package/qrcodejs2)   |
 
 | 日历                                                                               |
 |----------------------------------------------------------------------------------|
@@ -295,6 +298,12 @@
 | 剪切板                                                            |
 |----------------------------------------------------------------|
 | [vue-clipboard2](https://www.npmjs.com/package/vue-clipboard2) |
+
+| 打印                                                                   |
+|----------------------------------------------------------------------|
+| [vue3-print-nb](https://www.npmjs.com/package/vue3-print-nb)         |
+| [print-js](https://www.npmjs.com/package/print-js)           |
+| [vue-plugin-hiprint](https://www.npmjs.com/package/vue-plugin-hiprint) |
 
 # 数据操作
 | 节点和浏览器的BDD / TDD断言库                                  |                                  

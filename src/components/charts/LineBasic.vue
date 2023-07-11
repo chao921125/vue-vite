@@ -89,7 +89,7 @@
 </script>
 
 <style scoped lang="scss">
-	@import "./index";
+	@use "./index.scss";
 
 	.chart-box {
 		div {

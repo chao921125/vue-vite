@@ -59,10 +59,6 @@ import "@/assets/styles/index.scss";
 import I18n from "@/plugins/i18n";
 app.use(I18n);
 
-// 打印
-import print from "vue3-print-nb";
-app.use(print);
-
 // 工具
 import Log from "@/plugins/utils/log";
 

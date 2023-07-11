@@ -51,6 +51,7 @@ export default {
 		demoUa: "UA&IP",
 		demoEchart: "Echart",
 		demoSwiper: "Swiper",
+		demoWifi: "Wifi-Card",
 		testLink: "Link",
 		testIframe: "Iframe",
 	},
