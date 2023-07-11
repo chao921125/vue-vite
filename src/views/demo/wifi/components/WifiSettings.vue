@@ -57,16 +57,16 @@
 						default: "",
 					},
 					hidePassword: {
-						type: Boolean,
-						default: false,
+						type: Number,
+						default: 0,
 					},
 					hiddenSSID: {
-						type: Boolean,
-						default: false,
+						type: Number,
+						default: 0,
 					},
 					direction: {
-						type: Boolean,
-						default: true,
+						type: Number,
+						default: 1,
 					},
 				};
 			},
@@ -74,16 +74,16 @@
 	});
 
 	const directionOptions = [
-		{ label: "横", value: true },
-		{ label: "竖", value: false },
+		{ label: "横", value: 1 },
+		{ label: "竖", value: 0 },
 	];
 	const hideSsidOptions = [
-		{ label: "是", value: true },
-		{ label: "否", value: false },
+		{ label: "是", value: 1 },
+		{ label: "否", value: 0 },
 	];
 	const hidePasswordOptions = [
-		{ label: "是", value: true },
-		{ label: "否", value: false },
+		{ label: "是", value: 1 },
+		{ label: "否", value: 0 },
 	];
 	const encryptionOptions = [
 		{ label: "无", value: "" },
@@ -99,9 +99,9 @@
 		encryptionMode?: string;
 		eapMethod?: string;
 		eapIdentity?: string;
-		hidePassword?: boolean;
-		hiddenSSID?: boolean;
-		direction?: boolean;
+		hidePassword?: number;
+		hiddenSSID?: number;
+		direction?: number;
 	}
 	const formWifiRef = ref<FormInstance>();
 	let formWifi = reactive<IFormWifi>({

@@ -43,11 +43,11 @@
 			// Settings: EAP identity
 			eapIdentity: "",
 			// Settings: Hide password on the printed card
-			hidePassword: false,
+			hidePassword: 0,
 			// Settings: Mark your network as hidden SSID
-			hiddenSSID: false,
+			hiddenSSID: 0,
 			// Settings: Direction true transverse false portrait
-			direction: true,
+			direction: 1,
 		},
 		errorMsg: {},
 		is: {

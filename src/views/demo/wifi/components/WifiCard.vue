@@ -65,16 +65,16 @@
 						default: "",
 					},
 					hidePassword: {
-						type: Boolean,
-						default: false,
+						type: Number,
+						default: 0,
 					},
 					hiddenSSID: {
-						type: Boolean,
-						default: false,
+						type: Number,
+						default: 0,
 					},
 					direction: {
-						type: Boolean,
-						default: true,
+						type: Number,
+						default: 1,
 					},
 				};
 			},
@@ -86,9 +86,9 @@
 		encryptionMode?: string;
 		eapMethod?: string;
 		eapIdentity?: string;
-		hidePassword?: boolean;
-		hiddenSSID?: boolean;
-		direction?: boolean;
+		hidePassword?: number;
+		hiddenSSID?: number;
+		direction?: number;
 	}
 	const formWifiRef = ref<FormInstance>();
 	let formWifi = reactive<IFormWifi>({
