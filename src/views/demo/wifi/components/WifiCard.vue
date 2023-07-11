@@ -154,7 +154,7 @@
 		}
 		options.S = escape(props.settings.ssid);
 		options.P = escape(props.settings.password);
-		options.H = props.settings.hiddenSSID;
+		options.H = !!props.settings.hiddenSSID;
 
 		let data: string = "";
 		Object.entries(options).forEach(([k, v]) => (data += `${k}:${v};`));
