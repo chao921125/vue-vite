@@ -1,0 +1,11 @@
+.card-box {
+}
+.card-qr {
+	flex-shrink: 0;
+	width: 200px;
+}
+.card-form {
+	flex-shrink: 0;
+	align-self: flex-start;
+	width: calc(100% - 200px);
+}

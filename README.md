@@ -299,6 +299,12 @@
 |----------------------------------------------------------------|
 | [vue-clipboard2](https://www.npmjs.com/package/vue-clipboard2) |
 
+| 打印                                                                   |
+|----------------------------------------------------------------------|
+| [vue3-print-nb](https://www.npmjs.com/package/vue3-print-nb)         |
+| [print-js](https://www.npmjs.com/package/print-js)           |
+| [vue-plugin-hiprint](https://www.npmjs.com/package/vue-plugin-hiprint) |
+
 # 数据操作
 | 节点和浏览器的BDD / TDD断言库                                  |                                  
 |------------------------------------------------------|
