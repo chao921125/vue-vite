@@ -48,7 +48,7 @@ export default {
 		demoMap: "CV拖拽缩放",
 		demoMapOne: "CV分割地图",
 		demoMapTwo: "CV拖拽",
-		demoUa: "UA&IP",
+		demoBrowser: "浏览器信息",
 		demoEchart: "图表Echart",
 		demoSwiper: "幻灯片Swiper",
 		demoWifi: "Wifi-Card",

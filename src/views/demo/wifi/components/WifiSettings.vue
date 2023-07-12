@@ -30,6 +30,7 @@
 
 <script lang="ts" setup name="Settings">
 	import type { FormInstance } from "element-plus";
+	import { IFormWifi } from "@/interface/data";
 
 	const props = defineProps({
 		settings: {
@@ -44,6 +45,10 @@
 						type: String,
 						default: "",
 					},
+					eapIdentity: {
+						type: String,
+						default: "",
+					},
 					encryptionMode: {
 						type: String,
 						default: "WPA",
@@ -51,10 +56,6 @@
 					eapMethod: {
 						type: String,
 						default: "PWD",
-					},
-					eapIdentity: {
-						type: String,
-						default: "",
 					},
 					hidePassword: {
 						type: Number,
@@ -93,16 +94,6 @@
 	];
 	const eapOptions = [{ label: "PWD", value: "PWD" }];
 
-	interface IFormWifi {
-		ssid?: string;
-		password?: string;
-		encryptionMode?: string;
-		eapMethod?: string;
-		eapIdentity?: string;
-		hidePassword?: number;
-		hiddenSSID?: number;
-		direction?: number;
-	}
 	const formWifiRef = ref<FormInstance>();
 	let formWifi = reactive<IFormWifi>({
 		// Network SSID name
@@ -127,6 +118,16 @@
 	const onChangeSettings = () => {
 		emits("changeSettings", { ...formWifi });
 	};
+	watch(
+		() => props.settings,
+		(newValue) => {
+			// formWifi.direction = newValue.direction;
+			Object.assign(formWifi, newValue);
+		},
+		{
+			deep: true,
+		},
+	);
 </script>
 
 <style scoped lang="scss">

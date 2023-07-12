@@ -89,3 +89,15 @@ export interface IProduct {
 	desc?: number | string;
 	isStock?: number | string;
 }
+
+// WIFI
+export interface IFormWifi {
+	ssid?: string;
+	password?: string;
+	encryptionMode?: string;
+	eapMethod?: string;
+	eapIdentity?: string;
+	hidePassword?: number;
+	hiddenSSID?: number;
+	direction?: number;
+}
