@@ -1,7 +1,7 @@
 <template>
-	<div style="text-align: center"
-		><h1 style="font-size: 24px; font-weight: bold">WiFi: {{ formWifi.ssid || "" }}</h1></div
-	>
+	<div style="text-align: center">
+		<h1 style="font-size: 24px; font-weight: bold">WiFi: {{ formWifi.ssid || "" }}</h1>
+	</div>
 	<div
 		class="re-w-fill re-flex-row-between card-box"
 		:style="`width: 100%; margin-top: 20px; display: ${formWifi.direction ? 'flex' : 'block'}; justify-content: space-between; align-items: center;`"
@@ -38,6 +38,7 @@
 <script lang="ts" setup name="WifiCard">
 	import QrcodeVue from "qrcode.vue";
 	import type { FormInstance } from "element-plus";
+	import { IFormWifi } from "@/interface/data";
 
 	const props = defineProps({
 		settings: {
@@ -52,6 +53,10 @@
 						type: String,
 						default: "",
 					},
+					eapIdentity: {
+						type: String,
+						default: "",
+					},
 					encryptionMode: {
 						type: String,
 						default: "WPA",
@@ -59,10 +64,6 @@
 					eapMethod: {
 						type: String,
 						default: "PWD",
-					},
-					eapIdentity: {
-						type: String,
-						default: "",
 					},
 					hidePassword: {
 						type: Number,
@@ -80,16 +81,7 @@
 			},
 		},
 	});
-	interface IFormWifi {
-		ssid?: string;
-		password?: string;
-		encryptionMode?: string;
-		eapMethod?: string;
-		eapIdentity?: string;
-		hidePassword?: number;
-		hiddenSSID?: number;
-		direction?: number;
-	}
+
 	const formWifiRef = ref<FormInstance>();
 	let formWifi = reactive<IFormWifi>({
 		// Network SSID name

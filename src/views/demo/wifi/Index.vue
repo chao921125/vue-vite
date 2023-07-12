@@ -37,12 +37,12 @@
 			ssid: "",
 			// Network password
 			password: "",
+			// Settings: EAP identity
+			eapIdentity: "",
 			// Settings: Network encryption mode
 			encryptionMode: "WPA",
 			// Settings: EAP Method
 			eapMethod: "PWD",
-			// Settings: EAP identity
-			eapIdentity: "",
 			// Settings: Hide password on the printed card
 			hidePassword: 0,
 			// Settings: Mark your network as hidden SSID
