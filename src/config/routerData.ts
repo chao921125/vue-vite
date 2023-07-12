@@ -320,7 +320,7 @@ export default {
 				},
 				{
 					id: 907,
-					path: "swiper",
+					path: "slide",
 					component: "demo/slide/SwiperAll",
 					name: "message.menu.demoSwiper",
 					title: "message.menu.demoSwiper",

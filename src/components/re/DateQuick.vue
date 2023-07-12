@@ -11,7 +11,7 @@
 	/>
 </template>
 
-<script lang="ts" setup name="QuickDate">
+<script lang="ts" setup name="ReDateQuick">
 	import { onMounted, reactive, ref } from "vue";
 	import { differenceInDays, format } from "date-fns";
 
