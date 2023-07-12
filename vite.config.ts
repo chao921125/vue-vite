@@ -179,7 +179,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					/\.md$/, // .md
 				],
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core", "vue-i18n"],
-				dirs: ["./hooks", "./components", "./components/**"],
+				dirs: ["./hooks", "./hooks/**", "./components", "./components/**"],
 				dts: true,
 				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
 			}),
