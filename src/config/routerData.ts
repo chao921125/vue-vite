@@ -278,10 +278,10 @@ export default {
 				},
 				{
 					id: 905,
-					path: "ua-ip",
-					component: "demo/ua/Index",
-					name: "message.menu.demoUa",
-					title: "message.menu.demoUa",
+					path: "browser",
+					component: "demo/browser/Index",
+					name: "message.menu.demoBrowser",
+					title: "message.menu.demoBrowser",
 					icon: "icon-appstore",
 					auth: 1,
 					isLink: 0,
@@ -298,7 +298,7 @@ export default {
 					children: [],
 				},
 				{
-					id: 906,
+					id: 907,
 					path: "echart",
 					component: "demo/chart/Echart",
 					name: "message.menu.demoEchart",
@@ -319,7 +319,7 @@ export default {
 					children: [],
 				},
 				{
-					id: 907,
+					id: 908,
 					path: "slide",
 					component: "demo/slide/SwiperAll",
 					name: "message.menu.demoSwiper",
@@ -340,7 +340,7 @@ export default {
 					children: [],
 				},
 				{
-					id: 908,
+					id: 909,
 					path: "wifi",
 					component: "demo/wifi/Index",
 					name: "message.menu.demoWifi",

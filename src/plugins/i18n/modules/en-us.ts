@@ -48,7 +48,7 @@ export default {
 		demoMap: "CV Drag Scale",
 		demoMapOne: "CV Map Division",
 		demoMapTwo: "CV Drag",
-		demoUa: "UA&IP",
+		demoBrowser: "Browser",
 		demoEchart: "Echart",
 		demoSwiper: "Swiper",
 		demoWifi: "Wifi-Card",

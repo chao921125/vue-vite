@@ -78,7 +78,6 @@
 				windowWidth: element.scrollWidth,
 				windowHeight: element.scrollHeight,
 			}).then((canvas: any) => {
-				console.log(canvas);
 				let imgUrl = canvas.toDataURL("image/png");
 				let linkTemp = document.createElement("a");
 				linkTemp.style.display = "none";
