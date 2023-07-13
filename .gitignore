@@ -36,3 +36,4 @@ lerna-debug.log*
 *.sw?
 .cache
 .local
+stats.html

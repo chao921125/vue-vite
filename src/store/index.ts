@@ -14,20 +14,17 @@ export const getStoreRefs = (store: any) => {
 // });
 
 // 导出自定义其他状态文件
-import { useAuth } from "./modules/auth";
 import { useRouterList } from "./modules/routerMeta";
 import { useRouterTags } from "./modules/routerTags";
 import { useThemeConfig } from "./modules/theme";
 import { useUserInfo } from "./modules/user";
 export interface IAppStore {
-	useAuth: ReturnType<typeof useAuth>;
 	useRouterList: ReturnType<typeof useRouterList>;
 	useRouterTags: ReturnType<typeof useRouterTags>;
 	useThemeConfig: ReturnType<typeof useThemeConfig>;
 	useUserInfo: ReturnType<typeof useUserInfo>;
 }
 export const appStore: IAppStore = {
-	useAuth: useAuth(store),
 	useRouterList: useRouterList(store),
 	useRouterTags: useRouterTags(store),
 	useThemeConfig: useThemeConfig(store),

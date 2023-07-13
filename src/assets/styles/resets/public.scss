@@ -7,6 +7,14 @@
 	height: 1px;
 }
 
+// 元素展示隐藏
+.#{declare.$prefix}-show {
+	display: initial;
+}
+.#{declare.$prefix}-hidden {
+	 display: none !important;
+}
+
 // Flex 基础布局
 .#{declare.$prefix}-flex-auto {
 	@include declare.flex-base;

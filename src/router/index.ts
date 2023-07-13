@@ -69,6 +69,8 @@ router.beforeEach(async (to, from, next) => {
 				// 确保 addRoute() 时动态添加的路由已经被完全加载上去
 				next({ ...to, replace: true });
 			} else {
+				console.log("无需生成路由 存放用户信息", token, to.meta);
+				appStore.useUserInfo.setUserInfo(to.meta);
 				next();
 			}
 		}
@@ -96,7 +98,6 @@ const dynamicViewsModules: Record<string, Function> = Object.assign({}, { ...vie
 // 获取动态路由数据
 export async function getDynamicRouter() {
 	if (!(Storage.getSessionStorage(Constants.storageKey.token) || Cookie.getCookie(Constants.cookieKey.token))) return false;
-	// await useUserInfo(Store).setUserInfo();
 
 	await appStore.useRouterList.setMenuList(requestData);
 
