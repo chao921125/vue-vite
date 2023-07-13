@@ -43,7 +43,7 @@ export interface IMenuListState {
 }
 export interface IRouterListState {
 	routerList: string[];
-	menuList: IMenuListState;
+	menuList: any[];
 	isColumnsMenuHover: boolean;
 	isColumnsNavHover: boolean;
 }
