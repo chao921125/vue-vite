@@ -210,7 +210,7 @@ export default {
 					isHideSubMenu: 1,
 					isMobile: 0,
 					roles: ["admin", "system"],
-					permission: ["C", "R", "U", "D"],
+					permission: ["C", "R", "U"],
 					children: [],
 				},
 				{

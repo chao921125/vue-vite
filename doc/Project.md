@@ -2,6 +2,7 @@
 - [x] vue3 + vite4 + vue-router4 + pinia + element plus + typescript
 - [x] 国际化 vue-i18n
 - [x] 动态路由/动态菜单
+- [x] 权限指令自定义控制
 - [x] axios 请求封装
 - [x] 集成常用组件：echarts swiper 常用图标库
 - [x] 暗黑主题；色弱；灰色主题

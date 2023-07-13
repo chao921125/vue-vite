@@ -1,7 +1,23 @@
 <template>
-	<el-button v-copy="'copyData'">自定义指令 copy</el-button>
-	<el-button v-auth="['system']">自定义指令 auth</el-button>
-	<el-button @click="testI18nMessage"> i18n {{ tI18n }}</el-button>
+	<el-row>
+		<el-col :span="24">自定义指令</el-col>
+		<el-col :span="24">复制 <el-button v-copy="'copyData'" class="re-mr-20">copy</el-button></el-col>
+		<el-col :span="24">权限 删除 由数据判断无法操作</el-col>
+		<el-col :span="24">
+			<el-checkbox-group v-model="authList">
+				<el-checkbox label="C">创建</el-checkbox>
+				<el-checkbox label="R">查询</el-checkbox>
+				<el-checkbox label="U">修改</el-checkbox>
+				<el-checkbox label="D" disabled>删除</el-checkbox>
+			</el-checkbox-group>
+			<el-button v-for="item in authList" :key="item" v-auth="item" class="re-mr-20">{{ item }}</el-button>
+		</el-col>
+	</el-row>
+	<el-row>
+		<el-col :span="24">
+			i18n国际化，点击之后查看国际化内容 <el-button @click="testI18nMessage" class="re-mr-20">{{ tI18n || "-" }}</el-button>
+		</el-col>
+	</el-row>
 	<el-row class="re-mt-20">
 		<el-col :span="8">
 			<h1>静态引入图片：直接 import 导入</h1>
@@ -23,19 +39,22 @@
 	import Logo from "@/assets/images/logo.png";
 	import api from "@/api";
 
-	const tI18n = ref();
-
 	const isLoading = ref(true);
 	setTimeout(() => {
 		isLoading.value = false;
 	}, 2000);
 
+	// 权限指令测试
+	const authList = ref(["C", "R", "U", "D"]);
+
+	// 国际化
+	const tI18n = ref();
 	const testI18nMessage = () => {
 		tI18n.value = $t("message.title.login");
 	};
 
+	// 图片
 	const imgStatic = ref("/src/assets/images/logo.png");
-
 	const getImg = (name: string, suffix?: string) => {
 		return api.commonApi.getImgLocale(name, suffix);
 	};

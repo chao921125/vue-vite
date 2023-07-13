@@ -1,11 +1,11 @@
 // 用户信息
 export interface IUserInfoState {
-	authBtnList: string[];
-	avatar: string;
-	roles: string[];
-	time: number;
-	userName: string;
 	id: string;
+	userName: string;
+	avatar: string;
+	time: number;
+	roles: string[];
+	permission: string[];
 }
 export interface IUserInfoStates {
 	userInfo: IUserInfoState;
@@ -41,16 +41,9 @@ export interface ITagsViewRoutesStates {
 export interface IMenuListState {
 	menuList: string[];
 }
-// 菜单权限
-export interface IAuthConfigState {
-	roles: string[];
-}
-export interface IAuthConfigStates {
-	role: IAuthConfigState;
-}
 export interface IRouterListState {
 	routerList: string[];
-	menuList: any[];
+	menuList: IMenuListState;
 	isColumnsMenuHover: boolean;
 	isColumnsNavHover: boolean;
 }
