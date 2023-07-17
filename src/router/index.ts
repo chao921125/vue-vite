@@ -69,7 +69,6 @@ router.beforeEach(async (to, from, next) => {
 				// 确保 addRoute() 时动态添加的路由已经被完全加载上去
 				next({ ...to, replace: true });
 			} else {
-				console.log("无需生成路由 存放用户信息", token, to.meta);
 				appStore.useUserInfo.setUserInfo(to.meta);
 				next();
 			}
