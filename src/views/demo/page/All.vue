@@ -1,8 +1,11 @@
 <template>
 	<el-row>
-		<el-col :span="24">自定义指令</el-col>
-		<el-col :span="24">复制 <el-button v-copy="'copyData'" class="re-mr-20">copy</el-button></el-col>
-		<el-col :span="24">权限 删除 由数据判断无法操作</el-col>
+		<el-col :span="24"> 复制指令 <el-button v-copy="copyValue" class="re-mr-20">点击复制</el-button> </el-col>
+		<el-col :span="24">
+			<el-input placeholder="请输入需要复制的内容" v-model="copyValue"></el-input>
+		</el-col>
+		<el-divider></el-divider>
+		<el-col :span="24">权限指令 删除 由数据判断无法操作</el-col>
 		<el-col :span="24">
 			<el-checkbox-group v-model="authList">
 				<el-checkbox label="C">创建</el-checkbox>
@@ -13,11 +16,13 @@
 			<el-button v-for="item in authList" :key="item" v-auth="item" class="re-mr-20">{{ item }}</el-button>
 		</el-col>
 	</el-row>
+	<el-divider></el-divider>
 	<el-row>
 		<el-col :span="24">
 			i18n国际化，点击之后查看国际化内容 <el-button @click="testI18nMessage" class="re-mr-20">{{ tI18n || "-" }}</el-button>
 		</el-col>
 	</el-row>
+	<el-divider></el-divider>
 	<el-row class="re-mt-20">
 		<el-col :span="8">
 			<h1>静态引入图片：直接 import 导入</h1>
@@ -43,6 +48,9 @@
 	setTimeout(() => {
 		isLoading.value = false;
 	}, 2000);
+
+	// 复制指令测试
+	const copyValue = ref("copy test text");
 
 	// 权限指令测试
 	const authList = ref(["C", "R", "U", "D"]);
