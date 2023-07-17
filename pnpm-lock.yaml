@@ -52,8 +52,8 @@ dependencies:
     specifier: ^2.1.0
     version: 2.1.0(echarts@5.4.2)
   element-plus:
-    specifier: ^2.3.8
-    version: 2.3.8(vue@3.3.4)
+    specifier: ^2.3.7
+    version: 2.3.7(vue@3.3.4)
   html2canvas:
     specifier: ^1.4.1
     version: 1.4.1
@@ -4338,8 +4338,8 @@ packages:
     resolution: {integrity: sha512-1JkvV2sgEGTDXjdsaQCeSwYYuhLRphRpc+g6EHTFELJXEiznLt3/0pZ9JuAOQ5p2rI3YxKTbivtvajirIfhrEQ==}
     dev: true
 
-  /element-plus@2.3.8(vue@3.3.4):
-    resolution: {integrity: sha512-yHQR0/tG2LvPkpGUt7Te/hPmP2XW/BytBNUbx+EFO54VnGCOE3upmQcVffNp1PLgwg9sthYDXontUWpnpmLPJw==}
+  /element-plus@2.3.7(vue@3.3.4):
+    resolution: {integrity: sha512-h6TxclbaLUJxg/Bv5j/ZKsK+K5yadQliw5+R30HWyE69pXlqXTX24oYx+yw3pA4Dy+lqEDi5501FQ0CORk3OSA==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
