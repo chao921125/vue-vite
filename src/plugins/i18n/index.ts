@@ -2,8 +2,8 @@ import { createI18n, useI18n } from "vue-i18n";
 import { getStoreRefs, appStore } from "@/store";
 
 // 引入国际化文件
-import zhCN from "element-plus/lib/locale/lang/zh-cn";
-import en from "element-plus/lib/locale/lang/en";
+import zhCN from "element-plus/dist/locale/zh-cn.mjs";
+import en from "element-plus/dist/locale/en.mjs";
 
 export const elI18n = {
 	[zhCN.name]: zhCN,
