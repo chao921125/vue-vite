@@ -39,7 +39,7 @@
 				</el-select>
 			</el-form-item>
 			<el-form-item prop="status" label="状态">
-				<el-switch v-model="form.status" :active-value="1" :inactive-value="0" />
+				<el-switch v-model="form.status" :active-value="1" :inactive-value="0" /> （{{ form.status ? "启用" : "停用" }}）
 			</el-form-item>
 			<el-form-item prop="sort" label="排序">
 				<el-input-number v-model="form.sort" :min="1" :max="99999" controls-position="right"></el-input-number>
