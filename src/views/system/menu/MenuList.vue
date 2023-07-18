@@ -185,9 +185,9 @@
 					{
 						id: 94,
 						path: "job",
-						component: "system/job/JobList",
-						name: "message.menu.systemJob",
-						title: "message.menu.systemJob",
+						component: "system/post/PostList",
+						name: "message.menu.systemPost",
+						title: "message.menu.systemPost",
 						icon: "icon-user",
 						isLink: 0,
 						isIframe: 0,

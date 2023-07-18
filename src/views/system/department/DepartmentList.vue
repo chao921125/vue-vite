@@ -9,11 +9,9 @@
 			<el-button type="success" @click="openAddDepartment">新增</el-button>
 		</el-form-item>
 	</el-form>
-	<el-table :data="tableData" v-loading="isLoadData" style="width: 100%">
-		<el-table-column prop="name" label="名称" width="120" />
+	<el-table :data="tableData" v-loading="isLoadData" row-key="id" default-expand-all style="width: 100%">
+		<el-table-column prop="name" label="名称" />
 		<el-table-column prop="number" label="编码" width="120" />
-		<el-table-column prop="userName" label="联系人" width="120" />
-		<el-table-column prop="phone" label="联系电话" width="120" />
 		<el-table-column prop="status" label="状态" width="80">
 			<template #default="scope">
 				<el-tag :type="scope.row.status ? 'success' : 'danger'">{{ StatusUse[scope.row.status] }}</el-tag>
@@ -27,7 +25,7 @@
 				</el-button>
 				<el-popconfirm title="确认删除？">
 					<template #reference>
-						<el-button type="danger" link>
+						<el-button type="danger" link v-show="!scope.row.root">
 							<el-icon><Delete /></el-icon>
 						</el-button>
 					</template>
@@ -35,7 +33,6 @@
 			</template>
 		</el-table-column>
 	</el-table>
-	<RePagination :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></RePagination>
 	<AddEdit :data="departmentInfo" ref="dialogForm" @result="getDepartmentList"></AddEdit>
 </template>
 
@@ -61,14 +58,6 @@
 	});
 	const isLoadData = ref<boolean>(false);
 	const tableData = ref<any[]>([]);
-	const pageChangeSize = (val: number) => {
-		params.pageSize = val;
-		getDepartmentList();
-	};
-	const pageChangeCurrent = (val: number) => {
-		params.pageCurrent = val;
-		getDepartmentList();
-	};
 
 	const departmentInfo = ref();
 	const dialogForm = ref();
@@ -93,21 +82,59 @@
 		tableData.value = [
 			{
 				id: 1,
-				number: "19920008007",
-				name: "小明",
+				root: true,
+				number: "0",
+				name: "菜菜集团",
 				status: 1,
-				userName: "王五",
-				phone: "13312341234",
 				desc: "超级管理员",
-			},
-			{
-				id: 2,
-				number: "19920008007",
-				name: "赵一找",
-				status: 0,
-				userName: "赵六",
-				phone: "19900001111",
-				desc: "管理员",
+				children: [
+					{
+						id: 11,
+						number: "19920008007",
+						name: "菜菜国际",
+						status: 0,
+						desc: "管理员",
+						children: [
+							{
+								id: 112,
+								number: "19920008007",
+								name: "财务部门",
+								status: 0,
+								desc: "管理员",
+							},
+							{
+								id: 113,
+								number: "19920008007",
+								name: "市场部门",
+								status: 0,
+								desc: "管理员",
+							},
+						],
+					},
+					{
+						id: 12,
+						number: "19920008007",
+						name: "菜菜国际2",
+						status: 0,
+						desc: "管理员",
+						children: [
+							{
+								id: 121,
+								number: "19920008007",
+								name: "董事会",
+								status: 0,
+								desc: "管理员",
+							},
+							{
+								id: 122,
+								number: "19920008007",
+								name: "研发部门",
+								status: 0,
+								desc: "管理员",
+							},
+						],
+					},
+				],
 			},
 		];
 	};

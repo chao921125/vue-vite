@@ -2,17 +2,14 @@
 	<el-dialog v-model="dialogFormVisible" @close="closeDialog">
 		<template #header>{{ departmentInfo.id ? "编辑部门" : "新增部门" }}</template>
 		<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
+			<el-form-item prop="realName" label="上级">
+				<el-input v-model="form.name" placeholder=""></el-input>
+			</el-form-item>
 			<el-form-item prop="realName" label="名称">
 				<el-input v-model="form.name" placeholder=""></el-input>
 			</el-form-item>
 			<el-form-item prop="mail" label="编码">
 				<el-input v-model="form.number" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="mail" label="联系人">
-				<el-input v-model="form.userName" placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item prop="mail" label="联系电话">
-				<el-input v-model="form.phone" placeholder=""></el-input>
 			</el-form-item>
 			<el-form-item prop="status" label="状态">
 				<el-switch v-model="form.status" :active-value="1" :inactive-value="0" />
