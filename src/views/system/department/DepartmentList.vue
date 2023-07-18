@@ -12,6 +12,8 @@
 	<el-table :data="tableData" v-loading="isLoadData" row-key="id" default-expand-all style="width: 100%">
 		<el-table-column prop="name" label="名称" />
 		<el-table-column prop="number" label="编码" width="120" />
+		<el-table-column prop="userName" label="负责人" />
+		<el-table-column prop="phone" label="联系方式" width="120" />
 		<el-table-column prop="status" label="状态" width="80">
 			<template #default="scope">
 				<el-tag :type="scope.row.status ? 'success' : 'danger'">{{ StatusUse[scope.row.status] }}</el-tag>
