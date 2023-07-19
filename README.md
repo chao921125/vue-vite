@@ -49,7 +49,7 @@
 
 | 核心依赖                                                      |
 |-----------------------------------------------------------|
-| [vite 官网](https://cn.vitejs.dev/)                         |
+| [👍vite 官网](https://cn.vitejs.dev/)                         |
 | [~~~vue-cli~~~](https://www.npmjs.com/package/@vue/cli)   |
 | vue                                                       |
 | [vue3 官网](https://vuejs.org/)                             |
@@ -120,8 +120,8 @@
 
 | UI PC 官方                                                                  |
 |---------------------------------------------------------------------------|
-| [vuetifyjs 官网](https://vuetifyjs.com/)                                    |
-| [element-plus 官网](https://element-plus.org/)                              |
+| [👍vuetifyjs 官网](https://vuetifyjs.com/)                                  |
+| [👍element-plus 官网](https://element-plus.org/)                            |
 | [headlessui](https://headlessui.com/)                                     |
 | [naiveui](https://www.naiveui.com/zh-CN/os-theme)                         |
 | [arco 字节 官网](https://arco.design/)                                        |
@@ -138,26 +138,26 @@
 | [iDux 官网](https://idux.site/)                                             |
 | [relaxplus 官网](https://bsie.gitee.io/relaxplus/#/)                        |
 
-| UI Mobile 官方                                                     |
-|------------------------------------------------------------------|
-| [ionicframework 官网 VRA](https://ionicframework.com/docs/)        |
-| [vant](https://github.com/CharleeWa/vue3-vant-mobile)            |
-| [vant@next 官网](https://vant-contrib.gitee.io/vant/v3/)           |
-| [nutui @nutui/nutui@next 官网](https://nutui.jd.com/)              |
-| [varlet 官网](https://varlet-varletjs.vercel.app/#/en-US/index)    |
-| [mui uni-app 官网](https://dev.dcloud.net.cn/mui/)                 |
-| [mui 官网](https://mui.com/)                                       |
-| [mint-ui 官网](http://mint-ui.github.io/)                          |
-| [VARLET 官网](https://varlet.gitee.io/varlet-ui/#/zh-CN/home)      |
-| [Wave UI 官网](https://antoniandre.github.io/wave-ui/)             |
-| [Tencent](https://github.com/Tencent/weui/)                      |
-| [vite](https://github.com/LZHD/vue-vite-h5)                      |
-| [vux](https://vux.li/)                                           |
+| UI Mobile 官方                                                    |
+|-----------------------------------------------------------------|
+| [👍ionicframework 官网 VRA](https://ionicframework.com/docs/)     |
+| [👍vant](https://github.com/CharleeWa/vue3-vant-mobile)         |
+| [👍vant@next 官网](https://vant-contrib.gitee.io/vant/v3/)        |
+| [👍nutui @nutui/nutui@next 官网](https://nutui.jd.com/)           |
+| [varlet 官网](https://varlet-varletjs.vercel.app/#/en-US/index)   |
+| [mui uni-app 官网](https://dev.dcloud.net.cn/mui/)                |
+| [mui 官网](https://mui.com/)                                      |
+| [mint-ui 官网](http://mint-ui.github.io/)                         |
+| [VARLET 官网](https://varlet.gitee.io/varlet-ui/#/zh-CN/home)     |
+| [Wave UI 官网](https://antoniandre.github.io/wave-ui/)            |
+| [Tencent](https://github.com/Tencent/weui/)                     |
+| [vite](https://github.com/LZHD/vue-vite-h5)                     |
+| [vux](https://vux.li/)                                          |
 
 | UI 小程序端                                                     |
 |-------------------------------------------------------------|
-| [vant](https://github.com/vant-ui/vant-weapp)               |
-| [taro](https://taro-ui.jd.com/#/)                           |
+| [👍vant](https://github.com/vant-ui/vant-weapp)             |
+| [👍taro](https://taro-ui.jd.com/#/)                         |
 | [Tencent](https://github.com/Tencent/weui-wxss)             |
 | [mini](https://doc.mini.talelin.com/)                       |
 | [wux](https://wux-weapp.github.io/wux-weapp-docs/#/)        |
