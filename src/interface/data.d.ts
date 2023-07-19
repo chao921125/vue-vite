@@ -1,6 +1,7 @@
 // 部门
 export interface IDepartment {
 	id?: number;
+	parent?: string | number;
 	name?: string;
 	number?: string;
 	userName?: string;
@@ -11,6 +12,7 @@ export interface IDepartment {
 // 岗位
 export interface IJob {
 	id?: number;
+	parent?: string | number;
 	name?: string;
 	number?: string;
 	userName?: string;
