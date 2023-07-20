@@ -430,14 +430,14 @@
 | http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading |
 | https://juejin.cn/post/7037036742985121800                                   |
 
-| 开屏渲染动画                                                                         |
+| 动画整理                                                                           |
 |--------------------------------------------------------------------------------|
 | [animate css库 官网](https://animate.style/)                                      |
 | [gsap库](https://www.npmjs.com/package/gsap/) [官网](https://greensock.com/gsap/) |
 | [angrytools](https://angrytools.com/)                                          | 
 | [angrytools](https://angrytools.com/css/animation/)                            |
 | [animejs](https://animejs.com/)                                                |
-| [csshake](https://elrumordelaluz.github.io/csshake/)                           |
+| [csshake 抖动效果](https://elrumordelaluz.github.io/csshake/)                      |
 | [animista](https://animista.net/)                                              |
 | [minimamente](https://www.minimamente.com/project/magic/)                      |
 | [vue-kinesis](https://www.npmjs.com/package/vue-kinesis)                       |
@@ -447,16 +447,13 @@
 | [Animatopy](https://sarthology.github.io/Animatopy/)                           |
 | [wickedCSS](https://github.com/kristofferandreasen/wickedCSS)                  |
 | [cssanimation](https://github.com/yesiamrocks/cssanimation.io)                 |
-
-| 鼠标动画                                                               |
-|--------------------------------------------------------------------|
-| [ianlunn 鼠标放上效果 官网](http://ianlunn.github.io/Hover/)               |
-| [animxyz](https://animxyz.com/)                                    |
-| [elrumordelaluz 鼠标放上效果](https://elrumordelaluz.github.io/reshake/) |
-| [基本形状](https://csslayout.io/)                                      |
-| [案例 特效 1](https://codepen.io/)                                     |
-| [案例 css技巧 1](https://csscoco.com/inspiration/#/)                   |
-| [案例 css技巧 2](https://chokcoco.github.io/CSS-Inspiration/#/)        |
+| [鼠标效果 ianlunn 官网](http://ianlunn.github.io/Hover/)                             |
+| [animxyz](https://animxyz.com/)                                                |
+| [elrumordelaluz 鼠标放上效果](https://elrumordelaluz.github.io/reshake/)             |
+| [基本形状](https://csslayout.io/)                                                  |
+| [案例 特效 1](https://codepen.io/)                                                 |
+| [案例 css技巧 1](https://csscoco.com/inspiration/#/)                               |
+| [案例 css技巧 2](https://chokcoco.github.io/CSS-Inspiration/#/)                    |
 
 | 文字                                                     |
 |--------------------------------------------------------|
@@ -516,11 +513,16 @@
 | [Native Script 官网](https://nativescript.org/)                      |
 | [React Native 官网](https://reactnative.cn/)                         |
 
-# 在线模拟
+# 在线
 | api                           |
 |-------------------------------|
 | [apifox](https://apifox.com/) |
 | [yapi](https://yapi.pro/)     |
+
+| code                               |
+|------------------------------------|
+| [codepen](https://codepen.io/)     |
+| [css 在线](https://cssreference.io/) |
 
 # SSR
 | 框架                                                                                                          |
