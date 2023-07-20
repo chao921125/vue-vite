@@ -193,7 +193,6 @@
 | 静态UI JS PC H5                                                        |
 |----------------------------------------------------------------------|
 | [👍 Bootstrap](https://getbootstrap.com/)                            |
-| [👍 Bootstrap](https://getbootstrap.com/)                            |
 | [👍 layui 官方！！！](https://layui.dev/)                                 |
 | [H5 zeptojs](https://www.zeptojs.com.cn/)                            |
 | [PC javascript](https://www.javascript.com/)                         |
