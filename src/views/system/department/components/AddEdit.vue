@@ -2,16 +2,31 @@
 	<el-dialog v-model="dialogFormVisible" @close="closeDialog">
 		<template #header>{{ departmentInfo.id ? "编辑部门" : "新增部门" }}</template>
 		<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
-			<el-form-item prop="realName" label="名称">
+			<el-form-item prop="parent" label="上级">
+				<el-tree-select
+					v-model="form.parent"
+					:data="optionSelectMenu"
+					:render-after-expand="false"
+					:props="propsTreeMenu"
+					value-key="id"
+					check-strictly
+					placeholder="菜单"
+				>
+					<template #default="{ data }">
+						<span>{{ $t(data.name) }}</span>
+					</template>
+				</el-tree-select>
+			</el-form-item>
+			<el-form-item prop="name" label="名称">
 				<el-input v-model="form.name" placeholder=""></el-input>
 			</el-form-item>
-			<el-form-item prop="mail" label="编码">
+			<el-form-item prop="number" label="编码">
 				<el-input v-model="form.number" placeholder=""></el-input>
 			</el-form-item>
-			<el-form-item prop="mail" label="联系人">
+			<el-form-item prop="userName" label="负责人">
 				<el-input v-model="form.userName" placeholder=""></el-input>
 			</el-form-item>
-			<el-form-item prop="mail" label="联系电话">
+			<el-form-item prop="phone" label="联系方式">
 				<el-input v-model="form.phone" placeholder=""></el-input>
 			</el-form-item>
 			<el-form-item prop="status" label="状态">
@@ -32,7 +47,7 @@
 
 <script lang="ts" setup name="AddEdit">
 	import type { FormInstance, FormRules } from "element-plus";
-	import { IDepartment } from "@/interface/data";
+	import { IDepartment, IMenu } from "@/interface/data";
 
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({
@@ -44,6 +59,79 @@
 		},
 	});
 	const emits = defineEmits(["result"]);
+
+	const propsTreeMenu = { children: "children", label: "name", disabled: "disabled" };
+	const optionSelectMenu = ref<IMenu[]>([]);
+	optionSelectMenu.value = [
+		{
+			id: 1,
+			name: "message.menu.home",
+			children: [],
+		},
+		{
+			id: 9,
+			name: "message.menu.system",
+			children: [
+				{
+					id: 91,
+					name: "message.menu.systemUser",
+					children: [],
+				},
+				{
+					id: 92,
+					name: "message.menu.systemRole",
+					children: [],
+				},
+				{
+					id: 93,
+					name: "message.menu.systemDepartment",
+					children: [],
+				},
+				{
+					id: 94,
+					name: "message.menu.systemPost",
+					children: [],
+				},
+				{
+					id: 99,
+					name: "message.menu.systemMenu",
+					children: [
+						{
+							id: 941,
+							name: "message.menu.systemMenuAdd",
+							children: [],
+						},
+					],
+				},
+			],
+		},
+		{
+			id: 9900,
+			name: "message.menu.demo",
+			children: [
+				{
+					id: 99001,
+					name: "message.menu.demoIcon",
+					children: [],
+				},
+				{
+					id: 99002,
+					name: "message.menu.demoAnimaCss",
+					children: [],
+				},
+			],
+		},
+		{
+			id: 9901,
+			name: "message.menu.testLink",
+			children: [],
+		},
+		{
+			id: 9902,
+			name: "message.menu.testIframe",
+			children: [],
+		},
+	];
 
 	// 表单
 	const formLabelWidth = "100px";

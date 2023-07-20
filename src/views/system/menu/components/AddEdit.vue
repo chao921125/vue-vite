@@ -2,7 +2,7 @@
 	<el-dialog v-model="dialogFormVisible" @close="closeDialog">
 		<template #header>{{ menuInfo.id ? "编辑菜单" : "新增菜单" }}</template>
 		<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
-			<el-form-item prop="parent" label="父节点">
+			<el-form-item prop="parent" label="菜单">
 				<el-tree-select
 					v-model="form.parent"
 					:data="optionSelectMenu"
@@ -10,7 +10,7 @@
 					:props="propsTreeMenu"
 					value-key="id"
 					check-strictly
-					placeholder=""
+					placeholder="菜单"
 				>
 					<template #default="{ data }">
 						<span>{{ $t(data.name) }}</span>
@@ -107,7 +107,7 @@
 				},
 				{
 					id: 94,
-					name: "message.menu.systemJob",
+					name: "message.menu.systemPost",
 					children: [],
 				},
 				{

@@ -1,4 +1,4 @@
-# 用前必看：[项目截图](./doc/Project.md)
+# [访问地址](https://vue-vite.pages.dev/) - [项目截图](./doc/Project.md)
 [//]: # (pnpx husky install)
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
@@ -39,10 +39,9 @@
 | 下载  | download     | export |
 | 实体  | get / set    |        |
 
-
-# 基础核心依赖
+# 基础核心
 ###### 无特殊说明均对应最新版
-| 插件比较全的网站                                                   |
+| 插件网站                                                       |
 |------------------------------------------------------------|
 | [Vite 官方推荐插件](https://github.com/vitejs/awesome-vite)      |
 | [vue3-resource](https://hu-snail.github.io/vue3-resource/) |
@@ -50,7 +49,7 @@
 
 | 核心依赖                                                      |
 |-----------------------------------------------------------|
-| [vite 官网](https://cn.vitejs.dev/)                         |
+| [👍vite 官网](https://cn.vitejs.dev/)                         |
 | [~~~vue-cli~~~](https://www.npmjs.com/package/@vue/cli)   |
 | vue                                                       |
 | [vue3 官网](https://vuejs.org/)                             |
@@ -72,7 +71,7 @@
 | [socket.io socket.io-client](https://socket.io/zh-CN/)                                    |
 | [qs 序列化参数，并非网络请求](https://github.com/ljharb/qs)                                           |
 
-# 解析相关
+# 语法解析
 | TS                                                         |
 |------------------------------------------------------------|
 | [typescript 官网](https://www.tslang.cn/)                    |
@@ -115,18 +114,19 @@
 | [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier) |
 
 # UI相关
-### [小插件合集](https://madewith.cn/)
 | UI 多端 官方                                       |
 |------------------------------------------------|
 | [tdesign 腾讯多端UI](https://tdesign.tencent.com/) |
 
 | UI PC 官方                                                                  |
 |---------------------------------------------------------------------------|
-| [element-plus 官网](https://element-plus.org/)                              |
+| [👍vuetifyjs 官网](https://vuetifyjs.com/)                                  |
+| [👍element-plus 官网](https://element-plus.org/)                            |
+| [headlessui](https://headlessui.com/)                                     |
+| [naiveui](https://www.naiveui.com/zh-CN/os-theme)                         |
 | [arco 字节 官网](https://arco.design/)                                        |
 | [bootstrap 兼容版 直接install](https://getbootstrap.com/)                      |
-| [ant-design-vue 官网 社区维护 请自行斟酌](https://2x.antdv.com/components/overview/) |
-| [vuetifyjs 官网](https://vuetifyjs.com/)                                    |
+| [ant-design-vue 官网 社区维护 请自行斟酌](https://www.antdv.com/components/overview) |
 | [bootstrap4 vue 官网](https://dev.bootstrap-vue.org/)                       |
 | [quasar 官网](https://quasar.dev/)                                          |
 | [heyui 官网](https://v2.heyui.top/)                                         |
@@ -138,37 +138,59 @@
 | [iDux 官网](https://idux.site/)                                             |
 | [relaxplus 官网](https://bsie.gitee.io/relaxplus/#/)                        |
 
-| VUE2 UI PC 官方                                              |
-|------------------------------------------------------------|
-| [elementUI 官网](https://element.eleme.io/)                  |
-| [vuetifyjs 官网](https://v2.vuetifyjs.com/zh-Hans/)          |
-
-| UI Mobile 官方                                                |
-|-------------------------------------------------------------|
-| [vant](https://github.com/CharleeWa/vue3-vant-mobile)       |
-| [vant@next 官网](https://vant-contrib.gitee.io/vant/v3/)      |
-| [mui uni-app 官网](https://dev.dcloud.net.cn/mui/)            |
-| [mui 官网](https://mui.com/)                                  |
-| [mint-ui 官网](http://mint-ui.github.io/)                     |
-| [nutui @nutui/nutui@next 官网](https://nutui.jd.com/)         |
-| [VARLET 官网](https://varlet.gitee.io/varlet-ui/#/zh-CN/home) |
-| [Wave UI 官网](https://antoniandre.github.io/wave-ui/)        |
-| [ionicframework 官网](https://ionicframework.com/docs/)       |
-| [Tencent](https://github.com/Tencent/weui/)                 |
-| [vite](https://github.com/LZHD/vue-vite-h5)                 |
+| UI Mobile 官方                                                    |
+|-----------------------------------------------------------------|
+| [👍ionicframework 官网 VRA](https://ionicframework.com/docs/)     |
+| [👍vant](https://github.com/CharleeWa/vue3-vant-mobile)         |
+| [👍vant@next 官网](https://vant-contrib.gitee.io/vant/v3/)        |
+| [👍nutui @nutui/nutui@next 官网](https://nutui.jd.com/)           |
+| [varlet 官网](https://varlet-varletjs.vercel.app/#/en-US/index)   |
+| [mui uni-app 官网](https://dev.dcloud.net.cn/mui/)                |
+| [mui 官网](https://mui.com/)                                      |
+| [mint-ui 官网](http://mint-ui.github.io/)                         |
+| [VARLET 官网](https://varlet.gitee.io/varlet-ui/#/zh-CN/home)     |
+| [Wave UI 官网](https://antoniandre.github.io/wave-ui/)            |
+| [Tencent](https://github.com/Tencent/weui/)                     |
+| [vite](https://github.com/LZHD/vue-vite-h5)                     |
+| [vux](https://vux.li/)                                          |
 
 | UI 小程序端                                                     |
 |-------------------------------------------------------------|
-| [vant](https://github.com/vant-ui/vant-weapp)               |
-| [taro](https://taro-ui.jd.com/#/)                           |
+| [👍vant](https://github.com/vant-ui/vant-weapp)             |
+| [👍taro](https://taro-ui.jd.com/#/)                         |
 | [Tencent](https://github.com/Tencent/weui-wxss)             |
 | [mini](https://doc.mini.talelin.com/)                       |
 | [wux](https://wux-weapp.github.io/wux-weapp-docs/#/)        |
+| [cube](https://didi.github.io/cube-ui/#/zh-CN)              |
 | [ColorUI 更新频率慢](https://github.com/weilanwl/ColorUI)        |
 | [touchwx 不推荐，停更了](https://github.com/uileader/touchwx)      |
 | [iview 不推荐，停更了](https://github.com/TalkingData/iview-weapp) |
 
-| JS PC H5                                                             |
+| VUE2 UI PC 官方                                     |
+|---------------------------------------------------|
+| [elementUI 官网](https://element.eleme.io/)         |
+| [vuetifyjs 官网](https://v2.vuetifyjs.com/zh-Hans/) |
+| [mint-ui 官网](http://mint-ui.github.io/#!/zh-cn)   |
+| [buefy 官网](https://buefy.org/)                    |
+| [onsen 官网](https://onsen.io/)                     |
+
+| 低代码                                                                 |
+|---------------------------------------------------------------------|
+| [form-generator 官网](https://github.com/JakHuang/form-generator)     |
+
+| 项目及插件示例                                         |
+|-------------------------------------------------|
+| [reactiveapps 官网](https://www.reactiveapps.io/) |
+| [小插件合集](https://madewith.cn/)                   |
+
+| 单一UI组件                                                                 |
+|------------------------------------------------------------------------|
+| [表格 vxe-table 官网](https://vxetable.cn/#/table/start/install)           |
+| [表格 tanstack 官网](https://tanstack.com/)                                |
+| [布局 vue-grid-layout](https://jbaysolutions.github.io/vue-grid-layout/) |
+| [树 vue-treeselect](https://www.npmjs.com/package/ue-treeselect)        |
+
+| 静态UI JS PC H5                                                        |
 |----------------------------------------------------------------------|
 | [👍 Bootstrap](https://getbootstrap.com/)                            |
 | [👍 Bootstrap](https://getbootstrap.com/)                            |
@@ -206,11 +228,6 @@
 | [iconify 官网](https://icon-sets.iconify.design/)      |
 | [iconpark 官网](https://iconpark.oceanengine.com/home) |
 
-| 其他三方库                                                                                      |
-|--------------------------------------------------------------------------------------------|
-| [vxe-table 官网(包含支持v3)](https://xuliangzhan_admin.gitee.io/vxe-table/#/table/start/install) |
-| [vue-grid-layout](https://www.npmjs.com/package/vue-grid-layout)                           |
-
 | 加载 loading                                                               |
 |--------------------------------------------------------------------------|
 | [nprogress](https://www.npmjs.com/package/nprogress)                     |
@@ -234,10 +251,6 @@
 | [vue2 seamless 无缝滚动](https://www.npmjs.com/package/vue-seamless-scroll)                             |
 | [vue3 seamless 无缝滚动](https://www.npmjs.com/package/vue3-seamless-scroll)                            |
 | [vue3 infinite 无限滚动](https://www.npmjs.com/package/vue3-infinite-list)                              |
-
-| 树                                                             |
-|---------------------------------------------------------------|
-| [vue-treeselect](https://www.npmjs.com/package/ue-treeselect) |
 
 | 拖拽                                                                          |
 |-----------------------------------------------------------------------------|
@@ -299,10 +312,16 @@
 |----------------------------------------------------------------|
 | [vue-clipboard2](https://www.npmjs.com/package/vue-clipboard2) |
 
-| 打印                                                                   |
-|----------------------------------------------------------------------|
-| [vue3-print-nb](https://www.npmjs.com/package/vue3-print-nb)         |
-| [print-js](https://www.npmjs.com/package/print-js)           |
+| 文件上传及保存                                                         |
+|-----------------------------------------------------------------|
+| [file-saver](https://www.npmjs.com/package/file-saver)          |
+| [Uppy 官网](https://uppy.io/docs/vue/)                            |
+| [Vue-filepond 官网](https://github.com/pqina/vue-filepond#readme) |
+
+| 打印                                                                     |
+|------------------------------------------------------------------------|
+| [vue3-print-nb](https://www.npmjs.com/package/vue3-print-nb)           |
+| [print-js](https://www.npmjs.com/package/print-js)                     |
 | [vue-plugin-hiprint](https://www.npmjs.com/package/vue-plugin-hiprint) |
 
 # 数据操作
@@ -314,12 +333,6 @@
 | cookie管理                                             |
 |------------------------------------------------------|
 | [js-cookie](https://www.npmjs.com/package/js-cookie) |
-
-| 文件上传及保存                                                         |
-|-----------------------------------------------------------------|
-| [file-saver](https://www.npmjs.com/package/file-saver)          |
-| [Uppy 官网](https://uppy.io/docs/vue/)                            |
-| [Vue-filepond 官网](https://github.com/pqina/vue-filepond#readme) |
 
 | 日期格式化                                                     |
 |-----------------------------------------------------------|
@@ -504,12 +517,18 @@
 | [Native Script 官网](https://nativescript.org/)                      |
 | [React Native 官网](https://reactnative.cn/)                         |
 
+# 在线模拟
+| api                           |
+|-------------------------------|
+| [apifox](https://apifox.com/) |
+| [yapi](https://yapi.pro/)     |
+
 # SSR
 | 框架                                                                                                          |
 |-------------------------------------------------------------------------------------------------------------|
 | [astro](https://astro.build/)                                                                               |
 | [NuxtJS](https://nuxt.com/)                                                                                 |
-| [quasar 官网](https://quasar.dev/)                                                                            |
+| [quasar 官网 组件一体](https://quasar.dev/)                                                                       |
 | [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue)                      |
 | [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                                             |
 | Gatsby Next.js NuxtJS Docusaurus Eleventy GitBook Gridsome Hugo Jekyll Pelican SvelteKit VuePress WordPress |

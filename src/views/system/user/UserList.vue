@@ -148,66 +148,49 @@
 		];
 	};
 
-	const handleNodeClick = (data: ITree) => {
-		console.log(data);
-	};
 	const data: ITree[] = [
 		{
-			label: "Level one 1",
+			id: 0,
+			label: "菜菜集团",
 			children: [
 				{
-					label: "Level two 1-1",
+					id: 1,
+					label: "董事会",
 					children: [
 						{
-							label: "Level three 1-1-1",
+							id: 11,
+							label: "董事长",
 						},
-					],
-				},
-			],
-		},
-		{
-			label: "Level one 2",
-			children: [
-				{
-					label: "Level two 2-1",
-					children: [
 						{
-							label: "Level three 2-1-1",
+							id: 12,
+							label: "股东",
 						},
 					],
 				},
 				{
-					label: "Level two 2-2",
+					id: 2,
+					label: "业务部",
 					children: [
 						{
-							label: "Level three 2-2-1",
+							id: 21,
+							label: "业务总监",
 						},
-					],
-				},
-			],
-		},
-		{
-			label: "Level one 3",
-			children: [
-				{
-					label: "Level two 3-1",
-					children: [
 						{
-							label: "Level three 3-1-1",
+							id: 22,
+							label: "业务组长",
 						},
-					],
-				},
-				{
-					label: "Level two 3-2",
-					children: [
 						{
-							label: "Level three 3-2-1",
+							id: 23,
+							label: "业务员",
 						},
 					],
 				},
 			],
 		},
 	];
+	const handleNodeClick = (data: ITree) => {
+		console.log(data);
+	};
 
 	const defaultProps = {
 		children: "children",
