@@ -49,7 +49,7 @@
 
 | 核心依赖                                                      |
 |-----------------------------------------------------------|
-| [👍vite 官网](https://cn.vitejs.dev/)                         |
+| [👍vite 官网](https://cn.vitejs.dev/)                       |
 | [~~~vue-cli~~~](https://www.npmjs.com/package/@vue/cli)   |
 | vue                                                       |
 | [vue3 官网](https://vuejs.org/)                             |
