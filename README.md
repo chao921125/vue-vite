@@ -635,6 +635,3 @@
 | https://github.com/Sujb-sus/vue3-vite2-ts-blog-h5     |
 | https://github.com/buqiyuan/vite-vue3-h5              |
 | https://github.com/xsf0105/vue3-h5-template           |
-
-[//]: # (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)
-[//]: # (wxa52bb659b38d1ae2-44296eebb875d90dfd9605edf67d3b32)
