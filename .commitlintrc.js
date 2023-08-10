@@ -1,7 +1,7 @@
 // @see: https://cz-git.qbenben.com/zh/guide
 /** @type {import('cz-git').UserConfig} */
-import pkg from "./package.json";
-// const pkg = require("./package.json");
+// import pkg from "./package.json";
+const pkg = require("./package.json");
 const version = pkg.version;
 
 module.exports = {
