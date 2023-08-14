@@ -1,5 +1,5 @@
 <template>
-	<div @click="changeClick">template</div>
+	<div @click="changeClick">template {{ props.name }}</div>
 </template>
 
 <script lang="ts" setup name="TempScriptSetup">
