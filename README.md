@@ -562,6 +562,7 @@
 | [组件](https://madewith.cn/)                 |
 | https://github.com/vitejs/awesome-vite     |
 | https://github.com/nekobc1998923/vitecamp  |
+| https://hu-snail.github.io/vue3-resource/  |
 
 | Admin server & Web                                         |
 |------------------------------------------------------------|
