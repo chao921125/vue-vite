@@ -77,6 +77,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			vueSetupExtend(),
 			// 浏览器上兼容
 			legacy({
+				renderLegacyChunks: false,
+				modernPolyfills: ["es.global-this"],
 				targets: browserslistConfig,
 			}),
 			// 热重载，包含配置文件的修改
