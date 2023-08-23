@@ -174,9 +174,10 @@
 | [buefy 官网](https://buefy.org/)                    |
 | [onsen 官网](https://onsen.io/)                     |
 
-| 低代码                                                                 |
-|---------------------------------------------------------------------|
-| [form-generator 官网](https://github.com/JakHuang/form-generator)     |
+| 低代码                                                             |
+|-----------------------------------------------------------------|
+| [formily 官网 阿里巴巴](https://github.com/alibaba/formily)           |
+| [form-generator 官网](https://github.com/JakHuang/form-generator) |
 
 | 项目及插件示例                                         |
 |-------------------------------------------------|
@@ -561,6 +562,7 @@
 | [组件](https://madewith.cn/)                 |
 | https://github.com/vitejs/awesome-vite     |
 | https://github.com/nekobc1998923/vitecamp  |
+| https://hu-snail.github.io/vue3-resource/  |
 
 | Admin server & Web                                         |
 |------------------------------------------------------------|
