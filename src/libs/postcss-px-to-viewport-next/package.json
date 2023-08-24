@@ -28,11 +28,11 @@
     "test": "jest spec/*.spec.js"
   },
   "dependencies": {
-    "object-assign": ">=4.0.1"
+    "object-assign": ">=4.1.1"
   },
   "devDependencies": {
     "jest": "^29.6.3",
-    "postcss": ">=5.0.2"
+    "postcss": ">=8.4.28"
   },
   "peerDependencies": {
     "postcss": ">=5.0.2"
