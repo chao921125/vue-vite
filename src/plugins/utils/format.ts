@@ -1,9 +1,21 @@
+export const FORMAT_ENUM = {
+	y: "YYYY",
+	ym: "YYYY-mm",
+	ymd: "YYYY-mm-dd",
+	ymdh: "YYYY-mm-dd HH",
+	ymdhm: "YYYY-mm-dd HH:MM",
+	ymdhms: "YYYY-mm-dd HH:MM:SS",
+	ymdhmsq: "YYYY-mm-dd HH:MM:SS QQQ",
+	ymdhmsw: "YYYY-mm-dd HH:MM:SS WWW",
+	ymdhmsz: "YYYY-mm-dd HH:MM:SS ZZZ",
+	ymdhmsqwz: "YYYY-mm-dd HH:MM:SS WWW QQQQ ZZZ",
+};
 /**
  * 时间日期转换
  * @param date 当前时间，new Date() 格式
  * @param format 需要转换的时间格式字符串
  * @description format 字符串随意，如 `YYYY-mm、YYYY-mm-dd`
- * @description format 季度："YYYY-mm-dd HH:MM:SS QQQQ"
+ * @description format 季度："YYYY-mm-dd HH:MM:SS QQQ"
  * @description format 星期："YYYY-mm-dd HH:MM:SS WWW"
  * @description format 几周："YYYY-mm-dd HH:MM:SS ZZZ"
  * @description format 季度 + 星期 + 几周："YYYY-mm-dd HH:MM:SS WWW QQQQ ZZZ"
