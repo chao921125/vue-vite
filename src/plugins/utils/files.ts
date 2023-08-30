@@ -24,6 +24,9 @@ export const fileToBase64 = (file: File, callback?: Function) => {
 			return e.target.result;
 		}
 	};
+	fr.onerror = () => {
+		return "";
+	};
 	fr.readAsDataURL(blob);
 };
 export const fileToBlob = (file: File, callback?: Function) => {
@@ -55,11 +58,35 @@ export const blobToBase64 = (blob: Blob, callback?: Function) => {
 	};
 	fr.readAsDataURL(blob);
 };
-export const blobToFile = () => {};
-// @ts-ignore
-export const base64ToBlob = (base64: string, callback?: Function) => {
-	// if (!base64) return "";
-	// let arr = base64.split(","),
-	// 	type = arr[0].match(/:(.*?);/)[1];
+export const base64ToBlob = (base64: string) => {
+	if (!base64) return "";
+	let arr = base64!.split(",");
+	let type = arr[0].match(/:(.*?);/)![1];
+	let bstr = atob(arr[1]);
+	let n = bstr.length;
+	let u8arr = new Uint8Array(n);
+	while (n--) {
+		u8arr[n] = bstr.charCodeAt(n);
+	}
+	return new Blob([u8arr], {
+		type: type,
+	});
 };
-export const base64ToFile = () => {};
+export const blobToFile = (blob: Blob, fileName: string) => {
+	if (!blob) return "";
+	return new File([blob], fileName);
+};
+export const base64ToFile = (base64: string, fileName: string) => {
+	if (!base64) return "";
+	let arr = base64!.split(",");
+	let type = arr[0].match(/:(.*?);/)![1];
+	let bstr = atob(arr[1]);
+	let n = bstr.length;
+	let u8arr = new Uint8Array(n);
+	while (n--) {
+		u8arr[n] = bstr.charCodeAt(n);
+	}
+	return new File([u8arr], fileName, {
+		type: type,
+	});
+};
