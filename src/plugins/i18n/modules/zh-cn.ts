@@ -52,6 +52,7 @@ export default {
 		demoEchart: "图表Echart",
 		demoSwiper: "幻灯片Swiper",
 		demoWifi: "Wifi-Card",
+		demoTimeSelect: "时间轴",
 		testLink: "链接",
 		testIframe: "Iframe",
 	},
