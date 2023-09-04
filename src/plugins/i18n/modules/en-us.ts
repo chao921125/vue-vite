@@ -52,6 +52,7 @@ export default {
 		demoEchart: "Echart",
 		demoSwiper: "Swiper",
 		demoWifi: "Wifi-Card",
+		demoTimeSelect: "Time Select",
 		testLink: "Link",
 		testIframe: "Iframe",
 	},
