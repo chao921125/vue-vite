@@ -94,8 +94,8 @@
 | [浏览器样式补全 autoprefixer](https://www.npmjs.com/package/autoprefixer)             |
 | 快速样式CSS                                                                        |
 | [unocss](https://unocss.dev/)                                                  |
-| [windicss](https://windicss.org/)                                              |
 | [tailwindcss](https://tailwindcss.com/) [doc](https://www.tailwindcss.cn/docs) |
+| [windicss](https://windicss.org/)                                              |
 
 | postcss插件库                                                                       |
 |----------------------------------------------------------------------------------|
