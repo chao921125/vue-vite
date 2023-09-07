@@ -1,4 +1,5 @@
 # [访问地址](https://vue-vite.pages.dev/) - [项目截图](./doc/Project.md)
+###### 筹备下一阶段：将现有的M端判断移除，直接变换布局
 [//]: # (pnpx husky install)
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
