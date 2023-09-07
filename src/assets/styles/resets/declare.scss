@@ -12,6 +12,29 @@ $color-red: #ff0000;
 // 自定义色值，不常用的、特有的、针对性的
 $color-re-re: #123123;
 
+// 文本颜色
+$text-link: #5677fc;
+$text-default: #fff;
+$text-primary: #000;
+$text-success: #03c03c;
+$text-error: #e34234;
+$text-waring: #ff9933;
+$text-placeholder: #ccc;
+$text-prohibit: #8a8a8a;
+
+// 按钮颜色
+$btn-default: #fff;
+$btn-success: #03c03c;
+$btn-error: #e34234;
+$btn-waring: #ff9933;
+
+// 边框颜色
+$border-error: #e34234;
+$border-waring: #ff9933;
+
+// 可点击颜色
+$link-success: #03c03c;
+
 // 项目共有的宽高设定
 $header-height: 60px;
 $menu-width: 200px;

@@ -15,6 +15,7 @@
 - 使用 reactive 请使用 let，使用 ref 请使用const
 - ！！！注意VUE3中的reactive使用，如果需要更新视图需要抽出interface。！！！
 - 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式(兼容jsx)
+- 如果你觉得你的package.json乱糟糟，那么使用 npx sort-package-json 来解决吧
 
 # 关于手机端适配（脱离业务场景谈解决方案都是耍流氓）
 1. 最古老的解决方案：使用媒体查询，但建议企业官网等页面较少的网站，且对网站设计者和开发者水平有一定的要求。
@@ -94,8 +95,8 @@
 | [浏览器样式补全 autoprefixer](https://www.npmjs.com/package/autoprefixer)             |
 | 快速样式CSS                                                                        |
 | [unocss](https://unocss.dev/)                                                  |
-| [windicss](https://windicss.org/)                                              |
 | [tailwindcss](https://tailwindcss.com/) [doc](https://www.tailwindcss.cn/docs) |
+| [windicss](https://windicss.org/)                                              |
 
 | postcss插件库                                                                       |
 |----------------------------------------------------------------------------------|
