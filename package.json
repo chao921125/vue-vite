@@ -55,7 +55,7 @@
 		"mysql": "2.18.1"
 	},
 	"dependencies": {
-		"@babel/runtime": "^7.22.11",
+		"@babel/runtime": "^7.22.15",
 		"@element-plus/icons-vue": "^2.1.0",
 		"@vue/runtime-core": "^3.3.4",
 		"@vue/shared": "^3.3.4",
