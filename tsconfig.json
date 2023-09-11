@@ -13,7 +13,7 @@
     "esModuleInterop": true,
     "lib": [
       "esnext",
-      "DOM",
+      "DOM", "ES6",
       "dom.iterable",
       "scripthost"
     ],
