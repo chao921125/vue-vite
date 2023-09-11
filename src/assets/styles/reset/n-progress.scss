@@ -1,9 +1,9 @@
-@use "./root.scss";
+@use "../variable.scss";
 
 #nprogress {
 	.bar {
 		background: var(--re-np-color) !important;
-		z-index: 99999 !important;
+		z-index: variable.$z-index-max !important;
 	}
 	.peg {
 		box-shadow: 0 0 10px var(--re-np-color), 0 0 5px var(--re-np-color) !important;

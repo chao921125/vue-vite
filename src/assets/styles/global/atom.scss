@@ -1,0 +1,236 @@
+@use "../variable.scss";
+
+// 在这里写公用的class
+// 占位符
+.#{variable.$prefix}-place {
+  width: 1px;
+  height: 1px;
+}
+
+// 元素展示隐藏
+.#{variable.$prefix}-show {
+  display: initial;
+}
+.#{variable.$prefix}-hidden {
+  display: none !important;
+}
+
+// Flex 基础布局
+.#{variable.$prefix}-flex-auto {
+  @include variable.flex-base;
+  flex: 1;
+  overflow: hidden;
+}
+.#{variable.$prefix}-flex-row {
+  @include variable.flex-base;
+  flex-direction: row;
+}
+.#{variable.$prefix}-flex-row-end {
+  @include variable.flex-base;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.#{variable.$prefix}-flex-row-center {
+  @include variable.flex-base;
+  @include variable.flex-row-center;
+}
+.#{variable.$prefix}-flex-row-center-jc {
+  @include variable.flex-base;
+  justify-content: center;
+}
+.#{variable.$prefix}-flex-row-center-ai {
+  @include variable.flex-base;
+  align-items: center;
+}
+.#{variable.$prefix}-flex-row-between {
+  @include variable.flex-base;
+  justify-content: space-between;
+  align-items: center;
+}
+.#{variable.$prefix}-flex-row-reverse {
+  @include variable.flex-base;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.#{variable.$prefix}-flex-col {
+  @include variable.flex-base;
+  flex-direction: column;
+}
+.#{variable.$prefix}-flex-col-center {
+  @include variable.flex-base;
+  @include variable.flex-col-center;
+}
+
+// 100%
+.#{variable.$prefix}-box-fill {
+  @include variable.wh-fill;
+}
+.#{variable.$prefix}-box-full {
+  @include variable.wh-full;
+}
+.#{variable.$prefix}-w-auto {
+  width: auto;
+}
+.#{variable.$prefix}-w-fill {
+  @include variable.width-fill;
+}
+.#{variable.$prefix}-w-fill-min {
+  min-width: 100%;
+}
+.#{variable.$prefix}-w-fill-max {
+  max-width: 100%;
+}
+.#{variable.$prefix}-w-full {
+  @include variable.width-full;
+}
+.#{variable.$prefix}-w-full-min {
+  min-width: 100vw;
+}
+.#{variable.$prefix}-w-full-max {
+  max-width: 100vw;
+}
+.#{variable.$prefix}-h-auto {
+  height: auto;
+}
+.#{variable.$prefix}-h-fill {
+  @include variable.height-fill;
+}
+.#{variable.$prefix}-h-fill-min {
+  min-height: 100%;
+}
+.#{variable.$prefix}-h-fill-max {
+  max-height: 100%;
+}
+.#{variable.$prefix}-h-full {
+  @include variable.height-full;
+}
+.#{variable.$prefix}-h-full-min {
+  min-height: 100vh;
+}
+.#{variable.$prefix}-h-full-max {
+  max-height: 100vh;
+}
+
+// 文字相关
+.#{variable.$prefix}-text-center {
+  @include variable.text-center;
+}
+.#{variable.$prefix}-text-left {
+  @include variable.text-left;
+}
+.#{variable.$prefix}-text-right {
+  @include variable.text-right;
+}
+
+// 变成 小手 帮助 移动
+.#{variable.$prefix}-cursor-default {
+  cursor: default;
+}
+.#{variable.$prefix}-cursor-pointer {
+  cursor: pointer;
+}
+.#{variable.$prefix}-cursor-help {
+  cursor: help;
+}
+.#{variable.$prefix}-cursor-move {
+  cursor: move;
+}
+
+// 浮动相关
+.#{variable.$prefix}-fl {
+  float: left;
+}
+.#{variable.$prefix}-fr {
+  float: right;
+}
+.#{variable.$prefix}-clearfix:before,
+.#{variable.$prefix}-clearfix:after {
+  display: table;
+  content: "";
+}
+.#{variable.$prefix}-clearfix:after {
+  clear: both;
+}
+
+// 边距相关
+@for $i from 1 to 500 {
+  .#{variable.$prefix}-m-#{$i} {
+    margin: #{$i}px;
+  }
+  .#{variable.$prefix}-mtb-#{$i} {
+    margin: #{$i}px 0;
+  }
+  .#{variable.$prefix}-mlr-#{$i} {
+    margin: 0 #{$i}px;
+  }
+  .#{variable.$prefix}-mt-#{$i} {
+    margin-top: #{$i}px;
+  }
+  .#{variable.$prefix}-mr-#{$i} {
+    margin-right: #{$i}px;
+  }
+  .#{variable.$prefix}-mb-#{$i} {
+    margin-bottom: #{$i}px;
+  }
+  .#{variable.$prefix}-ml-#{$i} {
+    margin-left: #{$i}px;
+  }
+
+  .#{variable.$prefix}-p-#{$i} {
+    padding: #{$i}px;
+  }
+  .#{variable.$prefix}-ptb-#{$i} {
+    padding: #{$i}px 0;
+  }
+  .#{variable.$prefix}-plr-#{$i} {
+    padding: 0 #{$i}px;
+  }
+  .#{variable.$prefix}-pt-#{$i} {
+    padding-top: #{$i}px;
+  }
+  .#{variable.$prefix}-pr-#{$i} {
+    padding-right: #{$i}px;
+  }
+  .#{variable.$prefix}-pb-#{$i} {
+    padding-bottom: #{$i}px;
+  }
+  .#{variable.$prefix}-pl-#{$i} {
+    padding-left: #{$i}px;
+  }
+}
+//@while $i > 0 {
+//	$i: $i - 1;
+//}
+
+$sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
+@each $size in $sizes {
+  .#{variable.$prefix}-box-#{$size} {
+    width: #{$size}px;
+    height: #{$size}px;
+  }
+  .#{variable.$prefix}-w-#{$size} {
+    width: #{$size}px;
+  }
+  .#{variable.$prefix}-h-#{$size} {
+    height: #{$size}px;
+  }
+}
+
+.fixed-top-center {
+  @include variable.text-center;
+  position: fixed;
+  top: 0;
+}
+.fixed-bottom {
+  @include variable.text-center;
+  position: fixed;
+  bottom: 0;
+}
+
+.transition-w-1s {
+  transition: width 1s;
+  -moz-transition: width 1s; /* Firefox 4 */
+  -webkit-transition: width 1s; /* Safari 和 Chrome */
+  -o-transition: width 1s; /* Opera */
+}

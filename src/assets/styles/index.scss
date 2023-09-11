@@ -6,19 +6,21 @@
 	3、@each 迭代固定数组，@for 迭代一个上限值
 */
 // ****全局style，重置、定义，顺序不可以更换****
-// 重置
 @use "sass:meta";
-@use "./resets/reset.scss";
-// 声明
-@use "./resets/declare.scss";
-// 公共css定义
-@use "./resets/public.scss";
+// 定义基础变量
+@use "./variable.scss";
+// 重置
+@use "./reset.scss";
+// 媒体类修改
+@use "./global/media.scss";
+// 原子类定义
+@use "./global/atom.scss";
 // 动画
-@use "./resets/animate.scss";
+@use "./global/animate.scss";
 // ****自定义style，包括对三方的重写****
 // 基础布局
-@include meta.load-css("./common/layout.scss");
+@include meta.load-css("./reset/layout.scss");
 // UI element
-@include meta.load-css("./common/element.scss");
+@include meta.load-css("./reset/element.scss");
 // 进度条
-@include meta.load-css("./common/n-progress.scss");
+@include meta.load-css("./reset/n-progress.scss");

@@ -44,7 +44,7 @@ import "virtual:uno.css";
 // svg font icon 字体、图标
 import "virtual:svg-icons-register";
 import "@/assets/fonts/font.css";
-import "@/assets/icon/iconfont.css";
+import "@/assets/iconfonts/iconfont.css";
 
 // 自定义样式
 import "@/assets/styles/index.scss";
