@@ -1,9 +1,9 @@
 {
   /* Visit https://aka.ms/tsconfig.json to read more about this file */
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ESNext",
     "useDefineForClassFields": true,
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "strict": true,
     "jsx": "preserve",
@@ -12,9 +12,10 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": [
-      "esnext",
-      "DOM", "ES6",
-      "dom.iterable",
+			"ES6",
+      "ESNext",
+      "DOM",
+      "DOM.Iterable",
       "scripthost"
     ],
     "skipLibCheck": true,
