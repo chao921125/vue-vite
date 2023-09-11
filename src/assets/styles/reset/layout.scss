@@ -1,5 +1,4 @@
-@use "./root.scss";
-@use "../resets/declare.scss";
+@use "../variable.scss";
 
 html,
 body {
@@ -16,7 +15,7 @@ body {
 	background-color: var(--el-bg-color-overlay);
 	overflow: hidden;
 	#app {
-		@include declare.full;
+		@include variable.full;
 		a {
 			text-decoration: none;
 		}

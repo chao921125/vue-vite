@@ -230,7 +230,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				},
 				scss: {
 					javascriptEnabled: true,
-					additionalData: `@use "@/assets/styles/theme.scss" as *;`,
+					additionalData: `@use "@/assets/styles/public/index.scss" as *;`,
 				},
 			},
 			// devSourcemap: false,
