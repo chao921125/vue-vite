@@ -384,6 +384,11 @@
 | [@okta/okta-auth-js](https://www.npmjs.com/package/@okta/okta-auth-js) |
 | [hellojs](https://www.npmjs.com/package/hellojs)                       |
 
+| 图片裁剪                                                        |
+|-------------------------------------------------------------|
+| [JS库 cropperjs](https://github.com/fengyuanchen/cropperjs)  |
+| [组件库 vue-cropper](https://github.com/xyxiao001/vue-cropper) |
+
 | 分享插件                                                                         |
 |------------------------------------------------------------------------------|
 | [vue-social-sharing](https://www.npmjs.com/package/vue-social-sharing)       |
