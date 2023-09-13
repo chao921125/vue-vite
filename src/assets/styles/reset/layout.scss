@@ -27,6 +27,11 @@ html {
 body {
 	font-size: 1rem;
 }
+@media only screen and (min-width: 768px) {
+	html {
+		font-size: 190% !important;
+	}
+}
 @media only screen and (min-width: 1366px) {
 	html {
 		font-size: 94% !important;

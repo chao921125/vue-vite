@@ -35,9 +35,6 @@ Object.keys(Icons).forEach((key) => {
 	app.component(key, Icons[key as keyof typeof Icons]);
 });
 
-// vant
-import "vant/lib/index.css";
-
 // unocss
 import "virtual:uno.css";
 
