@@ -12,7 +12,7 @@ module.exports = {
 			fontViewportUnit: "vw", // 字体使用的视口单位
 			selectorBlackList: [".ignore"], // 需要忽略的CSS选择器
 			minPixelValue: 1, // 最小的转换数值，如果为1的话，只有大于1的值会被转换
-			mediaQuery: false, // 媒体查询里的单位是否需要转换单位
+			mediaQuery: true, // 媒体查询里的单位是否需要转换单位
 			replace: true, // 是否直接更换属性值，而不添加备用属性
 			exclude: /(node_module)/gi, // 忽略某些文件夹下的文件或特定文件
 			include: undefined, // 如果设置了include，那将只有匹配到的文件才会被转换，例如只转换 "src/mobile" 下的文件 (include: /\/src\/mobile\//)
