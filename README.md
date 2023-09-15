@@ -98,7 +98,6 @@
 | [text-loader](https://www.npmjs.com/package/text-loader)                       |
 | [vue-style-loader](https://www.npmjs.com/package/vue-style-loader)             |
 | [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler)   |
-| [//]: # (浏览器样式补全)                                                              |
 | [浏览器样式补全 autoprefixer](https://www.npmjs.com/package/autoprefixer)             |
 | 快速样式CSS                                                                        |
 | [unocss](https://unocss.dev/)                                                  |
@@ -502,9 +501,9 @@
 | **vw方案 需要依赖style-loader 且需要删除@vue/cli-plugin-eslint**                                  |
 | [postcss-px-to-viewport](https://www.npmjs.com/package/postcss-px-to-viewport)         |
 | **rem方案**                                                                              |
-| [~~lib-flexible~~](https://www.npmjs.com/package/lib-flexible)                         |
 | [postcss-pxtorem](https://www.npmjs.com/package/postcss-pxtorem)                       |
 | [amfe-flexible](https://www.npmjs.com/package/amfe-flexible)                           |
+| [~~lib-flexible~~](https://www.npmjs.com/package/lib-flexible)                         |
 | [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem)       |
 | [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)                     |
 

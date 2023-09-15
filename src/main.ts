@@ -38,6 +38,9 @@ Object.keys(Icons).forEach((key) => {
 // unocss
 import "virtual:uno.css";
 
+// 移动端适配
+import "amfe-flexible";
+
 // svg font icon 字体、图标
 import "virtual:svg-icons-register";
 import "@/assets/fonts/font.css";
