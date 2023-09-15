@@ -10,7 +10,6 @@
 	import Utils from "@/plugins/utils";
 	import Storage from "@/plugins/utils/storage";
 	import Constants from "@/plugins/constants";
-	import RouterConfig from "@/config/routerConfig";
 	import ThemeConfig from "@/config/themeConfig";
 
 	const { proxy } = getCurrentInstance() as any;
@@ -25,7 +24,6 @@
 
 	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 	const route = useRoute();
-	const router = useRouter();
 	const initData = () => {
 		proxy.mittBus.emit("getI18nConfig", Storage.getLocalStorage(Constants.storageKey.i18nLocale));
 	};
@@ -43,20 +41,16 @@
 	});
 
 	onMounted(() => {
-		if (Utils.isMobile()) {
-			router.replace({ path: RouterConfig.routeMHome });
-		} else {
-			initData();
-			if (Storage.getLocalStorage(Constants.storageKey.themeConfig)) {
-				appStore.useThemeConfig.setThemeConfig(Storage.getLocalStorage(Constants.storageKey.themeConfig));
-			}
-			proxy.mittBus.on("getI18nConfig", (locale: string) => {
-				config.i18n = elI18n[locale];
-			});
-			proxy.mittBus.on("getSizeConfig", (size: string) => {
-				config.size = size;
-			});
+		initData();
+		if (Storage.getLocalStorage(Constants.storageKey.themeConfig)) {
+			appStore.useThemeConfig.setThemeConfig(Storage.getLocalStorage(Constants.storageKey.themeConfig));
 		}
+		proxy.mittBus.on("getI18nConfig", (locale: string) => {
+			config.i18n = elI18n[locale];
+		});
+		proxy.mittBus.on("getSizeConfig", (size: string) => {
+			config.size = size;
+		});
 	});
 	onUnmounted(() => {
 		proxy.mittBus.off("getI18nConfig");

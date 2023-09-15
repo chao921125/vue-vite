@@ -21,25 +21,14 @@ body {
 		}
 	}
 }
-html {
-	font-size: 62.5%;
-}
-body {
-	font-size: 1rem;
-}
-@media only screen and (min-width: 1366px) {
+@media only screen and (max-width: 375px) {
 	html {
-		font-size: 94% !important;
+		font-size: 300% !important;
 	}
 }
-@media only screen and (min-width: 1600px) {
+@media only screen and (min-width: 376px) {
 	html {
-		font-size: 109% !important;
-	}
-}
-@media only screen and (min-width: 1920px) {
-	html {
-		font-size: 125% !important;
+		font-size: 400% !important;
 	}
 }
 

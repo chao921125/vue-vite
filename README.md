@@ -1,6 +1,4 @@
 # [访问地址](https://vue-vite.pages.dev/) - [项目截图](./doc/Project.md)
-### <font color="#ff0000">vue-i18n 请勿升级到9.3.0，会有问题</font>
-### <font color="#00ff00">筹备下一阶段：将现有的M端判断移除，直接变换布局</font>
 [//]: # (pnpx husky install)
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
@@ -98,7 +96,6 @@
 | [text-loader](https://www.npmjs.com/package/text-loader)                       |
 | [vue-style-loader](https://www.npmjs.com/package/vue-style-loader)             |
 | [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler)   |
-| [//]: # (浏览器样式补全)                                                              |
 | [浏览器样式补全 autoprefixer](https://www.npmjs.com/package/autoprefixer)             |
 | 快速样式CSS                                                                        |
 | [unocss](https://unocss.dev/)                                                  |
@@ -384,6 +381,11 @@
 | [@okta/okta-auth-js](https://www.npmjs.com/package/@okta/okta-auth-js) |
 | [hellojs](https://www.npmjs.com/package/hellojs)                       |
 
+| 图片裁剪                                                        |
+|-------------------------------------------------------------|
+| [JS库 cropperjs](https://github.com/fengyuanchen/cropperjs)  |
+| [组件库 vue-cropper](https://github.com/xyxiao001/vue-cropper) |
+
 | 分享插件                                                                         |
 |------------------------------------------------------------------------------|
 | [vue-social-sharing](https://www.npmjs.com/package/vue-social-sharing)       |
@@ -497,9 +499,9 @@
 | **vw方案 需要依赖style-loader 且需要删除@vue/cli-plugin-eslint**                                  |
 | [postcss-px-to-viewport](https://www.npmjs.com/package/postcss-px-to-viewport)         |
 | **rem方案**                                                                              |
-| [~~lib-flexible~~](https://www.npmjs.com/package/lib-flexible)                         |
 | [postcss-pxtorem](https://www.npmjs.com/package/postcss-pxtorem)                       |
 | [amfe-flexible](https://www.npmjs.com/package/amfe-flexible)                           |
+| [~~lib-flexible~~](https://www.npmjs.com/package/lib-flexible)                         |
 | [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem)       |
 | [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)                     |
 

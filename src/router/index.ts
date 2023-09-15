@@ -4,7 +4,6 @@
 import { createRouter, createWebHistory, RouteRecordName, RouteRecordRaw } from "vue-router";
 import { getStoreRefs, appStore } from "@/store";
 import { baseRoutes, errorRoutes } from "./route";
-import Utils from "@/plugins/utils";
 import Storage from "@/plugins/utils/storage";
 import Cookie from "@/plugins/utils/cookie";
 import Constants from "@/plugins/constants";
@@ -52,7 +51,7 @@ router.beforeEach(async (to, from, next) => {
 			Cookie.removeCookie(Constants.cookieKey.token);
 			next(`${RouterConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
 		} else if (token && (RouterConfig.whiteList.includes(to.path) || to.path === RouterConfig.routeRoot)) {
-			next(Utils.isMobile() ? RouterConfig.routeMHome : RouterConfig.routeHome);
+			next(RouterConfig.routeHome);
 		} else {
 			const { routerList } = getStoreRefs(appStore.useRouterList);
 			if (routerList.value.length === 0) {

@@ -21,7 +21,7 @@ import viteCompression from "vite-plugin-compression";
 // 自动导入模块
 import autoImport from "unplugin-auto-import/vite";
 import components from "unplugin-vue-components/vite";
-import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 // CSS 预构建
 import UnoCSS from "unocss/vite";
 // import { presetAttributify, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from "unocss";
@@ -183,11 +183,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core", "vue-i18n"],
 				dirs: ["./hooks", "./hooks/**", "./components", "./components/**"],
 				dts: true,
-				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
+				resolvers: [ElementPlusResolver(), IconsResolver()],
 			}),
 			components({
 				dts: true,
-				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
+				resolvers: [ElementPlusResolver(), IconsResolver()],
 				directoryAsNamespace: true,
 			}),
 			viteMockServe({
