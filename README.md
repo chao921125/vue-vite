@@ -1,4 +1,5 @@
 # [访问地址](https://vue-vite.pages.dev/) - [项目截图](./doc/Project.md)
+###### 筹备下一阶段：将现有的M端判断移除，直接变换布局
 [//]: # (pnpx husky install)
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
@@ -42,6 +43,12 @@
 
 # 基础核心
 ###### 无特殊说明均对应最新版
+| 插件网站                                                       |
+|------------------------------------------------------------|
+| [Vite 官方推荐插件](https://github.com/vitejs/awesome-vite)      |
+| [vue3-resource](https://hu-snail.github.io/vue3-resource/) |
+| [vue3js](https://vue3js.cn/)                               |
+
 | 核心依赖                                                      |
 |-----------------------------------------------------------|
 | [👍vite 官网](https://cn.vitejs.dev/)                       |
@@ -64,19 +71,7 @@
 | [axios 官网](http://axios-js.com/)                                                          |
 | [ws 官网 ts 需安装 @types/ws](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSockets_API) |
 | [socket.io socket.io-client](https://socket.io/zh-CN/)                                    |
-| [qs 序列化网络请求参数](https://github.com/ljharb/qs)                                              |
-
-# 跨端框架
-| APP( IOS Android )                                                 | 小程序 & H5                                                            |
-|--------------------------------------------------------------------|---------------------------------------------------------------------|
-| [flutter](https://flutter.dev/) [flutter](https://flutter.cn/)     | [UNI-APP](https://uniapp.dcloud.net.cn/) 全平台跨端含APP等等                |
-| [Ark](https://developer.harmonyos.com/cn/develop/)                 | [TARO](https://taro.jd.com/) 3.x已支持vue，但不推荐使用vue开发，实践不佳             |
-| [UNI-UTS](https://uniapp.dcloud.net.cn/)                           | [微信官方](https://developers.weixin.qq.com/miniprogram/dev/framework/) |
-| [React Native](https://reactnative.dev/)                           |                                                                     |
-| [Ionic](https://ionicframework.com/) [ionic UI](https://ionic.io/) | [~~mpvue 官网~~](https://mpvue.com/) 美团                               |
-| [hippyjs](https://hippyjs.org/#/) 3.x已支持vue                        | [~~wepyjs 官网~~](https://wepyjs.github.io/wepy-docs/) 腾讯 需要学习wepy    |
-| [cordova 官网](http://cordova.axuer.com/)                            |                                                                     |
-| [Native Script 官网](https://nativescript.org/)                      |                                                                     |
+| [qs 序列化参数，并非网络请求](https://github.com/ljharb/qs)                                           |
 
 # 语法解析
 | TS                                                         |
@@ -96,6 +91,7 @@
 | [text-loader](https://www.npmjs.com/package/text-loader)                       |
 | [vue-style-loader](https://www.npmjs.com/package/vue-style-loader)             |
 | [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler)   |
+| [//]: # (浏览器样式补全)                                                              |
 | [浏览器样式补全 autoprefixer](https://www.npmjs.com/package/autoprefixer)             |
 | 快速样式CSS                                                                        |
 | [unocss](https://unocss.dev/)                                                  |
@@ -120,9 +116,9 @@
 | [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier) |
 
 # UI相关
-| UI 多端 官方                                         |
-|--------------------------------------------------|
-| [tdesign 腾讯多端UI](https://tdesign.tencent.com/)   |
+| UI 多端 官方                                       |
+|------------------------------------------------|
+| [tdesign 腾讯多端UI](https://tdesign.tencent.com/) |
 
 | UI PC 官方                                                                  |
 |---------------------------------------------------------------------------|
@@ -201,7 +197,6 @@
 |----------------------------------------------------------------------|
 | [👍 Bootstrap](https://getbootstrap.com/)                            |
 | [👍 layui 官方！！！](https://layui.dev/)                                 |
-| [semantic](https://semantic-ui.com/)                                 |
 | [H5 zeptojs](https://www.zeptojs.com.cn/)                            |
 | [PC javascript](https://www.javascript.com/)                         |
 | [Framework7](https://framework7.io/)                                 |
@@ -381,11 +376,6 @@
 | [@okta/okta-auth-js](https://www.npmjs.com/package/@okta/okta-auth-js) |
 | [hellojs](https://www.npmjs.com/package/hellojs)                       |
 
-| 图片裁剪                                                        |
-|-------------------------------------------------------------|
-| [JS库 cropperjs](https://github.com/fengyuanchen/cropperjs)  |
-| [组件库 vue-cropper](https://github.com/xyxiao001/vue-cropper) |
-
 | 分享插件                                                                         |
 |------------------------------------------------------------------------------|
 | [vue-social-sharing](https://www.npmjs.com/package/vue-social-sharing)       |
@@ -499,9 +489,9 @@
 | **vw方案 需要依赖style-loader 且需要删除@vue/cli-plugin-eslint**                                  |
 | [postcss-px-to-viewport](https://www.npmjs.com/package/postcss-px-to-viewport)         |
 | **rem方案**                                                                              |
+| [~~lib-flexible~~](https://www.npmjs.com/package/lib-flexible)                         |
 | [postcss-pxtorem](https://www.npmjs.com/package/postcss-pxtorem)                       |
 | [amfe-flexible](https://www.npmjs.com/package/amfe-flexible)                           |
-| [~~lib-flexible~~](https://www.npmjs.com/package/lib-flexible)                         |
 | [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem)       |
 | [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)                     |
 
@@ -510,18 +500,23 @@
 | [eruda](https://www.npmjs.com/package/eruda)       |
 | [vconsole](https://www.npmjs.com/package/vconsole) |
 
-# SSR
-| 框架                                                                                                          |
-|-------------------------------------------------------------------------------------------------------------|
-| [astro 多语言支持](https://astro.build/)                                                                         |
-| [NuxtJS vue](https://nuxt.com/)                                                                             |
-| [NextJS react](https://www.nextjs.cn/)                                                                      |
-| [quasar 官网 组件一体](https://quasar.dev/)                                                                       |
-| [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue)                      |
-| [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                                             |
-| Gatsby Next.js NuxtJS Docusaurus Eleventy GitBook Gridsome Hugo Jekyll Pelican SvelteKit VuePress WordPress |
+| 跨端框架推荐：包含小程序啥的                                                   |
+|------------------------------------------------------------------|
+| [uni-app 官网](https://uniapp.dcloud.net.cn/) 全平台跨端含APP等等          |
+| [taro 官网](https://taro.jd.com/) 3.x已支持vue                        |
+| [hippy 官网](https://hippyjs.org/#/) 3.x已支持vue                     |
+| [~~mpvue 官网~~](https://mpvue.com/) 美团                            |
+| [~~wepyjs 官网~~](https://wepyjs.github.io/wepy-docs/) 腾讯 需要学习wepy |
 
-# 在线工具
+| APP开发                                                              |
+|--------------------------------------------------------------------|
+| [flutter 官网](https://flutter.cn/)                                  |
+| [ionic 官网](https://ionicframework.com/) [ionic](https://ionic.io/) |
+| [cordova 官网](http://cordova.axuer.com/)                            |
+| [Native Script 官网](https://nativescript.org/)                      |
+| [React Native 官网](https://reactnative.cn/)                         |
+
+# 在线
 | api                           |
 |-------------------------------|
 | [apifox](https://apifox.com/) |
@@ -532,13 +527,25 @@
 | [codepen](https://codepen.io/)     |
 | [css 在线](https://cssreference.io/) |
 
-# 优秀项目推荐
+# SSR
+| 框架                                                                                                          |
+|-------------------------------------------------------------------------------------------------------------|
+| [astro](https://astro.build/)                                                                               |
+| [NuxtJS](https://nuxt.com/)                                                                                 |
+| [quasar 官网 组件一体](https://quasar.dev/)                                                                       |
+| [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue)                      |
+| [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                                             |
+| Gatsby Next.js NuxtJS Docusaurus Eleventy GitBook Gridsome Hugo Jekyll Pelican SvelteKit VuePress WordPress |
 
-| 插件网站                                                       |
-|------------------------------------------------------------|
-| [Vite 官方推荐插件](https://github.com/vitejs/awesome-vite)      |
-| [vue3-resource](https://hu-snail.github.io/vue3-resource/) |
-| [vue3js](https://vue3js.cn/)                               |
+# 游戏
+| 游戏开发框架                                                           |
+|------------------------------------------------------------------|
+| [Unity 3D(C/JS) 3D大佬！](https://www.unrealengine.com/zh-CN/)      |
+| [Cocos(C/TS) 2D、2.5大佬！](https://www.unrealengine.com/zh-CN/)     |
+| [Unreal(C++) 这是一个追求画质的游戏引擎](https://www.unrealengine.com/zh-CN/) |
+| [小游戏 createjs](https://www.createjs.com/)                        |
+
+# 优秀项目推荐
 
 | 项目示例                                                            |
 |-----------------------------------------------------------------|
@@ -632,11 +639,3 @@
 | https://github.com/Sujb-sus/vue3-vite2-ts-blog-h5     |
 | https://github.com/buqiyuan/vite-vue3-h5              |
 | https://github.com/xsf0105/vue3-h5-template           |
-
-# 游戏
-| 游戏开发框架                                                           |
-|------------------------------------------------------------------|
-| [Unity 3D(C/JS)](https://www.unrealengine.com/zh-CN/)            |
-| [Cocos(C/TS)](https://www.unrealengine.com/zh-CN/)               |
-| [Unreal(C++) 这是一个追求画质的游戏引擎](https://www.unrealengine.com/zh-CN/) |
-| [小游戏 createjs](https://www.createjs.com/)                        |

@@ -35,16 +35,16 @@ Object.keys(Icons).forEach((key) => {
 	app.component(key, Icons[key as keyof typeof Icons]);
 });
 
+// vant
+import "vant/lib/index.css";
+
 // unocss
 import "virtual:uno.css";
-
-// 移动端适配
-import "amfe-flexible";
 
 // svg font icon 字体、图标
 import "virtual:svg-icons-register";
 import "@/assets/fonts/font.css";
-import "@/assets/iconfonts/iconfont.css";
+import "@/assets/icon/iconfont.css";
 
 // 自定义样式
 import "@/assets/styles/index.scss";

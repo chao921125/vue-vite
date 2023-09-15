@@ -41,7 +41,7 @@
 
 <script lang="ts" setup name="PostList">
 	import type { FormInstance } from "element-plus";
-	import { StatusUse } from "@/plugins/constants";
+	import { StatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";
 
 	const formSearchRef = ref<FormInstance>();

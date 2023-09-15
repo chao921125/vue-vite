@@ -1,26 +1,5 @@
 $prefix: re;
 
-// 与主题无关的变量，切换主题不改变
-// 定义项目全局 --re-color/text/bg/border-[value]
-// 定义模块 --re-[dir]-color/text/bg/border
-:root {
-	--re-np-color: #409eff;
-	--re-color-white: #ffffff;
-	--re-bg-main-color: #f8f8f8;
-	--re-bg-color: #f5f5ff;
-	--re-border-color-light: #f1f2f3;
-	--re-color-primary-lighter: #ecf5ff;
-	--re-color-success-lighter: #f0f9eb;
-	--re-color-warning-lighter: #fdf6ec;
-	--re-color-danger-lighter: #fef0f0;
-	--re-color-dark-hover: #0000001a;
-	--re-color-menu-hover: rgba(0, 0, 0, 0.2);
-	--re-color-user-hover: rgba(0, 0, 0, 0.04);
-	--re-color-seting-main: #e9eef3;
-	--re-color-seting-aside: #d3dce6;
-	--re-color-seting-header: #b3c0d1;
-}
-
 // 色值定义
 $color-primary: #409eff;
 $color-white: #ffffff;

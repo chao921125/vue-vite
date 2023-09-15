@@ -9,5 +9,7 @@
 <script lang="ts" setup name="Footer"></script>
 
 <style scoped lang="scss">
-	@use "./index.scss";
+	.footer-body {
+		font-size: 14px;
+	}
 </style>
