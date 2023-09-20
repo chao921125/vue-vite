@@ -426,6 +426,10 @@
 | [Eva-plugin-renderer](https://www.npmjs.com/package/@eva/plugin-renderer)                                                             |
 | [Eva-plugin-renderer-img](https://www.npmjs.com/package/@eva/plugin-renderer-img) [官网](https://eva-engine.gitee.io/#/tutorials/intro) |
 
+| 浏览器相关的插件                                                                        |
+|---------------------------------------------------------------------------------|
+| [devtools-detector 判断浏览器是否打开了控制台](https://github.com/AepKill/devtools-detector) |
+
 # 特效
 | Loading动画                                                                    |
 |------------------------------------------------------------------------------|
@@ -461,6 +465,11 @@
 | 文字                                                     |
 |--------------------------------------------------------|
 | [vue-textra](https://www.npmjs.com/package/vue-textra) |
+
+# 营销组件
+|                                    |
+|------------------------------------|
+| [抽奖转盘/九宫格/老虎机](https://100px.net/) |
 
 # 构建
 | 环境配置获取                                          |
