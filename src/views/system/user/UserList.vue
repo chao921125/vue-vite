@@ -54,7 +54,7 @@
 
 <script lang="ts" setup name="UserList">
 	import type { FormInstance } from "element-plus";
-	import { StatusUse } from "@/plugins/constants";
+	import { StatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";
 	import { ITree } from "@/interface/common";
 
