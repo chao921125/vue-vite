@@ -7,8 +7,8 @@
 	import { onMounted } from "vue";
 
 	const drawCanvas = () => {
-		let canvas = document.getElementById("canvas") as HTMLCanvasElement;
-		let ct = canvas.getContext("2d");
+		let canvas = document.getElementById("canvas")! as HTMLCanvasElement;
+		let ct = canvas.getContext("2d")!;
 		let num = Math.PI / 180;
 		ct.translate(150, 150);
 		const colorArr = ["#00eeff", "#0099ee", "#00eeff", "#0099ee", "#00eeff", "#0099ee", "#00eeff", "#0099ee"];
