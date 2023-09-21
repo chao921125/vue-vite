@@ -1,7 +1,13 @@
 <template>
 	<el-row>
 		<el-col :span="24">
-			<el-button @click="changeTransition()">点击</el-button>
+			<div class="ani-tr rotate-center">zhuan zhuan zhuan</div>
+		</el-col>
+		<el-col :span="24">
+			<lottery-wheel></lottery-wheel>
+		</el-col>
+		<el-col :span="24">
+			<el-button @click="changeTransition()">点击 测试自带过渡效果</el-button>
 			<Transition name="fade" mode="out-in" appear>
 				<div v-if="transition">toggled content</div>
 			</Transition>
@@ -21,6 +27,7 @@
 
 <script lang="ts" setup name="AnimationCss">
 	import { shuffle } from "lodash-es";
+	import LotteryWheel from "@/views/demo/animation/LotteryWheel.vue";
 
 	const transition = ref(true);
 	const changeTransition = () => {
@@ -74,5 +81,11 @@
       以便正确地计算移动时的动画效果。 */
 	.fade-leave-active {
 		position: absolute;
+	}
+	.ani-tr {
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		background-color: #00ffff;
 	}
 </style>

@@ -1,3 +1,25 @@
+@mixin keyframes($animationName) {
+	@keyframes #{$animationName} {
+		@content;
+	}
+}
+
+// 旋转
+.rotate-center {
+	animation-name: rotateName;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-play-state: running;
+}
+@include keyframes(rotateName) {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 // 过渡动画 横向渐变
 .fade-transverse-leave-active,
 .fade-transverse-enter-active {
