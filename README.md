@@ -537,14 +537,36 @@
 | [css 在线](https://cssreference.io/) |
 
 # SSR
-| 框架                                                                                                          |
-|-------------------------------------------------------------------------------------------------------------|
-| [astro](https://astro.build/)                                                                               |
-| [NuxtJS](https://nuxt.com/)                                                                                 |
-| [quasar 官网 组件一体](https://quasar.dev/)                                                                       |
-| [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue)                      |
-| [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                                             |
-| Gatsby Next.js NuxtJS Docusaurus Eleventy GitBook Gridsome Hugo Jekyll Pelican SvelteKit VuePress WordPress |
+| 框架                                                                                     |
+|----------------------------------------------------------------------------------------|
+| [NuxtJS](https://nuxt.com/)                                                            |
+| [astro](https://astro.build/)                                                          |
+| [quasar 官网 组件一体](https://quasar.dev/)                                                  |
+| [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) |
+| [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                        |
+| [Next.js](https://github.com/vercel/next.js)                                           |
+| [Hugo](https://github.com/gohugoio/hugo)                                               |
+| [Docusaurus](https://github.com/facebook/docusaurus)                                   |
+| [Jekyll](https://github.com/jekyll/jekyll)                                             |
+| [Gatsby](https://github.com/gatsbyjs/gatsby)                                           |
+
+# 服务
+| 框架                                                  |
+|-----------------------------------------------------|
+| [nest](https://github.com/nestjs/nest)              |
+| [midwayjs](https://www.midwayjs.org/)               |
+| [Next.js](https://github.com/vercel/next.js)        |
+| [expressjs](https://github.com/expressjs/express)   |
+| [meteor](https://github.com/meteor/meteor)          |
+| [egg](https://github.com/eggjs/egg)                 |
+| [fastify](https://github.com/fastify/fastify)       |
+| [koajs](https://github.com/koajs/koa)               |
+| [sails](https://github.com/balderdashy/sails)       |
+
+# 工作流
+| 框架                                            |
+|-----------------------------------------------|
+| [NodeJS n8n](https://github.com/n8n-io/n8n)   |
 
 # 游戏
 | 游戏开发框架                                                           |
@@ -568,12 +590,13 @@
 | https://github.com/antfu/vitesse   |
 | https://github.com/vuejs/vitepress |
 
-| 各种插件                                       |
-|--------------------------------------------|
-| [组件](https://madewith.cn/)                 |
-| https://github.com/vitejs/awesome-vite     |
-| https://github.com/nekobc1998923/vitecamp  |
-| https://hu-snail.github.io/vue3-resource/  |
+| 各种插件                                            |
+|-------------------------------------------------|
+| [组件](https://madewith.cn/)                      |
+| https://github.com/sindresorhus/awesome-nodejs  |
+| https://github.com/vitejs/awesome-vite          |
+| https://github.com/nekobc1998923/vitecamp       |
+| https://hu-snail.github.io/vue3-resource/       |
 
 | Admin server & Web                                         |
 |------------------------------------------------------------|
