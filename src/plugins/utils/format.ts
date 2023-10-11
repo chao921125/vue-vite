@@ -76,7 +76,7 @@ function getWeek(dateTime: Date): number {
 	let firstDay = new Date(temptTime.getFullYear(), 0, 1);
 	let dayOfWeek = firstDay.getDay();
 	let spendDay = 1;
-	if (dayOfWeek != 0) spendDay = 7 - dayOfWeek + 1;
+	if (dayOfWeek !== 0) spendDay = 7 - dayOfWeek + 1;
 	firstDay = new Date(temptTime.getFullYear(), 0, 1 + spendDay);
 	let d = Math.ceil((temptTime.valueOf() - firstDay.valueOf()) / 86400000);
 	return Math.ceil(d / 7);
