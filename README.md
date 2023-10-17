@@ -266,9 +266,11 @@
 |--------------------------------------------------------|
 | [screenfull](https://www.npmjs.com/package/screenfull) |
 
-| 数据表格                                       |
-|--------------------------------------------|
-| [xlsx](https://www.npmjs.com/package/xlsx) |
+| 数据表格导入导出                                               |
+|--------------------------------------------------------|
+| [csv](https://www.npmjs.com/package/csv)               |
+| [papaparse](https://www.npmjs.com/package/papaparse)   |
+| [xlsx](https://www.npmjs.com/package/xlsx)             |
 
 | html2canvas，页面截图                                         |
 |----------------------------------------------------------|
