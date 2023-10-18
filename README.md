@@ -541,7 +541,8 @@
 # SSR
 | 框架                                                                                     |
 |----------------------------------------------------------------------------------------|
-| [NuxtJS](https://nuxt.com/)                                                            |
+| [NuxtJS vue](https://nuxt.com/)                                                        |
+| [Next.js react](https://github.com/vercel/next.js)                                     |
 | [astro](https://astro.build/)                                                          |
 | [quasar 官网 组件一体](https://quasar.dev/)                                                  |
 | [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) |
@@ -553,17 +554,23 @@
 | [Gatsby](https://github.com/gatsbyjs/gatsby)                                           |
 
 # 服务
-| 框架                                                  |
-|-----------------------------------------------------|
-| [nest](https://github.com/nestjs/nest)              |
-| [midwayjs](https://www.midwayjs.org/)               |
-| [Next.js](https://github.com/vercel/next.js)        |
-| [expressjs](https://github.com/expressjs/express)   |
-| [meteor](https://github.com/meteor/meteor)          |
-| [egg](https://github.com/eggjs/egg)                 |
-| [fastify](https://github.com/fastify/fastify)       |
-| [koajs](https://github.com/koajs/koa)               |
-| [sails](https://github.com/balderdashy/sails)       |
+| 框架                                                     |
+|--------------------------------------------------------|
+| [expressjs](https://github.com/expressjs/express)      |
+| [nest](https://github.com/nestjs/nest)                 |
+| [socket.io](https://github.com/socketio/socket.io)     |
+| [meteor](https://github.com/meteor/meteor)             |
+| [koajs](https://github.com/koajs/koa)                  |
+| [fastify](https://github.com/fastify/fastify)          |
+| [sails](https://github.com/balderdashy/sails)          |
+| [egg](https://github.com/eggjs/egg)                    |
+| [midwayjs](https://www.midwayjs.org/)                  |
+
+# CMS
+|                                            |
+|--------------------------------------------|
+| [strapi](https://github.com/strapi/strapi) |
+| [hexo 博客](https://github.com/hexojs/hexo)  |
 
 # 工作流
 | 框架                                            |
