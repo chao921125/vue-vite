@@ -67,7 +67,6 @@
 						} else {
 							router.push({ path: "/" });
 						}
-						isLoading.value = false;
 					})
 					.catch(() => {
 						isLoading.value = false;

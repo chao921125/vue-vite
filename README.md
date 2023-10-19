@@ -18,8 +18,8 @@
 - 如果你觉得你的package.json乱糟糟，那么使用 npx sort-package-json 来解决吧
 
 # 关于手机端适配（脱离业务场景谈解决方案都是耍流氓）
-1. 最古老的解决方案：使用媒体查询，但建议企业官网等页面较少的网站，且对网站设计者和开发者水平有一定的要求。
-2. 切换URL改变页面呈现方式：通过监听获取当前是否是移动端，然后改变对应的URL。需要设计两套UI，开发者需要写两套页面及样式。优点是灵活，缺点是需要较长的时间。
+1. 稳定解决方案：使用媒体查询，但建议企业官网等页面较少的网站，且对网站设计者和开发者水平有一定的要求，开发调试比较麻烦
+2. 切换URL改变页面呈现方式：通过监听获取当前是否是移动端，然后改变对应的URL。需要设计两套UI，开发者需要写两套页面及样式。优点是灵活，缺点是开发周期长
 3. rem 计算：目前最多的，通过对根字体的设置，自动换算
 4. vw 计算：当下及以后的趋势，本项目就是采用的此计算方式，不打算采用和rem混用的方式了
 
@@ -266,9 +266,11 @@
 |--------------------------------------------------------|
 | [screenfull](https://www.npmjs.com/package/screenfull) |
 
-| 数据表格                                       |
-|--------------------------------------------|
-| [xlsx](https://www.npmjs.com/package/xlsx) |
+| 数据表格导入导出                                               |
+|--------------------------------------------------------|
+| [csv](https://www.npmjs.com/package/csv)               |
+| [papaparse](https://www.npmjs.com/package/papaparse)   |
+| [xlsx](https://www.npmjs.com/package/xlsx)             |
 
 | html2canvas，页面截图                                         |
 |----------------------------------------------------------|
@@ -539,7 +541,8 @@
 # SSR
 | 框架                                                                                     |
 |----------------------------------------------------------------------------------------|
-| [NuxtJS](https://nuxt.com/)                                                            |
+| [NuxtJS vue](https://nuxt.com/)                                                        |
+| [Next.js react](https://github.com/vercel/next.js)                                     |
 | [astro](https://astro.build/)                                                          |
 | [quasar 官网 组件一体](https://quasar.dev/)                                                  |
 | [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) |
@@ -551,17 +554,23 @@
 | [Gatsby](https://github.com/gatsbyjs/gatsby)                                           |
 
 # 服务
-| 框架                                                  |
-|-----------------------------------------------------|
-| [nest](https://github.com/nestjs/nest)              |
-| [midwayjs](https://www.midwayjs.org/)               |
-| [Next.js](https://github.com/vercel/next.js)        |
-| [expressjs](https://github.com/expressjs/express)   |
-| [meteor](https://github.com/meteor/meteor)          |
-| [egg](https://github.com/eggjs/egg)                 |
-| [fastify](https://github.com/fastify/fastify)       |
-| [koajs](https://github.com/koajs/koa)               |
-| [sails](https://github.com/balderdashy/sails)       |
+| 框架                                                     |
+|--------------------------------------------------------|
+| [expressjs](https://github.com/expressjs/express)      |
+| [nest](https://github.com/nestjs/nest)                 |
+| [socket.io](https://github.com/socketio/socket.io)     |
+| [meteor](https://github.com/meteor/meteor)             |
+| [koajs](https://github.com/koajs/koa)                  |
+| [fastify](https://github.com/fastify/fastify)          |
+| [sails](https://github.com/balderdashy/sails)          |
+| [egg](https://github.com/eggjs/egg)                    |
+| [midwayjs](https://www.midwayjs.org/)                  |
+
+# CMS
+|                                            |
+|--------------------------------------------|
+| [strapi](https://github.com/strapi/strapi) |
+| [hexo 博客](https://github.com/hexojs/hexo)  |
 
 # 工作流
 | 框架                                            |
