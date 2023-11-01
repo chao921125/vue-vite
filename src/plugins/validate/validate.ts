@@ -224,7 +224,7 @@ export const verifyTelPhone = (val: string) => {
 export const verifyAccount = (val: string) => {
 	if (!val) return false;
 	// false: 登录账号不正确
-	return /^[a-zA-Z][a-zA-Z0-9_]{4,15}$/.test(val);
+	return /^[A-Z][A-Z0-9_]{4,15}$/i.test(val);
 };
 
 /**
@@ -235,7 +235,7 @@ export const verifyAccount = (val: string) => {
 export const verifyPassword = (val: string) => {
 	if (!val) return false;
 	// false: 密码不正确
-	return /^[a-zA-Z]\w{5,15}$/.test(val);
+	return /^[A-Z]\w{5,15}$/i.test(val);
 };
 
 /**
@@ -246,7 +246,7 @@ export const verifyPassword = (val: string) => {
 export const verifyPasswordPowerful = (val: string) => {
 	if (!val) return false;
 	// false: 强密码不正确
-	return /^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&\.*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&\.*]+$)(?![\d!@#$%^&\.*]+$)[a-zA-Z\d!@#$%^&\.*]{6,16}$/.test(val);
+	return /^(?![A-Z]+$)(?!\d+$)(?![!@#$%^&\\.*]+$)(?![A-Z\d]+$)(?![A-Z!@#$%^&\\.*]+$)(?![\d!@#$%^&\\.*]+$)[A-Z\d!@#$%^&\\.*]{6,16}$/i.test(val);
 };
 
 /**
@@ -261,11 +261,11 @@ export const verifyPasswordStrength = (val: string) => {
 	if (!val) return false;
 	let v = "";
 	// 弱：纯数字，纯字母，纯特殊字符
-	if (/^(?:\d+|[a-zA-Z]+|[!@#$%^&\.*]+){6,16}$/.test(val)) v = "弱";
+	if (/^(?:\d+|[A-Z]+|[!@#$%^&\\.*]+){6,16}$/i.test(val)) v = "弱";
 	// 中：字母+数字，字母+特殊字符，数字+特殊字符
-	if (/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&\.*]+$)[a-zA-Z\d!@#$%^&\.*]{6,16}$/.test(val)) v = "中";
+	if (/^(?![A-Z]+$)(?!\d+$)(?![!@#$%^&\\.*]+$)[A-Z\d!@#$%^&\\.*]{6,16}$/i.test(val)) v = "中";
 	// 强：字母+数字+特殊字符
-	if (/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&\.*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&\.*]+$)(?![\d!@#$%^&\.*]+$)[a-zA-Z\d!@#$%^&\.*]{6,16}$/.test(val)) v = "强";
+	if (/^(?![A-Z]+$)(?!\d+$)(?![!@#$%^&\\.*]+$)(?![A-Z\d]+$)(?![A-Z!@#$%^&\\.*]+$)(?![\d!@#$%^&\\.*]+$)[A-Z\d!@#$%^&\\.*]{6,16}$/i.test(val)) v = "强";
 	// 返回结果
 	return v;
 };
@@ -289,7 +289,7 @@ export const verifyIPAddress = (val: string) => {
 export const verifyEmail = (val: string) => {
 	if (!val) return false;
 	// false: 邮箱不正确
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([A-Z\-0-9]+\.)+[A-Z]{2,}))$/i.test(
 		val,
 	);
 };
