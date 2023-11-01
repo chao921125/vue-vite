@@ -1,5 +1,7 @@
 import Reg from "./reg";
+
 export const verifyNumber = (val: string): boolean => {
+	if (!val) return false;
 	val = val.trim();
 	return Reg.number.test(val);
 };
@@ -9,6 +11,7 @@ export const verifyNumber = (val: string): boolean => {
  * @returns 返回处理后的字符串
  */
 export const verifyNumberPercentage = (val: string): string => {
+	if (!val) return "";
 	// 匹配空格
 	let v = val.replace(/(^\s*)|(\s*$)/g, "");
 	// 只能是数字和小数点，不能是其他输入
@@ -27,6 +30,7 @@ export const verifyNumberPercentage = (val: string): string => {
  * @returns 返回处理后的字符串
  */
 export const verifyNumberPercentageFloat = (val: string): string => {
+	if (!val) return "";
 	let v = verifyNumberIntegerAndFloat(val);
 	// 数字超过100，赋值成最大值100
 	v = v.replace(/^[1-9]\d\d{1,3}$/, "100");
@@ -42,6 +46,7 @@ export const verifyNumberPercentageFloat = (val: string): string => {
  * @returns 返回处理后的字符串
  */
 export const verifyNumberIntegerAndFloat = (val: string) => {
+	if (!val) return false;
 	// 匹配空格
 	let v = val.replace(/(^\s*)|(\s*$)/g, "");
 	// 只能是数字和小数点，不能是其他输入
@@ -53,7 +58,7 @@ export const verifyNumberIntegerAndFloat = (val: string) => {
 	// 小数只能出现1位
 	v = v.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
 	// 小数点后面保留2位
-	v = v.replace(/^(\-)*(\d+)\.(\d\d).*$/, "$1$2.$3");
+	v = v.replace(/^(\\-)*(\d+)\.(\d\d).*$/, "$1$2.$3");
 	// 返回结果
 	return v;
 };
@@ -64,10 +69,11 @@ export const verifyNumberIntegerAndFloat = (val: string) => {
  * @returns 返回处理后的字符串
  */
 export const verifyNumberInteger = (val: string) => {
+	if (!val) return false;
 	// 匹配空格
 	let v = val.replace(/(^\s*)|(\s*$)/g, "");
 	// 去掉 '.' , 防止贴贴的时候出现问题 如 0.1.12.12
-	v = v.replace(/[\.]*/g, "");
+	v = v.replace(/[\\.]*/g, "");
 	// 去掉以 0 开始后面的数, 防止贴贴的时候出现问题 如 00121323
 	v = v.replace(/(^0[\d]*)$/g, "0");
 	// 首位是0,只能出现一次
@@ -84,6 +90,7 @@ export const verifyNumberInteger = (val: string) => {
  * @returns 返回处理后的字符串
  */
 export const verifyCnAndSpace = (val: string) => {
+	if (!val) return false;
 	// 匹配中文与空格
 	let v = val.replace(/[\u4e00-\u9fa5\s]+/g, "");
 	// 匹配空格
@@ -98,6 +105,7 @@ export const verifyCnAndSpace = (val: string) => {
  * @returns 返回处理后的字符串
  */
 export const verifyEnAndSpace = (val: string) => {
+	if (!val) return false;
 	// 匹配英文与空格
 	let v = val.replace(/[a-zA-Z]+/g, "");
 	// 匹配空格
@@ -112,6 +120,7 @@ export const verifyEnAndSpace = (val: string) => {
  * @returns 返回处理后的字符串
  */
 export const verifyAndSpace = (val: string) => {
+	if (!val) return false;
 	// 匹配空格
 	let v = val.replace(/(^\s*)|(\s*$)/g, "");
 	// 返回结果
@@ -124,6 +133,7 @@ export const verifyAndSpace = (val: string) => {
  * @returns 返回处理后的字符串
  */
 export const verifyNumberComma = (val: string) => {
+	if (!val) return false;
 	// 调用小数或整数(不可以负数)方法
 	let v: any = verifyNumberIntegerAndFloat(val);
 	// 字符串转成数组
@@ -144,19 +154,21 @@ export const verifyNumberComma = (val: string) => {
  * @returns 返回处理后的字符串
  */
 export const verifyTextColor = (val: string, text = "", color = "red") => {
+	if (!val) return false;
 	// 返回内容，添加颜色
-	let v = text.replace(new RegExp(val, "gi"), `<span style='color: ${color}'>${val}</span>`);
 	// 返回结果
-	return v;
+	return text.replace(new RegExp(val, "gi"), `<span style='color: ${color}'>${val}</span>`);
 };
 
 /**
  * 数字转中文大写
  * @param val 当前值字符串
  * @param unit 默认：仟佰拾亿仟佰拾万仟佰拾元角分
+ * @param v
  * @returns 返回处理后的字符串
  */
 export const verifyNumberCnUppercase = (val: any, unit = "仟佰拾亿仟佰拾万仟佰拾元角分", v = "") => {
+	if (!val) return false;
 	// 当前内容字符串添加 2个0，为什么??
 	val += "00";
 	// 返回某个指定的字符串值在字符串中首次出现的位置，没有出现，则该方法返回 -1
@@ -188,10 +200,9 @@ export const verifyNumberCnUppercase = (val: any, unit = "仟佰拾亿仟佰拾�
  * @returns 返回 true: 手机号码正确
  */
 export const verifyPhone = (val: string) => {
+	if (!val) return false;
 	// false: 手机号码不正确
-	if (!/^((12[0-9])|(13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0|1,5-9]))\d{8}$/.test(val)) return false;
-	// true: 手机号码正确
-	else return true;
+	return /^((12[0-9])|(13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0|1,5-9]))\d{8}$/.test(val);
 };
 
 /**
@@ -200,10 +211,9 @@ export const verifyPhone = (val: string) => {
  * @returns 返回 true: 国内电话号码正确
  */
 export const verifyTelPhone = (val: string) => {
+	if (!val) return false;
 	// false: 国内电话号码不正确
-	if (!/\d{3}-\d{8}|\d{4}-\d{7}/.test(val)) return false;
-	// true: 国内电话号码正确
-	else return true;
+	return /\d{3}-\d{8}|\d{4}-\d{7}/.test(val);
 };
 
 /**
@@ -212,10 +222,9 @@ export const verifyTelPhone = (val: string) => {
  * @returns 返回 true: 登录账号正确
  */
 export const verifyAccount = (val: string) => {
+	if (!val) return false;
 	// false: 登录账号不正确
-	if (!/^[a-zA-Z][a-zA-Z0-9_]{4,15}$/.test(val)) return false;
-	// true: 登录账号正确
-	else return true;
+	return /^[a-zA-Z][a-zA-Z0-9_]{4,15}$/.test(val);
 };
 
 /**
@@ -224,10 +233,9 @@ export const verifyAccount = (val: string) => {
  * @returns 返回 true: 密码正确
  */
 export const verifyPassword = (val: string) => {
+	if (!val) return false;
 	// false: 密码不正确
-	if (!/^[a-zA-Z]\w{5,15}$/.test(val)) return false;
-	// true: 密码正确
-	else return true;
+	return /^[a-zA-Z]\w{5,15}$/.test(val);
 };
 
 /**
@@ -236,11 +244,9 @@ export const verifyPassword = (val: string) => {
  * @returns 返回 true: 强密码正确
  */
 export const verifyPasswordPowerful = (val: string) => {
+	if (!val) return false;
 	// false: 强密码不正确
-	if (!/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&\.*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&\.*]+$)(?![\d!@#$%^&\.*]+$)[a-zA-Z\d!@#$%^&\.*]{6,16}$/.test(val))
-		return false;
-	// true: 强密码正确
-	else return true;
+	return /^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&\.*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&\.*]+$)(?![\d!@#$%^&\.*]+$)[a-zA-Z\d!@#$%^&\.*]{6,16}$/.test(val);
 };
 
 /**
@@ -252,6 +258,7 @@ export const verifyPasswordPowerful = (val: string) => {
  * @returns 返回处理后的字符串：弱、中、强
  */
 export const verifyPasswordStrength = (val: string) => {
+	if (!val) return false;
 	let v = "";
 	// 弱：纯数字，纯字母，纯特殊字符
 	if (/^(?:\d+|[a-zA-Z]+|[!@#$%^&\.*]+){6,16}$/.test(val)) v = "弱";
@@ -269,11 +276,9 @@ export const verifyPasswordStrength = (val: string) => {
  * @returns 返回 true: IP地址正确
  */
 export const verifyIPAddress = (val: string) => {
+	if (!val) return false;
 	// false: IP地址不正确
-	if (!/^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/.test(val))
-		return false;
-	// true: IP地址正确
-	else return true;
+	return /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/.test(val);
 };
 
 /**
@@ -282,15 +287,11 @@ export const verifyIPAddress = (val: string) => {
  * @returns 返回 true: 邮箱正确
  */
 export const verifyEmail = (val: string) => {
+	if (!val) return false;
 	// false: 邮箱不正确
-	if (
-		!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-			val,
-		)
-	)
-		return false;
-	// true: 邮箱正确
-	else return true;
+	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+		val,
+	);
 };
 
 /**
@@ -299,10 +300,9 @@ export const verifyEmail = (val: string) => {
  * @returns 返回 true: 身份证正确
  */
 export const verifyIdCard = (val: string) => {
+	if (!val) return false;
 	// false: 身份证不正确
-	if (!/^[1-9]\d{5}(18|19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/.test(val)) return false;
-	// true: 身份证正确
-	else return true;
+	return /^[1-9]\d{5}(18|19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/.test(val);
 };
 
 /**
@@ -311,10 +311,9 @@ export const verifyIdCard = (val: string) => {
  * @returns 返回 true: 姓名正确
  */
 export const verifyFullName = (val: string) => {
+	if (!val) return false;
 	// false: 姓名不正确
-	if (!/^[\u4e00-\u9fa5]{1,6}(·[\u4e00-\u9fa5]{1,6}){0,2}$/.test(val)) return false;
-	// true: 姓名正确
-	else return true;
+	return /^[\u4e00-\u9fa5]{1,6}(·[\u4e00-\u9fa5]{1,6}){0,2}$/.test(val);
 };
 
 /**
@@ -323,10 +322,9 @@ export const verifyFullName = (val: string) => {
  * @returns 返回 true: 邮政编码正确
  */
 export const verifyPostalCode = (val: string) => {
+	if (!val) return false;
 	// false: 邮政编码不正确
-	if (!/^[1-9][0-9]{5}$/.test(val)) return false;
-	// true: 邮政编码正确
-	else return true;
+	return /^[1-9][0-9]{5}$/.test(val);
 };
 
 /**
@@ -336,9 +334,9 @@ export const verifyPostalCode = (val: string) => {
  */
 export const verifyUrl = (val: string) => {
 	// false: url不正确
-	if (!/^((https|http|ftp|ws|wss)?:\/\/((([a-zA-Z0-9]+)-?)+[a-zA-Z0-9]+\.)+[a-zA-Z]+)(:\d+)?(\/.*)?(\?.*)?(#.*)?$/i.test(val)) return false;
-	// true: url正确
-	else return true;
+	if (!val) return false;
+	// if (!/^((https|http|ftp|ws|wss)?:\/\/(([a-zA-Z0-9]+-?)+[a-zA-Z0-9]+\.)+[a-zA-Z]+)(:\d+)?(\/.*)?(\?.*)?(#.*)?$/i.test(val)) return false;
+	return /^(https?:\/\/)([0-9a-z.]+)(:[0-9]+)?([/0-9a-z.]+)?(\?[0-9a-z&=]+)?(#[0-9-a-z]+)?$/i.test(val);
 };
 
 /**
@@ -347,13 +345,9 @@ export const verifyUrl = (val: string) => {
  * @returns 返回 true：车牌号正确
  */
 export const verifyCarNum = (val: string) => {
+	if (!val) return false;
 	// false: 车牌号不正确
-	if (
-		!/^(([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z](([0-9]{5}[DF])|([DF]([A-HJ-NP-Z0-9])[0-9]{4})))|([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳使领]))$/.test(
-			val,
-		)
-	)
-		return false;
-	// true：车牌号正确
-	else return true;
+	return /^(([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z](([0-9]{5}[DF])|([DF]([A-HJ-NP-Z0-9])[0-9]{4})))|([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳使领]))$/.test(
+		val,
+	);
 };
