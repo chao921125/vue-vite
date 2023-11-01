@@ -336,7 +336,7 @@ export const verifyPostalCode = (val: string) => {
  */
 export const verifyUrl = (val: string) => {
 	// false: url不正确
-	if (!/^((https|http|ftp|ws|wss):?\/\/(([a-zA-Z0-9]+-?)+[a-zA-Z0-9]+\.)+[a-zA-Z]+)(:\d+)?(\/.*)?(\?.*)?(#.*)?$/i.test(val)) return false;
+	if (!/^((https|http|ftp|ws|wss)?:\/\/((([a-zA-Z0-9]+)-?)+[a-zA-Z0-9]+\.)+[a-zA-Z]+)(:\d+)?(\/.*)?(\?.*)?(#.*)?$/i.test(val)) return false;
 	// true: url正确
 	else return true;
 };
