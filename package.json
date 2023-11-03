@@ -50,10 +50,6 @@
 			"path": "node_modules/cz-git"
 		}
 	},
-	"resolutions": {
-		"bin-wrapper": "npm:bin-wrapper-china",
-		"mysql": "2.18.1"
-	},
 	"dependencies": {
 		"@babel/runtime": "^7.23.2",
 		"@element-plus/icons-vue": "^2.1.0",
@@ -87,7 +83,7 @@
 		"vant": "^4.7.3",
 		"vue": "^3.3.7",
 		"vue-clipboard3": "^2.0.0",
-		"vue-i18n": "^9.6.2",
+		"vue-i18n": "^9.6.4",
 		"vue-router": "^4.2.5",
 		"vue-treeselect": "^1.0.7",
 		"vuedraggable": "^4.1.0",
@@ -139,7 +135,7 @@
 		"stylelint-config-recommended": "^13.0.0",
 		"stylelint-config-recommended-vue": "^1.5.0",
 		"stylelint-config-standard": "^34.0.0",
-		"stylelint-config-standard-scss": "^11.0.0",
+		"stylelint-config-standard-scss": "^11.1.0",
 		"stylelint-order": "^6.0.3",
 		"stylelint-prettier": "^4.0.2",
 		"terser": "^5.24.0",
@@ -147,7 +143,7 @@
 		"typescript": "^5.2.2",
 		"unocss": "^0.57.1",
 		"unplugin-auto-import": "^0.16.7",
-		"unplugin-icons": "^0.17.1",
+		"unplugin-icons": "^0.17.3",
 		"unplugin-vue-components": "^0.25.2",
 		"vite": "^4.5.0",
 		"vite-plugin-cdn-import": "^0.3.5",
@@ -160,6 +156,10 @@
 		"vite-plugin-vue-setup-extend": "^0.4.0",
 		"vue-eslint-parser": "^9.3.2",
 		"vue-tsc": "^1.8.22"
+	},
+	"resolutions": {
+		"bin-wrapper": "npm:bin-wrapper-china",
+		"mysql": "2.18.1"
 	},
 	"peerDependencies": {
 		"mysql2": ">=3.3.2"
