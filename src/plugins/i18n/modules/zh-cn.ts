@@ -53,6 +53,7 @@ export default {
 		demoSwiper: "幻灯片Swiper",
 		demoWifi: "Wifi-Card",
 		demoTimeSelect: "时间轴",
+		demoLottery: "抽奖",
 		testLink: "链接",
 		testIframe: "Iframe",
 	},

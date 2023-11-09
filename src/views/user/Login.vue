@@ -52,25 +52,45 @@
 		formEl.validate((valid) => {
 			isLoading.value = true;
 			if (valid) {
-				api.userApi
-					.loginUser(formUser)
-					.then((res: any) => {
-						proxy.elMessage.success("登录成功");
-						Cookie.setCookie(Constants.cookieKey.token, res.data.token);
-						Storage.setSessionStorage(Constants.storageKey.token, res.data.token);
-						Storage.setLocalStorage(Constants.storageKey.userInfo, res.data);
-						if (route.query?.redirect && route.query?.redirect !== "/") {
-							router.push({
-								path: <string>route.query?.redirect,
-								query: Object.keys(<string>route.query?.params).length ? JSON.parse(<string>route.query?.params) : "",
-							});
-						} else {
-							router.push({ path: "/" });
-						}
-					})
-					.catch(() => {
-						isLoading.value = false;
+				if (window.location.origin.includes("localhost") || window.location.origin.includes("127.0.0.1")) {
+					api.userApi
+						.loginUser(formUser)
+						.then((res: any) => {
+							proxy.elMessage.success("登录成功");
+							Cookie.setCookie(Constants.cookieKey.token, res.data.token);
+							Storage.setSessionStorage(Constants.storageKey.token, res.data.token);
+							Storage.setLocalStorage(Constants.storageKey.userInfo, res.data);
+							if (route.query?.redirect && route.query?.redirect !== "/") {
+								router.push({
+									path: <string>route.query?.redirect,
+									query: Object.keys(<string>route.query?.params).length ? JSON.parse(<string>route.query?.params) : "",
+								});
+							} else {
+								router.push({ path: "/" });
+							}
+						})
+						.catch(() => {
+							isLoading.value = false;
+						});
+				} else {
+					const token = new Date().getTime();
+					proxy.elMessage.success("登录成功");
+					Cookie.setCookie(Constants.cookieKey.token, token);
+					Storage.setSessionStorage(Constants.storageKey.token, token);
+					Storage.setLocalStorage(Constants.storageKey.userInfo, {
+						avatar: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
+						name: formUser.userName,
+						token: token,
 					});
+					if (route.query?.redirect && route.query?.redirect !== "/") {
+						router.push({
+							path: <string>route.query?.redirect,
+							query: Object.keys(<string>route.query?.params).length ? JSON.parse(<string>route.query?.params) : "",
+						});
+					} else {
+						router.push({ path: "/" });
+					}
+				}
 			} else {
 				isLoading.value = false;
 				proxy.elMessage.error("登录失败");

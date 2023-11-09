@@ -46,7 +46,6 @@ export const verifyNumberPercentageFloat = (val: string): string => {
  * @returns 返回处理后的字符串
  */
 export const verifyNumberIntegerAndFloat = (val: string) => {
-	if (!val) return false;
 	// 匹配空格
 	let v = val.replace(/(^\s*)|(\s*$)/g, "");
 	// 只能是数字和小数点，不能是其他输入
