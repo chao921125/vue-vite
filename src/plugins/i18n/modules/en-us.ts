@@ -53,6 +53,7 @@ export default {
 		demoSwiper: "Swiper",
 		demoWifi: "Wifi-Card",
 		demoTimeSelect: "Time Select",
+		demoLottery: "Lottery",
 		testLink: "Link",
 		testIframe: "Iframe",
 	},
