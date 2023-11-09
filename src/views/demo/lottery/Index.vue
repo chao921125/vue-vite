@@ -64,7 +64,7 @@
 			},
 		],
 	});
-	const wheelRef = ref(null);
+	const wheelRef = ref();
 	const startWheel = () => {
 		wheelRef.value.play();
 		setTimeout(() => {
@@ -105,7 +105,7 @@
 			background: "#b8c5f2",
 		},
 	});
-	const gridRef = ref(null);
+	const gridRef = ref();
 	const startGrid = () => {
 		gridRef.value.play();
 		setTimeout(() => {
