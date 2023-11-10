@@ -97,5 +97,5 @@
 
 <style scoped lang="scss">
 	@use "@/assets/styles/medias/print.scss";
-	@use "./Index.scss";
+	@use "./index.scss";
 </style>
