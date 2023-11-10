@@ -58,6 +58,7 @@ declare module 'vue' {
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElTree: typeof import('element-plus/es')['ElTree']
+    ElTreeSelect: typeof import('element-plus/es')['ElTreeSelect']
     IconSvg: typeof import('./src/components/icon/svg.vue')['default']
     ReDateQuick: typeof import('./src/components/re/DateQuick.vue')['default']
     ReFileUpload: typeof import('./src/components/re/FileUpload.vue')['default']
