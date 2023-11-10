@@ -6,7 +6,7 @@
 ```
 # 避坑指南 及 注意事项
 [**已在公司作为模板商用**]
-- 三方包引入尽可能小写，自定义尽可能大写。
+- 三方包引入尽可能小写，自定义尽可能大写
 - package.json添加"type": "module",需要修改*.js为*.cjs
 - 推荐使用pnpm(curl -fsSL https://get.pnpm.io/install.sh | sh -)安装依赖，其次yarn或者npm
 - 注意所有配置菜单的数据，均由前端提供

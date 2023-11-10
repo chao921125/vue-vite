@@ -106,7 +106,7 @@ export async function getDynamicRouter() {
 // 动态添加至路由中
 export async function setAddRoute(data: any[]) {
 	const routerList = getRouter(data);
-	await routerList.forEach((route: RouteRecordRaw) => {
+	routerList.forEach((route: RouteRecordRaw) => {
 		const { name } = route;
 		if (name !== "/") {
 			router.removeRoute(<RouteRecordName>name);
@@ -153,7 +153,7 @@ function setRouterItem(routerList: any, data: IMenuState[] = [], parentPath: str
 		let name = item.component.slice(item.component.lastIndexOf("/") + 1);
 		let route: RouteRecordRaw = {
 			path: path,
-			name: name,
+			name: path.replace("/", "-") + "-" + name,
 			component: item.component,
 			meta: {
 				name: item.name,
