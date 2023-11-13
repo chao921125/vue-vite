@@ -300,7 +300,7 @@ export default {
 				{
 					id: 906,
 					path: "slide",
-					component: "demo/slide/SwiperAll",
+					component: "demo/slide/Swiper",
 					name: "message.menu.demoSwiper",
 					title: "message.menu.demoSwiper",
 					icon: "icon-appstore",
@@ -414,7 +414,7 @@ export default {
 			auth: 1,
 			isLink: 0,
 			isIframe: 1,
-			address: "https://nodejs.org/zh-cn/",
+			address: "https://nodejs.org/",
 			isAffix: 1,
 			isKeepAlive: 1,
 			isDisable: 0,

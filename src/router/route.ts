@@ -15,7 +15,7 @@ import { RouteRecordRaw } from "vue-router";
  */
 
 /**
- * 定义404、401界面
+ * 定义404、401、登录、注册等白名单界面
  * @link 参考：https://next.router.vuejs.org/zh/guide/essentials/history-mode.html#netlify
  */
 export const errorRoutes: Array<RouteRecordRaw> = [

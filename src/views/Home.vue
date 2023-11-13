@@ -6,18 +6,20 @@
 		<h1>当前登录环境如下</h1>
 		<h1>操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }}</h1>
 		<h1>浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }}</h1>
-		<h1>当前登录IP：{{ ipReal.ip }} - {{ ipReal.country }} {{ ipReal.province }} {{ ipReal.city }} {{ ipReal.isp }} {{ ipReal.net }}</h1>
-		<h1 v-show="ipReal.ip && ipReal.ip.toString() !== ipProxy.ip" class="error">您使用了代理</h1>
-		<h1 v-show="ipReal.ip && ipReal.ip.toString() !== ipProxy.ip" class="error"
-			>当前代理IP为：{{ ipProxy.ip }} - {{ ipProxyInfo.country }} {{ ipProxyInfo.city }} {{ ipProxyInfo.regionName }}</h1
-		>
+		<h1 v-if="ipReal.ip">当前登录IP：{{ ipReal.ip }} - {{ ipReal.country }} {{ ipReal.province }} {{ ipReal.region }}</h1>
+		<template v-if="ipReal.ip">
+			<h1 v-show="ipReal.ip && ipReal.ip.toString() !== ipProxy.ip" class="error">您使用了代理!!!</h1>
+			<h1 v-show="ipReal.ip && ipReal.ip.toString() !== ipProxy.ip" class="error">
+				当前代理IP为：{{ ipProxy.ip }} - {{ ipProxy.country }} {{ ipProxy.province }} {{ ipProxy.region }}
+			</h1>
+		</template>
 	</el-skeleton>
 </template>
 
 <script lang="ts" setup name="Home">
 	import { formatAxis, formatDate } from "@/plugins/utils/format";
 	import UA from "ua-parser-js";
-	import { getIpApi, getIpIpify, getIpUser } from "@/plugins/utils/ip";
+	import { getProxyIpInfo, getRealIpInfo } from "@/plugins/utils/ip";
 
 	// 欢迎标语
 	const now = ref(formatAxis(new Date()));
@@ -25,21 +27,34 @@
 
 	// UA 及 IP信息
 	const uaInfo = ref<any>();
-	const ipReal = ref<any>({});
-	const ipProxy = ref<any>({});
-	const ipProxyInfo = ref<any>({});
+	const ipReal = reactive<{
+		ip: string;
+		country: string;
+		province: string;
+		region: string;
+	}>({ ip: "", province: "", region: "", country: "" });
+	const ipProxy = reactive<{
+		ip: string;
+		country: string;
+		region: string;
+		province: string;
+	}>({ ip: "", province: "", country: "", region: "" });
 	const getUaInfo = () => {
 		uaInfo.value = UA(navigator.userAgent) as any;
 	};
 	const getIpInfo = () => {
-		getIpIpify().then((res: any) => {
-			ipProxy.value = res;
+		getRealIpInfo().then((res: any) => {
+			ipReal.ip = res.data.ip;
+			ipReal.country = res.data.country + " " + res.data.countryCode;
+			ipReal.province = res.data.province;
+			ipReal.region = res.data.city + " " + res.data.isp;
 		});
-		getIpApi().then((res) => {
-			ipProxyInfo.value = res;
-		});
-		getIpUser().then((res) => {
-			ipReal.value = res;
+
+		getProxyIpInfo().then((res: any) => {
+			ipProxy.ip = res.query;
+			ipProxy.province = res.city;
+			ipProxy.country = res.country + " " + res.countryCode;
+			ipProxy.region = res.regionName + " " + res.region;
 		});
 	};
 

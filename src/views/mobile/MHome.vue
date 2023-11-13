@@ -1,5 +1,5 @@
 <template>
-	<van-button class="btn-font" type="success">aaa</van-button>
+	<van-button class="btn-font" type="success">button</van-button>
 	<van-grid>
 		<van-grid-item icon="photo-o" text="文字" />
 		<van-grid-item icon="photo-o" text="文字" />
