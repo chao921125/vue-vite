@@ -76,7 +76,6 @@ util.setJsCdn = () => {
  * @param {String} url 地址
  */
 util.open = (url: string) => {
-	console.log(url);
 	if (!url) return false;
 	let a = document.createElement("a");
 	a.setAttribute("href", url);
@@ -87,7 +86,8 @@ util.open = (url: string) => {
 	document.body.removeChild(document.getElementById("open_window_blank") as HTMLElement);
 };
 
-/**consignment
+/**
+ * http url to object
  * {
  *   "url": "string"
  * }
@@ -103,7 +103,6 @@ util.urlToObj = (url: string) => {
 };
 
 /**
- * @param opts
  * navigator.userAgent 不可靠容易被修改 /Mobi|Android|iPhone/i.test(navigator.userAgent)
  */
 export function isMobileTouch1() {
@@ -118,7 +117,12 @@ export function isMobileTouch2() {
 		return false;
 	}
 }
-// 判断手机
+
+/**
+ * 判断手机
+ * https://github.com/matthewhudson/current-device
+ * @param opts
+ */
 util.isMobile = (opts) => {
 	const mobileRE =
 		/(android|bb\d+|meego).+mobile|armv7l|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series[46]0|samsungbrowser.*mobile|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i;
@@ -147,7 +151,9 @@ util.isMobile = (opts) => {
 	}
 	return result;
 };
-// 判断微信
+/**
+ * 判断微信
+ */
 util.isWeixin = () => {
 	const ua = navigator.userAgent.toLowerCase();
 	// @ts-ignore
