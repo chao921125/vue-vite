@@ -1,6 +1,7 @@
 // 若非获取客户端本地IP，直接通过NG配置，在服务端获取即可
 import Fetch from "@/plugins/axios/fetch";
-export const getLocalIpList = (callback) => {
+
+export const getLocalIpList = (callback: Function) => {
 	let ip_dups = {};
 	// @ts-ignore
 	let RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
@@ -62,21 +63,10 @@ export const getLocalIpList = (callback) => {
 		}
 	};
 };
-// getLocaleIp((ip) => {console.log(ip);});
+// Test
+// getLocalIpList((ip) => {console.log(ip);});
 
-/**
- * 淘宝获取本地IP
- * ipCallback({ip:"123.58.106.170"})
- */
-export const getLocalIpByTaoBao = () => {
-	return Fetch.request("https://www.taobao.com/help/getip.php", {}, { method: "GET" });
-};
-// http://www.net.cn/static/customercare/yourip.asp
-// https://www.ip.cn/
-// https://www.ip138.com/
-// https://www.hao7188.com/
-// https://www.lingfengyun.com/
-export const getlocalIPs = () => {
+export const getLocalIPs = () => {
 	// @ts-ignore
 	let myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
 	// RTCPeerConnection是WebRTC用于构建点对点之间稳定、高效的流传输的组件。兼容火狐、谷歌等
@@ -112,36 +102,73 @@ export const getlocalIPs = () => {
 	};
 };
 
+// http://www.net.cn/static/customercare/yourip.asp
+// https://www.ip.cn/
+// https://www.ip138.com/
+// https://www.hao7188.com/
+// https://www.lingfengyun.com/
+
+/**
+ * Address 01: 调用跨域 https://www.taobao.com/help/getip.php
+ *
+ * Address 02: 调用跨域 https://api.ipify.org/?format=json
+ * 特殊的请求方式：
+ * return fetch("https://api.ipify.org?format=json")
+ *    .then((response) => {
+ *      return response.json();
+ *    })
+ *    .then((data) => {
+ *      return data;
+ *    });
+ *
+ * Address 03: 调用跨域 https://www.ipplus360.com/getIP
+ * Address 04: 调用跨域 https://www.fkcoder.com/myip
+ * Address 04: 调用跨域 https://api64.ipify.org/?format=json
+ */
+// , mode: "no-cors"
 export const getIp = () => {
-	return Fetch.request("https://ip.cn/api/index?ip=&type=0", {}, { method: "GET" });
+	return Fetch.request("https://v.api.aa1.cn/api/myip/index.php?aa1=json", {}, { method: "GET" });
+};
+/**
+ * Address 01: 调用跨域 http://ip.taobao.com/service/getIpInfo.php?ip=103.192.227.197
+ * Address 02: 调用跨域 https://api.vore.top/api/IPdata?ip=103.192.227.197
+ * Address 03: 调用跨域 https://opendata.baidu.com/api.php?query=103.192.227.197&co=&resource_id=6006&oe=utf8
+ * Address 04: 调用跨域 https://searchplugin.csdn.net/api/v1/ip/get?ip=103.192.227.197
+ * Address 05: 调用跨域 https://www.ipplus360.com/getLocation
+ * Address 06: 调用跨域 https://www.fkcoder.com/ip?ip=103.192.227.197
+ */
+export const getAddressByIp = (ip?: string | undefined) => {
+	return Fetch.request(`https://www.fkcoder.com/ip?ip=${ip}`, {}, { method: "GET" });
 };
 
-export const getIpPconline = () => {
-	return Fetch.request("http://whois.pconline.com.cn/ipJson.jsp?ip=&json=true", {}, { method: "GET" });
+/**
+ * Address 01: 调用跨域 https://ip.cn/api/index?ip=&type=0
+ * Address 02: 调用跨域 http://whois.pconline.com.cn/ipJson.jsp?ip=&json=true
+ * Address 03: 调用跨域 https://2023.ipchaxun.com/
+ * Address 04: 调用跨域 https://searchplugin.csdn.net/api/v1/ip/get?ip=
+ * Address 04: 调用跨域 https://www.ip.cn/api/index?ip=&type=0
+ * 6422e6b65fb929b407d624a02873328
+ */
+export const getRealIpInfo = () => {
+	return Fetch.request("https://api.songzixian.com/api/ip?dataSource=GLOBAL_IP&ip=", {}, { method: "GET" });
 };
-
-// 获取最后一层ip，即无法获取正确的真实IP
-// https://ipapi.co/json/
-export const getIpApi = () => {
+/**
+ * Address 01: https://ipapi.co/json/
+ * Address 02: http://ip-api.com/json/?lang=zh-CN
+ */
+export const getProxyIpInfo = () => {
 	return Fetch.request("http://ip-api.com/json/?lang=zh-CN", {}, { method: "GET" });
 };
-
-export const getIpVore = () => {
-	return Fetch.request("https://api.vore.top/api/IPdata?ip=", {}, { method: "GET", mode: "no-cors" });
+export const getImg = (data: { width: number; height: number }) => {
+	const w = data.width || 200;
+	const h = data.height || 200;
+	return Fetch.request(`https://picsum.photos/${w}/${h}`, {}, { method: "GET" });
 };
-
-export const getIpUser = () => {
-	return Fetch.request("https://ip.useragentinfo.com/json", {}, { method: "GET" });
+export const getImgCat = () => {
+	return Fetch.request("https://api.thecatapi.com/v1/images/search?limit=1", {}, { method: "GET" });
 };
-
-export const getIpIpify = () => {
-	return fetch("https://api.ipify.org?format=json")
-		.then((response) => {
-			return response.json();
-		})
-		.then((data) => {
-			return data;
-		});
+export const getImgDog = () => {
+	return Fetch.request("https://dog.ceo/api/breeds/image/random", {}, { method: "GET" });
 };
 
 export const getIp138 = () => {
