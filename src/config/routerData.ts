@@ -414,7 +414,7 @@ export default {
 			auth: 1,
 			isLink: 0,
 			isIframe: 1,
-			address: "https://nodejs.org/zh-cn/",
+			address: "https://nodejs.org/",
 			isAffix: 1,
 			isKeepAlive: 1,
 			isDisable: 0,
