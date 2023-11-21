@@ -3,6 +3,10 @@ export interface IBase {
 	name?: string;
 	version?: string;
 }
+export interface ITree extends IBase {
+	label: string;
+	children?: ITree[];
+}
 export interface IDeviceInfo extends IBase {
 	ip?: string;
 	country?: string;
