@@ -1,6 +1,19 @@
+export interface IBase {
+	id?: number | string;
+	name?: string;
+	version?: string;
+}
+export interface IDeviceInfo extends IBase {
+	ip?: string;
+	country?: string;
+	province?: string;
+	region?: string;
+	os?: IBase;
+	browser?: IBase;
+}
+
 // 部门
-export interface IDepartment {
-	id?: number;
+export interface IDepartment extends IBase {
 	parent?: string | number;
 	name?: string;
 	number?: string;

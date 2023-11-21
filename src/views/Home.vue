@@ -20,19 +20,15 @@
 	import { formatAxis, formatDate } from "@/plugins/utils/format";
 	import UA from "ua-parser-js";
 	import { getProxyIpInfo, getRealIpInfo } from "@/plugins/utils/ip";
+	import { IDeviceInfo } from "@/interface/data";
 
 	// 欢迎标语
 	const now = ref(formatAxis(new Date()));
 	const nowLocal = ref(formatDate(new Date(), "YYYY年mm月dd日 HH时MM分 WWW QQQQ ZZZ"));
 
 	// UA 及 IP信息
-	const uaInfo = ref<any>();
-	const ipReal = reactive<{
-		ip: string;
-		country: string;
-		province: string;
-		region: string;
-	}>({ ip: "", province: "", region: "", country: "" });
+	const uaInfo = ref<IDeviceInfo>();
+	const ipReal = reactive<IDeviceInfo>({ ip: "", province: "", region: "", country: "" });
 	const ipProxy = reactive<{
 		ip: string;
 		country: string;
