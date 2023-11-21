@@ -4,8 +4,8 @@
 	</el-skeleton>
 	<el-skeleton :rows="2" animated :loading="isLoadingInfo" class="re-mt-20">
 		<h1>当前登录环境如下</h1>
-		<h1>操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }}</h1>
-		<h1>浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }}</h1>
+		<h1>操作系统：{{ uaInfo?.os?.name }} 版本：{{ uaInfo?.os?.version }}</h1>
+		<h1>浏览器：{{ uaInfo?.browser?.name }} 版本：{{ uaInfo?.browser?.version }}</h1>
 		<h1 v-if="ipReal.ip">当前登录IP：{{ ipReal.ip }} - {{ ipReal.country }} {{ ipReal.province }} {{ ipReal.region }}</h1>
 		<template v-if="ipReal.ip">
 			<h1 v-show="ipReal.ip && ipReal.ip.toString() !== ipProxy.ip" class="error">您使用了代理!!!</h1>
@@ -20,19 +20,15 @@
 	import { formatAxis, formatDate } from "@/plugins/utils/format";
 	import UA from "ua-parser-js";
 	import { getProxyIpInfo, getRealIpInfo } from "@/plugins/utils/ip";
+	import { IDeviceInfo } from "@/interface/data";
 
 	// 欢迎标语
 	const now = ref(formatAxis(new Date()));
 	const nowLocal = ref(formatDate(new Date(), "YYYY年mm月dd日 HH时MM分 WWW QQQQ ZZZ"));
 
 	// UA 及 IP信息
-	const uaInfo = ref<any>();
-	const ipReal = reactive<{
-		ip: string;
-		country: string;
-		province: string;
-		region: string;
-	}>({ ip: "", province: "", region: "", country: "" });
+	const uaInfo = ref<IDeviceInfo>();
+	const ipReal = reactive<IDeviceInfo>({ ip: "", province: "", region: "", country: "" });
 	const ipProxy = reactive<{
 		ip: string;
 		country: string;
