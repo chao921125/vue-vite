@@ -66,7 +66,6 @@
 
 <script lang="ts" setup name="AddEdit">
 	import type { FormInstance, FormRules } from "element-plus";
-	import { IProduct } from "@/interface/data";
 
 	// 组件内部函数 接收及传递结果
 	const propsData = defineProps({

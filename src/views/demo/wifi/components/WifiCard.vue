@@ -38,7 +38,6 @@
 <script lang="ts" setup name="WifiCard">
 	import QrcodeVue from "qrcode.vue";
 	import type { FormInstance } from "element-plus";
-	import { IFormWifi } from "@/interface/data";
 
 	const props = defineProps({
 		settings: {

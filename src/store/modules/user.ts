@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { IUserInfoStates } from "@/interface/store";
 import Storage from "@/plugins/utils/storage";
 import Constants from "@/plugins/constants";
 

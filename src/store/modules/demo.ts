@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { IDemoState, IDemoStates } from "@/interface/demo";
 
 export const useDemo = defineStore("demo", {
 	state: (): IDemoStates => {

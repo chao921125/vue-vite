@@ -8,7 +8,7 @@
 				</template>
 				<SubMenu :menus="item.children" :basePath="item.path + '/'"></SubMenu>
 			</el-sub-menu>
-			<el-menu-item v-else :key="item.path + index" :index="resolvePath(item.path)">
+			<el-menu-item v-else :key="item.path" :index="resolvePath(item.path)">
 				<!-- 此处图标可以自定义 -->
 				<i class="iconfont" :class="item.icon"></i>
 				<template #title>

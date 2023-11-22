@@ -75,7 +75,6 @@
 
 <script lang="ts" setup name="AddEdit">
 	import type { FormInstance, FormRules } from "element-plus";
-	import { IMenu } from "@/interface/data";
 	import IconfontData from "@/config/iconfontData";
 
 	const propsTreeMenu = { children: "children", label: "name", disabled: "disabled" };

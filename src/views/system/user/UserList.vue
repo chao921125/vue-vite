@@ -56,7 +56,6 @@
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";
-	import { ITree } from "@/interface/data";
 
 	const formSearchRef = ref<FormInstance>();
 	const formSearch: any = reactive({

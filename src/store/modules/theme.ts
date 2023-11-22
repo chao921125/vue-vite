@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { IThemeConfigStates, IThemeConfigState } from "@/interface/store";
 
 /**
  * 布局配置

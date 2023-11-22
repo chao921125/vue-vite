@@ -27,7 +27,7 @@
 
 <script lang="ts" setup name="AnimationCss">
 	import { shuffle } from "lodash-es";
-	import LotteryWheel from "@/views/demo/animation/LotteryWheel.vue";
+	import LotteryWheel from "./components/LotteryWheel.vue";
 
 	const transition = ref(true);
 	const changeTransition = () => {

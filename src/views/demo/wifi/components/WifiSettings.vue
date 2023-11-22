@@ -30,7 +30,6 @@
 
 <script lang="ts" setup name="Settings">
 	import type { FormInstance } from "element-plus";
-	import { IFormWifi } from "@/interface/data";
 
 	const props = defineProps({
 		settings: {
