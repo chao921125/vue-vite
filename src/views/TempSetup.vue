@@ -2,7 +2,7 @@
 
 <script lang="ts">
 	export default defineComponent({
-		name: "TempSetup",
+		name: "",
 		setup() {},
 	});
 </script>

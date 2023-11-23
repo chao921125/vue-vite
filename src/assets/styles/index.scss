@@ -22,3 +22,5 @@
 @include meta.load-css("./common/element.scss");
 // 进度条
 @include meta.load-css("./common/n-progress.scss");
+// 流程图
+@include meta.load-css("./common/bpmn.scss");

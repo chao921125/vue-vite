@@ -328,6 +328,14 @@
 | [print-js](https://www.npmjs.com/package/print-js)                     |
 | [vue-plugin-hiprint](https://www.npmjs.com/package/vue-plugin-hiprint) |
 
+| 流程图                                                                 |
+|---------------------------------------------------------------------|
+| [vue3-bpmn](https://github.com/moon-studio/vite-vue-bpmn-process)   |
+| [vue3-tsx-bpmn](https://github.com/Yiuman/bpmn-vue-activiti)        |
+| [vue2-bpmn](https://github.com/miyuesc/bpmn-process-designer)       |
+| [vue2-bpmn](https://github.com/GoldSubmarine/workflow-bpmn-modeler) |
+| [bpmn 中文文档](https://github.com/LinDaiDai/bpmn-chinese-document)     |
+
 # 数据操作
 | 节点和浏览器的BDD / TDD断言库                                  |                                  
 |------------------------------------------------------|
