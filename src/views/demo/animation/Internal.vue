@@ -42,8 +42,7 @@
 		items.value.splice(l, 0, Math.round(Math.random() * items.value.length));
 	};
 	const shuffleTransition = () => {
-		let shuffleValue = JSON.parse(JSON.stringify(items.value));
-		items.value = shuffle(shuffleValue);
+		items.value = shuffle(items.value);
 	};
 	const resetTransition = () => {
 		items.value = initItems();
