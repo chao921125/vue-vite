@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts" setup name="">
-	import fs from "fs";
 	import { ElMessage } from "element-plus";
 	import "bpmn-js/dist/assets/bpmn-js.css";
 	import "bpmn-js/dist/assets/diagram-js.css";
@@ -44,7 +43,6 @@
 
 	const initBpmn = () => {
 		// 将汉化包装成一个模块
-		console.log(translate);
 		const customTranslate = {
 			translate: ["value", translate],
 		};
