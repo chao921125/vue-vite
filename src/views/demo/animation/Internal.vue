@@ -14,10 +14,10 @@
 		</el-col>
 		<el-col :span="24" class="re-mt-20">
 			<el-button @click="addTransition()">插入</el-button>
-			<el-button @click="shuffleTransition()">随机排序(大家先新增，然后再随机排序，嘿嘿～～～～～～)</el-button>
+			<el-button @click="shuffleTransition()">随机排序</el-button>
 			<el-button @click="resetTransition()">重置</el-button>
 			<TransitionGroup tag="ul" name="fade" class="container">
-				<li v-for="item in items" :key="item" class="item">
+				<li v-for="(item, index) in items" :key="index" class="item">
 					{{ item }}
 				</li>
 			</TransitionGroup>
@@ -42,7 +42,8 @@
 		items.value.splice(l, 0, Math.round(Math.random() * items.value.length));
 	};
 	const shuffleTransition = () => {
-		items.value = shuffle(items.value);
+		let shuffleValue = JSON.parse(JSON.stringify(items.value));
+		items.value = shuffle(shuffleValue);
 	};
 	const resetTransition = () => {
 		items.value = initItems();
