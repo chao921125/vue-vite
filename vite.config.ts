@@ -30,6 +30,7 @@ import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 // Mock
+// @ts-ignore
 import { viteMockServe } from "vite-plugin-mock";
 // 处理变量
 // @ts-ignore
