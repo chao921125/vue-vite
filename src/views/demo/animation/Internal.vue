@@ -59,8 +59,7 @@
 		box-sizing: border-box;
 		width: 100%;
 		height: 30px;
-		background-color: #f3f3f3;
-		border: 1px solid #666666;
+		border: 1px solid;
 	}
 
 	/* 1. 声明过渡效果 */
@@ -86,6 +85,5 @@
 		width: 200px;
 		height: 200px;
 		border-radius: 50%;
-		background-color: #00ffff;
 	}
 </style>
