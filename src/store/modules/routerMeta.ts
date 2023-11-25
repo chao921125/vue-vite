@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { IRouterListState } from "@/interface/store";
 
 /**
  * 路由列表

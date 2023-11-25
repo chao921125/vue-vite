@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { ITagsViewRoutesState } from "@/interface/store";
 import Storage from "@/plugins/utils/storage";
 import Cookie from "@/plugins/utils/cookie";
 

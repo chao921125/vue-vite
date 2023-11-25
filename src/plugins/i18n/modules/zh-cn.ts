@@ -54,6 +54,7 @@ export default {
 		demoWifi: "Wifi-Card",
 		demoTimeSelect: "时间轴",
 		demoLottery: "抽奖",
+		demoActivity: "工作流",
 		testLink: "链接",
 		testIframe: "Iframe",
 	},

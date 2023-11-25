@@ -20,7 +20,6 @@
 	import { formatAxis, formatDate } from "@/plugins/utils/format";
 	import UA from "ua-parser-js";
 	import { getProxyIpInfo, getRealIpInfo } from "@/plugins/utils/ip";
-	import { IDeviceInfo } from "@/interface/data";
 
 	// 欢迎标语
 	const now = ref(formatAxis(new Date()));

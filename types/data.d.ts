@@ -1,13 +1,13 @@
-export interface IBase {
+declare interface IBase {
 	id?: number | string;
 	name?: string;
 	version?: string;
 }
-export interface ITree extends IBase {
+declare interface ITree extends IBase {
 	label: string;
 	children?: ITree[];
 }
-export interface IDeviceInfo extends IBase {
+declare interface IDeviceInfo extends IBase {
 	ip?: string;
 	country?: string;
 	province?: string;
@@ -17,7 +17,7 @@ export interface IDeviceInfo extends IBase {
 }
 
 // 部门
-export interface IDepartment extends IBase {
+declare interface IDepartment extends IBase {
 	parent?: string | number;
 	name?: string;
 	number?: string;
@@ -27,7 +27,7 @@ export interface IDepartment extends IBase {
 	desc?: string;
 }
 // 岗位
-export interface IJob {
+declare interface IJob {
 	id?: number;
 	parent?: string | number;
 	name?: string;
@@ -38,7 +38,7 @@ export interface IJob {
 	desc?: string;
 }
 // 菜单
-export interface IMenu {
+declare interface IMenu {
 	id?: number;
 	path?: string;
 	component?: string;
@@ -59,14 +59,14 @@ export interface IMenu {
 	sort?: number;
 }
 // 角色
-export interface IRole {
+declare interface IRole {
 	id?: number;
 	name?: string;
 	number?: string;
 	desc?: string;
 }
 // 用户
-export interface IUser {
+declare interface IUser {
 	id?: number;
 	nickName?: string;
 	avatar?: string;
@@ -87,7 +87,7 @@ export interface IUser {
 	desc?: string;
 }
 // 产品
-export interface IProduct {
+declare interface IProduct {
 	id?: number | string;
 	name?: number | string;
 	number?: number | string;
@@ -110,7 +110,7 @@ export interface IProduct {
 }
 
 // WIFI
-export interface IFormWifi {
+declare interface IFormWifi {
 	ssid?: string;
 	password?: string;
 	encryptionMode?: string;

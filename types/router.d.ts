@@ -1,7 +1,7 @@
 /**
  * update router
  */
-export interface IMenuState {
+declare interface IMenuState {
 	path: string;
 	component: string;
 	name: string;

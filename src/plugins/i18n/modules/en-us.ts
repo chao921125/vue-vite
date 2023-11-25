@@ -54,6 +54,7 @@ export default {
 		demoWifi: "Wifi-Card",
 		demoTimeSelect: "Time Select",
 		demoLottery: "Lottery",
+		demoActivity: "Activity",
 		testLink: "Link",
 		testIframe: "Iframe",
 	},

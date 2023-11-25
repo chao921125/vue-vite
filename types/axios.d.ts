@@ -1,16 +1,16 @@
 // * 请求响应参数(不包含data)
-export interface IResult {
+declare interface IResult {
 	code: string;
 	msg: string;
 }
 
 // * 请求响应参数(包含data)
-export interface IResultData<T = any> extends IResult {
+declare interface IResultData<T = any> extends IResult {
 	data?: T;
 }
 
 // * 分页响应参数
-export interface IResPage<T> {
+declare interface IResPage<T> {
 	datalist: T[];
 	pageNum: number;
 	pageSize: number;
@@ -18,7 +18,7 @@ export interface IResPage<T> {
 }
 
 // * 分页请求参数
-export interface IReqPage {
+declare interface IReqPage {
 	pageNum: number;
 	pageSize: number;
 }

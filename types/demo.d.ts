@@ -4,10 +4,10 @@
  * *State 单实例 多个属性
  * *States 实例集合 属性实例key
  */
-export interface IDemoState {
+declare interface IDemoState {
 	id: number;
 	name: string;
 }
-export interface IDemoStates {
+declare interface IDemoStates {
 	demo: IDemoState;
 }

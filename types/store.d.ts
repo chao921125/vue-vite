@@ -1,5 +1,5 @@
 // 用户信息
-export interface IUserInfoState {
+declare interface IUserInfoState {
 	id: string;
 	userName: string;
 	avatar: string;
@@ -7,41 +7,41 @@ export interface IUserInfoState {
 	roles: string[];
 	permission: string[];
 }
-export interface IUserInfoStates {
+declare interface IUserInfoStates {
 	userInfo: IUserInfoState;
 }
 
 // 路由缓存列表
-export interface IKeepAliveNamesState {
+declare interface IKeepAliveNamesState {
 	keepAliveNames: string[];
 	cachedViews: string[];
 }
-export interface IKeepAliveNamesStates {
+declare interface IKeepAliveNamesStates {
 	keepAliveName: IKeepAliveNamesState;
 }
 
 // 后端返回原始路由(未处理时)
-export interface IRequestOldRoutesState {
+declare interface IRequestOldRoutesState {
 	requestOldRoutes: string[];
 }
-export interface IRequestOldRoutesStates {
+declare interface IRequestOldRoutesStates {
 	requestOldRoute: IRequestOldRoutesState;
 }
 
 // TagsView 路由列表
-export interface ITagsViewRoutesState {
+declare interface ITagsViewRoutesState {
 	tagsViewRoutes: string[];
 	isTagsViewCurrenFull: boolean;
 }
-export interface ITagsViewRoutesStates {
+declare interface ITagsViewRoutesStates {
 	tagsViewRoute: ITagsViewRoutesState;
 }
 
 // 路由列表
-export interface IMenuListState {
+declare interface IMenuListState {
 	menuList: string[];
 }
-export interface IRouterListState {
+declare interface IRouterListState {
 	routerList: string[];
 	menuList: any[];
 	isColumnsMenuHover: boolean;
@@ -49,7 +49,7 @@ export interface IRouterListState {
 }
 
 // 布局配置
-export interface IThemeConfigState {
+declare interface IThemeConfigState {
 	primary: string;
 	isDark: boolean;
 	isGrey: boolean;
@@ -71,6 +71,6 @@ export interface IThemeConfigState {
 	globalI18n: string;
 	globalComponentSize: string;
 }
-export interface IThemeConfigStates {
+declare interface IThemeConfigStates {
 	themeConfig: IThemeConfigState;
 }

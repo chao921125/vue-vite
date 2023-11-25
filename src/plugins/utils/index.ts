@@ -25,6 +25,7 @@ util.tagsName = (value: any) => {
 };
 
 const setTitleI18n = (value: any) => {
+	// @ts-ignore
 	let tagsViewName: any = import.meta.env.VITE_TITLE;
 	const { query, params, meta } = value;
 	if (query?.tagsViewName || params?.tagsViewName) {

@@ -14,10 +14,10 @@
 		</el-col>
 		<el-col :span="24" class="re-mt-20">
 			<el-button @click="addTransition()">插入</el-button>
-			<el-button @click="shuffleTransition()">随机排序(大家先新增，然后再随机排序，嘿嘿～～～～～～)</el-button>
+			<el-button @click="shuffleTransition()">随机排序</el-button>
 			<el-button @click="resetTransition()">重置</el-button>
 			<TransitionGroup tag="ul" name="fade" class="container">
-				<li v-for="item in items" :key="item" class="item">
+				<li v-for="(item, index) in items" :key="index" class="item">
 					{{ item }}
 				</li>
 			</TransitionGroup>
@@ -27,7 +27,7 @@
 
 <script lang="ts" setup name="AnimationCss">
 	import { shuffle } from "lodash-es";
-	import LotteryWheel from "@/views/demo/animation/LotteryWheel.vue";
+	import LotteryWheel from "./components/LotteryWheel.vue";
 
 	const transition = ref(true);
 	const changeTransition = () => {
@@ -59,8 +59,7 @@
 		box-sizing: border-box;
 		width: 100%;
 		height: 30px;
-		background-color: #f3f3f3;
-		border: 1px solid #666666;
+		border: 1px solid;
 	}
 
 	/* 1. 声明过渡效果 */
@@ -86,6 +85,5 @@
 		width: 200px;
 		height: 200px;
 		border-radius: 50%;
-		background-color: #00ffff;
 	}
 </style>

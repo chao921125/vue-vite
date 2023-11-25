@@ -11,7 +11,6 @@ import Constants from "@/plugins/constants";
 import NProgress from "@/plugins/loading/progress";
 import RouterConfig from "@/config/routerConfig";
 import RouteData from "@/config/routerData";
-import { IMenuState } from "@/interface/router";
 import AxiosCancel from "@/plugins/axios/cancel";
 import api from "@/api";
 
@@ -91,6 +90,7 @@ router.afterEach(() => {
  * 5、渲染
  */
 
+// @ts-ignore
 const viewsModules: any = import.meta.glob("../views/**/**.{vue,tsx}");
 const dynamicViewsModules: Record<string, Function> = Object.assign({}, { ...viewsModules });
 
