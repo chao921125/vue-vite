@@ -1,5 +1,5 @@
-module.exports = {
-	"*.{js,jsx,ts,tsx}": ["eslint --cache --fix", "prettier --write"],
+export default {
+	"*.{js,jsx,ts,tsx,cjs,mjs}": ["eslint --cache --fix", "prettier --write"],
 	"{!(package)*.json,*.code-snippets,.!{npm,browserslist}*rc.{js,cjs,mjs}}": ["prettier --write--parser json"],
 	"*.json": ["prettier --write"],
 	"*.vue": ["eslint --fix", "prettier --write"],

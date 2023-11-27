@@ -49,9 +49,6 @@ import "virtual:uno.css";
 import "virtual:svg-icons-register";
 import "@/assets/fonts/font.css";
 import "@/assets/icon/iconfont.css";
-
-// 自定义样式
-import "@/assets/styles/index.scss";
 /*
  * UI end
  * */
@@ -68,6 +65,9 @@ import Log from "@/plugins/utils/log";
 
 // 动画
 import "animate.css/animate.min.css";
+
+// 自定义样式
+import "@/assets/styles/index.scss";
 /*
  * 三方插件库 end
  * */

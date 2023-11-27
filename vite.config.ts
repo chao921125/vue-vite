@@ -15,7 +15,7 @@ import { VitePWA } from "vite-plugin-pwa";
 import browserslist from "browserslist";
 import legacy from "@vitejs/plugin-legacy";
 // CDN 配置
-import importToCDN from "vite-plugin-cdn-import";
+import { Plugin as importToCDN } from "vite-plugin-cdn-import";
 import vueSetupExtend from "vite-plugin-vue-setup-extend";
 import viteCompression from "vite-plugin-compression";
 // 自动导入模块
@@ -30,7 +30,6 @@ import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 // Mock
-// @ts-ignore
 import { viteMockServe } from "vite-plugin-mock";
 // 处理变量
 // @ts-ignore
@@ -105,29 +104,31 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			),
 			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
 			// * cdn 引入（vue、element-plus）//cdn.jsdelivr.net/npm/
-			importToCDN({
-				modules: [
-					// vue按需引入会导致依赖vue的插件出现问题(列如:pinia/vuex)
-					// {
-					// 	name: "vue",
-					// 	var: "Vue",
-					// 	path: "https://unpkg.com/vue@3"
-					// },
-					// 使用cdn引入element-plus时,开发环境还是需要在main.js中引入element-plus,可以不用引入css
-					// {
-					// 	name: "element-plus",
-					// 	var: "ElementPlus",
-					// 	path: "https://unpkg.com/element-plus",
-					// 	css: "https://unpkg.com/element-plus/dist/index.css",
-					// },
-					// {
-					// 	name: "vant",
-					// 	var: "Vant",
-					// 	path: "https://fastly.jsdelivr.net/npm/vant@4/lib/vant.min.js",
-					// 	css: "https://fastly.jsdelivr.net/npm/vant@4/lib/index.css",
-					// },
-				],
-			}),
+			{
+				...importToCDN({
+					modules: [
+						// vue按需引入会导致依赖vue的插件出现问题(列如:pinia/vuex)
+						// {
+						// 	name: "vue",
+						// 	var: "Vue",
+						// 	path: "https://unpkg.com/vue@3"
+						// },
+						// 使用cdn引入element-plus时,开发环境还是需要在main.js中引入element-plus,可以不用引入css
+						// {
+						// 	name: "element-plus",
+						// 	var: "ElementPlus",
+						// 	path: "https://unpkg.com/element-plus",
+						// 	css: "https://unpkg.com/element-plus/dist/index.css",
+						// },
+						// {
+						// 	name: "vant",
+						// 	var: "Vant",
+						// 	path: "https://fastly.jsdelivr.net/npm/vant@4/lib/vant.min.js",
+						// 	css: "https://fastly.jsdelivr.net/npm/vant@4/lib/index.css",
+						// },
+					],
+				}),
+			},
 			// * 是否生成包预览
 			envConfig.VITE_REPORT &&
 				visualizer({

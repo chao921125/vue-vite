@@ -51,10 +51,7 @@
 		"build/**/*",
 		"mock/**/*",
 		"auto-imports.d.ts",
-		"components.d.ts",
-		"node_modules/.pnpm/unplugin-auto-import@0.16.7_@vueuse+core@10.5.0_rollup@2.79.1/node_modules/unplugin-auto-import/auto-imports.d.ts",
-		"node_modules/.pnpm/unplugin-auto-import@0.16.7_@vueuse+core@10.5.0_rollup@2.79.1/node_modules/unplugin-auto-import/auto-imports.d.ts",
-		"node_modules/.pnpm/unplugin-auto-import@0.16.7_@vueuse+core@10.5.0_rollup@2.79.1/node_modules/unplugin-auto-import/auto-imports.d.ts"
+		"components.d.ts"
 	],
   "exclude": [
 		"**/*.js",

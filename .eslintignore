@@ -21,4 +21,10 @@ index.html
 *.scss
 *.woff
 *.ttf
+!.commitlintrc.ts
+!.eslintrc.js
+!.eslintrc.cjs
 !.eslintrc.mjs
+!.eslintrc.yaml
+!.eslintrc.yml
+!.eslintrc.js
