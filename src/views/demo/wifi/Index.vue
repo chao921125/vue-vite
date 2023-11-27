@@ -96,6 +96,6 @@
 </script>
 
 <style scoped lang="scss">
-	@use "@/assets/styles/medias/print.scss";
+	@use "@/assets/styles/common/print.scss";
 	@use "./index.scss";
 </style>
