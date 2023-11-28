@@ -1,6 +1,6 @@
 <template>
 	<el-container class="layout-container">
-		<el-aside id="admin-aside" class="layout-aside" :class="styleCollapse"><AdminMenu></AdminMenu></el-aside>
+		<el-aside id="admin-aside" class="layout-aside is-pc" :class="styleCollapse"><AdminMenu></AdminMenu></el-aside>
 		<el-container id="admin-body" :class="{ 'admin-main': !isFixedHeader }">
 			<el-header v-if="isFixedHeader" :height="setHeaderHeight" class="layout-header"><AdminHeader></AdminHeader></el-header>
 			<el-scrollbar ref="refScrollbarMain" :class="{ 'admin-main': isFixedHeader }">

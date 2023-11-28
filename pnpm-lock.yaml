@@ -13,8 +13,8 @@ dependencies:
     specifier: ^7.23.4
     version: 7.23.4
   '@bpmn-io/element-templates-validator':
-    specifier: ^1.6.0
-    version: 1.6.0
+    specifier: ^1.6.1
+    version: 1.6.1
   '@bpmn-io/feel-editor':
     specifier: ^1.0.1
     version: 1.0.1(@lezer/common@1.1.1)
@@ -22,8 +22,8 @@ dependencies:
     specifier: ^3.13.0
     version: 3.13.0(@lezer/common@1.1.1)
   '@element-plus/icons-vue':
-    specifier: ^2.1.0
-    version: 2.1.0(vue@3.3.9)
+    specifier: ^2.3.1
+    version: 2.3.1(vue@3.3.9)
   '@lucky-canvas/vue':
     specifier: ^0.1.11
     version: 0.1.11(vue@3.3.9)
@@ -46,14 +46,14 @@ dependencies:
     specifier: ^1.6.2
     version: 1.6.2
   bpmn-js:
-    specifier: ^15.2.0
-    version: 15.2.0
+    specifier: ^15.2.2
+    version: 15.2.2
   bpmn-js-element-templates:
-    specifier: ^1.8.0
-    version: 1.8.0(@bpmn-io/properties-panel@3.13.0)(bpmn-js-properties-panel@5.6.1)(bpmn-js@15.2.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@12.8.0)(preact@10.19.2)
+    specifier: ^1.9.1
+    version: 1.9.1(@bpmn-io/properties-panel@3.13.0)(bpmn-js-properties-panel@5.6.1)(bpmn-js@15.2.2)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@12.8.0)(preact@10.19.2)
   bpmn-js-properties-panel:
     specifier: ^5.6.1
-    version: 5.6.1(@bpmn-io/properties-panel@3.13.0)(bpmn-js@15.2.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@12.8.0)
+    version: 5.6.1(@bpmn-io/properties-panel@3.13.0)(bpmn-js@15.2.2)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@12.8.0)
   bpmn-moddle:
     specifier: ^8.0.1
     version: 8.0.1
@@ -79,8 +79,8 @@ dependencies:
     specifier: ^2.1.0
     version: 2.1.0(echarts@5.4.3)
   element-plus:
-    specifier: ^2.4.2
-    version: 2.4.2(vue@3.3.9)
+    specifier: ^2.4.3
+    version: 2.4.3(vue@3.3.9)
   html2canvas:
     specifier: ^1.4.1
     version: 1.4.1
@@ -136,8 +136,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   vue-i18n:
-    specifier: ^9.7.1
-    version: 9.7.1(vue@3.3.9)
+    specifier: ^9.8.0
+    version: 9.8.0(vue@3.3.9)
   vue-router:
     specifier: ^4.2.5
     version: registry.npmmirror.com/vue-router@4.2.5(vue@3.3.9)
@@ -183,14 +183,14 @@ devDependencies:
     specifier: ^0.7.39
     version: 0.7.39
   '@typescript-eslint/eslint-plugin':
-    specifier: ^6.12.0
-    version: 6.12.0(@typescript-eslint/parser@6.12.0)(eslint@8.54.0)(typescript@5.3.2)
+    specifier: ^6.13.0
+    version: 6.13.0(@typescript-eslint/parser@6.13.0)(eslint@8.54.0)(typescript@5.3.2)
   '@typescript-eslint/parser':
-    specifier: ^6.12.0
-    version: 6.12.0(eslint@8.54.0)(typescript@5.3.2)
+    specifier: ^6.13.0
+    version: 6.13.0(eslint@8.54.0)(typescript@5.3.2)
   '@typescript-eslint/types':
-    specifier: ^6.12.0
-    version: 6.12.0
+    specifier: ^6.13.0
+    version: 6.13.0
   '@vitejs/plugin-legacy':
     specifier: ^5.2.0
     version: 5.2.0(terser@5.24.0)(vite@5.0.2)
@@ -1590,11 +1590,11 @@ packages:
       preact: 10.19.2
     dev: false
 
-  /@bpmn-io/element-templates-validator@1.6.0:
-    resolution: {integrity: sha512-nVMXEVl5Pk5iITIHJ0v+Sb0QNK79VbaqEd/c0NOdW0RAOWZl8bEPyprC6tUcITJXNOvpyO0tC3u76Ywrj4aIIQ==}
+  /@bpmn-io/element-templates-validator@1.6.1:
+    resolution: {integrity: sha512-2HnpuQCw8BWupzKd5O9STThYdj+V3ekwq4xtc1H6fZr7NQt0glld9geJ+fHKBEVqIbPg3kX5h7mAeCNGsXGgVQ==}
     dependencies:
       '@camunda/element-templates-json-schema': 0.16.0
-      '@camunda/zeebe-element-templates-json-schema': 0.16.0
+      '@camunda/zeebe-element-templates-json-schema': 0.16.1
       json-source-map: 0.6.1
       min-dash: 4.1.1
     dev: false
@@ -1654,8 +1654,8 @@ packages:
     resolution: {integrity: sha512-QXlizHS2wh05JZJcVoJHd974SI/bWyGJxrgA8STmqMSUBnslDpCkaCTuxtW9YGsqImOkXKaSYI2843AbMOWBXQ==}
     dev: false
 
-  /@camunda/zeebe-element-templates-json-schema@0.16.0:
-    resolution: {integrity: sha512-uar5ULFI7/0Dkn2Mad2NpCfKz3crOWrN5+az01Q5KArwuwon+byTLmmTx5YqXLFxiN+2f0tPkBbvMo6ins4XxQ==}
+  /@camunda/zeebe-element-templates-json-schema@0.16.1:
+    resolution: {integrity: sha512-X9gd+d7Efd4IUGU1tpxe3JeEeOJDlS7yvZG1BfSnpuMyfabM9y9Z1oNbvNQVhurHjYxN9HXVB77Z0Xy4Mswllw==}
     dev: false
 
   /@codemirror/autocomplete@6.11.0(@codemirror/language@6.9.2)(@codemirror/state@6.3.1)(@codemirror/view@6.22.0)(@lezer/common@1.1.1):
@@ -2271,8 +2271,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /@element-plus/icons-vue@2.1.0(vue@3.3.9):
-    resolution: {integrity: sha512-PSBn3elNoanENc1vnCfh+3WA9fimRC7n+fWkf3rE5jvv+aBohNHABC/KAR5KWPecxWxDTVT1ERpRbOMRcOV/vA==}
+  /@element-plus/icons-vue@2.3.1(vue@3.3.9):
+    resolution: {integrity: sha512-XxVUZv48RZAd87ucGS48jPf6pKu0yV5UCg9f4FFwtrYxXOwWuVJo6wOvSLKEoMQKjv8GsX/mhP6UsC1lRwbUWg==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
@@ -2568,24 +2568,24 @@ packages:
       - supports-color
     dev: true
 
-  /@intlify/core-base@9.7.1:
-    resolution: {integrity: sha512-jPJTeECEhqQ7g//8g3Fb79j5SzSSRqlFCWD6pcX94uMLXU+L1m07gVZnnvzoJBnaMyJHiiwxOqZVfvu6rQfLvw==}
+  /@intlify/core-base@9.8.0:
+    resolution: {integrity: sha512-UxaSZVZ1DwqC/CltUZrWZNaWNhfmKtfyV4BJSt/Zt4Or/fZs1iFj0B+OekYk1+MRHfIOe3+x00uXGQI4PbO/9g==}
     engines: {node: '>= 16'}
     dependencies:
-      '@intlify/message-compiler': 9.7.1
-      '@intlify/shared': 9.7.1
+      '@intlify/message-compiler': 9.8.0
+      '@intlify/shared': 9.8.0
     dev: false
 
-  /@intlify/message-compiler@9.7.1:
-    resolution: {integrity: sha512-HfIr2Hn/K7b0Zv4kGqkxAxwtipyxAwhI9a3krN5cuhH/G9gkaik7of1PdzjR3Mix43t2onBiKYQyaU7mo7e0aA==}
+  /@intlify/message-compiler@9.8.0:
+    resolution: {integrity: sha512-McnYWhcoYmDJvssVu6QGR0shqlkJuL1HHdi5lK7fNqvQqRYaQ4lSLjYmZxwc8tRNMdIe9/KUKfyPxU9M6yCtNQ==}
     engines: {node: '>= 16'}
     dependencies:
-      '@intlify/shared': 9.7.1
+      '@intlify/shared': 9.8.0
       source-map-js: 1.0.2
     dev: false
 
-  /@intlify/shared@9.7.1:
-    resolution: {integrity: sha512-CBKnHzlUYGrk5QII9q4nElAQKO5cX1rRx8VmSWXltyOZjbkGHXYQTHULn6KwRi+CypuBCfmPkyPBHMzosypIeg==}
+  /@intlify/shared@9.8.0:
+    resolution: {integrity: sha512-TmgR0RCLjzrSo+W3wT0ALf9851iFMlVI9EYNGeWvZFUQTAJx0bvfsMlPdgVtV1tDNRiAfhkFsMKu6jtUY1ZLKQ==}
     engines: {node: '>= 16'}
     dev: false
 
@@ -3058,8 +3058,8 @@ packages:
     resolution: {integrity: sha512-EPI269lkHNsObwILJ1k1z7znLjKyePuWRy/XKK0shSGpBb9cIX307arcwJV4+2NeZj5wEjN06r4D8yFv7sI06g==}
     dev: true
 
-  /@typescript-eslint/eslint-plugin@6.12.0(@typescript-eslint/parser@6.12.0)(eslint@8.54.0)(typescript@5.3.2):
-    resolution: {integrity: sha512-XOpZ3IyJUIV1b15M7HVOpgQxPPF7lGXgsfcEIu3yDxFPaf/xZKt7s9QO/pbk7vpWQyVulpJbu4E5LwpZiQo4kA==}
+  /@typescript-eslint/eslint-plugin@6.13.0(@typescript-eslint/parser@6.13.0)(eslint@8.54.0)(typescript@5.3.2):
+    resolution: {integrity: sha512-HTvbSd0JceI2GW5DHS3R9zbarOqjkM9XDR7zL8eCsBUO/eSiHcoNE7kSL5sjGXmVa9fjH5LCfHDXNnH4QLp7tQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       '@typescript-eslint/parser': ^6.0.0 || ^6.0.0-alpha
@@ -3070,11 +3070,11 @@ packages:
         optional: true
     dependencies:
       '@eslint-community/regexpp': 4.6.2
-      '@typescript-eslint/parser': 6.12.0(eslint@8.54.0)(typescript@5.3.2)
-      '@typescript-eslint/scope-manager': 6.12.0
-      '@typescript-eslint/type-utils': 6.12.0(eslint@8.54.0)(typescript@5.3.2)
-      '@typescript-eslint/utils': 6.12.0(eslint@8.54.0)(typescript@5.3.2)
-      '@typescript-eslint/visitor-keys': 6.12.0
+      '@typescript-eslint/parser': 6.13.0(eslint@8.54.0)(typescript@5.3.2)
+      '@typescript-eslint/scope-manager': 6.13.0
+      '@typescript-eslint/type-utils': 6.13.0(eslint@8.54.0)(typescript@5.3.2)
+      '@typescript-eslint/utils': 6.13.0(eslint@8.54.0)(typescript@5.3.2)
+      '@typescript-eslint/visitor-keys': 6.13.0
       debug: 4.3.4
       eslint: 8.54.0
       graphemer: 1.4.0
@@ -3087,8 +3087,8 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/parser@6.12.0(eslint@8.54.0)(typescript@5.3.2):
-    resolution: {integrity: sha512-s8/jNFPKPNRmXEnNXfuo1gemBdVmpQsK1pcu+QIvuNJuhFzGrpD7WjOcvDc/+uEdfzSYpNu7U/+MmbScjoQ6vg==}
+  /@typescript-eslint/parser@6.13.0(eslint@8.54.0)(typescript@5.3.2):
+    resolution: {integrity: sha512-VpG+M7GNhHLI/aTDctqAV0XbzB16vf+qDX9DXuMZSe/0bahzDA9AKZB15NDbd+D9M4cDsJvfkbGOA7qiZ/bWJw==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
@@ -3097,10 +3097,10 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/scope-manager': 6.12.0
-      '@typescript-eslint/types': 6.12.0
-      '@typescript-eslint/typescript-estree': 6.12.0(typescript@5.3.2)
-      '@typescript-eslint/visitor-keys': 6.12.0
+      '@typescript-eslint/scope-manager': 6.13.0
+      '@typescript-eslint/types': 6.13.0
+      '@typescript-eslint/typescript-estree': 6.13.0(typescript@5.3.2)
+      '@typescript-eslint/visitor-keys': 6.13.0
       debug: 4.3.4
       eslint: 8.54.0
       typescript: 5.3.2
@@ -3108,16 +3108,16 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/scope-manager@6.12.0:
-    resolution: {integrity: sha512-5gUvjg+XdSj8pcetdL9eXJzQNTl3RD7LgUiYTl8Aabdi8hFkaGSYnaS6BLc0BGNaDH+tVzVwmKtWvu0jLgWVbw==}
+  /@typescript-eslint/scope-manager@6.13.0:
+    resolution: {integrity: sha512-2x0K2/CujsokIv+LN2T0l5FVDMtsCjkUyYtlcY4xxnxLAW+x41LXr16duoicHpGtLhmtN7kqvuFJ3zbz00Ikhw==}
     engines: {node: ^16.0.0 || >=18.0.0}
     dependencies:
-      '@typescript-eslint/types': 6.12.0
-      '@typescript-eslint/visitor-keys': 6.12.0
+      '@typescript-eslint/types': 6.13.0
+      '@typescript-eslint/visitor-keys': 6.13.0
     dev: true
 
-  /@typescript-eslint/type-utils@6.12.0(eslint@8.54.0)(typescript@5.3.2):
-    resolution: {integrity: sha512-WWmRXxhm1X8Wlquj+MhsAG4dU/Blvf1xDgGaYCzfvStP2NwPQh6KBvCDbiOEvaE0filhranjIlK/2fSTVwtBng==}
+  /@typescript-eslint/type-utils@6.13.0(eslint@8.54.0)(typescript@5.3.2):
+    resolution: {integrity: sha512-YHufAmZd/yP2XdoD3YeFEjq+/Tl+myhzv+GJHSOz+ro/NFGS84mIIuLU3pVwUcauSmwlCrVXbBclkn1HfjY0qQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
@@ -3126,8 +3126,8 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/typescript-estree': 6.12.0(typescript@5.3.2)
-      '@typescript-eslint/utils': 6.12.0(eslint@8.54.0)(typescript@5.3.2)
+      '@typescript-eslint/typescript-estree': 6.13.0(typescript@5.3.2)
+      '@typescript-eslint/utils': 6.13.0(eslint@8.54.0)(typescript@5.3.2)
       debug: 4.3.4
       eslint: 8.54.0
       ts-api-utils: 1.0.1(typescript@5.3.2)
@@ -3136,13 +3136,13 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/types@6.12.0:
-    resolution: {integrity: sha512-MA16p/+WxM5JG/F3RTpRIcuOghWO30//VEOvzubM8zuOOBYXsP+IfjoCXXiIfy2Ta8FRh9+IO9QLlaFQUU+10Q==}
+  /@typescript-eslint/types@6.13.0:
+    resolution: {integrity: sha512-oXg7DFxx/GmTrKXKKLSoR2rwiutOC7jCQ5nDH5p5VS6cmHE1TcPTaYQ0VPSSUvj7BnNqCgQ/NXcTBxn59pfPTQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
     dev: true
 
-  /@typescript-eslint/typescript-estree@6.12.0(typescript@5.3.2):
-    resolution: {integrity: sha512-vw9E2P9+3UUWzhgjyyVczLWxZ3GuQNT7QpnIY3o5OMeLO/c8oHljGc8ZpryBMIyympiAAaKgw9e5Hl9dCWFOYw==}
+  /@typescript-eslint/typescript-estree@6.13.0(typescript@5.3.2):
+    resolution: {integrity: sha512-IT4O/YKJDoiy/mPEDsfOfp+473A9GVqXlBKckfrAOuVbTqM8xbc0LuqyFCcgeFWpqu3WjQexolgqN2CuWBYbog==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       typescript: '*'
@@ -3150,8 +3150,8 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/types': 6.12.0
-      '@typescript-eslint/visitor-keys': 6.12.0
+      '@typescript-eslint/types': 6.13.0
+      '@typescript-eslint/visitor-keys': 6.13.0
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
@@ -3162,8 +3162,8 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/utils@6.12.0(eslint@8.54.0)(typescript@5.3.2):
-    resolution: {integrity: sha512-LywPm8h3tGEbgfyjYnu3dauZ0U7R60m+miXgKcZS8c7QALO9uWJdvNoP+duKTk2XMWc7/Q3d/QiCuLN9X6SWyQ==}
+  /@typescript-eslint/utils@6.13.0(eslint@8.54.0)(typescript@5.3.2):
+    resolution: {integrity: sha512-V+txaxARI8yznDkcQ6FNRXxG+T37qT3+2NsDTZ/nKLxv6VfGrRhTnuvxPUxpVuWWr+eVeIxU53PioOXbz8ratQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
@@ -3171,9 +3171,9 @@ packages:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.54.0)
       '@types/json-schema': 7.0.12
       '@types/semver': 7.5.0
-      '@typescript-eslint/scope-manager': 6.12.0
-      '@typescript-eslint/types': 6.12.0
-      '@typescript-eslint/typescript-estree': 6.12.0(typescript@5.3.2)
+      '@typescript-eslint/scope-manager': 6.13.0
+      '@typescript-eslint/types': 6.13.0
+      '@typescript-eslint/typescript-estree': 6.13.0(typescript@5.3.2)
       eslint: 8.54.0
       semver: 7.5.4
     transitivePeerDependencies:
@@ -3181,11 +3181,11 @@ packages:
       - typescript
     dev: true
 
-  /@typescript-eslint/visitor-keys@6.12.0:
-    resolution: {integrity: sha512-rg3BizTZHF1k3ipn8gfrzDXXSFKyOEB5zxYXInQ6z0hUvmQlhaZQzK+YmHmNViMA9HzW5Q9+bPPt90bU6GQwyw==}
+  /@typescript-eslint/visitor-keys@6.13.0:
+    resolution: {integrity: sha512-UQklteCEMCRoq/1UhKFZsHv5E4dN1wQSzJoxTfABasWk1HgJRdg1xNUve/Kv/Sdymt4x+iEzpESOqRFlQr/9Aw==}
     engines: {node: ^16.0.0 || >=18.0.0}
     dependencies:
-      '@typescript-eslint/types': 6.12.0
+      '@typescript-eslint/types': 6.13.0
       eslint-visitor-keys: 3.4.3
     dev: true
 
@@ -3917,8 +3917,8 @@ packages:
       big-integer: 1.6.51
     dev: true
 
-  /bpmn-js-element-templates@1.8.0(@bpmn-io/properties-panel@3.13.0)(bpmn-js-properties-panel@5.6.1)(bpmn-js@15.2.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@12.8.0)(preact@10.19.2):
-    resolution: {integrity: sha512-F1rDfVLiOmmtZBZf2i/NNGPZqIOSG/72CNTdxgv+pgThozv46i7fu529+LOzcYMYpu2ke26s1iBYf7tzqifsOw==}
+  /bpmn-js-element-templates@1.9.1(@bpmn-io/properties-panel@3.13.0)(bpmn-js-properties-panel@5.6.1)(bpmn-js@15.2.2)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@12.8.0)(preact@10.19.2):
+    resolution: {integrity: sha512-/j65sPHxmkpRTXnhzIrdvThdXr4hDMlsJzOY1eq3NeSe1docV+GQDUo0pfNPdbUuQqePvqOdBrP6oTdhCHm/0A==}
     peerDependencies:
       '@bpmn-io/properties-panel': '>= 2.2'
       bpmn-js: '>= 11.5'
@@ -3926,13 +3926,13 @@ packages:
       camunda-bpmn-js-behaviors: '>= 1.2.1'
       diagram-js: '>= 11.9'
     dependencies:
-      '@bpmn-io/element-templates-validator': 1.6.0
+      '@bpmn-io/element-templates-validator': 1.6.1
       '@bpmn-io/extract-process-variables': 0.8.0
       '@bpmn-io/properties-panel': 3.13.0(@lezer/common@1.1.1)
-      bpmn-js: 15.2.0
-      bpmn-js-properties-panel: 5.6.1(@bpmn-io/properties-panel@3.13.0)(bpmn-js@15.2.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@12.8.0)
-      bpmnlint: 8.3.2
-      camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@15.2.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
+      bpmn-js: 15.2.2
+      bpmn-js-properties-panel: 5.6.1(@bpmn-io/properties-panel@3.13.0)(bpmn-js@15.2.2)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@12.8.0)
+      bpmnlint: 9.2.0
+      camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@15.2.2)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
       classnames: 2.3.2
       diagram-js: 12.8.0
       ids: 1.0.5
@@ -3945,7 +3945,7 @@ packages:
       - preact
     dev: false
 
-  /bpmn-js-properties-panel@5.6.1(@bpmn-io/properties-panel@3.13.0)(bpmn-js@15.2.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@12.8.0):
+  /bpmn-js-properties-panel@5.6.1(@bpmn-io/properties-panel@3.13.0)(bpmn-js@15.2.2)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@12.8.0):
     resolution: {integrity: sha512-UzW2/O7HsBNoYYSDA0Rc9CWnyTfMmxliwlsA3aTPVwvVQAkCiU2O3OBsX+XiX5INK2/0RLF7hfNRlO3Ef2h5bw==}
     peerDependencies:
       '@bpmn-io/properties-panel': '>= 3.7'
@@ -3956,20 +3956,20 @@ packages:
       '@bpmn-io/extract-process-variables': 0.8.0
       '@bpmn-io/properties-panel': 3.13.0(@lezer/common@1.1.1)
       array-move: 3.0.1
-      bpmn-js: 15.2.0
-      camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@15.2.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
+      bpmn-js: 15.2.2
+      camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@15.2.2)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
       diagram-js: 12.8.0
       ids: 1.0.5
       min-dash: 4.1.1
       min-dom: 4.1.0
     dev: false
 
-  /bpmn-js@15.2.0:
-    resolution: {integrity: sha512-gHpWn8sFYJZKnoKd/Qjp3xdB9w8X55TqvjDZwnJZJkBOcSXe/cEegGdgar6LGc9ZqoOMrdk138VgOnlB4+c1wg==}
+  /bpmn-js@15.2.2:
+    resolution: {integrity: sha512-PT9KfV0xb8jqENIGmx4cTY54jkDaThHQ63hRymBA4yYyXeNLb7S3U4Dfo1dPwclvGvbzJ6eZE32TR+yuaY9w9w==}
     dependencies:
       bpmn-moddle: 8.0.1
-      diagram-js: 12.8.0
-      diagram-js-direct-editing: 2.0.0(diagram-js@12.8.0)
+      diagram-js: 12.8.1
+      diagram-js-direct-editing: 2.0.0(diagram-js@12.8.1)
       ids: 1.0.5
       inherits-browser: 0.1.0
       min-dash: 4.1.1
@@ -3990,8 +3990,8 @@ packages:
     resolution: {integrity: sha512-Afdb77FmwNB3INyUfbzXW40yY+mc0qYU3SgDFeI4zTtduiVomOlfqoXiEaUIGI8Hyh7aVYpmf3O97P2w7x0DYQ==}
     dev: false
 
-  /bpmnlint@8.3.2:
-    resolution: {integrity: sha512-2XlfwMd6jFrIJbNWr2TUQmmU4Au81HWzH37LXaU/OqShPAWMV9ygajFGzApt4Of6UwIbWvEtiSjHTXmeAX9sEA==}
+  /bpmnlint@9.2.0:
+    resolution: {integrity: sha512-GJVe6t0lSUTqKH1FeM9ueqop+zZh7Ag4QsWhiHrpU4Zt6XmGIXNfxwLrX8JvqNzxJIdhpF+YRT7rY2qQQhvYBg==}
     engines: {node: '>= 12'}
     hasBin: true
     dependencies:
@@ -4122,14 +4122,14 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /camunda-bpmn-js-behaviors@1.2.2(bpmn-js@15.2.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0):
+  /camunda-bpmn-js-behaviors@1.2.2(bpmn-js@15.2.2)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0):
     resolution: {integrity: sha512-BYbiKH5L3tMqpFOnmlIOp2QR/8ewNG0UOIOVafBYuZCiBOXr/XMl86gOF0aT994xdOGKO/6gdqc7+p8baAxcEw==}
     peerDependencies:
       bpmn-js: '>= 9'
       camunda-bpmn-moddle: '>= 7'
       zeebe-bpmn-moddle: '>= 0.18'
     dependencies:
-      bpmn-js: 15.2.0
+      bpmn-js: 15.2.2
       camunda-bpmn-moddle: 7.0.1
       ids: 1.0.5
       min-dash: 4.1.1
@@ -4790,18 +4790,33 @@ packages:
     engines: {node: '>=0.10'}
     dev: false
 
-  /diagram-js-direct-editing@2.0.0(diagram-js@12.8.0):
+  /diagram-js-direct-editing@2.0.0(diagram-js@12.8.1):
     resolution: {integrity: sha512-/12OWL0B0RMCfaT1w3723c729MD42r5fay4wtm2DvxNFNBMdPaEvOHCTA/khLKjFzOzMVKxSzbAp7IEwBGonVw==}
     peerDependencies:
       diagram-js: '*'
     dependencies:
-      diagram-js: 12.8.0
+      diagram-js: 12.8.1
       min-dash: 4.1.1
       min-dom: 4.1.0
     dev: false
 
   /diagram-js@12.8.0:
     resolution: {integrity: sha512-DlXqr9q2OgRL9vFHq4c8IdzzFm+xAkG/rIpQW5qIJF0+49pHMo9sx+qxjwOjn6ZZd9h3LfIt29fjQF/XjC0uqQ==}
+    dependencies:
+      '@bpmn-io/diagram-js-ui': 0.2.2
+      clsx: 2.0.0
+      didi: 9.0.2
+      hammerjs: 2.0.8
+      inherits-browser: 0.1.0
+      min-dash: 4.1.1
+      min-dom: 4.1.0
+      object-refs: 0.3.0
+      path-intersection: 2.2.1
+      tiny-svg: 3.0.1
+    dev: false
+
+  /diagram-js@12.8.1:
+    resolution: {integrity: sha512-LF9BiwjbOPpZd0ez5VSlYRbdbEA59YQX43bWvNDp1rLMv0xwZ5yIg4oaYDK82nIQ0kH1tjvoQRpNevMTCgQVyw==}
     dependencies:
       '@bpmn-io/diagram-js-ui': 0.2.2
       clsx: 2.0.0
@@ -4979,13 +4994,13 @@ packages:
     resolution: {integrity: sha512-54z7squS1FyFRSUqq/knOFSptjjogLZXbKcYk3B0qkE1KZzvqASwRZnY2KzZQJqIYLVD38XZeoiMRflYSwyO4w==}
     dev: true
 
-  /element-plus@2.4.2(vue@3.3.9):
-    resolution: {integrity: sha512-E/HwXX7JF1LPvQSjs0fZ8WblIoc0quoXsRXQZiL7QDq7xJdNGSUaXtdk7xiEv7axPmLfEFtxE5du9fFspDrmJw==}
+  /element-plus@2.4.3(vue@3.3.9):
+    resolution: {integrity: sha512-b3q26j+lM4SBqiyzw8HybybGnP2pk4MWgrnzzzYW5qKQUgV6EG1Zg7nMCfgCVccI8tNvZoTiUHb2mFaiB9qT8w==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
       '@ctrl/tinycolor': 3.6.0
-      '@element-plus/icons-vue': 2.1.0(vue@3.3.9)
+      '@element-plus/icons-vue': 2.3.1(vue@3.3.9)
       '@floating-ui/dom': 1.5.1
       '@popperjs/core': /@sxzz/popperjs-es@2.11.7
       '@types/lodash': 4.14.197
@@ -10116,14 +10131,14 @@ packages:
       - supports-color
     dev: true
 
-  /vue-i18n@9.7.1(vue@3.3.9):
-    resolution: {integrity: sha512-A6DzWqJQMdzBj+392+g3zIgGV0FnFC7o/V+txs5yIALANEZzY6ZV8hM2wvZR3nTbQI7dntAmzBHMeoEteJO0kQ==}
+  /vue-i18n@9.8.0(vue@3.3.9):
+    resolution: {integrity: sha512-Izho+6PYjejsTq2mzjcRdBZ5VLRQoSuuexvR8029h5CpN03FYqiqBrShMyf2I1DKkN6kw/xmujcbvC+4QybpsQ==}
     engines: {node: '>= 16'}
     peerDependencies:
       vue: ^3.0.0
     dependencies:
-      '@intlify/core-base': 9.7.1
-      '@intlify/shared': 9.7.1
+      '@intlify/core-base': 9.8.0
+      '@intlify/shared': 9.8.0
       '@vue/devtools-api': 6.5.0
       vue: 3.3.9(typescript@5.3.2)
     dev: false
