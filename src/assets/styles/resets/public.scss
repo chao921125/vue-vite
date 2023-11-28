@@ -218,13 +218,13 @@ $sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 9
 }
 
 // default PC
-.screen-pc {
+.is-pc {
 	display: block;
 }
-.screen-pad {
+.is-pad {
 	display: none;
 }
-.screen-mobile {
+.is-mobile {
 	display: none;
 }
 // Large
@@ -235,13 +235,13 @@ $sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 9
 @media screen and (min-width: 768px) and (max-width: 992px) {}
 // Mobile
 @media screen and (max-width: 768px) {
-	.screen-pc {
+	.is-pc {
 		display: none;
 	}
-	.screen-pad {
+	.is-pad {
 		display: none;
 	}
-	.screen-mobile {
+	.is-mobile {
 		display: block;
 	}
 }
