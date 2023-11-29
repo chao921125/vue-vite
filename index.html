@@ -12,6 +12,7 @@
 			name="description"
 			content="vue，vue3，CompositionAPI，typescript，element plus，element，plus，admin，wonderful，wonderful-next，vue-next-admin，vite，vite-admin，快速，高效，后台模板，后台系统，管理系统"
 		/>
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<title><%- title %></title>
 		<style>
@@ -53,9 +54,9 @@
 				background-clip: padding-box;
 				border-bottom-right-radius: 50px;
 				border-bottom-left-radius: 50px;
+				mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
 				transform: translate3d(0, 0, 0);
 				backface-visibility: hidden;
-				mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
 			}
 
 			.ripple {
