@@ -12,8 +12,10 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": [
+      "es5",
+      "es6",
       "esnext",
-      "DOM",
+      "dom",
       "dom.iterable",
       "scripthost"
     ],
