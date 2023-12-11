@@ -142,7 +142,6 @@
 
 | UI Mobile 官方                                                  |
 |---------------------------------------------------------------|
-| [👍ionicframework 官网 VRA](https://ionicframework.com/docs/)   |
 | [👍vant](https://vant-ui.github.io/vant/#/zh-CN)              |
 | [👍nutui @nutui/nutui@next 官网](https://nutui.jd.com/)         |
 | [varlet 官网](https://varlet-varletjs.vercel.app/#/en-US/index) |
@@ -154,23 +153,23 @@
 | [Tencent](https://github.com/Tencent/weui/)                   |
 | [vite](https://github.com/LZHD/vue-vite-h5)                   |
 | [vux](https://vux.li/)                                        |
+| [👍ionic-framework 官网 VRA](https://ionicframework.com/docs/)  |
 
-| UI 小程序端                                                |
-|--------------------------------------------------------|
-| [👍vant](https://github.com/vant-ui/vant-weapp)        |
-| [👍taro](https://taro-ui.jd.com/#/)                    |
-| [Tencent](https://github.com/Tencent/weui-wxss)        |
-| [mini](https://doc.mini.talelin.com/)                  |
-| [wux](https://wux-weapp.github.io/wux-weapp-docs/#/)   |
-| [cube](https://didi.github.io/cube-ui/#/zh-CN)         |
-| [ColorUI 停更](https://github.com/weilanwl/ColorUI)      |
-| [touchwx 停更](https://github.com/uileader/touchwx)      |
-| [iview 停更](https://github.com/TalkingData/iview-weapp) |
+| UI 小程序端                                                  |
+|----------------------------------------------------------|
+| [👍vant](https://github.com/vant-ui/vant-weapp)          |
+| [👍taro](https://taro-ui.jd.com/#/)                      |
+| [Tencent](https://github.com/Tencent/weui-wxss)          |
+| [mini](https://doc.mini.talelin.com/)                    |
+| [wux](https://wux-weapp.github.io/wux-weapp-docs/#/)     |
+| [Cube UI](https://didi.github.io/cube-ui/#/zh-CN)        |
+| [ColorUI 停更](https://github.com/weilanwl/ColorUI)        |
+| [touchwx 停更](https://github.com/uileader/touchwx)        |
+| [iview 停更](https://github.com/TalkingData/iview-weapp)   |
 
 | VUE2 UI PC 官方                                     |
 |---------------------------------------------------|
 | [elementUI 官网](https://element.eleme.io/)         |
-| [vuetifyjs 官网](https://v2.vuetifyjs.com/zh-Hans/) |
 | [mint-ui 官网](http://mint-ui.github.io/#!/zh-cn)   |
 | [buefy 官网](https://buefy.org/)                    |
 | [onsen 官网](https://onsen.io/)                     |
@@ -183,6 +182,7 @@
 |-----------------------------------------------------------------|
 | [formily 官网 阿里巴巴](https://github.com/alibaba/formily)           |
 | [form-generator 官网](https://github.com/JakHuang/form-generator) |
+| [mitosis](https://github.com/BuilderIO/mitosis)                 |
 
 | 项目及插件示例                                         |
 |-------------------------------------------------|
@@ -273,11 +273,12 @@
 |--------------------------------------------------------|
 | [screenfull](https://www.npmjs.com/package/screenfull) |
 
-| 数据表格导入导出                                               |
-|--------------------------------------------------------|
-| [csv](https://www.npmjs.com/package/csv)               |
-| [papaparse](https://www.npmjs.com/package/papaparse)   |
-| [xlsx](https://www.npmjs.com/package/xlsx)             |
+| 数据表格导入导出                                             |
+|------------------------------------------------------|
+| [sheetjs](https://docs.sheetjs.com/)                 |
+| [csv](https://www.npmjs.com/package/csv)             |
+| [papaparse](https://www.npmjs.com/package/papaparse) |
+| [xlsx](https://www.npmjs.com/package/xlsx)           |
 
 | html2canvas，页面截图                                         |
 |----------------------------------------------------------|
@@ -294,6 +295,10 @@
 |----------------------------------------------------------------------------------|
 | [vue-functional-calendar](https://www.npmjs.com/package/vue-functional-calendar) |
 | [vuejs-heatmap](https://www.npmjs.com/package/vuejs-heatmap)                     |
+
+| 滚动                                                            |
+|---------------------------------------------------------------|
+| [better-scroll](https://github.com/ustbhuangyi/better-scroll) |
 
 | 裁剪图片                                                    |
 |---------------------------------------------------------|
@@ -446,7 +451,15 @@
 |---------------------------------------------------------------------------------|
 | [devtools-detector 判断浏览器是否打开了控制台](https://github.com/AepKill/devtools-detector) |
 
+| Other                                                 |
+|-------------------------------------------------------|
+| [vuepress](https://github.com/vuejs/vuepress)         |
+| https://github.com/Molunerfinn/PicGo                  |
 # 特效
+|                                                   |
+|---------------------------------------------------|
+| [auto-animate](https://auto-animate.formkit.com/) |
+
 | Loading动画                                                                    |
 |------------------------------------------------------------------------------|
 | [three-dots 等待效果](https://nzbin.github.io/three-dots/)                       |
@@ -544,10 +557,11 @@
 | [React Native 官网](https://reactnative.cn/)                         |
 
 # 在线编码可视化
-| api                           |
-|-------------------------------|
-| [apifox](https://apifox.com/) |
-| [yapi](https://yapi.pro/)     |
+| api                                                      |
+|----------------------------------------------------------|
+| [apifox](https://apifox.com/)                            |
+| [yapi](https://yapi.pro/)                                |
+| [hoppscotch](https://github.com/hoppscotch/hoppscotch)   |
 
 | code                               |
 |------------------------------------|
@@ -602,6 +616,9 @@
 | [小游戏 createjs](https://www.createjs.com/)                        |
 
 # 优秀项目推荐
+|                                      |
+|--------------------------------------|
+| [slidev 演示文稿工具](https://cn.sli.dev/) |
 
 | 项目示例                                                            |
 |-----------------------------------------------------------------|
