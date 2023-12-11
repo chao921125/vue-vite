@@ -1,6 +1,5 @@
 # [访问地址](https://vue-vite.pages.dev/) - [项目截图](./doc/Project.md)
 [//]: # (pnpx husky install)
-[//]: # (	"type": "module",)
 [//]: # (https://bun.sh/)
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
@@ -8,7 +7,8 @@
 # 避坑指南 及 注意事项
 [**已在公司作为模板商用**]
 - 三方包引入尽可能小写，自定义尽可能大写
-- package.json添加"type": "module",需要修改*.js为*.cjs
+- cjs在不久的未来将不再支持，后续尽可能使用mjs，由于现在某些包暂不支持，所以使用js+ts+mjs混用的方式
+- 目前该项目由于 eslint 与 stylelint 的原因导致无法全部修改为mjs即："type": "module" 点名批评
 - 推荐使用pnpm(curl -fsSL https://get.pnpm.io/install.sh | sh -)安装依赖，其次yarn或者npm
 - 注意所有配置菜单的数据，均由前端提供
 - 项目本身配置99%都在vite.config.ts里面，参数设置都在根目录下，而非src下
@@ -23,6 +23,12 @@
 2. 切换URL改变页面呈现方式：通过监听获取当前是否是移动端，然后改变对应的URL。需要设计两套UI，开发者需要写两套页面及样式。优点是灵活，缺点是开发周期长
 3. rem 计算：目前最多的，通过对根字体的设置，自动换算
 4. vw 计算：当下及以后的趋势，本项目就是采用的此计算方式，不打算采用和rem混用的方式了
+```text
+我们实际的需求一般很少拿着网站在一个超大屏展示，部分均为正常屏幕所以vw模式基本上满足80%的要求
+一套UI同时适配PC与Mobile的话，尽可能使用媒体查询，且UI慎重选择，最好自己单独写
+如果PC和Mobile呈现不同的内容，那么最好写两套UI
+单独的PC和Mobile大家直接单独写，但是尽量根据设备判断不要在不适配的设备上展示
+```
 
 # 命名规范及解释
 1. 命名遵循驼峰规则：demoUser
