@@ -383,9 +383,12 @@
 | [base64-js](https://www.npmjs.com/package/base64-js) |
 | [js-base64](https://www.npmjs.com/package/js-base64) |
 
-| ua签名                                                       |
-|------------------------------------------------------------|
-| [ua-parser-js](https://www.npmjs.com/package/ua-parser-js) |
+| ua                                                                   |
+|----------------------------------------------------------------------|
+| [ua-parser-js](https://github.com/faisalman/ua-parser-js)            |
+| [isbot](https://github.com/omrilotan/isbot)                          |
+| [ua-regexes-lite](https://github.com/TrigenSoftware/ua-regexes-lite) |
+| [bowser](https://github.com/bowser-js/bowser)                        |
 
 | 本地数据存储                                         |
 |------------------------------------------------|
@@ -460,6 +463,7 @@
 |-------------------------------------------------------|
 | [vuepress](https://github.com/vuejs/vuepress)         |
 | https://github.com/Molunerfinn/PicGo                  |
+
 # 特效
 |                                                   |
 |---------------------------------------------------|
