@@ -1,5 +1,5 @@
 // @see: https://stylelint.io
-module.exports = {
+export default {
 	root: true,
 	plugins: ["stylelint-order", "stylelint-prettier"],
 	customSyntax: "postcss-html",

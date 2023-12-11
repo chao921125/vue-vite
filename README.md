@@ -8,7 +8,7 @@
 [**已在公司作为模板商用**]
 - 三方包引入尽可能小写，自定义尽可能大写
 - cjs在不久的未来将不再支持，后续尽可能使用mjs，由于现在某些包暂不支持，所以使用js+ts+mjs混用的方式
-- 目前该项目由于 eslint 与 stylelint 的原因导致无法全部修改为mjs即："type": "module"
+- 目前该项目由于 eslint 的原因导致无法全部修改为mjs即："type": "module"
 - 推荐使用pnpm(curl -fsSL https://get.pnpm.io/install.sh | sh -)安装依赖，其次yarn或者npm
 - 注意所有配置菜单的数据，均由前端提供
 - 项目本身配置99%都在vite.config.ts里面，参数设置都在根目录下，而非src下
