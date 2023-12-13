@@ -1,7 +1,5 @@
 # [访问地址](https://vue-vite.pages.dev/) - [项目截图](./doc/Project.md)
-###### 筹备下一阶段：将现有的M端判断移除，直接变换布局
 [//]: # (pnpx husky install)
-[//]: # (	"type": "module",)
 [//]: # (https://bun.sh/)
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
@@ -9,7 +7,8 @@
 # 避坑指南 及 注意事项
 [**已在公司作为模板商用**]
 - 三方包引入尽可能小写，自定义尽可能大写
-- package.json添加"type": "module",需要修改*.js为*.cjs
+- cjs在不久的未来将不再支持，后续尽可能使用mjs，由于现在某些包暂不支持，所以使用js+ts+mjs混用的方式
+- 目前该项目由于 eslint 的原因导致无法全部修改为mjs即："type": "module"
 - 推荐使用pnpm(curl -fsSL https://get.pnpm.io/install.sh | sh -)安装依赖，其次yarn或者npm
 - 注意所有配置菜单的数据，均由前端提供
 - 项目本身配置99%都在vite.config.ts里面，参数设置都在根目录下，而非src下
@@ -24,6 +23,12 @@
 2. 切换URL改变页面呈现方式：通过监听获取当前是否是移动端，然后改变对应的URL。需要设计两套UI，开发者需要写两套页面及样式。优点是灵活，缺点是开发周期长
 3. rem 计算：目前最多的，通过对根字体的设置，自动换算
 4. vw 计算：当下及以后的趋势，本项目就是采用的此计算方式，不打算采用和rem混用的方式了
+```text
+我们实际的需求一般很少拿着网站在一个超大屏展示，部分均为正常屏幕所以vw模式基本上满足80%的要求
+一套UI同时适配PC与Mobile的话，尽可能使用媒体查询，且UI慎重选择，最好自己单独写
+如果PC和Mobile呈现不同的内容，那么最好写两套UI
+单独的PC和Mobile大家直接单独写，但是尽量根据设备判断不要在不适配的设备上展示
+```
 
 # 命名规范及解释
 1. 命名遵循驼峰规则：demoUser
@@ -51,18 +56,18 @@
 | [vue3-resource](https://hu-snail.github.io/vue3-resource/) |
 | [vue3js](https://vue3js.cn/)                               |
 
-| 核心依赖                                                      |
-|-----------------------------------------------------------|
-| [👍vite 官网](https://cn.vitejs.dev/)                       |
-| [~~~vue-cli~~~](https://www.npmjs.com/package/@vue/cli)   |
-| vue                                                       |
-| [vue3 官网](https://vuejs.org/)                             |
-| [vue2 官网](https://v2.cn.vuejs.org/)                       |
-| 路由管理                                                      |
-| [vue-router 官网](https://www.npmjs.com/package/vue-router) |
-| 状态管理                                                      |
-| [👍Pinia 官网](https://pinia.web3doc.top/)                  |
-| [vuex 官网](https://next.vuex.vuejs.org/)                   |
+| 核心依赖                                                         |
+|--------------------------------------------------------------|
+| [👍 vite 官网](https://cn.vitejs.dev/)                         |
+| [vue-cli](https://cli.vuejs.org/)                            |
+| vue                                                          |
+| [vue3 官网](https://vuejs.org/)                                |
+| [vue2 官网](https://v2.cn.vuejs.org/)                          |
+| 路由管理                                                         |
+| [👍 vue-router 官网](https://www.npmjs.com/package/vue-router) |
+| 状态管理                                                         |
+| [👍 Pinia 官网](https://pinia.web3doc.top/)                    |
+| [vuex 官网](https://next.vuex.vuejs.org/)                      |
 
 | JavaScript标准库                                  |
 |------------------------------------------------|
@@ -122,66 +127,67 @@
 |------------------------------------------------|
 | [tdesign 腾讯多端UI](https://tdesign.tencent.com/) |
 
-| UI PC 官方                                                                  |
-|---------------------------------------------------------------------------|
-| [👍vuetifyjs 官网](https://vuetifyjs.com/)                                  |
-| [👍element-plus 官网](https://element-plus.org/)                            |
-| [headlessui](https://headlessui.com/)                                     |
-| [naiveui](https://www.naiveui.com/zh-CN/os-theme)                         |
-| [arco 字节 官网](https://arco.design/)                                        |
-| [bootstrap 兼容版 直接install](https://getbootstrap.com/)                      |
-| [ant-design-vue 官网 社区维护 请自行斟酌](https://www.antdv.com/components/overview) |
-| [bootstrap4 vue 官网](https://dev.bootstrap-vue.org/)                       |
-| [quasar 官网](https://quasar.dev/)                                          |
-| [heyui 官网](https://v2.heyui.top/)                                         |
-| [BalmUI 官网](https://next-material.balmjs.com/#/)                          |
-| [antoniandre 官网](https://antoniandre.github.io/wave-ui/)                  |
-| [naive ui 官网](https://www.naiveui.com/zh-CN/os-theme)                     |
-| [primefaces 官网](https://primefaces.org/primevue/showcase/#/setup)         |
-| [Vuestic UI 官网](https://vuestic.dev/)                                     |
-| [iDux 官网](https://idux.site/)                                             |
-| [relaxplus 官网](https://bsie.gitee.io/relaxplus/#/)                        |
+| UI PC 官方                                                                       |
+|--------------------------------------------------------------------------------|
+| [👍 element-plus 官网](https://element-plus.org/)                                |
+| [headlessui 组件简单](https://headlessui.com/)                                     |
+| [naiveui](https://www.naiveui.com/zh-CN/os-theme)                              |
+| [arco 字节 官网](https://arco.design/)                                             |
+| [bootstrap](https://getbootstrap.com/)                                         |
+| [ant-design-vue 社区维护](https://www.antdv.com/components/overview)               |
+| [bootstrap-vue-next](https://bootstrap-vue-next.github.io/bootstrap-vue-next/) |
+| [heyui 官网](https://v2.heyui.top/)                                              |
+| [BalmUI 官网](https://material.balmjs.com/)                                      |
+| [wave 官网](https://antoniandre.github.io/wave-ui/)                              |
+| [iDux 官网](https://idux.site/)                                                  |
+| [relaxplus 官网](https://bsie.gitee.io/relaxplus/#/)                             |
+| [quasar 官网](https://quasar.dev/)                                               |
+| [primefaces 官网](https://primevue.org/)                                         |
+| [Vuestic UI 官网](https://vuestic.dev/)                                          |
 
-| UI Mobile 官方                                                    |
-|-----------------------------------------------------------------|
-| [👍ionicframework 官网 VRA](https://ionicframework.com/docs/)     |
-| [👍vant](https://github.com/CharleeWa/vue3-vant-mobile)         |
-| [👍vant@next 官网](https://vant-contrib.gitee.io/vant/v3/)        |
-| [👍nutui @nutui/nutui@next 官网](https://nutui.jd.com/)           |
-| [varlet 官网](https://varlet-varletjs.vercel.app/#/en-US/index)   |
-| [mui uni-app 官网](https://dev.dcloud.net.cn/mui/)                |
-| [mui 官网](https://mui.com/)                                      |
-| [mint-ui 官网](http://mint-ui.github.io/)                         |
-| [VARLET 官网](https://varlet.gitee.io/varlet-ui/#/zh-CN/home)     |
-| [Wave UI 官网](https://antoniandre.github.io/wave-ui/)            |
-| [Tencent](https://github.com/Tencent/weui/)                     |
-| [vite](https://github.com/LZHD/vue-vite-h5)                     |
-| [vux](https://vux.li/)                                          |
+| UI Mobile 官方                                                  |
+|---------------------------------------------------------------|
+| [👍vant](https://vant-ui.github.io/vant/#/zh-CN)              |
+| [👍nutui @nutui/nutui@next 官网](https://nutui.jd.com/)         |
+| [varlet 官网](https://varlet-varletjs.vercel.app/#/en-US/index) |
+| [mui uni-app 官网](https://dev.dcloud.net.cn/mui/)              |
+| [mui 官网](https://mui.com/)                                    |
+| [mint-ui 官网](http://mint-ui.github.io/)                       |
+| [VARLET 官网](https://varlet.gitee.io/varlet-ui/#/zh-CN/home)   |
+| [Wave UI 官网](https://antoniandre.github.io/wave-ui/)          |
+| [Tencent](https://github.com/Tencent/weui/)                   |
+| [vite](https://github.com/LZHD/vue-vite-h5)                   |
+| [vux](https://vux.li/)                                        |
+| [👍ionic-framework 官网 VRA](https://ionicframework.com/docs/)  |
 
-| UI 小程序端                                                     |
-|-------------------------------------------------------------|
-| [👍vant](https://github.com/vant-ui/vant-weapp)             |
-| [👍taro](https://taro-ui.jd.com/#/)                         |
-| [Tencent](https://github.com/Tencent/weui-wxss)             |
-| [mini](https://doc.mini.talelin.com/)                       |
-| [wux](https://wux-weapp.github.io/wux-weapp-docs/#/)        |
-| [cube](https://didi.github.io/cube-ui/#/zh-CN)              |
-| [ColorUI 更新频率慢](https://github.com/weilanwl/ColorUI)        |
-| [touchwx 不推荐，停更了](https://github.com/uileader/touchwx)      |
-| [iview 不推荐，停更了](https://github.com/TalkingData/iview-weapp) |
+| UI 小程序端                                                  |
+|----------------------------------------------------------|
+| [👍vant](https://github.com/vant-ui/vant-weapp)          |
+| [👍taro](https://taro-ui.jd.com/#/)                      |
+| [Tencent](https://github.com/Tencent/weui-wxss)          |
+| [mini](https://doc.mini.talelin.com/)                    |
+| [wux](https://wux-weapp.github.io/wux-weapp-docs/#/)     |
+| [Cube UI](https://didi.github.io/cube-ui/#/zh-CN)        |
+| [ColorUI 停更](https://github.com/weilanwl/ColorUI)        |
+| [touchwx 停更](https://github.com/uileader/touchwx)        |
+| [iview 停更](https://github.com/TalkingData/iview-weapp)   |
 
 | VUE2 UI PC 官方                                     |
 |---------------------------------------------------|
 | [elementUI 官网](https://element.eleme.io/)         |
-| [vuetifyjs 官网](https://v2.vuetifyjs.com/zh-Hans/) |
 | [mint-ui 官网](http://mint-ui.github.io/#!/zh-cn)   |
 | [buefy 官网](https://buefy.org/)                    |
 | [onsen 官网](https://onsen.io/)                     |
+
+| 含商业收费版                                    |
+|-------------------------------------------|
+| [vuetifyjs 商业版收费](https://vuetifyjs.com/) |
 
 | 低代码                                                             |
 |-----------------------------------------------------------------|
 | [formily 官网 阿里巴巴](https://github.com/alibaba/formily)           |
 | [form-generator 官网](https://github.com/JakHuang/form-generator) |
+| [mitosis](https://github.com/BuilderIO/mitosis)                 |
 
 | 项目及插件示例                                         |
 |-------------------------------------------------|
@@ -226,6 +232,10 @@
 | [Highcharts 官网 付费](https://www.highcharts.com/)                  |
 | [amcharts 官网 付费](https://www.amcharts.com/)                      |
 
+| 营销组件                               |
+|------------------------------------|
+| [抽奖转盘/九宫格/老虎机](https://100px.net/) |
+
 | 图标                                                   |
 |------------------------------------------------------|
 | [iconfont 官网](https://www.iconfont.cn/)              |
@@ -268,11 +278,12 @@
 |--------------------------------------------------------|
 | [screenfull](https://www.npmjs.com/package/screenfull) |
 
-| 数据表格导入导出                                               |
-|--------------------------------------------------------|
-| [csv](https://www.npmjs.com/package/csv)               |
-| [papaparse](https://www.npmjs.com/package/papaparse)   |
-| [xlsx](https://www.npmjs.com/package/xlsx)             |
+| 数据表格导入导出                                             |
+|------------------------------------------------------|
+| [sheetjs](https://docs.sheetjs.com/)                 |
+| [csv](https://www.npmjs.com/package/csv)             |
+| [papaparse](https://www.npmjs.com/package/papaparse) |
+| [xlsx](https://www.npmjs.com/package/xlsx)           |
 
 | html2canvas，页面截图                                         |
 |----------------------------------------------------------|
@@ -289,6 +300,14 @@
 |----------------------------------------------------------------------------------|
 | [vue-functional-calendar](https://www.npmjs.com/package/vue-functional-calendar) |
 | [vuejs-heatmap](https://www.npmjs.com/package/vuejs-heatmap)                     |
+
+| 滚动                                                            |
+|---------------------------------------------------------------|
+| [better-scroll](https://github.com/ustbhuangyi/better-scroll) |
+
+| 裁剪图片                                                    |
+|---------------------------------------------------------|
+| [vue-cropper](https://github.com/xyxiao001/vue-cropper) |
 
 | 富文本编辑器                                                                 |                                                              
 |------------------------------------------------------------------------|
@@ -314,21 +333,11 @@
 | [Vue-markdown-editor 官网](https://code-farmer-i.github.io/vue-markdown-editor/zh/) |
 | [Md-editor-v3 官网](https://imzbf.github.io/md-editor-v3/index)                     |
 
-| 剪切板                                                            |
-|----------------------------------------------------------------|
-| [vue-clipboard2](https://www.npmjs.com/package/vue-clipboard2) |
-
 | 文件上传及保存                                                         |
 |-----------------------------------------------------------------|
 | [file-saver](https://www.npmjs.com/package/file-saver)          |
 | [Uppy 官网](https://uppy.io/docs/vue/)                            |
 | [Vue-filepond 官网](https://github.com/pqina/vue-filepond#readme) |
-
-| 打印                                                                     |
-|------------------------------------------------------------------------|
-| [vue3-print-nb](https://www.npmjs.com/package/vue3-print-nb)           |
-| [print-js](https://www.npmjs.com/package/print-js)                     |
-| [vue-plugin-hiprint](https://www.npmjs.com/package/vue-plugin-hiprint) |
 
 | 流程图                                                                 |
 |---------------------------------------------------------------------|
@@ -338,11 +347,15 @@
 | [vue2-bpmn](https://github.com/GoldSubmarine/workflow-bpmn-modeler) |
 | [bpmn 中文文档](https://github.com/LinDaiDai/bpmn-chinese-document)     |
 
-# 数据操作
-| 节点和浏览器的BDD / TDD断言库                                  |                                  
-|------------------------------------------------------|
-| [chai](https://www.npmjs.com/package/chai)           |
-| [cross-env](https://www.npmjs.com/package/cross-env) |
+| 地图                                                              |
+|-----------------------------------------------------------------|
+| [vue-amap 高德](https://www.npmjs.com/package/vue-amap)           |
+| [vue-baidu-map 百度](https://www.npmjs.com/package/vue-baidu-map) |
+
+# 工具类库
+| 剪切板                                                            |
+|----------------------------------------------------------------|
+| [vue-clipboard2](https://www.npmjs.com/package/vue-clipboard2) |
 
 | cookie管理                                             |
 |------------------------------------------------------|
@@ -354,6 +367,12 @@
 | [dayjs](https://www.npmjs.com/package/dayjs)              |
 | [~~~moment~~~ 不再推荐](https://www.npmjs.com/package/moment) |
 
+| 打印                                                                     |
+|------------------------------------------------------------------------|
+| [vue3-print-nb](https://www.npmjs.com/package/vue3-print-nb)           |
+| [print-js](https://www.npmjs.com/package/print-js)                     |
+| [vue-plugin-hiprint](https://www.npmjs.com/package/vue-plugin-hiprint) |
+
 | 加密解密                                                 |
 |------------------------------------------------------|
 | [crypto-js](https://www.npmjs.com/package/crypto-js) |
@@ -364,9 +383,12 @@
 | [base64-js](https://www.npmjs.com/package/base64-js) |
 | [js-base64](https://www.npmjs.com/package/js-base64) |
 
-| ua签名                                                       |
-|------------------------------------------------------------|
-| [ua-parser-js](https://www.npmjs.com/package/ua-parser-js) |
+| ua                                                                   |
+|----------------------------------------------------------------------|
+| [ua-parser-js](https://github.com/faisalman/ua-parser-js)            |
+| [isbot](https://github.com/omrilotan/isbot)                          |
+| [ua-regexes-lite](https://github.com/TrigenSoftware/ua-regexes-lite) |
+| [bowser](https://github.com/bowser-js/bowser)                        |
 
 | 本地数据存储                                         |
 |------------------------------------------------|
@@ -396,15 +418,6 @@
 | [@vue/cli-shared-utils](https://www.npmjs.com/package/@vue/cli-shared-utils) |
 | [nativeshare 唤起浏览器自身分享组件](https://www.npmjs.com/package/nativeshare)         |
 
-| 地图                                                              |
-|-----------------------------------------------------------------|
-| [vue-amap 高德](https://www.npmjs.com/package/vue-amap)           |
-| [vue-baidu-map 百度](https://www.npmjs.com/package/vue-baidu-map) |
-
-| 绘图 3D                                           |
-|-------------------------------------------------|
-| [three.js](https://www.npmjs.com/package/three) |
-
 | office 预览、上传、导出、导入 包含：xls，xlsx，doc，docx，pdf，csv                                         |
 |-----------------------------------------------------------------------------------------|
 | [文件类型判断 file-type](https://www.npmjs.com/package/file-type)                             |
@@ -425,6 +438,10 @@
 | [vue-video-player](https://www.npmjs.com/package/vue-video-player)           |
 | [vue-core-video-player](https://www.npmjs.com/package/vue-core-video-player) |
 
+| 绘图 3D                                           |
+|-------------------------------------------------|
+| [three.js](https://www.npmjs.com/package/three) |
+
 | 3D                                                                                                                                 |
 |------------------------------------------------------------------------------------------------------------------------------------|
 | [WebGL](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL_API)                                                                |
@@ -442,7 +459,16 @@
 |---------------------------------------------------------------------------------|
 | [devtools-detector 判断浏览器是否打开了控制台](https://github.com/AepKill/devtools-detector) |
 
+| Other                                                 |
+|-------------------------------------------------------|
+| [vuepress](https://github.com/vuejs/vuepress)         |
+| https://github.com/Molunerfinn/PicGo                  |
+
 # 特效
+|                                                   |
+|---------------------------------------------------|
+| [auto-animate](https://auto-animate.formkit.com/) |
+
 | Loading动画                                                                    |
 |------------------------------------------------------------------------------|
 | [three-dots 等待效果](https://nzbin.github.io/three-dots/)                       |
@@ -478,15 +504,22 @@
 |--------------------------------------------------------|
 | [vue-textra](https://www.npmjs.com/package/vue-textra) |
 
-# 营销组件
-|                                    |
-|------------------------------------|
-| [抽奖转盘/九宫格/老虎机](https://100px.net/) |
+# 开发构建
+| 节点和浏览器的BDD / TDD断言库                                  |                                  
+|------------------------------------------------------|
+| [chai](https://www.npmjs.com/package/chai)           |
+| [cross-env](https://www.npmjs.com/package/cross-env) |
 
-# 构建
 | 环境配置获取                                          |
 |-------------------------------------------------|
 | [dotenv](https://www.npmjs.com/package/dotenv)  |
+
+| 日志                                                                         |
+|----------------------------------------------------------------------------|
+| [eruda](https://www.npmjs.com/package/eruda)                               |
+| [vconsole](https://github.com/Tencent/vConsole)                            |
+| [vue-vconsole-devtools](https://github.com/Zippowxk/vue-vconsole-devtools) |
+
 
 | 代码提交信息校验 -D                                                                          |
 |--------------------------------------------------------------------------------------|
@@ -502,7 +535,7 @@
 | [jestjs](https://jestjs.io/)                                            |
 | [mochajs webpack](https://mochajs.org/)                                 |
 
-# 移动端
+# 跨端适配方案
 | 适配移动端 -D                                                                               |
 |----------------------------------------------------------------------------------------|
 | **rem方案过时啦，用vw方案解决吧**                                                                  |
@@ -515,11 +548,6 @@
 | [amfe-flexible](https://www.npmjs.com/package/amfe-flexible)                           |
 | [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem)       |
 | [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)                     |
-
-| 移动端日志                                              |
-|----------------------------------------------------|
-| [eruda](https://www.npmjs.com/package/eruda)       |
-| [vconsole](https://www.npmjs.com/package/vconsole) |
 
 | 跨端框架推荐：包含小程序啥的                                                   |
 |------------------------------------------------------------------|
@@ -537,11 +565,12 @@
 | [Native Script 官网](https://nativescript.org/)                      |
 | [React Native 官网](https://reactnative.cn/)                         |
 
-# 在线
-| api                           |
-|-------------------------------|
-| [apifox](https://apifox.com/) |
-| [yapi](https://yapi.pro/)     |
+# 在线编码可视化
+| api                                                      |
+|----------------------------------------------------------|
+| [apifox](https://apifox.com/)                            |
+| [yapi](https://yapi.pro/)                                |
+| [hoppscotch](https://github.com/hoppscotch/hoppscotch)   |
 
 | code                               |
 |------------------------------------|
@@ -596,6 +625,9 @@
 | [小游戏 createjs](https://www.createjs.com/)                        |
 
 # 优秀项目推荐
+|                                      |
+|--------------------------------------|
+| [slidev 演示文稿工具](https://cn.sli.dev/) |
 
 | 项目示例                                                            |
 |-----------------------------------------------------------------|
@@ -686,7 +718,17 @@
 | https://github.com/youlaitech/youlai-mall             |
 | https://github.com/buqiyuan/vite-vue3-lowcode         |
 | https://github.com/buqiyuan/vue3-antd-admin           |
+| https://github.com/buqiyuan/vite-vue3-h5              |
 | https://github.com/ynzy/vite-vue3-h5-template         |
 | https://github.com/Sujb-sus/vue3-vite2-ts-blog-h5     |
-| https://github.com/buqiyuan/vite-vue3-h5              |
 | https://github.com/xsf0105/vue3-h5-template           |
+
+```text
+吐槽
+
+此项目虽然是用ts编写，但是只要看过的朋友就会发现，几乎使用的是any js，所以这个项目用ts单纯的就是用来学习使用
+
+关于个人项目有必要上ts吗？我个人给出的观点是，若非必要请勿用ts编写，当然如果使用强类型语言的朋友请忽略，可能js的动态类型你们无法理解
+
+有人说有了ts更规范了，我只想呵呵，js难道没法规范？无非就是ts是编程语言做了约束，js更灵活。但是真正写起来的时候，还是得看程序员的编码水平，ts一样写的混乱不堪
+```
