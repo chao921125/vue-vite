@@ -718,7 +718,17 @@
 | https://github.com/youlaitech/youlai-mall             |
 | https://github.com/buqiyuan/vite-vue3-lowcode         |
 | https://github.com/buqiyuan/vue3-antd-admin           |
+| https://github.com/buqiyuan/vite-vue3-h5              |
 | https://github.com/ynzy/vite-vue3-h5-template         |
 | https://github.com/Sujb-sus/vue3-vite2-ts-blog-h5     |
-| https://github.com/buqiyuan/vite-vue3-h5              |
 | https://github.com/xsf0105/vue3-h5-template           |
+
+```text
+吐槽
+
+此项目虽然是用ts编写，但是只要看过的朋友就会发现，几乎使用的是any js，所以这个项目用ts单纯的就是用来学习使用
+
+关于个人项目有必要上ts吗？我个人给出的观点是，若非必要请勿用ts编写，当然如果使用强类型语言的朋友请忽略，可能js的动态类型你们无法理解
+
+有人说有了ts更规范了，我只想呵呵，js难道没法规范？无非就是ts是编程语言做了约束，js更灵活。但是真正写起来的时候，还是得看程序员的编码水平，ts一样写的混乱不堪
+```
