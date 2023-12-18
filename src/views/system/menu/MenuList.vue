@@ -6,7 +6,8 @@
 		<el-form-item prop="" label="">
 			<el-button type="primary">查询</el-button>
 			<el-button @click="resetForm(formSearchRef)">重置</el-button>
-			<el-button type="success" @click="openAddMenu">新增</el-button>
+			<el-button type="success" @click="openAddMenu">窗口打开新增</el-button>
+			<el-button type="success" @click="toAddMenu">页面打开新增</el-button>
 		</el-form-item>
 	</el-form>
 	<el-table :data="tableData" v-loading="isLoadData" style="width: 100%" row-key="id">
@@ -332,6 +333,11 @@
 			},
 		];
 	};
+	const router = useRouter();
+	const toAddMenu = () => {
+		router.push({ path: "/system/menu/add-edit" });
+	};
+
 	onMounted(() => {
 		initData();
 	});

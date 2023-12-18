@@ -2,13 +2,14 @@
  * update router
  * 本地静态路由数据配置，该配置由开发人员维护
  * 路由菜单配置，数据格式必须遵循一下规则，否则请自定义修改
- * **** true false 也可以用0 和 1代替，必须为数值或者字符串 ****
+ * **** true false 也可以用0 和 1代替，必须为数值或者boolean ****
  * path					必填 请求路径
  * component		必填 组件路径，默认在views/目录下，但不用填写views/
  * name         必填 必须英文，默认不展示，直接replaceAll '/' 不填写时，默认为当前组件名
  * icon         菜单、tagsView 图标，阿里：加 `iconfont xxx`，fontawesome：加 `fa xxx`
  * title        必填 菜单栏及 tagsView 栏、菜单搜索名称（国际化）
  * auth					必填 是否授权登录可访问 默认true
+ * sort	  			排序
  * isLink   		是否超链接菜单与 isIframe 互斥
  * isIframe 		是否内嵌窗口与 isLink 互斥
  * address 			当 isLink isIframe两者为true时此项必填
@@ -19,7 +20,7 @@
  * isDisable  	是否禁用
  * isMobile  		是否为手机端
  * roles    		判断是否有当前角色，仅仅当前端控制权限时，此项必须，不建议前端去搞这玩意
- * permission   判断当前操作权限，仅仅当前端控制权限时，此项必须
+ * permission   当前操作权限[C,R,U,D]
  * children
  */
 export default {
@@ -168,7 +169,28 @@ export default {
 					isMobile: 0,
 					roles: ["admin", "system"],
 					permission: ["C", "R", "U", "D"],
-					children: [],
+					children: [
+						{
+							id: 991,
+							path: "add-edit",
+							component: "system/menu/MenuEdit",
+							name: "message.menu.systemMenu",
+							title: "message.menu.systemMenu",
+							icon: "icon-layout",
+							auth: 1,
+							isLink: 0,
+							isIframe: 0,
+							address: "",
+							isAffix: 0,
+							isKeepAlive: 0,
+							isDisable: 0,
+							isHide: 1,
+							isHideSubMenu: 1,
+							isMobile: 0,
+							roles: ["admin", "system"],
+							permission: ["C", "R", "U", "D"],
+						},
+					],
 				},
 			],
 		},

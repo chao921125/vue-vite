@@ -1,5 +1,5 @@
 <template>
-	<van-button class="btn-font" type="success">button</van-button>
+	<van-button class="m-btn-font" type="success">button</van-button>
 	<van-grid>
 		<van-grid-item icon="photo-o" text="文字" />
 		<van-grid-item icon="photo-o" text="文字" />
@@ -31,7 +31,7 @@
 </script>
 
 <style scoped lang="scss">
-	.btn-font {
+	.m-btn-font {
 		font-size: 20px;
 	}
 </style>

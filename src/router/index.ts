@@ -161,10 +161,10 @@ function setRouterItem(routerList: any, data: IMenuState[] = [], parentPath: str
 				icon: item.icon,
 				auth: item.auth || false,
 				isLink: item.isLink || false,
+				sort: item.sort || 1,
 				isIframe: item.isIframe || false,
 				address: item.address || "",
 				isHide: item.isHide || false,
-				isHideSubMenu: item.isHideSubMenu || false,
 				isKeepAlive: item.isKeepAlive || false,
 				isAffix: item.isAffix || false,
 				isDisable: item.isDisable || false,
@@ -175,9 +175,6 @@ function setRouterItem(routerList: any, data: IMenuState[] = [], parentPath: str
 		};
 		if (item.children && item.children.length) {
 			// 当访问的路由是含有子节点的路由，并且子节点非菜单，那么重定向
-			// if (!o.isHideSubMenu) {
-			// 	o.path = { name: o.children[0].path };
-			// }
 			routerList.push(route);
 			setRouterItem(routerList, item.children, path);
 		} else {

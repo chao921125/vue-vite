@@ -12,7 +12,7 @@ declare interface IMenuState {
 	isIframe?: boolean | number;
 	address?: string;
 	isHide?: boolean | number;
-	isHideSubMenu?: boolean | number;
+	sort?: number;
 	isKeepAlive?: boolean | number;
 	isAffix?: boolean | number;
 	isDisable?: boolean | number;

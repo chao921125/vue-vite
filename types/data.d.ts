@@ -48,10 +48,10 @@ declare interface IMenu {
 	isIframe?: number;
 	address?: string;
 	isHide?: number;
-	isHideSubMenu?: number;
 	isDisable?: number;
 	isKeepAlive?: number;
 	isAffix?: number;
+	sort?: number;
 	roles?: Array<string>;
 	icon?: string;
 	children?: Array<IMenu>;

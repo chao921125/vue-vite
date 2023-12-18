@@ -1,7 +1,7 @@
 <template>
 	<template v-for="(item, index) in menuList">
 		<template v-if="!item.isHide && !item.isMobile">
-			<el-sub-menu v-if="!item.isHideSubMenu && item.children && item.children.length" :key="item.path + index" :index="item.path" v-bind="$attrs">
+			<el-sub-menu v-if="item.children && item.children.length" :key="item.path + index" :index="item.path" v-bind="$attrs">
 				<template #title>
 					<i class="iconfont" :class="item.icon"></i>
 					<span class="re-ml-5">{{ $t(item.title) }}</span>
