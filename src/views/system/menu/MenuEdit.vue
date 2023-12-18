@@ -1,6 +1,5 @@
 <template>
-	<el-dialog v-model="dialogFormVisible" @close="closeDialog">
-		<template #header>{{ menuInfo.id ? "编辑菜单" : "新增菜单" }}</template>
+	<el-col :span="24">
 		<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
 			<el-form-item prop="parent" label="菜单">
 				<el-tree-select
@@ -67,7 +66,7 @@
 				<el-button type="primary" @click="changeMenuInfo">确认</el-button>
 			</span>
 		</template>
-	</el-dialog>
+	</el-col>
 </template>
 
 <script lang="ts" setup name="AddEdit">
@@ -195,5 +194,5 @@
 </script>
 
 <style lang="scss">
-	@use "./index.scss";
+	@use "./components/index.scss";
 </style>
