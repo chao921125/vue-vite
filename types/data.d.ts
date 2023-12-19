@@ -27,7 +27,7 @@ declare interface IDepartment extends IBase {
 	desc?: string;
 }
 // 岗位
-declare interface IJob {
+declare interface IJob extends IBase {
 	id?: number;
 	parent?: string | number;
 	name?: string;
@@ -38,20 +38,19 @@ declare interface IJob {
 	desc?: string;
 }
 // 菜单
-declare interface IMenu {
-	id?: number;
+declare interface IMenu extends IBase {
 	path?: string;
 	component?: string;
-	name?: string;
 	title?: string;
-	isLink?: number;
-	isIframe?: number;
+	isLink?: number | boolean;
+	isIframe?: number | boolean;
 	address?: string;
-	isHide?: number;
-	isDisable?: number;
-	isKeepAlive?: number;
-	isAffix?: number;
-	sort?: number;
+	isHide?: number | boolean;
+	isDisable?: number | boolean;
+	isKeepAlive?: number | boolean;
+	isAffix?: number | boolean;
+	isMobile?: number | boolean;
+	type?: number | string;
 	roles?: Array<string>;
 	icon?: string;
 	children?: Array<IMenu>;

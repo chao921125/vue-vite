@@ -2,7 +2,7 @@
 	<el-dialog v-model="dialogFormVisible" @close="closeDialog">
 		<template #header>{{ menuInfo.id ? "编辑菜单" : "新增菜单" }}</template>
 		<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
-			<el-form-item prop="parent" label="菜单">
+			<el-form-item prop="parent" label="父菜单">
 				<el-tree-select
 					v-model="form.parent"
 					:data="optionSelectMenu"
@@ -10,15 +10,19 @@
 					:props="propsTreeMenu"
 					value-key="id"
 					check-strictly
-					placeholder="菜单"
+					placeholder="父菜单"
+					clearable
 				>
 					<template #default="{ data }">
 						<span>{{ $t(data.name) }}</span>
 					</template>
 				</el-tree-select>
 			</el-form-item>
-			<el-form-item prop="name" label="名称">
-				<el-input v-model="form.name" placeholder=""></el-input>
+			<el-form-item prop="title" label="标题">
+				<el-radio-group v-model="form.type">
+					<el-radio :label="1">菜单</el-radio>
+					<el-radio :label="2">目录</el-radio>
+				</el-radio-group>
 			</el-form-item>
 			<el-form-item prop="title" label="标题">
 				<el-input v-model="form.title" placeholder=""></el-input>
@@ -59,6 +63,9 @@
 			</el-form-item>
 			<el-form-item prop="isAffix" label="是否固定">
 				<el-switch v-model="form.isAffix" :active-value="1" :inactive-value="0" />
+			</el-form-item>
+			<el-form-item prop="isMobile" label="是否手机端">
+				<el-switch v-model="form.isMobile" :active-value="1" :inactive-value="0" />
 			</el-form-item>
 		</el-form>
 		<template #footer>
@@ -161,7 +168,10 @@
 	// 表单
 	const formLabelWidth = "120px";
 	const formRef = ref<FormInstance>();
-	const form = ref<IMenu>({});
+	const form = ref<IMenu>({
+		type: 1,
+		sort: 1,
+	});
 	const rules = reactive<FormRules>({});
 	const menuInfo = ref<IMenu>({});
 
