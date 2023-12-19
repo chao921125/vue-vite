@@ -156,12 +156,11 @@ function setRouterItem(routerList: any, data: IMenuState[] = [], parentPath: str
 			name: path.replace("/", "-") + "-" + name,
 			component: item.component,
 			meta: {
-				name: item.name,
 				title: item.title,
 				icon: item.icon,
 				auth: item.auth || false,
-				isLink: item.isLink || false,
 				sort: item.sort || 1,
+				isLink: item.isLink || false,
 				isIframe: item.isIframe || false,
 				address: item.address || "",
 				isHide: item.isHide || false,
