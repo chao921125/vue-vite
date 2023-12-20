@@ -6,7 +6,7 @@
 				:key="item.path + index"
 				:index="item.path"
 				v-bind="$attrs"
-				:disabled="item.isDisable"
+				:disabled="!!item.isDisable"
 			>
 				<template #title>
 					<i class="iconfont" :class="item.icon"></i>
@@ -14,7 +14,7 @@
 				</template>
 				<SubMenu :menus="item.children" :basePath="item.path + '/'"></SubMenu>
 			</el-sub-menu>
-			<el-menu-item v-else :key="item.path" :index="resolvePath(item.path)" :disabled="item.isDisable">
+			<el-menu-item v-else :key="item.path" :index="resolvePath(item.path)" :disabled="!!item.isDisable">
 				<!-- 此处图标可以自定义 -->
 				<i class="iconfont" :class="item.icon"></i>
 				<template #title>
