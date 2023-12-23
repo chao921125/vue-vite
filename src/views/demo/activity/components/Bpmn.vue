@@ -15,8 +15,6 @@
 	import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css";
 	import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 	import BpmnModeler from "bpmn-js/lib/Modeler";
-	import "bpmn-js-properties-panel/dist/assets/properties-panel.css";
-	import "bpmn-js-properties-panel/dist/assets/element-templates.css";
 	import { BpmnPropertiesPanelModule, BpmnPropertiesProviderModule } from "bpmn-js-properties-panel/dist";
 	import CamundaBpmnModdle from "camunda-bpmn-moddle/resources/camunda.json";
 	import xmlStr from "../config/defaultBpmnXml";
