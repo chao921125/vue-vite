@@ -341,11 +341,16 @@
 
 | 流程图                                                                 |
 |---------------------------------------------------------------------|
+| [bpmn](https://bpmn.io/)                                            |
+| [logic-flow](https://site.logic-flow.cn/docs/#/zh/)                 |
 | [vue3-bpmn](https://github.com/moon-studio/vite-vue-bpmn-process)   |
 | [vue3-tsx-bpmn](https://github.com/Yiuman/bpmn-vue-activiti)        |
 | [vue2-bpmn](https://github.com/miyuesc/bpmn-process-designer)       |
 | [vue2-bpmn](https://github.com/GoldSubmarine/workflow-bpmn-modeler) |
 | [bpmn 中文文档](https://github.com/LinDaiDai/bpmn-chinese-document)     |
+| [mermaid](https://github.com/mermaid-js/mermaid)                    |
+| [xyflow 没有vue版](https://github.com/xyflow/xyflow)                   |
+| [gojs](https://gojs.net/latest/index.html)                          |
 
 | 地图                                                              |
 |-----------------------------------------------------------------|
