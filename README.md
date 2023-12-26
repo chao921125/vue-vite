@@ -38,15 +38,15 @@
 5. interface尽量抽取出来，且抽取到最小粒度
 ##### API前端使用及后端接口命名规则对应：列举，可以对此进行变更
 
-| 接口  | 前端           | 后端     |
-|-----|--------------|--------|
-| 读取  | query / read | select |
-| 写入  | save / add   | create |
-| 编辑  | edit         | update |
-| 删除  | remove       | delete |
-| 上传  | upload       | import |
-| 下载  | download     | export |
-| 实体  | get / set    |        |
+| 接口  | 前端           | 后端     | 前端API示例              | 后端API示例    |
+|-----|--------------|--------|----------------------|------------|
+| 读取  | query / read | select | queryDemo / readDemo | selectDemo |
+| 写入  | save / add   | create | saveDemo / addDemo   | createDemo |
+| 编辑  | edit         | update | editDemo             | updateDemo |
+| 删除  | remove       | delete | removeDemo           | deleteDemo |
+| 上传  | upload       | import | uploadDemo           | importDemo |
+| 下载  | download     | export | downloadDemo         | exportDemo |
+| 实体  | get / set    |        | getDemo / setDemo    |            |
 
 # 基础核心
 ###### 无特殊说明均对应最新版
