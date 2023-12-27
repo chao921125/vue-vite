@@ -62,7 +62,7 @@
 		"@vueuse/core": "^10.7.0",
 		"@vueuse/shared": "^10.7.0",
 		"animate.css": "^4.1.1",
-		"axios": "^1.6.2",
+		"axios": "^1.6.3",
 		"bpmn-js": "^16.3.0",
 		"bpmn-js-element-templates": "^1.10.0",
 		"bpmn-js-properties-panel": "^5.7.0",
@@ -79,7 +79,7 @@
 		"js-cookie": "^3.0.5",
 		"lodash": "^4.17.21",
 		"lodash-es": "^4.17.21",
-		"lowdb": "^6.1.1",
+		"lowdb": "^7.0.1",
 		"mitt": "^3.0.1",
 		"nprogress": "^0.2.0",
 		"pinia": "2.1.7",
@@ -167,7 +167,7 @@
 		"vite-plugin-svg-icons": "^2.0.1",
 		"vite-plugin-vue-setup-extend": "^0.4.0",
 		"vue-eslint-parser": "^9.3.2",
-		"vue-tsc": "^1.8.26"
+		"vue-tsc": "^1.8.27"
 	},
 	"resolutions": {
 		"bin-wrapper": "npm:bin-wrapper-china",
