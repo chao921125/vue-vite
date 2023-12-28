@@ -14,7 +14,7 @@
 	import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css";
 	import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css";
 	import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
-	import BpmnModeler from "bpmn-js/lib/Modeler";
+	import Modeler from "bpmn-js/lib/Modeler";
 	import { BpmnPropertiesPanelModule, BpmnPropertiesProviderModule } from "bpmn-js-properties-panel/dist";
 	import CamundaBpmnModdle from "camunda-bpmn-moddle/resources/camunda.json";
 	import xmlStr from "../config/defaultBpmnXml";
@@ -45,7 +45,7 @@
 			translate: ["value", translate],
 		};
 		// 生成实例
-		state.bpmnModeler = new BpmnModeler({
+		state.bpmnModeler = new Modeler({
 			container: canvasRef.value, // 获取到属性ref为“canvasRef”的dom节点
 			propertiesPanel: {
 				parent: "#js-properties-panel",
