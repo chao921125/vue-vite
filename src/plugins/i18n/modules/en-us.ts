@@ -55,6 +55,7 @@ export default {
 		demoTimeSelect: "Time Select",
 		demoLottery: "Lottery",
 		demoActivity: "Activity",
+		demoImg: "Img Type Change",
 		testLink: "Link",
 		testIframe: "Iframe",
 	},

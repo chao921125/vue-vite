@@ -55,6 +55,7 @@ export default {
 		demoTimeSelect: "时间轴",
 		demoLottery: "抽奖",
 		demoActivity: "工作流",
+		demoImg: "图片格式转换",
 		testLink: "链接",
 		testIframe: "Iframe",
 	},
