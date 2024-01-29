@@ -69,7 +69,11 @@
 	};
 
 	const clearFileList = () => {
-		fileUploadRef.value.clearFiles();
+		nextTick(() => {
+			if (fileUploadRef.value) {
+				fileUploadRef.value.clearFiles();
+			}
+		});
 	};
 </script>
 
