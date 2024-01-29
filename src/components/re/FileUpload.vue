@@ -1,6 +1,6 @@
 <template>
 	<el-upload
-		v-show="props.isShowAlways && props.fileList.length === props.fileLimit"
+		v-show="props.isShowAlways && props.fileList && props.fileList.length === props.fileLimit"
 		class="file-upload"
 		:action="props.uploadUrl"
 		:headers="props.uploadHeader"
