@@ -27,6 +27,7 @@
 </template>
 
 <script lang="ts" setup name="FileUpload">
+	import type { UploadUserFile } from "element-plus";
 	const props = defineProps({
 		isShowAlways: {
 			// 是否达到指定的数量隐藏上传图标
@@ -89,7 +90,7 @@
 		},
 		fileList: {
 			required: true,
-			type: Array,
+			type: Array<UploadUserFile>,
 			default: () => {
 				return [];
 			},
