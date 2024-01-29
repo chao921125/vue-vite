@@ -35,7 +35,7 @@
 		"lint:lint-staged": "lint-staged",
 		"lint:prettier": "prettier --write --fix --loglevel warn \"./**/*.{js,ts,json,jsx,tsx,css,less,scss,vue,html,md}\"",
 		"lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
-		"prepare": "husky install",
+		"prepare": "npx husky install",
 		"preview": "vite preview",
 		"upgrade": "ncu -u && pnpm install",
 		"test:br": "http-server dist --cors --brotli -c-1",
