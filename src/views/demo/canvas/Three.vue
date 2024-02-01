@@ -5,10 +5,13 @@
 <script lang="ts" setup name="">
 	import { onMounted, onBeforeUnmount, ref } from "vue";
 	import * as THREE from "three";
+	// @ts-ignore
 	import { MTLLoader } from "three/addons/loaders/MTLLoader.js";
+	// @ts-ignore
 	import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+	// @ts-ignore
 	import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-	import Utils from "@/plugins/utils";
+	// import Utils from "@/plugins/utils";
 
 	const threeJsContainer = ref(null);
 	let scene, camera, renderer, animationFrameId, threeObj, threeMtl;
@@ -85,6 +88,7 @@
 					const y = box.max.y - box.min.y;
 					const z = box.max.z - box.min.z;
 					console.log(window.innerWidth, window.innerHeight, x, y, z);
+					// @ts-ignore
 					console.log(domThree.clientWidth, domThree.clientHeight);
 
 					const maxValue = Math.max(box.max.x - box.min.x, box.max.y - box.min.y, box.max.z - box.min.z);
@@ -112,9 +116,8 @@
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(window.innerWidth, window.innerHeight);
 		// 将渲染器的 DOM 元素添加到 Vue 组件
-		if (threeJsContainer.value) {
-			threeJsContainer.value.appendChild(renderer.domElement);
-		}
+		// @ts-ignore
+		threeJsContainer.value.appendChild(renderer.domElement);
 		const controls = new OrbitControls(camera, renderer.domElement);
 		controls.minDistance = 0.1;
 		controls.maxDistance = 999;
