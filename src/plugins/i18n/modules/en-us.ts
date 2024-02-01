@@ -56,6 +56,7 @@ export default {
 		demoLottery: "Lottery",
 		demoActivity: "Activity",
 		demoImg: "Img Type Change",
+		demoThree: "ThreeJS",
 		testLink: "Link",
 		testIframe: "Iframe",
 	},

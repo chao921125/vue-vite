@@ -56,6 +56,7 @@ export default {
 		demoLottery: "抽奖",
 		demoActivity: "工作流",
 		demoImg: "图片格式转换",
+		demoThree: "ThreeJS",
 		testLink: "链接",
 		testIframe: "Iframe",
 	},
