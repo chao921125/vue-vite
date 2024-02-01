@@ -1,5 +1,5 @@
 <template>
-	<div ref="threeJsContainer"></div>
+	<div ref="threeJsContainer" id="threeJsContainer"></div>
 </template>
 
 <script lang="ts" setup name="">
@@ -43,6 +43,7 @@
 	});
 
 	const initThreeJs = () => {
+		const domThree = document.querySelector("#threeJsContainer");
 		let fov = 45;
 		let aspect = window.innerWidth / window.innerHeight;
 		let near = 0.01;
@@ -84,6 +85,7 @@
 					const y = box.max.y - box.min.y;
 					const z = box.max.z - box.min.z;
 					console.log(window.innerWidth, window.innerHeight, x, y, z);
+					console.log(domThree.clientWidth, domThree.clientHeight);
 
 					const maxValue = Math.max(box.max.x - box.min.x, box.max.y - box.min.y, box.max.z - box.min.z);
 					const scaleValue = camera.position.z / maxValue;
