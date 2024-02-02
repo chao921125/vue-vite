@@ -17,7 +17,7 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="RePagination">
+<script lang="ts" setup name="">
 	const props = defineProps({
 		current: {
 			required: true,

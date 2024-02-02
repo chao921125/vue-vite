@@ -1,5 +1,5 @@
 <template>Template</template>
 
-<script lang="ts" setup name="DictionaryList"></script>
+<script lang="ts" setup name=""></script>
 
 <style scoped lang="scss"></style>

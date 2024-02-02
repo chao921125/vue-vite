@@ -6,7 +6,7 @@
 	</div>
 </template>
 
-<script lang="ts" setup name="Footer"></script>
+<script lang="ts" setup name=""></script>
 
 <style scoped lang="scss">
 	.footer-body {

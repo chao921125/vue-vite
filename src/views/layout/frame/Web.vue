@@ -12,7 +12,7 @@
 	</el-container>
 </template>
 
-<script lang="ts" setup name="LayoutWeb">
+<script lang="ts" setup name="">
 	import { getStoreRefs, appStore } from "@/store";
 	import { ElScrollbar } from "element-plus";
 

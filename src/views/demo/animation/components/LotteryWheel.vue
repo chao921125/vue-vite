@@ -3,7 +3,7 @@
 	<button id="btn">click</button>
 </template>
 
-<script lang="ts" setup name="LotteryWheel">
+<script lang="ts" setup name="">
 	import { onMounted } from "vue";
 
 	const drawCanvas = () => {

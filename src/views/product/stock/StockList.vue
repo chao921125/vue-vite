@@ -48,7 +48,7 @@
 	<AddEdit :data="stockInfo" ref="dialogForm" @result="getStockList"></AddEdit>
 </template>
 
-<script lang="ts" setup name="StockList">
+<script lang="ts" setup name="">
 	import { FormInstance } from "element-plus";
 	import AddEdit from "./components/AddEdit.vue";
 	import { replaceNullLine } from "@/plugins/utils/format";

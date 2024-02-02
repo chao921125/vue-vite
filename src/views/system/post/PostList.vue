@@ -39,7 +39,7 @@
 	<AddEdit :data="postInfo" ref="dialogForm" @result="getPostList"></AddEdit>
 </template>
 
-<script lang="ts" setup name="PostList">
+<script lang="ts" setup name="">
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";

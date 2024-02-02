@@ -35,7 +35,7 @@
 	</div>
 </template>
 
-<script lang="ts" setup name="WifiCard">
+<script lang="ts" setup name="">
 	import QrcodeVue from "qrcode.vue";
 	import type { FormInstance } from "element-plus";
 

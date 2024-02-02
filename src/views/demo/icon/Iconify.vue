@@ -63,7 +63,7 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="Iconify">
+<script lang="ts" setup name="">
 	// import { Icon } from "@iconify/vue";
 </script>
 

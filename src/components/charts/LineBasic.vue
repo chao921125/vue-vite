@@ -2,7 +2,7 @@
 	<div class="w100 h100 chart-box" :id="props.id" :ref="props.id"></div>
 </template>
 
-<script lang="ts" setup name="LineBasic">
+<script lang="ts" setup name="">
 	// 折线图 单条
 	import * as echarts from "echarts";
 	import { onMounted, watch } from "vue";

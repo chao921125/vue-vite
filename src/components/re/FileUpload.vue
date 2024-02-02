@@ -26,7 +26,7 @@
 	</el-upload>
 </template>
 
-<script lang="ts" setup name="FileUpload">
+<script lang="ts" setup name="">
 	import type { UploadUserFile } from "element-plus";
 	const props = defineProps({
 		isShowAlways: {

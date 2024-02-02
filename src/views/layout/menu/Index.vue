@@ -26,7 +26,7 @@
 	</el-scrollbar>
 </template>
 
-<script lang="ts" setup name="Menu">
+<script lang="ts" setup name="">
 	import SubMenu from "./SubMenu.vue";
 	import Store, { getStoreRefs, appStore } from "@/store";
 

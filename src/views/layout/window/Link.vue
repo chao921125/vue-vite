@@ -6,7 +6,7 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="Link">
+<script lang="ts" setup name="">
 	import Utils from "@/plugins/utils";
 
 	const linkUrl = ref("");

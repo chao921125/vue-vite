@@ -18,7 +18,7 @@
 	</van-tabbar>
 </template>
 
-<script lang="ts" setup name="MHome">
+<script lang="ts" setup name="">
 	const isLoading = ref(true);
 	const active = ref(0);
 	const icon = {

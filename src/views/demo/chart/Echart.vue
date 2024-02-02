@@ -9,7 +9,7 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="Echart">
+<script lang="ts" setup name="">
 	import Echarts from "@/plugins/echarts";
 
 	import * as echarts from "echarts";

@@ -2,7 +2,7 @@
 	<el-button link @click="goBack" type="primary">back</el-button>
 </template>
 
-<script lang="ts" setup name="CcBack">
+<script lang="ts" setup name="">
 	const props = defineProps({
 		url: {
 			type: String,

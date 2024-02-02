@@ -4,7 +4,7 @@
 	</van-row>
 </template>
 
-<script lang="ts" setup name="Device">
+<script lang="ts" setup name="">
 	import Utils from "@/plugins/utils";
 	import RouterConfig from "@/config/routerConfig";
 

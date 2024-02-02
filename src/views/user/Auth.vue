@@ -1,5 +1,5 @@
 <template>auth</template>
 
-<script lang="ts" setup name="Auth"></script>
+<script lang="ts" setup name=""></script>
 
 <style scoped lang="scss"></style>

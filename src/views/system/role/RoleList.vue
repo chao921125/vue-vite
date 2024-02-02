@@ -40,7 +40,7 @@
 	<AddEdit :data="roleInfo" ref="dialogForm" @result="getRoleList"></AddEdit>
 </template>
 
-<script lang="ts" setup name="RoleList">
+<script lang="ts" setup name="">
 	import type { FormInstance } from "element-plus";
 	import AddEdit from "./components/AddEdit.vue";
 

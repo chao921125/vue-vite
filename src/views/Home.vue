@@ -16,7 +16,7 @@
 	</el-skeleton>
 </template>
 
-<script lang="ts" setup name="Home">
+<script lang="ts" setup name="">
 	import { formatAxis, formatDate } from "@/plugins/utils/format";
 	import UA from "ua-parser-js";
 	import { getProxyIpInfo, getRealIpInfo } from "@/plugins/utils/ip";

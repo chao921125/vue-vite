@@ -77,7 +77,7 @@
 	</el-dialog>
 </template>
 
-<script lang="ts" setup name="AddEdit">
+<script lang="ts" setup name="">
 	import type { FormInstance, FormRules } from "element-plus";
 	import IconfontData from "@/config/iconfontData";
 

@@ -1,3 +1,5 @@
+import heic2any from "heic2any";
+
 const utils = {
 	blobToDataURL: (blob: Blob): Promise<any> => {
 		return new Promise((resolve, reject) => {
@@ -85,40 +87,49 @@ const utils = {
 	},
 };
 
-export const imgConvert = (file: any | File, outputFormat: string = "image/jpeg", callback: any) => {
-	// let blob = new Blob([fd], {type: fd.type});
-	// let reBlob = await heic2any({
-	//   blob: blob, toType: "image/jpeg"
-	// });
-	// // @ts-ignore
-	// let reFile = new File([reBlob], fd.name.split(".")[0] + ".jpeg", { type: 'image/jpeg' });
-	// let newFile = await compressionFile(reFile);
-	// const url = URL.createObjectURL(newFile);
-
-	let reader = new FileReader();
-	let img = new Image();
-
-	reader.onload = function (e: any) {
-		debugger;
-		if (typeof e.target.result === "string") {
-			img.onload = function () {
-				debugger;
-				let canvas = document.createElement("canvas");
-				let ctx = canvas.getContext("2d");
-
-				canvas.width = img.width;
-				canvas.height = img.height;
-				// @ts-ignore
-				ctx.drawImage(img, 0, 0, img.width, img.height);
-
-				let newDataUrl = canvas.toDataURL(outputFormat);
-				let newFile = utils.dataURLtoFile(newDataUrl, file.name);
-				callback(newFile);
-			};
-			img.src = e.target.result;
-		}
+export const imgConvert = async (file: any | File, outputFormat: string = "image/jpeg", callback: any) => {
+	let result = <any>{
+		file: null,
+		fileUrl: "",
 	};
-	reader.readAsDataURL(file);
+	if (file.type === "heic" || file.type === "image/heic") {
+		let blob = new Blob([file], { type: file.type });
+		let reBlob = await heic2any({
+			blob: blob,
+			toType: "image/jpeg",
+		});
+		// @ts-ignore
+		let reFile = new File([reBlob], fd.name.split(".")[0] + ".jpeg", { type: "image/jpeg" });
+		let newFile = await imgCompress(reFile);
+		const url = URL.createObjectURL(newFile);
+		result.file = newFile;
+		result.fileUrl = url;
+		callback(result);
+	} else {
+		let reader = new FileReader();
+		let img = new Image();
+
+		reader.onload = function (e: any) {
+			if (typeof e.target.result === "string") {
+				img.onload = function () {
+					debugger;
+					let canvas = document.createElement("canvas");
+					let ctx = canvas.getContext("2d");
+
+					canvas.width = img.width;
+					canvas.height = img.height;
+					// @ts-ignore
+					ctx.drawImage(img, 0, 0, img.width, img.height);
+
+					let newDataUrl = canvas.toDataURL(outputFormat);
+					let newFile = utils.dataURLtoFile(newDataUrl, file.name);
+					callback(newFile);
+				};
+				img.src = e.target.result;
+			}
+		};
+		reader.readAsDataURL(file);
+	}
 };
 
 export const imgCompress = async (file: any, type: string = "image/jpeg", quality: number = 0.6) => {

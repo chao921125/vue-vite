@@ -4,7 +4,7 @@
 	</el-config-provider>
 </template>
 
-<script lang="ts" setup name="App">
+<script lang="ts" setup name="">
 	import { getStoreRefs, appStore } from "@/store";
 	import { elI18n } from "@/plugins/i18n";
 	import Utils from "@/plugins/utils";

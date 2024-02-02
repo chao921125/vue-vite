@@ -17,7 +17,7 @@
 	<RePagination :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></RePagination>
 </template>
 
-<script lang="ts" setup name="LoginList">
+<script lang="ts" setup name="">
 	import { FormInstance } from "element-plus";
 
 	const formSearchRef = ref<FormInstance>();

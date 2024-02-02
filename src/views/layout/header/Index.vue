@@ -92,7 +92,7 @@
 	</el-drawer>
 </template>
 
-<script lang="ts" setup name="Header">
+<script lang="ts" setup name="">
 	import screenfull from "screenfull";
 	import Storage from "@/plugins/utils/storage";
 	import Cookie from "@/plugins/utils/cookie";

@@ -25,7 +25,7 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="AnimationCss">
+<script lang="ts" setup name="">
 	import { shuffle } from "lodash-es";
 	import LotteryWheel from "./components/LotteryWheel.vue";
 

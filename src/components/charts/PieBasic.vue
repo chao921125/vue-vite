@@ -2,7 +2,7 @@
 	<div class="w100 h100 chart-box" :id="props.id" :ref="props.id"></div>
 </template>
 
-<script lang="ts" setup name="BarBasic">
+<script lang="ts" setup name="">
 	// 饼图
 	import * as echarts from "echarts";
 	import { onMounted, watch } from "vue";

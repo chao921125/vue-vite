@@ -22,7 +22,7 @@
 	</el-container>
 </template>
 
-<script lang="ts" setup name="LayoutAdmin">
+<script lang="ts" setup name="">
 	import AdminMenu from "../menu/Index.vue";
 	import AdminHeader from "../header/Index.vue";
 	import AdminFooter from "../footer/Index.vue";

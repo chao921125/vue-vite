@@ -7,7 +7,7 @@
 	</el-skeleton>
 </template>
 
-<script lang="ts" setup name="Browser">
+<script lang="ts" setup name="">
 	import UA from "ua-parser-js";
 
 	const isLoading = ref(true);
