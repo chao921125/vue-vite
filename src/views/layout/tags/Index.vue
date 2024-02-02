@@ -34,7 +34,7 @@
 	</div>
 </template>
 
-<script lang="ts" setup name="Tags">
+<script lang="ts" setup name="">
 	import Storage from "@/plugins/utils/storage";
 	import Constants from "@/plugins/constants";
 	import RouterConfig from "@/config/routerConfig";

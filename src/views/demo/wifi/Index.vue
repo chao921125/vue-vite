@@ -24,7 +24,7 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="Wifi">
+<script lang="ts" setup name="">
 	import WifiCard from "./components/WifiCard.vue";
 	import WifiSettings from "./components/WifiSettings.vue";
 	import printJS from "print-js";

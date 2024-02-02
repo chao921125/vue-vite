@@ -4,7 +4,7 @@
 	</svg>
 </template>
 
-<script lang="ts" setup name="IconSvg">
+<script lang="ts" setup name="">
 	const props = defineProps({
 		prefix: {
 			type: String,

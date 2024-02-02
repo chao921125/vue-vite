@@ -22,7 +22,7 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="SwiperAll">
+<script lang="ts" setup name="">
 	import { Swiper, SwiperSlide } from "swiper/vue";
 	import { EffectFade, Autoplay } from "swiper/modules";
 	import "swiper/css";

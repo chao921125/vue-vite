@@ -4,7 +4,7 @@
 	<Web v-else></Web>
 </template>
 
-<script lang="ts" setup name="Layout">
+<script lang="ts" setup name="">
 	import Admin from "./frame/Admin.vue";
 	import Web from "./frame/Web.vue";
 	import Mobile from "./frame/Mobile.vue";

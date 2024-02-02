@@ -39,7 +39,7 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="All">
+<script lang="ts" setup name="">
 	import { $t } from "@/plugins/i18n";
 	import Logo from "@/assets/images/logo.png";
 	import api from "@/api";

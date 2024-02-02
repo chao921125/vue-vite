@@ -30,7 +30,7 @@
 	</el-dialog>
 </template>
 
-<script lang="ts" setup name="AddEdit">
+<script lang="ts" setup name="">
 	import type { FormInstance, FormRules } from "element-plus";
 
 	// 组件内部函数 接收及传递结果

@@ -7,7 +7,7 @@
 	<time v-if="timeQuantumProps.show" :timeQuantumProps="timeQuantumProps"></time>
 </template>
 
-<script setup name="TimeSelect">
+<script setup name="">
 	import { reactive, ref } from "vue";
 	import { ElMessage } from "element-plus";
 	import Time from "./components/Time.vue";

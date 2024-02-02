@@ -6,7 +6,7 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="Iframe">
+<script lang="ts" setup name="">
 	import { getStoreRefs, appStore } from "@/store";
 
 	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);

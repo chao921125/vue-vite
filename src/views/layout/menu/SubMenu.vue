@@ -25,7 +25,7 @@
 	</template>
 </template>
 
-<script lang="ts" setup name="SubItem">
+<script lang="ts" setup name="">
 	const props = defineProps({
 		menus: {
 			type: Object,

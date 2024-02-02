@@ -28,7 +28,7 @@
 	</el-form>
 </template>
 
-<script lang="ts" setup name="Settings">
+<script lang="ts" setup name="">
 	import type { FormInstance } from "element-plus";
 
 	const props = defineProps({

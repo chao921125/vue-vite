@@ -4,7 +4,7 @@
 	</van-config-provider>
 </template>
 
-<script lang="ts" setup name="LayoutMobile">
+<script lang="ts" setup name="">
 	import { appStore, getStoreRefs } from "@/store";
 
 	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);

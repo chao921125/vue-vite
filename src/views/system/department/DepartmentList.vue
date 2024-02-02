@@ -38,7 +38,7 @@
 	<AddEdit :data="departmentInfo" ref="dialogForm" @result="getDepartmentList"></AddEdit>
 </template>
 
-<script lang="ts" setup name="DepartmentList">
+<script lang="ts" setup name="">
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";

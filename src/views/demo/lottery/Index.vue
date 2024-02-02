@@ -42,7 +42,7 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="Lottery">
+<script lang="ts" setup name="">
 	const wheelOptions = reactive({
 		prizes: [
 			{ background: "#e9e8fe", fonts: [{ text: "旅游" }] },

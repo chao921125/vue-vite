@@ -22,7 +22,7 @@
 	</el-row>
 </template>
 
-<script lang="ts" setup name="Register">
+<script lang="ts" setup name="">
 	import type { FormInstance } from "element-plus";
 	import Storage from "@/plugins/utils/storage";
 	import Cookie from "@/plugins/utils/cookie";

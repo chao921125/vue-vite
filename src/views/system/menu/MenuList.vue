@@ -43,7 +43,7 @@
 	<AddEdit :data="menuInfo" ref="dialogForm" @result="getMenuList"></AddEdit>
 </template>
 
-<script lang="ts" setup name="MenuList">
+<script lang="ts" setup name="">
 	import type { FormInstance } from "element-plus";
 	import AddEdit from "./components/AddEdit.vue";
 

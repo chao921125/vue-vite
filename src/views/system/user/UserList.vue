@@ -52,7 +52,7 @@
 	<AddEdit :data="userInfo" ref="dialogForm" @result="getUserList"></AddEdit>
 </template>
 
-<script lang="ts" setup name="UserList">
+<script lang="ts" setup name="">
 	import type { FormInstance } from "element-plus";
 	import { StatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";

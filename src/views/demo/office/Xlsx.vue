@@ -36,7 +36,7 @@
 	</div>
 </template>
 
-<script lang="ts" setup name="Xlsx">
+<script lang="ts" setup name="">
 	import * as XLSX from "xlsx/xlsx.mjs";
 
 	// online

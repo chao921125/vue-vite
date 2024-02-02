@@ -85,7 +85,7 @@
 		</template>
 	</el-dialog>
 </template>
-<script setup name="Time">
+<script setup name="">
 	import { onMounted, reactive, ref } from "vue";
 
 	const props = defineProps({
