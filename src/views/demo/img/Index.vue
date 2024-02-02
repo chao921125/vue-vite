@@ -44,15 +44,15 @@
 		optionsFileType: [
 			{
 				label: "jpg",
-				value: "jpg",
+				value: "image/jpg",
 			},
 			{
 				label: "jpeg",
-				value: "jpeg",
+				value: "image/jpeg",
 			},
 			{
 				label: "png",
-				value: "png",
+				value: "image/png",
 			},
 		],
 		fileType: "jpg",
