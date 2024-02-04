@@ -19,8 +19,8 @@ dependencies:
     specifier: ^1.2.0
     version: 1.2.0(@lezer/common@1.1.2)
   '@bpmn-io/properties-panel':
-    specifier: ^3.18.0
-    version: 3.18.0(@lezer/common@1.1.2)
+    specifier: ^3.18.1
+    version: 3.18.1(@lezer/common@1.1.2)
   '@element-plus/icons-vue':
     specifier: ^2.3.1
     version: registry.npmmirror.com/@element-plus/icons-vue@2.3.1(vue@3.4.15)
@@ -50,10 +50,10 @@ dependencies:
     version: 16.5.0
   bpmn-js-element-templates:
     specifier: ^1.13.1
-    version: 1.13.1(@bpmn-io/properties-panel@3.18.0)(bpmn-js-properties-panel@5.11.0)(bpmn-js@16.5.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@13.4.0)(preact@10.19.2)
+    version: 1.13.1(@bpmn-io/properties-panel@3.18.1)(bpmn-js-properties-panel@5.11.1)(bpmn-js@16.5.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@13.4.0)(preact@10.19.2)
   bpmn-js-properties-panel:
-    specifier: ^5.11.0
-    version: 5.11.0(@bpmn-io/properties-panel@3.18.0)(bpmn-js@16.5.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@13.4.0)
+    specifier: ^5.11.1
+    version: 5.11.1(@bpmn-io/properties-panel@3.18.1)(bpmn-js@16.5.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@13.4.0)
   bpmn-moddle:
     specifier: ^8.1.0
     version: 8.1.0
@@ -79,8 +79,8 @@ dependencies:
     specifier: ^2.1.0
     version: 2.1.0(echarts@5.4.3)
   element-plus:
-    specifier: ^2.5.3
-    version: 2.5.3(vue@3.4.15)
+    specifier: ^2.5.5
+    version: 2.5.5(vue@3.4.15)
   heic2any:
     specifier: ^0.0.4
     version: 0.0.4
@@ -133,8 +133,8 @@ dependencies:
     specifier: ^1.0.37
     version: 1.0.37
   vant:
-    specifier: ^4.8.3
-    version: 4.8.3(vue@3.4.15)
+    specifier: ^4.8.4
+    version: 4.8.4(vue@3.4.15)
   vue:
     specifier: ^3.4.15
     version: 3.4.15(typescript@5.3.3)
@@ -160,7 +160,7 @@ dependencies:
 devDependencies:
   '@commitlint/cli':
     specifier: ^18.6.0
-    version: 18.6.0(@types/node@20.11.14)(typescript@5.3.3)
+    version: 18.6.0(@types/node@20.11.16)(typescript@5.3.3)
   '@commitlint/config-conventional':
     specifier: ^18.6.0
     version: 18.6.0
@@ -177,8 +177,8 @@ devDependencies:
     specifier: ^4.17.12
     version: 4.17.12
   '@types/node':
-    specifier: ^20.11.14
-    version: 20.11.14
+    specifier: ^20.11.16
+    version: 20.11.16
   '@types/nprogress':
     specifier: ^0.2.3
     version: 0.2.3
@@ -186,8 +186,8 @@ devDependencies:
     specifier: ^6.9.11
     version: 6.9.11
   '@types/three':
-    specifier: ^0.161.1
-    version: 0.161.1
+    specifier: ^0.161.2
+    version: 0.161.2
   '@types/ua-parser-js':
     specifier: ^0.7.39
     version: 0.7.39
@@ -232,7 +232,7 @@ devDependencies:
     version: 9.1.0(eslint@8.56.0)
   eslint-plugin-prettier:
     specifier: ^5.1.3
-    version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.4)
+    version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.5)
   eslint-plugin-vue:
     specifier: ^9.21.1
     version: 9.21.1(eslint@8.56.0)
@@ -240,8 +240,8 @@ devDependencies:
     specifier: ^14.1.1
     version: 14.1.1
   husky:
-    specifier: ^9.0.7
-    version: 9.0.7
+    specifier: ^9.0.10
+    version: 9.0.10
   less:
     specifier: ^4.2.0
     version: 4.2.0
@@ -270,8 +270,8 @@ devDependencies:
     specifier: ^1.2.3
     version: registry.npmmirror.com/postcss-px-to-viewport-8-plugin@1.2.3
   prettier:
-    specifier: ^3.2.4
-    version: 3.2.4
+    specifier: ^3.2.5
+    version: 3.2.5
   rimraf:
     specifier: ^5.0.5
     version: 5.0.5
@@ -285,41 +285,41 @@ devDependencies:
     specifier: ^14.1.0
     version: 14.1.0(sass@1.70.0)
   stylelint:
-    specifier: ^16.2.0
-    version: 16.2.0(typescript@5.3.3)
+    specifier: ^16.2.1
+    version: 16.2.1(typescript@5.3.3)
   stylelint-config-html:
     specifier: ^1.1.0
-    version: 1.1.0(postcss-html@1.6.0)(stylelint@16.2.0)
+    version: 1.1.0(postcss-html@1.6.0)(stylelint@16.2.1)
   stylelint-config-prettier:
     specifier: ^9.0.5
-    version: 9.0.5(stylelint@16.2.0)
+    version: 9.0.5(stylelint@16.2.1)
   stylelint-config-recess-order:
     specifier: ^4.4.0
-    version: 4.4.0(stylelint@16.2.0)
+    version: 4.4.0(stylelint@16.2.1)
   stylelint-config-recommended:
     specifier: ^14.0.0
-    version: 14.0.0(stylelint@16.2.0)
+    version: 14.0.0(stylelint@16.2.1)
   stylelint-config-recommended-vue:
     specifier: ^1.5.0
-    version: 1.5.0(postcss-html@1.6.0)(stylelint@16.2.0)
+    version: 1.5.0(postcss-html@1.6.0)(stylelint@16.2.1)
   stylelint-config-standard:
     specifier: ^36.0.0
-    version: 36.0.0(stylelint@16.2.0)
+    version: 36.0.0(stylelint@16.2.1)
   stylelint-config-standard-scss:
     specifier: ^13.0.0
-    version: 13.0.0(postcss@8.4.33)(stylelint@16.2.0)
+    version: 13.0.0(postcss@8.4.33)(stylelint@16.2.1)
   stylelint-order:
     specifier: ^6.0.4
-    version: 6.0.4(stylelint@16.2.0)
+    version: 6.0.4(stylelint@16.2.1)
   stylelint-prettier:
     specifier: ^5.0.0
-    version: 5.0.0(prettier@3.2.4)(stylelint@16.2.0)
+    version: 5.0.0(prettier@3.2.5)(stylelint@16.2.1)
   terser:
     specifier: ^5.27.0
     version: 5.27.0
   ts-node:
     specifier: ^10.9.2
-    version: 10.9.2(@types/node@20.11.14)(typescript@5.3.3)
+    version: 10.9.2(@types/node@20.11.16)(typescript@5.3.3)
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
@@ -337,7 +337,7 @@ devDependencies:
     version: 0.26.0(rollup@2.79.1)(vue@3.4.15)
   vite:
     specifier: ^5.0.12
-    version: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+    version: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
   vite-plugin-cdn-import:
     specifier: ^0.3.5
     version: 0.3.5(rollup@2.79.1)
@@ -1711,8 +1711,8 @@ packages:
       min-dash: 4.1.1
     dev: false
 
-  /@bpmn-io/properties-panel@3.18.0(@lezer/common@1.1.2):
-    resolution: {integrity: sha512-Tn6kbfZR9EVhusMsn1h4sD/mShT11vXB7lKQWZwShu4c7b15flNKoM9T1YXl0ATc9uzDP4W2Fj+XjXRKIB2g2g==}
+  /@bpmn-io/properties-panel@3.18.1(@lezer/common@1.1.2):
+    resolution: {integrity: sha512-ygBhVH99IFG1VbMlbvInXQUeqHwQH4uaajFaUi3OsjELpM1WcmHQ72fXPd1tC/OtJJhZoQajHiTI8SdL38t9ug==}
     dependencies:
       '@bpmn-io/feel-editor': 1.2.0(@lezer/common@1.1.2)
       '@codemirror/view': 6.23.1
@@ -1787,14 +1787,14 @@ packages:
       w3c-keyname: 2.2.8
     dev: false
 
-  /@commitlint/cli@18.6.0(@types/node@20.11.14)(typescript@5.3.3):
+  /@commitlint/cli@18.6.0(@types/node@20.11.16)(typescript@5.3.3):
     resolution: {integrity: sha512-FiH23cr9QG8VdfbmvJJZmdfHGVMCouOOAzoXZ3Cd7czGC52RbycwNt8YCI7SA69pAl+t30vh8LMaO/N+kcel6w==}
     engines: {node: '>=v18'}
     hasBin: true
     dependencies:
       '@commitlint/format': 18.6.0
       '@commitlint/lint': 18.6.0
-      '@commitlint/load': 18.6.0(@types/node@20.11.14)(typescript@5.3.3)
+      '@commitlint/load': 18.6.0(@types/node@20.11.16)(typescript@5.3.3)
       '@commitlint/read': 18.6.0
       '@commitlint/types': 18.6.0
       execa: 5.1.1
@@ -1865,7 +1865,7 @@ packages:
       '@commitlint/types': 18.6.0
     dev: true
 
-  /@commitlint/load@18.6.0(@types/node@20.11.14)(typescript@5.3.3):
+  /@commitlint/load@18.6.0(@types/node@20.11.16)(typescript@5.3.3):
     resolution: {integrity: sha512-RRssj7TmzT0bowoEKlgwg8uQ7ORXWkw7lYLsZZBMi9aInsJuGNLNWcMxJxRZbwxG3jkCidGUg85WmqJvRjsaDA==}
     engines: {node: '>=v18'}
     dependencies:
@@ -1875,7 +1875,7 @@ packages:
       '@commitlint/types': 18.6.0
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.3.3)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.11.14)(cosmiconfig@8.3.6)(typescript@5.3.3)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.11.16)(cosmiconfig@8.3.6)(typescript@5.3.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -3360,8 +3360,8 @@ packages:
     resolution: {integrity: sha512-SXgrhajHG7boLv6oU93CcmdDm0HYRiceuz6b+7z+/2lCJPTWDv0V5YiwFHT2ejE4bQqgSXQiVPQYPWv7LGsK1g==, tarball: https://registry.npmmirror.com/@types/mockjs/-/mockjs-1.0.10.tgz}
     dev: true
 
-  /@types/node@20.11.14:
-    resolution: {integrity: sha512-w3yWCcwULefjP9DmDDsgUskrMoOy5Z8MiwKHr1FvqGPtx7CvJzQvxD7eKpxNtklQxLruxSXWddyeRtyud0RcXQ==}
+  /@types/node@20.11.16:
+    resolution: {integrity: sha512-gKb0enTmRCzXSSUJDq6/sPcqrfCv2mkkG6Jt/clpn5eiCbKTY+SgZUxo+p8ZKMof5dCp9vHQUAB7wOUTod22wQ==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -3381,7 +3381,7 @@ packages:
   /@types/resolve@1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 20.11.14
+      '@types/node': 20.11.16
     dev: true
 
   /@types/semver@7.5.0:
@@ -3395,11 +3395,11 @@ packages:
   /@types/svgo@2.6.4:
     resolution: {integrity: sha512-l4cmyPEckf8moNYHdJ+4wkHvFxjyW6ulm9l4YGaOxeyBWPhBOT0gvni1InpFPdzx1dKf/2s62qGITwxNWnPQng==}
     dependencies:
-      '@types/node': 20.11.14
+      '@types/node': 20.11.16
     dev: true
 
-  /@types/three@0.161.1:
-    resolution: {integrity: sha512-ZNp+PWuygRJb70lmQVbvhraQEFrVxilWfrnoej2WSybyyMW6JbJX3vUt1pOXdIQ0C8SG5W51+61YlSKqjtZxCQ==}
+  /@types/three@0.161.2:
+    resolution: {integrity: sha512-DazpZ+cIfBzbW/p0zm6G8CS03HBMd748A3R1ZOXHpqaXZLv2I5zNgQUrRG//UfJ6zYFp2cUoCQaOLaz8ubH07w==}
     dependencies:
       '@types/stats.js': 0.17.3
       '@types/webxr': 0.5.12
@@ -3577,7 +3577,7 @@ packages:
       '@unocss/core': 0.58.4
       '@unocss/reset': 0.58.4
       '@unocss/vite': 0.58.4(rollup@2.79.1)(vite@5.0.12)
-      vite: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -3775,7 +3775,7 @@ packages:
       chokidar: 3.5.3
       fast-glob: 3.3.2
       magic-string: 0.30.5
-      vite: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -3808,7 +3808,7 @@ packages:
       regenerator-runtime: 0.14.1
       systemjs: 6.14.3
       terser: 5.27.0
-      vite: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
     transitivePeerDependencies:
       - esbuild
       - supports-color
@@ -3821,7 +3821,7 @@ packages:
       vite: ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
       vue: 3.4.15(typescript@5.3.3)
     dev: true
 
@@ -4377,7 +4377,7 @@ packages:
       big-integer: 1.6.51
     dev: true
 
-  /bpmn-js-element-templates@1.13.1(@bpmn-io/properties-panel@3.18.0)(bpmn-js-properties-panel@5.11.0)(bpmn-js@16.5.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@13.4.0)(preact@10.19.2):
+  /bpmn-js-element-templates@1.13.1(@bpmn-io/properties-panel@3.18.1)(bpmn-js-properties-panel@5.11.1)(bpmn-js@16.5.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@13.4.0)(preact@10.19.2):
     resolution: {integrity: sha512-VRA3LnC4tSiciWvJvm05fGFt0fsHtIhAVWahfw071ZSdbcWHnH2FHbmkZTLWYpi4z1Ayrub6TxTW0Fim9tcRFw==}
     peerDependencies:
       '@bpmn-io/properties-panel': '>= 2.2'
@@ -4388,9 +4388,9 @@ packages:
     dependencies:
       '@bpmn-io/element-templates-validator': 1.7.0
       '@bpmn-io/extract-process-variables': 0.8.0
-      '@bpmn-io/properties-panel': 3.18.0(@lezer/common@1.1.2)
+      '@bpmn-io/properties-panel': 3.18.1(@lezer/common@1.1.2)
       bpmn-js: 16.5.0
-      bpmn-js-properties-panel: 5.11.0(@bpmn-io/properties-panel@3.18.0)(bpmn-js@16.5.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@13.4.0)
+      bpmn-js-properties-panel: 5.11.1(@bpmn-io/properties-panel@3.18.1)(bpmn-js@16.5.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@13.4.0)
       bpmnlint: 10.1.0
       camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@16.5.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
       classnames: 2.3.2
@@ -4405,8 +4405,8 @@ packages:
       - preact
     dev: false
 
-  /bpmn-js-properties-panel@5.11.0(@bpmn-io/properties-panel@3.18.0)(bpmn-js@16.5.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@13.4.0):
-    resolution: {integrity: sha512-aHBB6FFpCP7dv+M98C9zoioq0qVary5x7w+6ZPiLM4WJSuHheFoaJnnzb001CVt5y/SPwP4ICBKBm07MfVU2LA==}
+  /bpmn-js-properties-panel@5.11.1(@bpmn-io/properties-panel@3.18.1)(bpmn-js@16.5.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@13.4.0):
+    resolution: {integrity: sha512-Sx6cK8bmtCpI4cXE97oOodfHZXB44mA1XFrT+w25UuDjd6fhRWf/t8Vr0cwzJHLda8UkE4zwRALtiQnfT4ZynA==}
     peerDependencies:
       '@bpmn-io/properties-panel': '>= 3.7'
       bpmn-js: '>= 11.5'
@@ -4414,7 +4414,7 @@ packages:
       diagram-js: '>= 11.9'
     dependencies:
       '@bpmn-io/extract-process-variables': 0.8.0
-      '@bpmn-io/properties-panel': 3.18.0(@lezer/common@1.1.2)
+      '@bpmn-io/properties-panel': 3.18.1(@lezer/common@1.1.2)
       array-move: 4.0.0
       bpmn-js: 16.5.0
       camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@16.5.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
@@ -4951,7 +4951,7 @@ packages:
     engines: {node: '>= 0.4.0'}
     dev: true
 
-  /cosmiconfig-typescript-loader@5.0.0(@types/node@20.11.14)(cosmiconfig@8.3.6)(typescript@5.3.3):
+  /cosmiconfig-typescript-loader@5.0.0(@types/node@20.11.16)(cosmiconfig@8.3.6)(typescript@5.3.3):
     resolution: {integrity: sha512-+8cK7jRAReYkMwMiG+bxhcNKiHJDM6bR9FD/nGBXOWdMLuYawjF5cGrtLilJ+LGd3ZjCXnJjR5DkfWPoIVlqJA==}
     engines: {node: '>=v16'}
     peerDependencies:
@@ -4959,7 +4959,7 @@ packages:
       cosmiconfig: '>=8.2'
       typescript: '>=4'
     dependencies:
-      '@types/node': 20.11.14
+      '@types/node': 20.11.16
       cosmiconfig: 8.3.6(typescript@5.3.3)
       jiti: 1.21.0
       typescript: 5.3.3
@@ -5483,8 +5483,8 @@ packages:
     resolution: {integrity: sha512-EmFMarXeqJp9cUKu/QEciEApn0S/xRcpZWuAm32U7NgoZCimjsilKXHRO9saeEW55eHZagIDg6XTUOv32w9pjg==}
     dev: true
 
-  /element-plus@2.5.3(vue@3.4.15):
-    resolution: {integrity: sha512-wmtstxaMkD6UinIgD+45CjrhbRh4u0vt+/GgxfPeMLt5pDpIVwZFjkUaVcWqqxcxd5a80HP3XlDF74fW7wim9A==}
+  /element-plus@2.5.5(vue@3.4.15):
+    resolution: {integrity: sha512-yGU/MruLOWI0ImQPFCyFM4cXtHtILJNAi0hhLImcxjRukjgQLYNkvcvbwqNgBUt808KSeKF9MyxENFyBQLTg+Q==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
@@ -5730,7 +5730,7 @@ packages:
       eslint: 8.56.0
     dev: true
 
-  /eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.4):
+  /eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.5):
     resolution: {integrity: sha512-C9GCVAs4Eq7ZC/XFQHITLiHJxQngdtraXaM+LoUFoFp/lHNl2Zn8f3WQbe9HvTBBQ9YnKFB0/2Ajdqwo5D1EAw==, tarball: https://registry.npmmirror.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.1.3.tgz}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -5746,7 +5746,7 @@ packages:
     dependencies:
       eslint: 8.56.0
       eslint-config-prettier: 9.1.0(eslint@8.56.0)
-      prettier: 3.2.4
+      prettier: 3.2.5
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.6
     dev: true
@@ -6677,8 +6677,8 @@ packages:
     engines: {node: '>=16.17.0'}
     dev: true
 
-  /husky@9.0.7:
-    resolution: {integrity: sha512-vWdusw+y12DUEeoZqW1kplOFqk3tedGV8qlga8/SF6a3lOiWLqGZZQvfWvY0fQYdfiRi/u1DFNpudTSV9l1aCg==}
+  /husky@9.0.10:
+    resolution: {integrity: sha512-TQGNknoiy6bURzIO77pPRu+XHi6zI7T93rX+QnJsoYFf3xdjKOur+IlfqzJGMHIK/wXrLg+GsvMs8Op7vI2jVA==}
     engines: {node: '>=18'}
     hasBin: true
     dev: true
@@ -7117,7 +7117,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.11.14
+      '@types/node': 20.11.16
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: true
@@ -8871,8 +8871,8 @@ packages:
       fast-diff: 1.3.0
     dev: true
 
-  /prettier@3.2.4:
-    resolution: {integrity: sha512-FWu1oLHKCrtpO1ypU6J0SbK2d9Ckwysq6bHj/uaCP26DxrPpppCLQRGVuqAxSTvhF00AcvDRyYrLNW7ocBhFFQ==}
+  /prettier@3.2.5:
+    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -9784,7 +9784,7 @@ packages:
     resolution: {integrity: sha512-Ca5ib8HrFn+f+0n4N4ScTIA9iTOQ7MaGS1ylHcoVqW9J7w2w8PzN6g9gKmTYgGEBH8e120+RCmhpje6jC5uGWA==}
     dev: false
 
-  /stylelint-config-html@1.1.0(postcss-html@1.6.0)(stylelint@16.2.0):
+  /stylelint-config-html@1.1.0(postcss-html@1.6.0)(stylelint@16.2.1):
     resolution: {integrity: sha512-IZv4IVESjKLumUGi+HWeb7skgO6/g4VMuAYrJdlqQFndgbj6WJAXPhaysvBiXefX79upBdQVumgYcdd17gCpjQ==}
     engines: {node: ^12 || >=14}
     peerDependencies:
@@ -9792,29 +9792,29 @@ packages:
       stylelint: '>=14.0.0'
     dependencies:
       postcss-html: 1.6.0
-      stylelint: 16.2.0(typescript@5.3.3)
+      stylelint: 16.2.1(typescript@5.3.3)
     dev: true
 
-  /stylelint-config-prettier@9.0.5(stylelint@16.2.0):
+  /stylelint-config-prettier@9.0.5(stylelint@16.2.1):
     resolution: {integrity: sha512-U44lELgLZhbAD/xy/vncZ2Pq8sh2TnpiPvo38Ifg9+zeioR+LAkHu0i6YORIOxFafZoVg0xqQwex6e6F25S5XA==}
     engines: {node: '>= 12'}
     hasBin: true
     peerDependencies:
       stylelint: '>= 11.x < 15'
     dependencies:
-      stylelint: 16.2.0(typescript@5.3.3)
+      stylelint: 16.2.1(typescript@5.3.3)
     dev: true
 
-  /stylelint-config-recess-order@4.4.0(stylelint@16.2.0):
+  /stylelint-config-recess-order@4.4.0(stylelint@16.2.1):
     resolution: {integrity: sha512-Q99kvZyIM/aoPEV4dRDkzD3fZLzH0LXi+pawCf1r700uUeF/PHQ5PZXjwFUuGrWhOzd1N+cuVm+OUGsY2fRN5A==}
     peerDependencies:
       stylelint: '>=15'
     dependencies:
-      stylelint: 16.2.0(typescript@5.3.3)
-      stylelint-order: 6.0.4(stylelint@16.2.0)
+      stylelint: 16.2.1(typescript@5.3.3)
+      stylelint-order: 6.0.4(stylelint@16.2.1)
     dev: true
 
-  /stylelint-config-recommended-scss@14.0.0(postcss@8.4.33)(stylelint@16.2.0):
+  /stylelint-config-recommended-scss@14.0.0(postcss@8.4.33)(stylelint@16.2.1):
     resolution: {integrity: sha512-HDvpoOAQ1RpF+sPbDOT2Q2/YrBDEJDnUymmVmZ7mMCeNiFSdhRdyGEimBkz06wsN+HaFwUh249gDR+I9JR7Onw==, tarball: https://registry.npmmirror.com/stylelint-config-recommended-scss/-/stylelint-config-recommended-scss-14.0.0.tgz}
     engines: {node: '>=18.12.0'}
     peerDependencies:
@@ -9826,12 +9826,12 @@ packages:
     dependencies:
       postcss: 8.4.33
       postcss-scss: 4.0.9(postcss@8.4.33)
-      stylelint: 16.2.0(typescript@5.3.3)
-      stylelint-config-recommended: 14.0.0(stylelint@16.2.0)
-      stylelint-scss: 6.0.0(stylelint@16.2.0)
+      stylelint: 16.2.1(typescript@5.3.3)
+      stylelint-config-recommended: 14.0.0(stylelint@16.2.1)
+      stylelint-scss: 6.0.0(stylelint@16.2.1)
     dev: true
 
-  /stylelint-config-recommended-vue@1.5.0(postcss-html@1.6.0)(stylelint@16.2.0):
+  /stylelint-config-recommended-vue@1.5.0(postcss-html@1.6.0)(stylelint@16.2.1):
     resolution: {integrity: sha512-65TAK/clUqkNtkZLcuytoxU0URQYlml+30Nhop7sRkCZ/mtWdXt7T+spPSB3KMKlb+82aEVJ4OrcstyDBdbosg==}
     engines: {node: ^12 || >=14}
     peerDependencies:
@@ -9840,21 +9840,21 @@ packages:
     dependencies:
       postcss-html: 1.6.0
       semver: 7.5.4
-      stylelint: 16.2.0(typescript@5.3.3)
-      stylelint-config-html: 1.1.0(postcss-html@1.6.0)(stylelint@16.2.0)
-      stylelint-config-recommended: 14.0.0(stylelint@16.2.0)
+      stylelint: 16.2.1(typescript@5.3.3)
+      stylelint-config-html: 1.1.0(postcss-html@1.6.0)(stylelint@16.2.1)
+      stylelint-config-recommended: 14.0.0(stylelint@16.2.1)
     dev: true
 
-  /stylelint-config-recommended@14.0.0(stylelint@16.2.0):
+  /stylelint-config-recommended@14.0.0(stylelint@16.2.1):
     resolution: {integrity: sha512-jSkx290CglS8StmrLp2TxAppIajzIBZKYm3IxT89Kg6fGlxbPiTiyH9PS5YUuVAFwaJLl1ikiXX0QWjI0jmgZQ==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       stylelint: ^16.0.0
     dependencies:
-      stylelint: 16.2.0(typescript@5.3.3)
+      stylelint: 16.2.1(typescript@5.3.3)
     dev: true
 
-  /stylelint-config-standard-scss@13.0.0(postcss@8.4.33)(stylelint@16.2.0):
+  /stylelint-config-standard-scss@13.0.0(postcss@8.4.33)(stylelint@16.2.1):
     resolution: {integrity: sha512-WaLvkP689qSYUpJQPCo30TFJSSc3VzvvoWnrgp+7PpVby5o8fRUY1cZcP0sePZfjrFl9T8caGhcKg0GO34VDiQ==, tarball: https://registry.npmmirror.com/stylelint-config-standard-scss/-/stylelint-config-standard-scss-13.0.0.tgz}
     engines: {node: '>=18.12.0'}
     peerDependencies:
@@ -9865,44 +9865,44 @@ packages:
         optional: true
     dependencies:
       postcss: 8.4.33
-      stylelint: 16.2.0(typescript@5.3.3)
-      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.33)(stylelint@16.2.0)
-      stylelint-config-standard: 36.0.0(stylelint@16.2.0)
+      stylelint: 16.2.1(typescript@5.3.3)
+      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.33)(stylelint@16.2.1)
+      stylelint-config-standard: 36.0.0(stylelint@16.2.1)
     dev: true
 
-  /stylelint-config-standard@36.0.0(stylelint@16.2.0):
+  /stylelint-config-standard@36.0.0(stylelint@16.2.1):
     resolution: {integrity: sha512-3Kjyq4d62bYFp/Aq8PMKDwlgUyPU4nacXsjDLWJdNPRUgpuxALu1KnlAHIj36cdtxViVhXexZij65yM0uNIHug==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       stylelint: ^16.1.0
     dependencies:
-      stylelint: 16.2.0(typescript@5.3.3)
-      stylelint-config-recommended: 14.0.0(stylelint@16.2.0)
+      stylelint: 16.2.1(typescript@5.3.3)
+      stylelint-config-recommended: 14.0.0(stylelint@16.2.1)
     dev: true
 
-  /stylelint-order@6.0.4(stylelint@16.2.0):
+  /stylelint-order@6.0.4(stylelint@16.2.1):
     resolution: {integrity: sha512-0UuKo4+s1hgQ/uAxlYU4h0o0HS4NiQDud0NAUNI0aa8FJdmYHA5ZZTFHiV5FpmE3071e9pZx5j0QpVJW5zOCUA==}
     peerDependencies:
       stylelint: ^14.0.0 || ^15.0.0 || ^16.0.1
     dependencies:
       postcss: 8.4.33
       postcss-sorting: 8.0.2(postcss@8.4.33)
-      stylelint: 16.2.0(typescript@5.3.3)
+      stylelint: 16.2.1(typescript@5.3.3)
     dev: true
 
-  /stylelint-prettier@5.0.0(prettier@3.2.4)(stylelint@16.2.0):
+  /stylelint-prettier@5.0.0(prettier@3.2.5)(stylelint@16.2.1):
     resolution: {integrity: sha512-RHfSlRJIsaVg5Br94gZVdWlz/rBTyQzZflNE6dXvSxt/GthWMY3gEHsWZEBaVGg7GM+XrtVSp4RznFlB7i0oyw==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       prettier: '>=3.0.0'
       stylelint: '>=16.0.0'
     dependencies:
-      prettier: 3.2.4
+      prettier: 3.2.5
       prettier-linter-helpers: 1.0.0
-      stylelint: 16.2.0(typescript@5.3.3)
+      stylelint: 16.2.1(typescript@5.3.3)
     dev: true
 
-  /stylelint-scss@6.0.0(stylelint@16.2.0):
+  /stylelint-scss@6.0.0(stylelint@16.2.1):
     resolution: {integrity: sha512-N1xV/Ef5PNRQQt9E45unzGvBUN1KZxCI8B4FgN/pMfmyRYbZGVN4y9qWlvOMdScU17c8VVCnjIHTVn38Bb6qSA==, tarball: https://registry.npmmirror.com/stylelint-scss/-/stylelint-scss-6.0.0.tgz}
     engines: {node: '>=18.12.0'}
     peerDependencies:
@@ -9913,11 +9913,11 @@ packages:
       postcss-resolve-nested-selector: 0.1.1
       postcss-selector-parser: 6.0.13
       postcss-value-parser: 4.2.0
-      stylelint: 16.2.0(typescript@5.3.3)
+      stylelint: 16.2.1(typescript@5.3.3)
     dev: true
 
-  /stylelint@16.2.0(typescript@5.3.3):
-    resolution: {integrity: sha512-gwqU5AkIb52wrAzzn+359S3NIJDMl02TXLUaV2tzA/L6jUdpTwNt+MCxHlc8+Hb2bUHlYVo92YeSIryF2gJthA==}
+  /stylelint@16.2.1(typescript@5.3.3):
+    resolution: {integrity: sha512-SfIMGFK+4n7XVAyv50CpVfcGYWG4v41y6xG7PqOgQSY8M/PgdK0SQbjWFblxjJZlN9jNq879mB4BCZHJRIJ1hA==}
     engines: {node: '>=18.12.0'}
     hasBin: true
     dependencies:
@@ -10213,7 +10213,7 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /ts-node@10.9.2(@types/node@20.11.14)(typescript@5.3.3):
+  /ts-node@10.9.2(@types/node@20.11.16)(typescript@5.3.3):
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
@@ -10232,7 +10232,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.11.14
+      '@types/node': 20.11.16
       acorn: 8.11.2
       acorn-walk: 8.2.0
       arg: 4.1.3
@@ -10470,7 +10470,7 @@ packages:
       '@unocss/transformer-directives': 0.58.4
       '@unocss/transformer-variant-group': 0.58.4
       '@unocss/vite': 0.58.4(rollup@2.79.1)(vite@5.0.12)
-      vite: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
     transitivePeerDependencies:
       - postcss
       - rollup
@@ -10666,8 +10666,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vant@4.8.3(vue@3.4.15):
-    resolution: {integrity: sha512-swJdNeeBKOx80O7z3NiQuVhYROnagjCT6zgOMK9Tsbki9AIf3pOZVk8605AuM7CFX4ZS/CndhKoIFlavob6c4A==}
+  /vant@4.8.4(vue@3.4.15):
+    resolution: {integrity: sha512-2ompmogS76pFWUDrQGYNXAENWxisJXqv0+eIqt7mGo1TJJXcUikQ5sfRjX8W3HTkTe1FxV7lzuI3QrW01i043g==}
     peerDependencies:
       vue: ^3.0.0
     dependencies:
@@ -10698,7 +10698,7 @@ packages:
       chalk: 4.1.2
       debug: 4.3.4
       fs-extra: 10.1.0
-      vite: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -10709,7 +10709,7 @@ packages:
       vite: '>=5.0.0'
     dependencies:
       ejs: 3.1.9
-      vite: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
     dev: true
 
   /vite-plugin-mock@3.0.1(esbuild@0.20.0)(mockjs@1.1.0)(vite@5.0.12):
@@ -10728,7 +10728,7 @@ packages:
       mockjs: 1.1.0
       path-to-regexp: 6.2.1
       picocolors: 1.0.0
-      vite: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
     transitivePeerDependencies:
       - esbuild
       - supports-color
@@ -10745,7 +10745,7 @@ packages:
       debug: 4.3.4
       fast-glob: 3.3.2
       pretty-bytes: 6.1.1
-      vite: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
       workbox-build: 7.0.0
       workbox-window: 7.0.0
     transitivePeerDependencies:
@@ -10758,7 +10758,7 @@ packages:
       vite: ^2.9.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
     dependencies:
       micromatch: 4.0.5
-      vite: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
     dev: true
 
   /vite-plugin-svg-icons@2.0.1(vite@5.0.12):
@@ -10774,7 +10774,7 @@ packages:
       pathe: 0.2.0
       svg-baker: 1.7.0
       svgo: 2.8.0
-      vite: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -10786,10 +10786,10 @@ packages:
     dependencies:
       '@vue/compiler-sfc': 3.4.15
       magic-string: 0.25.9
-      vite: 5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0)
     dev: true
 
-  /vite@5.0.12(@types/node@20.11.14)(less@4.2.0)(sass@1.70.0)(terser@5.27.0):
+  /vite@5.0.12(@types/node@20.11.16)(less@4.2.0)(sass@1.70.0)(terser@5.27.0):
     resolution: {integrity: sha512-4hsnEkG3q0N4Tzf1+t6NdN9dg/L3BM+q8SWgbSPnJvrgH2kgdyzfVJwbR1ic69/4uMJJ/3dqDZZE5/WwqW8U1w==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -10817,7 +10817,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.11.14
+      '@types/node': 20.11.16
       esbuild: 0.19.12
       less: 4.2.0
       postcss: 8.4.33
