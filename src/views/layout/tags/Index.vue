@@ -5,7 +5,12 @@
 	<div class="re-flex-row-between tags-content">
 		<el-scrollbar class="tags-list">
 			<div class="re-flex-row">
-				<el-tag :disable-transitions="false" class="re-cursor-pointer re-mr-10" @click="changeRouter('/home')" :type="tabValue === '/home' ? '' : 'info'">
+				<el-tag
+					:disable-transitions="false"
+					class="re-cursor-pointer re-mr-10"
+					@click="changeRouter('/home')"
+					:type="tabValue === '/home' ? 'primary' : 'info'"
+				>
 					{{ $t("message.menu.home") }}
 				</el-tag>
 				<el-tag
@@ -13,7 +18,7 @@
 					:key="index"
 					closable
 					:disable-transitions="false"
-					:type="tabValue === item.name ? '' : 'info'"
+					:type="tabValue === item.name ? 'primary' : 'info'"
 					@close="removeTab(item.name)"
 					@click="changeRouter(item.name)"
 					class="re-cursor-pointer re-mr-10"
@@ -43,7 +48,7 @@
 	const router = useRouter();
 	const route = useRoute();
 	let tabs = ref<any[]>([]);
-	const tabValue = ref("/home");
+	const tabValue = ref<string>("/home");
 	const addTab = (routeCurrent: any) => {
 		if (routeCurrent.meta.isHide) {
 			return false;
