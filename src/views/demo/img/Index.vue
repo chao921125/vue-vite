@@ -9,7 +9,7 @@
 				<el-radio :label="true">压缩</el-radio>
 				<el-radio :label="false">不压缩</el-radio>
 			</el-radio-group>
-			<el-slider v-model="file.compressValue" :disabled="!file.isCompress" :min="0" :max="1" :step="0.05" />
+			<el-slider v-model="file.compressValue" :disabled="!file.isCompress" :min="0" :max="1" :step="0.05" show-stops :marks="file.marks" />
 		</el-col>
 		<el-col :span="24" class="re-mb-20" v-loading="file.isLoading" element-loading-text="Loading..." element-loading-background="rgba(122, 122, 122, 0.8)">
 			<el-upload
@@ -38,6 +38,7 @@
 
 <script lang="ts" setup name="">
 	import type { UploadInstance, UploadFile, UploadFiles } from "element-plus";
+	import { imgConvert } from "@/plugins/utils/img";
 
 	const fileUploadRef = ref<UploadInstance>();
 	const file = reactive({
@@ -55,16 +56,22 @@
 				value: "image/png",
 			},
 		],
-		fileType: "jpg",
+		fileType: "image/png",
 		isCompress: false,
 		compressValue: 1,
+		marks: {},
 		fileList: [],
 		fileListCompress: [],
 		fileListUrl: [],
 		isLoading: false,
 	});
 
-	const changeFile = (uploadFile: UploadFile, uploadFiles: UploadFiles) => {
+	const changeFile = async (uploadFile: UploadFile | File, uploadFiles: UploadFiles) => {
+		file.isLoading = true;
+		// imgConvert(uploadFile, file.fileType, (result: any) => {
+		// 	console.log(result);
+		// 	file.isLoading = false;
+		// });
 		console.log(uploadFile, uploadFiles);
 	};
 
@@ -75,6 +82,16 @@
 			}
 		});
 	};
+
+	const init = () => {
+		for (let i = 0; i <= 1; i = i + 0.05) {
+			file.marks[i] = (i * 100).toFixed(0) + "%";
+		}
+	};
+
+	onMounted(() => {
+		init();
+	});
 </script>
 
 <style scoped lang="scss"></style>
