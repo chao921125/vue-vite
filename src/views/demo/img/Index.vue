@@ -38,7 +38,7 @@
 
 <script lang="ts" setup name="">
 	import type { UploadInstance, UploadFile, UploadFiles } from "element-plus";
-	import { imgConvert } from "@/plugins/utils/img";
+	// import { imgConvert } from "@/plugins/utils/img";
 
 	const fileUploadRef = ref<UploadInstance>();
 	const file = reactive({
