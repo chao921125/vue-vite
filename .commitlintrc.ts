@@ -121,4 +121,5 @@ const Configuration: UserConfig = {
 	},
 };
 
-module.exports = Configuration;
+// module.exports = Configuration;
+export default Configuration;
