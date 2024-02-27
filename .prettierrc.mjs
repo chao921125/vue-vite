@@ -17,6 +17,7 @@ export default {
 	trailingComma: "all",
 	// 在对象，数组括号与文字之间加空格 "{ foo: bar }"
 	bracketSpacing: true,
+	bracketSameLine: true,
 	// 在对象，数组括号与文字之间加空格 "{ foo: bar }"
 	jsxBracketSameLine: true,
 	//  (x) => {} 箭头函数参数只有一个时是否要有小括号。avoid：省略括号 ,always：不省略括号
@@ -24,21 +25,22 @@ export default {
 	// 这两个选项可用于格式化以给定字符偏移量（分别包括和不包括）开始和结束的代码
 	rangeStart: 0,
 	rangeEnd: Infinity,
-	// 如果文件顶部已经有一个 doclock，这个选项将新建一行注释，并打上@format标记。
-	insertPragma: false,
+	// 指定要使用的分析器
+	// parser: {},
+	// filepath: true,
 	// 指定要使用的解析器，不需要写文件开头的 @prettier
 	requirePragma: false,
+	// 如果文件顶部已经有一个 doclock，这个选项将新建一行注释，并打上@format标记。
+	insertPragma: false,
 	// 默认值。因为使用了一些折行敏感型的渲染器（如GitHub comment）而按照markdown文本样式进行折行
 	proseWrap: "never",
 	// 在html中空格是否是敏感的 "css" - 遵守CSS显示属性的默认值， "strict" - 空格被认为是敏感的 ，"ignore" - 空格被认为是不敏感的
 	htmlWhitespaceSensitivity: "strict",
-	// 换行符使用 lf 结尾是 可选值"<auto|lf|crlf|cr>"
-	endOfLine: "auto",
 	// Vue文件脚本和样式标签缩进
 	vueIndentScriptAndStyle: true,
+	// 换行符使用 lf 结尾是 可选值"<auto|lf|crlf|cr>"
+	endOfLine: "auto",
 	// 控制是否 prettier 格式的引用代码嵌入在文件中。
-	// embeddedLanguageFormatting: true,
-	// 指定要使用的分析器
-	// parser: true,
-	// filepath: true,
+	embeddedLanguageFormatting: "auto",
+	singleAttributePerLine: true,
 };
