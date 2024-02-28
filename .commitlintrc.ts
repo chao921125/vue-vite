@@ -7,7 +7,7 @@ import type { UserConfig } from "@commitlint/types";
 const Configuration: UserConfig = {
 	// 必须安装引用的软件包
 	extends: ["@commitlint/config-conventional"],
-	parserPreset: "conventional-changelog-atom",
+	parserPreset: "conventional-changelog-conventionalcommits",
 	formatter: "@commitlint/format",
 	rules: {
 		// @see: https://commitlint.js.org/#/reference-rules
