@@ -1,14 +1,14 @@
 // @see: https://cz-git.qbenben.com/zh/guide
-/** @type {import('cz-git').UserConfig} */
+
 import type { UserConfig } from "@commitlint/types";
-// import { RuleConfigSeverity } from "@commitlint/types";
 // import pkg from "./package.json";
 // const version = pkg.version;
 
 const Configuration: UserConfig = {
-	parserPreset: "conventional-changelog-conventionalcommits",
-	ignores: [(commit) => commit.includes("init")],
+	// 必须安装引用的软件包
 	extends: ["@commitlint/config-conventional"],
+	parserPreset: "conventional-changelog-conventionalcommits",
+	formatter: "@commitlint/format",
 	rules: {
 		// @see: https://commitlint.js.org/#/reference-rules
 		"body-leading-blank": [2, "always"],
@@ -19,6 +19,9 @@ const Configuration: UserConfig = {
 		"subject-case": [0],
 		"type-enum": [2, "always", ["feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert"]],
 	},
+	ignores: [(commit) => commit.includes("init")],
+	defaultIgnores: true,
+	helpUrl: "https://github.com/conventional-changelog/commitlint/#what-is-commitlint",
 	prompt: {
 		settings: {},
 		messages: {

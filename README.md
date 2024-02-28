@@ -3,9 +3,9 @@
 [//]: # (https://bun.sh/)
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
+2. husky + lint-staged + @commitlint/cli 规范提交格式（提交代码前自检）
 ```
 # 避坑指南 及 注意事项
-[**已在公司作为模板商用**]
 - 三方包引入尽可能小写，自定义尽可能大写
 - cjs在不久的未来将不再支持，后续尽可能使用mjs，由于现在某些包暂不支持，所以使用js+ts+mjs混用的方式
 - 目前该项目由于 eslint 的原因导致无法全部修改为mjs即："type": "module"
