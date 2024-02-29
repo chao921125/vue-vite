@@ -670,6 +670,7 @@
 
 | Admin vite                                                           |
 |----------------------------------------------------------------------|
+| https://github.com/pure-admin/pure-admin-thin                        |
 | https://github.com/XPoet/vite-vue3-starter                           |
 | https://github.com/cuixiaorui/mini-vue                               |
 | https://github.com/YunaiV/ruoyi-vue-pro                              |
@@ -716,6 +717,7 @@
 | https://github.com/newbee-ltd/vue3-admin                             |
 | https://github.com/GeekQiaQia/vue3.0-template-admin                  |
 | https://github.com/zclzone/vue-naive-admin                           |
+| https://github.com/hu-snail/vue3-admin-element-template              |
 
 | mobile & project                                      |
 |-------------------------------------------------------|
