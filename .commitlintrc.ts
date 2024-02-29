@@ -46,7 +46,7 @@ const Configuration: UserConfig = {
 						title: "Bug Fixes",
 						emoji: "🐛",
 					},
-					docs: {
+					doc: {
 						description: "Documentation only changes",
 						title: "Documentation",
 						emoji: "📚",
