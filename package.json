@@ -44,6 +44,9 @@
 	},
 	"lint-staged": {
 		"*.js": "eslint --cache --fix",
+		"*.ts": "eslint --cache --fix",
+		"*.scss": "stylelint --fix",
+		"*.less": "stylelint --fix",
 		"*.css": "stylelint --fix"
 	},
 	"config": {
