@@ -11,24 +11,15 @@ import RouterConfig from "@/config/routerConfig";
 import AxiosCancel from "./cancel";
 import { ElMessage } from "element-plus";
 
-// axios.request(config)
-// axios.get(url[, config])
-// axios.post(url[, data[, config]])
-// axios.delete(url[, config])
-// axios.head(url[, config])
-// axios.options(url[, config])
-// axios.put(url[, data[, config]])
-// axios.patch(url[, data[, config]])
-
 // 创建一个错误
-function errorCreate(msg) {
+function errorCreate(msg: string | undefined) {
 	const err = new Error(msg);
 	errorLog(err);
 	throw err;
 }
 
 // 记录和显示错误
-function errorLog(err) {
+function errorLog(err: Error) {
 	// 添加到日志
 
 	// 打印到控制台
@@ -80,7 +71,7 @@ http.interceptors.request.use(
 		AxiosCancel.addCancer(config);
 		return config;
 	},
-	(error) => {
+	async (error) => {
 		NProgress.done();
 		let config = error.config;
 		if (!config || !config.retry) return Promise.reject(error);
@@ -90,11 +81,10 @@ http.interceptors.request.use(
 		let backOff = new Promise((resolve: any) => {
 			setTimeout(() => {
 				resolve();
-			}, config.retryDelay || 1);
+			}, AxiosConfig.timeout || 1);
 		});
-		return backOff.then(() => {
-			return axios(config);
-		});
+		await backOff;
+		return axios(config);
 	},
 );
 
@@ -137,7 +127,7 @@ http.interceptors.response.use(
 						// [ 示例 ] code === 0 代表没有错误
 						return resp;
 					case 400:
-						errorCreate(`[ code: 400 ] ${resp.message}`);
+						errorCreate(`${resp.message}`);
 						break;
 					default:
 						errorCreate(`${resp.message}`);
@@ -147,7 +137,7 @@ http.interceptors.response.use(
 			}
 		}
 	},
-	(error) => {
+	async (error) => {
 		NProgress.done();
 		if (error && error.response) {
 			switch (error.response.status) {
@@ -188,9 +178,7 @@ http.interceptors.response.use(
 					break;
 			}
 			if (!Cookie.getCookie(Constants.cookieKey.token)) {
-				Router.replace({
-					path: RouterConfig.routeLogin,
-				});
+				await Router.replace({ path: RouterConfig.routeLogin });
 			}
 		}
 		errorLog(error);

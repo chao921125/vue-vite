@@ -22,25 +22,24 @@ $--colors: (
 	),
 );
 
-// we can add this to custom namespace, default is 'el'
-//@forward "element-plus/theme-chalk/src/mixins/config.scss" with (
-//  $namespace: "el"
-//);
+// 我们可以将其添加到自定义命名空间中, 默认值 'el'
+@forward "element-plus/theme-chalk/src/mixins/config.scss" with (
+  $namespace: "el"
+);
 
-// You should use them in scss, because we calculate it by sass.
-// comment next lines to use default color
+// 你应该在 scss 中使用它们, 因为我们是通过 sass 计算的
 @forward "element-plus/theme-chalk/src/common/var.scss" with (
-  // do not use same name, it will override.
+  // 不要使用相同的名称，它将覆盖
   $colors: $--colors,
   $button-padding-horizontal: ("default": 50px)
 );
 
-// if you want to import all
+// 如果要全部导入
 @use "element-plus/theme-chalk/src/index.scss" as *;
 @use "element-plus/theme-chalk/dark/css-vars.css" as *;
 
-// You can comment it to hide debug info.
+// 您可以对其进行注释以隐藏调试信息
 // @debug $--colors;
 
-// custom dark variables
+// 自定义变量
 @use "./theme-dark.scss";

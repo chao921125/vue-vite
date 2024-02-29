@@ -4,6 +4,7 @@
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
 2. husky + lint-staged + @commitlint/cli 规范提交格式（提交代码前自检）
+3. 如果有条件，请将 font 文件存入 CDN 否则将会在本地文件占用很大一部分资源，图片尽可能压缩
 ```
 # 避坑指南 及 注意事项
 - 三方包引入尽可能小写，自定义尽可能大写
@@ -610,6 +611,12 @@
 | [egg](https://github.com/eggjs/egg)                    |
 | [midwayjs](https://www.midwayjs.org/)                  |
 
+# CDN
+| 节省资源，请使用这个                          |
+|-------------------------------------|
+| [字体 CDN](https://www.cdnfonts.com/) |
+| [cdnjs](https://cdnjs.com/)         |
+
 # CMS
 |                                            |
 |--------------------------------------------|
@@ -663,6 +670,7 @@
 
 | Admin vite                                                           |
 |----------------------------------------------------------------------|
+| https://github.com/pure-admin/pure-admin-thin                        |
 | https://github.com/XPoet/vite-vue3-starter                           |
 | https://github.com/cuixiaorui/mini-vue                               |
 | https://github.com/YunaiV/ruoyi-vue-pro                              |
@@ -709,6 +717,7 @@
 | https://github.com/newbee-ltd/vue3-admin                             |
 | https://github.com/GeekQiaQia/vue3.0-template-admin                  |
 | https://github.com/zclzone/vue-naive-admin                           |
+| https://github.com/hu-snail/vue3-admin-element-template              |
 
 | mobile & project                                      |
 |-------------------------------------------------------|
@@ -729,11 +738,12 @@
 | https://github.com/xsf0105/vue3-h5-template           |
 
 ```text
-吐槽
+言外
 
-此项目虽然是用ts编写，但是只要看过的朋友就会发现，几乎使用的是any js，所以这个项目用ts单纯的就是用来学习使用
+本项目的 TS 单纯的用来学习，内部大部分文件使用的是 any js 写法，因为本人最开始是直接用 js+html+css 撸代码时间太久了，突然用这种约束很不适应
 
-关于个人项目有必要上ts吗？我个人给出的观点是，若非必要请勿用ts编写，当然如果使用强类型语言的朋友请忽略，可能js的动态类型你们无法理解
+TS 不能说好，也不能说不好，它和 Java 不一样，Java 属于强类型语言，JS 本身属于弱类型语言，TS 是添加了约束而非强类型语言
 
-有人说有了ts更规范了，我只想呵呵，js难道没法规范？无非就是ts是编程语言做了约束，js更灵活。但是真正写起来的时候，还是得看程序员的编码水平，ts一样写的混乱不堪
+就开发而言，个人的话随意吧，自己喜欢用哪个就用哪个，公司的话如果你是 TeamLeader 你要对你们每个成员都有一定的了解，不然就算使用了 TS 代码会不堪入目......
+
 ```
