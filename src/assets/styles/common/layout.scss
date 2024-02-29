@@ -1,5 +1,5 @@
 @use "./root.scss";
-@use "../resets/declare.scss";
+@use "./declare.scss";
 
 html,
 body {
@@ -172,7 +172,7 @@ body {
 		animation: error-img 0.3s;
 	}
 	.layout-scrollbar {
-		@extend .el-scrollbar;
+		width: 100%;
 		padding: 15px;
 	}
 	.layout-main-h-50 {
