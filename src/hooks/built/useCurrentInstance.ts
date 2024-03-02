@@ -5,3 +5,4 @@ export function useCurrentInstance() {
 	return { proxy };
 	// return appContext.config.globalProperties;
 }
+export default { useCurrentInstance };
