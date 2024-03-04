@@ -18,6 +18,7 @@
 	},
 	"main": "vue-vite",
 	"types": "vue-vite",
+	"type": "module",
 	"scripts": {
 		"review": "npm run build && npm run dev",
 		"serve": "npm run dev",
