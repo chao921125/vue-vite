@@ -1,8 +1,8 @@
 {
-	"name": "vue-vite-ts",
+	"name": "vue-vite",
 	"version": "2.5.257",
 	"private": true,
-	"description": "vue-vite-ts",
+	"description": "vue-vite",
 	"homepage": "https://github.com/chao921125",
 	"bugs": {
 		"url": "https://github.com/chao921125"
@@ -16,8 +16,8 @@
 		"name": "chao921125",
 		"email": "chao921125@sina.com"
 	},
-	"main": "vue-vite-ts",
-	"types": "vue-vite-ts",
+	"main": "vue-vite",
+	"types": "vue-vite",
 	"scripts": {
 		"review": "npm run build && npm run dev",
 		"serve": "npm run dev",
