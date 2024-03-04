@@ -22,9 +22,6 @@ import viteCompression from "vite-plugin-compression";
 import autoImport from "unplugin-auto-import/vite";
 import components from "unplugin-vue-components/vite";
 import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
-// CSS 预构建
-import UnoCSS from "unocss/vite";
-// import { presetAttributify, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from "unocss";
 // 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
@@ -160,8 +157,6 @@ export default defineConfig(({ command, mode }) => {
           return code;
         },
       },
-      // 原子css
-      UnoCSS(),
       // 图标
       icons({
         compiler: "vue3",
@@ -183,12 +178,16 @@ export default defineConfig(({ command, mode }) => {
           /\.md$/, // .md
         ],
         imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core", "vue-i18n"],
+        ignore: ["useMouse", "useFetch"],
+        defaultExportByFilename: false,
         dirs: ["./hooks", "./hooks/**", "./components", "./components/**"],
-        dts: true,
+        dts: "./auto-imports.d.js",
+        ignoreDts: ["ignoredFunction", /^ignore_/],
+        vueTemplate: false,
         resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
       }),
       components({
-        dts: true,
+        dts: "./components.d.js",
         resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
         directoryAsNamespace: true,
       }),
