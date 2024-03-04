@@ -14,6 +14,7 @@ import { VitePWA } from "vite-plugin-pwa";
 // 向上兼容浏览器
 import browserslist from "browserslist";
 import legacy from "@vitejs/plugin-legacy";
+import topLevelAwait from "vite-plugin-top-level-await";
 // CDN 配置
 import { Plugin as importToCDN } from "vite-plugin-cdn-import";
 import vueSetupExtend from "vite-plugin-vue-setup-extend";
@@ -198,6 +199,12 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				watchFiles: false,
 				enable: envConfig.VITE_MOCK,
 				logger: envConfig.VITE_MOCK,
+			}),
+			topLevelAwait({
+				// The export name of top-level await promise for each chunk module
+				promiseExportName: "__tla",
+				// The function to generate import names of top-level await promise in each chunk module
+				promiseImportName: (i) => `__tla_${i}`,
 			}),
 		],
 		// publicDir: "public", // 静态资源根路径，false关闭
