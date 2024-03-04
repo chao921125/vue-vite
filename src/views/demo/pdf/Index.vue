@@ -10,10 +10,10 @@
 </template>
 
 <script lang="ts" setup name="">
-	import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
+	import * as pdfjsLib from "pdfjs-dist/build/pdf.min.mjs";
 	import "pdfjs-dist/build/pdf.worker.min.mjs";
 
-	const pdfRef = ref(null);
+	const pdfRef = ref();
 	const pdfInfo = reactive({
 		pageNum: 1,
 		pageSize: 1,
