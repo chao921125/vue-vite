@@ -1,7 +1,5 @@
-import type { ProxyOptions, BuildOptions } from "vite";
-
-export const getEnvConfig = (env: Recordable): ViteEnv => {
-	let envConfig: any = {};
+export const getEnvConfig = (env) => {
+	let envConfig = {};
 	for (const envName of Object.keys(env)) {
 		let envValue = env[envName].replace(/\\n/g, "\n");
 		envValue = envValue === "true" ? true : envValue === "false" ? false : envValue;
@@ -20,16 +18,10 @@ export const getEnvConfig = (env: Recordable): ViteEnv => {
 	return envConfig;
 };
 
-type ProxyItem = [string, string];
-
-type ProxyList = ProxyItem[];
-
-type ProxyTargetList = Record<string, ProxyOptions>;
-
 const httpsRE = /^https:\/\//;
 
-export const createProxy = (list: ProxyList = []) => {
-	const rel: ProxyTargetList = {};
+export const createProxy = (list = []) => {
+	const rel = {};
 	for (const [prefix, target] of list) {
 		const isHttps = httpsRE.test(target);
 		// https://github.com/http-party/node-http-proxy#options
@@ -45,7 +37,7 @@ export const createProxy = (list: ProxyList = []) => {
 	return rel;
 };
 
-export const getBuild = (isBuild: boolean): BuildOptions => {
+export const getBuild = (isBuild) => {
 	return {
 		target: "modules",
 		// polyfillDynamicImport: "", // boolean
