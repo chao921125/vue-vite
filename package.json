@@ -1,8 +1,8 @@
 {
-	"name": "vue-vite-ts",
+	"name": "vue-vite",
 	"version": "2.5.257",
 	"private": true,
-	"description": "vue-vite-ts",
+	"description": "vue-vite",
 	"homepage": "https://github.com/chao921125",
 	"bugs": {
 		"url": "https://github.com/chao921125"
@@ -16,15 +16,16 @@
 		"name": "chao921125",
 		"email": "chao921125@sina.com"
 	},
-	"main": "vue-vite-ts",
-	"types": "vue-vite-ts",
+	"main": "vue-vite",
+	"types": "vue-vite",
+	"type": "module",
 	"scripts": {
 		"review": "npm run build && npm run dev",
 		"serve": "npm run dev",
 		"dev": "vite --host --open --mode development",
 		"test": "vite --host --open --mode preview",
 		"prod": "vite --host --open --mode production",
-		"build": "npm run build:test",
+		"build": "npm run build:prod",
 		"build:dev": "vue-tsc --noEmit --skipLibCheck && vite build --mode development",
 		"build:test": "vue-tsc --noEmit --skipLibCheck && vite build --mode preview",
 		"build:prod": "vue-tsc --noEmit --skipLibCheck && vite build --mode production",
@@ -87,6 +88,7 @@
 		"lowdb": "^7.0.1",
 		"mitt": "^3.0.1",
 		"nprogress": "^0.2.0",
+		"pdfjs-dist": "^4.0.379",
 		"pinia": "2.1.7",
 		"print-js": "^1.6.0",
 		"qrcode.vue": "^3.4.1",
@@ -151,7 +153,7 @@
 		"stylelint": "^16.2.1",
 		"stylelint-config-html": "^1.1.0",
 		"stylelint-config-prettier": "^9.0.5",
-		"stylelint-config-recess-order": "^4.6.0",
+		"stylelint-config-recess-order": "^5.0.0",
 		"stylelint-config-recommended": "^14.0.0",
 		"stylelint-config-recommended-vue": "^1.5.0",
 		"stylelint-config-standard": "^36.0.0",
@@ -173,6 +175,7 @@
 		"vite-plugin-pwa": "^0.19.2",
 		"vite-plugin-restart": "^0.4.0",
 		"vite-plugin-svg-icons": "^2.0.1",
+		"vite-plugin-top-level-await": "^1.4.1",
 		"vite-plugin-vue-setup-extend": "^0.4.0",
 		"vue-eslint-parser": "^9.4.2",
 		"vue-tsc": "^2.0.3"
