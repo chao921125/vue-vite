@@ -1,8 +1,8 @@
 {
-	"name": "vue-vite-ts",
+	"name": "vue-vite",
 	"version": "2.5.257",
 	"private": true,
-	"description": "vue-vite-ts",
+	"description": "vue-vite",
 	"homepage": "https://github.com/chao921125",
 	"bugs": {
 		"url": "https://github.com/chao921125"
@@ -16,8 +16,8 @@
 		"name": "chao921125",
 		"email": "chao921125@sina.com"
 	},
-	"main": "vue-vite-ts",
-	"types": "vue-vite-ts",
+	"main": "vue-vite",
+	"types": "vue-vite",
 	"scripts": {
 		"review": "npm run build && npm run dev",
 		"serve": "npm run dev",
@@ -25,9 +25,9 @@
 		"test": "vite --host --open --mode preview",
 		"prod": "vite --host --open --mode production",
 		"build": "npm run build:test",
-		"build:dev": "vue-tsc --noEmit --skipLibCheck && vite build --mode development",
-		"build:test": "vue-tsc --noEmit --skipLibCheck && vite build --mode preview",
-		"build:prod": "vue-tsc --noEmit --skipLibCheck && vite build --mode production",
+		"build:dev": "--noEmit --skipLibCheck && vite build --mode development",
+		"build:test": "--noEmit --skipLibCheck && vite build --mode preview",
+		"build:prod": "--noEmit --skipLibCheck && vite build --mode production",
 		"build:ig": "vite build --mode production",
 		"build:no-cache": "npm clean:cache && npm run build",
 		"clean:cache": "rimraf yarn.lock && rimraf package.lock.json && rimraf pnpm-lock.yaml && rimraf node_modules && pnpm install",
@@ -159,6 +159,7 @@
 		"vite-plugin-pwa": "^0.19.2",
 		"vite-plugin-restart": "^0.4.0",
 		"vite-plugin-svg-icons": "^2.0.1",
+		"vite-plugin-top-level-await": "^1.4.1",
 		"vite-plugin-vue-setup-extend": "^0.4.0",
 		"vue-eslint-parser": "^9.4.2"
 	},
