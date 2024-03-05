@@ -1,3 +1,4 @@
+// @see https://prettier.io/
 export default {
 	// 超过最大值换行
 	printWidth: 200,
