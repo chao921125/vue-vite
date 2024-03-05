@@ -3,7 +3,7 @@ import vue from "eslint-plugin-vue";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 export default [
 	{
-		files: ["**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs", "**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts", "**/*.json"],
+		files: ["**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs", "**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts", "**/*.vue", "**/*.json"],
 		ignores: [
 			".vscode",
 			".idea",
@@ -24,7 +24,6 @@ export default [
 			"*.scss",
 			"*.woff",
 			"*.ttf",
-			"**/*.vue",
 			"!commitlintrc.ts",
 		],
 		languageOptions: {
