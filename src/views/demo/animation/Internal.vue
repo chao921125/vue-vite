@@ -8,19 +8,35 @@
 		</el-col>
 		<el-col :span="24">
 			<el-button @click="changeTransition()">点击 测试自带过渡效果</el-button>
-			<Transition name="fade" mode="out-in" appear>
+			<Transition
+				name="fade"
+				mode="out-in"
+				appear>
 				<div v-if="transition">toggled content</div>
 			</Transition>
 		</el-col>
-		<el-col :span="24" class="re-mt-20">
+		<el-col
+			:span="24"
+			class="re-mt-20">
 			<el-button @click="addTransition()">插入</el-button>
 			<el-button @click="shuffleTransition()">随机排序</el-button>
 			<el-button @click="resetTransition()">重置</el-button>
-			<TransitionGroup tag="ul" name="fade" class="container">
-				<li v-for="(item, index) in items" :key="index" class="item">
+			<TransitionGroup
+				tag="ul"
+				name="fade"
+				class="container">
+				<li
+					v-for="(item, index) in items"
+					:key="index"
+					class="item">
 					{{ item }}
 				</li>
 			</TransitionGroup>
+		</el-col>
+		<el-col
+			:span="24"
+			class="re-mt-20">
+			<SelfMadeSystem></SelfMadeSystem>
 		</el-col>
 	</el-row>
 </template>
@@ -28,6 +44,7 @@
 <script lang="ts" setup name="">
 	import { shuffle } from "lodash-es";
 	import LotteryWheel from "./components/LotteryWheel.vue";
+	import SelfMadeSystem from "./loading/SelfMadeSystem.vue";
 
 	const transition = ref(true);
 	const changeTransition = () => {

@@ -19,7 +19,7 @@
 - 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式(兼容jsx)
 - 如果你觉得你的package.json乱糟糟，那么使用 npx sort-package-json 来解决吧
 
-# 关于手机端适配（脱离业务场景谈解决方案都是耍流氓）
+# 关于手机端适配（脱离业务场景谈解决方案都是耍流氓）[解决方案](./doc/PxAuto.md)
 1. 稳定解决方案：使用媒体查询，但建议企业官网等页面较少的网站，且对网站设计者和开发者水平有一定的要求，开发调试比较麻烦
 2. 切换URL改变页面呈现方式：通过监听获取当前是否是移动端，然后改变对应的URL。需要设计两套UI，开发者需要写两套页面及样式。优点是灵活，缺点是开发周期长
 3. rem 计算：目前最多的，通过对根字体的设置，自动换算
@@ -128,31 +128,40 @@
 |------------------------------------------------|
 | [tdesign 腾讯多端UI](https://tdesign.tencent.com/) |
 
-| UI PC 官方                                                                       |
-|--------------------------------------------------------------------------------|
-| [👍 element-plus 官网](https://element-plus.org/)                                |
-| [headlessui 组件简单](https://headlessui.com/)                                     |
-| [naiveui](https://www.naiveui.com/zh-CN/os-theme)                              |
-| [arco 字节 官网](https://arco.design/)                                             |
-| [bootstrap](https://getbootstrap.com/)                                         |
-| [ant-design-vue 社区维护](https://www.antdv.com/components/overview)               |
-| [bootstrap-vue-next](https://bootstrap-vue-next.github.io/bootstrap-vue-next/) |
-| [heyui 官网](https://v2.heyui.top/)                                              |
-| [BalmUI 官网](https://material.balmjs.com/)                                      |
-| [wave 官网](https://antoniandre.github.io/wave-ui/)                              |
-| [iDux 官网](https://idux.site/)                                                  |
-| [relaxplus 官网](https://bsie.gitee.io/relaxplus/#/)                             |
-| [quasar 官网](https://quasar.dev/)                                               |
-| [primefaces 官网](https://primevue.org/)                                         |
-| [Vuestic UI 官网](https://vuestic.dev/)                                          |
+| UI PC 官方                                                                            |
+|-------------------------------------------------------------------------------------|
+| [👍 element-plus 官网](https://element-plus.org/)                                     |
+| [headlessui 组件简单](https://headlessui.com/)                                          |
+| [naiveui](https://www.naiveui.com/zh-CN/os-theme)                                   |
+| [arco 字节 官网](https://arco.design/)                                                  |
+| [opentiny 华为云 官网](https://opentiny.design/)                                         |
+| [bootstrap](https://getbootstrap.com/)                                              |
+| [bootstrap-vue-next](https://bootstrap-vue-next.github.io/bootstrap-vue-next/)      |
+| [mui 官网](https://mui.com/)                                                          |
+| [ant-design-vue 社区维护](https://antdv.com/index) [ant-design 官网](https://ant.design/) |
+| [chakra-ui 官网](https://chakra-ui.com/)                                              |
+| [quasarchs 官网](http://www.quasarchs.com/)                                           |
+| [heyui 官网](https://v2.heyui.top/)                                                   |
+| [BalmUI 官网](https://material.balmjs.com/)                                           |
+| [wave 官网](https://antoniandre.github.io/wave-ui/)                                   |
+| [iDux 官网](https://idux.site/)                                                       |
+| [relaxplus 官网](https://bsie.gitee.io/relaxplus/#/)                                  |
+| [quasar 官网](https://quasar.dev/)                                                    |
+| [primefaces 官网](https://primevue.org/)                                              |
+| [Vuestic UI 官网](https://vuestic.dev/)                                               |
+| [React semi 官网](https://semi.design/zh-CN/)                                         |
 
 | UI Mobile 官方                                                  |
 |---------------------------------------------------------------|
 | [👍vant](https://vant-ui.github.io/vant/#/zh-CN)              |
+| [👍vant 小程序](https://github.com/vant-ui/vant-weapp)           |
 | [👍nutui @nutui/nutui@next 官网](https://nutui.jd.com/)         |
+| [👍taro 小程序](https://taro-ui.jd.com/#/)                       |
+| [uvui 官网](https://www.uvui.cn/)                               |
+| [onsen 官网](https://onsen.io/)                                 |
 | [varlet 官网](https://varlet-varletjs.vercel.app/#/en-US/index) |
 | [mui uni-app 官网](https://dev.dcloud.net.cn/mui/)              |
-| [mui 官网](https://mui.com/)                                    |
+| [cube-ui 官网](https://didi.github.io/cube-ui/#/zh-CN)          |
 | [mint-ui 官网](http://mint-ui.github.io/)                       |
 | [VARLET 官网](https://varlet.gitee.io/varlet-ui/#/zh-CN/home)   |
 | [Wave UI 官网](https://antoniandre.github.io/wave-ui/)          |
@@ -160,25 +169,19 @@
 | [vite](https://github.com/LZHD/vue-vite-h5)                   |
 | [vux](https://vux.li/)                                        |
 | [👍ionic-framework 官网 VRA](https://ionicframework.com/docs/)  |
-
-| UI 小程序端                                                  |
-|----------------------------------------------------------|
-| [👍vant](https://github.com/vant-ui/vant-weapp)          |
-| [👍taro](https://taro-ui.jd.com/#/)                      |
-| [Tencent](https://github.com/Tencent/weui-wxss)          |
-| [mini](https://doc.mini.talelin.com/)                    |
-| [wux](https://wux-weapp.github.io/wux-weapp-docs/#/)     |
-| [Cube UI](https://didi.github.io/cube-ui/#/zh-CN)        |
-| [ColorUI 停更](https://github.com/weilanwl/ColorUI)        |
-| [touchwx 停更](https://github.com/uileader/touchwx)        |
-| [iview 停更](https://github.com/TalkingData/iview-weapp)   |
+| [Tencent 小程序](https://github.com/Tencent/weui-wxss)           |
+| [mini 小程序](https://doc.mini.talelin.com/)                     |
+| [wux 小程序](https://wux-weapp.github.io/wux-weapp-docs/#/)      |
+| [Cube UI 小程序](https://didi.github.io/cube-ui/#/zh-CN)         |
+| [ColorUI 停更 小程序](https://github.com/weilanwl/ColorUI)         |
+| [touchwx 停更 小程序](https://github.com/uileader/touchwx)         |
+| [iview 停更 小程序](https://github.com/TalkingData/iview-weapp)    |
 
 | VUE2 UI PC 官方                                     |
 |---------------------------------------------------|
 | [elementUI 官网](https://element.eleme.io/)         |
 | [mint-ui 官网](http://mint-ui.github.io/#!/zh-cn)   |
 | [buefy 官网](https://buefy.org/)                    |
-| [onsen 官网](https://onsen.io/)                     |
 
 | 含商业收费版                                    |
 |-------------------------------------------|
@@ -587,6 +590,7 @@
 | 框架                                                                                     |
 |----------------------------------------------------------------------------------------|
 | [NuxtJS vue](https://nuxt.com/)                                                        |
+| [NuxtJS ui](https://ui.nuxt.com/)                                                      |
 | [Next.js react](https://github.com/vercel/next.js)                                     |
 | [astro](https://astro.build/)                                                          |
 | [quasar 官网 组件一体](https://quasar.dev/)                                                  |
@@ -740,10 +744,7 @@
 ```text
 言外
 
-本项目的 TS 单纯的用来学习，内部大部分文件使用的是 any js 写法，因为本人最开始是直接用 js+html+css 撸代码时间太久了，突然用这种约束很不适应
+本项目的 TS 单纯的用来学习，内部大部分文件使用的是 any js 写法
 
-TS 不能说好，也不能说不好，它和 Java 不一样，Java 属于强类型语言，JS 本身属于弱类型语言，TS 是添加了约束而非强类型语言
-
-就开发而言，个人的话随意吧，自己喜欢用哪个就用哪个，公司的话如果你是 TeamLeader 你要对你们每个成员都有一定的了解，不然就算使用了 TS 代码会不堪入目......
-
+TS 的优缺点不在这里一一赘述，给大家的建议是：个人或者小型项目直接用 js，大型项目根据人员选，超大型或者基础库使用 ts。
 ```

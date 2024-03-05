@@ -1,12 +1,8 @@
 // @see: https://eslint.org/
-
+import vue from "eslint-plugin-vue";
+import typescriptEslint from "@typescript-eslint/eslint-plugin";
 export default [
 	{
-		env: {
-			browser: true,
-			node: true,
-			es2024: true,
-		},
 		files: ["**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs", "**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts", "**/*.vue", "**/*.json"],
 		ignores: [
 			".vscode",
@@ -43,8 +39,10 @@ export default [
 		},
 		// processor: {},
 		/* 继承某些已有的规则 */
-		extends: ["plugin:vue/vue3-recommended", "plugin:@typescript-eslint/recommended", "prettier", "plugin:prettier/recommended"],
-		plugins: ["vue", "@typescript-eslint"],
+		plugins: {
+			vue: vue,
+			"@typescript-eslint": typescriptEslint,
+		},
 		rules: {
 			semi: "error",
 			// eslint (http://eslint.cn/docs/rules)
