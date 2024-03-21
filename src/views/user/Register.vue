@@ -1,20 +1,47 @@
 <template>
-	<el-row :gutter="20" justify="center" class="login-box">
-		<el-col :span="14" class="login-logo">
+	<el-row
+		:gutter="20"
+		justify="center"
+		class="login-box">
+		<el-col
+			:span="14"
+			class="login-logo">
 			<!-- loading -->
 			<div class="re-flex-row-center"><div class="loading"></div></div>
 			<div class="re-flex-row-center">CC ADMIN</div>
 		</el-col>
-		<el-col :span="10" class="login-form">
-			<el-form ref="formUserRef" :model="formUser" status-icon :rules="formRulesUser" label-width="0" :scroll-to-error="true">
-				<el-form-item label="" prop="userName">
-					<el-input v-model="formUser.userName" placeholder="user name" />
+		<el-col
+			:span="10"
+			class="login-form">
+			<el-form
+				ref="formUserRef"
+				:model="formUser"
+				status-icon
+				:rules="formRulesUser"
+				label-width="0"
+				:scroll-to-error="true">
+				<el-form-item
+					label=""
+					prop="userName">
+					<el-input
+						v-model="formUser.userName"
+						placeholder="user name" />
 				</el-form-item>
-				<el-form-item label="" prop="password">
-					<el-input v-model="formUser.password" type="password" placeholder="user password" />
+				<el-form-item
+					label=""
+					prop="password">
+					<el-input
+						v-model="formUser.password"
+						type="password"
+						placeholder="user password" />
 				</el-form-item>
-				<el-form-item label="" prop="rePassword">
-					<el-input v-model="formUser.rePassword" type="password" placeholder="user password" />
+				<el-form-item
+					label=""
+					prop="rePassword">
+					<el-input
+						v-model="formUser.rePassword"
+						type="password"
+						placeholder="user password" />
 				</el-form-item>
 			</el-form>
 			<el-button @click="loginUser">login</el-button>

@@ -1,10 +1,22 @@
 <template>
-	<van-button class="m-btn-font" type="success">button</van-button>
+	<van-button
+		class="m-btn-font"
+		type="success"
+		>button</van-button
+	>
 	<van-grid>
-		<van-grid-item icon="photo-o" text="文字" />
-		<van-grid-item icon="photo-o" text="文字" />
-		<van-grid-item icon="photo-o" text="文字" />
-		<van-grid-item icon="photo-o" text="文字" />
+		<van-grid-item
+			icon="photo-o"
+			text="文字" />
+		<van-grid-item
+			icon="photo-o"
+			text="文字" />
+		<van-grid-item
+			icon="photo-o"
+			text="文字" />
+		<van-grid-item
+			icon="photo-o"
+			text="文字" />
 	</van-grid>
 	<van-tabbar v-model="active">
 		<van-tabbar-item badge="3">

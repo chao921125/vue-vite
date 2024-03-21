@@ -1,16 +1,29 @@
 <template>
-	<el-dialog custom-class="customWidth" v-model="props.timeQuantumProps.show" title="选择时间段" width="29%">
+	<el-dialog
+		custom-class="customWidth"
+		v-model="props.timeQuantumProps.show"
+		title="选择时间段"
+		width="29%">
 		<div class="gantt-chart">
 			<div class="scale-line">
 				<div class="scale-box">
-					<span v-for="item in [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]" :key="item">{{ item }}</span>
+					<span
+						v-for="item in [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]"
+						:key="item"
+						>{{ item }}</span
+					>
 				</div>
 				<div class="line-box">
-					<span v-for="item in 12" :key="item"></span>
+					<span
+						v-for="item in 12"
+						:key="item"></span>
 				</div>
 			</div>
 			<div class="table-chart">
-				<div class="set-date-table" v-for="(item, index) in weektableDate" :key="item.week">
+				<div
+					class="set-date-table"
+					v-for="(item, index) in weektableDate"
+					:key="item.week">
 					<div class="week">{{ item.weekName }}</div>
 					<div class="scale-line-week"></div>
 					<div class="table-box">
@@ -20,8 +33,7 @@
 							:key="t"
 							:style="{ left: item['left' + k], right: item['right' + k] }"
 							v-show="item['left' + k] && item['right' + k]"
-							@click="cancelingSchedule(item, k)"
-						></div>
+							@click="cancelingSchedule(item, k)"></div>
 						<div
 							class="box"
 							:style="[1, 3, 5].includes(index) ? 'background:#E3E5E8' : ''"
@@ -36,34 +48,49 @@
 								(event) => {
 									onmouseup(event, item, index);
 								}
-							"
-						></div>
+							"></div>
 					</div>
-					<el-button class="bth" type="primary" size="small" @click="setUpTheClick(item)">设置</el-button>
+					<el-button
+						class="bth"
+						type="primary"
+						size="small"
+						@click="setUpTheClick(item)"
+						>设置</el-button
+					>
 				</div>
 			</div>
 		</div>
 		<div class="select-time-area">
 			<div class="week-select">
-				<el-checkbox v-model="allweek" label="全部" size="large" :disabled="props.timeQuantumProps.disabled" @change="selectAllWeek" />
+				<el-checkbox
+					v-model="allweek"
+					label="全部"
+					size="large"
+					:disabled="props.timeQuantumProps.disabled"
+					@change="selectAllWeek" />
 				<el-checkbox
 					v-for="item in TimeData"
 					:key="item.week"
 					v-model="item.weekBooleanVal"
 					:label="item.weekName"
 					size="large"
-					:disabled="item.currentBool || props.timeQuantumProps.disabled"
-				/>
+					:disabled="item.currentBool || props.timeQuantumProps.disabled" />
 			</div>
-			<div class="time-select" v-for="item in TimeData" :key="item.week" v-show="item.currentBool">
-				<div class="time-box" v-for="(val, key) in item.periods" :key="key">
+			<div
+				class="time-select"
+				v-for="item in TimeData"
+				:key="item.week"
+				v-show="item.currentBool">
+				<div
+					class="time-box"
+					v-for="(val, key) in item.periods"
+					:key="key">
 					<el-checkbox
 						v-model="val.booleanVal"
 						:label="val.time"
 						size="large"
 						:disabled="props.timeQuantumProps.disabled"
-						@change="operationTimeRange(item, val, key)"
-					/>
+						@change="operationTimeRange(item, val, key)" />
 					<el-time-picker
 						style="margin-left: 10px"
 						size="default"
@@ -72,15 +99,19 @@
 						range-separator="-"
 						value-format="HH:mm:ss"
 						:disabled="props.timeQuantumProps.disabled"
-						@change="operationTimeRange(item, val, key)"
-					/>
+						@change="operationTimeRange(item, val, key)" />
 				</div>
 			</div>
 		</div>
 		<template #footer>
 			<span class="dialog-footer">
 				<el-button @click="props.timeQuantumProps.show = false">取 消</el-button>
-				<el-button v-show="!props.timeQuantumProps.disabled" type="primary" @click="submit">确 定</el-button>
+				<el-button
+					v-show="!props.timeQuantumProps.disabled"
+					type="primary"
+					@click="submit"
+					>确 定</el-button
+				>
 			</span>
 		</template>
 	</el-dialog>
@@ -286,11 +317,9 @@
 		// 计算出1s的偏移量
 		const secondsOffset = 18.07 / (60 * 60);
 		// 开始时间
-		const start =
-			pageXValue.value < e.pageX ? secTotime((pageXValue.value - tableBox.left) / secondsOffset) : secTotime((e.pageX - tableBox.left) / secondsOffset);
+		const start = pageXValue.value < e.pageX ? secTotime((pageXValue.value - tableBox.left) / secondsOffset) : secTotime((e.pageX - tableBox.left) / secondsOffset);
 		// 结束时间
-		const end =
-			pageXValue.value < e.pageX ? secTotime((e.pageX - tableBox.left) / secondsOffset) : secTotime((pageXValue.value - tableBox.left) / secondsOffset);
+		const end = pageXValue.value < e.pageX ? secTotime((e.pageX - tableBox.left) / secondsOffset) : secTotime((pageXValue.value - tableBox.left) / secondsOffset);
 
 		const data = TimeData.find((val) => val.week === item.week);
 		const _rows = data.periods.filter((item) => !item.booleanVal);

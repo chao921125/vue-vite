@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<canvas id="canvas" style="width: 320px; height: 240px"></canvas>
+		<canvas
+			id="canvas"
+			style="width: 320px; height: 240px"></canvas>
 	</div>
 </template>
 

@@ -1,8 +1,16 @@
 <template>
-	<el-dialog v-model="dialogFormVisible" @close="closeDialog">
+	<el-dialog
+		v-model="dialogFormVisible"
+		@close="closeDialog">
 		<template #header>{{ departmentInfo.id ? "编辑部门" : "新增部门" }}</template>
-		<el-form :model="form" :rules="rules" :label-width="formLabelWidth" ref="formRef">
-			<el-form-item prop="parent" label="上级">
+		<el-form
+			:model="form"
+			:rules="rules"
+			:label-width="formLabelWidth"
+			ref="formRef">
+			<el-form-item
+				prop="parent"
+				label="上级">
 				<el-tree-select
 					v-model="form.parent"
 					:data="optionSelectMenu"
@@ -10,36 +18,66 @@
 					:props="propsTreeMenu"
 					value-key="id"
 					check-strictly
-					placeholder="菜单"
-				>
+					placeholder="菜单">
 					<template #default="{ data }">
 						<span>{{ $t(data.name) }}</span>
 					</template>
 				</el-tree-select>
 			</el-form-item>
-			<el-form-item prop="name" label="名称">
-				<el-input v-model="form.name" placeholder=""></el-input>
+			<el-form-item
+				prop="name"
+				label="名称">
+				<el-input
+					v-model="form.name"
+					placeholder=""></el-input>
 			</el-form-item>
-			<el-form-item prop="number" label="编码">
-				<el-input v-model="form.number" placeholder=""></el-input>
+			<el-form-item
+				prop="number"
+				label="编码">
+				<el-input
+					v-model="form.number"
+					placeholder=""></el-input>
 			</el-form-item>
-			<el-form-item prop="userName" label="负责人">
-				<el-input v-model="form.userName" placeholder=""></el-input>
+			<el-form-item
+				prop="userName"
+				label="负责人">
+				<el-input
+					v-model="form.userName"
+					placeholder=""></el-input>
 			</el-form-item>
-			<el-form-item prop="phone" label="联系方式">
-				<el-input v-model="form.phone" placeholder=""></el-input>
+			<el-form-item
+				prop="phone"
+				label="联系方式">
+				<el-input
+					v-model="form.phone"
+					placeholder=""></el-input>
 			</el-form-item>
-			<el-form-item prop="status" label="状态">
-				<el-switch v-model="form.status" :active-value="1" :inactive-value="0" />
+			<el-form-item
+				prop="status"
+				label="状态">
+				<el-switch
+					v-model="form.status"
+					:active-value="1"
+					:inactive-value="0" />
 			</el-form-item>
-			<el-form-item prop="desc" label="备注">
-				<el-input type="textarea" v-model="form.desc" placeholder="" :autosize="{ minRows: 2, maxRows: 5 }"></el-input>
+			<el-form-item
+				prop="desc"
+				label="备注">
+				<el-input
+					type="textarea"
+					v-model="form.desc"
+					placeholder=""
+					:autosize="{ minRows: 2, maxRows: 5 }"></el-input>
 			</el-form-item>
 		</el-form>
 		<template #footer>
 			<span class="dialog-footer">
 				<el-button @click="closeDialog">取消</el-button>
-				<el-button type="primary" @click="changeDepartmentInfo">确认</el-button>
+				<el-button
+					type="primary"
+					@click="changeDepartmentInfo"
+					>确认</el-button
+				>
 			</span>
 		</template>
 	</el-dialog>

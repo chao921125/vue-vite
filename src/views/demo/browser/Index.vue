@@ -1,5 +1,8 @@
 <template>
-	<el-skeleton :rows="1" animated :loading="isLoading">
+	<el-skeleton
+		:rows="1"
+		animated
+		:loading="isLoading">
 		<el-row>
 			<el-col :span="24">浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }}</el-col>
 			<el-col :span="24">操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }}</el-col>

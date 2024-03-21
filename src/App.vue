@@ -1,5 +1,8 @@
 <template>
-	<el-config-provider :locale="config.i18n" :size="config.size" :button="config.buttonSpace">
+	<el-config-provider
+		:locale="config.i18n"
+		:size="config.size"
+		:button="config.buttonSpace">
 		<RouterView />
 	</el-config-provider>
 </template>

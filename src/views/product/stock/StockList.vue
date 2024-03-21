@@ -1,42 +1,100 @@
 <template>
-	<el-form ref="formSearchRef" :model="formSearch" status-icon label-width="" :inline="true">
-		<el-form-item prop="name" label="名称">
-			<el-input v-model="formSearch.name" placeholder=""></el-input>
+	<el-form
+		ref="formSearchRef"
+		:model="formSearch"
+		status-icon
+		label-width=""
+		:inline="true">
+		<el-form-item
+			prop="name"
+			label="名称">
+			<el-input
+				v-model="formSearch.name"
+				placeholder=""></el-input>
 		</el-form-item>
-		<el-form-item prop="" label="">
+		<el-form-item
+			prop=""
+			label="">
 			<el-button type="primary">查询</el-button>
 			<el-button @click="resetForm(formSearchRef)">重置</el-button>
 		</el-form-item>
 	</el-form>
-	<el-table :data="tableData" style="width: 100%">
-		<el-table-column prop="number" label="内部编码" width="120" />
-		<el-table-column prop="name" label="名称" width="120" />
-		<el-table-column prop="type" label="种类" width="120" />
-		<el-table-column prop="criterion" label="标准" width="120" />
-		<el-table-column prop="material" label="材质" width="120">
+	<el-table
+		:data="tableData"
+		style="width: 100%">
+		<el-table-column
+			prop="number"
+			label="内部编码"
+			width="120" />
+		<el-table-column
+			prop="name"
+			label="名称"
+			width="120" />
+		<el-table-column
+			prop="type"
+			label="种类"
+			width="120" />
+		<el-table-column
+			prop="criterion"
+			label="标准"
+			width="120" />
+		<el-table-column
+			prop="material"
+			label="材质"
+			width="120">
 			<template #default="scope"> {{ replaceNullLine(scope.row.material) }} </template>
 		</el-table-column>
-		<el-table-column prop="specification" label="规格" width="120" />
-		<el-table-column prop="price" label="价格" width="120">
+		<el-table-column
+			prop="specification"
+			label="规格"
+			width="120" />
+		<el-table-column
+			prop="price"
+			label="价格"
+			width="120">
 			<template #default="scope"> {{ scope.row.price }}/{{ scope.row.priceUnit }} </template>
 		</el-table-column>
-		<el-table-column prop="weight" label="重量" width="120">
+		<el-table-column
+			prop="weight"
+			label="重量"
+			width="120">
 			<template #default="scope"> {{ scope.row.weight }}/{{ scope.row.weightUnit }} </template>
 		</el-table-column>
-		<el-table-column prop="volumeLength" label="体积" width="120">
+		<el-table-column
+			prop="volumeLength"
+			label="体积"
+			width="120">
 			<template #default="scope"> {{ scope.row.volumeLength }}*{{ scope.row.volumeWight }}*{{ scope.row.volumeHeight }}/{{ scope.row.volumeUnit }} </template>
 		</el-table-column>
-		<el-table-column prop="unit" label="单位" width="120" />
-		<el-table-column prop="desc" label="备注" />
-		<el-table-column prop="total" label="数量" width="120" fixed="right" />
-		<el-table-column prop="" label="操作" width="120" fixed="right">
+		<el-table-column
+			prop="unit"
+			label="单位"
+			width="120" />
+		<el-table-column
+			prop="desc"
+			label="备注" />
+		<el-table-column
+			prop="total"
+			label="数量"
+			width="120"
+			fixed="right" />
+		<el-table-column
+			prop=""
+			label="操作"
+			width="120"
+			fixed="right">
 			<template #default="scope">
-				<el-button type="success" link @click="openEditStock(scope.row)">
+				<el-button
+					type="success"
+					link
+					@click="openEditStock(scope.row)">
 					<el-icon><EditPen /></el-icon>
 				</el-button>
 				<el-popconfirm title="确认删除？">
 					<template #reference>
-						<el-button type="danger" link>
+						<el-button
+							type="danger"
+							link>
 							<el-icon><Delete /></el-icon>
 						</el-button>
 					</template>
@@ -44,8 +102,15 @@
 			</template>
 		</el-table-column>
 	</el-table>
-	<RePagination :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></RePagination>
-	<AddEdit :data="stockInfo" ref="dialogForm" @result="getStockList"></AddEdit>
+	<RePagination
+		:current="params.pageCurrent"
+		:total="params.pageTotal"
+		@change-size="pageChangeSize"
+		@change-current="pageChangeCurrent"></RePagination>
+	<AddEdit
+		:data="stockInfo"
+		ref="dialogForm"
+		@result="getStockList"></AddEdit>
 </template>
 
 <script lang="ts" setup name="">

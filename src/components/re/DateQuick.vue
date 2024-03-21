@@ -7,8 +7,7 @@
 		start-placeholder="Start date"
 		end-placeholder="End date"
 		:shortcuts="dateOptions.shortcuts"
-		@change="changeDate"
-	/>
+		@change="changeDate" />
 </template>
 
 <script lang="ts" setup name="">

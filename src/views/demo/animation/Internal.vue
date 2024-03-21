@@ -36,7 +36,60 @@
 		<el-col
 			:span="24"
 			class="re-mt-20">
-			<SelfMadeSystem></SelfMadeSystem>
+			<el-collapse
+				v-model="collapseValue"
+				accordion>
+				<el-collapse-item
+					title="Buttons"
+					name="1">
+					<Adamgiebl></Adamgiebl>
+				</el-collapse-item>
+				<el-collapse-item
+					title="Checkboxes"
+					name="2">
+					<Mobinkakei></Mobinkakei>
+				</el-collapse-item>
+				<el-collapse-item
+					title="ToggleSwitches"
+					name="3">
+					<Rishichawda></Rishichawda>
+				</el-collapse-item>
+				<el-collapse-item
+					title="Cards"
+					name="4">
+					<SelfMadeSystem></SelfMadeSystem>
+				</el-collapse-item>
+				<el-collapse-item
+					title="Loaders"
+					name="5">
+					<SelfMadeSystem></SelfMadeSystem>
+				</el-collapse-item>
+				<el-collapse-item
+					title="Inputs"
+					name="6">
+					<SelfMadeSystem></SelfMadeSystem>
+				</el-collapse-item>
+				<el-collapse-item
+					title="RadioButtons"
+					name="7">
+					<SelfMadeSystem></SelfMadeSystem>
+				</el-collapse-item>
+				<el-collapse-item
+					title="Forms"
+					name="8">
+					<SelfMadeSystem></SelfMadeSystem>
+				</el-collapse-item>
+				<el-collapse-item
+					title="Patterns"
+					name="9">
+					<SelfMadeSystem></SelfMadeSystem>
+				</el-collapse-item>
+				<el-collapse-item
+					title="Tooltips"
+					name="10">
+					<SelfMadeSystem></SelfMadeSystem>
+				</el-collapse-item>
+			</el-collapse>
 		</el-col>
 	</el-row>
 </template>
@@ -45,6 +98,9 @@
 	import { shuffle } from "lodash-es";
 	import LotteryWheel from "./components/LotteryWheel.vue";
 	import SelfMadeSystem from "./loading/SelfMadeSystem.vue";
+	import Adamgiebl from "./button/Adamgiebl.vue";
+	import Mobinkakei from "./checkbox/Mobinkakei.vue";
+	import Rishichawda from "./switch/Rishichawda.vue";
 
 	const transition = ref(true);
 	const changeTransition = () => {
@@ -64,6 +120,8 @@
 	const resetTransition = () => {
 		items.value = initItems();
 	};
+
+	const collapseValue = ref("1");
 </script>
 
 <style scoped lang="scss">

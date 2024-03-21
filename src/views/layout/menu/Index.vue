@@ -1,12 +1,20 @@
 <template>
-	<div v-if="isColl" class="logo-full re-flex-row-center">
-		<el-link :underline="false" @click="toHome">
+	<div
+		v-if="isColl"
+		class="logo-full re-flex-row-center">
+		<el-link
+			:underline="false"
+			@click="toHome">
 			<i class="iconfont icon-shouye"></i>
 			<span class="re-ml-10">CC ADMIN</span>
 		</el-link>
 	</div>
-	<div v-else class="animate__animated animate__zoomIn logo-only re-flex-row-center">
-		<el-link :underline="false" @click="toHome">
+	<div
+		v-else
+		class="animate__animated animate__zoomIn logo-only re-flex-row-center">
+		<el-link
+			:underline="false"
+			@click="toHome">
 			<i class="iconfont icon-shouye"></i>
 		</el-link>
 	</div>
@@ -19,9 +27,10 @@
 			:unique-opened="true"
 			@select="toRouter"
 			@open="openMenu"
-			@close="closeMenu"
-		>
-			<SubMenu v-if="state.menuList && state.menuList.length" :menus="state.menuList"></SubMenu>
+			@close="closeMenu">
+			<SubMenu
+				v-if="state.menuList && state.menuList.length"
+				:menus="state.menuList"></SubMenu>
 		</el-menu>
 	</el-scrollbar>
 </template>

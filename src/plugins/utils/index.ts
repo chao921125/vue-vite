@@ -139,15 +139,7 @@ util.isMobile = (opts) => {
 
 	let result = (mobileRE.test(ua) && !notMobileRE.test(ua)) || (!!opts.tablet && tabletRE.test(ua));
 
-	if (
-		!result &&
-		opts.tablet &&
-		opts.featureDetect &&
-		navigator &&
-		navigator.maxTouchPoints > 1 &&
-		ua.indexOf("Macintosh") !== -1 &&
-		ua.indexOf("Safari") !== -1
-	) {
+	if (!result && opts.tablet && opts.featureDetect && navigator && navigator.maxTouchPoints > 1 && ua.indexOf("Macintosh") !== -1 && ua.indexOf("Safari") !== -1) {
 		result = true;
 	}
 	return result;

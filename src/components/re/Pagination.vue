@@ -1,6 +1,8 @@
 <template>
 	<el-row justify="end">
-		<el-col :span="24" class="re-flex-row-end page-box">
+		<el-col
+			:span="24"
+			class="re-flex-row-end page-box">
 			<el-pagination
 				v-model:currentPage="pageOption.pageCurrent"
 				v-model:page-size="pageOption.pageSize"
@@ -11,8 +13,7 @@
 				:layout="pageOption.layout"
 				:total="pageOption.pageTotal"
 				@size-change="pageChangeSize"
-				@current-change="pageChangeCurrent"
-			/>
+				@current-change="pageChangeCurrent" />
 		</el-col>
 	</el-row>
 </template>

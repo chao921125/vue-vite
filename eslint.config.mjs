@@ -30,7 +30,7 @@ export default [
 			ecmaVersion: "latest",
 			sourceType: "module",
 			// globals: "module",
-			// parser: "espree",
+			parser: "vue-eslint-parser",
 			// parserOptions: "espree",
 		},
 		linterOptions: {

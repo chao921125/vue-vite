@@ -1,6 +1,8 @@
 <template>
 	<el-row justify="space-between">
-		<el-col :lg="8" :sm="24">
+		<el-col
+			:lg="8"
+			:sm="24">
 			<LuckyWheel
 				ref="wheelRef"
 				width="300px"
@@ -9,10 +11,11 @@
 				:blocks="wheelOptions.blocks"
 				:buttons="wheelOptions.buttons"
 				@start="startWheel"
-				@end="endWheel"
-			></LuckyWheel>
+				@end="endWheel"></LuckyWheel>
 		</el-col>
-		<el-col :lg="8" :sm="24">
+		<el-col
+			:lg="8"
+			:sm="24">
 			<LuckyGrid
 				ref="gridRef"
 				width="300px"
@@ -22,10 +25,11 @@
 				:buttons="girdOptions.buttons"
 				:default-style="girdOptions.defaultStyle"
 				@start="startGrid"
-				@end="endGrid"
-			></LuckyGrid>
+				@end="endGrid"></LuckyGrid>
 		</el-col>
-		<el-col :lg="8" :sm="24">
+		<el-col
+			:lg="8"
+			:sm="24">
 			<SlotMachine
 				width="300px"
 				height="300px"
@@ -35,9 +39,12 @@
 				:slots="machineOptions.slots"
 				:default-config="machineOptions.defaultConfig"
 				:default-style="machineOptions.defaultStyle"
-				@end="endMachine"
-			></SlotMachine>
-			<el-button @click="startMachine" type="primary">Start</el-button>
+				@end="endMachine"></SlotMachine>
+			<el-button
+				@click="startMachine"
+				type="primary"
+				>Start</el-button
+			>
 		</el-col>
 	</el-row>
 </template>

@@ -1,7 +1,13 @@
 <template>
 	<el-row class="icon-box">
 		<el-col :span="24">
-			element icon 示例：<el-link :underline="false" type="primary" target="_blank" href="https://element-plus.gitee.io/zh-CN/">官网</el-link>
+			element icon 示例：<el-link
+				:underline="false"
+				type="primary"
+				target="_blank"
+				href="https://element-plus.gitee.io/zh-CN/"
+				>官网</el-link
+			>
 		</el-col>
 		<el-col :span="24">
 			<code>
@@ -20,24 +26,54 @@
 	</el-row>
 	<el-divider />
 	<el-row class="icon-box">
-		<el-col :span="24"> iconfont 示例 <el-link :underline="false" type="primary" target="_blank" href="https://www.iconfont.cn/">官网</el-link> </el-col>
+		<el-col :span="24">
+			iconfont 示例
+			<el-link
+				:underline="false"
+				type="primary"
+				target="_blank"
+				href="https://www.iconfont.cn/"
+				>官网</el-link
+			>
+		</el-col>
 		<el-col :span="24">
 			<code>iconfont &lt;i class="iconfont icon-detail"&gt;&lt;/i&gt; <i class="iconfont icon-detail" /></code>
 		</el-col>
 	</el-row>
 	<el-divider />
 	<el-row class="icon-box">
-		<el-col :span="24"> svg 示例 <el-link :underline="false" type="primary" target="_blank" href="https://www.svgrepo.com/">某图标库</el-link></el-col>
 		<el-col :span="24">
-			<icon-svg name="accessibility-outline" class="svg-icon-cus"></icon-svg>
-			<icon-svg name="democrat" class="svg-icon-cus"></icon-svg>
-			<icon-svg name="wifi" class="svg-icon-cus"></icon-svg>
+			svg 示例
+			<el-link
+				:underline="false"
+				type="primary"
+				target="_blank"
+				href="https://www.svgrepo.com/"
+				>某图标库</el-link
+			></el-col
+		>
+		<el-col :span="24">
+			<icon-svg
+				name="accessibility-outline"
+				class="svg-icon-cus"></icon-svg>
+			<icon-svg
+				name="democrat"
+				class="svg-icon-cus"></icon-svg>
+			<icon-svg
+				name="wifi"
+				class="svg-icon-cus"></icon-svg>
 		</el-col>
 	</el-row>
 	<el-divider />
 	<el-row class="icon-box">
 		<el-col :span="24">
-			iconify 示例：<el-link :underline="false" type="primary" target="_blank" href="https://icon-sets.iconify.design/">官网</el-link>
+			iconify 示例：<el-link
+				:underline="false"
+				type="primary"
+				target="_blank"
+				href="https://icon-sets.iconify.design/"
+				>官网</el-link
+			>
 		</el-col>
 		<el-col :span="24">
 			<p>由于这个包体积太大，本项目未使用该包，借此只提供使用方法不提供展示demo，如需要使用该图标库，请在 package.json 文件中添加以下内容</p>
@@ -52,7 +88,14 @@
 		</el-col>
 		<el-col :span="24">
 			<code>
-				2、unplugin-icons 示例 <el-link :underline="false" type="primary" target="_blank" href="https://icones.netlify.app/">官网</el-link>
+				2、unplugin-icons 示例
+				<el-link
+					:underline="false"
+					type="primary"
+					target="_blank"
+					href="https://icones.netlify.app/"
+					>官网</el-link
+				>
 				unplugin-icons &lt;i-mdi-account-reactivate style="font-size: 2em; color: red"&gt;&lt;/i&gt;
 				<!-- <i-mdi-account-reactivate style="font-size: 2em; color: red" /> -->
 				<!-- <el-icon :size="20"> -->

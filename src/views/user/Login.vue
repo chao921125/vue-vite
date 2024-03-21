@@ -1,23 +1,58 @@
 <template>
-	<el-row justify="center" class="login-box">
-		<el-col :span="14" class="login-logo re-flex-col-center">
+	<el-row
+		justify="center"
+		class="login-box">
+		<el-col
+			:span="14"
+			class="login-logo re-flex-col-center">
 			<!-- loading -->
 			<div class="re-flex-row-center"><div class="loading"></div></div>
 			<div class="re-flex-row-center">CC ADMIN</div>
 		</el-col>
-		<el-col :span="10" class="login-form re-flex-col-center">
-			<el-form ref="formUserRef" :model="formUser" status-icon :rules="formRulesUser" label-width="0" :scroll-to-error="true" class="form-login">
-				<el-form-item label="" prop="userName">
-					<el-input v-model="formUser.userName" maxlength="11" placeholder="user name" autofocus @keyup.enter.native="loginUser(formUserRef)" />
+		<el-col
+			:span="10"
+			class="login-form re-flex-col-center">
+			<el-form
+				ref="formUserRef"
+				:model="formUser"
+				status-icon
+				:rules="formRulesUser"
+				label-width="0"
+				:scroll-to-error="true"
+				class="form-login">
+				<el-form-item
+					label=""
+					prop="userName">
+					<el-input
+						v-model="formUser.userName"
+						maxlength="11"
+						placeholder="user name"
+						autofocus
+						@keyup.enter.native="loginUser(formUserRef)" />
 				</el-form-item>
-				<el-form-item label="" prop="password">
-					<el-input v-model="formUser.password" type="password" placeholder="user password" @keyup.enter.native="loginUser(formUserRef)" />
+				<el-form-item
+					label=""
+					prop="password">
+					<el-input
+						v-model="formUser.password"
+						type="password"
+						placeholder="user password"
+						@keyup.enter.native="loginUser(formUserRef)" />
 				</el-form-item>
-				<el-form-item label="" prop="">
+				<el-form-item
+					label=""
+					prop="">
 					<label>账号：admin/user 密码：随意</label>
 				</el-form-item>
-				<el-form-item label="" prop="">
-					<el-button @click.native.prevent="loginUser(formUserRef)" @keyup.enter.native="loginUser(formUserRef)" :loading="isLoading">login</el-button>
+				<el-form-item
+					label=""
+					prop="">
+					<el-button
+						@click.native.prevent="loginUser(formUserRef)"
+						@keyup.enter.native="loginUser(formUserRef)"
+						:loading="isLoading"
+						>login</el-button
+					>
 				</el-form-item>
 			</el-form>
 		</el-col>

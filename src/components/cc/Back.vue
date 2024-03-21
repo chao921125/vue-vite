@@ -1,5 +1,10 @@
 <template>
-	<el-button link @click="goBack" type="primary">back</el-button>
+	<el-button
+		link
+		@click="goBack"
+		type="primary"
+		>back</el-button
+	>
 </template>
 
 <script lang="ts" setup name="">
