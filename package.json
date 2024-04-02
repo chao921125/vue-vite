@@ -50,11 +50,7 @@
 		"*.less": "stylelint --fix",
 		"*.css": "stylelint --fix"
 	},
-	"config": {
-		"commitizen": {
-			"path": "node_modules/cz-git"
-		}
-	},
+	"config": {},
 	"dependencies": {
 		"@babel/runtime": "^7.24.1",
 		"@bpmn-io/element-templates-validator": "^2.0.1",
