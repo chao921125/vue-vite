@@ -537,6 +537,7 @@
 | 代码提交信息校验 -D                                                                          |
 |--------------------------------------------------------------------------------------|
 | [husky](https://www.npmjs.com/package/husky)                                         |
+| [commitlint](https://commitlint.js.org/)                                    			   |
 | [commitizen](https://www.npmjs.com/package/commitizen)                               |
 | [cz-conventional-changelog](https://www.npmjs.com/package/cz-conventional-changelog) |
 | [cz-customizable](https://www.npmjs.com/package/cz-customizable)                     |
