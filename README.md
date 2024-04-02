@@ -1,6 +1,6 @@
 # [访问地址](https://vue-vite.pages.dev/) - [项目截图](./doc/Project.md)
 [//]: # (pnpx husky install)
-###### bun实测下来安装后的包要比 pnpm 大一点，大家自行选择吧
+###### bun install > pnpm install 实测会大个 1% 左右
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
 2. husky + lint-staged + @commitlint/cli 规范提交格式（提交代码前自检）
