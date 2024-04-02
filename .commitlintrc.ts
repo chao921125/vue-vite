@@ -1,5 +1,5 @@
-// @see: https://cz-git.qbenben.com/zh/guide
-
+// @see: https://commitlint.js.org/
+// @see: https://cz-git.qbb.sh/zh/
 import type { UserConfig } from "@commitlint/types";
 // import pkg from "./package.json";
 // const version = pkg.version;
