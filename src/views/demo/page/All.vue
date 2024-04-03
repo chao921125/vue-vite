@@ -69,6 +69,12 @@
 				alt=""
 				class=""></el-image>
 		</el-col>
+		<div
+			v-for="(item, index) in ObjStatusUse"
+			:key="index"
+			>{{ index }}{{ item }}</div
+		>
+		<div>{{ ObjStatusUse[1] }}</div>
 	</el-row>
 </template>
 
@@ -76,6 +82,7 @@
 	import { $t } from "@/plugins/i18n";
 	import Logo from "@/assets/images/logo.png";
 	import api from "@/api";
+	import { ObjStatusUse } from "@/plugins/enums";
 
 	const isLoading = ref(true);
 	setTimeout(() => {
