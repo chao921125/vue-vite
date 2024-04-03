@@ -1,5 +1,6 @@
-// 引入项目中的全部全局组件
-// import SvgIcon from "./svgIcon/index.vue"
+/**
+ * 引入项目中的全部全局组件
+ */
 
 // 组装成一个对象
 const allGlobalComponents: any = {

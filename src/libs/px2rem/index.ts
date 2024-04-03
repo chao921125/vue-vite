@@ -1,4 +1,3 @@
-// @ts-ignore
 const baseSize = 16;
 // 设置 rem 函数
 function setRem() {
