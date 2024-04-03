@@ -17,9 +17,21 @@
 		<el-col :span="24">权限指令 删除 由数据判断无法操作</el-col>
 		<el-col :span="24">
 			<el-checkbox-group v-model="authList">
-				<el-checkbox label="C">创建</el-checkbox>
-				<el-checkbox label="R">查询</el-checkbox>
-				<el-checkbox label="U">修改</el-checkbox>
+				<el-checkbox
+					label="C"
+					value="C"
+					>创建</el-checkbox
+				>
+				<el-checkbox
+					label="R"
+					value="R"
+					>查询</el-checkbox
+				>
+				<el-checkbox
+					label="U"
+					value="U"
+					>修改</el-checkbox
+				>
 				<el-checkbox
 					label="D"
 					disabled
