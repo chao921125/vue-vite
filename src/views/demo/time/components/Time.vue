@@ -65,6 +65,7 @@
 				<el-checkbox
 					v-model="allweek"
 					label="全部"
+					value=""
 					size="large"
 					:disabled="props.timeQuantumProps.disabled"
 					@change="selectAllWeek" />
@@ -73,6 +74,7 @@
 					:key="item.week"
 					v-model="item.weekBooleanVal"
 					:label="item.weekName"
+					:value="item.weekName"
 					size="large"
 					:disabled="item.currentBool || props.timeQuantumProps.disabled" />
 			</div>
@@ -88,6 +90,7 @@
 					<el-checkbox
 						v-model="val.booleanVal"
 						:label="val.time"
+						:value="val.time"
 						size="large"
 						:disabled="props.timeQuantumProps.disabled"
 						@change="operationTimeRange(item, val, key)" />

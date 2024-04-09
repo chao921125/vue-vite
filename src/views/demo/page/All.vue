@@ -18,22 +18,23 @@
 		<el-col :span="24">
 			<el-checkbox-group v-model="authList">
 				<el-checkbox
-					label="C"
+					label="创建"
 					value="C"
 					>创建</el-checkbox
 				>
 				<el-checkbox
-					label="R"
+					label="查询"
 					value="R"
 					>查询</el-checkbox
 				>
 				<el-checkbox
-					label="U"
+					label="修改"
 					value="U"
 					>修改</el-checkbox
 				>
 				<el-checkbox
-					label="D"
+					label="删除"
+					value="D"
 					disabled
 					>删除</el-checkbox
 				>
