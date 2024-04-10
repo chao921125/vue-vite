@@ -557,18 +557,19 @@
 | [mochajs webpack](https://mochajs.org/)                                 |
 
 # 跨端适配方案
-| 适配移动端 -D                                                                               |
-|----------------------------------------------------------------------------------------|
-| **rem方案过时啦，用vw方案解决吧**                                                                  |
-| [postcss-loader 将px转rem](https://www.npmjs.com/package/postcss-loader)                 |
-| **vw方案 需要依赖style-loader 且需要删除@vue/cli-plugin-eslint**                                  |
-| [postcss-px-to-viewport](https://www.npmjs.com/package/postcss-px-to-viewport)         |
-| **rem方案**                                                                              |
-| [~~lib-flexible~~](https://www.npmjs.com/package/lib-flexible)                         |
-| [postcss-pxtorem](https://www.npmjs.com/package/postcss-pxtorem)                       |
-| [amfe-flexible](https://www.npmjs.com/package/amfe-flexible)                           |
-| [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem)       |
-| [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)                     |
+| 适配移动端 -D                                                                                                 |
+|----------------------------------------------------------------------------------------------------------|
+| **rem方案过时啦，用vw方案解决吧**                                                                                    |
+| [postcss-loader 将px转rem](https://www.npmjs.com/package/postcss-loader)                                   |
+| **vw方案 需要依赖style-loader 且需要删除@vue/cli-plugin-eslint**                                                    |
+| [postcss-px-to-viewport](https://www.npmjs.com/package/postcss-px-to-viewport)                           |
+| [postcss-px-to-viewport-8-plugin TS 请用这个](https://www.npmjs.com/package/postcss-px-to-viewport-8-plugin) |
+| **rem方案**                                                                                                |
+| [~~lib-flexible~~](https://www.npmjs.com/package/lib-flexible)                                           |
+| [postcss-pxtorem](https://www.npmjs.com/package/postcss-pxtorem)                                         |
+| [amfe-flexible](https://www.npmjs.com/package/amfe-flexible)                                             |
+| [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem)                         |
+| [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)                                       |
 
 | 跨端框架推荐：包含小程序啥的                                                   |
 |------------------------------------------------------------------|
