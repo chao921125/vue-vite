@@ -124,13 +124,11 @@
 | [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier) |
 
 # UI相关
-| UI 多端 官方                                       |
-|------------------------------------------------|
-| [tdesign 腾讯多端UI](https://tdesign.tencent.com/) |
 
 | UI PC 官方                                                                       |
 |--------------------------------------------------------------------------------|
 | [👍 element-plus 官网](https://element-plus.org/)                                |
+| [tdesign 腾讯多端UI 包含 Web 和手机端](https://tdesign.tencent.com/)                     |
 | [headlessui 组件简单](https://headlessui.com/)                                     |
 | [naiveui](https://www.naiveui.com/zh-CN/os-theme)                              |
 | [arco 字节 官网](https://arco.design/)                                             |
@@ -185,10 +183,10 @@
 | [mint-ui 官网](http://mint-ui.github.io/#!/zh-cn)   |
 | [buefy 官网](https://buefy.org/)                    |
 
-| 含商业收费版                                     |
-|--------------------------------------------|
-| [vuetifyjs 商业版收费](https://vuetifyjs.com/)  |
-| [firstui 有付费的 UI](https://www.firstui.cn/) |
+| 含商业收费版                                           |
+|--------------------------------------------------|
+| [vuetifyjs 超级古老框架 商业版收费](https://vuetifyjs.com/) |
+| [firstui 有付费的 UI](https://www.firstui.cn/)       |
 
 | 低代码                                                             |
 |-----------------------------------------------------------------|
@@ -238,6 +236,7 @@
 | [plottablejs 官网](http://plottablejs.org/)                        |
 | [Highcharts 官网 付费](https://www.highcharts.com/)                  |
 | [amcharts 官网 付费](https://www.amcharts.com/)                      |
+| [storybook 官网](https://storybook.js.org/)                        |
 
 | 营销组件                               |
 |------------------------------------|
@@ -497,6 +496,7 @@
 | [gsap库](https://www.npmjs.com/package/gsap/) [官网](https://greensock.com/gsap/) |
 | [angrytools](https://angrytools.com/)                                          | 
 | [angrytools](https://angrytools.com/css/animation/)                            |
+| [auto-animate](https://auto-animate.formkit.com/)                              | 
 | [animejs](https://animejs.com/)                                                |
 | [csshake 抖动效果](https://elrumordelaluz.github.io/csshake/)                      |
 | [animista](https://animista.net/)                                              |
