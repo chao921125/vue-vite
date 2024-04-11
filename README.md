@@ -633,6 +633,8 @@
 |-------------------------------------|
 | [字体 CDN](https://www.cdnfonts.com/) |
 | [cdnjs](https://cdnjs.com/)         |
+| [字体下载]()                            |
+| [google](https://fonts.google.com/) |
 
 # CMS
 |                                            |
