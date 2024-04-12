@@ -504,8 +504,6 @@
 | [Waves js库 停更](https://github.com/fians/Waves)                                     |
 | [gsap库 含收费](https://www.npmjs.com/package/gsap/) [官网](https://greensock.com/gsap/) |
 | [angrytools](https://angrytools.com/)                                              | 
-| [angrytools](https://angrytools.com/css/animation/)                                |
-| [auto-animate](https://auto-animate.formkit.com/)                                  |
 | [csshake 抖动效果](https://elrumordelaluz.github.io/csshake/)                          |
 | [animista](https://animista.net/)                                                  |
 | [minimamente](https://www.minimamente.com/project/magic/)                          |

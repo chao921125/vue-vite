@@ -263,3 +263,9 @@ $sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 9
 	-webkit-transition: width 1s; /* Safari 和 Chrome */
 	-o-transition: width 1s; /* Opera */
 }
+
+.header-trans {
+	background-image: radial-gradient(transparent 1px, #FFFFFF 1px);
+	background-size: 4px 4px;
+	backdrop-filter: saturate(50%) blur(4px);
+}
