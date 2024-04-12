@@ -68,7 +68,7 @@
 					label="状态"
 					width="80">
 					<template #default="scope">
-						<el-tag :type="scope.row.status ? 'success' : 'danger'">{{ StatusUse[scope.row.status] }}</el-tag>
+						<el-tag :type="scope.row.status ? 'success' : 'danger'">{{ ObjStatusUse[scope.row.status] }}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column
@@ -112,7 +112,7 @@
 
 <script lang="ts" setup name="">
 	import type { FormInstance } from "element-plus";
-	import { StatusUse } from "@/plugins/enums";
+	import { ObjStatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";
 
 	const formSearchRef = ref<FormInstance>();
