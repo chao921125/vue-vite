@@ -484,41 +484,57 @@
 | https://github.com/Molunerfinn/PicGo                  |
 
 # 特效
-|                                                   |
-|---------------------------------------------------|
-| [auto-animate](https://auto-animate.formkit.com/) |
+|                                                                |
+|----------------------------------------------------------------|
+| [auto-animate](https://auto-animate.formkit.com/)              |
+| [tsparticles 粒子动画](https://github.com/tsparticles/tsparticles) |
+| [lottiefiles 表情动画](https://lottiefiles.com/)                   |
 
-| Loading动画                                                                    |
+| 动画                                                                                 |
+|------------------------------------------------------------------------------------|
+| [animate css库 官网](https://animate.style/)                                          |
+| [Magic.css css库 停更](https://github.com/miniMAC/magic)                              |
+| [animation css库 停更](https://limichange.github.io/my-animation-list/)               |
+| [WOW js库 官网 停更](https://www.delac.io/WOW/)                                         |
+| [vue-animate js库 官网](https://github.com/asika32764/vue-animate)                    |
+| [vue-kinesis js库 官网](https://github.com/Aminerman/vue-kinesis)                     |
+| [move js库 官网 停更](https://github.com/visionmedia/move.js)                           |
+| [animejs js库](https://animejs.com/)                                                |
+| [velocityjs js库 停更](http://velocityjs.org/)                                        |
+| [Waves js库 停更](https://github.com/fians/Waves)                                     |
+| [gsap库 含收费](https://www.npmjs.com/package/gsap/) [官网](https://greensock.com/gsap/) |
+| [angrytools](https://angrytools.com/)                                              | 
+| [angrytools](https://angrytools.com/css/animation/)                                |
+| [auto-animate](https://auto-animate.formkit.com/)                                  |
+| [csshake 抖动效果](https://elrumordelaluz.github.io/csshake/)                          |
+| [animista](https://animista.net/)                                                  |
+| [minimamente](https://www.minimamente.com/project/magic/)                          |
+| [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx)                           |
+| [vue-page-transition 过渡](https://www.npmjs.com/package/vue-page-transition)        |
+| [Animatopy](https://sarthology.github.io/Animatopy/)                               |
+| [wickedCSS](https://github.com/kristofferandreasen/wickedCSS)                      |
+| [cssanimation](https://github.com/yesiamrocks/cssanimation.io)                     |
+| [animxyz](https://animxyz.com/)                                                    |
+| [elrumordelaluz 鼠标放上效果](https://elrumordelaluz.github.io/reshake/)                 |
+| [基本形状](https://csslayout.io/)                                                      |
+| [案例 特效 1](https://codepen.io/)                                                     |
+| [案例 css技巧 1](https://csscoco.com/inspiration/#/)                                   |
+| [案例 css技巧 2](https://chokcoco.github.io/CSS-Inspiration/#/)                        |
+| [React motion](https://motion.ant.design/index-cn)                                 |
+
+| 动画 滚动                                         |
+|-----------------------------------------------|
+| [scrollrevealjs](https://scrollrevealjs.org/) |
+
+| 动画 鼠标                                             |
+|---------------------------------------------------|
+| [Hover css库 官网](https://ianlunn.github.io/Hover/) |
+
+| 动画 Loading                                                                   |
 |------------------------------------------------------------------------------|
 | [three-dots 等待效果](https://nzbin.github.io/three-dots/)                       |
 | http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading |
 | https://juejin.cn/post/7037036742985121800                                   |
-
-| 动画整理                                                                           |
-|--------------------------------------------------------------------------------|
-| [animate css库 官网](https://animate.style/)                                      |
-| [gsap库](https://www.npmjs.com/package/gsap/) [官网](https://greensock.com/gsap/) |
-| [angrytools](https://angrytools.com/)                                          | 
-| [angrytools](https://angrytools.com/css/animation/)                            |
-| [auto-animate](https://auto-animate.formkit.com/)                              | 
-| [animejs](https://animejs.com/)                                                |
-| [csshake 抖动效果](https://elrumordelaluz.github.io/csshake/)                      |
-| [animista](https://animista.net/)                                              |
-| [minimamente](https://www.minimamente.com/project/magic/)                      |
-| [vue-kinesis](https://www.npmjs.com/package/vue-kinesis)                       |
-| [tsparticles 粒子动画](https://www.npmjs.com/package/tsparticles)                  |
-| [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx)                       |
-| [vue-page-transition 过渡](https://www.npmjs.com/package/vue-page-transition)    |
-| [Animatopy](https://sarthology.github.io/Animatopy/)                           |
-| [wickedCSS](https://github.com/kristofferandreasen/wickedCSS)                  |
-| [cssanimation](https://github.com/yesiamrocks/cssanimation.io)                 |
-| [鼠标效果 ianlunn 官网](http://ianlunn.github.io/Hover/)                             |
-| [animxyz](https://animxyz.com/)                                                |
-| [elrumordelaluz 鼠标放上效果](https://elrumordelaluz.github.io/reshake/)             |
-| [基本形状](https://csslayout.io/)                                                  |
-| [案例 特效 1](https://codepen.io/)                                                 |
-| [案例 css技巧 1](https://csscoco.com/inspiration/#/)                               |
-| [案例 css技巧 2](https://chokcoco.github.io/CSS-Inspiration/#/)                    |
 
 | 文字                                                     |
 |--------------------------------------------------------|
@@ -544,7 +560,7 @@
 | 代码提交信息校验 -D                                                                          |
 |--------------------------------------------------------------------------------------|
 | [husky](https://www.npmjs.com/package/husky)                                         |
-| [commitlint](https://commitlint.js.org/)                                    			   |
+| [commitlint](https://commitlint.js.org/)                                    			      |
 | [commitizen](https://www.npmjs.com/package/commitizen)                               |
 | [cz-conventional-changelog](https://www.npmjs.com/package/cz-conventional-changelog) |
 | [cz-customizable](https://www.npmjs.com/package/cz-customizable)                     |
