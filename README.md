@@ -489,45 +489,52 @@
 | [auto-animate](https://auto-animate.formkit.com/)              |
 | [tsparticles 粒子动画](https://github.com/tsparticles/tsparticles) |
 | [lottiefiles 表情动画](https://lottiefiles.com/)                   |
+| [angrytools 生成 css](https://angrytools.com/)                   |
+| [cssanimation](https://github.com/yesiamrocks/cssanimation.io) |
 
-| 动画                                                                                 |
-|------------------------------------------------------------------------------------|
-| [animate css库 官网](https://animate.style/)                                          |
-| [Magic.css css库 停更](https://github.com/miniMAC/magic)                              |
-| [animation css库 停更](https://limichange.github.io/my-animation-list/)               |
-| [WOW js库 官网 停更](https://www.delac.io/WOW/)                                         |
-| [vue-animate js库 官网](https://github.com/asika32764/vue-animate)                    |
-| [vue-kinesis js库 官网](https://github.com/Aminerman/vue-kinesis)                     |
-| [move js库 官网 停更](https://github.com/visionmedia/move.js)                           |
-| [animejs js库](https://animejs.com/)                                                |
-| [velocityjs js库 停更](http://velocityjs.org/)                                        |
-| [Waves js库 停更](https://github.com/fians/Waves)                                     |
-| [gsap库 含收费](https://www.npmjs.com/package/gsap/) [官网](https://greensock.com/gsap/) |
-| [angrytools](https://angrytools.com/)                                              | 
-| [csshake 抖动效果](https://elrumordelaluz.github.io/csshake/)                          |
-| [animista](https://animista.net/)                                                  |
-| [minimamente](https://www.minimamente.com/project/magic/)                          |
-| [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx)                           |
-| [vue-page-transition 过渡](https://www.npmjs.com/package/vue-page-transition)        |
-| [Animatopy](https://sarthology.github.io/Animatopy/)                               |
-| [wickedCSS](https://github.com/kristofferandreasen/wickedCSS)                      |
-| [cssanimation](https://github.com/yesiamrocks/cssanimation.io)                     |
-| [animxyz](https://animxyz.com/)                                                    |
-| [elrumordelaluz 鼠标放上效果](https://elrumordelaluz.github.io/reshake/)                 |
-| [基本形状](https://csslayout.io/)                                                      |
-| [案例 特效 1](https://codepen.io/)                                                     |
-| [案例 css技巧 1](https://csscoco.com/inspiration/#/)                                   |
-| [案例 css技巧 2](https://chokcoco.github.io/CSS-Inspiration/#/)                        |
-| [React motion](https://motion.ant.design/index-cn)                                 |
+| 动画                                                                                                     |
+|--------------------------------------------------------------------------------------------------------|
+| [animate css库 官网](https://animate.style/)                                                              |
+| [Animatopy](https://sarthology.github.io/Animatopy/)                                                   |
+| [animxyz](https://animxyz.com/)                                                                        |
+| [animista](https://animista.net/)                                                                      |
+| [wickedCSS](https://github.com/kristofferandreasen/wickedCSS)                                          |
+| [Magic.css css库 停更](https://github.com/miniMAC/magic) [官网](https://www.minimamente.com/project/magic/) |
+| [animation css库 停更](https://limichange.github.io/my-animation-list/)                                   |
+| [WOW js库 官网 停更](https://www.delac.io/WOW/)                                                             |
+| [vue-animate js库 官网](https://github.com/asika32764/vue-animate)                                        |
+| [vue-kinesis js库 官网](https://github.com/Aminerman/vue-kinesis)                                         |
+| [move js库 官网 停更](https://github.com/visionmedia/move.js)                                               |
+| [animejs js库](https://animejs.com/)                                                                    |
+| [velocityjs js库 停更](http://velocityjs.org/)                                                            |
+| [Waves js库 停更](https://github.com/fians/Waves)                                                         |
+| [anijs js库 停更](https://github.com/anijs/anijs)                                                         |
+| [gsap库 含收费](https://www.npmjs.com/package/gsap/) [官网](https://greensock.com/gsap/)                     |
+| [motion js库](https://github.com/framer/motion)                                                         |
+| [saos js库](https://github.com/shiryel/saos)                                                            |
+| [popmotion js库 停更](https://github.com/popmotion/popmotion)                                             |
+| [kute js库 停更](https://github.com/thednp/kute.js)                                                       |
+| [simpleParallax js库 停更](https://github.com/geosigno/simpleParallax.js)                                 |
+| [barbajs js库 切换](https://github.com/barbajs/barba)                                                     |
+| [案例 特效 1](https://codepen.io/)                                                                         |
+| [案例 css技巧 1](https://csscoco.com/inspiration/#/)                                                       |
+| [案例 css技巧 2](https://chokcoco.github.io/CSS-Inspiration/#/)                                            |
+| [React motion](https://motion.ant.design/index-cn)                                                     |
 
-| 动画 滚动                                         |
-|-----------------------------------------------|
-| [scrollrevealjs](https://scrollrevealjs.org/) |
+| 动画 滚动视觉差                                                   |
+|------------------------------------------------------------|
+| [scrollrevealjs](https://scrollrevealjs.org/)              |
+| [lax.js](https://github.com/alexfoxy/lax.js)               |
+| [rellax.js](https://github.com/dixonandmoe/rellax)         |
+| [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx)   |
+| [scrolly 滚动视觉差](https://github.com/yesiamrocks/scrolly.js) |
 
-| 动画 鼠标                                                   |
-|---------------------------------------------------------|
-| [Hover css库 官网](https://ianlunn.github.io/Hover/)       |
-| [v-wave 指令库 官网](https://justintaddei.github.io/v-wave/) |
+| 动画 鼠标                                                                 |
+|-----------------------------------------------------------------------|
+| [Hover css库 官网](https://ianlunn.github.io/Hover/)                     |
+| [v-wave 指令库 官网](https://justintaddei.github.io/v-wave/)               |
+| [elrumordelaluz 鼠标放上效果](https://elrumordelaluz.github.io/reshake/)    |
+| [csshake 抖动效果](https://elrumordelaluz.github.io/csshake/)             |
 
 | 动画 Loading                                                                   |
 |------------------------------------------------------------------------------|
@@ -535,9 +542,20 @@
 | http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading |
 | https://juejin.cn/post/7037036742985121800                                   |
 
-| 文字                                                     |
+| 动画 文字                                                  |
 |--------------------------------------------------------|
+| [typed 打字机效果](https://github.com/mattboldt/typed.js)   |
 | [vue-textra](https://www.npmjs.com/package/vue-textra) |
+
+| 动画 SVG                                       |
+|----------------------------------------------|
+| [vivus](https://github.com/maxwellito/vivus) |
+| [mojs](https://github.com/mojs/mojs)         |
+
+| 动画 渐变                                                           |
+|-----------------------------------------------------------------|
+| [granim](https://github.com/sarcadass/granim.js)                |
+| [particles 背景图](https://github.com/VincentGarreau/particles.js) |
 
 # 开发构建
 | 节点和浏览器的BDD / TDD断言库                                  |                                  
