@@ -91,6 +91,14 @@ Object.keys(directives).forEach((key) => {
 // 手动引入自定义插件对象，注册整个项目中的全局组件
 // import globalComponent from "@/components/index.ts";
 // app.use(globalComponent)
+
+// PWA
+window.addEventListener("beforeinstallprompt", (e) => {
+	e.preventDefault();
+	// @ts-ignore
+	window.deferredPrompt = e;
+});
+
 /*
  * 自定义 end
  * */

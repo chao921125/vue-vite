@@ -87,7 +87,106 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				restart: ["vite.config.[jt]s"],
 			}),
 			// 渐进式配置
-			VitePWA({}),
+			VitePWA({
+				manifest: {
+					name: "vue-vite",
+					short_name: "vue-vite",
+					id: "vue-vite",
+					start_url: ".",
+					description: "vue-vite-pwa",
+					theme_color: "#FFFFFF",
+					icons: [
+						{
+							src: "/pwa-640.png",
+							sizes: "640x640",
+							type: "image/png",
+						},
+					],
+				},
+				registerType: "autoUpdate",
+				devOptions: {
+					enabled: true,
+				},
+				workbox: {
+					globPatterns: ["**/*.{js,ts,jsx,tsx,mjs,cjs,css,scss,less,html,ico,icon,png,jpg,jpeg,gif,webp,svg,ttf,otf,woff,woff2}"],
+					runtimeCaching: [
+						mode === "production"
+							? {
+									urlPattern: ({ url }) => url.origin === "https://api.com",
+									handler: "NetworkFirst",
+									options: {
+										cacheName: "wisbayar-api",
+										cacheableResponse: {
+											statuses: [200],
+										},
+									},
+								}
+							: {
+									urlPattern: ({ url }) => url.origin === "https://test-api.com",
+									handler: "NetworkFirst",
+									options: {
+										cacheName: "wisbayar-api",
+										cacheableResponse: {
+											statuses: [200],
+										},
+									},
+								},
+						{
+							urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+							handler: "CacheFirst",
+							options: {
+								cacheName: "wisbayar-images",
+								expiration: {
+									// 最多30个图
+									maxEntries: 30,
+								},
+							},
+						},
+						{
+							urlPattern: /.*\.js.*/,
+							handler: "StaleWhileRevalidate",
+							options: {
+								cacheName: "wisbayar-js",
+								expiration: {
+									maxEntries: 30, // 最多缓存30个，超过的按照LRU原则删除
+									maxAgeSeconds: 30 * 24 * 60 * 60,
+								},
+								cacheableResponse: {
+									statuses: [200],
+								},
+							},
+						},
+						{
+							urlPattern: /.*\.css.*/,
+							handler: "StaleWhileRevalidate",
+							options: {
+								cacheName: "wisbayar-css",
+								expiration: {
+									maxEntries: 20,
+									maxAgeSeconds: 30 * 24 * 60 * 60,
+								},
+								cacheableResponse: {
+									statuses: [200],
+								},
+							},
+						},
+						{
+							urlPattern: /.*\.html.*/,
+							handler: "StaleWhileRevalidate",
+							options: {
+								cacheName: "wisbayar-html",
+								expiration: {
+									maxEntries: 20,
+									maxAgeSeconds: 30 * 24 * 60 * 60,
+								},
+								cacheableResponse: {
+									statuses: [200],
+								},
+							},
+						},
+					],
+				},
+			}),
 			ViteEjsPlugin(
 				(viteConfig) => {
 					// viteConfig is the current viteResolved config.
