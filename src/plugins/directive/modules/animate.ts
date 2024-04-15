@@ -1,12 +1,14 @@
 import type { Directive, DirectiveBinding } from "vue";
 
-export const animated: Directive = {
+export const animate: Directive = {
 	mounted(el: HTMLElement, binding: DirectiveBinding) {
 		el.classList.add("animate__animated");
-		const options = binding.value || { animateClass: "animate__fadeIn" };
+		const options = {
+			animateClass: binding.value.animateClass || "animate__fadeIn",
+			repeat: binding.value.repeat || false,
+		};
 
 		let isEntered = false;
-		let isRepeat = options.repeat || false;
 
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry: IntersectionObserverEntry) => {
@@ -19,12 +21,12 @@ export const animated: Directive = {
 				if (entry.isIntersecting && !isEntered) {
 					el.classList.add(options.animateClass);
 					isEntered = true;
-				} else if (!entry.isIntersecting && isEntered && isRepeat) {
+				} else if (!entry.isIntersecting && isEntered && options.repeat) {
 					el.classList.remove(options.animateClass);
 					isEntered = false;
 				}
 			});
-		}, options.intersectionOptions || {});
+		}, binding.value.intersectionOptions || {});
 		observer.observe(el);
 	},
 };

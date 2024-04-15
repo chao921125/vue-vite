@@ -65,6 +65,7 @@ import Log from "@/plugins/utils/log";
 
 // 动画
 import "animate.css/animate.min.css";
+import "animate.css/animate.compat.css";
 
 // 自定义样式
 import "@/assets/styles/index.scss";
