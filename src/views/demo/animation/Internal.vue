@@ -1,14 +1,12 @@
 <template>
 	<el-row>
 		<el-col :span="24">
-			<div
-				class="ani-tr rotate-center"
-				v-animate>
-				zhuan zhuan zhuan
-			</div>
-		</el-col>
-		<el-col :span="24">
-			<lottery-wheel></lottery-wheel>
+			<span
+				v-show="isShowText"
+				v-animate="{ animateInClass: 'animate__fadeIn' }">
+				封装指令动画
+			</span>
+			<el-button @click="isShowText = !isShowText">点击 使用 animate.css 动画</el-button>
 		</el-col>
 		<el-col :span="24">
 			<el-button @click="changeTransition()">点击 测试自带过渡效果</el-button>
@@ -37,6 +35,12 @@
 				</li>
 			</TransitionGroup>
 		</el-col>
+		<el-col
+			:span="24"
+			style="font-size: 60px"
+			v-animate="{ animateInClass: 'animate__backInLeft' }"
+			>进入可视化，有过渡效果</el-col
+		>
 		<el-col
 			:span="24"
 			class="re-mt-20">
@@ -100,11 +104,12 @@
 
 <script lang="ts" setup name="">
 	import { shuffle } from "lodash-es";
-	import LotteryWheel from "./components/LotteryWheel.vue";
 	import SelfMadeSystem from "./loading/SelfMadeSystem.vue";
 	import Adamgiebl from "./button/Adamgiebl.vue";
 	import Mobinkakei from "./checkbox/Mobinkakei.vue";
 	import Rishichawda from "./switch/Rishichawda.vue";
+
+	const isShowText = ref(false);
 
 	const transition = ref(true);
 	const changeTransition = () => {
@@ -159,10 +164,5 @@
       以便正确地计算移动时的动画效果。 */
 	.fade-leave-active {
 		position: absolute;
-	}
-	.ani-tr {
-		width: 200px;
-		height: 200px;
-		border-radius: 50%;
 	}
 </style>

@@ -1,11 +1,21 @@
 import type { Directive, DirectiveBinding } from "vue";
+// import { useIntersectionObserver } from "@vueuse/core";
 
 export const animate: Directive = {
 	mounted(el: HTMLElement, binding: DirectiveBinding) {
+		// const { stop } = useIntersectionObserver(el, ([{ isIntersecting }], observerElement) => {
+		// 	if (isIntersecting) {
+		// 		el.classList.remove(options.animateOutClass);
+		// 		el.classList.add(options.animateInClass);
+		// 		stop();
+		// 	}
+		// });
+
 		el.classList.add("animate__animated");
-		const options = {
-			animateClass: binding.value.animateClass || "animate__fadeIn",
-			repeat: binding.value.repeat || false,
+		let options = {
+			animateInClass: (binding.value && binding.value.animateInClass) || "animate__fadeIn",
+			animateOutClass: (binding.value && binding.value.animateOutClass) || "animate__fadeOut",
+			repeat: (binding.value && binding.value.repeat) || false,
 		};
 
 		let isEntered = false;
@@ -16,17 +26,18 @@ export const animate: Directive = {
 				// const elTop = el.offsetTop;
 				// const scrollTop = document.documentElement.scrollTop;
 				// const top = elTop - scrollTop;
-				// console.log(top);
-
+				console.log(entry.isIntersecting);
 				if (entry.isIntersecting && !isEntered) {
-					el.classList.add(options.animateClass);
+					el.classList.remove(options.animateOutClass);
+					el.classList.add(options.animateInClass);
 					isEntered = true;
-				} else if (!entry.isIntersecting && isEntered && options.repeat) {
-					el.classList.remove(options.animateClass);
-					isEntered = false;
 				}
 			});
-		}, binding.value.intersectionOptions || {});
+		});
 		observer.observe(el);
+		window.addEventListener("resize", () => {
+			observer.disconnect();
+			observer.observe(el);
+		});
 	},
 };
