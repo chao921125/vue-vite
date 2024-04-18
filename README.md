@@ -280,13 +280,16 @@
 | [vue3 seamless 无缝滚动](https://www.npmjs.com/package/vue3-seamless-scroll)                            |
 | [vue3 infinite 无限滚动](https://www.npmjs.com/package/vue3-infinite-list)                              |
 
-| 拖拽                                                                          |
-|-----------------------------------------------------------------------------|
-| [vue3-dnd](https://haochenguang.gitee.io/vue3-dnd/)                         |
-| [vue3 vue.draggable.next](https://github.com/SortableJS/vue.draggable.next) |
-| [vue2 Vue.Draggable](https://github.com/itmier/Vue.Draggable)               |
-| [vue-grid-layout](https://www.npmjs.com/package/vue-grid-layout)            |
-| [vue-drag-resize](https://github.com/kirillmurashov/vue-drag-resize)        |
+| 拖拽                                                                            |
+|-------------------------------------------------------------------------------|
+| [vue3-dnd](https://haochenguang.gitee.io/vue3-dnd/)                           |
+| [vue3 vue.draggable.next](https://github.com/SortableJS/vue.draggable.next)   |
+| [vue-draggable-plus](https://github.com/Alfred-Skyblue/vue-draggable-plus)    |
+| [revue-draggable](https://github.com/bcakmakoglu/revue-draggable)             |
+| [vue3 draggable-resizable](https://github.com/a7650/vue3-draggable-resizable) |
+| [vue2 Vue.Draggable](https://github.com/itmier/Vue.Draggable)                 |
+| [vue2 vue-grid-layout](https://www.npmjs.com/package/vue-grid-layout)         |
+| [vue2 vue-drag-resize](https://github.com/kirillmurashov/vue-drag-resize)     |
 
 | 全屏                                                     |
 |--------------------------------------------------------|

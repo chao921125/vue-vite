@@ -46,14 +46,14 @@ dependencies:
     specifier: ^1.6.8
     version: 1.6.8
   bpmn-js:
-    specifier: ^17.2.2
-    version: 17.2.2
+    specifier: ^17.3.0
+    version: 17.3.0
   bpmn-js-element-templates:
     specifier: ^1.15.0
-    version: 1.15.0(@bpmn-io/properties-panel@3.18.2)(bpmn-js-properties-panel@5.14.0)(bpmn-js@17.2.2)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@14.3.1)(preact@10.19.2)
+    version: 1.15.0(@bpmn-io/properties-panel@3.18.2)(bpmn-js-properties-panel@5.14.0)(bpmn-js@17.3.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@14.3.1)(preact@10.19.2)
   bpmn-js-properties-panel:
     specifier: ^5.14.0
-    version: 5.14.0(@bpmn-io/properties-panel@3.18.2)(bpmn-js@17.2.2)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@14.3.1)
+    version: 5.14.0(@bpmn-io/properties-panel@3.18.2)(bpmn-js@17.3.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@14.3.1)
   bpmn-moddle:
     specifier: ^9.0.1
     version: 9.0.1
@@ -145,11 +145,11 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   vue-i18n:
-    specifier: ^9.12.1
-    version: 9.12.1(vue@3.4.23)
+    specifier: ^9.13.0
+    version: 9.13.0(vue@3.4.23)
   vue-router:
-    specifier: ^4.3.0
-    version: 4.3.0(vue@3.4.23)
+    specifier: ^4.3.1
+    version: 4.3.1(vue@3.4.23)
   vue-treeselect:
     specifier: ^1.0.7
     version: 1.0.7
@@ -3793,24 +3793,24 @@ packages:
       - supports-color
     dev: true
 
-  /@intlify/core-base@9.12.1:
-    resolution: {integrity: sha512-l7djJEmXLAR44PdtKDEBev/TN9tREQz967/+jvN3WtICqFoy2Cz8kPtjDfvZctqPNzOonp+ESsDCUm+rjHsmdA==}
+  /@intlify/core-base@9.13.0:
+    resolution: {integrity: sha512-Lx8+YTrFpom7AtdbbuJHzgmr612/bceHU92v8ZPU9HU9/rczf+TmCs95BxWPIR4K42xh4MVMLsNzLUWiXcNaLg==}
     engines: {node: '>= 16'}
     dependencies:
-      '@intlify/message-compiler': 9.12.1
-      '@intlify/shared': 9.12.1
+      '@intlify/message-compiler': 9.13.0
+      '@intlify/shared': 9.13.0
     dev: false
 
-  /@intlify/message-compiler@9.12.1:
-    resolution: {integrity: sha512-6QrMGdqKUJSkctyg56nvE+h86tjQZTjYFEfx3ghQAXKPXUd1v5josZXrwnSbIEWWeAentlwtB5qW1FE5r2S8AQ==}
+  /@intlify/message-compiler@9.13.0:
+    resolution: {integrity: sha512-zhESuudiDpFQhUOx/qrSMd7ZYHbmgCc0QzBc27cDUxaaAj3olbYJnsx3osiHPQyYnv/LuC+WTqoNOEBoHP6dqQ==}
     engines: {node: '>= 16'}
     dependencies:
-      '@intlify/shared': 9.12.1
+      '@intlify/shared': 9.13.0
       source-map-js: 1.2.0
     dev: false
 
-  /@intlify/shared@9.12.1:
-    resolution: {integrity: sha512-xAAAxaMS7yUCkwXwqUVQmGCPbXSm6oHqMzcqr2IrxJQmC0DmuqoaW0yBeWyd/pG03PPXqGtWhJLnefsiVElzAQ==}
+  /@intlify/shared@9.13.0:
+    resolution: {integrity: sha512-fUwWcpDz9Wm4dSaz+6XmjoNXWBjZLJtT1Zf1cpLBELbCAOS8WBRscPtgOSfzm6JCqf5KgMI4g917f5TtEeez3A==}
     engines: {node: '>= 16'}
     dev: false
 
@@ -5475,7 +5475,7 @@ packages:
       big-integer: 1.6.51
     dev: true
 
-  /bpmn-js-element-templates@1.15.0(@bpmn-io/properties-panel@3.18.2)(bpmn-js-properties-panel@5.14.0)(bpmn-js@17.2.2)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@14.3.1)(preact@10.19.2):
+  /bpmn-js-element-templates@1.15.0(@bpmn-io/properties-panel@3.18.2)(bpmn-js-properties-panel@5.14.0)(bpmn-js@17.3.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@14.3.1)(preact@10.19.2):
     resolution: {integrity: sha512-zrlNMPoZKtD9Pt3SNOJX4X3h8meO2pZfIvNvs6cdpr4mb0+z4MyaKiRCG/ECeV+FfDjz6UfTV/8IWTsfK+3L/A==}
     peerDependencies:
       '@bpmn-io/properties-panel': '>= 2.2'
@@ -5487,10 +5487,10 @@ packages:
       '@bpmn-io/element-templates-validator': 2.0.1
       '@bpmn-io/extract-process-variables': 0.8.0
       '@bpmn-io/properties-panel': 3.18.2(@lezer/common@1.1.2)
-      bpmn-js: 17.2.2
-      bpmn-js-properties-panel: 5.14.0(@bpmn-io/properties-panel@3.18.2)(bpmn-js@17.2.2)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@14.3.1)
+      bpmn-js: 17.3.0
+      bpmn-js-properties-panel: 5.14.0(@bpmn-io/properties-panel@3.18.2)(bpmn-js@17.3.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@14.3.1)
       bpmnlint: 10.1.0
-      camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@17.2.2)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
+      camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@17.3.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
       classnames: 2.3.2
       diagram-js: 14.3.1
       ids: 1.0.5
@@ -5503,7 +5503,7 @@ packages:
       - preact
     dev: false
 
-  /bpmn-js-properties-panel@5.14.0(@bpmn-io/properties-panel@3.18.2)(bpmn-js@17.2.2)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@14.3.1):
+  /bpmn-js-properties-panel@5.14.0(@bpmn-io/properties-panel@3.18.2)(bpmn-js@17.3.0)(camunda-bpmn-js-behaviors@1.2.2)(diagram-js@14.3.1):
     resolution: {integrity: sha512-Xc0+FxKnbvsxifG8eXPdjqOR8/d10tiGlbyh3wye3J/wrBGQ7BGUM00nexLtQ4fL9eSe3TOPJ0UePk3lrzslPw==}
     peerDependencies:
       '@bpmn-io/properties-panel': '>= 3.7'
@@ -5514,16 +5514,16 @@ packages:
       '@bpmn-io/extract-process-variables': 0.8.0
       '@bpmn-io/properties-panel': 3.18.2(@lezer/common@1.1.2)
       array-move: 4.0.0
-      bpmn-js: 17.2.2
-      camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@17.2.2)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
+      bpmn-js: 17.3.0
+      camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@17.3.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
       diagram-js: 14.3.1
       ids: 1.0.5
       min-dash: 4.2.1
       min-dom: 4.1.0
     dev: false
 
-  /bpmn-js@17.2.2:
-    resolution: {integrity: sha512-x/IxyoSE+G5DUbe8mLdv6Rb/n0IXYyuc7kMxvqrBpXLhPOK/brFOMnN9b0qYW68xQnM+39zlTKknO7HxICaw7w==}
+  /bpmn-js@17.3.0:
+    resolution: {integrity: sha512-LRwloZ+MoOl4YyOfXPgehifJ412o7LQcQmyrvtfn4bxnzQQfNDUBDnP0pmel4s0mfgEtIG0EFegOYxlBS19Uaw==}
     dependencies:
       bpmn-moddle: 8.1.0
       diagram-js: 14.3.1
@@ -5700,14 +5700,14 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.2.2)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0):
+  /camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.3.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0):
     resolution: {integrity: sha512-BYbiKH5L3tMqpFOnmlIOp2QR/8ewNG0UOIOVafBYuZCiBOXr/XMl86gOF0aT994xdOGKO/6gdqc7+p8baAxcEw==}
     peerDependencies:
       bpmn-js: '>= 9'
       camunda-bpmn-moddle: '>= 7'
       zeebe-bpmn-moddle: '>= 0.18'
     dependencies:
-      bpmn-js: 17.2.2
+      bpmn-js: 17.3.0
       camunda-bpmn-moddle: 7.0.1
       ids: 1.0.5
       min-dash: 4.2.1
@@ -12200,20 +12200,20 @@ packages:
       - supports-color
     dev: true
 
-  /vue-i18n@9.12.1(vue@3.4.23):
-    resolution: {integrity: sha512-cqkBt10YzxF3tNGA7/95VMfFdk8nEoguzB7K7R9rldiSnHyWeokq6GOWMThfK/siTr2lLfM9nqolD/er//t4Iw==}
+  /vue-i18n@9.13.0(vue@3.4.23):
+    resolution: {integrity: sha512-NlZ+e8rhGSGNk/Vfh4IUvlPRjljPCRslbNYgQmYZY+sLXZgahw8fylQguZU3e8ntJDvitfe40f8p3udOiKMS0A==}
     engines: {node: '>= 16'}
     peerDependencies:
       vue: ^3.0.0
     dependencies:
-      '@intlify/core-base': 9.12.1
-      '@intlify/shared': 9.12.1
+      '@intlify/core-base': 9.13.0
+      '@intlify/shared': 9.13.0
       '@vue/devtools-api': 6.6.1
       vue: 3.4.23(typescript@5.4.5)
     dev: false
 
-  /vue-router@4.3.0(vue@3.4.23):
-    resolution: {integrity: sha512-dqUcs8tUeG+ssgWhcPbjHvazML16Oga5w34uCUmsk7i0BcnskoLGwjpa15fqMr2Fa5JgVBrdL2MEgqz6XZ/6IQ==}
+  /vue-router@4.3.1(vue@3.4.23):
+    resolution: {integrity: sha512-D0h3oyP6vp28BOvxv2hVpiqFTjTJizCf1BuMmCibc8UW0Ll/N80SWqDd/hqPMaZfzW1j+s2s+aTRyBIP9ElzOw==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:

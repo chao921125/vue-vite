@@ -25,7 +25,6 @@ import components from "unplugin-vue-components/vite";
 import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
 // CSS 预构建
 import UnoCSS from "unocss/vite";
-// import { presetAttributify, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from "unocss";
 // 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
@@ -88,12 +87,18 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			// 渐进式配置
 			VitePWA({
+				registerType: "autoUpdate",
+				devOptions: {
+					enabled: false,
+				},
+				injectRegister: "auto",
+				includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
 				manifest: {
-					name: "vue-vite",
+					name: "vue-vite project",
 					short_name: "vue-vite",
+					description: "vue-vite-pwa",
 					id: "vue-vite",
 					start_url: ".",
-					description: "vue-vite-pwa",
 					theme_color: "#FFFFFF",
 					icons: [
 						{
@@ -103,39 +108,37 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 						},
 					],
 				},
-				registerType: "autoUpdate",
-				devOptions: {
-					enabled: true,
-				},
 				workbox: {
 					globPatterns: ["**/*.{js,ts,jsx,tsx,mjs,cjs,css,scss,less,html,ico,icon,png,jpg,jpeg,gif,webp,svg,ttf,otf,woff,woff2}"],
+					cleanupOutdatedCaches: false,
+					sourcemap: true,
 					runtimeCaching: [
 						mode === "production"
 							? {
-									urlPattern: ({ url }) => url.origin === "https://api.com",
+									urlPattern: ({ url }) => url.origin.includes("https"),
 									handler: "NetworkFirst",
 									options: {
-										cacheName: "wisbayar-api",
+										cacheName: "pwa-api",
 										cacheableResponse: {
 											statuses: [200],
 										},
 									},
 								}
 							: {
-									urlPattern: ({ url }) => url.origin === "https://test-api.com",
+									urlPattern: ({ url }) => url.origin.includes("test"),
 									handler: "NetworkFirst",
 									options: {
-										cacheName: "wisbayar-api",
+										cacheName: "pwa-api",
 										cacheableResponse: {
 											statuses: [200],
 										},
 									},
 								},
 						{
-							urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+							urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
 							handler: "CacheFirst",
 							options: {
-								cacheName: "wisbayar-images",
+								cacheName: "pwa-images",
 								expiration: {
 									// 最多30个图
 									maxEntries: 30,
@@ -146,7 +149,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 							urlPattern: /.*\.js.*/,
 							handler: "StaleWhileRevalidate",
 							options: {
-								cacheName: "wisbayar-js",
+								cacheName: "pwa-js",
 								expiration: {
 									maxEntries: 30, // 最多缓存30个，超过的按照LRU原则删除
 									maxAgeSeconds: 30 * 24 * 60 * 60,
@@ -160,7 +163,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 							urlPattern: /.*\.css.*/,
 							handler: "StaleWhileRevalidate",
 							options: {
-								cacheName: "wisbayar-css",
+								cacheName: "pwa-css",
 								expiration: {
 									maxEntries: 20,
 									maxAgeSeconds: 30 * 24 * 60 * 60,
@@ -174,7 +177,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 							urlPattern: /.*\.html.*/,
 							handler: "StaleWhileRevalidate",
 							options: {
-								cacheName: "wisbayar-html",
+								cacheName: "pwa-html",
 								expiration: {
 									maxEntries: 20,
 									maxAgeSeconds: 30 * 24 * 60 * 60,
@@ -251,7 +254,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 						return code;
 					}
 
-					const cjsRegexp = /(const|let|var)[\n\s]+(\w+)[\n\s]*=[\n\s]*require\(['|'](.+)['|']\)/g;
+					const cjsRegexp = /(const|let|var)[\n\s]+(\w+)[\n\s]*=[\n\s]*require\(["|](.+)["|]\)/g;
 					const res = code.match(cjsRegexp);
 					if (res) {
 						// const Store = require("electron-store") -> import Store from "electron-store"
