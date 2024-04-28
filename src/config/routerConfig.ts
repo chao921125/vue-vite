@@ -25,5 +25,9 @@ export default {
 			proInputList: "/order/input",
 			proInputAddEdit: "/order/input/add-edit",
 		},
+		file: {
+			xlsx: "/demo/office/xlsx",
+			excelJS: "/demo/office/exceljs",
+		},
 	},
 };

@@ -295,13 +295,6 @@
 |--------------------------------------------------------|
 | [screenfull](https://www.npmjs.com/package/screenfull) |
 
-| 数据表格导入导出                                             |
-|------------------------------------------------------|
-| [sheetjs](https://docs.sheetjs.com/)                 |
-| [csv](https://www.npmjs.com/package/csv)             |
-| [papaparse](https://www.npmjs.com/package/papaparse) |
-| [xlsx](https://www.npmjs.com/package/xlsx)           |
-
 | html2canvas，页面截图                                         |
 |----------------------------------------------------------|
 | [html2canvas](https://www.npmjs.com/package/html2canvas) |
@@ -349,12 +342,6 @@
 | [Vditor 官网](https://b3log.org/vditor/)                                            |
 | [Vue-markdown-editor 官网](https://code-farmer-i.github.io/vue-markdown-editor/zh/) |
 | [Md-editor-v3 官网](https://imzbf.github.io/md-editor-v3/index)                     |
-
-| 文件上传及保存                                                         |
-|-----------------------------------------------------------------|
-| [file-saver](https://www.npmjs.com/package/file-saver)          |
-| [Uppy 官网](https://uppy.io/docs/vue/)                            |
-| [Vue-filepond 官网](https://github.com/pqina/vue-filepond#readme) |
 
 | 流程图                                                                 |
 |---------------------------------------------------------------------|
@@ -440,14 +427,23 @@
 | [@vue/cli-shared-utils](https://www.npmjs.com/package/@vue/cli-shared-utils) |
 | [nativeshare 唤起浏览器自身分享组件](https://www.npmjs.com/package/nativeshare)         |
 
-| office 预览、上传、导出、导入 包含：xls，xlsx，doc，docx，pdf，csv                                         |
+| 文件上传、解析、保存，office 预览、上传、导出、导入 包含：xls，xlsx，doc，docx，pdf，csv                              |
 |-----------------------------------------------------------------------------------------|
+| [exceljs](https://github.com/exceljs/exceljs)                                           |
+| [sheetjs](https://docs.sheetjs.com/)                                                    |
+| [csv](https://www.npmjs.com/package/csv)                                                |
+| [papaparse](https://www.npmjs.com/package/papaparse)                                    |
+| [xlsx](https://www.npmjs.com/package/xlsx)                                              |
 | [文件类型判断 file-type](https://www.npmjs.com/package/file-type)                             |
 | [Office Excel handsontable](https://github.com/handsontable/handsontable)               |
 | [Office Word mammoth](https://github.com/mwilliamson/mammoth.js)                        |
 | [PDF pdfjs-dist](https://github.com/mozilla/pdf.js)                                     |
 | [PDF vue-pdf vue2](https://www.npmjs.com/package/vue-pdf)                               |
 | [@vue-office docx excel pdf v2需要安装依赖 vue-demi](https://github.com/501351981/vue-office) |
+| [文件保存 file-saver](https://www.npmjs.com/package/file-saver)                             |
+| [Uppy 官网](https://uppy.io/docs/vue/)                                                    |
+| [Vue-filepond 官网](https://github.com/pqina/vue-filepond#readme)                         |
+
 
 | 支付                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------|

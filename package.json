@@ -76,6 +76,7 @@
 		"echarts-gl": "^2.0.9",
 		"echarts-wordcloud": "^2.1.0",
 		"element-plus": "^2.7.2",
+		"exceljs": "^4.4.0",
 		"heic2any": "^0.0.4",
 		"html2canvas": "^1.4.1",
 		"js-cookie": "^3.0.5",
