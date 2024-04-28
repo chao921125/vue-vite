@@ -181,7 +181,7 @@
 		"mysql": "2.18.1"
 	},
 	"peerDependencies": {
-		"mysql2": ">=3.3.2"
+		"mysql2": ">=3.9.7"
 	},
 	"engines": {
 		"node": ">=18.0.0",
