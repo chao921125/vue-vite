@@ -71,7 +71,7 @@
 		"camunda-bpmn-moddle": "^7.0.1",
 		"core-js": "^3.37.0",
 		"date-fns": "^3.6.0",
-		"dayjs": "^1.11.10",
+		"dayjs": "^1.11.11",
 		"echarts": "^5.5.0",
 		"echarts-gl": "^2.0.9",
 		"echarts-wordcloud": "^2.1.0",
