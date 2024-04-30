@@ -101,7 +101,7 @@
 | [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler)   |
 | [//]: # (浏览器样式补全)                                                              |
 | [浏览器样式补全 autoprefixer](https://www.npmjs.com/package/autoprefixer)             |
-| 快速样式CSS                                                                        |
+| 快速样式CSS 并不推荐，建议大家自行封装                                                          |
 | [unocss](https://unocss.dev/)                                                  |
 | [tailwindcss](https://tailwindcss.com/) [doc](https://www.tailwindcss.cn/docs) |
 | [windicss](https://windicss.org/)                                              |
