@@ -229,6 +229,7 @@
 | [👍FusionCharts 官网](https://www.fusioncharts.com/)               |
 | [👍C3.js 官网](https://c3js.org/)                                  |
 | [👍D3.js 官网](https://d3js.org/)                                  |
+| [Chart.js vue官网](https://vue-chartjs.org/)                       |
 | [Chart.js 官网](https://chartjs.bootcss.com/)                      |
 | [plotly 官网](https://plotly.com/)                                 |
 | [nvd3 官网](https://nvd3.org/)                                     |
@@ -241,6 +242,9 @@
 | [Highcharts 官网 付费](https://www.highcharts.com/)                  |
 | [amcharts 官网 付费](https://www.amcharts.com/)                      |
 | [storybook 官网](https://storybook.js.org/)                        |
+| [vue-chart-3 官网](https://vue-chart-3.netlify.app/)               |
+| [vue3charts 官网](https://vue3charts.org/)                         |
+| [vue-echarts 官网](https://ecomfe.github.io/vue-echarts/)          |
 
 | 营销组件                               |
 |------------------------------------|
