@@ -1,6 +1,5 @@
 # [访问地址](https://vue-vite.pages.dev/) - [项目截图](./doc/Project.md)
 [//]: # (pnpx husky install)
-###### bun install > pnpm install 实测会大个 1% 左右
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
 2. husky + lint-staged + @commitlint/cli 规范提交格式（提交代码前自检）
@@ -9,7 +8,8 @@
 # 避坑指南 及 注意事项
 - 三方包引入尽可能小写，自定义尽可能大写
 - cjs在不久的未来将不再支持，后续尽可能使用mjs，由于现在某些包暂不支持，所以使用js+ts+mjs混用的方式
-- 推荐使用pnpm(curl -fsSL https://get.pnpm.io/install.sh | sh -)安装依赖，其次yarn或者npm，使用 pnpm 不再安装 ncu，直接执行 pnpm update
+- 推荐使用pnpm(curl -fsSL https://get.pnpm.io/install.sh | sh -)安装依赖，其次yarn或者npm
+- 更新升级包版本使用 pnpm 不再安装 ncu，直接执行 pnpm update
 - 注意所有配置菜单的数据，均由前端提供
 - 项目本身配置99%都在vite.config.ts里面，参数设置都在根目录下，而非src下
 - src下的config目录是系统默认参数，及部分数据配置
