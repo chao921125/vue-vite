@@ -42,9 +42,6 @@ app.use(VueLuckyCanvas);
 // vant
 import "vant/lib/index.css";
 
-// unocss
-import "virtual:uno.css";
-
 // svg font icon 字体、图标
 import "virtual:svg-icons-register";
 import "@/assets/fonts/font.css";

@@ -24,7 +24,6 @@ import autoImport from "unplugin-auto-import/vite";
 import components from "unplugin-vue-components/vite";
 import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
 // CSS 预构建
-import UnoCSS from "unocss/vite";
 // 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
@@ -263,8 +262,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					return code;
 				},
 			},
-			// 原子css
-			UnoCSS(),
 			// 图标
 			icons({
 				compiler: "vue3",
