@@ -3,8 +3,8 @@ export default {
 	plugins: {
 		autoprefixer: {
 			overrideBrowserslist: ["Android >= 4.1", "iOS >= 7.1", "Chrome > 31", "ff > 31", "ie >= 8"],
+			grid: true,
 		},
-		"postcss-preset-env": {},
 		"postcss-px-to-viewport-8-plugin": {
 			unitToConvert: "px", // 需要转换的单位，默认为"px"
 			viewportWidth: 1920, //  设计稿的视口宽度

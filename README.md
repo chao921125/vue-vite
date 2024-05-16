@@ -98,28 +98,19 @@
 | [text-loader](https://www.npmjs.com/package/text-loader)                       |
 | [vue-style-loader](https://www.npmjs.com/package/vue-style-loader)             |
 | [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler)   |
-| [//]: # (浏览器样式补全)                                                              |
-| [浏览器样式补全 autoprefixer](https://www.npmjs.com/package/autoprefixer)             |
-| 快速样式CSS 并不推荐，建议大家自行封装                                                          |
+| **postcss必装，自动添加浏览器适配前缀**                                                      |
+| [postcss](https://github.com/postcss/postcss)                                  |
+| [autoprefixer](https://github.com/postcss/autoprefixer)                        |
+| [postcss-loader](https://github.com/webpack-contrib/postcss-loader)            |
+| **快速样式CSS 并不推荐，建议大家自行封装**                                                      |
 | [unocss](https://unocss.dev/)                                                  |
 | [tailwindcss](https://tailwindcss.com/) [doc](https://www.tailwindcss.cn/docs) |
 | [windicss](https://windicss.org/)                                              |
 
-| postcss插件库                                                                       |
-|----------------------------------------------------------------------------------|
-| [postcss](https://www.npmjs.com/package/postcss)                                 |
-| [cssnano](https://www.npmjs.com/package/cssnano)                                 |
-| [postcss-preset-env](https://www.npmjs.com/package/postcss-preset-env)           |
-| [postcss-import](https://www.npmjs.com/package/postcss-import)                   |
-| [postcss-url](https://www.npmjs.com/package/postcss-url)                         |
-| [postcss-viewport-units](https://www.npmjs.com/package/postcss-viewport-units)   |
-| [postcss-write-svg](https://www.npmjs.com/package/postcss-write-svg)             |
-| [cssnano-preset-advanced](https://www.npmjs.com/package/cssnano-preset-advanced) |
-
 | 语法检查 -D                                                                        |
 |--------------------------------------------------------------------------------|
 | [eslint](https://www.npmjs.com/package/eslint)                                 |
-| [prettier](https://www.npmjs.com/package/prettier) 个人推荐这个                      |
+| [👍 prettier](https://www.npmjs.com/package/prettier)                          |
 | [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier) |
 
 # UI相关
@@ -594,17 +585,12 @@
 # 跨端适配方案
 | 适配移动端 -D                                                                                                 |
 |----------------------------------------------------------------------------------------------------------|
-| **rem方案过时啦，用vw方案解决吧**                                                                                    |
-| [postcss-loader 将px转rem](https://www.npmjs.com/package/postcss-loader)                                   |
 | **vw方案 需要依赖style-loader 且需要删除@vue/cli-plugin-eslint**                                                    |
 | [postcss-px-to-viewport](https://www.npmjs.com/package/postcss-px-to-viewport)                           |
 | [postcss-px-to-viewport-8-plugin TS 请用这个](https://www.npmjs.com/package/postcss-px-to-viewport-8-plugin) |
 | **rem方案**                                                                                                |
-| [~~lib-flexible~~](https://www.npmjs.com/package/lib-flexible)                                           |
-| [postcss-pxtorem](https://www.npmjs.com/package/postcss-pxtorem)                                         |
-| [amfe-flexible](https://www.npmjs.com/package/amfe-flexible)                                             |
-| [~~postcss-plugin-px2rem~~](https://www.npmjs.com/package/postcss-plugin-px2rem)                         |
-| [~~postcss-px2rem~~](https://www.npmjs.com/package/postcss-px2rem)                                       |
+| [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem)                                               |
+| [amfe-flexible](https://github.com/amfe/lib-flexible)                                                    |
 
 | 跨端框架推荐：包含小程序啥的                                                   |
 |------------------------------------------------------------------|
