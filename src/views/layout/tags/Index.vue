@@ -15,7 +15,7 @@
 				<el-tag
 					v-for="(item, index) in tabs"
 					:key="index"
-					closable
+					:closable="true"
 					:disable-transitions="false"
 					:type="tabValue === item.name ? 'primary' : 'info'"
 					@close="removeTab(item.name)"
