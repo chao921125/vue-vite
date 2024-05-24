@@ -66,6 +66,7 @@ export const getLocalIpList = (callback: Function) => {
 // Test
 // getLocalIpList((ip) => {console.log(ip);});
 // TODO https://github.com/ihmily/ip-info-api
+// TODO http://ip-api.com/json
 export const getLocalIPs = () => {
 	// @ts-ignore
 	let myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
