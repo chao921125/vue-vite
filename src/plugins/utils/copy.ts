@@ -1,4 +1,4 @@
-export const copyText = (text: string) => {
+export const writeText = (text: string) => {
 	if (!navigator.clipboard) {
 		return false;
 	}
@@ -11,4 +11,17 @@ export const copyText = (text: string) => {
 			console.error("Could not copy text:", err);
 		});
 };
-export default { copyText };
+export const readText = () => {
+	if (!navigator.clipboard) {
+		return false;
+	}
+	navigator.clipboard
+		.readText()
+		.then((text: any) => {
+			return text;
+		})
+		.catch((err) => {
+			console.error("Could not copy text:", err);
+		});
+};
+export default { writeText, readText };

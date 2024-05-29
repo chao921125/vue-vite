@@ -33,6 +33,7 @@
 	import { formatAxis, formatDate } from "@/plugins/utils/format";
 	import UA from "ua-parser-js";
 	import { getProxyIpInfo, getRealIpInfo } from "@/plugins/utils/ip";
+	import Constants from "@/plugins/constants";
 
 	// 欢迎标语
 	const now = ref(formatAxis(new Date()));
@@ -51,14 +52,14 @@
 		uaInfo.value = UA(navigator.userAgent) as any;
 	};
 	const getIpInfo = () => {
-		getRealIpInfo().then((res: any) => {
+		getRealIpInfo(Constants.ipUrl.real.songzixian).then((res: any) => {
 			ipReal.ip = res.data.ip;
 			ipReal.country = res.data.country + " " + res.data.countryCode;
 			ipReal.province = res.data.province;
 			ipReal.region = res.data.city + " " + res.data.isp;
 		});
 
-		getProxyIpInfo().then((res: any) => {
+		getProxyIpInfo(Constants.ipUrl.proxy.ip_api).then((res: any) => {
 			ipProxy.ip = res.query;
 			ipProxy.province = res.city;
 			ipProxy.country = res.country + " " + res.countryCode;
