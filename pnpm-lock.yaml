@@ -19,11 +19,11 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       '@bpmn-io/feel-editor':
-        specifier: ^1.4.0
-        version: 1.4.0(@lezer/common@1.2.1)
+        specifier: ^1.5.0
+        version: 1.5.0(@lezer/common@1.2.1)
       '@bpmn-io/properties-panel':
-        specifier: ^3.18.2
-        version: 3.18.2(@lezer/common@1.2.1)
+        specifier: ^3.19.0
+        version: 3.19.0(@lezer/common@1.2.1)
       '@element-plus/icons-vue':
         specifier: ^2.3.1
         version: 2.3.1(vue@3.4.27(typescript@5.4.5))
@@ -49,14 +49,14 @@ importers:
         specifier: ^1.7.2
         version: 1.7.2
       bpmn-js:
-        specifier: ^17.7.1
-        version: 17.7.1
+        specifier: ^17.8.0
+        version: 17.8.0
       bpmn-js-element-templates:
         specifier: ^1.15.3
-        version: 1.15.3(@bpmn-io/properties-panel@3.18.2(@lezer/common@1.2.1))(bpmn-js-properties-panel@5.16.0(@bpmn-io/properties-panel@3.18.2(@lezer/common@1.2.1))(bpmn-js@17.7.1)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.7.1)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.6.0))(bpmn-js@17.7.1)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.7.1)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.6.0)(preact@10.22.0)
+        version: 1.15.3(@bpmn-io/properties-panel@3.19.0(@lezer/common@1.2.1))(bpmn-js-properties-panel@5.17.1(@bpmn-io/properties-panel@3.19.0(@lezer/common@1.2.1))(bpmn-js@17.8.0)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.8.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.7.0))(bpmn-js@17.8.0)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.8.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.7.0)(preact@10.22.0)
       bpmn-js-properties-panel:
-        specifier: ^5.16.0
-        version: 5.16.0(@bpmn-io/properties-panel@3.18.2(@lezer/common@1.2.1))(bpmn-js@17.7.1)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.7.1)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.6.0)
+        specifier: ^5.17.1
+        version: 5.17.1(@bpmn-io/properties-panel@3.19.0(@lezer/common@1.2.1))(bpmn-js@17.8.0)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.8.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.7.0)
       bpmn-moddle:
         specifier: ^9.0.1
         version: 9.0.1
@@ -115,8 +115,8 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0
       pdfjs-dist:
-        specifier: ^4.2.67
-        version: 4.2.67
+        specifier: ^4.3.136
+        version: 4.3.136
       pinia:
         specifier: 2.1.7
         version: 2.1.7(@vue/composition-api@1.7.2(vue@3.4.27(typescript@5.4.5)))(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
@@ -139,8 +139,8 @@ importers:
         specifier: ^0.164.1
         version: 0.164.1
       ua-parser-js:
-        specifier: ^1.0.37
-        version: 1.0.37
+        specifier: ^1.0.38
+        version: 1.0.38
       vant:
         specifier: ^4.9.0
         version: 4.9.0(vue@3.4.27(typescript@5.4.5))
@@ -210,10 +210,10 @@ importers:
         version: 7.11.0
       '@vitejs/plugin-legacy':
         specifier: ^5.4.0
-        version: 5.4.0(terser@5.31.0)(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
+        version: 5.4.0(terser@5.31.0)(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
       '@vitejs/plugin-vue':
         specifier: ^5.0.4
-        version: 5.0.4(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))(vue@3.4.27(typescript@5.4.5))
+        version: 5.0.4(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))(vue@3.4.27(typescript@5.4.5))
       '@vue/compiler-sfc':
         specifier: 3.4.27
         version: 3.4.27
@@ -293,35 +293,35 @@ importers:
         specifier: ^14.2.1
         version: 14.2.1(sass@1.77.2)
       stylelint:
-        specifier: ^16.6.0
-        version: 16.6.0(typescript@5.4.5)
+        specifier: ^16.6.1
+        version: 16.6.1(typescript@5.4.5)
       stylelint-config-html:
         specifier: ^1.1.0
-        version: 1.1.0(postcss-html@1.7.0)(stylelint@16.6.0(typescript@5.4.5))
+        version: 1.1.0(postcss-html@1.7.0)(stylelint@16.6.1(typescript@5.4.5))
       stylelint-config-prettier:
         specifier: ^9.0.5
-        version: 9.0.5(stylelint@16.6.0(typescript@5.4.5))
+        version: 9.0.5(stylelint@16.6.1(typescript@5.4.5))
       stylelint-config-recess-order:
         specifier: ^5.0.1
-        version: 5.0.1(stylelint@16.6.0(typescript@5.4.5))
+        version: 5.0.1(stylelint@16.6.1(typescript@5.4.5))
       stylelint-config-recommended:
         specifier: ^14.0.0
-        version: 14.0.0(stylelint@16.6.0(typescript@5.4.5))
+        version: 14.0.0(stylelint@16.6.1(typescript@5.4.5))
       stylelint-config-recommended-vue:
         specifier: ^1.5.0
-        version: 1.5.0(postcss-html@1.7.0)(stylelint@16.6.0(typescript@5.4.5))
+        version: 1.5.0(postcss-html@1.7.0)(stylelint@16.6.1(typescript@5.4.5))
       stylelint-config-standard:
         specifier: ^36.0.0
-        version: 36.0.0(stylelint@16.6.0(typescript@5.4.5))
+        version: 36.0.0(stylelint@16.6.1(typescript@5.4.5))
       stylelint-config-standard-scss:
         specifier: ^13.1.0
-        version: 13.1.0(postcss@8.4.38)(stylelint@16.6.0(typescript@5.4.5))
+        version: 13.1.0(postcss@8.4.38)(stylelint@16.6.1(typescript@5.4.5))
       stylelint-order:
         specifier: ^6.0.4
-        version: 6.0.4(stylelint@16.6.0(typescript@5.4.5))
+        version: 6.0.4(stylelint@16.6.1(typescript@5.4.5))
       stylelint-prettier:
         specifier: ^5.0.0
-        version: 5.0.0(prettier@3.2.5)(stylelint@16.6.0(typescript@5.4.5))
+        version: 5.0.0(prettier@3.2.5)(stylelint@16.6.1(typescript@5.4.5))
       terser:
         specifier: ^5.31.0
         version: 5.31.0
@@ -341,35 +341,35 @@ importers:
         specifier: ^0.27.0
         version: 0.27.0(@babel/parser@7.24.6)(rollup@4.18.0)(vue@3.4.27(typescript@5.4.5))
       vite:
-        specifier: ^5.2.11
-        version: 5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
+        specifier: ^5.2.12
+        version: 5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
       vite-plugin-cdn-import:
         specifier: ^1.0.1
-        version: 1.0.1(rollup@4.18.0)(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
+        version: 1.0.1(rollup@4.18.0)(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
       vite-plugin-compression:
         specifier: ^0.5.1
-        version: 0.5.1(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
+        version: 0.5.1(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
       vite-plugin-ejs:
         specifier: ^1.7.0
-        version: 1.7.0(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
+        version: 1.7.0(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
       vite-plugin-mock:
         specifier: ^3.0.2
-        version: 3.0.2(esbuild@0.21.4)(mockjs@1.1.0)(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
+        version: 3.0.2(esbuild@0.21.4)(mockjs@1.1.0)(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
       vite-plugin-pwa:
         specifier: ^0.20.0
-        version: 0.20.0(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))(workbox-build@7.0.0)(workbox-window@7.0.0)
+        version: 0.20.0(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))(workbox-build@7.0.0)(workbox-window@7.0.0)
       vite-plugin-restart:
         specifier: ^0.4.0
-        version: 0.4.0(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
+        version: 0.4.0(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
       vite-plugin-svg-icons:
         specifier: ^2.0.1
-        version: 2.0.1(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
+        version: 2.0.1(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
       vite-plugin-top-level-await:
         specifier: ^1.4.1
-        version: 1.4.1(rollup@4.18.0)(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
+        version: 1.4.1(rollup@4.18.0)(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
       vite-plugin-vue-setup-extend:
         specifier: ^0.4.0
-        version: 0.4.0(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
+        version: 0.4.0(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
       vue-eslint-parser:
         specifier: ^9.4.2
         version: 9.4.2(eslint@9.3.0)
@@ -986,8 +986,8 @@ packages:
   '@bpmn-io/extract-process-variables@0.8.0':
     resolution: {integrity: sha512-yAS7ZYX+D56K+luC36u96eRMLb4VHcPUwTUqMZ/Z/Je2gou2DJLRbuBTHAB4jjKt4wFCHSG4B8Y+TrBciEYf4w==}
 
-  '@bpmn-io/feel-editor@1.4.0':
-    resolution: {integrity: sha512-xfkvacymlQhS45Y4HF5PKmN0O1VMp5KDzBps4JSKEfNfIFEcvpAbOwYcXSmg3nqv6s+Rdyor4lPLgwiA+bqC8Q==}
+  '@bpmn-io/feel-editor@1.5.0':
+    resolution: {integrity: sha512-BOn9joh5ha0g5SdJX3LlKrQ8FV2jUSxasNvZQhtywd6DtyCQM+qw0OqXloLZqunxBo51DedpNO/i+vggz3uwXA==}
     engines: {node: '>= 16'}
 
   '@bpmn-io/feel-lint@1.2.0':
@@ -996,8 +996,8 @@ packages:
   '@bpmn-io/moddle-utils@0.2.1':
     resolution: {integrity: sha512-iv9zwk7PEGupSq9bkVZNFL0ZmoJLHExlUcjsiYx200Nh3a5mH9BHXF+PLaSaiE4882KVEirklpWf3oQLAmShSA==}
 
-  '@bpmn-io/properties-panel@3.18.2':
-    resolution: {integrity: sha512-IQ6NUZ4McSmr6KLyptnhnKxBind5Oz+FSZ5u8MJX/s/10RRj+RIVYCBS2UnfCKHZCE9YMWTdCHdA7XQ4lIjuzw==}
+  '@bpmn-io/properties-panel@3.19.0':
+    resolution: {integrity: sha512-ZVr8LC8ZiMYRkh9Vf4EnuQ7hJIzjBLpLUoex+q5/tGj1I2B/iFAgDUaqnD/yOyBzkRDi1K9IedsUA01XaqG13w==}
 
   '@camunda/element-templates-json-schema@0.17.2':
     resolution: {integrity: sha512-ZNwvJ6UqhoWK/SZXV+m9c4feer09zt9DpM4Y3jooCKrnTUHNrCEqDF7V8cW7NG2KE8x1k7pCIAyNoy/9i+iwng==}
@@ -2259,16 +2259,16 @@ packages:
       camunda-bpmn-js-behaviors: '>= 1.2.1'
       diagram-js: '>= 11.9'
 
-  bpmn-js-properties-panel@5.16.0:
-    resolution: {integrity: sha512-ANGBQj3Xcmc9bzomj71PXwo98MiepMIxPXC5slR+37sx+ucZ8CeNW2f5GZ2Pt69B9OefzI6BNN0GGFbML87EMw==}
+  bpmn-js-properties-panel@5.17.1:
+    resolution: {integrity: sha512-nnro+IsjhdlhdY5EwxDRfcZhmcRMFRA9LqpP+cbLnqhXwdVzKV9i21WDL4aGWSklsSsYRbDQElKVY2q1FBq2uw==}
     peerDependencies:
       '@bpmn-io/properties-panel': '>= 3.7'
       bpmn-js: '>= 11.5'
       camunda-bpmn-js-behaviors: '>= 0.4'
       diagram-js: '>= 11.9'
 
-  bpmn-js@17.7.1:
-    resolution: {integrity: sha512-PuEdTFqsPMykKfK8vYKMLTBINRAJZreN9NmIYYOmcYPlmIs4GkMFsMy5CWxaS2S1rkqJZSsa06J/OV5ymqgSFQ==}
+  bpmn-js@17.8.0:
+    resolution: {integrity: sha512-pzTvruggT2x4s5XaMsqBmVsllwPmDvpSpr+iowM4mNO030rA2kOClO78Bw6lYXyLFA9tdTU6zdpt7scT00lnXQ==}
 
   bpmn-moddle@8.1.0:
     resolution: {integrity: sha512-yI5OAFfYVJwViKTsTsonVfCBPtB3MlefADUORwNIxxBOMp21vnoxuxsdgUWlPH/dvAEZh/+mr8UtqOBNu8NC5Q==}
@@ -2363,8 +2363,8 @@ packages:
   camunda-bpmn-moddle@7.0.1:
     resolution: {integrity: sha512-Br8Diu6roMpziHdpl66Dhnm0DTnCFMrSD9zwLV08LpD52QA0UsXxU87XfHf08HjuB7ly0Hd1bvajZRpf9hbmYQ==}
 
-  caniuse-lite@1.0.30001623:
-    resolution: {integrity: sha512-X/XhAVKlpIxWPpgRTnlgZssJrF0m6YtRA0QDWgsBNT12uZM6LPRydR7ip405Y3t1LamD8cP2TZFEDZFBf5ApcA==}
+  caniuse-lite@1.0.30001624:
+    resolution: {integrity: sha512-0dWnQG87UevOCPYaOR49CBcLBwoZLpws+k6W37nLjWUhumP1Isusj0p2u+3KhjNloRWK9OKMgjBBzPujQHw4nA==}
 
   canvas@2.11.2:
     resolution: {integrity: sha512-ItanGBMrmRV7Py2Z+Xhs7cT+FNt5K0vPL4p9EZ/UX/Mu7hFbkxSjKF2KVtPwX7UYWp7dRKnrTvReflgrItJbdw==}
@@ -2774,8 +2774,8 @@ packages:
     peerDependencies:
       diagram-js: '*'
 
-  diagram-js@14.6.0:
-    resolution: {integrity: sha512-64tneF33i31vSWJF/0a7qthJ/kRbB+CGWkmNCvOSx/4Sr4zhalieyDOdEzXzB63JTCfW0GeO4NZqwauflP2hdQ==}
+  diagram-js@14.7.0:
+    resolution: {integrity: sha512-0PygsETf///R+OhUpzmmJ0xP1p46Crom+B/DLJgheGC6mZJkIljE8lPxvQa4hghbIfSn2SBlikDmU7YioMgLzg==}
 
   didi@10.2.2:
     resolution: {integrity: sha512-l8NYkYFXV1izHI65EyT8EXOjUZtKmQkHLTT89cSP7HU5J/G7AOj0dXKtLc04EXYlga99PBY18IPjOeZ+c3DI4w==}
@@ -3126,6 +3126,10 @@ packages:
     resolution: {integrity: sha512-XXTUwCvisa5oacNGRP9SfNtYBNAMi+RPwBFmblZEF7N7swHYQS6/Zfk7SRwx4D5j3CH211YNRco1DEMNVfZCnQ==}
     engines: {node: '>=16.0.0'}
 
+  file-entry-cache@9.0.0:
+    resolution: {integrity: sha512-6MgEugi8p2tiUhqO7GnPsmbCCzj0YRCwwaTbpGRyKZesjRSzkqkAE9fPp7V2yMs5hwfgbQLgdvSSkGNg1s5Uvw==}
+    engines: {node: '>=18'}
+
   filelist@1.0.4:
     resolution: {integrity: sha512-w1cEuf3S+DrLCQL7ET6kz+gmlJdbq9J7yXCSjK/OZCPA+qEN1WyF4ZAf0YYJa4/shHJra2t/d/r8SV4Ji+x+8Q==}
 
@@ -3152,6 +3156,10 @@ packages:
   flat-cache@4.0.1:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
     engines: {node: '>=16'}
+
+  flat-cache@5.0.0:
+    resolution: {integrity: sha512-JrqFmyUl2PnPi1OvLyTVHnQvwQ0S+e6lGSwu8OkAZlSaNIZciTY2H/cOOROxsBA1m/LZNHDsqAgDZt6akWcjsQ==}
+    engines: {node: '>=18'}
 
   flatted@3.3.1:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
@@ -4497,8 +4505,8 @@ packages:
     resolution: {integrity: sha512-vE7JKRyES09KiunauX7nd2Q9/L7lhok4smP9RZTDeD4MVs72Dp2qNFVz39Nz5a0FVEW0BJR6C0DYrq6unoziZA==}
     engines: {node: '>= 14.16'}
 
-  pdfjs-dist@4.2.67:
-    resolution: {integrity: sha512-rJmuBDFpD7cqC8WIkQUEClyB4UAH05K4AsyewToMTp2gSy3Rrx8c1ydAVqlJlGv3yZSOrhEERQU/4ScQQFlLHA==}
+  pdfjs-dist@4.3.136:
+    resolution: {integrity: sha512-gzfnt1qc4yA+U46golPGYtU4WM2ssqP2MvFjKga8GEKOrEnzRPrA/9jogLLPYHiA3sGBPJ+p7BdAq+ytmw3jEg==}
     engines: {node: '>=18'}
 
   picocolors@1.0.1:
@@ -5265,8 +5273,8 @@ packages:
     peerDependencies:
       stylelint: ^16.0.2
 
-  stylelint@16.6.0:
-    resolution: {integrity: sha512-vjWYlDEgOS3Z/IcXagQwi8PFJyPro1DxBYOnTML1PAqnrYUHs8owleGStv20sgt0OhW8r9zZm6MK7IT2+l2B6A==}
+  stylelint@16.6.1:
+    resolution: {integrity: sha512-yNgz2PqWLkhH2hw6X9AweV9YvoafbAD5ZsFdKN9BvSDVwGvPh+AUIrn7lYwy1S7IHmtFin75LLfX1m0D2tHu8Q==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -5473,8 +5481,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  ua-parser-js@1.0.37:
-    resolution: {integrity: sha512-bhTyI94tZofjo+Dn8SN6Zv8nBDvyXTymAdM3LDI/0IboIUwTu1rEhW7v2TfiVsoYWgkQ4kOVqnI8APUFbIQIFQ==}
+  ua-parser-js@1.0.38:
+    resolution: {integrity: sha512-Aq5ppTOfvrCMgAPneW1HfWj66Xi7XL+/mIy996R1/CLS/rcyJQm6QZdsKrUeivDFQ+Oc9Wyuwor8Ze8peEoUoQ==}
 
   ufo@1.5.3:
     resolution: {integrity: sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==}
@@ -5700,8 +5708,8 @@ packages:
     peerDependencies:
       vite: '>=2.0.0'
 
-  vite@5.2.11:
-    resolution: {integrity: sha512-HndV31LWW05i1BLPMUCE1B9E9GFbOu1MbenhS58FuK6owSO5qHm7GiCotrNY1YE5rMeQSFBGmT5ZaLEjFizgiQ==}
+  vite@5.2.12:
+    resolution: {integrity: sha512-/gC8GxzxMK5ntBwb48pR32GGhENnjtY30G4A0jemunsBkiEZFw60s8InGpN8gkhHEkjnRK1aSAxeQgwvFhUHAA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -6732,7 +6740,7 @@ snapshots:
     dependencies:
       min-dash: 4.2.1
 
-  '@bpmn-io/feel-editor@1.4.0(@lezer/common@1.2.1)':
+  '@bpmn-io/feel-editor@1.5.0(@lezer/common@1.2.1)':
     dependencies:
       '@bpmn-io/feel-lint': 1.2.0
       '@codemirror/autocomplete': 6.16.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.26.3)(@lezer/common@1.2.1)
@@ -6756,9 +6764,9 @@ snapshots:
     dependencies:
       min-dash: 4.2.1
 
-  '@bpmn-io/properties-panel@3.18.2(@lezer/common@1.2.1)':
+  '@bpmn-io/properties-panel@3.19.0(@lezer/common@1.2.1)':
     dependencies:
-      '@bpmn-io/feel-editor': 1.4.0(@lezer/common@1.2.1)
+      '@bpmn-io/feel-editor': 1.5.0(@lezer/common@1.2.1)
       '@codemirror/view': 6.26.3
       classnames: 2.5.1
       feelers: 1.3.1
@@ -7588,7 +7596,7 @@ snapshots:
     dependencies:
       vue: 3.4.27(typescript@5.4.5)
 
-  '@vitejs/plugin-legacy@5.4.0(terser@5.31.0)(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))':
+  '@vitejs/plugin-legacy@5.4.0(terser@5.31.0)(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))':
     dependencies:
       '@babel/core': 7.24.6
       '@babel/preset-env': 7.24.6(@babel/core@7.24.6)
@@ -7599,13 +7607,13 @@ snapshots:
       regenerator-runtime: 0.14.1
       systemjs: 6.15.1
       terser: 5.31.0
-      vite: 5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
+      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-vue@5.0.4(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))(vue@3.4.27(typescript@5.4.5))':
+  '@vitejs/plugin-vue@5.0.4(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))(vue@3.4.27(typescript@5.4.5))':
     dependencies:
-      vite: 5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
+      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
       vue: 3.4.27(typescript@5.4.5)
 
   '@volar/language-core@2.2.5':
@@ -7907,7 +7915,7 @@ snapshots:
   autoprefixer@10.4.19(postcss@8.4.38):
     dependencies:
       browserslist: 4.23.0
-      caniuse-lite: 1.0.30001623
+      caniuse-lite: 1.0.30001624
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.1
@@ -7995,17 +8003,17 @@ snapshots:
 
   boolbase@1.0.0: {}
 
-  bpmn-js-element-templates@1.15.3(@bpmn-io/properties-panel@3.18.2(@lezer/common@1.2.1))(bpmn-js-properties-panel@5.16.0(@bpmn-io/properties-panel@3.18.2(@lezer/common@1.2.1))(bpmn-js@17.7.1)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.7.1)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.6.0))(bpmn-js@17.7.1)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.7.1)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.6.0)(preact@10.22.0):
+  bpmn-js-element-templates@1.15.3(@bpmn-io/properties-panel@3.19.0(@lezer/common@1.2.1))(bpmn-js-properties-panel@5.17.1(@bpmn-io/properties-panel@3.19.0(@lezer/common@1.2.1))(bpmn-js@17.8.0)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.8.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.7.0))(bpmn-js@17.8.0)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.8.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.7.0)(preact@10.22.0):
     dependencies:
       '@bpmn-io/element-templates-validator': 2.0.1
       '@bpmn-io/extract-process-variables': 0.8.0
-      '@bpmn-io/properties-panel': 3.18.2(@lezer/common@1.2.1)
-      bpmn-js: 17.7.1
-      bpmn-js-properties-panel: 5.16.0(@bpmn-io/properties-panel@3.18.2(@lezer/common@1.2.1))(bpmn-js@17.7.1)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.7.1)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.6.0)
+      '@bpmn-io/properties-panel': 3.19.0(@lezer/common@1.2.1)
+      bpmn-js: 17.8.0
+      bpmn-js-properties-panel: 5.17.1(@bpmn-io/properties-panel@3.19.0(@lezer/common@1.2.1))(bpmn-js@17.8.0)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.8.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.7.0)
       bpmnlint: 10.2.2
-      camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@17.7.1)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
+      camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@17.8.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
       classnames: 2.5.1
-      diagram-js: 14.6.0
+      diagram-js: 14.7.0
       ids: 1.0.5
       min-dash: 4.2.1
       min-dom: 4.1.0
@@ -8015,23 +8023,23 @@ snapshots:
     transitivePeerDependencies:
       - preact
 
-  bpmn-js-properties-panel@5.16.0(@bpmn-io/properties-panel@3.18.2(@lezer/common@1.2.1))(bpmn-js@17.7.1)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.7.1)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.6.0):
+  bpmn-js-properties-panel@5.17.1(@bpmn-io/properties-panel@3.19.0(@lezer/common@1.2.1))(bpmn-js@17.8.0)(camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.8.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0))(diagram-js@14.7.0):
     dependencies:
       '@bpmn-io/extract-process-variables': 0.8.0
-      '@bpmn-io/properties-panel': 3.18.2(@lezer/common@1.2.1)
+      '@bpmn-io/properties-panel': 3.19.0(@lezer/common@1.2.1)
       array-move: 4.0.0
-      bpmn-js: 17.7.1
-      camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@17.7.1)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
-      diagram-js: 14.6.0
+      bpmn-js: 17.8.0
+      camunda-bpmn-js-behaviors: 1.2.2(bpmn-js@17.8.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0)
+      diagram-js: 14.7.0
       ids: 1.0.5
       min-dash: 4.2.1
       min-dom: 4.1.0
 
-  bpmn-js@17.7.1:
+  bpmn-js@17.8.0:
     dependencies:
       bpmn-moddle: 8.1.0
-      diagram-js: 14.6.0
-      diagram-js-direct-editing: 3.0.1(diagram-js@14.6.0)
+      diagram-js: 14.7.0
+      diagram-js-direct-editing: 3.0.1(diagram-js@14.7.0)
       ids: 1.0.5
       inherits-browser: 0.1.0
       min-dash: 4.2.1
@@ -8100,7 +8108,7 @@ snapshots:
 
   browserslist@4.23.0:
     dependencies:
-      caniuse-lite: 1.0.30001623
+      caniuse-lite: 1.0.30001624
       electron-to-chromium: 1.4.783
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.0)
@@ -8149,9 +8157,9 @@ snapshots:
 
   callsites@3.1.0: {}
 
-  camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.7.1)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0):
+  camunda-bpmn-js-behaviors@1.2.2(bpmn-js@17.8.0)(camunda-bpmn-moddle@7.0.1)(zeebe-bpmn-moddle@1.0.0):
     dependencies:
-      bpmn-js: 17.7.1
+      bpmn-js: 17.8.0
       camunda-bpmn-moddle: 7.0.1
       ids: 1.0.5
       min-dash: 4.2.1
@@ -8159,7 +8167,7 @@ snapshots:
 
   camunda-bpmn-moddle@7.0.1: {}
 
-  caniuse-lite@1.0.30001623: {}
+  caniuse-lite@1.0.30001624: {}
 
   canvas@2.11.2:
     dependencies:
@@ -8555,13 +8563,13 @@ snapshots:
   detect-libc@2.0.3:
     optional: true
 
-  diagram-js-direct-editing@3.0.1(diagram-js@14.6.0):
+  diagram-js-direct-editing@3.0.1(diagram-js@14.7.0):
     dependencies:
-      diagram-js: 14.6.0
+      diagram-js: 14.7.0
       min-dash: 4.2.1
       min-dom: 4.1.0
 
-  diagram-js@14.6.0:
+  diagram-js@14.7.0:
     dependencies:
       '@bpmn-io/diagram-js-ui': 0.2.3
       clsx: 2.1.1
@@ -9105,6 +9113,10 @@ snapshots:
     dependencies:
       flat-cache: 4.0.1
 
+  file-entry-cache@9.0.0:
+    dependencies:
+      flat-cache: 5.0.0
+
   filelist@1.0.4:
     dependencies:
       minimatch: 5.1.6
@@ -9144,6 +9156,11 @@ snapshots:
       unicorn-magic: 0.1.0
 
   flat-cache@4.0.1:
+    dependencies:
+      flatted: 3.3.1
+      keyv: 4.5.4
+
+  flat-cache@5.0.0:
     dependencies:
       flatted: 3.3.1
       keyv: 4.5.4
@@ -10431,7 +10448,7 @@ snapshots:
 
   pathval@2.0.0: {}
 
-  pdfjs-dist@4.2.67:
+  pdfjs-dist@4.3.136:
     optionalDependencies:
       canvas: 2.11.2
       path2d: 0.2.0
@@ -11122,76 +11139,76 @@ snapshots:
 
   style-mod@4.1.2: {}
 
-  stylelint-config-html@1.1.0(postcss-html@1.7.0)(stylelint@16.6.0(typescript@5.4.5)):
+  stylelint-config-html@1.1.0(postcss-html@1.7.0)(stylelint@16.6.1(typescript@5.4.5)):
     dependencies:
       postcss-html: 1.7.0
-      stylelint: 16.6.0(typescript@5.4.5)
+      stylelint: 16.6.1(typescript@5.4.5)
 
-  stylelint-config-prettier@9.0.5(stylelint@16.6.0(typescript@5.4.5)):
+  stylelint-config-prettier@9.0.5(stylelint@16.6.1(typescript@5.4.5)):
     dependencies:
-      stylelint: 16.6.0(typescript@5.4.5)
+      stylelint: 16.6.1(typescript@5.4.5)
 
-  stylelint-config-recess-order@5.0.1(stylelint@16.6.0(typescript@5.4.5)):
+  stylelint-config-recess-order@5.0.1(stylelint@16.6.1(typescript@5.4.5)):
     dependencies:
-      stylelint: 16.6.0(typescript@5.4.5)
-      stylelint-order: 6.0.4(stylelint@16.6.0(typescript@5.4.5))
+      stylelint: 16.6.1(typescript@5.4.5)
+      stylelint-order: 6.0.4(stylelint@16.6.1(typescript@5.4.5))
 
-  stylelint-config-recommended-scss@14.0.0(postcss@8.4.38)(stylelint@16.6.0(typescript@5.4.5)):
+  stylelint-config-recommended-scss@14.0.0(postcss@8.4.38)(stylelint@16.6.1(typescript@5.4.5)):
     dependencies:
       postcss-scss: 4.0.9(postcss@8.4.38)
-      stylelint: 16.6.0(typescript@5.4.5)
-      stylelint-config-recommended: 14.0.0(stylelint@16.6.0(typescript@5.4.5))
-      stylelint-scss: 6.3.0(stylelint@16.6.0(typescript@5.4.5))
+      stylelint: 16.6.1(typescript@5.4.5)
+      stylelint-config-recommended: 14.0.0(stylelint@16.6.1(typescript@5.4.5))
+      stylelint-scss: 6.3.0(stylelint@16.6.1(typescript@5.4.5))
     optionalDependencies:
       postcss: 8.4.38
 
-  stylelint-config-recommended-vue@1.5.0(postcss-html@1.7.0)(stylelint@16.6.0(typescript@5.4.5)):
+  stylelint-config-recommended-vue@1.5.0(postcss-html@1.7.0)(stylelint@16.6.1(typescript@5.4.5)):
     dependencies:
       postcss-html: 1.7.0
       semver: 7.6.2
-      stylelint: 16.6.0(typescript@5.4.5)
-      stylelint-config-html: 1.1.0(postcss-html@1.7.0)(stylelint@16.6.0(typescript@5.4.5))
-      stylelint-config-recommended: 14.0.0(stylelint@16.6.0(typescript@5.4.5))
+      stylelint: 16.6.1(typescript@5.4.5)
+      stylelint-config-html: 1.1.0(postcss-html@1.7.0)(stylelint@16.6.1(typescript@5.4.5))
+      stylelint-config-recommended: 14.0.0(stylelint@16.6.1(typescript@5.4.5))
 
-  stylelint-config-recommended@14.0.0(stylelint@16.6.0(typescript@5.4.5)):
+  stylelint-config-recommended@14.0.0(stylelint@16.6.1(typescript@5.4.5)):
     dependencies:
-      stylelint: 16.6.0(typescript@5.4.5)
+      stylelint: 16.6.1(typescript@5.4.5)
 
-  stylelint-config-standard-scss@13.1.0(postcss@8.4.38)(stylelint@16.6.0(typescript@5.4.5)):
+  stylelint-config-standard-scss@13.1.0(postcss@8.4.38)(stylelint@16.6.1(typescript@5.4.5)):
     dependencies:
-      stylelint: 16.6.0(typescript@5.4.5)
-      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.38)(stylelint@16.6.0(typescript@5.4.5))
-      stylelint-config-standard: 36.0.0(stylelint@16.6.0(typescript@5.4.5))
+      stylelint: 16.6.1(typescript@5.4.5)
+      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.38)(stylelint@16.6.1(typescript@5.4.5))
+      stylelint-config-standard: 36.0.0(stylelint@16.6.1(typescript@5.4.5))
     optionalDependencies:
       postcss: 8.4.38
 
-  stylelint-config-standard@36.0.0(stylelint@16.6.0(typescript@5.4.5)):
+  stylelint-config-standard@36.0.0(stylelint@16.6.1(typescript@5.4.5)):
     dependencies:
-      stylelint: 16.6.0(typescript@5.4.5)
-      stylelint-config-recommended: 14.0.0(stylelint@16.6.0(typescript@5.4.5))
+      stylelint: 16.6.1(typescript@5.4.5)
+      stylelint-config-recommended: 14.0.0(stylelint@16.6.1(typescript@5.4.5))
 
-  stylelint-order@6.0.4(stylelint@16.6.0(typescript@5.4.5)):
+  stylelint-order@6.0.4(stylelint@16.6.1(typescript@5.4.5)):
     dependencies:
       postcss: 8.4.38
       postcss-sorting: 8.0.2(postcss@8.4.38)
-      stylelint: 16.6.0(typescript@5.4.5)
+      stylelint: 16.6.1(typescript@5.4.5)
 
-  stylelint-prettier@5.0.0(prettier@3.2.5)(stylelint@16.6.0(typescript@5.4.5)):
+  stylelint-prettier@5.0.0(prettier@3.2.5)(stylelint@16.6.1(typescript@5.4.5)):
     dependencies:
       prettier: 3.2.5
       prettier-linter-helpers: 1.0.0
-      stylelint: 16.6.0(typescript@5.4.5)
+      stylelint: 16.6.1(typescript@5.4.5)
 
-  stylelint-scss@6.3.0(stylelint@16.6.0(typescript@5.4.5)):
+  stylelint-scss@6.3.0(stylelint@16.6.1(typescript@5.4.5)):
     dependencies:
       known-css-properties: 0.30.0
       postcss-media-query-parser: 0.2.3
       postcss-resolve-nested-selector: 0.1.1
       postcss-selector-parser: 6.1.0
       postcss-value-parser: 4.2.0
-      stylelint: 16.6.0(typescript@5.4.5)
+      stylelint: 16.6.1(typescript@5.4.5)
 
-  stylelint@16.6.0(typescript@5.4.5):
+  stylelint@16.6.1(typescript@5.4.5):
     dependencies:
       '@csstools/css-parser-algorithms': 2.6.3(@csstools/css-tokenizer@2.3.1)
       '@csstools/css-tokenizer': 2.3.1
@@ -11206,7 +11223,7 @@ snapshots:
       debug: 4.3.4
       fast-glob: 3.3.2
       fastest-levenshtein: 1.0.16
-      file-entry-cache: 8.0.0
+      file-entry-cache: 9.0.0
       global-modules: 2.0.0
       globby: 11.1.0
       globjoin: 0.1.4
@@ -11481,7 +11498,7 @@ snapshots:
 
   typescript@5.4.5: {}
 
-  ua-parser-js@1.0.37: {}
+  ua-parser-js@1.0.38: {}
 
   ufo@1.5.3: {}
 
@@ -11664,37 +11681,37 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite-plugin-cdn-import@1.0.1(rollup@4.18.0)(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
+  vite-plugin-cdn-import@1.0.1(rollup@4.18.0)(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
     dependencies:
       rollup-plugin-external-globals: 0.10.0(rollup@4.18.0)
-      vite-plugin-externals: 0.6.2(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
+      vite-plugin-externals: 0.6.2(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))
     transitivePeerDependencies:
       - rollup
       - vite
 
-  vite-plugin-compression@0.5.1(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
+  vite-plugin-compression@0.5.1(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
     dependencies:
       chalk: 4.1.2
       debug: 4.3.4
       fs-extra: 10.1.0
-      vite: 5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
+      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-ejs@1.7.0(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
+  vite-plugin-ejs@1.7.0(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
     dependencies:
       ejs: 3.1.10
-      vite: 5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
+      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
 
-  vite-plugin-externals@0.6.2(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
+  vite-plugin-externals@0.6.2(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
     dependencies:
       acorn: 8.11.3
       es-module-lexer: 0.4.1
       fs-extra: 10.1.0
       magic-string: 0.25.9
-      vite: 5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
+      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
 
-  vite-plugin-mock@3.0.2(esbuild@0.21.4)(mockjs@1.1.0)(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
+  vite-plugin-mock@3.0.2(esbuild@0.21.4)(mockjs@1.1.0)(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
     dependencies:
       bundle-require: 4.1.0(esbuild@0.21.4)
       chokidar: 3.6.0
@@ -11705,27 +11722,27 @@ snapshots:
       mockjs: 1.1.0
       path-to-regexp: 6.2.2
       picocolors: 1.0.1
-      vite: 5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
+      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-pwa@0.20.0(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))(workbox-build@7.0.0)(workbox-window@7.0.0):
+  vite-plugin-pwa@0.20.0(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0))(workbox-build@7.0.0)(workbox-window@7.0.0):
     dependencies:
       debug: 4.3.4
       fast-glob: 3.3.2
       pretty-bytes: 6.1.1
-      vite: 5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
+      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
       workbox-build: 7.0.0
       workbox-window: 7.0.0
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-restart@0.4.0(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
+  vite-plugin-restart@0.4.0(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
     dependencies:
       micromatch: 4.0.7
-      vite: 5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
+      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
 
-  vite-plugin-svg-icons@2.0.1(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
+  vite-plugin-svg-icons@2.0.1(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
     dependencies:
       '@types/svgo': 2.6.4
       cors: 2.8.5
@@ -11735,27 +11752,27 @@ snapshots:
       pathe: 0.2.0
       svg-baker: 1.7.0
       svgo: 2.8.0
-      vite: 5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
+      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-top-level-await@1.4.1(rollup@4.18.0)(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
+  vite-plugin-top-level-await@1.4.1(rollup@4.18.0)(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
     dependencies:
       '@rollup/plugin-virtual': 3.0.2(rollup@4.18.0)
       '@swc/core': 1.5.7
       uuid: 9.0.1
-      vite: 5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
+      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
     transitivePeerDependencies:
       - '@swc/helpers'
       - rollup
 
-  vite-plugin-vue-setup-extend@0.4.0(vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
+  vite-plugin-vue-setup-extend@0.4.0(vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)):
     dependencies:
       '@vue/compiler-sfc': 3.4.27
       magic-string: 0.25.9
-      vite: 5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
+      vite: 5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0)
 
-  vite@5.2.11(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0):
+  vite@5.2.12(@types/node@20.12.12)(less@4.2.0)(sass@1.77.2)(terser@5.31.0):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
