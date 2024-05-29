@@ -33,10 +33,10 @@ export default {
 			ipaddress: "https://ipaddress.sh/",
 			amazonaws: "https://checkip.amazonaws.com/",
 			curlmyip: "https://curlmyip.net/",
-			tyk: "http://ip.tyk.nu/",
 			wgetip: "https://wgetip.com/",
 			l2: "https://l2.io/ip",
 			icanhazip: "https://icanhazip.com/",
+			tyk: "http://ip.tyk.nu/",
 		},
 		info: {
 			geojs: "https://get.geojs.io/v1/ip/geo/",
@@ -52,8 +52,6 @@ export default {
 			// 跨域
 			ip: "https://ip.cn/api/index?type=0&ip=",
 			// 跨域
-			pconline: "http://whois.pconline.com.cn/ipJson.jsp?json=true&ip=",
-			// 跨域
 			csdn: "https://searchplugin.csdn.net/api/v1/ip/get?ip=",
 			// 跨域
 			meitu: "https://webapi-pc.meitu.com/common/ip_location?ip=",
@@ -62,14 +60,16 @@ export default {
 			// 跨域
 			useragentinfo: "https://ip.useragentinfo.com/json",
 			songzixian: "https://api.songzixian.com/api/ip?dataSource=GLOBAL_IP&ip=",
+			// 跨域
+			pconline: "http://whois.pconline.com.cn/ipJson.jsp?json=true&ip=",
 		},
 		proxy: {
 			ip: "https://api.ip.sb/geoip/",
 			ip2location: "https://api.ip2location.io/",
 			realip: "https://realip.cc/",
 			ipapi: "https://ipapi.co/json/",
-			ip_api: "http://ip-api.com/json/?lang=zh-CN",
-			ip_api2: "https://ip-api.io/json",
+			ip_api: "https://ip-api.io/json",
+			ip_api2: "http://ip-api.com/json/?lang=zh-CN",
 		},
 	},
 };

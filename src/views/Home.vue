@@ -59,11 +59,12 @@
 			ipReal.region = res.data.city + " " + res.data.isp;
 		});
 
-		getProxyIpInfo(Constants.ipUrl.proxy.ip_api).then((res: any) => {
-			ipProxy.ip = res.query;
+		getProxyIpInfo(Constants.ipUrl.proxy.ipapi).then((res: any) => {
+			console.log(res);
+			ipProxy.ip = res.ip;
 			ipProxy.province = res.city;
-			ipProxy.country = res.country + " " + res.countryCode;
-			ipProxy.region = res.regionName + " " + res.region;
+			ipProxy.country = res.country + " " + res.continent_code;
+			ipProxy.region = res.region + " " + res.region_code;
 		});
 	};
 
