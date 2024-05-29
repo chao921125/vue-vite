@@ -158,10 +158,10 @@
 	.#{declare.$prefix}-m-#{$i} {
 		margin: #{$i}px;
 	}
-	.#{declare.$prefix}-mtb-#{$i} {
+	.#{declare.$prefix}-my-#{$i} {
 		margin: #{$i}px 0;
 	}
-	.#{declare.$prefix}-mlr-#{$i} {
+	.#{declare.$prefix}-mx-#{$i} {
 		margin: 0 #{$i}px;
 	}
 	.#{declare.$prefix}-mt-#{$i} {
@@ -180,10 +180,10 @@
 	.#{declare.$prefix}-p-#{$i} {
 		padding: #{$i}px;
 	}
-	.#{declare.$prefix}-ptb-#{$i} {
+	.#{declare.$prefix}-py-#{$i} {
 		padding: #{$i}px 0;
 	}
-	.#{declare.$prefix}-plr-#{$i} {
+	.#{declare.$prefix}-px-#{$i} {
 		padding: 0 #{$i}px;
 	}
 	.#{declare.$prefix}-pt-#{$i} {
