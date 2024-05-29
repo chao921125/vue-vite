@@ -427,7 +427,7 @@
 | [sheetjs](https://docs.sheetjs.com/)                                                    |
 | [csv](https://www.npmjs.com/package/csv)                                                |
 | [papaparse](https://www.npmjs.com/package/papaparse)                                    |
-| [xlsx](https://www.npmjs.com/package/xlsx)                                              |
+| [xlsx 不建议使用有高危漏洞](https://www.npmjs.com/package/xlsx)                                   |
 | [文件类型判断 file-type](https://www.npmjs.com/package/file-type)                             |
 | [Office Excel handsontable](https://github.com/handsontable/handsontable)               |
 | [Office Word mammoth](https://github.com/mwilliamson/mammoth.js)                        |
