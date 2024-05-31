@@ -38,23 +38,23 @@
 5. interface尽量抽取出来，且抽取到最小粒度
 ##### API前端使用及后端接口命名规则对应：列举，可以对此进行变更
 
-| 接口  | 前端          | 后端            | 前端API示例             | 后端API示例               |
-|-----|-------------|---------------|---------------------|-----------------------|
-| 读取  | query / get | read / select | queryDemo / getDemo | readDemo / selectDemo |
-| 写入  | save / add  | create        | saveDemo / addDemo  | createDemo            |
-| 编辑  | edit        | update        | editDemo            | updateDemo            |
-| 删除  | remove      | delete        | removeDemo          | deleteDemo            |
-| 上传  | upload      | import        | uploadDemo          | importDemo            |
-| 下载  | download    | export        | downloadDemo        | exportDemo            |
-| 实体  | get / set   |               | getDemo / setDemo   |                       |
+| 接口  | 前端              | 后端            | 前端API示例              | 后端API示例               |
+|-----|-----------------|---------------|----------------------|-----------------------|
+| 读取  | search / get    | read / select | searchDemo / getDemo | readDemo / selectDemo |
+| 写入  | save / add      | create        | saveDemo / addDemo   | createDemo            |
+| 编辑  | edit / update   | update        | editDemo             | updateDemo            |
+| 删除  | remove / delete | delete        | removeDemo           | deleteDemo            |
+| 上传  | upload          | import        | uploadDemo           | importDemo            |
+| 下载  | download        | export        | downloadDemo         | exportDemo            |
+| 实体  | get / set       |               | getDemo / setDemo    |                       |
 
 # 基础核心
 ###### 无特殊说明均对应最新版
 | 插件网站                                                       |
 |------------------------------------------------------------|
 | [Vite 官方推荐插件](https://github.com/vitejs/awesome-vite)      |
-| [vue3-resource](https://hu-snail.github.io/vue3-resource/) |
 | [vue3js](https://vue3js.cn/)                               |
+| [vue3-resource](https://hu-snail.github.io/vue3-resource/) |
 
 | 核心依赖                                                         |
 |--------------------------------------------------------------|
@@ -138,6 +138,7 @@
 | [quasar 官网](https://quasar.dev/)                                                   |
 | [primefaces 官网](https://primevue.org/)                                             |
 | [Vuestic UI 官网](https://vuestic.dev/)                                              |
+| [lobehub 官网](https://ui.lobehub.com/)                                              |
 | [React semi 官网](https://semi.design/zh-CN/)                                        |
 | [React ant-design 官网](https://ant.design/)                                         |
 | [React bootstrap 官网](https://react-bootstrap.github.io/)                           |
@@ -157,7 +158,6 @@
 | [mui uni-app 官网](https://dev.dcloud.net.cn/mui/)              |
 | [cube-ui 官网](https://didi.github.io/cube-ui/#/zh-CN)          |
 | [mint-ui 官网](http://mint-ui.github.io/)                       |
-| [VARLET 官网](https://varlet.gitee.io/varlet-ui/#/zh-CN/home)   |
 | [Wave UI 官网](https://antoniandre.github.io/wave-ui/)          |
 | [wu UI 官网](https://wu.geeks.ink/)                             |
 | [Tencent](https://github.com/Tencent/weui/)                   |
@@ -236,6 +236,10 @@
 | [vue3charts 官网](https://vue3charts.org/)                         |
 | [vue-echarts 官网](https://ecomfe.github.io/vue-echarts/)          |
 
+| 数据屏                                          |
+|----------------------------------------------|
+| [DataV](https://github.com/DataV-Team/Datav) |
+
 | 营销组件                               |
 |------------------------------------|
 | [抽奖转盘/九宫格/老虎机](https://100px.net/) |
@@ -304,6 +308,7 @@
 |----------------------------------------------------------------------------------|
 | [vue-functional-calendar](https://www.npmjs.com/package/vue-functional-calendar) |
 | [vuejs-heatmap](https://www.npmjs.com/package/vuejs-heatmap)                     |
+| [mpvue-calendar](https://github.com/Hzy0913/mpvue-calendar)                      |
 
 | 滚动                                                            |
 |---------------------------------------------------------------|
@@ -330,6 +335,7 @@
 | [slate](https://github.com/ianstormtaylor/slate)                       |
 | [squire](https://github.com/neilj/Squire)                              |
 | [summernote](https://summernote.org/)                                  |
+| [bytemd](https://bytemd.js.org/)                                       |
 
 | Markdown编辑器                                                                       |
 |-----------------------------------------------------------------------------------|
@@ -447,6 +453,7 @@
 
 | 视频播放                                                                         |
 |------------------------------------------------------------------------------|
+| [dplayer 支持弹幕](https://dplayer.diygod.dev/zh/)                               |
 | [vue-video-player](https://www.npmjs.com/package/vue-video-player)           |
 | [vue-core-video-player](https://www.npmjs.com/package/vue-core-video-player) |
 
@@ -679,13 +686,13 @@
 | [小游戏 createjs](https://www.createjs.com/)                        |
 
 # 优秀项目推荐
-|                                      |
-|--------------------------------------|
-| [slidev 演示文稿工具](https://cn.sli.dev/) |
+|                                       |
+|---------------------------------------|
+| [slidev 演示文稿工具](https://cn.sli.dev/)  |
+| [uiverse 开源组件合集](https://uiverse.io/) |
 
 | 项目示例                                                            |
 |-----------------------------------------------------------------|
-| [水墨文档 vue2 停更](https://github.com/huangwei9527/Ink-wash-docs)   |
 | [聊天室](https://github.com/gmingchen/vue3-element-plus-im)        |
 | [聊天悬浮](https://www.npmjs.com/package/vue-beautiful-chat)        |
 
