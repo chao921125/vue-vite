@@ -657,14 +657,15 @@
 | [midwayjs](https://www.midwayjs.org/)                  |
 
 # CDN
-| 节省资源，请使用这个                                 |
-|--------------------------------------------|
-| [字体 CDN](https://www.cdnfonts.com/)        |
-| [cdnjs](https://cdnjs.com/)                |
-| [字体下载]()                                   |
-| [google](https://fonts.google.com/)        |
-| [fonts2u](https://fonts2u.com/)            |
-| [font download](https://font.download/)    |
+| 节省资源，请使用这个                                                            |
+|-----------------------------------------------------------------------|
+| [字体 CDN](https://www.cdnfonts.com/)                                   |
+| [cdnjs](https://cdnjs.com/)                                           |
+| [字体下载]()                                                              |
+| [google](https://fonts.google.com/)                                   |
+| [fonts2u](https://fonts2u.com/)                                       |
+| [font download](https://font.download/)                               |
+| [maisfontes](https://en.maisfontes.com/fonts-scripts?utm_source=home) |
 
 # CMS
 |                                            |
