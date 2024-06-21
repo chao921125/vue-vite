@@ -4,7 +4,9 @@
 
 <script lang="ts" setup name="">
 	const placeScroll = ref();
+	// @ts-ignore
 	onBeforeRouteLeave((to, from, next) => {
+		console.log(to, from);
 		placeScroll.value = document.documentElement.scrollTop;
 		next();
 	});
