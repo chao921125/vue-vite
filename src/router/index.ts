@@ -1,7 +1,7 @@
 /**
  * 路由入口
  */
-import { createRouter, createWebHistory, RouteRecordName, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { getStoreRefs, appStore } from "@/store";
 import { baseRoutes, errorRoutes } from "./route";
 import Utils from "@/plugins/utils";
@@ -110,8 +110,8 @@ export async function setAddRoute(data: any[]) {
 	const routerList = getRouter(data);
 	routerList.forEach((route: RouteRecordRaw) => {
 		const { name } = route;
-		if (name !== "/") {
-			router.removeRoute(<RouteRecordName>name);
+		if (name && name !== "/") {
+			router.removeRoute(name || "");
 		}
 		router.addRoute(route);
 	});
