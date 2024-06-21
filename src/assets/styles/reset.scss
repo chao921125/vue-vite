@@ -127,7 +127,10 @@ table {
 	border-spacing: 0;
 	border-collapse: collapse;
 }
-html,
+html {
+	width: 100%;
+	height: auto;
+}
 body,
 #app {
 	width: 100%;

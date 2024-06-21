@@ -32,7 +32,9 @@ export const router = createRouter({
 	routes: baseRoutes,
 	strict: false,
 	// 切换页面，滚动到最顶部
-	scrollBehavior: () => ({ left: 0, top: 0 }),
+	scrollBehavior: () => {
+		return { el: "body", left: 0, top: 0 };
+	},
 });
 
 // 路由加载前
