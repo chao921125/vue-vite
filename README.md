@@ -413,11 +413,13 @@
 |------------------------------------------------------|
 | [clipboard](https://www.npmjs.com/package/clipboard) |
 
-| 三方授权登录集成库                                                              |
-|------------------------------------------------------------------------|
-| [next-auth](https://www.npmjs.com/package/next-auth)                   |
-| [@okta/okta-auth-js](https://www.npmjs.com/package/@okta/okta-auth-js) |
-| [hellojs](https://www.npmjs.com/package/hellojs)                       |
+| 三方授权登录集成库                                                                    |
+|------------------------------------------------------------------------------|
+| [next-auth](https://www.npmjs.com/package/next-auth)                         |
+| [@okta/okta-auth-js](https://www.npmjs.com/package/@okta/okta-auth-js)       |
+| [hellojs](https://www.npmjs.com/package/hellojs)                             |
+| [telegram vue3-telegram-login](https://github.com/cinob/vue3-telegram-login) |
+| [telegram vue-tg](https://github.com/deptyped/vue-telegram)                  |
 
 | 分享插件                                                                         |
 |------------------------------------------------------------------------------|
