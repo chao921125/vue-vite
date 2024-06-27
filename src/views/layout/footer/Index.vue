@@ -1,5 +1,5 @@
 <template>
-	<div class="re-w-fill re-flex-row-center footer-body">
+	<div class="re-w-full re-flex-row-center footer-body">
 		<a
 			class="re-ml-20"
 			target="_blank"

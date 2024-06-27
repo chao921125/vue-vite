@@ -3,7 +3,7 @@
 		<h1 style="font-size: 24px; font-weight: bold">WiFi: {{ formWifi.ssid || "" }}</h1>
 	</div>
 	<div
-		class="re-w-fill re-flex-row-between card-box"
+		class="re-w-full re-flex-row-between card-box"
 		:style="`width: 100%; margin-top: 20px; display: ${formWifi.direction ? 'flex' : 'block'}; justify-content: space-between; align-items: center;`">
 		<div
 			class="card-qr"

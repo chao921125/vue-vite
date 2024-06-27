@@ -14,7 +14,7 @@
 			:span="wifiInfo.settings.direction ? 12 : 6"
 			class="re-flex-row-center re-mt-20">
 			<el-card
-				class="re-w-fill"
+				class="re-w-full"
 				id="printCard">
 				<WifiCard
 					ref="wifiCardRef"

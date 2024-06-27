@@ -2,12 +2,12 @@
 	<el-row
 		:gutter="10"
 		justify="space-between"
-		class="re-h-fill">
+		class="re-h-full">
 		<!--		面包屑导航-->
 		<el-col
 			:xs="24"
 			:sm="12">
-			<div class="re-h-fill re-flex-row-center-ai">
+			<div class="re-h-full re-flex-row-center-ai">
 				<el-icon
 					@click="changeCollapse"
 					class="re-cursor-pointer"
@@ -33,7 +33,7 @@
 		<el-col
 			:xs="24"
 			:sm="12">
-			<div class="re-h-fill re-flex-row-end">
+			<div class="re-h-full re-flex-row-end">
 				<el-dropdown
 					ref="dropdownComponents"
 					trigger="hover"
