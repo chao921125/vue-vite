@@ -480,10 +480,11 @@
 |---------------------------------------------------------------------------------|
 | [devtools-detector 判断浏览器是否打开了控制台](https://github.com/AepKill/devtools-detector) |
 
-| Other                                                 |
-|-------------------------------------------------------|
-| [vuepress](https://github.com/vuejs/vuepress)         |
-| https://github.com/Molunerfinn/PicGo                  |
+| Other                                         |
+|-----------------------------------------------|
+| [vuepress](https://github.com/vuejs/vuepress) |
+| [图片上传](https://github.com/Molunerfinn/PicGo)  |
+| [工具集合](https://vueuse.org/)                   |
 
 # 特效
 |                                                                |
