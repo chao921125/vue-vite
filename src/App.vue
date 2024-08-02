@@ -1,6 +1,13 @@
 <template>
-	<el-config-provider :locale="config.i18n" :size="config.size" :button="config.buttonSpace">
-		<RouterView />
+	<el-config-provider
+		:locale="config.i18n"
+		:size="config.size"
+		:button="config.buttonSpace">
+		<RouterView v-slot="{ Component }">
+			<KeepAlive>
+				<component :is="Component" />
+			</KeepAlive>
+		</RouterView>
 	</el-config-provider>
 </template>
 

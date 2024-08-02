@@ -1,15 +1,28 @@
 <template>
-	<el-skeleton :rows="1" animated :loading="isLoading">
+	<el-skeleton
+		:rows="1"
+		animated
+		:loading="isLoading">
 		<h1>{{ now }}，今天是：{{ nowLocal }}</h1>
 	</el-skeleton>
-	<el-skeleton :rows="2" animated :loading="isLoadingInfo" class="re-mt-20">
+	<el-skeleton
+		:rows="2"
+		animated
+		:loading="isLoadingInfo"
+		class="re-mt-20">
 		<h1>当前登录环境如下</h1>
 		<h1>操作系统：{{ uaInfo?.os?.name }} 版本：{{ uaInfo?.os?.version }}</h1>
 		<h1>浏览器：{{ uaInfo?.browser?.name }} 版本：{{ uaInfo?.browser?.version }}</h1>
 		<h1 v-if="ipReal.ip">当前登录IP：{{ ipReal.ip }} - {{ ipReal.country }} {{ ipReal.province }} {{ ipReal.region }}</h1>
 		<template v-if="ipReal.ip">
-			<h1 v-show="ipReal.ip && ipReal.ip.toString() !== ipProxy.ip" class="error">您使用了代理!!!</h1>
-			<h1 v-show="ipReal.ip && ipReal.ip.toString() !== ipProxy.ip" class="error">
+			<h1
+				v-show="ipReal.ip && ipReal.ip.toString() !== ipProxy.ip"
+				class="error"
+				>您使用了代理!!!</h1
+			>
+			<h1
+				v-show="ipReal.ip && ipReal.ip.toString() !== ipProxy.ip"
+				class="error">
 				当前代理IP为：{{ ipProxy.ip }} - {{ ipProxy.country }} {{ ipProxy.province }} {{ ipProxy.region }}
 			</h1>
 		</template>
@@ -20,6 +33,7 @@
 	import { formatAxis, formatDate } from "@/plugins/utils/format";
 	import UA from "ua-parser-js";
 	import { getProxyIpInfo, getRealIpInfo } from "@/plugins/utils/ip";
+	import Constants from "@/plugins/constants";
 
 	// 欢迎标语
 	const now = ref(formatAxis(new Date()));
@@ -38,18 +52,19 @@
 		uaInfo.value = UA(navigator.userAgent) as any;
 	};
 	const getIpInfo = () => {
-		getRealIpInfo().then((res: any) => {
+		getRealIpInfo(Constants.ipUrl.real.songzixian).then((res: any) => {
 			ipReal.ip = res.data.ip;
 			ipReal.country = res.data.country + " " + res.data.countryCode;
 			ipReal.province = res.data.province;
 			ipReal.region = res.data.city + " " + res.data.isp;
 		});
 
-		getProxyIpInfo().then((res: any) => {
-			ipProxy.ip = res.query;
+		getProxyIpInfo(Constants.ipUrl.proxy.ipapi).then((res: any) => {
+			console.log(res);
+			ipProxy.ip = res.ip;
 			ipProxy.province = res.city;
-			ipProxy.country = res.country + " " + res.countryCode;
-			ipProxy.region = res.regionName + " " + res.region;
+			ipProxy.country = res.country + " " + res.continent_code;
+			ipProxy.region = res.region + " " + res.region_code;
 		});
 	};
 

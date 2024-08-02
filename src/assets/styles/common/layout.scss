@@ -150,7 +150,7 @@ body {
 		top: 0;
 		left: -220px;
 		width: 220px;
-		z-index: 9999999;
+		z-index: 99999;
 	}
 	.layout-aside-mobile-close {
 		left: -220px;
@@ -168,7 +168,7 @@ body {
 		left: 0;
 		height: 100%;
 		background-color: rgba(0, 0, 0, 0.5);
-		z-index: 9999998;
+		z-index: 99998;
 		animation: error-img 0.3s;
 	}
 	.layout-scrollbar {

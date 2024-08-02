@@ -1,7 +1,14 @@
 <template>
 	<el-row>
-		<el-col :span="24" v-loading="iframeObj.loading" :style="{ height: `calc(100vh - ${iframeHeight})`, border: 'none' }">
-			<iframe id="iframe" :src="iframeObj.url" width="100%" height="100%"></iframe>
+		<el-col
+			:span="24"
+			v-loading="iframeObj.loading"
+			:style="{ height: `calc(100vh - ${iframeHeight})`, border: 'none' }">
+			<iframe
+				id="iframe"
+				:src="iframeObj.url"
+				width="100%"
+				height="100%"></iframe>
 		</el-col>
 	</el-row>
 </template>

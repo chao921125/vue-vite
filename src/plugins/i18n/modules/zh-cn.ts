@@ -57,6 +57,8 @@ export default {
 		demoActivity: "工作流",
 		demoImg: "图片格式转换",
 		demoThree: "ThreeJS",
+		demoPdf: "PDF",
+		demoDraggable: " 拖拽",
 		testLink: "链接",
 		testIframe: "Iframe",
 	},

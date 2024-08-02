@@ -1,10 +1,14 @@
 <template>
 	<el-row>
 		<el-col :span="12">
-			<div id="echartsAmount" style="height: 300px"></div>
+			<div
+				id="echartsAmount"
+				style="height: 300px"></div>
 		</el-col>
 		<el-col :span="12">
-			<div id="echartsAmount1" style="height: 300px"></div>
+			<div
+				id="echartsAmount1"
+				style="height: 300px"></div>
 		</el-col>
 	</el-row>
 </template>

@@ -1,9 +1,14 @@
 <template>
 	<!--创建容器-->
 	<div class="containers">
-		<div class="canvas" id="canvas" ref="canvasRef"></div>
+		<div
+			class="canvas"
+			id="canvas"
+			ref="canvasRef"></div>
 		<!--属性面板将通过该元素呈现到其中-->
-		<div class="panel" id="js-properties-panel"></div>
+		<div
+			class="panel"
+			id="js-properties-panel"></div>
 	</div>
 </template>
 

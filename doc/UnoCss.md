@@ -1,3 +1,23 @@
+# Package.json
+```json
+{
+	"unocss": "^0.60.2"
+}
+```
+# vite.config.ts
+```ts
+import UnoCSS from "unocss/vite";
+
+plugins: [
+	UnoCSS(),
+]
+```
+# main.ts
+```ts
+import "virtual:uno.css";
+```
+# uno.config.ts
+```ts
 import { defineConfig } from "unocss";
 
 export default defineConfig({
@@ -15,3 +35,5 @@ export default defineConfig({
 		[/^btn-(.*)$/, ([, c]) => `bg-${c}-400 text-${c}-100 py-2 px-4 rounded-lg`],
 	],
 });
+
+```

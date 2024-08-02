@@ -12,16 +12,23 @@
 		:limit="props.fileLimit"
 		:accept="props.fileAccept"
 		:auto-upload="props.isAutoUpload"
-		:disabled="props.isDisabled"
-	>
-		<el-button v-if="props.fileStyle === 1" type="primary">{{ props.buttonText }}</el-button>
+		:disabled="props.isDisabled">
+		<el-button
+			v-if="props.fileStyle === 1"
+			type="primary"
+			>{{ props.buttonText }}</el-button
+		>
 		<el-icon v-if="props.fileStyle === 1"><Plus /></el-icon>
 		<div v-if="props.fileStyle === 3">
 			<el-icon class="el-icon--upload"><upload-filled /></el-icon>
 			<div class="el-upload__text"> Drop file here or <em>click to upload</em> </div>
 		</div>
 		<template #tip>
-			<div v-if="props.tipsText" class="el-upload__tip">{{ props.tipsText }}</div>
+			<div
+				v-if="props.tipsText"
+				class="el-upload__tip"
+				>{{ props.tipsText }}</div
+			>
 		</template>
 	</el-upload>
 </template>

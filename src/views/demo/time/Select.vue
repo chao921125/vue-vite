@@ -1,10 +1,19 @@
 <template>
-	<el-form-item label="监控时间段" prop="monitorTimePeriods"
+	<el-form-item
+		label="监控时间段"
+		prop="monitorTimePeriods"
 		>{{ timeQuantumProps }}
-		<el-button type="primary" size="small" @click="selectTimeQuantum('monitorTimePeriod')">设置</el-button>
+		<el-button
+			type="primary"
+			size="small"
+			@click="selectTimeQuantum('monitorTimePeriod')"
+			>设置</el-button
+		>
 	</el-form-item>
 	<!-- 选择时间段 -->
-	<time v-if="timeQuantumProps.show" :timeQuantumProps="timeQuantumProps"></time>
+	<time
+		v-if="timeQuantumProps.show"
+		:timeQuantumProps="timeQuantumProps"></time>
 </template>
 
 <script setup name="">

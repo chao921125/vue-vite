@@ -1,12 +1,28 @@
 <template>
-	<el-container class="layout-container" :class="{ 'web-main': !isFixedHeader }">
-		<el-header v-if="isFixedHeader" class="layout-header">Web 下因需求不同，请重写</el-header>
-		<el-scrollbar ref="refScrollbarMain" :class="{ 'web-main': isFixedHeader }">
-			<el-header v-if="!isFixedHeader" class="layout-header">Web 下因需求不同，请重写</el-header>
+	<el-container
+		class="layout-container"
+		:class="{ 'web-main': !isFixedHeader }">
+		<el-header
+			v-if="isFixedHeader"
+			class="layout-header"
+			>Web 下因需求不同，请重写</el-header
+		>
+		<el-scrollbar
+			ref="refScrollbarMain"
+			:class="{ 'web-main': isFixedHeader }">
+			<el-header
+				v-if="!isFixedHeader"
+				class="layout-header"
+				>Web 下因需求不同，请重写</el-header
+			>
 			<el-main class="layout-main"><router-view></router-view></el-main>
 			<el-footer v-if="isShowFooter">Web 下因需求不同，请重写</el-footer>
 		</el-scrollbar>
-		<el-backtop target=".web-main .el-scrollbar__wrap" :visibility-height="300" :right="20" :bottom="20">
+		<el-backtop
+			target=".web-main .el-scrollbar__wrap"
+			:visibility-height="300"
+			:right="20"
+			:bottom="20">
 			<el-icon :size="20"><ArrowUpBold /></el-icon>
 		</el-backtop>
 	</el-container>

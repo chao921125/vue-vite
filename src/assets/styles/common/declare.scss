@@ -82,24 +82,24 @@ $z-index-9: 9000;
 
 // 填充 宽高
 @mixin wh-full {
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 }
 @mixin width-full {
-	width: 100vw;
+	width: 100%;
 }
 @mixin height-full {
-	height: 100vh;
+	height: 100%;
 }
 @mixin wh-fill {
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 }
 @mixin width-fill {
-	width: 100%;
+	width: 100vw;
 }
 @mixin height-fill {
-	height: 100%;
+	height: 100vh;
 }
 
 // flex 垂直水平居中 两端对齐

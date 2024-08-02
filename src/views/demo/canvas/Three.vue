@@ -1,5 +1,7 @@
 <template>
-	<div ref="threeJsContainer" id="threeJsContainer"></div>
+	<div
+		ref="threeJsContainer"
+		id="threeJsContainer"></div>
 </template>
 
 <script lang="ts" setup name="">

@@ -57,6 +57,8 @@ export default {
 		demoActivity: "Activity",
 		demoImg: "Img Type Change",
 		demoThree: "ThreeJS",
+		demoPdf: "PDF",
+		demoDraggable: "Draggable",
 		testLink: "Link",
 		testIframe: "Iframe",
 	},

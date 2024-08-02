@@ -42,9 +42,6 @@ app.use(VueLuckyCanvas);
 // vant
 import "vant/lib/index.css";
 
-// unocss
-import "virtual:uno.css";
-
 // svg font icon 字体、图标
 import "virtual:svg-icons-register";
 import "@/assets/fonts/font.css";
@@ -65,6 +62,7 @@ import Log from "@/plugins/utils/log";
 
 // 动画
 import "animate.css/animate.min.css";
+import "animate.css/animate.compat.css";
 
 // 自定义样式
 import "@/assets/styles/index.scss";
@@ -90,6 +88,14 @@ Object.keys(directives).forEach((key) => {
 // 手动引入自定义插件对象，注册整个项目中的全局组件
 // import globalComponent from "@/components/index.ts";
 // app.use(globalComponent)
+
+// PWA
+window.addEventListener("beforeinstallprompt", (e) => {
+	e.preventDefault();
+	// @ts-ignore
+	window.deferredPrompt = e;
+});
+
 /*
  * 自定义 end
  * */

@@ -63,9 +63,6 @@ export const getLocalIpList = (callback: Function) => {
 		}
 	};
 };
-// Test
-// getLocalIpList((ip) => {console.log(ip);});
-
 export const getLocalIPs = () => {
 	// @ts-ignore
 	let myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
@@ -102,6 +99,12 @@ export const getLocalIPs = () => {
 	};
 };
 
+// Test
+// getLocalIpList((ip) => {console.log(ip);});
+
+// TODO https://github.com/ihmily/ip-info-api
+// http://ip-api.com/json/
+
 // http://www.net.cn/static/customercare/yourip.asp
 // https://www.ip.cn/
 // https://www.ip138.com/
@@ -109,69 +112,64 @@ export const getLocalIPs = () => {
 // https://www.lingfengyun.com/
 
 /**
- * Address 01: 调用跨域 https://www.taobao.com/help/getip.php
- *
- * Address 02: 调用跨域 https://api.ipify.org/?format=json
- * 特殊的请求方式：
- * return fetch("https://api.ipify.org?format=json")
- *    .then((response) => {
- *      return response.json();
- *    })
- *    .then((data) => {
- *      return data;
- *    });
- *
- * Address 03: 调用跨域 https://www.ipplus360.com/getIP
- * Address 04: 调用跨域 https://www.fkcoder.com/myip
- * Address 04: 调用跨域 https://api64.ipify.org/?format=json
+ * mode: "no-cors"
+ * @param url
  */
-// , mode: "no-cors"
-export const getIp = () => {
-	return Fetch.request("https://v.api.aa1.cn/api/myip/index.php?aa1=json", {}, { method: "GET" });
-};
-/**
- * Address 01: 调用跨域 http://ip.taobao.com/service/getIpInfo.php?ip=103.192.227.197
- * Address 02: 调用跨域 https://api.vore.top/api/IPdata?ip=103.192.227.197
- * Address 03: 调用跨域 https://opendata.baidu.com/api.php?query=103.192.227.197&co=&resource_id=6006&oe=utf8
- * Address 04: 调用跨域 https://searchplugin.csdn.net/api/v1/ip/get?ip=103.192.227.197
- * Address 05: 调用跨域 https://www.ipplus360.com/getLocation
- * Address 06: 调用跨域 https://www.fkcoder.com/ip?ip=103.192.227.197
- */
-export const getAddressByIp = (ip?: string | undefined) => {
-	return Fetch.request(`https://www.fkcoder.com/ip?ip=${ip}`, {}, { method: "GET" });
+export const getIp = (url: string) => {
+	return Fetch.request(url, {}, { method: "GET" });
 };
 
 /**
- * Address 01: 调用跨域 https://ip.cn/api/index?ip=&type=0
- * Address 02: 调用跨域 http://whois.pconline.com.cn/ipJson.jsp?ip=&json=true
- * Address 03: 调用跨域 https://2023.ipchaxun.com/
- * Address 04: 调用跨域 https://searchplugin.csdn.net/api/v1/ip/get?ip=
- * Address 04: 调用跨域 https://www.ip.cn/api/index?ip=&type=0
- * 6422e6b65fb929b407d624a02873328
+ * 只能通过 ip 获取信息
+ * @param url
+ * @param ip
  */
-export const getRealIpInfo = () => {
-	return Fetch.request("https://api.songzixian.com/api/ip?dataSource=GLOBAL_IP&ip=", {}, { method: "GET" });
+export const getInfoByIp = (url: string, ip: string | undefined) => {
+	return Fetch.request(`${url}${ip || ""}`, {}, { method: "GET" });
 };
+
 /**
- * Address 01: https://ipapi.co/json/
- * Address 02: http://ip-api.com/json/?lang=zh-CN
+ * 获取 ip 信息，或者，根据 ip 地址获取信息
+ * @param url
+ * @param ip
  */
-export const getProxyIpInfo = () => {
-	return Fetch.request("http://ip-api.com/json/?lang=zh-CN", {}, { method: "GET" });
+export const getIpInfo = (url: string, ip?: string | undefined) => {
+	return Fetch.request(`${url}${ip || ""}`, {}, { method: "GET" });
 };
-export const getImg = (data: { width: number; height: number }) => {
-	const w = data.width || 200;
-	const h = data.height || 200;
-	return Fetch.request(`https://picsum.photos/${w}/${h}`, {}, { method: "GET" });
+
+/**
+ * 获取真实的 ip 信息，或者，根据 ip 地址获取信息
+ * @param url
+ * @param ip
+ */
+export const getRealIpInfo = (url: string, ip?: string | undefined) => {
+	return Fetch.request(`${url}${ip || ""}`, {}, { method: "GET" });
 };
-export const getImgCat = () => {
-	return Fetch.request("https://api.thecatapi.com/v1/images/search?limit=1", {}, { method: "GET" });
+
+/**
+ * 获取 IP 为代理后的地址
+ * @param url
+ */
+export const getProxyIpInfo = (url: string) => {
+	return Fetch.request(url, {}, { method: "GET" });
 };
-export const getImgDog = () => {
-	return Fetch.request("https://dog.ceo/api/breeds/image/random", {}, { method: "GET" });
+
+/**
+ * 需要单独处理的
+ */
+
+// https://ifconfig.me/
+// https://ifconfig.es/
+// https://ipcalf.com/
+// https://tnx.nl/ip
+
+export const getIpChaXun = () => {
+	let url = `https://${new Date().getFullYear()}.ipchaxun.com/`;
+	return Fetch.request(url, {}, { method: "GET" });
 };
 
 export const getIp138 = () => {
+	let url = `https://${new Date().getFullYear()}.ip138.com`;
 	let data;
 	let xmlHttpRequest;
 	if (window.ActiveXObject) {
@@ -188,7 +186,7 @@ export const getIp138 = () => {
 			}
 		}
 	};
-	xmlHttpRequest.open("get", "https://2022.ip138.com", false);
+	xmlHttpRequest.open("get", url, false);
 	xmlHttpRequest.send(null);
 	let datalist = data.split("\n");
 	let patt = [/[0-9]+.[0-9]+.[0-9]+.[0-9]+/, /来自/, []];

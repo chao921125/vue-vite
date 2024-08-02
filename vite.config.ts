@@ -24,8 +24,6 @@ import autoImport from "unplugin-auto-import/vite";
 import components from "unplugin-vue-components/vite";
 import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
 // CSS 预构建
-import UnoCSS from "unocss/vite";
-// import { presetAttributify, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from "unocss";
 // 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
@@ -62,7 +60,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 	}
 	const defaultConfig: UserConfig = {
 		root: path.resolve(__dirname, ""), // "./public/index.html", // 入口，可以指定到public文件夹
-		base: isBuild ? "./" : envConfig.VITE_PUBLIC_PATH, // 公共基础路径
+		base: isBuild ? envConfig.VITE_PUBLIC_PATH : "./", // 公共基础路径
 		// mode: "development", // 指令覆盖构建模式 --mode
 		define: {
 			// 定义全局常量替换方式
@@ -87,7 +85,110 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				restart: ["vite.config.[jt]s"],
 			}),
 			// 渐进式配置
-			VitePWA({}),
+			VitePWA({
+				registerType: "autoUpdate",
+				devOptions: {
+					enabled: false,
+				},
+				injectRegister: "auto",
+				includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
+				manifest: {
+					name: "vue-vite project",
+					short_name: "vue-vite",
+					description: "vue-vite-pwa",
+					id: "vue-vite",
+					start_url: ".",
+					theme_color: "#FFFFFF",
+					icons: [
+						{
+							src: "/pwa-640.png",
+							sizes: "640x640",
+							type: "image/png",
+						},
+					],
+				},
+				workbox: {
+					globPatterns: ["**/*.{js,ts,jsx,tsx,mjs,cjs,css,scss,less,html,ico,icon,png,jpg,jpeg,gif,webp,svg,ttf,otf,woff,woff2}"],
+					cleanupOutdatedCaches: false,
+					sourcemap: true,
+					runtimeCaching: [
+						mode === "production"
+							? {
+									urlPattern: ({ url }) => url.origin.includes("https"),
+									handler: "NetworkFirst",
+									options: {
+										cacheName: "pwa-api",
+										cacheableResponse: {
+											statuses: [200],
+										},
+									},
+								}
+							: {
+									urlPattern: ({ url }) => url.origin.includes("test"),
+									handler: "NetworkFirst",
+									options: {
+										cacheName: "pwa-api",
+										cacheableResponse: {
+											statuses: [200],
+										},
+									},
+								},
+						{
+							urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
+							handler: "CacheFirst",
+							options: {
+								cacheName: "pwa-images",
+								expiration: {
+									// 最多30个图
+									maxEntries: 30,
+								},
+							},
+						},
+						{
+							urlPattern: /.*\.js.*/,
+							handler: "StaleWhileRevalidate",
+							options: {
+								cacheName: "pwa-js",
+								expiration: {
+									maxEntries: 30, // 最多缓存30个，超过的按照LRU原则删除
+									maxAgeSeconds: 30 * 24 * 60 * 60,
+								},
+								cacheableResponse: {
+									statuses: [200],
+								},
+							},
+						},
+						{
+							urlPattern: /.*\.css.*/,
+							handler: "StaleWhileRevalidate",
+							options: {
+								cacheName: "pwa-css",
+								expiration: {
+									maxEntries: 20,
+									maxAgeSeconds: 30 * 24 * 60 * 60,
+								},
+								cacheableResponse: {
+									statuses: [200],
+								},
+							},
+						},
+						{
+							urlPattern: /.*\.html.*/,
+							handler: "StaleWhileRevalidate",
+							options: {
+								cacheName: "pwa-html",
+								expiration: {
+									maxEntries: 20,
+									maxAgeSeconds: 30 * 24 * 60 * 60,
+								},
+								cacheableResponse: {
+									statuses: [200],
+								},
+							},
+						},
+					],
+				},
+			}),
 			ViteEjsPlugin(
 				(viteConfig) => {
 					// viteConfig is the current viteResolved config.
@@ -152,7 +253,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 						return code;
 					}
 
-					const cjsRegexp = /(const|let|var)[\n\s]+(\w+)[\n\s]*=[\n\s]*require\(['|'](.+)['|']\)/g;
+					const cjsRegexp = /(const|let|var)[\n\s]+(\w+)[\n\s]*=[\n\s]*require\(["|](.+)["|]\)/g;
 					const res = code.match(cjsRegexp);
 					if (res) {
 						// const Store = require("electron-store") -> import Store from "electron-store"
@@ -161,8 +262,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					return code;
 				},
 			},
-			// 原子css
-			UnoCSS(),
 			// 图标
 			icons({
 				compiler: "vue3",

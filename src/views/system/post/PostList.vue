@@ -1,33 +1,74 @@
 <template>
-	<el-form ref="formSearchRef" :model="formSearch" status-icon label-width="" :inline="true">
-		<el-form-item prop="name" label="岗位">
-			<el-input v-model="formSearch.name" placeholder=""></el-input>
+	<el-form
+		ref="formSearchRef"
+		:model="formSearch"
+		status-icon
+		label-width=""
+		:inline="true">
+		<el-form-item
+			prop="name"
+			label="岗位">
+			<el-input
+				v-model="formSearch.name"
+				placeholder=""></el-input>
 		</el-form-item>
-		<el-form-item prop="" label="">
+		<el-form-item
+			prop=""
+			label="">
 			<el-button type="primary">查询</el-button>
 			<el-button @click="resetForm(formSearchRef)">重置</el-button>
-			<el-button type="success" @click="openAddPost">新增</el-button>
+			<el-button
+				type="success"
+				@click="openAddPost"
+				>新增</el-button
+			>
 		</el-form-item>
 	</el-form>
-	<el-table :data="tableData" v-loading="isLoadData" style="width: 100%">
-		<el-table-column prop="name" label="名称" />
-		<el-table-column prop="number" label="编码" width="120" />
-		<el-table-column prop="userName" label="负责人" />
-		<el-table-column prop="phone" label="联系方式" width="120" />
-		<el-table-column prop="status" label="状态" width="80">
+	<el-table
+		:data="tableData"
+		v-loading="isLoadData"
+		style="width: 100%">
+		<el-table-column
+			prop="name"
+			label="名称" />
+		<el-table-column
+			prop="number"
+			label="编码"
+			width="120" />
+		<el-table-column
+			prop="userName"
+			label="负责人" />
+		<el-table-column
+			prop="phone"
+			label="联系方式"
+			width="120" />
+		<el-table-column
+			prop="status"
+			label="状态"
+			width="80">
 			<template #default="scope">
-				<el-tag :type="scope.row.status ? 'success' : 'danger'">{{ StatusUse[scope.row.status] }}</el-tag>
+				<el-tag :type="scope.row.status ? 'success' : 'danger'">{{ ObjStatusUse[scope.row.status] }}</el-tag>
 			</template>
 		</el-table-column>
-		<el-table-column prop="desc" label="描述" />
-		<el-table-column prop="" label="操作" width="120">
+		<el-table-column
+			prop="desc"
+			label="描述" />
+		<el-table-column
+			prop=""
+			label="操作"
+			width="120">
 			<template #default="scope">
-				<el-button type="success" link @click="openEditJob(scope.row)">
+				<el-button
+					type="success"
+					link
+					@click="openEditJob(scope.row)">
 					<el-icon><EditPen /></el-icon>
 				</el-button>
 				<el-popconfirm title="确认删除？">
 					<template #reference>
-						<el-button type="danger" link>
+						<el-button
+							type="danger"
+							link>
 							<el-icon><Delete /></el-icon>
 						</el-button>
 					</template>
@@ -35,13 +76,20 @@
 			</template>
 		</el-table-column>
 	</el-table>
-	<RePagination :current="params.pageCurrent" :total="params.pageTotal" @change-size="pageChangeSize" @change-current="pageChangeCurrent"></RePagination>
-	<AddEdit :data="postInfo" ref="dialogForm" @result="getPostList"></AddEdit>
+	<RePagination
+		:current="params.pageCurrent"
+		:total="params.pageTotal"
+		@change-size="pageChangeSize"
+		@change-current="pageChangeCurrent"></RePagination>
+	<AddEdit
+		:data="postInfo"
+		ref="dialogForm"
+		@result="getPostList"></AddEdit>
 </template>
 
 <script lang="ts" setup name="">
 	import type { FormInstance } from "element-plus";
-	import { StatusUse } from "@/plugins/enums";
+	import { ObjStatusUse } from "@/plugins/enums";
 	import AddEdit from "./components/AddEdit.vue";
 
 	const formSearchRef = ref<FormInstance>();

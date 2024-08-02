@@ -1,17 +1,44 @@
 <template>
 	<el-row>
-		<el-col :span="24" class="re-mb-20">支持 heic 格式转换，默认上传就开始转换</el-col>
-		<el-col :span="24" class="re-mb-20">
-			<el-select v-model="file.fileType" class="m-2" placeholder="Select" size="large" style="width: 240px">
-				<el-option v-for="item in file.optionsFileType" :key="item.value" :label="item.label" :value="item.value" />
+		<el-col
+			:span="24"
+			class="re-mb-20"
+			>支持 heic 格式转换，默认上传就开始转换</el-col
+		>
+		<el-col
+			:span="24"
+			class="re-mb-20">
+			<el-select
+				v-model="file.fileType"
+				class="m-2"
+				placeholder="Select"
+				size="large"
+				style="width: 240px">
+				<el-option
+					v-for="item in file.optionsFileType"
+					:key="item.value"
+					:label="item.label"
+					:value="item.value" />
 			</el-select>
 			<el-radio-group v-model="file.isCompress">
 				<el-radio :label="true">压缩</el-radio>
 				<el-radio :label="false">不压缩</el-radio>
 			</el-radio-group>
-			<el-slider v-model="file.compressValue" :disabled="!file.isCompress" :min="0" :max="1" :step="0.05" show-stops :marks="file.marks" />
+			<el-slider
+				v-model="file.compressValue"
+				:disabled="!file.isCompress"
+				:min="0"
+				:max="1"
+				:step="0.05"
+				show-stops
+				:marks="file.marks" />
 		</el-col>
-		<el-col :span="24" class="re-mb-20" v-loading="file.isLoading" element-loading-text="Loading..." element-loading-background="rgba(122, 122, 122, 0.8)">
+		<el-col
+			:span="24"
+			class="re-mb-20"
+			v-loading="file.isLoading"
+			element-loading-text="Loading..."
+			element-loading-background="rgba(122, 122, 122, 0.8)">
 			<el-upload
 				drag
 				action="#"
@@ -21,8 +48,7 @@
 				:show-file-list="false"
 				:auto-upload="false"
 				accept="image/png, image/jpeg, image/heic, image/jpg"
-				:on-change="changeFile"
-			>
+				:on-change="changeFile">
 				<el-icon class="el-icon--upload"><upload-filled /></el-icon>
 				<div class="el-upload__text"> Drop file here or <em>click to upload</em> </div>
 				<template #tip>

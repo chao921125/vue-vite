@@ -1,6 +1,9 @@
 // @see: https://eslint.org/
+import eslintConfigPrettier from "eslint-config-prettier";
 import vue from "eslint-plugin-vue";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+
 export default [
 	{
 		files: ["**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs", "**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts", "**/*.vue", "**/*.json"],
@@ -30,7 +33,7 @@ export default [
 			ecmaVersion: "latest",
 			sourceType: "module",
 			// globals: "module",
-			// parser: "espree",
+			parser: "vue-eslint-parser",
 			// parserOptions: "espree",
 		},
 		linterOptions: {
@@ -117,4 +120,6 @@ export default [
 		},
 		// settings: {},
 	},
+	eslintConfigPrettier,
+	eslintPluginPrettierRecommended,
 ];

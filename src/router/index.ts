@@ -1,7 +1,7 @@
 /**
  * 路由入口
  */
-import { createRouter, createWebHistory, RouteRecordName, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { getStoreRefs, appStore } from "@/store";
 import { baseRoutes, errorRoutes } from "./route";
 import Utils from "@/plugins/utils";
@@ -32,7 +32,9 @@ export const router = createRouter({
 	routes: baseRoutes,
 	strict: false,
 	// 切换页面，滚动到最顶部
-	scrollBehavior: () => ({ left: 0, top: 0 }),
+	scrollBehavior: () => {
+		return { el: "body", left: 0, top: 0 };
+	},
 });
 
 // 路由加载前
@@ -108,8 +110,8 @@ export async function setAddRoute(data: any[]) {
 	const routerList = getRouter(data);
 	routerList.forEach((route: RouteRecordRaw) => {
 		const { name } = route;
-		if (name !== "/") {
-			router.removeRoute(<RouteRecordName>name);
+		if (name && name !== "/") {
+			router.removeRoute(name || "");
 		}
 		router.addRoute(route);
 	});
