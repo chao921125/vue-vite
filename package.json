@@ -166,6 +166,7 @@
 		"vite-plugin-cdn-import": "^1.0.1",
 		"vite-plugin-compression": "^0.5.1",
 		"vite-plugin-ejs": "^1.7.0",
+		"vite-plugin-eslint": "^1.8.1",
 		"vite-plugin-mock": "^3.0.2",
 		"vite-plugin-pwa": "^0.20.1",
 		"vite-plugin-restart": "^0.4.1",

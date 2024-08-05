@@ -30,10 +30,10 @@ import IconsResolver from "unplugin-icons/resolver";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 // Mock
 import { viteMockServe } from "vite-plugin-mock";
+// 格式化
+import eslintPlugin from "vite-plugin-eslint";
 // 处理变量
-// @ts-ignore
 import pkg from "./package.json";
-// @ts-ignore
 import { getEnvConfig, createProxy } from "./build";
 
 const __APP_INFO__ = {
@@ -41,7 +41,6 @@ const __APP_INFO__ = {
 	lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss"),
 };
 
-// @ts-ignore
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 	const root = process.cwd();
 	const env = loadEnv(mode, root);
@@ -71,6 +70,10 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		plugins: [
 			// 插件
 			vue(),
+			eslintPlugin({
+				include: ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+				cache: true,
+			}),
 			// * vite 可以使用 jsx/tsx 语法
 			// * name 可以写在 script 标签上
 			vueSetupExtend(),

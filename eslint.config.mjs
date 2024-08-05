@@ -1,17 +1,29 @@
 // @see: https://eslint.org/
 import globals from "globals";
 import pluginJs from "@eslint/js";
-import typescriptEslint from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
 import eslintConfigPrettier from "eslint-config-prettier";
 import pluginVue from "eslint-plugin-vue";
 import tseslint from "typescript-eslint";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import vueParser from "vue-eslint-parser";
+import prettier from "prettier";
+import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
 
 export default [
 	{
-		files: ["**/*.{js,mjs,cjs,ts,vue}", "**/*.{jsx,tsx}", "**/*.{json,json5,yaml,yml}"],
+		files: ["**/*.{js,mjs,cjs,ts,vue,jsx,tsx}", "**/*.{md,json,json5,yaml,yml}"],
+		languageOptions: {
+			globals: globals.browser,
+		},
+	},
+	pluginJs.configs.recommended,
+	...pluginVue.configs["flat/essential"],
+	...tseslint.configs.recommended,
+	eslintConfigPrettier,
+	eslintPluginPrettierRecommended,
+	{
+		files: ["**/*.{js,mjs,cjs,ts,vue,jsx,tsx}"],
 		ignores: [
 			".vscode",
 			".idea",
@@ -52,7 +64,8 @@ export default [
 		// processor: {},
 		/* 继承某些已有的规则 */
 		plugins: {
-			vue: pluginJs,
+			prettier: prettier,
+			vue: pluginVue,
 			"@typescript-eslint": typescriptEslint,
 		},
 		rules: {
@@ -129,13 +142,4 @@ export default [
 		},
 		// settings: {},
 	},
-	{
-		languageOptions: {
-			globals: globals.browser,
-		},
-	},
-	...tseslint.configs.recommended,
-	...pluginVue.configs["flat/essential"],
-	eslintConfigPrettier,
-	eslintPluginPrettierRecommended,
 ];
