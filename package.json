@@ -26,7 +26,6 @@
 		"test": "vite --host --open --mode preview",
 		"prod": "vite --host --open --mode production",
 		"build": "npm run build:prod",
-		"build:dev": "vue-tsc --noEmit --skipLibCheck && vite build --mode development",
 		"build:test": "vue-tsc --noEmit --skipLibCheck && vite build --mode preview",
 		"build:prod": "vue-tsc --noEmit --skipLibCheck && vite build --mode production",
 		"build:ig": "vite build --mode production",
