@@ -149,7 +149,6 @@
 		"sass-loader": "^14.2.1",
 		"stylelint": "^16.8.1",
 		"stylelint-config-html": "^1.1.0",
-		"stylelint-config-prettier": "^9.0.5",
 		"stylelint-config-recess-order": "^5.0.1",
 		"stylelint-config-recommended": "^14.0.1",
 		"stylelint-config-recommended-vue": "^1.5.0",
