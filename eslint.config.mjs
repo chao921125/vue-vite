@@ -8,7 +8,7 @@ import tsParser from "@typescript-eslint/parser";
 
 export default [
 	{
-		files: ["**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs", "**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts", "**/*.vue", "**/*.json"],
+		files: ["**/*.{js,mjs,cjs,ts,vue}", "**/*.{jsx,tsx}", "**/*.{json,json5,yaml,yml}"],
 		ignores: [
 			".vscode",
 			".idea",
