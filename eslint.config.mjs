@@ -3,6 +3,8 @@ import eslintConfigPrettier from "eslint-config-prettier";
 import vue from "eslint-plugin-vue";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import vueParser from "vue-eslint-parser";
+import tsParser from "@typescript-eslint/parser";
 
 export default [
 	{
@@ -32,9 +34,13 @@ export default [
 		languageOptions: {
 			ecmaVersion: "latest",
 			sourceType: "module",
-			// globals: "module",
-			parser: "vue-eslint-parser",
-			// parserOptions: "espree",
+			// globals: {},
+			parser: vueParser,
+			parserOptions: {
+				parser: tsParser,
+				extraFileExtensions: [".vue"],
+				project: true,
+			},
 		},
 		linterOptions: {
 			noInlineConfig: true,

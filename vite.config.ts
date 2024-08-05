@@ -3,8 +3,8 @@ import type { UserConfig, ConfigEnv } from "vite";
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import dayjs from "dayjs";
-import path from "path";
-import fs from "fs";
+import path from "node:path";
+import fs from "node:fs";
 // 热重载
 import viteRestart from "vite-plugin-restart";
 // build 构建
