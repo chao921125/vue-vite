@@ -690,29 +690,21 @@
 | [小游戏 createjs](https://www.createjs.com/)                        |
 
 # 优秀项目推荐
-|                                       |
-|---------------------------------------|
-| [slidev 演示文稿工具](https://cn.sli.dev/)  |
-| [uiverse 开源组件合集](https://uiverse.io/) |
-
-| 项目示例                                                            |
+|                                                                 |
 |-----------------------------------------------------------------|
-| [聊天室](https://github.com/gmingchen/vue3-element-plus-im)        |
-| [聊天悬浮](https://www.npmjs.com/package/vue-beautiful-chat)        |
+| [slidev 演示文稿工具](https://cn.sli.dev/)                            |
+| [uiverse 开源组件合集](https://uiverse.io/)                           |
+| [vite 开源插件合集](https://github.com/vitejs/awesome-vite)           |
+| [nodejs 开源插件合集](https://github.com/sindresorhus/awesome-nodejs) |
+| [组件](https://madewith.cn/)                                      |
+| [vue3 优秀组件收集](https://hu-snail.github.io/vue3-resource/)        |
 
-| vite doc                           |
-|------------------------------------|
-| https://github.com/sl1673495/blogs |
-| https://github.com/antfu/vitesse   |
-| https://github.com/vuejs/vitepress |
-
-| 各种插件                                            |
-|-------------------------------------------------|
-| [组件](https://madewith.cn/)                      |
-| https://github.com/sindresorhus/awesome-nodejs  |
-| https://github.com/vitejs/awesome-vite          |
-| https://github.com/nekobc1998923/vitecamp       |
-| https://hu-snail.github.io/vue3-resource/       |
+| 项目示例                                                     |
+|----------------------------------------------------------|
+| [聊天室](https://github.com/gmingchen/vue3-element-plus-im) |
+| [聊天悬浮](https://github.com/mattmezza/vue-beautiful-chat)  |
+| [项目模板](https://github.com/antfu/vitesse)                 |
+| [项目模板](https://github.com/vuejs/vitepress)               |
 
 | Admin server & Web                                         |
 |------------------------------------------------------------|
