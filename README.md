@@ -580,6 +580,12 @@
 | [cz-conventional-changelog](https://www.npmjs.com/package/cz-conventional-changelog) |
 | [cz-customizable](https://www.npmjs.com/package/cz-customizable)                     |
 
+| mock API -D                                                                              |
+|------------------------------------------------------------------------------------------|
+| [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock)                           |
+| [vite-plugin-mock-dev-server](https://github.com/pengzhanbo/vite-plugin-mock-dev-server) |
+| [vite-plugin-mock-server](https://github.com/enjoycoding/vite-plugin-mock-server)        |
+
 # 测试
 | 本项目并没有测试用例，如果大家需要的话请自行添加，以下是测试集成依赖                                      |
 |-------------------------------------------------------------------------|
