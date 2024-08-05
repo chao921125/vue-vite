@@ -423,7 +423,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			rollupOptions: {
 				input: {
 					index: path.resolve(__dirname, "/index.html"),
-					color: path.resolve(__dirname, "/color.html"),
+					// color: path.resolve(__dirname, "/public/color.html"),
 				},
 				output: {
 					dir: "dist",
