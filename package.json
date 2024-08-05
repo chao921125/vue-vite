@@ -156,7 +156,6 @@
 		"stylelint-order": "^6.0.4",
 		"stylelint-prettier": "^5.0.2",
 		"terser": "^5.31.3",
-		"ts-node": "^10.9.2",
 		"typescript": "^5.5.4",
 		"unplugin-auto-import": "^0.17.8",
 		"unplugin-icons": "^0.19.1",
