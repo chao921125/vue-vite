@@ -1,14 +1,12 @@
 // @see: https://eslint.org/
 import globals from "globals";
 import pluginJs from "@eslint/js";
-import eslintConfigPrettier from "eslint-config-prettier";
 import pluginVue from "eslint-plugin-vue";
 import tseslint from "typescript-eslint";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import vueParser from "vue-eslint-parser";
-import prettier from "prettier";
+import eslintConfigPrettier from "eslint-config-prettier";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
 
 export default [
 	{
@@ -28,10 +26,10 @@ export default [
 			".vscode",
 			".idea",
 			".local",
-			"!node_modules/",
-			"!dist/",
+			"node_modules",
+			"dist",
+			"public",
 			"!mock/",
-			"!public/",
 			"!build",
 			"Dockerfile",
 			"index.html",
@@ -44,18 +42,13 @@ export default [
 			"*.scss",
 			"*.woff",
 			"*.ttf",
-			"!commitlintrc.ts",
 		],
 		languageOptions: {
 			ecmaVersion: "latest",
 			sourceType: "module",
 			// globals: {},
 			parser: vueParser,
-			parserOptions: {
-				parser: tsParser,
-				extraFileExtensions: [".vue"],
-				project: true,
-			},
+			// parserOptions: {},
 		},
 		linterOptions: {
 			noInlineConfig: true,
@@ -64,7 +57,6 @@ export default [
 		// processor: {},
 		/* 继承某些已有的规则 */
 		plugins: {
-			prettier: prettier,
 			vue: pluginVue,
 			"@typescript-eslint": typescriptEslint,
 		},

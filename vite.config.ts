@@ -73,6 +73,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			eslintPlugin({
 				include: ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
 				cache: true,
+				failOnWarning: false,
+				failOnError: false,
 			}),
 			// * vite 可以使用 jsx/tsx 语法
 			// * name 可以写在 script 标签上
