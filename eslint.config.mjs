@@ -1,20 +1,35 @@
 // @see: https://eslint.org/
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import pluginVue from "eslint-plugin-vue";
+import tseslint from "typescript-eslint";
+import vueParser from "vue-eslint-parser";
 import eslintConfigPrettier from "eslint-config-prettier";
-import vue from "eslint-plugin-vue";
-import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import typescriptEslint from "@typescript-eslint/eslint-plugin";
 
 export default [
 	{
-		files: ["**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs", "**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts", "**/*.vue", "**/*.json"],
+		files: ["**/*.{js,mjs,cjs,ts,vue,jsx,tsx}", "**/*.{md,json,json5,yaml,yml}"],
+		languageOptions: {
+			globals: globals.browser,
+		},
+	},
+	pluginJs.configs.recommended,
+	...pluginVue.configs["flat/essential"],
+	...tseslint.configs.recommended,
+	eslintConfigPrettier,
+	eslintPluginPrettierRecommended,
+	{
+		files: ["**/*.{js,mjs,cjs,ts,vue,jsx,tsx}"],
 		ignores: [
 			".vscode",
 			".idea",
 			".local",
-			"!node_modules/",
-			"!dist/",
+			"node_modules",
+			"dist",
+			"public",
 			"!mock/",
-			"!public/",
 			"!build",
 			"Dockerfile",
 			"index.html",
@@ -27,14 +42,13 @@ export default [
 			"*.scss",
 			"*.woff",
 			"*.ttf",
-			"!commitlintrc.ts",
 		],
 		languageOptions: {
 			ecmaVersion: "latest",
 			sourceType: "module",
-			// globals: "module",
-			parser: "vue-eslint-parser",
-			// parserOptions: "espree",
+			// globals: {},
+			parser: vueParser,
+			// parserOptions: {},
 		},
 		linterOptions: {
 			noInlineConfig: true,
@@ -43,7 +57,7 @@ export default [
 		// processor: {},
 		/* 继承某些已有的规则 */
 		plugins: {
-			vue: vue,
+			vue: pluginVue,
 			"@typescript-eslint": typescriptEslint,
 		},
 		rules: {
@@ -120,6 +134,4 @@ export default [
 		},
 		// settings: {},
 	},
-	eslintConfigPrettier,
-	eslintPluginPrettierRecommended,
 ];

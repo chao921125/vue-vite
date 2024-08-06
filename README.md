@@ -1,4 +1,4 @@
-# [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-ts.vercel.app/) - [项目截图](./doc/Project.md)
+# [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-ts.vercel.app/) - [项目截图](./docs/Project.md)
 [//]: # (pnpx husky install)
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
@@ -18,7 +18,7 @@
 - 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式(兼容jsx)
 - 如果你觉得你的package.json乱糟糟，那么使用 npx sort-package-json 来解决吧
 
-# 关于手机端适配（脱离业务场景谈解决方案都是耍流氓）[解决方案](./doc/PxAuto.md)
+# 关于手机端适配（脱离业务场景谈解决方案都是耍流氓）[解决方案](./docs/PxAuto.md)
 1. 稳定解决方案：使用媒体查询，但建议企业官网等页面较少的网站，且对网站设计者和开发者水平有一定的要求，开发调试比较麻烦
 2. 切换URL改变页面呈现方式：通过监听获取当前是否是移动端，然后改变对应的URL。需要设计两套UI，开发者需要写两套页面及样式。优点是灵活，缺点是开发周期长
 3. rem 计算：目前最多的，通过对根字体的设置，自动换算
@@ -84,7 +84,6 @@
 | TS                                                         |
 |------------------------------------------------------------|
 | [typescript 官网](https://www.tslang.cn/)                    |
-| [ts-node 官网 ts-node **.ts](https://typestrong.org/ts-node) |
 
 | 样式组件 -D  注意重写组件样式的引用                                                           |
 |--------------------------------------------------------------------------------|
@@ -150,23 +149,22 @@
 |---------------------------------------------------------------|
 | [👍vant](https://vant-ui.github.io/vant/#/zh-CN)              |
 | [👍vant 小程序](https://github.com/vant-ui/vant-weapp)           |
+| [👍ionic-framework 官网 VRA](https://ionicframework.com/docs/)  |
 | [👍nutui @nutui/nutui@next 官网](https://nutui.jd.com/)         |
 | [👍taro 小程序](https://taro-ui.jd.com/#/)                       |
 | [uvui 官网](https://www.uvui.cn/)                               |
 | [onsen 官网](https://onsen.io/)                                 |
 | [varlet 官网](https://varlet-varletjs.vercel.app/#/en-US/index) |
-| [mui uni-app 官网](https://dev.dcloud.net.cn/mui/)              |
 | [cube-ui 官网](https://didi.github.io/cube-ui/#/zh-CN)          |
-| [mint-ui 官网](http://mint-ui.github.io/)                       |
 | [Wave UI 官网](https://antoniandre.github.io/wave-ui/)          |
 | [wu UI 官网](https://wu.geeks.ink/)                             |
 | [Tencent](https://github.com/Tencent/weui/)                   |
-| [vite](https://github.com/LZHD/vue-vite-h5)                   |
 | [vux](https://vux.li/)                                        |
-| [👍ionic-framework 官网 VRA](https://ionicframework.com/docs/)  |
+| [mui uni-app 停更 官网](https://dev.dcloud.net.cn/mui/)           |
+| [mint-ui 停更 官网](http://mint-ui.github.io/)                    |
 | [firstui 含付费UI](https://www.firstui.cn/)                      |
 | [Tencent 小程序](https://github.com/Tencent/weui-wxss)           |
-| [mini 小程序](https://doc.mini.talelin.com/)                     |
+| [mini 停更 小程序](https://doc.mini.talelin.com/)                  |
 | [wux 小程序](https://wux-weapp.github.io/wux-weapp-docs/#/)      |
 | [Cube UI 小程序](https://didi.github.io/cube-ui/#/zh-CN)         |
 | [ColorUI 停更 小程序](https://github.com/weilanwl/ColorUI)         |
@@ -178,9 +176,6 @@
 | [elementUI 官网](https://element.eleme.io/)         |
 | [mint-ui 官网](http://mint-ui.github.io/#!/zh-cn)   |
 | [buefy 官网](https://buefy.org/)                    |
-
-| 含商业收费版                                           |
-|--------------------------------------------------|
 
 | 低代码                                                             |
 |-----------------------------------------------------------------|
@@ -585,6 +580,12 @@
 | [cz-conventional-changelog](https://www.npmjs.com/package/cz-conventional-changelog) |
 | [cz-customizable](https://www.npmjs.com/package/cz-customizable)                     |
 
+| mock API -D                                                                              |
+|------------------------------------------------------------------------------------------|
+| [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock)                           |
+| [vite-plugin-mock-dev-server](https://github.com/pengzhanbo/vite-plugin-mock-dev-server) |
+| [vite-plugin-mock-server](https://github.com/enjoycoding/vite-plugin-mock-server)        |
+
 # 测试
 | 本项目并没有测试用例，如果大家需要的话请自行添加，以下是测试集成依赖                                      |
 |-------------------------------------------------------------------------|
@@ -690,29 +691,21 @@
 | [小游戏 createjs](https://www.createjs.com/)                        |
 
 # 优秀项目推荐
-|                                       |
-|---------------------------------------|
-| [slidev 演示文稿工具](https://cn.sli.dev/)  |
-| [uiverse 开源组件合集](https://uiverse.io/) |
-
-| 项目示例                                                            |
+|                                                                 |
 |-----------------------------------------------------------------|
-| [聊天室](https://github.com/gmingchen/vue3-element-plus-im)        |
-| [聊天悬浮](https://www.npmjs.com/package/vue-beautiful-chat)        |
+| [slidev 演示文稿工具](https://cn.sli.dev/)                            |
+| [uiverse 开源组件合集](https://uiverse.io/)                           |
+| [vite 开源插件合集](https://github.com/vitejs/awesome-vite)           |
+| [nodejs 开源插件合集](https://github.com/sindresorhus/awesome-nodejs) |
+| [组件](https://madewith.cn/)                                      |
+| [vue3 优秀组件收集](https://hu-snail.github.io/vue3-resource/)        |
 
-| vite doc                           |
-|------------------------------------|
-| https://github.com/sl1673495/blogs |
-| https://github.com/antfu/vitesse   |
-| https://github.com/vuejs/vitepress |
-
-| 各种插件                                            |
-|-------------------------------------------------|
-| [组件](https://madewith.cn/)                      |
-| https://github.com/sindresorhus/awesome-nodejs  |
-| https://github.com/vitejs/awesome-vite          |
-| https://github.com/nekobc1998923/vitecamp       |
-| https://hu-snail.github.io/vue3-resource/       |
+| 项目示例                                                     |
+|----------------------------------------------------------|
+| [聊天室](https://github.com/gmingchen/vue3-element-plus-im) |
+| [聊天悬浮](https://github.com/mattmezza/vue-beautiful-chat)  |
+| [项目模板](https://github.com/antfu/vitesse)                 |
+| [项目模板](https://github.com/vuejs/vitepress)               |
 
 | Admin server & Web                                         |
 |------------------------------------------------------------|
@@ -774,6 +767,7 @@
 
 | mobile & project                                      |
 |-------------------------------------------------------|
+| https://github.com/LZHD/vue-vite-h5                   |
 | https://github.com/xxxsf/vue3-h5-template             |
 | https://github.com/geekskai/vue3-jd-h5                |
 | https://github.com/biubiubiu01/vue3-bigData           |

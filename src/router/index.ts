@@ -139,7 +139,7 @@ function getRouter(data: IMenuState[] = []) {
 			children: [],
 		},
 	];
-	let addRouters = [];
+	let addRouters: any = [];
 	setRouterItem(addRouters, data, "");
 	rootRouter[0].children = routeToComponent(addRouters);
 	rootRouter[0].children = [...rootRouter[0].children, ...errorRoutes];
