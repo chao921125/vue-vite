@@ -33,7 +33,7 @@
 		"clean:cache": "rimraf yarn.lock && rimraf package.lock.json && rimraf pnpm-lock.yaml && rimraf node_modules && pnpm install",
 		"clean:lib": "rimraf node_modules",
 		"lint:lint-staged": "lint-staged",
-		"lint:prettier": "prettier --write --fix --loglevel warn \"./**/*.{js,ts,json,jsx,tsx,css,less,scss,vue,html}\"",
+		"lint:prettier": "prettier --write --fix --loglevel warn \"./**/*.{js,ts,mjs,mts,cjs,cts,json,jsx,tsx,css,less,scss,vue,html}\"",
 		"lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
 		"prepare": "npx husky install",
 		"preview": "vite preview",
