@@ -1,4 +1,4 @@
-# [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-ts.vercel.app/) - [项目截图](./doc/Project.md)
+# [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-ts.vercel.app/) - [项目截图](./docs/Project.md)
 [//]: # (pnpx husky install)
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
@@ -18,7 +18,7 @@
 - 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式(兼容jsx)
 - 如果你觉得你的package.json乱糟糟，那么使用 npx sort-package-json 来解决吧
 
-# 关于手机端适配（脱离业务场景谈解决方案都是耍流氓）[解决方案](./doc/PxAuto.md)
+# 关于手机端适配（脱离业务场景谈解决方案都是耍流氓）[解决方案](./docs/PxAuto.md)
 1. 稳定解决方案：使用媒体查询，但建议企业官网等页面较少的网站，且对网站设计者和开发者水平有一定的要求，开发调试比较麻烦
 2. 切换URL改变页面呈现方式：通过监听获取当前是否是移动端，然后改变对应的URL。需要设计两套UI，开发者需要写两套页面及样式。优点是灵活，缺点是开发周期长
 3. rem 计算：目前最多的，通过对根字体的设置，自动换算

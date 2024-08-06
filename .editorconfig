@@ -15,15 +15,7 @@ max_line_length = 200 # 最大行长度
 max_line_length = off # 关闭最大行长度限制
 trim_trailing_whitespace = false # 关闭末尾空格修剪
 
-[*.yml]
-indent_style = space
-
 # Matches multiple files with brace expansion notation
 # Set default charset
-[*.{js,jsx,ts,tsx}]
+[*.{js,jsx,ts,tsx,vue,yml}]
 indent_style = space
-
-# 4 space indentation
-[*.py]
-indent_style = space
-indent_size = 4
