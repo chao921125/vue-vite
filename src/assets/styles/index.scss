@@ -14,17 +14,17 @@
 // 公共css定义
 @use "./common/public.scss";
 // 动画
-@use "./common/animate.scss";
+@use "./components/animate.scss";
 // ****自定义style，包括对三方的重写****
 // 基础布局
 //@include meta.load-css("./common/layout.scss");
 @use "./common/layout.scss";
 // UI element
 //@include meta.load-css("./common/element.scss");
-@use "./common/element.scss";
+@use "./components/element.scss";
 // 进度条
 //@include meta.load-css("./common/n-progress.scss");
-@use "./common/n-progress.scss";
+@use "./components/n-progress.scss";
 // 流程图
 //@include meta.load-css("./common/bpmn.scss");
-@use "./common/bpmn.scss";
+@use "./components/bpmn.scss";
