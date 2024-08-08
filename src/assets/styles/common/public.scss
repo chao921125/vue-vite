@@ -159,10 +159,12 @@
 		margin: #{$i}px;
 	}
 	.#{declare.$prefix}-my-#{$i} {
-		margin: #{$i}px 0;
+		margin-top: #{$i}px;
+		margin-bottom: #{$i}px;
 	}
 	.#{declare.$prefix}-mx-#{$i} {
-		margin: 0 #{$i}px;
+		margin-left: #{$i}px;
+		margin-right: #{$i}px;
 	}
 	.#{declare.$prefix}-mt-#{$i} {
 		margin-top: #{$i}px;
@@ -181,10 +183,12 @@
 		padding: #{$i}px;
 	}
 	.#{declare.$prefix}-py-#{$i} {
-		padding: #{$i}px 0;
+		padding-top: #{$i}px;
+		padding-bottom: #{$i}px;
 	}
 	.#{declare.$prefix}-px-#{$i} {
-		padding: 0 #{$i}px;
+		padding-left: #{$i}px;
+		padding-right: #{$i}px;
 	}
 	.#{declare.$prefix}-pt-#{$i} {
 		padding-top: #{$i}px;
