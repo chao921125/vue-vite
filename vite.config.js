@@ -128,19 +128,19 @@ export default defineConfig(({ command, mode }) => {
       },
       // * 是否生成包预览
       envConfig.VITE_REPORT &&
-      visualizer({
-        emitFile: false,
-        filename: "stats.html",
-      }),
+        visualizer({
+          emitFile: false,
+          filename: "stats.html",
+        }),
       // * gzip compress
       envConfig.VITE_BUILD_GZIP &&
-      viteCompression({
-        verbose: true,
-        disable: false,
-        threshold: 1024,
-        algorithm: "gzip",
-        ext: ".gz",
-      }),
+        viteCompression({
+          verbose: true,
+          disable: false,
+          threshold: 1024,
+          algorithm: "gzip",
+          ext: ".gz",
+        }),
       {
         name: "@rollup/plugin-commonjs",
         transform(code, filename) {
@@ -181,13 +181,13 @@ export default defineConfig(({ command, mode }) => {
         ignore: ["useMouse", "useFetch"],
         defaultExportByFilename: false,
         dirs: ["./hooks", "./hooks/**", "./components", "./components/**"],
-        dts: "./auto-imports.d.js",
+        dts: true,
         ignoreDts: ["ignoredFunction", /^ignore_/],
         vueTemplate: false,
         resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
       }),
       components({
-        dts: "./components.d.js",
+        dts: true,
         resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
         directoryAsNamespace: true,
       }),
