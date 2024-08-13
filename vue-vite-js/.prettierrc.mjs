@@ -1,7 +1,7 @@
 // @see https://prettier.io/
 export default {
 	// 超过最大值换行
-	printWidth: 200,
+	printWidth: 180,
 	// 缩进字节数
 	tabWidth: 2,
 	// 使用制表符而不是空格缩进行

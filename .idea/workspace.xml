@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8730706c-c421-41ea-8f3e-2c52745a9d78" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.commitlintrc.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.lintstagedrc.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.prettierignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.prettierrc.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/eslint.config.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/tsconfig.node.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-vite-js/.prettierrc.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/.prettierrc.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-vite-js/eslint.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-vite-js/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-vite-js/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-vite-js/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-vite-js/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/src/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-vite-js/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,37 +40,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;js&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/hd/WorkSpace/Github/vue-vite/vue-vite-js/public&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;/Users/hd/WorkSpace/Github/vue-vite/node_modules/stylelint&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;npm.build.executor&quot;: &quot;Run&quot;,
-    &quot;npm.build:dev.executor&quot;: &quot;Run&quot;,
-    &quot;npm.build:test.executor&quot;: &quot;Run&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;npm.lint:lint-staged.executor&quot;: &quot;Run&quot;,
-    &quot;npm.lint:prettier.executor&quot;: &quot;Run&quot;,
-    &quot;npm.review.executor&quot;: &quot;Run&quot;,
-    &quot;npm.serve.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/hd/WorkSpace/Github/vue-vite/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "js",
+    "last_opened_file_path": "/Users/hd/WorkSpace/Github/vue-vite",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.stylelint": "/Users/hd/WorkSpace/Github/vue-vite/node_modules/stylelint",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "npm.build.executor": "Run",
+    "npm.build:dev.executor": "Run",
+    "npm.build:test.executor": "Run",
+    "npm.dev.executor": "Run",
+    "npm.lint:lint-staged.executor": "Run",
+    "npm.lint:prettier (1).executor": "Run",
+    "npm.lint:prettier.executor": "Run",
+    "npm.review.executor": "Run",
+    "npm.serve.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "/Users/hd/WorkSpace/Github/vue-vite/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/vue-vite-js/public" />
       <recent name="$PROJECT_DIR$/vue-vite-js" />
       <recent name="$PROJECT_DIR$/public" />
@@ -84,39 +85,9 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.serve">
-    <configuration name="build:test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build:test" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="lint:lint-staged" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="lint:lint-staged" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="lint:prettier" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+      <package-json value="$PROJECT_DIR$/vue-vite-js/package.json" />
       <command value="run" />
       <scripts>
         <script value="lint:prettier" />
@@ -125,23 +96,9 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="serve" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.serve" />
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.lint:prettier" />
-        <item itemvalue="npm.build:test" />
-        <item itemvalue="npm.lint:lint-staged" />
       </list>
     </recent_temporary>
   </component>
