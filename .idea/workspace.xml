@@ -5,47 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8730706c-c421-41ea-8f3e-2c52745a9d78" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.browserslistrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.env.development" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.env.preview" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.env.production" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.eslintignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/.npmrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-vite-js/SECURITY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.browserslistrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.preview" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.production" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.npmrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auto-imports.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/move_html.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/color.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/inject.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vite.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/vue.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-vite-js/.commitlintrc.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-vite-js/.lintstagedrc.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-vite-js/.prettierignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-vite-js/.prettierrc.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-vite-js/eslint.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-vite-js/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-vite-js/tsconfig.node.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-vite-js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-vite-js/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +48,7 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;js&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/hd/WorkSpace/Github/vue-vite/vue-vite-js&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hd/WorkSpace/Github/vue-vite/vue-vite-js/public&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
@@ -104,6 +73,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vue-vite-js/public" />
       <recent name="$PROJECT_DIR$/vue-vite-js" />
       <recent name="$PROJECT_DIR$/public" />
     </key>
@@ -199,7 +169,7 @@
       <workItem from="1722913373621" duration="1180000" />
       <workItem from="1722927276569" duration="4912000" />
       <workItem from="1723083288094" duration="5066000" />
-      <workItem from="1723512612881" duration="6605000" />
+      <workItem from="1723512612881" duration="9766000" />
     </task>
     <servers />
   </component>
