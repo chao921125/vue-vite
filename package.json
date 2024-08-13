@@ -36,11 +36,9 @@
 		"lint:prettier": "prettier --write --fix --loglevel warn \"./**/*.{js,ts,mjs,mts,cjs,cts,json,jsx,tsx,css,less,scss,vue,html}\"",
 		"lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
 		"prepare": "npx husky install",
-		"preview": "vite preview",
-		"upgrade": "ncu -u && pnpm install",
+		"commitlint": "commitlint --edit",
 		"test:br": "http-server dist --cors --brotli -c-1",
-		"test:gzip": "http-server dist --cors --gzip -c-1",
-		"commitlint": "commitlint --edit"
+		"test:gzip": "http-server dist --cors --gzip -c-1"
 	},
 	"lint-staged": {
 		"*.js": "eslint --cache --fix",
