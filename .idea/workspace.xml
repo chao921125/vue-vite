@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8730706c-c421-41ea-8f3e-2c52745a9d78" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/.prettierrc.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/.prettierrc.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-vite-js/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/eslint.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-vite-js/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
     "npm.review.executor": "Run",
     "npm.serve.executor": "Run",
     "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/Users/hd/WorkSpace/Github/vue-vite/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/hd/WorkSpace/Github/vue-vite/vue-vite-js/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -121,6 +122,7 @@
       <workItem from="1722927276569" duration="4912000" />
       <workItem from="1723083288094" duration="5066000" />
       <workItem from="1723512612881" duration="9766000" />
+      <workItem from="1723544605627" duration="181000" />
     </task>
     <servers />
   </component>
