@@ -17,7 +17,7 @@ import legacy from "@vitejs/plugin-legacy";
 import topLevelAwait from "vite-plugin-top-level-await";
 // CDN 配置
 import { Plugin as importToCDN } from "vite-plugin-cdn-import";
-import vueSetupExtend from "vite-plugin-vue-setup-extend";
+import defineOptions from "unplugin-vue-define-options/vite";
 import viteCompression from "vite-plugin-compression";
 // 自动导入模块
 import autoImport from "unplugin-auto-import/vite";
@@ -78,7 +78,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			// * vite 可以使用 jsx/tsx 语法
 			// * name 可以写在 script 标签上
-			vueSetupExtend(),
+      defineOptions(),
 			// 浏览器上兼容
 			legacy({
 				renderLegacyChunks: false,

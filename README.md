@@ -56,18 +56,19 @@
 | [vue3js](https://vue3js.cn/)                               |
 | [vue3-resource](https://hu-snail.github.io/vue3-resource/) |
 
-| 核心依赖                                                         |
-|--------------------------------------------------------------|
-| [👍 vite 官网](https://cn.vitejs.dev/)                         |
-| [vue-cli](https://cli.vuejs.org/)                            |
-| vue                                                          |
-| [vue3 官网](https://vuejs.org/)                                |
-| [vue2 官网](https://v2.cn.vuejs.org/)                          |
-| 路由管理                                                         |
-| [👍 vue-router 官网](https://www.npmjs.com/package/vue-router) |
-| 状态管理                                                         |
-| [👍 Pinia 官网](https://pinia.web3doc.top/)                    |
-| [vuex 官网](https://next.vuex.vuejs.org/)                      |
+| 核心依赖                                                             |
+|------------------------------------------------------------------|
+| [👍 vite 官网](https://cn.vitejs.dev/)                             |
+| [vue-cli](https://cli.vuejs.org/)                                |
+| vue                                                              |
+| [vue3 官网](https://vuejs.org/)                                    |
+| [vue2 官网](https://v2.cn.vuejs.org/)                              |
+| 路由管理                                                             |
+| [👍 vue-router 官网](https://www.npmjs.com/package/vue-router)     |
+| [根据文件自动生成路由 快速开发](https://github.com/hannoeru/vite-plugin-pages) |
+| 状态管理                                                             |
+| [👍 Pinia 官网](https://pinia.web3doc.top/)                        |
+| [vuex 官网](https://next.vuex.vuejs.org/)                          |
 
 | JavaScript标准库                                  |
 |------------------------------------------------|

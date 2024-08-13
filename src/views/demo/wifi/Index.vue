@@ -117,6 +117,6 @@
 </script>
 
 <style scoped lang="scss">
-	@use "@/assets/styles/common/print.scss";
+	@use "@/assets/styles/page/print.scss";
 	@use "./index.scss";
 </style>
