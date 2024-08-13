@@ -1,0 +1,63 @@
+{
+  "name": "vue-vite-js",
+  "version": "3.0.0",
+  "description": "vue-vite",
+  "keywords": ["vue, vite"],
+  "homepage": "https://github.com/chao921125/vue-vite",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chao921125/vue-vite"
+  },
+  "bugs": {
+    "url": "https://github.com/chao921125/vue-vite/issues"
+  },
+  "author": {
+    "name": "chao921125",
+    "email": "chao921125@sina.com",
+    "url": "https://github.com/chao921125"
+  },
+  "license": "BSD-3-Clause",
+  "main": "index.html",
+  "type": "module",
+  "private": true,
+  "scripts": {
+		"review": "npm run build && npm run dev",
+		"serve": "npm run dev",
+		"dev": "vite --host --open --mode development",
+		"test": "vite --host --open --mode preview",
+		"prod": "vite --host --open --mode production",
+		"build": "npm run build:prod",
+		"build:test": "vite build --mode preview",
+		"build:prod": "vite build --mode production",
+		"build:no-cache": "npm clean:cache && npm run build",
+		"clean:cache": "rimraf yarn.lock && rimraf package.lock.json && rimraf pnpm-lock.yaml && rimraf node_modules && pnpm install",
+		"clean:lib": "rimraf node_modules",
+		"lint:lint-staged": "lint-staged",
+		"lint:prettier": "prettier --write --fix --loglevel warn \"./**/*.{js,ts,mjs,mts,cjs,cts,json,jsx,tsx,css,less,scss,vue,html}\"",
+		"lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,css,less,scss,postcss}\" --cache --cache-location node_modules/.cache/stylelint/",
+		"prepare": "npx husky install",
+		"commitlint": "commitlint --edit",
+		"prepack": "npmignore --auto",
+		"test:br": "http-server dist --cors --brotli -c-1",
+		"test:gzip": "http-server dist --cors --gzip -c-1"
+  },
+  "dependencies": {
+    "vue": "^3.4.35"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.2",
+    "vite": "^5.4.0"
+  },
+  "peerDependencies": {
+    "mysql2": ">=3.3.2"
+  },
+  "overrides": {
+    "mysql": "2.18.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=6.14.18",
+    "pnpm": ">=6.20.0",
+    "yarn": ">=3.0.0"
+  }
+}
