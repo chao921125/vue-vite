@@ -27,7 +27,6 @@ import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 // Mock
-import { viteMockServe } from "vite-plugin-mock";
 // 处理变量
 // @ts-ignore
 import pkg from "./package.json";
@@ -190,13 +189,6 @@ export default defineConfig(({ command, mode }) => {
         dts: true,
         resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
         directoryAsNamespace: true,
-      }),
-      viteMockServe({
-        mockPath: envConfig.VITE_MOCK_PATH,
-        // configPath: envConfig.VITE_MOCK_PATH,
-        watchFiles: false,
-        enable: envConfig.VITE_MOCK,
-        logger: envConfig.VITE_MOCK,
       }),
       topLevelAwait({
         // The export name of top-level await promise for each chunk module
