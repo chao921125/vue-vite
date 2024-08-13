@@ -7,12 +7,6 @@
     <list default="true" id="8730706c-c421-41ea-8f3e-2c52745a9d78" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue-vite-js/.prettierrc.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/.prettierrc.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/eslint.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/src/components/HelloWorld.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/src/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
