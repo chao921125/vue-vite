@@ -1,3 +1,17 @@
+# 集成到 vue + vite
+```text
+安装的依赖
+prettier
+eslint-config-prettier
+eslint-plugin-prettier
+
+eslint.config.mjs
+import eslintConfigPrettier from "eslint-config-prettier";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+
+格式化执行命令 package.json
+"lint:prettier": "prettier --write --fix --loglevel warn \"./**/*.{js,ts,mjs,mts,cjs,cts,json,jsx,tsx,css,less,scss,vue,html}\"",
+```
 # .prettierrc.mjs
 ```javascript
 // @see https://prettier.io/
