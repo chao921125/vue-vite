@@ -18,13 +18,14 @@
 //@include meta.load-css("./common/layout.scss");
 @use "./common/layout.scss";
 // UI element
-//@include meta.load-css("./common/element.scss");
-@use "./custom/element.scss";
+//@include meta.load-css("./custom/ui.scss");
+@use "./custom/ui.scss";
 // 动画
+//@include meta.load-css("./custom/animate.scss");
 @use "./custom/animate.scss";
 // 进度条
-//@include meta.load-css("./common/n-progress.scss");
+//@include meta.load-css("./custom/n-progress.scss");
 @use "./custom/n-progress.scss";
 // 流程图
-//@include meta.load-css("./common/bpmn.scss");
+//@include meta.load-css("./custom/bpmn.scss");
 @use "./custom/bpmn.scss";
