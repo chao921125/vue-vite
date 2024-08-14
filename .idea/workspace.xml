@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8730706c-c421-41ea-8f3e-2c52745a9d78" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/eslint.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/src/components/HelloWorld.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-vite-js/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-vite-js/vite.config.js" afterDir="false" />
-    </list>
+    <list default="true" id="8730706c-c421-41ea-8f3e-2c52745a9d78" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -139,7 +130,7 @@
       <workItem from="1722927276569" duration="4912000" />
       <workItem from="1723083288094" duration="5066000" />
       <workItem from="1723512612881" duration="9766000" />
-      <workItem from="1723544605627" duration="5767000" />
+      <workItem from="1723544605627" duration="6047000" />
     </task>
     <servers />
   </component>
