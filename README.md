@@ -520,13 +520,14 @@
 | [案例 css技巧 2](https://chokcoco.github.io/CSS-Inspiration/#/)                                            |
 | [React motion](https://motion.ant.design/index-cn)                                                     |
 
-| 动画 滚动视觉差                                                   |
-|------------------------------------------------------------|
-| [scrollrevealjs](https://scrollrevealjs.org/)              |
-| [lax.js](https://github.com/alexfoxy/lax.js)               |
-| [rellax.js](https://github.com/dixonandmoe/rellax)         |
-| [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx)   |
-| [scrolly 滚动视觉差](https://github.com/yesiamrocks/scrolly.js) |
+| 动画 滚动视觉差                                                     |
+|--------------------------------------------------------------|
+| [scrollrevealjs](https://scrollrevealjs.org/)                |
+| [lax.js](https://github.com/alexfoxy/lax.js)                 |
+| [rellax.js](https://github.com/dixonandmoe/rellax)           |
+| [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx)     |
+| [scrolly 滚动视觉差](https://github.com/yesiamrocks/scrolly.js)   |
+| [fullPage.js 付费](https://github.com/alvarotrigo/fullPage.js) |
 
 | 动画 鼠标                                                                 |
 |-----------------------------------------------------------------------|
