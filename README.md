@@ -500,7 +500,7 @@
 | [wickedCSS](https://github.com/kristofferandreasen/wickedCSS)                                          |
 | [Magic.css css库 停更](https://github.com/miniMAC/magic) [官网](https://www.minimamente.com/project/magic/) |
 | [animation css库 停更](https://limichange.github.io/my-animation-list/)                                   |
-| [WOW js库 官网 停更](https://www.delac.io/WOW/)                                                             |
+| [WOW js库 官网 停更](https://www.delac.io/WOW/) [wow.js vue3 官网 停更](https://wowjs.uk/)                      |
 | [vue-animate js库 官网](https://github.com/asika32764/vue-animate)                                        |
 | [vue-kinesis js库 官网](https://github.com/Aminerman/vue-kinesis)                                         |
 | [move js库 官网 停更](https://github.com/visionmedia/move.js)                                               |
@@ -520,13 +520,14 @@
 | [案例 css技巧 2](https://chokcoco.github.io/CSS-Inspiration/#/)                                            |
 | [React motion](https://motion.ant.design/index-cn)                                                     |
 
-| 动画 滚动视觉差                                                   |
-|------------------------------------------------------------|
-| [scrollrevealjs](https://scrollrevealjs.org/)              |
-| [lax.js](https://github.com/alexfoxy/lax.js)               |
-| [rellax.js](https://github.com/dixonandmoe/rellax)         |
-| [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx)   |
-| [scrolly 滚动视觉差](https://github.com/yesiamrocks/scrolly.js) |
+| 动画 滚动视觉差                                                     |
+|--------------------------------------------------------------|
+| [scrollrevealjs](https://scrollrevealjs.org/)                |
+| [lax.js](https://github.com/alexfoxy/lax.js)                 |
+| [rellax.js](https://github.com/dixonandmoe/rellax)           |
+| [vue-prlx 滚动视觉差](https://www.npmjs.com/package/vue-prlx)     |
+| [scrolly 滚动视觉差](https://github.com/yesiamrocks/scrolly.js)   |
+| [fullPage.js 付费](https://github.com/alvarotrigo/fullPage.js) |
 
 | 动画 鼠标                                                                 |
 |-----------------------------------------------------------------------|
