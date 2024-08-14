@@ -500,7 +500,7 @@
 | [wickedCSS](https://github.com/kristofferandreasen/wickedCSS)                                          |
 | [Magic.css css库 停更](https://github.com/miniMAC/magic) [官网](https://www.minimamente.com/project/magic/) |
 | [animation css库 停更](https://limichange.github.io/my-animation-list/)                                   |
-| [WOW js库 官网 停更](https://www.delac.io/WOW/)                                                             |
+| [WOW js库 官网 停更](https://www.delac.io/WOW/) [wow.js vue3 官网 停更](https://wowjs.uk/)                      |
 | [vue-animate js库 官网](https://github.com/asika32764/vue-animate)                                        |
 | [vue-kinesis js库 官网](https://github.com/Aminerman/vue-kinesis)                                         |
 | [move js库 官网 停更](https://github.com/visionmedia/move.js)                                               |
