@@ -9,17 +9,11 @@ import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 export default [
-	{
-		files: ["**/*.{js,mjs,cjs,ts,vue,jsx,tsx}"],
-		languageOptions: {
-			globals: { ...globals.browser, ...globals.node },
-		},
-	},
 	pluginJs.configs.recommended,
 	...tseslint.configs.recommended,
 	...pluginVue.configs["flat/essential"],
 	{
-		files: ["**/*.{js,mjs,cjs,ts,vue,jsx,tsx}"],
+		files: ["**/*.{js,mjs,cjs,ts,mts,vue,jsx,tsx}"],
 		ignores: [
 			".vscode",
 			".idea",
@@ -44,7 +38,7 @@ export default [
 		languageOptions: {
 			ecmaVersion: "latest",
 			sourceType: "module",
-			// globals: {},
+			globals: { ...globals.browser, ...globals.node },
 			parser: vueParser,
 			// parserOptions: {},
 		},
@@ -56,8 +50,8 @@ export default [
 		/* 继承某些已有的规则 */
 		// plugins: {},
 		rules: {
-			semi: "error",
 			// eslint (http://eslint.cn/docs/rules)
+			"max-lines": ["error", 500], // 禁用 console
 			"no-console": "off", // 禁用 console
 			"no-debugger": "off", // 禁用 debugger
 			"no-irregular-whitespace": "off", // 禁止不规则的空白
@@ -71,10 +65,10 @@ export default [
 					ignoreRestSiblings: false,
 				},
 			], // 禁止定义未使用的变量
-			"space-before-function-paren": "off", // 强制在 function的左括号之前使用一致的空格
-			"no-multiple-empty-lines": ["error", { max: 1 }], // 不允许多个空行
 			"no-var": "error", // 要求使用 let 或 const 而不是 var
 			"prefer-const": "error", // 此规则旨在标记使用 let 关键字声明但在初始分配后从未重新分配的变量，要求使用 const
+
+			"vue/multi-word-component-names": "off",
 		},
 		// settings: {},
 	},
