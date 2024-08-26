@@ -35,7 +35,7 @@
     "clean:cache": "rimraf yarn.lock && rimraf package.lock.json && rimraf pnpm-lock.yaml && rimraf node_modules && pnpm install",
     "clean:lib": "rimraf node_modules",
     "lint": "npm run lint:eslint",
-    "lint:eslint": "eslint --config eslint.config.mjs \"./**/*.{js,ts,mjs,mts,cjs,cts,jsx,tsx,css,less,scss,vue,html}\"",
+    "lint:eslint": "eslint--config eslint.config.mjs \"./**/*.{js,ts,mjs,mts,cjs,cts,jsx,tsx,css,less,scss,vue,html}\"",
     "lint:prettier": "prettier --write --fix --loglevel warn \"./**/*.{js,ts,mjs,mts,cjs,cts,json,jsx,tsx,css,less,scss,vue,html}\"",
     "lint:lint-staged": "lint-staged",
     "lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,css,less,scss,postcss}\" --cache --cache-location node_modules/.cache/stylelint/",
@@ -85,8 +85,7 @@
     "vite-plugin-pwa": "^0.20.1",
     "vite-plugin-restart": "^0.4.1",
     "vite-plugin-svg-icons": "^2.0.1",
-    "vite-plugin-top-level-await": "^1.4.4",
-    "vue-eslint-parser": "^9.4.3"
+    "vite-plugin-top-level-await": "^1.4.4"
   },
   "peerDependencies": {
     "mysql2": ">=3.3.2"

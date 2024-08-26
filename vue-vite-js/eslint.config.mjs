@@ -4,14 +4,11 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginVue from "eslint-plugin-vue";
-import vueParser from "vue-eslint-parser";
 import eslintConfigPrettier from "eslint-config-prettier";
+import prettier from "eslint-plugin-prettier";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 export default [
-	pluginJs.configs.recommended,
-	...tseslint.configs.recommended,
-	...pluginVue.configs["flat/essential"],
 	{
 		files: ["**/*.{js,mjs,cjs,ts,mts,vue,jsx,tsx}"],
 		ignores: [
@@ -39,18 +36,25 @@ export default [
 			ecmaVersion: "latest",
 			sourceType: "module",
 			globals: { ...globals.browser, ...globals.node },
-			parser: vueParser,
+			// parser: "",
 			// parserOptions: {},
 		},
 		linterOptions: {
 			noInlineConfig: true,
 			reportUnusedDisableDirectives: false,
 		},
+	},
+	pluginJs.configs.recommended,
+	...tseslint.configs.recommended,
+	...pluginVue.configs["flat/essential"],
+	{
 		// processor: {},
 		/* 继承某些已有的规则 */
-		// plugins: {},
+		plugins: {
+			prettier: prettier,
+		},
 		rules: {
-			// eslint (http://eslint.cn/docs/rules)
+			// eslint (https://eslint.org/docs/latest/rules/)
 			"max-lines": ["error", 500], // 禁用 console
 			"no-console": "off", // 禁用 console
 			"no-debugger": "off", // 禁用 debugger
@@ -68,7 +72,19 @@ export default [
 			"no-var": "error", // 要求使用 let 或 const 而不是 var
 			"prefer-const": "error", // 此规则旨在标记使用 let 关键字声明但在初始分配后从未重新分配的变量，要求使用 const
 
+			// https://eslint.vuejs.org/
 			"vue/multi-word-component-names": "off",
+			"vue/max-attributes-per-line": [
+				"error",
+				{
+					singleline: {
+						max: 5,
+					},
+					multiline: {
+						max: 5,
+					},
+				},
+			],
 		},
 		// settings: {},
 	},
