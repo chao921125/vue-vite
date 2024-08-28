@@ -69,6 +69,11 @@
 | @commitlint/config-conventional |
 | @commitlint/types |
 
+```
+npx husky init
+echo "npm test" > .husky/pre-commit
+```
+
 |  |
 |--|
 |  |
