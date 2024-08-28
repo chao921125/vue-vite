@@ -162,12 +162,12 @@ importers:
       vite-plugin-compression:
         specifier: ^0.5.1
         version: 0.5.1(vite@5.4.2(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
+      vite-plugin-full-reload:
+        specifier: ^1.2.0
+        version: 1.2.0
       vite-plugin-pwa:
         specifier: ^0.20.1
         version: 0.20.1(vite@5.4.2(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))(workbox-build@7.1.1)(workbox-window@7.1.0)
-      vite-plugin-restart:
-        specifier: ^0.4.1
-        version: 0.4.1(vite@5.4.2(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
       vite-plugin-svg-icons:
         specifier: ^2.0.1
         version: 2.0.1(vite@5.4.2(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
@@ -4360,6 +4360,9 @@ packages:
     peerDependencies:
       vite: '>=2.0.0'
 
+  vite-plugin-full-reload@1.2.0:
+    resolution: {integrity: sha512-kz18NW79x0IHbxRSHm0jttP4zoO9P9gXh+n6UTwlNKnviTTEpOlum6oS9SmecrTtSr+muHEn5TUuC75UovQzcA==}
+
   vite-plugin-pwa@0.20.1:
     resolution: {integrity: sha512-M6Pk4b18i5ryrhKgiIF8Zud0HGphYiCbEfLsCdlvmwn/CEnS6noVwfIDG/+3V7r6yxpPV/gLiKw+rIlCCiCCoQ==}
     engines: {node: '>=16.0.0'}
@@ -4371,11 +4374,6 @@ packages:
     peerDependenciesMeta:
       '@vite-pwa/assets-generator':
         optional: true
-
-  vite-plugin-restart@0.4.1:
-    resolution: {integrity: sha512-MYhDFaa2HMoSavr/2pShj6toKVFso+zqF6FAdWGC8JSIrsNig+4giy9EzoSySgGRJvsnbwZXKdjAvn8ag8rUkA==}
-    peerDependencies:
-      vite: ^2.9.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
 
   vite-plugin-svg-icons@2.0.1:
     resolution: {integrity: sha512-6ktD+DhV6Rz3VtedYvBKKVA2eXF+sAQVaKkKLDSqGUfnhqXl3bj5PPkVTl3VexfTuZy66PmINi8Q6eFnVfRUmA==}
@@ -9086,6 +9084,11 @@ snapshots:
       magic-string: 0.25.9
       vite: 5.4.2(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6)
 
+  vite-plugin-full-reload@1.2.0:
+    dependencies:
+      picocolors: 1.0.1
+      picomatch: 2.3.1
+
   vite-plugin-pwa@0.20.1(vite@5.4.2(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))(workbox-build@7.1.1)(workbox-window@7.1.0):
     dependencies:
       debug: 4.3.6
@@ -9096,11 +9099,6 @@ snapshots:
       workbox-window: 7.1.0
     transitivePeerDependencies:
       - supports-color
-
-  vite-plugin-restart@0.4.1(vite@5.4.2(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6)):
-    dependencies:
-      micromatch: 4.0.8
-      vite: 5.4.2(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6)
 
   vite-plugin-svg-icons@2.0.1(vite@5.4.2(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6)):
     dependencies:
