@@ -29,6 +29,15 @@
 			</swiper>
 		</el-col>
 	</el-row>
+	<el-row>
+		<el-col :span="24">
+			<!--			<swiper-container>-->
+			<!--				<swiper-slide>Slide 1</swiper-slide>-->
+			<!--				<swiper-slide>Slide 2</swiper-slide>-->
+			<!--				<swiper-slide>Slide 3</swiper-slide>-->
+			<!--			</swiper-container>-->
+		</el-col>
+	</el-row>
 </template>
 
 <script lang="ts" setup name="">
@@ -36,6 +45,11 @@
 	import { EffectFade, Autoplay } from "swiper/modules";
 	import "swiper/css";
 	import "swiper/css/effect-fade";
+
+	// import { register } from "swiper/element";
+	// onMounted(() => {
+	// 	register();
+	// });
 </script>
 
 <style scoped lang="scss"></style>
