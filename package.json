@@ -44,14 +44,15 @@
 		"lint:lint-staged": "lint-staged",
 		"lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,css,less,scss,postcss}\"",
 		"prepare": "husky",
-		"commitlint": "commitlint --edit",
+		"commitlint": "commitlint --config .commitlintrc.mjs -e -V",
 		"prepack": "npmignore --auto",
 		"test:br": "http-server dist --cors --brotli -c-1",
 		"test:gzip": "http-server dist --cors --gzip -c-1"
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "npm run lint:lint-staged"
+			"pre-commit": "lint:lint-staged",
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
 		}
 	},
 	"dependencies": {
