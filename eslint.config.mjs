@@ -11,27 +11,7 @@ import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
 export default [
 	{
 		files: ["**/*.{js,mjs,cjs,ts,mts,vue,jsx,tsx}"],
-		ignores: [
-			".vscode",
-			".idea",
-			".local",
-			"node_modules",
-			"dist",
-			"public",
-			"!mock/",
-			"!build",
-			"Dockerfile",
-			"index.html",
-			"*.sh",
-			"*.js",
-			"*.d.js",
-			"*.ts",
-			"*.d.ts",
-			"*.md",
-			"*.scss",
-			"*.woff",
-			"*.ttf",
-		],
+		ignores: [".vscode", ".idea", ".local", "node_modules", "dist", "public", "!mock/", "!build", "Dockerfile", "index.html", "*.sh", "*.js", "*.d.js", "*.ts", "*.d.ts", "*.md", "*.scss", "*.woff", "*.ttf"],
 		languageOptions: {
 			ecmaVersion: "latest",
 			sourceType: "module",

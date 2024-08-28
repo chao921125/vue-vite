@@ -42,13 +42,18 @@
     "lint:eslint": "eslint--config eslint.config.mjs \"./**/*.{js,ts,mjs,mts,cjs,cts,jsx,tsx,css,less,scss,vue,html}\"",
     "lint:prettier": "prettier --write --fix --loglevel warn \"./**/*.{js,ts,mjs,mts,cjs,cts,json,jsx,tsx,css,less,scss,vue,html}\"",
     "lint:lint-staged": "lint-staged",
-    "lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,css,less,scss,postcss}\" --cache --cache-location node_modules/.cache/stylelint/",
-    "prepare": "husky && husky install",
+    "lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,css,less,scss,postcss}\"",
+    "prepare": "husky",
     "commitlint": "commitlint --edit",
     "prepack": "npmignore --auto",
     "test:br": "http-server dist --cors --brotli -c-1",
     "test:gzip": "http-server dist --cors --gzip -c-1"
   },
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint:lint-staged"
+		}
+	},
   "dependencies": {
     "@vueuse/core": "^10.11.1",
     "nprogress": "^0.2.0",
@@ -63,6 +68,7 @@
     "@vitejs/plugin-legacy": "^5.4.2",
     "@vitejs/plugin-vue": "^5.1.2",
     "@vue/compiler-sfc": "^3.4.38",
+    "autoprefixer": "^10.4.20",
     "browserslist": "^4.23.3",
     "conventional-changelog-conventionalcommits": "^8.0.0",
     "esbuild": "^0.23.1",
