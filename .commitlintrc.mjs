@@ -9,7 +9,7 @@ export default {
 	parserPreset: "conventional-changelog-conventionalcommits",
 	formatter: "@commitlint/format",
 	rules: {
-		// @see: https://commitlint.js.org/#/reference-rules
+		// @see: https://commitlint.js.org/reference/rules.html
 		"body-leading-blank": [2, "always"],
 		"footer-leading-blank": [1, "always"],
 		"header-max-length": [2, "always", 108],
