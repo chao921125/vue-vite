@@ -57,10 +57,17 @@
 | less-loader  |
 | sass         |
 | sass-loader  |
+| stylelint  |
+| stylelint-config-standard  |
+| stylelint-config-recommended |
 
-| 三方插件 |
+| 提交格式 |
 |------|
-|      |
+| husky     |
+| lint-staged |
+| @commitlint/cli |
+| @commitlint/config-conventional |
+| @commitlint/types |
 
 |  |
 |--|
