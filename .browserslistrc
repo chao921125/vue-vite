@@ -1,0 +1,14 @@
+defaults
+> 1%
+last 2 versions
+not dead
+
+Chrome > 87
+Firefox > 78
+Safari > 13
+Edge > 88
+ie > 11
+Android >= 6.0
+iOS > 7
+
+supports es6-module
