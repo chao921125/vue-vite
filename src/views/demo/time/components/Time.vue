@@ -335,13 +335,7 @@
 			operationTimeRange(data, data.periods, data.periods.indexOf(_rows[0]));
 		}
 
-		console.log(
-			"计算偏移量=>",
-			secTotime((pageXValue.value - tableBox.left) / secondsOffset),
-			secTotime((e.pageX - pageXValue.value + (pageXValue.value - tableBox.left)) / secondsOffset),
-			_rows,
-			data.periods.indexOf(_rows[0]),
-		);
+		console.log("计算偏移量=>", secTotime((pageXValue.value - tableBox.left) / secondsOffset), secTotime((e.pageX - pageXValue.value + (pageXValue.value - tableBox.left)) / secondsOffset), _rows, data.periods.indexOf(_rows[0]));
 	};
 	// 秒转时分秒
 	const secTotime = (s) => {

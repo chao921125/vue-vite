@@ -1,7 +1,6 @@
 # Project directories
 node_modules
 dist
-dev-dist
 dist-ssr
 tests
 test

@@ -9,13 +9,21 @@ end_of_line = lf # 控制换行类型(lf | cr | crlf)
 insert_final_newline = true # 始终在文件末尾插入一个新行
 indent_style = tab # 缩进风格（tab | space）
 indent_size = 2 # 缩进大小
-max_line_length = 200 # 最大行长度
+max_line_length = 500 # 最大行长度
 
 [*.md] # 表示仅 md 文件适用以下规则
 max_line_length = off # 关闭最大行长度限制
 trim_trailing_whitespace = false # 关闭末尾空格修剪
 
+[*.yml]
+indent_style = space
+
 # Matches multiple files with brace expansion notation
 # Set default charset
-[*.{js,jsx,ts,tsx,vue,yml}]
+[*.{js,jsx,ts,tsx}]
 indent_style = space
+
+# 4 space indentation
+[*.py]
+indent_style = space
+indent_size = 4
