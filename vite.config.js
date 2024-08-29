@@ -295,7 +295,7 @@ export default defineConfig(({ command, mode }) => {
 			// host: "localhost",
 			port: envConfig.VITE_PORT,
 			strictPort: true, // 存在冲突端口，则继续下找可用端口
-			// https: "", // boolean | https.ServerOptions
+			// https: true, // boolean | https.ServerOptions
 			open: envConfig.VITE_OPEN, // boolean | string
 			proxy: createProxy(envConfig.VITE_PROXY),
 			// {
