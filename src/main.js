@@ -21,4 +21,8 @@ Object.keys(Icons).forEach((key) => {
 	app.component(key, Icons[key]);
 });
 
+// mock
+import initMock from "../mock/index.js";
+initMock();
+
 app.mount("#app");
