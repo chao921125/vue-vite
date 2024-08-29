@@ -77,8 +77,8 @@
 		"vue-router": "^4.4.3"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.4.0",
-		"@commitlint/config-conventional": "^19.2.2",
+		"@commitlint/cli": "^19.4.1",
+		"@commitlint/config-conventional": "^19.4.1",
 		"@commitlint/format": "^19.3.0",
 		"@commitlint/types": "^19.0.3",
 		"@eslint/js": "^9.9.1",
@@ -117,7 +117,7 @@
 		"stylelint-scss": "^6.5.1",
 		"terser": "^5.31.6",
 		"typescript": "^5.5.4",
-		"typescript-eslint": "^8.2.0",
+		"typescript-eslint": "^8.3.0",
 		"unplugin-auto-import": "^0.18.2",
 		"unplugin-icons": "^0.19.2",
 		"unplugin-vue-components": "^0.27.4",
@@ -130,7 +130,7 @@
 		"vite-plugin-full-reload": "^1.2.0",
 		"vite-plugin-pwa": "^0.20.1",
 		"vite-svg-loader": "^5.1.0",
-		"vue-tsc": "^2.1.0"
+		"vue-tsc": "^2.1.2"
 	},
 	"peerDependencies": {
 		"mysql2": ">=3.3.2"
