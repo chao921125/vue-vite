@@ -1,0 +1,27 @@
+// 暗黑主题下对应的颜色 only scss variables
+$--colors: (
+	"white": #ffffff,
+	"black": #000000,
+	"primary": (
+		"base": #409eff,
+	),
+	"success": (
+		"base": #67c23a,
+	),
+	"warning": (
+		"base": #e6a23c,
+	),
+	"danger": (
+		"base": #db2828,
+	),
+	"error": (
+		"base": #db2828,
+	),
+	"info": (
+		"base": #909399,
+	),
+);
+
+@forward "element-plus/theme-chalk/src/dark/var.scss" with (
+  $colors: $--colors
+);

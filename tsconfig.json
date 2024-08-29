@@ -34,7 +34,8 @@
 		"allowSyntheticDefaultImports": true,
 		"baseUrl": ".",
 		"types": [
-			"vite/client"
+			"vite/client",
+			"vite-svg-loader"
 		],
 		"paths": {
 			"@/*": [
