@@ -1,0 +1,310 @@
+@use "./root.scss";
+@use "./declare.scss";
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	font-family: "PingFangSC-Regular", "PingFang", "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-tap-highlight-color: transparent;
+	background-color: var(--el-bg-color-overlay);
+	#app {
+		@include declare.full;
+		a {
+			text-decoration: none;
+		}
+	}
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	font-size: 1rem;
+}
+@media only screen and (min-width: 1366px) {
+	html {
+		font-size: 94% !important;
+	}
+}
+@media only screen and (min-width: 1600px) {
+	html {
+		font-size: 109% !important;
+	}
+}
+@media only screen and (min-width: 1920px) {
+	html {
+		font-size: 125% !important;
+	}
+}
+
+// 布局样式
+.layout-container {
+	width: 100%;
+	height: 100%;
+	.layout-aside {
+		background-color: var(--el-bg-color);
+		box-shadow: 2px 0 6px rgb(0 21 41 / 1%);
+		height: inherit;
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden !important;
+		.el-scrollbar__view {
+			overflow: hidden;
+		}
+
+		.logo-full {
+			width: 220px;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+			box-shadow: rgb(0 21 41 / 2%) 0 1px 4px;
+			//color: var(--el-color-primary);
+			font-size: 16px;
+			cursor: pointer;
+			animation: logoAnimation 0.3s ease-in-out;
+			span {
+				white-space: nowrap;
+				display: inline-block;
+			}
+			&:hover {
+				span {
+					color: var(--color-primary-light-2);
+				}
+			}
+			&-medium-img {
+				width: 20px;
+				margin-right: 5px;
+			}
+		}
+		.logo-only {
+			width: 100%;
+			height: 60px;
+			display: flex;
+			cursor: pointer;
+			animation: logoAnimation 0.3s ease-in-out;
+			&-img {
+				width: 20px;
+				margin: auto;
+			}
+			&:hover {
+				img {
+					animation: logoAnimation 0.3s ease-in-out;
+				}
+			}
+		}
+	}
+	.layout-header {
+		height: 60px;
+		background-color: var(--el-bg-color);
+	}
+	.layout-main {
+		padding: 20px;
+		overflow: hidden;
+		width: 100%;
+		.main-body {
+			min-height: calc(100vh - 60px - 40px - 50px);
+			background-color: var(--el-bg-color);
+		}
+	}
+	.el-scrollbar {
+		width: 100%;
+	}
+	// 此字段多次用到，建议不删除，如需修改，请重写覆盖样式
+	.layout-view-bg-white {
+		//background: var(--el-color-white);
+		width: 100%;
+		height: 100%;
+		border-radius: 4px;
+		//border: 1px solid var(--el-border-color-light, #ebeef5);
+	}
+	.layout-el-aside-br-color {
+		//border-right: 1px solid var(--el-border-color-light, #ebeef5);
+	}
+	// pc端左侧导航样式
+	.layout-aside-pc-220 {
+		width: 220px !important;
+		transition: width 0.3s ease;
+	}
+	.layout-aside-pc-64 {
+		width: 64px !important;
+		transition: width 0.3s ease;
+	}
+	.layout-aside-pc-1 {
+		width: 1px !important;
+		transition: width 0.3s ease;
+	}
+	// 手机端左侧导航样式
+	.layout-aside-mobile {
+		position: fixed;
+		top: 0;
+		left: -220px;
+		width: 220px;
+		z-index: 99999;
+	}
+	.layout-aside-mobile-close {
+		left: -220px;
+		transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+	}
+	.layout-aside-mobile-open {
+		left: 0;
+		transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+	}
+	.layout-aside-mobile-mode {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 99998;
+		animation: error-img 0.3s;
+	}
+	.layout-scrollbar {
+		width: 100%;
+		padding: 15px;
+	}
+	.layout-main-h-50 {
+		height: calc(100vh - 50px);
+	}
+	.layout-columns-warp {
+		flex: 1;
+		display: flex;
+		overflow: hidden;
+	}
+	.layout-hide {
+		display: none;
+	}
+}
+// 分页组件 样式
+.page-box {
+	margin-top: 20px;
+}
+
+// 移除input的背景，使其透明
+//input:focus {
+//	outline: none;
+//}
+//input:-webkit-autofill,
+//textarea:-webkit-autofill,
+//select:-webkit-autofill {
+//	-webkit-text-fill-color: #fff !important;
+//	-webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+//	box-shadow: 0 0 0 1000px transparent inset !important;
+//	background-color: transparent;
+//	background-image: none;
+//	transition: background-color 50000s ease-in-out 0s;
+//}
+//
+//input:-internal-autofill-previewed,
+//input:-internal-autofill-selected {
+//	width: 100%;
+//	height: 50px;
+//	color: #ffffff;
+//	font-family: "Barlow", sans-serif;
+//	font-size: 20px;
+//	background: transparent;
+//	box-shadow: none;
+//	border: none;
+//	outline: none;
+//}
+
+// 不同的写法
+.cc-test {
+	&-box {
+		width: 100%;
+	}
+	&-box:not(.is-active):hover {
+		color: #000;
+	}
+}
+
+// 边框渐变 not support radius 不支持曲度
+.cc-gradient-bd {
+	border: 1px solid;
+	border-image: linear-gradient(323deg, rgba(147, 252, 102, 0.8), rgba(59, 208, 212, 0.8), rgba(175, 108, 240, 0.8)) 1;
+	//border-image-source: linear-gradient(to right, #8f41e9, #578aef);
+	//border-image-slice: 1;
+	//box-shadow: 0 0 20px 10px rgba(59, 208, 212, 0.5);
+}
+// 边框渐变 最优雅的实现方式
+.cc-gradient-bg {
+	border: 1px solid transparent;
+	border-radius: 10px;
+	background-clip: padding-box, border-box;
+	background-origin: padding-box, border-box;
+	background-image: linear-gradient(179deg, #421A74 0%, #23236F 100%), linear-gradient(323deg, rgba(147, 252, 102, 0.8), rgba(59, 208, 212, 0.8), rgba(175, 108, 240, 0.8));
+}
+.cc-gradient-bg-cg {
+	padding: 5px;
+	border: 1px solid transparent;
+	border-radius: 10px;
+	background: conic-gradient(from 180deg at 50% 50%, #23236F, rgba(147, 252, 102, 0.8), rgba(59, 208, 212, 0.8), rgba(175, 108, 240, 0.8));
+	-webkit-mask-composite: destination-out;
+	mask-composite: exclude;
+}
+// 边框渐变 嵌套元素实现
+.cc-gradient-dd {
+	padding: 4px;
+	background: linear-gradient(179deg, #421A74 0%, #23236F 100%), linear-gradient(323deg, rgba(147, 252, 102, 0.8), rgba(59, 208, 212, 0.8), rgba(175, 108, 240, 0.8));
+	border-radius: 10px;
+}
+.cc-gradient-dd-ct {
+	width: 100%;
+	height: 100%;
+	background: #FFF;
+	border-radius: 10px;
+}
+// 边框渐变 伪类元素
+.cc-gradient-dt {
+	position: relative;
+	border: 1px solid transparent;
+	border-radius: 10px;
+	background-color: #FFF;
+	background-clip: padding-box;
+}
+.cc-gradient-dt::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient( 179deg, #421A74 0%, #23236F 100%), linear-gradient(323deg, rgba(147, 252, 102, 0.8), rgba(59, 208, 212, 0.8), rgba(175, 108, 240, 0.8));
+	z-index: -1;
+	margin: -5px; /* Adjust based on border width */
+	border-radius: inherit; /* Match the container's border radius */
+}
+// 等比正方形 aspect-ratio
+.square {
+	width: calc(100% / 4);
+	aspect-ratio: 1/1;
+	//aspect-ratio: 1;
+	background-color: #00f5f5;
+}
+// 等比正方形 嵌套元素
+.square-box {
+	width: calc(100% / 4);
+	//padding-top: calc(100% / 4);
+	padding-top: calc(100% / 8);
+	padding-bottom: calc(100% / 8);
+	background-color: #00f5f5;
+	position: relative;
+	.square-body {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
