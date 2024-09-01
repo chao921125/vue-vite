@@ -1,5 +1,5 @@
 export const getEnvConfig = (env) => {
-	const envConfig = {};
+	let envConfig = {};
 	for (const envName of Object.keys(env)) {
 		let envValue = env[envName].replace(/\\n/g, "\n");
 		envValue = envValue === "true" ? true : envValue === "false" ? false : envValue;
@@ -10,7 +10,7 @@ export const getEnvConfig = (env) => {
 			try {
 				envValue = JSON.parse(envValue);
 			} catch (e) {
-				console.log("VITE_PROXY error", e);
+				console.log("VITE_PROXY error");
 			}
 		}
 		envConfig[envName] = envValue;
