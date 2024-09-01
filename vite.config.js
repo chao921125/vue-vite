@@ -17,7 +17,7 @@ import fullReload from "vite-plugin-full-reload";
 import { visualizer } from "rollup-plugin-visualizer";
 // ejs 支持，在 html 中使用 变量语法
 import { ViteEjsPlugin } from "vite-plugin-ejs";
-// 生成一个离线的快捷应用
+// 生成一个离线的快捷应用 PWA
 import { VitePWA } from "vite-plugin-pwa";
 // gzip 压缩
 import { compression } from "vite-plugin-compression2";
@@ -263,6 +263,9 @@ export default defineConfig(({ command, mode }) => {
 			// },
 			preprocessorOptions: {
 				css: { charset: false },
+				styl: {
+					additionalData: `$injectedColor ?= orange`,
+				},
 				less: {
 					javascriptEnabled: true,
 					// additionalData: `$injectedColor: orange`
@@ -286,7 +289,6 @@ export default defineConfig(({ command, mode }) => {
 		},
 		// assetsInclude: "", // 静态资源处理
 		logLevel: "info", // 可以根据开发环境动态改变 "info" | "warn" | "error" | "silent"
-		// customLogger: looger,
 		clearScreen: false, // --clearScreen
 		// envDir: "", // 配置.env文件相关
 		// envPrefix: "", // 配置.env变量以VUE_还是默认的VITE_
@@ -337,12 +339,10 @@ export default defineConfig(({ command, mode }) => {
 			//  deny: "",
 			// },
 			// origin: "",
-			// sourcemapIgnoreList: "", // false | (sourcePath: string, sourcemapPath: string) => boolean
 		},
 		build: {
 			target: "modules",
-			// modulePreload: true,
-			// polyfillDynamicImport: "", // boolean
+			// polyfillModulePreload: true,
 			outDir: path.join(__dirname, "dist"), // path.join(__dirname, "dist/render"),
 			assetsDir: path.join(__dirname, "assets"),
 			assetsInlineLimit: 5120, // 5KB
@@ -352,10 +352,10 @@ export default defineConfig(({ command, mode }) => {
 			// cssMinify: true, // 与 build.minify 一致
 			sourcemap: false,
 			rollupOptions: {
-				input: {
-					index: path.resolve(__dirname, "/index.html"),
-					// color: path.resolve(__dirname, "/public/color.html"),
-				},
+				// input: {
+				// 	index: path.resolve(__dirname, "/index.html"),
+				// 	// color: path.resolve(__dirname, "/public/color.html"),
+				// },
 				output: {
 					dir: "dist",
 					// Static resource classification and packaging
@@ -365,7 +365,7 @@ export default defineConfig(({ command, mode }) => {
 					compact: true,
 					manualChunks: {
 						vue: ["vue", "vue-router", "pinia"],
-						// echarts: ["echarts"],
+						echarts: ["echarts"],
 						elementPlus: ["element-plus"],
 					},
 				},
@@ -385,7 +385,6 @@ export default defineConfig(({ command, mode }) => {
 			},
 			// write: true,
 			// emptyOutDir: true, // outDiroutDir--emptyOutDir
-			// copyPublicDir: true,
 			reportCompressedSize: true,
 			chunkSizeWarningLimit: 2048,
 			// watch: 1024,
@@ -398,7 +397,6 @@ export default defineConfig(({ command, mode }) => {
 		//   open: "",
 		//   proxy: {},
 		//   cors: true,
-		//   headers: "", // OutgoingHttpHeaders
 		// },
 		optimizeDeps: {
 			// entries: "optimize.js",
