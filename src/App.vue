@@ -3,24 +3,6 @@
 </script>
 
 <template>
-	<div>
-		<a
-			href="https://vitejs.dev"
-			target="_blank">
-			<img
-				src="/logo.png"
-				class="logo"
-				alt="Vite logo" />
-		</a>
-		<a
-			href="https://vuejs.org/"
-			target="_blank">
-			<img
-				src="./assets/vue.svg"
-				class="logo vue"
-				alt="Vue logo" />
-		</a>
-	</div>
 	<svg
 		viewBox="0 0 500 500"
 		version="1.1"
