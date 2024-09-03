@@ -94,6 +94,7 @@
 | [less](https://less.bootcss.com/)                                              |
 | [less-loader](https://www.npmjs.com/package/less-loader)                       |
 | [style-resources-loader](https://www.npmjs.com/package/style-resources-loader) |
+| [vite-svg-loader](https://github.com/jpkleemans/vite-svg-loader)               |
 | [svg-sprite-loader](https://www.npmjs.com/package/svg-sprite-loader)           |
 | [text-loader](https://www.npmjs.com/package/text-loader)                       |
 | [vue-style-loader](https://www.npmjs.com/package/vue-style-loader)             |
@@ -367,8 +368,9 @@
 
 | 日期格式化                                                     |
 |-----------------------------------------------------------|
-| [date-fns](https://www.npmjs.com/package/date-fns)        |
 | [dayjs](https://www.npmjs.com/package/dayjs)              |
+| [date-fns](https://www.npmjs.com/package/date-fns)        |
+| [luxon](https://github.com/moment/luxon)                  |
 | [~~~moment~~~ 不再推荐](https://www.npmjs.com/package/moment) |
 
 | 打印                                                                     |
@@ -546,7 +548,7 @@
 | [typed 打字机效果](https://github.com/mattboldt/typed.js)   |
 | [vue-textra](https://www.npmjs.com/package/vue-textra) |
 
-| 动画 SVG                                       |
+| 动画                                           |
 |----------------------------------------------|
 | [vivus](https://github.com/maxwellito/vivus) |
 | [mojs](https://github.com/mojs/mojs)         |
