@@ -78,7 +78,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			}),
 			// * vite 可以使用 jsx/tsx 语法
 			// * name 可以写在 script 标签上
-      defineOptions(),
+			defineOptions(),
 			// 浏览器上兼容
 			legacy({
 				renderLegacyChunks: false,
@@ -113,9 +113,10 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					],
 				},
 				workbox: {
-					globPatterns: ["**/*.{js,ts,jsx,tsx,mjs,cjs,css,scss,less,html,ico,icon,png,jpg,jpeg,gif,webp,svg,ttf,otf,woff,woff2}"],
+					globPatterns: ["**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,css,scss,sass,less,html,ico,icon,png,jpg,jpeg,gif,webp,svg,ttf,otf,woff,woff2}"],
 					cleanupOutdatedCaches: false,
 					sourcemap: true,
+					maximumFileSizeToCacheInBytes: 15 * 1024 ** 2,
 					runtimeCaching: [
 						mode === "production"
 							? {
