@@ -1,8 +1,8 @@
 # [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-ts.vercel.app/) - [项目截图](./docs/Project.md)
-[//]: # (pnpx husky init)
+# 新增加简易版 JS 版本已搭建完毕，TS 版本正在进行中，请查看对应的分支即可，主分支等待下一步升级
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
-2. husky + lint-staged + @commitlint/cli 规范提交格式（提交代码前自检）
+2. husky + lint-staged + @commitlint/cli 规范提交格式（提交代码前自检） pnpx husky init
 3. 如果有条件，请将 font 文件存入 CDN 否则将会在本地文件占用很大一部分资源，图片尽可能压缩
 ```
 # 避坑指南 及 注意事项
