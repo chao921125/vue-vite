@@ -35,7 +35,8 @@
 		"baseUrl": ".",
 		"types": [
 			"vite/client",
-			"vite-svg-loader"
+			"vite-svg-loader",
+			"vite-plugin-pwa/client"
 		],
 		"paths": {
 			"@/*": [
