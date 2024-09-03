@@ -70,6 +70,11 @@ Object.keys(directives).forEach((key) => {
 // app.use(globalComponent)
 
 // PWA
+// import { registerSW } from "virtual:pwa-register";
+// registerSW({
+// 	onNeedRefresh() {},
+// 	onOfflineReady() {},
+// });
 window.addEventListener("beforeinstallprompt", (e) => {
 	e.preventDefault();
 	window.deferredPrompt = e;

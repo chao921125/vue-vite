@@ -100,16 +100,16 @@ export default defineConfig(({ command, mode }) => {
 				},
 			),
 			VitePWA({
+				injectRegister: "auto",
 				registerType: "autoUpdate",
 				devOptions: {
 					enabled: false,
 				},
-				injectRegister: "auto",
 				includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
 				manifest: {
-					name: "vue-vite project",
-					short_name: "vue-vite",
-					description: "vue-vite-pwa",
+					name: "vue-vite",
+					short_name: "vv",
+					description: "vue-vite frame",
 					id: "vue-vite",
 					start_url: ".",
 					theme_color: "#FFFFFF",
@@ -122,9 +122,10 @@ export default defineConfig(({ command, mode }) => {
 					],
 				},
 				workbox: {
-					globPatterns: ["**/*.{js,ts,jsx,tsx,mjs,cjs,css,scss,less,html,ico,icon,png,jpg,jpeg,gif,webp,svg,ttf,otf,woff,woff2}"],
+					globPatterns: ["**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,css,scss,sass,less,html,ico,icon,png,jpg,jpeg,gif,webp,svg,ttf,otf,woff,woff2}"],
 					cleanupOutdatedCaches: false,
 					sourcemap: true,
+					maximumFileSizeToCacheInBytes: 15 * 1024 ** 2,
 					runtimeCaching: [
 						mode === "production"
 							? {
