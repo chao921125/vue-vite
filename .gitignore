@@ -1,24 +1,42 @@
-# Logs
+# Project directories
+node_modules
+dist
+dist-ssr
+tests
+test
+*.local
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
 logs
 *.log
+*.log*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
+# Editor directories
+.DS_Store
+.hbuilderx
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
+.vscode
+.project
+.cache
+.local
+
+# Editor files
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+stats.html
+.eslintcache
+.stylelintcache
