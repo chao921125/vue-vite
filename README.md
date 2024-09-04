@@ -60,6 +60,7 @@
 |------------------------------------------------------------------|
 | [👍 vite 官网](https://cn.vitejs.dev/)                             |
 | [vue-cli](https://cli.vuejs.org/)                                |
+| [turbo 下一代号称比 vite 快 10 倍](https://turbo.build/)                 |
 | vue                                                              |
 | [vue3 官网](https://vuejs.org/)                                    |
 | [vue2 官网](https://v2.cn.vuejs.org/)                              |
