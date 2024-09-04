@@ -18,7 +18,6 @@ export const fileToBase64 = (file, callback) => {
 	const fr = new FileReader();
 	fr.onload = (e) => {
 		if (typeof e === "function") {
-			// @ts-ignore
 			callback(e.target.result);
 		} else {
 			return e.target.result;
@@ -37,7 +36,6 @@ export const fileToBlob = (file, callback) => {
 	fr.onload = (e) => {
 		const b = new Blob([e.target.result], { type });
 		if (typeof e === "function") {
-			// @ts-ignore
 			callback(b);
 		} else {
 			return b;
@@ -50,7 +48,6 @@ export const blobToBase64 = (blob, callback) => {
 	const fr = new FileReader();
 	fr.onload = (e) => {
 		if (typeof e === "function") {
-			// @ts-ignore
 			callback(e.target.result);
 		} else {
 			return e.target.result;

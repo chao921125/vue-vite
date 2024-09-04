@@ -103,10 +103,10 @@ import Log from "@/plugins/utils/log";
 Log.success(">>>>>> 当前VUE版本 >>>>>>");
 Log.primary(app.version);
 // 防止错误和警告死循环，手动终止
-let isErrorNumMax = 10;
+const isErrorNumMax = 10;
 let isErrorNum = 0;
 let isShowError = false;
-let isWanNumMax = 10;
+const isWanNumMax = 10;
 let isWanNum = 0;
 let isShowWan = false;
 app.config.errorHandler = (err, instance, info) => {

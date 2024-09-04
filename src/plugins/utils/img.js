@@ -98,7 +98,7 @@ export const imgConvert = async (file, outputFormat = "image/jpeg", callback) =>
 			blob: blob,
 			toType: "image/jpeg",
 		});
-		// @ts-ignore
+
 		let reFile = new File([reBlob], fd.name.split(".")[0] + ".jpeg", {
 			type: "image/jpeg",
 		});
@@ -120,7 +120,7 @@ export const imgConvert = async (file, outputFormat = "image/jpeg", callback) =>
 
 					canvas.width = img.width;
 					canvas.height = img.height;
-					// @ts-ignore
+
 					ctx.drawImage(img, 0, 0, img.width, img.height);
 
 					let newDataUrl = canvas.toDataURL(outputFormat);

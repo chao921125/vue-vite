@@ -54,12 +54,11 @@ const http = axios.create(defaultHeader);
 http.interceptors.request.use(
 	(config) => {
 		NProgress.start();
-		// @ts-ignore
+
 		config.headers["apifoxToken"] = "UpBZTbFlKA6vpmezjXyVjFrs4gCfy4o2";
 		if (Cookie.getCookie(Constants.cookieKey.token)) {
-			// @ts-ignore
 			config.headers["token"] = "Bearer " + Cookie.getCookie(Constants.cookieKey.token);
-			// @ts-ignore
+
 			config.headers["Authorization"] = "Bearer " + Cookie.getCookie(Constants.cookieKey.token);
 		}
 		if (config.method?.toLowerCase() === "get") {
@@ -77,12 +76,12 @@ http.interceptors.request.use(
 	},
 	async (error) => {
 		NProgress.done();
-		let config = error.config;
+		const config = error.config;
 		if (!config || !config.retry) return Promise.reject(error);
 		config.__retryCount = config.__retryCount || 0;
 		if (config.__retryCount >= config.retry) return Promise.reject(error);
 		config.__retryCount += 1;
-		let backOff = new Promise((resolve) => {
+		const backOff = new Promise((resolve) => {
 			setTimeout(() => {
 				resolve();
 			}, AxiosConfig.timeout || 1);
@@ -114,6 +113,7 @@ http.interceptors.response.use(
 		} else if (/^3\d{2}/.test(String(status))) {
 			await Router.replace({ path: RouterConfig.routeRoot });
 		} else if (/^5\d{2}/.test(String(status))) {
+			await Router.replace({ path: RouterConfig.route500 });
 		} else {
 			// 这个状态码是和后端约定的
 			const { code } = resp;

@@ -121,9 +121,7 @@ export const verifyEnAndSpace = (val) => {
 export const verifyAndSpace = (val) => {
 	if (!val) return false;
 	// 匹配空格
-	let v = val.replace(/(^\s*)|(\s*$)/g, "");
-	// 返回结果
-	return v;
+	return val.replace(/(^\s*)|(\s*$)/g, "");
 };
 
 /**
@@ -171,7 +169,7 @@ export const verifyNumberCnUppercase = (val, unit = "仟佰拾亿仟佰拾万仟
 	// 当前内容字符串添加 2个0，为什么??
 	val += "00";
 	// 返回某个指定的字符串值在字符串中首次出现的位置，没有出现，则该方法返回 -1
-	let lookup = val.indexOf(".");
+	const lookup = val.indexOf(".");
 	// substring：不包含结束下标内容，substr：包含结束下标内容
 	if (lookup >= 0) val = val.substring(0, lookup) + val.substr(lookup + 1, 2);
 	// 根据内容 val 的长度，截取返回对应大写
@@ -288,7 +286,7 @@ export const verifyIPAddress = (val) => {
 export const verifyEmail = (val) => {
 	if (!val) return false;
 	// false: 邮箱不正确
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([A-Z\-0-9]+\.)+[A-Z]{2,}))$/i.test(val);
+	return /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$/i.test(val);
 };
 
 /**

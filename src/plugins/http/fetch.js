@@ -1,4 +1,4 @@
-let Fetch = {};
+const Fetch = {};
 
 Fetch.request = async (url = "", data = {}, options = { method: "GET" }) => {
 	const headers = new Headers(

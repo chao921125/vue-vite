@@ -25,7 +25,6 @@ util.tagsName = (value) => {
 };
 
 const setTitleI18n = (value) => {
-	// @ts-ignore
 	let tagsViewName = import.meta.env.VITE_TITLE;
 	const { query, params, meta } = value;
 	if (query?.tagsViewName || params?.tagsViewName) {
@@ -96,9 +95,9 @@ util.open = (url) => {
 util.urlToObj = (url) => {
 	let obj = {};
 	if (!url) return obj;
-	// @ts-ignore
+
 	url.replace(/([^?=&#]+)=([^?=&#]+)/g, (_, key, value) => (obj[key] = value));
-	// @ts-ignore
+
 	url.replace(/#([^?=&#]+)/g, (_, hash) => (obj["HASH"] = hash));
 	return obj;
 };
@@ -148,7 +147,7 @@ util.isMobile = (opts) => {
  */
 util.isWeixin = () => {
 	const ua = navigator.userAgent.toLowerCase();
-	// @ts-ignore
+
 	return ua.match(/MicroMessenger/i) === "micromessenger";
 };
 

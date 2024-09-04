@@ -10,7 +10,7 @@ import Cookie from "@/plugins/utils/cookie";
 import Constants from "@/plugins/constants";
 import NProgress from "@/plugins/loading/progress";
 import RouterConfig from "@/config/routerConfig";
-import RouteData from "@/config/routerData";
+// import RouteData from "@/config/routerData";
 import AxiosCancel from "@/plugins/http/cancel";
 import api from "@/api";
 
@@ -92,7 +92,6 @@ router.afterEach(() => {
  * 5、渲染
  */
 
-// @ts-ignore
 const viewsModules = import.meta.glob("../views/**/**.{vue,tsx}");
 const dynamicViewsModules = Object.assign({}, { ...viewsModules });
 
@@ -129,7 +128,7 @@ async function setRouterList(data) {
  */
 function getRouter(data = []) {
 	if (data.length === 0) return [];
-	let rootRouter = [
+	const rootRouter = [
 		{
 			path: "/",
 			name: "/",
@@ -144,7 +143,7 @@ function getRouter(data = []) {
 			children: [],
 		},
 	];
-	let addRouters = [];
+	const addRouters = [];
 	setRouterItem(addRouters, data, "");
 	rootRouter[0].children = routeToComponent(addRouters);
 	rootRouter[0].children = [...rootRouter[0].children, ...errorRoutes];
@@ -156,9 +155,9 @@ function getRouter(data = []) {
 function setRouterItem(routerList, data = [], parentPath = "") {
 	if (data.length === 0) return [];
 	data.forEach((item) => {
-		let path = parentPath + "/" + item.path;
-		let name = item.component.slice(item.component.lastIndexOf("/") + 1);
-		let route = {
+		const path = parentPath + "/" + item.path;
+		const name = item.component.slice(item.component.lastIndexOf("/") + 1);
+		const route = {
 			path: path,
 			name: path.replace("/", "-") + "-" + name,
 			component: item.component,
@@ -193,7 +192,7 @@ function routeToComponent(routes) {
 	if (!routes) return [];
 	return routes.map((item) => {
 		if (item.component) item.component = componentImport(dynamicViewsModules, item.component);
-		item.children && routeToComponent(item.children);
+		if (item.children) routeToComponent(item.children);
 		return item;
 	});
 }

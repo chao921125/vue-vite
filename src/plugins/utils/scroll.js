@@ -1,4 +1,3 @@
-// @ts-ignore
 Math.easeInOutQuad = function (t, b, c, d) {
 	t /= d / 2;
 	if (t < 1) {
@@ -12,9 +11,7 @@ Math.easeInOutQuad = function (t, b, c, d) {
 let requestAnimFrame = (function () {
 	return (
 		window.requestAnimationFrame ||
-		// @ts-ignore
 		window.webkitRequestAnimationFrame ||
-		// @ts-ignore
 		window.mozRequestAnimationFrame ||
 		function (callback) {
 			window.setTimeout(callback, 1000 / 60);
@@ -28,13 +25,12 @@ let requestAnimFrame = (function () {
  */
 function move(amount) {
 	document.documentElement.scrollTop = amount;
-	// @ts-ignore
+
 	document.body.parentNode.scrollTop = amount;
 	document.body.scrollTop = amount;
 }
 
 function position() {
-	// @ts-ignore
 	return document.documentElement.scrollTop || document.body.parentNode.scrollTop || document.body.scrollTop;
 }
 
@@ -53,7 +49,7 @@ export const scrollTo = (to, duration, callback) => {
 		// increment the time
 		currentTime += increment;
 		// find the value with the quadratic in-out easing function
-		// @ts-ignore
+
 		let val = Math.easeInOutQuad(currentTime, start, change, duration);
 		// move the document.body
 		move(val);
