@@ -44,10 +44,10 @@ export default class AlphaVideo {
 		video.crossOrigin = "anonymous";
 		video.addEventListener("canplay", () => {
 			this.playing = true;
-			onPlay && onPlay();
+			if (onPlay) onPlay();
 		});
 		video.addEventListener("error", () => {
-			onError && onError();
+			if (onError) onError();
 		});
 		video.addEventListener("play", () => {
 			window.requestAnimationFrame(() => {
@@ -55,7 +55,7 @@ export default class AlphaVideo {
 			});
 		});
 		video.addEventListener("ended", () => {
-			onEnd && onEnd();
+			if (onEnd) onEnd();
 		});
 		video.addEventListener("timeupdate", () => {
 			// const timer = setTimeout(() => {

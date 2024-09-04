@@ -11,7 +11,7 @@ export const animate = {
 		// });
 
 		el.classList.add("animate__animated");
-		let options = {
+		const options = {
 			animateInClass: (binding.value && binding.value.animateInClass) || "animate__fadeIn",
 			animateOutClass: (binding.value && binding.value.animateOutClass) || "animate__fadeOut",
 			repeat: (binding.value && binding.value.repeat) || false,

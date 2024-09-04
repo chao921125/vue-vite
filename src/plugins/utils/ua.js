@@ -2,7 +2,6 @@
 // M 插件 https://github.com/hgoebl/mobile-detect.js/
 // IP 关于IP这一块，建议后端获取
 function getBrowserInfo() {
-	// @ts-ignore
 	const uaData = navigator.userAgentData;
 	return {
 		languageBrowser: navigator.language,

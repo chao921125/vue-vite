@@ -47,8 +47,7 @@ export default defineConfig(({ command, mode }) => {
 	const __filename = fileURLToPath(import.meta.url);
 	const __dirname = path.dirname(__filename);
 	// eslint-disable-next-line
-	const env = loadEnv(mode, process.cwd(), "");
-	const envConfig = getEnvConfig(env);
+	const envConfig = getEnvConfig(loadEnv(mode, process.cwd(), ""));
 	const browserslistConfig = browserslist.loadConfig({ path: "." });
 	const isBuild = command.includes("build");
 	/**
@@ -344,8 +343,8 @@ export default defineConfig(({ command, mode }) => {
 		build: {
 			target: "modules",
 			// polyfillModulePreload: true,
-			outDir: path.join(__dirname, "dist"), // path.join(__dirname, "dist/render"),
-			assetsDir: path.join(__dirname, "assets"),
+			outDir: path.join(__dirname, "./dist"), // path.join(__dirname, "dist/render"),
+			assetsDir: path.join(__dirname, "./assets"),
 			assetsInlineLimit: 5120, // 5KB
 			// 如果设置为false，整个项目中的所有 CSS 将被提取到一个 CSS 文件中
 			cssCodeSplit: true,
@@ -353,10 +352,10 @@ export default defineConfig(({ command, mode }) => {
 			// cssMinify: true, // 与 build.minify 一致
 			sourcemap: false,
 			rollupOptions: {
-				// input: {
-				// 	index: path.resolve(__dirname, "/index.html"),
-				// 	// color: path.resolve(__dirname, "/public/color.html"),
-				// },
+				input: {
+					index: path.resolve(__dirname, "./index.html"),
+					// color: path.resolve(__dirname, "/public/color.html"),
+				},
 				output: {
 					dir: "dist",
 					// Static resource classification and packaging
@@ -401,8 +400,8 @@ export default defineConfig(({ command, mode }) => {
 		// },
 		optimizeDeps: {
 			// entries: "optimize.js",
-			exclude: [""],
-			include: ["lodash", "lodash-es", "@vueuse/core", "@vue/runtime-core", "element-plus", "vuedraggable", "@vue/shared"],
+			exclude: [],
+			include: [],
 			// esbuildOptions: "",
 			force: false,
 		},

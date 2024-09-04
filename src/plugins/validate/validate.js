@@ -121,18 +121,16 @@ export const verifyEnAndSpace = (val) => {
 export const verifyAndSpace = (val) => {
 	if (!val) return false;
 	// 匹配空格
-	let v = val.replace(/(^\s*)|(\s*$)/g, "");
-	// 返回结果
-	return v;
+	return val.replace(/(^\s*)|(\s*$)/g, "");
 };
 
 /**
  * 金额用 `,` 区分开
  * @param val 当前值字符串
- * @returns 返回处理后的字符串
+ * @returns string
  */
 export const verifyNumberComma = (val) => {
-	if (!val) return false;
+	if (!val) return "";
 	// 调用小数或整数(不可以负数)方法
 	let v = verifyNumberIntegerAndFloat(val);
 	// 字符串转成数组
@@ -150,10 +148,10 @@ export const verifyNumberComma = (val) => {
  * @param val 当前值字符串
  * @param text 要处理的字符串值
  * @param color 搜索到时字体高亮颜色
- * @returns 返回处理后的字符串
+ * @returns string
  */
 export const verifyTextColor = (val, text = "", color = "red") => {
-	if (!val) return false;
+	if (!val) return "";
 	// 返回内容，添加颜色
 	// 返回结果
 	return text.replace(new RegExp(val, "gi"), `<span style='color: ${color}'>${val}</span>`);
@@ -171,7 +169,7 @@ export const verifyNumberCnUppercase = (val, unit = "仟佰拾亿仟佰拾万仟
 	// 当前内容字符串添加 2个0，为什么??
 	val += "00";
 	// 返回某个指定的字符串值在字符串中首次出现的位置，没有出现，则该方法返回 -1
-	let lookup = val.indexOf(".");
+	const lookup = val.indexOf(".");
 	// substring：不包含结束下标内容，substr：包含结束下标内容
 	if (lookup >= 0) val = val.substring(0, lookup) + val.substr(lookup + 1, 2);
 	// 根据内容 val 的长度，截取返回对应大写
@@ -288,7 +286,7 @@ export const verifyIPAddress = (val) => {
 export const verifyEmail = (val) => {
 	if (!val) return false;
 	// false: 邮箱不正确
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([A-Z\-0-9]+\.)+[A-Z]{2,}))$/i.test(val);
+	return /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$/i.test(val);
 };
 
 /**

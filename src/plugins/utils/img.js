@@ -13,8 +13,8 @@ const utils = {
 	},
 	imageToDataURL: (imgURL) => {
 		return new Promise((resolve, reject) => {
-			let canvas = document.createElement("canvas");
-			let img = new Image();
+			const canvas = document.createElement("canvas");
+			const img = new Image();
 			img.src = imgURL;
 			img.crossOrigin = "Anonymous";
 			img.onerror = () => {
@@ -23,7 +23,7 @@ const utils = {
 			img.onload = function () {
 				canvas.width = img.naturalWidth * window.devicePixelRatio;
 				canvas.height = img.naturalHeight * window.devicePixelRatio;
-				let ctx = canvas.getContext("2d");
+				const ctx = canvas.getContext("2d");
 				ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 				const dataURL = canvas.toDataURL();
 				resolve(dataURL);
@@ -53,8 +53,8 @@ const utils = {
 	},
 	dataURLtoImgBlob: (dataURL) => {
 		return new Promise((resolve, reject) => {
-			let canvas = document.createElement("canvas");
-			let img = new Image();
+			const canvas = document.createElement("canvas");
+			const img = new Image();
 			img.src = dataURL;
 			img.crossOrigin = "Anonymous";
 			img.onerror = () => {
@@ -63,18 +63,18 @@ const utils = {
 			img.onload = function () {
 				canvas.width = img.naturalWidth * window.devicePixelRatio;
 				canvas.height = img.naturalHeight * window.devicePixelRatio;
-				let ctx = canvas.getContext("2d");
+				const ctx = canvas.getContext("2d");
 				ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 				canvas.toBlob((blob) => resolve(blob));
 			};
 		});
 	},
 	dataURLtoFile: (dataURL, fileName) => {
-		let arr = dataURL.split(","),
+		const arr = dataURL.split(","),
 			mime = arr[0].match(/:(.*?);/)[1];
-		let bStr = atob(arr[1]);
+		const bStr = atob(arr[1]);
 		let n = bStr.length;
-		let u8arr = new Uint8Array(n);
+		const u8arr = new Uint8Array(n);
 
 		while (n--) {
 			u8arr[n] = bStr.charCodeAt(n);
@@ -88,43 +88,43 @@ const utils = {
 };
 
 export const imgConvert = async (file, outputFormat = "image/jpeg", callback) => {
-	let result = {
+	const result = {
 		file: null,
 		fileUrl: "",
 	};
 	if (file.type === "heic" || file.type === "image/heic") {
-		let blob = new Blob([file], { type: file.type });
-		let reBlob = await heic2any({
+		const blob = new Blob([file], { type: file.type });
+		const reBlob = await heic2any({
 			blob: blob,
 			toType: "image/jpeg",
 		});
-		// @ts-ignore
-		let reFile = new File([reBlob], fd.name.split(".")[0] + ".jpeg", {
+
+		const reFile = new File([reBlob], file.name.split(".")[0] + ".jpeg", {
 			type: "image/jpeg",
 		});
-		let newFile = await imgCompress(reFile);
+		const newFile = await imgCompress(reFile);
 		const url = URL.createObjectURL(newFile);
 		result.file = newFile;
 		result.fileUrl = url;
 		callback(result);
 	} else {
-		let reader = new FileReader();
-		let img = new Image();
+		const reader = new FileReader();
+		const img = new Image();
 
 		reader.onload = function (e) {
 			if (typeof e.target.result === "string") {
 				img.onload = function () {
 					debugger;
-					let canvas = document.createElement("canvas");
-					let ctx = canvas.getContext("2d");
+					const canvas = document.createElement("canvas");
+					const ctx = canvas.getContext("2d");
 
 					canvas.width = img.width;
 					canvas.height = img.height;
-					// @ts-ignore
+
 					ctx.drawImage(img, 0, 0, img.width, img.height);
 
-					let newDataUrl = canvas.toDataURL(outputFormat);
-					let newFile = utils.dataURLtoFile(newDataUrl, file.name);
+					const newDataUrl = canvas.toDataURL(outputFormat);
+					const newFile = utils.dataURLtoFile(newDataUrl, file.name);
 					callback(newFile);
 				};
 				img.src = e.target.result;

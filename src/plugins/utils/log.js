@@ -1,4 +1,4 @@
-let log = {};
+const log = {};
 
 function typeColor(type = "default") {
 	let color = "";

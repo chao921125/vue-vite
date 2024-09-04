@@ -22,9 +22,9 @@ export const FORMAT_ENUM = {
  * @returns 返回拼接后的时间字符串
  */
 export const formatDate = (date, format) => {
-	let we = date.getDay(); // 星期
-	let z = getWeek(date); // 周
-	let qut = Math.floor((date.getMonth() + 3) / 3).toString(); // 季度
+	const we = date.getDay(); // 星期
+	const z = getWeek(date); // 周
+	const qut = Math.floor((date.getMonth() + 3) / 3).toString(); // 季度
 	const opt = {
 		"Y+": date.getFullYear().toString(), // 年
 		"m+": (date.getMonth() + 1).toString(), // 月(月份从0开始，要+1)
@@ -52,12 +52,12 @@ export const formatDate = (date, format) => {
 		4: "四",
 	};
 	if (/(W+)/.test(format)) format = format.replace(RegExp.$1, RegExp.$1.length > 1 ? (RegExp.$1.length > 2 ? "星期" + week[we] : "周" + week[we]) : week[we]);
-	if (/(Q+)/.test(format)) format = format.replace(RegExp.$1, RegExp.$1.length == 4 ? "第" + quarter[qut] + "季度" : quarter[qut]);
-	if (/(Z+)/.test(format)) format = format.replace(RegExp.$1, RegExp.$1.length == 3 ? "第" + z + "周" : z + "");
-	for (let k in opt) {
-		let r = new RegExp("(" + k + ")").exec(format);
+	if (/(Q+)/.test(format)) format = format.replace(RegExp.$1, RegExp.$1.length === 4 ? "第" + quarter[qut] + "季度" : quarter[qut]);
+	if (/(Z+)/.test(format)) format = format.replace(RegExp.$1, RegExp.$1.length === 3 ? "第" + z + "周" : z + "");
+	for (const k in opt) {
+		const r = new RegExp("(" + k + ")").exec(format);
 		// 若输入的长度不为1，则前面补零
-		if (r) format = format.replace(r[1], RegExp.$1.length == 1 ? opt[k] : opt[k].padStart(RegExp.$1.length, "0"));
+		if (r) format = format.replace(r[1], RegExp.$1.length === 1 ? opt[k] : opt[k].padStart(RegExp.$1.length, "0"));
 	}
 	return format;
 };
@@ -65,20 +65,20 @@ export const formatDate = (date, format) => {
 /**
  * 获取当前日期是第几周
  * @param dateTime 当前传入的日期值
- * @returns 返回第几周数字值
+ * @returns number
  */
 function getWeek(dateTime) {
-	let temptTime = new Date(dateTime.getTime());
+	const temptTime = new Date(dateTime.getTime());
 	// 周几
-	let weekday = temptTime.getDay() || 7;
+	const weekday = temptTime.getDay() || 7;
 	// 周1+5天=周六
 	temptTime.setDate(temptTime.getDate() - weekday + 1 + 5);
 	let firstDay = new Date(temptTime.getFullYear(), 0, 1);
-	let dayOfWeek = firstDay.getDay();
+	const dayOfWeek = firstDay.getDay();
 	let spendDay = 1;
 	if (dayOfWeek !== 0) spendDay = 7 - dayOfWeek + 1;
 	firstDay = new Date(temptTime.getFullYear(), 0, 1 + spendDay);
-	let d = Math.ceil((temptTime.valueOf() - firstDay.valueOf()) / 86400000);
+	const d = Math.ceil((temptTime.valueOf() - firstDay.valueOf()) / 86400000);
 	return Math.ceil(d / 7);
 }
 
@@ -91,7 +91,7 @@ function getWeek(dateTime) {
  * @description param 1小时： 60 * 60 * 1000
  * @description param 24小时：60 * 60 * 24 * 1000
  * @description param 3天：   60 * 60* 24 * 1000 * 3
- * @returns 返回拼接后的时间字符串
+ * @returns string
  */
 export const formatPast = (param, format = "YYYY-mm-dd") => {
 	// 传入格式处理、存储转换值
@@ -99,7 +99,11 @@ export const formatPast = (param, format = "YYYY-mm-dd") => {
 	// 获取js 时间戳
 	let time = new Date().getTime();
 	// 是否是对象
-	typeof param === "string" || "object" ? (t = new Date(param).getTime()) : (t = param);
+	if (typeof param === "string") {
+		t = new Date(param).getTime();
+	} else {
+		t = param;
+	}
 	// 当前时间戳 - 传入时间戳
 	time = Number.parseInt(`${time - t}`);
 	if (time < 10000) {
@@ -123,7 +127,7 @@ export const formatPast = (param, format = "YYYY-mm-dd") => {
 		return `${s}天前`;
 	} else {
 		// 超过3天
-		let date = typeof param === "string" || "object" ? new Date(param) : param;
+		const date = typeof param === "string" ? new Date(param) : param;
 		return formatDate(date, format);
 	}
 };
@@ -132,10 +136,10 @@ export const formatPast = (param, format = "YYYY-mm-dd") => {
  * 时间问候语
  * @param param 当前时间，new Date() 格式
  * @description param 调用 `formatAxis(new Date())` 输出 `上午好`
- * @returns 返回拼接后的时间字符串
+ * @returns string
  */
 export const formatAxis = (param) => {
-	let hour = new Date(param).getHours();
+	const hour = new Date(param).getHours();
 	if (hour < 6) return "凌晨好";
 	else if (hour < 9) return "早上好";
 	else if (hour < 12) return "上午好";
@@ -164,7 +168,7 @@ export const replaceNullLine = (value) => {
  * 转数字
  */
 export const replaceToNumber = (value) => {
-	return parseFloat(value.toString().replace(/[^\d\.-]/g, ""));
+	return parseFloat(value.toString().replace(/[^\d.-]/g, ""));
 };
 
 /**
@@ -176,17 +180,17 @@ export const formatThousandPoint = (value, decimals, thousands_sep, dec_point) =
 	if (!thousands_sep) thousands_sep = ",";
 	if (!dec_point) dec_point = ".";
 	value = (value + "").replace(/[^0-9+-Ee.]/g, "");
-	let n = !isFinite(+value) ? 0 : +value,
+	const n = !isFinite(+value) ? 0 : +value,
 		prec = !isFinite(+decimals) ? 0 : Math.abs(Number(decimals)),
 		sep = typeof thousands_sep === "undefined" ? "," : thousands_sep,
-		dec = typeof dec_point === "undefined" ? "." : dec_point,
-		s = [],
-		toFixedFix = (n, prec) => {
-			let k = Math.pow(10, prec);
-			return "" + Math.ceil(n * k) / k;
-		};
+		dec = typeof dec_point === "undefined" ? "." : dec_point;
+	const toFixedFix = (n, prec) => {
+		const k = Math.pow(10, prec);
+		return "" + Math.ceil(n * k) / k;
+	};
+	let s = [];
 	s = (prec ? toFixedFix(n, prec) : "" + Math.round(n)).split(".");
-	let re = /(-?\d+)(\d{3})/;
+	const re = /(-?\d+)(\d{3})/;
 	while (re.test(s[0])) {
 		s[0] = s[0].replace(re, "$1" + sep + "$2");
 	}
