@@ -44,4 +44,10 @@ export default {
 	// 控制是否 prettier 格式的引用代码嵌入在文件中。
 	embeddedLanguageFormatting: "auto",
 	singleAttributePerLine: true,
+	overrides: [
+		{
+			files: "*.{js,ts,mjs,mts,cjs,cts,json,jsx,tsx,css,less,scss,vue,html}",
+			options: {},
+		},
+	],
 };
