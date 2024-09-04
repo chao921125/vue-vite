@@ -60,6 +60,7 @@
 |------------------------------------------------------------------|
 | [👍 vite 官网](https://cn.vitejs.dev/)                             |
 | [vue-cli](https://cli.vuejs.org/)                                |
+| [turbo 下一代号称比 vite 快 10 倍](https://turbo.build/)                 |
 | vue                                                              |
 | [vue3 官网](https://vuejs.org/)                                    |
 | [vue2 官网](https://v2.cn.vuejs.org/)                              |
@@ -589,9 +590,10 @@
 | [vite-plugin-mock-dev-server](https://github.com/pengzhanbo/vite-plugin-mock-dev-server) |
 | [vite-plugin-mock-server](https://github.com/enjoycoding/vite-plugin-mock-server)        |
 
-# 测试
+# 开发 & 测试
 | 本项目并没有测试用例，如果大家需要的话请自行添加，以下是测试集成依赖                                      |
 |-------------------------------------------------------------------------|
+| [eruda 调试](https://github.com/liriliri/eruda)                           |
 | [@vue/test-utils 推荐 这个可以作为核心 配合jest使用更好](https://test-utils.vuejs.org/) |
 | [jestjs](https://jestjs.io/)                                            |
 | [mochajs webpack](https://mochajs.org/)                                 |
