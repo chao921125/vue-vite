@@ -1,6 +1,8 @@
+/**
+ * 在这里写公用的class
+ */
 @use "./declare.scss";
 
-// 在这里写公用的class
 // 占位符
 .#{declare.$prefix}-place {
 	width: 1px;
@@ -15,54 +17,61 @@
 	 display: none !important;
 }
 
-// Flex 基础布局
-.#{declare.$prefix}-flex-auto {
+/**
+ * Flex 基础布局
+ */
+.#{declare.$prefix}-f-auto {
 	@include declare.flex-base;
 	flex: 1;
 	overflow: hidden;
 }
-.#{declare.$prefix}-flex-row {
+.#{declare.$prefix}-f-row {
 	@include declare.flex-base;
 	flex-direction: row;
 }
-.#{declare.$prefix}-flex-row-end {
+.#{declare.$prefix}-f-row-end {
 	@include declare.flex-base;
 	flex-direction: row;
 	align-items: center;
 	justify-content: flex-end;
 }
-.#{declare.$prefix}-flex-row-center {
+.#{declare.$prefix}-f-row-center {
 	@include declare.flex-base;
 	@include declare.flex-row-center;
 }
-.#{declare.$prefix}-flex-row-center-jc {
+.#{declare.$prefix}-f-row-center-jc {
 	@include declare.flex-base;
 	justify-content: center;
 }
-.#{declare.$prefix}-flex-row-center-ai {
+.#{declare.$prefix}-f-row-center-ai {
 	@include declare.flex-base;
 	align-items: center;
 }
-.#{declare.$prefix}-flex-row-between {
+.#{declare.$prefix}-f-row-between {
 	@include declare.flex-base;
 	justify-content: space-between;
 	align-items: center;
 }
-.#{declare.$prefix}-flex-row-reverse {
+.#{declare.$prefix}-f-row-reverse {
 	@include declare.flex-base;
 	flex-direction: row-reverse;
 	align-items: center;
 }
-.#{declare.$prefix}-flex-col {
+.#{declare.$prefix}-f-col {
 	@include declare.flex-base;
 	flex-direction: column;
 }
-.#{declare.$prefix}-flex-col-center {
+.#{declare.$prefix}-f-col-center {
 	@include declare.flex-base;
 	@include declare.flex-col-center;
 }
+/**
+ * Flex 基础布局
+ */
 
-// 100%
+/**
+ * 填充
+ */
 .#{declare.$prefix}-fill {
 	@include declare.wh-fill;
 }
@@ -111,33 +120,49 @@
 .#{declare.$prefix}-h-full-max {
 	max-height: 100%;
 }
+/**
+ * 填充
+ */
 
-// 文字相关
-.#{declare.$prefix}-text-center {
+
+/**
+ * 文字
+ */
+.#{declare.$prefix}-t-center {
 	@include declare.text-center;
 }
-.#{declare.$prefix}-text-left {
+.#{declare.$prefix}-t-left {
 	@include declare.text-left;
 }
-.#{declare.$prefix}-text-right {
+.#{declare.$prefix}-t-right {
 	@include declare.text-right;
 }
+/**
+ * 文字
+ */
 
-// 变成 小手 帮助 移动
-.#{declare.$prefix}-cursor-default {
+/**
+ * 鼠标
+ */
+.#{declare.$prefix}-c-default {
 	cursor: default;
 }
-.#{declare.$prefix}-cursor-pointer {
+.#{declare.$prefix}-c-pointer {
 	cursor: pointer;
 }
-.#{declare.$prefix}-cursor-help {
+.#{declare.$prefix}-c-help {
 	cursor: help;
 }
-.#{declare.$prefix}-cursor-move {
+.#{declare.$prefix}-c-move {
 	cursor: move;
 }
+/**
+ * 鼠标
+ */
 
-// 浮动相关
+/**
+ * 浮动
+ */
 .#{declare.$prefix}-fl {
 	float: left;
 }
@@ -152,9 +177,29 @@
 .#{declare.$prefix}-clearfix:after {
 	clear: both;
 }
+/**
+ * 浮动
+ */
 
-// 边距相关
+//@while $i > 0 {
+//	$i: $i - 1;
+//}
+/**
+ * 边距
+ */
 @for $i from 1 to 500 {
+	// 宽高
+	.#{declare.$prefix}-wh-#{$i} {
+		width: #{$i}px;
+		height: #{$i}px;
+	}
+	.#{declare.$prefix}-w-#{$i} {
+		width: #{$i}px;
+	}
+	.#{declare.$prefix}-h-#{$i} {
+		height: #{$i}px;
+	}
+	// 外边距
 	.#{declare.$prefix}-m-#{$i} {
 		margin: #{$i}px;
 	}
@@ -178,7 +223,7 @@
 	.#{declare.$prefix}-ml-#{$i} {
 		margin-left: #{$i}px;
 	}
-
+	// 内边距
 	.#{declare.$prefix}-p-#{$i} {
 		padding: #{$i}px;
 	}
@@ -203,23 +248,59 @@
 		padding-left: #{$i}px;
 	}
 }
-//@while $i > 0 {
-//	$i: $i - 1;
-//}
+/**
+ * 边距
+ */
 
-$sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
-@each $size in $sizes {
-	.#{declare.$prefix}-box-#{$size} {
-		width: #{$size}px;
-		height: #{$size}px;
-	}
-	.#{declare.$prefix}-w-#{$size} {
-		width: #{$size}px;
-	}
-	.#{declare.$prefix}-h-#{$size} {
-		height: #{$size}px;
+/**
+ * 定位
+ */
+.#{declare.$prefix}-pos-ft {
+	position: fixed;
+	top: 0;
+}
+.#{declare.$prefix}-pos-fb {
+	position: fixed;
+	bottom: 0;
+}
+.#{declare.$prefix}-pos-fl {
+	position: fixed;
+	left: 0;
+}
+.#{declare.$prefix}-pos-fr {
+	position: fixed;
+	right: 0;
+}
+.#{declare.$prefix}-zi-max {
+	z-index: 99999;
+}
+.#{declare.$prefix}-zi-min {
+	z-index: -1;
+}
+
+@for $i from 1 through 99999 {
+	.#{declare.$prefix}-zi-#{$i} {
+		z-index: #{$i};
 	}
 }
+
+//$sizes: 40px, 50px, 80px;
+//$sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
+//@each $size in $sizes {
+//	.#{declare.$prefix}-zi-#{$size} {
+//		z-index: #{$size};
+//	}
+//}
+
+//@function scale-below($value, $base, $ratio: 1.618) {
+//	@while $value > $base {
+//		$value: math.div($value, $ratio);
+//	}
+//	@return $value;
+//}
+/**
+ * 定位
+ */
 
 // default PC
 .screen-pc {
@@ -248,28 +329,4 @@ $sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 9
 	.screen-mobile {
 		display: block;
 	}
-}
-
-.fixed-top-center {
-	@include declare.text-center;
-	position: fixed;
-	top: 0;
-}
-.fixed-bottom {
-	@include declare.text-center;
-	position: fixed;
-	bottom: 0;
-}
-
-.transition-w-1s {
-	transition: width 1s;
-	-moz-transition: width 1s; /* Firefox 4 */
-	-webkit-transition: width 1s; /* Safari 和 Chrome */
-	-o-transition: width 1s; /* Opera */
-}
-
-.header-trans {
-	background-image: radial-gradient(transparent 1px, #FFFFFF 1px);
-	background-size: 4px 4px;
-	backdrop-filter: saturate(50%) blur(4px);
 }
