@@ -400,8 +400,8 @@ export default defineConfig(({ command, mode }) => {
 		// },
 		optimizeDeps: {
 			// entries: "optimize.js",
-			exclude: [""],
-			include: ["lodash", "lodash-es", "@vueuse/core", "@vue/runtime-core", "element-plus", "vuedraggable", "@vue/shared"],
+			exclude: [],
+			include: [],
 			// esbuildOptions: "",
 			force: false,
 		},
