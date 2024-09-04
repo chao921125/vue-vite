@@ -4,7 +4,7 @@ export const urlToBase64 = async (url) => {
 		.then((response) => response.blob())
 		.then((res) => {
 			const blob = new Blob([res]);
-			let file = new FileReader();
+			const file = new FileReader();
 			file.onload = (e) => {
 				return e.target?.result || "";
 			};
@@ -57,11 +57,11 @@ export const blobToBase64 = (blob, callback) => {
 };
 export const base64ToBlob = (base64) => {
 	if (!base64) return "";
-	let arr = base64.split(",");
-	let type = arr[0].match(/:(.*?);/)[1];
-	let bstr = atob(arr[1]);
+	const arr = base64.split(",");
+	const type = arr[0].match(/:(.*?);/)[1];
+	const bstr = atob(arr[1]);
 	let n = bstr.length;
-	let u8arr = new Uint8Array(n);
+	const u8arr = new Uint8Array(n);
 	while (n--) {
 		u8arr[n] = bstr.charCodeAt(n);
 	}
@@ -75,11 +75,11 @@ export const blobToFile = (blob, fileName) => {
 };
 export const base64ToFile = (base64, fileName) => {
 	if (!base64) return "";
-	let arr = base64.split(",");
-	let type = arr[0].match(/:(.*?);/)[1];
-	let bstr = atob(arr[1]);
+	const arr = base64.split(",");
+	const type = arr[0].match(/:(.*?);/)[1];
+	const bstr = atob(arr[1]);
 	let n = bstr.length;
-	let u8arr = new Uint8Array(n);
+	const u8arr = new Uint8Array(n);
 	while (n--) {
 		u8arr[n] = bstr.charCodeAt(n);
 	}

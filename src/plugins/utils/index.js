@@ -54,7 +54,7 @@ const jsCdnUrlList = [];
 util.setCssCdn = () => {
 	if (cssCdnUrlList.length <= 0) return false;
 	cssCdnUrlList.map((v) => {
-		let link = document.createElement("link");
+		const link = document.createElement("link");
 		link.rel = "stylesheet";
 		link.href = v;
 		link.crossOrigin = "anonymous";
@@ -65,7 +65,7 @@ util.setCssCdn = () => {
 util.setJsCdn = () => {
 	if (jsCdnUrlList.length <= 0) return false;
 	jsCdnUrlList.map((v) => {
-		let link = document.createElement("script");
+		const link = document.createElement("script");
 		link.src = v;
 		document.body.appendChild(link);
 	});
@@ -77,7 +77,7 @@ util.setJsCdn = () => {
  */
 util.open = (url) => {
 	if (!url) return false;
-	let a = document.createElement("a");
+	const a = document.createElement("a");
 	a.setAttribute("href", url);
 	a.setAttribute("target", "_blank");
 	a.setAttribute("id", "open_window_blank");
@@ -93,7 +93,7 @@ util.open = (url) => {
  * }
  * */
 util.urlToObj = (url) => {
-	let obj = {};
+	const obj = {};
 	if (!url) return obj;
 
 	url.replace(/([^?=&#]+)=([^?=&#]+)/g, (_, key, value) => (obj[key] = value));
@@ -114,6 +114,7 @@ export function isMobileTouch2() {
 		document.createEvent("TouchEvent");
 		return true;
 	} catch (e) {
+		console.log(e);
 		return false;
 	}
 }

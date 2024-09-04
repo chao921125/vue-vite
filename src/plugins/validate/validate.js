@@ -127,10 +127,10 @@ export const verifyAndSpace = (val) => {
 /**
  * 金额用 `,` 区分开
  * @param val 当前值字符串
- * @returns 返回处理后的字符串
+ * @returns string
  */
 export const verifyNumberComma = (val) => {
-	if (!val) return false;
+	if (!val) return "";
 	// 调用小数或整数(不可以负数)方法
 	let v = verifyNumberIntegerAndFloat(val);
 	// 字符串转成数组
@@ -148,10 +148,10 @@ export const verifyNumberComma = (val) => {
  * @param val 当前值字符串
  * @param text 要处理的字符串值
  * @param color 搜索到时字体高亮颜色
- * @returns 返回处理后的字符串
+ * @returns string
  */
 export const verifyTextColor = (val, text = "", color = "red") => {
-	if (!val) return false;
+	if (!val) return "";
 	// 返回内容，添加颜色
 	// 返回结果
 	return text.replace(new RegExp(val, "gi"), `<span style='color: ${color}'>${val}</span>`);

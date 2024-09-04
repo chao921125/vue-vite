@@ -2,37 +2,37 @@
 import Fetch from "@/plugins/http/fetch";
 
 export const getLocalIpList = (callback) => {
-	let ip_dups = {};
+	const ip_dups = {};
 
 	let RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
 	// 如果不存在则使用一个iframe绕过
 	if (!RTCPeerConnection) {
 		// 因为这里用到了iframe，所以在调用这个方法的script上必须有一个iframe标签
 		// <iframe id="iframe" sandbox="allow-same-origin"></iframe>
-		let iframe = document.createElement("iframe");
+		const iframe = document.createElement("iframe");
 
-		let win = iframe.contentWindow;
+		const win = iframe.contentWindow;
 
 		RTCPeerConnection = win.RTCPeerConnection || win.mozRTCPeerConnection || win.webkitRTCPeerConnection;
 	}
 	// let useWebKit = !!window.webkitRTCPeerConnection;
-	let mediaConstraints = {
+	const mediaConstraints = {
 		optional: [{ RtpDataChannels: true }],
 	};
 	// 这里就是需要的ICEServer了
-	let servers = {
+	const servers = {
 		iceServers: [{ urls: "stun:stun.services.mozilla.com" }, { urls: "stun:stun.l.google.com:19302" }],
 	};
 
-	let pc = new RTCPeerConnection(servers, mediaConstraints);
+	const pc = new RTCPeerConnection(servers, mediaConstraints);
 	const handleCandidate = (candidate) => {
 		// /([0-9]{1,3}(\.[0-9]{1,3}){3}|([a-f0-9]{1,4}((:[a-f0-9]{1,4}){7}|:+[a-f0-9]{1,4}){6}))/g
-		let ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
-		let hasIp = ip_regex.exec(candidate);
+		const ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
+		const hasIp = ip_regex.exec(candidate);
 		if (hasIp) {
 			// candidate.match(ip_regex)[1];
 
-			let ip_addr = ip_regex.exec(candidate)[1];
+			const ip_addr = ip_regex.exec(candidate)[1];
 			if (ip_dups[ip_addr] === undefined) callback(ip_addr);
 			ip_dups[ip_addr] = true;
 		}
@@ -50,7 +50,7 @@ export const getLocalIpList = (callback) => {
 		() => {},
 	);
 	setTimeout(() => {
-		let lines = pc.localeDescription.sdp.split("\n");
+		const lines = pc.localeDescription.sdp.split("\n");
 		lines.forEach((line) => {
 			if (line.indexOf("a=candidate:") === 0) handleCandidate(line);
 		});
@@ -63,19 +63,19 @@ export const getLocalIpList = (callback) => {
 	};
 };
 export const getLocalIPs = () => {
-	let myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+	const myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
 	// RTCPeerConnection是WebRTC用于构建点对点之间稳定、高效的流传输的组件。兼容火狐、谷歌等
-	let pc = new myPeerConnection({
+	const pc = new myPeerConnection({
 		// 创建点对点连接的RTCPeerConnection的实例
 
 		iceServers: [{ url: "stun:stun.services.mozilla.com" }, { url: "stun:stun.l.google.com:19302" }],
 	}); // webRTC使用了ICE协议框架，包括STUN 和 TURN两个协议。我这里连接的是STUN协议服务器。STUN Server的作用是接受客户端的请求，并且把客户端的公网IP、Port封装到ICECandidate中。
-	let noop = function () {};
-	let localIPs = {}; // 记录有没有被调用到onNewIP这个listener上
-	let ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
+	const noop = function () {};
+	const localIPs = {}; // 记录有没有被调用到onNewIP这个listener上
+	const ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
 
 	function ipIterate(ip) {
-		if (!localIPs[ip]) onNewIP(ip);
+		// if (!localIPs[ip]) onNewIP(ip);
 		localIPs[ip] = true;
 	}
 	pc.createDataChannel(""); // 创建数据信道
@@ -160,22 +160,22 @@ export const getProxyIpInfo = (url) => {
 // https://tnx.nl/ip
 
 export const getIpChaXun = () => {
-	let url = `https://${new Date().getFullYear()}.ipchaxun.com/`;
+	const url = `https://${new Date().getFullYear()}.ipchaxun.com/`;
 	return Fetch.request(url, {}, { method: "GET" });
 };
 
 export const getIp138 = () => {
-	let url = `https://${new Date().getFullYear()}.ip138.com`;
+	const url = `https://${new Date().getFullYear()}.ip138.com`;
 	let data;
 	let xmlHttpRequest;
 	if (window.ActiveXObject) {
-		xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+		xmlHttpRequest = new window.ActiveXObject("Microsoft.XMLHTTP");
 	} else if (window.XMLHttpRequest) {
 		xmlHttpRequest = new XMLHttpRequest();
 	}
 	xmlHttpRequest.onreadystatechange = function () {
-		if (xmlHttpRequest.readyState == 4) {
-			if (xmlHttpRequest.status == 200) {
+		if (xmlHttpRequest.readyState === 4) {
+			if (xmlHttpRequest.status === 200) {
 				data = xmlHttpRequest.responseText;
 			} else {
 				alert("error:HTTP状态码为:" + xmlHttpRequest.status);
@@ -184,10 +184,10 @@ export const getIp138 = () => {
 	};
 	xmlHttpRequest.open("get", url, false);
 	xmlHttpRequest.send(null);
-	let datalist = data.split("\n");
-	let patt = [/[0-9]+.[0-9]+.[0-9]+.[0-9]+/, /来自/, []];
+	const datalist = data.split("\n");
+	const patt = [/[0-9]+.[0-9]+.[0-9]+.[0-9]+/, /来自/, []];
 
-	for (let i in datalist) {
+	for (const i in datalist) {
 		if (patt[0].test(datalist[i]) && patt[1].test(datalist[i])) {
 			patt[2].push(patt[0].exec(datalist[i])[0]);
 

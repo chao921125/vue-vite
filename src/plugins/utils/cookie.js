@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 
-let cookie = {};
+const cookie = {};
 
 const cookieSetting = {
 	expires: 7,
@@ -16,7 +16,7 @@ export const setCookieCustomize = (cname, cvalue, exdays) => {
 	if (!exdays) {
 		exdays = 1;
 	}
-	let d = new Date();
+	const d = new Date();
 	d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
 	const expires = "expires=" + d.toUTCString();
 	document.cookie = cname + "=" + JSON.stringify(cvalue) + "; " + expires;
@@ -26,10 +26,10 @@ export const getCookieCustomize = (cname) => {
 	if (!cname) {
 		return "";
 	}
-	let name = cname + "=";
-	let ca = document.cookie.split(";");
+	const name = cname + "=";
+	const ca = document.cookie.split(";");
 	for (let i = 0; i < ca.length; i++) {
-		let c = ca[i].trim();
+		const c = ca[i].trim();
 		if (c.indexOf(name) === 0) {
 			return c.substring(name.length, c.length);
 		}
@@ -66,9 +66,9 @@ cookie.removeCookie = (key = "default") => {
 };
 
 cookie.clearCookie = () => {
-	let keys = Cookies.get();
+	const keys = Cookies.get();
 	if (!keys || keys.toString().length === 0) return false;
-	for (let key in keys) {
+	for (const key in keys) {
 		Cookies.remove(key);
 	}
 };
