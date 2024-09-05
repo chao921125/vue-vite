@@ -59,7 +59,7 @@
 		"types": [
 			"vite/client",
 			"vite-plugin-pwa/client"
-		],
+		]
 	},
 	"plugins": [],
 	"include": [
