@@ -7,7 +7,7 @@ body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	font-family: "PingFangSC-Regular", "PingFang", "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+	font-family: "NotoSans", "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
 	font-size: 16px;
 	font-weight: normal;
 	-webkit-font-smoothing: antialiased;
@@ -15,7 +15,8 @@ body {
 	-webkit-tap-highlight-color: transparent;
 	background-color: var(--el-bg-color-overlay);
 	#app {
-		@include declare.full;
+		width: 100%;
+		height: 100%;
 		a {
 			text-decoration: none;
 		}
@@ -41,6 +42,11 @@ body {
 	html {
 		font-size: 125% !important;
 	}
+}
+
+/* 图片禁止拖拽 */
+img {
+	-webkit-user-drag: none;
 }
 
 // 布局样式
