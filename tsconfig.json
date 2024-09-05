@@ -59,7 +59,7 @@
 		"types": [
 			"vite/client",
 			"vite-plugin-pwa/client"
-		],
+		]
 	},
 	"plugins": [],
 	"include": [
@@ -77,5 +77,4 @@
 		"tests"
 	],
 	"references": [{ "path": "./tsconfig.node.json" }]
-
 }
