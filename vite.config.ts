@@ -1,4 +1,5 @@
 // @see https://vitejs.dev/config/
+import type { UserConfig, ConfigEnv } from "vite";
 import path from "node:path";
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -43,7 +44,7 @@ const __APP_INFO__ = {
 	lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss"),
 };
 
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 	const __filename = fileURLToPath(import.meta.url);
 	const __dirname = path.dirname(__filename);
 	const envConfig = getEnvConfig(loadEnv(mode, process.cwd(), ""));

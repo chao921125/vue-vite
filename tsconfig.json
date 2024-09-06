@@ -1,43 +1,46 @@
 {
-	/* Visit https://aka.ms/tsconfig.json to read more about this file */
+	/* Visit https://aka.ms/tsconfig.json to read more about this file https://www.tslang.cn/docs/handbook/tsconfig-json.html */
 	"compilerOptions": {
-		"target": "esnext",
-		"useDefineForClassFields": true,
-		"module": "esnext",
-		"moduleResolution": "Node",
-		"strict": true,
-		"jsx": "preserve",
-		"sourceMap": true,
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"esModuleInterop": true,
-		"lib": [
-			"es5",
-			"es6",
-			"esnext",
-			"dom",
-			"dom.iterable",
-			"scripthost"
-		],
-		"skipLibCheck": true,
-
-		"forceConsistentCasingInFileNames": true,
-		"strictFunctionTypes": false,
 		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"declaration": true,
+		"declarationDir": "./types",
+		"declarationMap": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"incremental": false,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"lib": [
+			"ES5",
+			"ES6",
+			"ES7",
+			"ES2015",
+			"ES2016",
+			"ES2017",
+			"ES2018",
+			"ES2019",
+			"ES2020",
+			"ES2021",
+			"ES2022",
+			"ES2023",
+			"ESNext",
+			"DOM",
+			"DOM.Iterable",
+			"ScriptHost",
+			"Decorators"
+		],
+		"listEmittedFiles": true,
+		"listFiles": true,
+		"module": "ESNext",
+		"moduleResolution": "NodeNext",
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": false,
+		"noLib": false,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"experimentalDecorators": true,
-		"incremental": false,
-		"noLib": false,
-		//    "jsx": "preserve",
-		"importHelpers": true,
-		"allowSyntheticDefaultImports": true,
-		"baseUrl": ".",
-		"types": [
-			"vite/client",
-			"vite-svg-loader",
-			"vite-plugin-pwa/client"
-		],
+		"baseUrl": "./",
+		"outDir": "./dist",
 		"paths": {
 			"@/*": [
 				"src/*"
@@ -45,8 +48,18 @@
 			"/@/*": ["src/*"],
 			"/#/*": ["class/*"]
 		},
-		"noImplicitAny": false,
-		"removeComments": true
+		"removeComments": true,
+		"resolveJsonModule": true,
+		"sourceMap": true,
+		"strict": true,
+		"strictFunctionTypes": false,
+		"target": "ESNext",
+		"useDefineForClassFields": true,
+		"skipLibCheck": true,
+		"types": [
+			"vite/client",
+			"vite-plugin-pwa/client"
+		]
 	},
 	"plugins": [],
 	"include": [
@@ -64,5 +77,4 @@
 		"tests"
 	],
 	"references": [{ "path": "./tsconfig.node.json" }]
-
 }
