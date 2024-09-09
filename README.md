@@ -59,6 +59,7 @@
 | 核心依赖                                                             |
 |------------------------------------------------------------------|
 | [👍 vite 官网](https://cn.vitejs.dev/)                             |
+| [👍 svelte 官网](https://svelte.dev/)                              |
 | [vue-cli](https://cli.vuejs.org/)                                |
 | [turbo 下一代号称比 vite 快 10 倍](https://turbo.build/)                 |
 | vue                                                              |
@@ -117,6 +118,11 @@
 
 # UI相关
 
+| 无头单组件                                                      |
+|------------------------------------------------------------|
+| [shadcn](https://ui.shadcn.com/)                           |
+| [vuetifyjs 超级古老框架 商业版收费](https://vuetifyjs.com/)           |
+
 | UI PC 官方                                                                           |
 |------------------------------------------------------------------------------------|
 | [Vue 👍 element-plus 官网](https://element-plus.org/)                                |
@@ -126,7 +132,6 @@
 | [Vue ant-design-vue 社区维护](https://antdv.com/index)                                 |
 | [bootstrap](https://getbootstrap.com/)                                             |
 | [Vue bootstrap-vue-next](https://bootstrap-vue-next.github.io/bootstrap-vue-next/) |
-| [vuetifyjs 超级古老框架 商业版收费](https://vuetifyjs.com/)                                   |
 | [headlessui 组件简单](https://headlessui.com/)                                         |
 | [naiveui](https://www.naiveui.com/zh-CN/os-theme)                                  |
 | [chakra-ui 官网](https://chakra-ui.com/)                                             |
@@ -173,6 +178,10 @@
 | [touchwx 停更 小程序](https://github.com/uileader/touchwx)         |
 | [iview 停更 小程序](https://github.com/TalkingData/iview-weapp)    |
 
+| AI                                                     |
+|--------------------------------------------------------|
+| [open-webui](https://github.com/open-webui/open-webui) |
+
 | VUE2 UI PC 官方                                     |
 |---------------------------------------------------|
 | [elementUI 官网](https://element.eleme.io/)         |
@@ -181,6 +190,7 @@
 
 | 低代码                                                             |
 |-----------------------------------------------------------------|
+| [penpot](https://github.com/penpot/penpot)                      |
 | [formily 官网 阿里巴巴](https://github.com/alibaba/formily)           |
 | [form-generator 官网](https://github.com/JakHuang/form-generator) |
 | [mitosis](https://github.com/BuilderIO/mitosis)                 |
@@ -216,6 +226,7 @@
 | [👍FusionCharts 官网](https://www.fusioncharts.com/)               |
 | [👍C3.js 官网](https://c3js.org/)                                  |
 | [👍D3.js 官网](https://d3js.org/)                                  |
+| [Recharts](https://recharts.org/zh-CN)                           |
 | [Chart.js vue官网](https://vue-chartjs.org/)                       |
 | [Chart.js 官网](https://chartjs.bootcss.com/)                      |
 | [plotly 官网](https://plotly.com/)                                 |
@@ -277,6 +288,7 @@
 
 | 拖拽                                                                            |
 |-------------------------------------------------------------------------------|
+| [Sortable](https://github.com/SortableJS/Sortable)                            |
 | [vue3-dnd](https://haochenguang.gitee.io/vue3-dnd/)                           |
 | [vue3 vue.draggable.next](https://github.com/SortableJS/vue.draggable.next)   |
 | [vue-draggable-plus](https://github.com/Alfred-Skyblue/vue-draggable-plus)    |
@@ -317,6 +329,7 @@
 
 | 富文本编辑器                                                                 |                                                              
 |------------------------------------------------------------------------|
+| [editor.js 官网](https://github.com/codex-team/editor.js)                |
 | [tiptap 官网](https://tiptap.dev/)                                       |
 | [vue3 wangeditor 官网](https://www.wangeditor.com/)                      |
 | [vue2 wangeditor 官网](https://www.wangeditor.com/)                      |
@@ -590,6 +603,10 @@
 | [vite-plugin-mock-dev-server](https://github.com/pengzhanbo/vite-plugin-mock-dev-server) |
 | [vite-plugin-mock-server](https://github.com/enjoycoding/vite-plugin-mock-server)        |
 
+| 文档                                       |
+|------------------------------------------|
+| [doczjs](https://github.com/doczjs/docz) |
+
 # 开发 & 测试
 | 本项目并没有测试用例，如果大家需要的话请自行添加，以下是测试集成依赖                                      |
 |-------------------------------------------------------------------------|
@@ -616,13 +633,14 @@
 | [~~mpvue 官网~~](https://mpvue.com/) 美团                            |
 | [~~wepyjs 官网~~](https://wepyjs.github.io/wepy-docs/) 腾讯 需要学习wepy |
 
-| APP开发                                                              |
-|--------------------------------------------------------------------|
-| [flutter 官网](https://flutter.cn/)                                  |
-| [ionic 官网](https://ionicframework.com/) [ionic](https://ionic.io/) |
-| [cordova 官网](http://cordova.axuer.com/)                            |
-| [Native Script 官网](https://nativescript.org/)                      |
-| [React Native 官网](https://reactnative.cn/)                         |
+| APP开发                                                                                         |
+|-----------------------------------------------------------------------------------------------|
+| [flutter 官网](https://flutter.cn/)                                                             |
+| [ionic 官网](https://ionicframework.com/) [ionic](https://ionic.io/)                            |
+| [cordova 官网](http://cordova.axuer.com/)                                                       |
+| [Native Script 官网](https://nativescript.org/)                                                 |
+| [React Native 官网](https://reactnative.cn/)                                                    |
+| [react-native-elements 官网](https://github.com/react-native-elements/react-native-elements)    |
 
 # 在线编码可视化
 | api                                                      |
