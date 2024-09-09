@@ -118,14 +118,14 @@
 
 # UI相关
 
-| 无头单组件                                                      |
-|------------------------------------------------------------|
-| [shadcn](https://ui.shadcn.com/)                           |
-| [vuetifyjs 超级古老框架 商业版收费](https://vuetifyjs.com/)           |
+| 无头单组件                                               |
+|-----------------------------------------------------|
+| [👍 shadcn](https://ui.shadcn.com/)                 |
+| [👍 vuetifyjs 超级古老框架 商业版收费](https://vuetifyjs.com/) |
 
 | UI PC 官方                                                                           |
 |------------------------------------------------------------------------------------|
-| [Vue 👍 element-plus 官网](https://element-plus.org/)                                |
+| [element-plus 官网](https://element-plus.org/)                                       |
 | [tdesign 腾讯多端UI 包含 Web 和手机端](https://tdesign.tencent.com/)                         |
 | [arco 字节 官网](https://arco.design/)                                                 |
 | [opentiny 华为云 官网](https://opentiny.design/)                                        |
