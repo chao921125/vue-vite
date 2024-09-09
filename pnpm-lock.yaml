@@ -83,6 +83,9 @@ importers:
       vue-router:
         specifier: ^4.4.3
         version: 4.4.3(vue@3.5.3(typescript@5.5.4))
+      vuetify:
+        specifier: ^3.7.1
+        version: 3.7.1(typescript@5.5.4)(vue@3.5.3(typescript@5.5.4))
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.4.1
@@ -4290,6 +4293,22 @@ packages:
       typescript: '*'
     peerDependenciesMeta:
       typescript:
+        optional: true
+
+  vuetify@3.7.1:
+    resolution: {integrity: sha512-N1XlczbgeGt/O+JUk72QPrqcDaRIXUdptUciJqGyTvZ9cfMoSlEWs6TZO+dOOfXbKvmIMFMycYg4dgSHDpCPhg==}
+    engines: {node: ^12.20 || >=14.13}
+    peerDependencies:
+      typescript: '>=4.7'
+      vite-plugin-vuetify: '>=1.0.0'
+      vue: ^3.3.0
+      webpack-plugin-vuetify: '>=2.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+      vite-plugin-vuetify:
+        optional: true
+      webpack-plugin-vuetify:
         optional: true
 
   webidl-conversions@4.0.2:
@@ -8706,6 +8725,12 @@ snapshots:
       '@vue/runtime-dom': 3.5.3
       '@vue/server-renderer': 3.5.3(vue@3.5.3(typescript@5.5.4))
       '@vue/shared': 3.5.3
+    optionalDependencies:
+      typescript: 5.5.4
+
+  vuetify@3.7.1(typescript@5.5.4)(vue@3.5.3(typescript@5.5.4)):
+    dependencies:
+      vue: 3.5.3(typescript@5.5.4)
     optionalDependencies:
       typescript: 5.5.4
 

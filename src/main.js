@@ -26,6 +26,11 @@ initMock();
 /*
  * UI start
  * */
+// vuetify
+import "vuetify/styles";
+// import { createVuetify } from "vuetify";
+// const vuetify = createVuetify({});
+
 // element
 import { ElMessage, ElMessageBox, ElNotification } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
