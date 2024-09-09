@@ -58,12 +58,15 @@
 		"skipLibCheck": true,
 		"types": [
 			"vite/client",
-			"vite-plugin-pwa/client"
+			"vite-plugin-pwa/client",
+			"vite-plugin-vue-layouts/client",
+			"unplugin-vue-router/client"
 		]
 	},
 	"plugins": [],
 	"include": [
 		"src/**/*",
+		"src/**/*.vue",
 		"types/**/*",
 		"build/**/*",
 		"mock/**/*",
@@ -71,9 +74,9 @@
 		"components.d.ts"
 	],
 	"exclude": [
-		"**/*.js",
 		"node_modules",
 		"dist",
+		"cypress",
 		"tests"
 	],
 	"references": [{ "path": "./tsconfig.node.json" }]

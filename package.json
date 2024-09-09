@@ -138,6 +138,7 @@
 		"vite-plugin-ejs": "^1.7.0",
 		"vite-plugin-full-reload": "^1.2.0",
 		"vite-plugin-pwa": "^0.20.5",
+		"vite-plugin-vuetify": "^2.0.3",
 		"vite-svg-loader": "^5.1.0",
 		"vue-tsc": "^2.1.6"
 	},
