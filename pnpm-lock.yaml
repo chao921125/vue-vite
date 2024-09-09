@@ -83,6 +83,9 @@ importers:
       vue-router:
         specifier: ^4.4.3
         version: 4.4.3(vue@3.5.3(typescript@5.5.4))
+      vuetify:
+        specifier: ^3.7.1
+        version: 3.7.1(typescript@5.5.4)(vite-plugin-vuetify@2.0.4)(vue@3.5.3(typescript@5.5.4))
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.4.1
@@ -249,6 +252,9 @@ importers:
       vite-plugin-pwa:
         specifier: ^0.20.5
         version: 0.20.5(vite@5.4.3(@types/node@20.16.5)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))(workbox-build@7.1.1)(workbox-window@7.1.0)
+      vite-plugin-vuetify:
+        specifier: ^2.0.3
+        version: 2.0.4(vite@5.4.3(@types/node@20.16.5)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))(vue@3.5.3(typescript@5.5.4))(vuetify@3.7.1)
       vite-svg-loader:
         specifier: ^5.1.0
         version: 5.1.0(vue@3.5.3(typescript@5.5.4))
@@ -1665,6 +1671,12 @@ packages:
 
   '@vue/shared@3.5.3':
     resolution: {integrity: sha512-Jp2v8nylKBT+PlOUjun2Wp/f++TfJVFjshLzNtJDdmFJabJa7noGMncqXRM1vXGX+Yo2V7WykQFNxusSim8SCA==}
+
+  '@vuetify/loader-shared@2.0.3':
+    resolution: {integrity: sha512-Ss3GC7eJYkp2SF6xVzsT7FAruEmdihmn4OCk2+UocREerlXKWgOKKzTN5PN3ZVN5q05jHHrsNhTuWbhN61Bpdg==}
+    peerDependencies:
+      vue: ^3.0.0
+      vuetify: ^3.0.0
 
   '@vueuse/components@11.0.3':
     resolution: {integrity: sha512-/mbv4R1ody3rYz42U14SQ6GkAKHCAHhFIBdR6nKJbEJeFMoiB93dzX0sT2S05CpYCJJgv3JLAwEHeehYqqmbyQ==}
@@ -4109,6 +4121,10 @@ packages:
     resolution: {integrity: sha512-aZwGpamFO61g3OlfT7OQCHqhGnW43ieH9WZeP7QxN/G/jS4jfqUkZxoryvJgVPEcrl5NL/ggHsSmLMHuH64Lhg==}
     engines: {node: '>=4'}
 
+  upath@2.0.1:
+    resolution: {integrity: sha512-1uEe95xksV1O0CYKXo8vQvN1JEbtJp7lb7C5U9HMsIp6IVwntkH/oNUzyVNQSd4S1sYk2FpSSW44FqMc8qee5w==}
+    engines: {node: '>=4'}
+
   update-browserslist-db@1.1.0:
     resolution: {integrity: sha512-EdRAaAyk2cUE1wOf2DkEhzxqOQvFOoRJFNS6NeyJ01Gp2beMRpBAINjM2iDXE3KCuKhwnvHIQCJm6ThL2Z+HzQ==}
     hasBin: true
@@ -4189,6 +4205,14 @@ packages:
     peerDependenciesMeta:
       '@vite-pwa/assets-generator':
         optional: true
+
+  vite-plugin-vuetify@2.0.4:
+    resolution: {integrity: sha512-A4cliYUoP/u4AWSRVRvAPKgpgR987Pss7LpFa7s1GvOe8WjgDq92Rt3eVXrvgxGCWvZsPKziVqfHHdCMqeDhfw==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      vite: '>=5'
+      vue: ^3.0.0
+      vuetify: ^3.0.0
 
   vite-svg-loader@5.1.0:
     resolution: {integrity: sha512-M/wqwtOEjgb956/+m5ZrYT/Iq6Hax0OakWbokj8+9PXOnB7b/4AxESHieEtnNEy7ZpjsjYW1/5nK8fATQMmRxw==}
@@ -4290,6 +4314,22 @@ packages:
       typescript: '*'
     peerDependenciesMeta:
       typescript:
+        optional: true
+
+  vuetify@3.7.1:
+    resolution: {integrity: sha512-N1XlczbgeGt/O+JUk72QPrqcDaRIXUdptUciJqGyTvZ9cfMoSlEWs6TZO+dOOfXbKvmIMFMycYg4dgSHDpCPhg==}
+    engines: {node: ^12.20 || >=14.13}
+    peerDependencies:
+      typescript: '>=4.7'
+      vite-plugin-vuetify: '>=1.0.0'
+      vue: ^3.3.0
+      webpack-plugin-vuetify: '>=2.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+      vite-plugin-vuetify:
+        optional: true
+      webpack-plugin-vuetify:
         optional: true
 
   webidl-conversions@4.0.2:
@@ -5986,6 +6026,12 @@ snapshots:
   '@vue/shared@3.5.0': {}
 
   '@vue/shared@3.5.3': {}
+
+  '@vuetify/loader-shared@2.0.3(vue@3.5.3(typescript@5.5.4))(vuetify@3.7.1(typescript@5.5.4)(vite-plugin-vuetify@2.0.4)(vue@3.5.3(typescript@5.5.4)))':
+    dependencies:
+      upath: 2.0.1
+      vue: 3.5.3(typescript@5.5.4)
+      vuetify: 3.7.1(typescript@5.5.4)(vite-plugin-vuetify@2.0.4)(vue@3.5.3(typescript@5.5.4))
 
   '@vueuse/components@11.0.3(vue@3.5.3(typescript@5.5.4))':
     dependencies:
@@ -8541,6 +8587,8 @@ snapshots:
 
   upath@1.2.0: {}
 
+  upath@2.0.1: {}
+
   update-browserslist-db@1.1.0(browserslist@4.23.3):
     dependencies:
       browserslist: 4.23.3
@@ -8620,6 +8668,17 @@ snapshots:
       vite: 5.4.3(@types/node@20.16.5)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
       workbox-build: 7.1.1
       workbox-window: 7.1.0
+    transitivePeerDependencies:
+      - supports-color
+
+  vite-plugin-vuetify@2.0.4(vite@5.4.3(@types/node@20.16.5)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))(vue@3.5.3(typescript@5.5.4))(vuetify@3.7.1):
+    dependencies:
+      '@vuetify/loader-shared': 2.0.3(vue@3.5.3(typescript@5.5.4))(vuetify@3.7.1(typescript@5.5.4)(vite-plugin-vuetify@2.0.4)(vue@3.5.3(typescript@5.5.4)))
+      debug: 4.3.6
+      upath: 2.0.1
+      vite: 5.4.3(@types/node@20.16.5)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vue: 3.5.3(typescript@5.5.4)
+      vuetify: 3.7.1(typescript@5.5.4)(vite-plugin-vuetify@2.0.4)(vue@3.5.3(typescript@5.5.4))
     transitivePeerDependencies:
       - supports-color
 
@@ -8708,6 +8767,13 @@ snapshots:
       '@vue/shared': 3.5.3
     optionalDependencies:
       typescript: 5.5.4
+
+  vuetify@3.7.1(typescript@5.5.4)(vite-plugin-vuetify@2.0.4)(vue@3.5.3(typescript@5.5.4)):
+    dependencies:
+      vue: 3.5.3(typescript@5.5.4)
+    optionalDependencies:
+      typescript: 5.5.4
+      vite-plugin-vuetify: 2.0.4(vite@5.4.3(@types/node@20.16.5)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))(vue@3.5.3(typescript@5.5.4))(vuetify@3.7.1)
 
   webidl-conversions@4.0.2: {}
 

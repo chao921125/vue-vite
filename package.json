@@ -79,7 +79,8 @@
 		"qs": "^6.13.0",
 		"vue": "^3.5.3",
 		"vue-i18n": "^9.14.0",
-		"vue-router": "^4.4.3"
+		"vue-router": "^4.4.3",
+		"vuetify": "^3.7.1"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.4.1",
@@ -137,6 +138,7 @@
 		"vite-plugin-ejs": "^1.7.0",
 		"vite-plugin-full-reload": "^1.2.0",
 		"vite-plugin-pwa": "^0.20.5",
+		"vite-plugin-vuetify": "^2.0.3",
 		"vite-svg-loader": "^5.1.0",
 		"vue-tsc": "^2.1.6"
 	},
