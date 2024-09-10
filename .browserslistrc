@@ -1,14 +1,15 @@
 defaults
 > 1%
-last 2 versions
 not dead
+not op_mini all
+last 2 versions
 
-Chrome > 87
-Firefox > 78
-Safari > 13
-Edge > 88
-ie > 11
+Chrome > 51
+Edge > 15
+Firefox > 54
+Safari > 10
+not IE <= 11
 Android >= 6.0
-iOS > 7
+iOS > 10
 
 supports es6-module
