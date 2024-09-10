@@ -54,6 +54,7 @@
 			</g>
 		</g>
 	</svg>
+	<v-btn>123</v-btn>
 	<HelloWorld msg="Vite + Vue" />
 </template>
 

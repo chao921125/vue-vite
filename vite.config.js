@@ -29,11 +29,12 @@ import commonjs from "@rollup/plugin-commonjs";
 // 自动导入模块
 import autoImport from "unplugin-auto-import/vite";
 import components from "unplugin-vue-components/vite";
-import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
+import { VantResolver } from "unplugin-vue-components/resolvers";
 // 自动导入模块 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import svgLoader from "vite-svg-loader";
+import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 // 自定义文件，变量处理
 import pkg from "./package.json";
 import { getEnvConfig, createProxy } from "./build";
@@ -75,7 +76,9 @@ export default defineConfig(({ command, mode }) => {
 			__APP_INFO__: JSON.stringify(__APP_INFO__),
 		},
 		plugins: [
-			vue(),
+			vue({
+				template: { transformAssetUrls },
+			}),
 			fullReload(["config/*", "src/**/*", "types/**/*"], { root: __dirname, delay: 100 }),
 			// * 是否生成包预览
 			envConfig.VITE_REPORT &&
@@ -224,12 +227,18 @@ export default defineConfig(({ command, mode }) => {
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core", "vue-i18n"],
 				dirs: ["./hooks", "./hooks/**", "./components", "./components/**"],
 				dts: true,
-				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
+				resolvers: [VantResolver(), IconsResolver()],
 			}),
 			components({
 				dts: true,
-				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
+				resolvers: [VantResolver(), IconsResolver()],
 				directoryAsNamespace: true,
+			}),
+			Vuetify({
+				autoImport: true,
+				styles: {
+					configFile: "src/assets/styles/theme.scss",
+				},
 			}),
 			icons({
 				compiler: "vue3",
