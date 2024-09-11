@@ -20,7 +20,7 @@ import I18n from "@/plugins/i18n";
 app.use(I18n);
 
 // mock
-import initMock from "../mock/index.js";
+import initMock from "../mock/index";
 initMock();
 
 /*
