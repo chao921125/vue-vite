@@ -43,7 +43,7 @@ declare interface IMenuListState {
 }
 declare interface IRouterListState {
 	routerList: string[];
-	menuList: any[];
+	menuList: never[];
 	isColumnsMenuHover: boolean;
 	isColumnsNavHover: boolean;
 }
