@@ -1,4 +1,4 @@
-const storage = {};
+const storage: any = {};
 
 storage.setStorage = (key = "default", value = null) => {
 	if (!value) return false;
@@ -94,7 +94,7 @@ storage.getLocalUsedSpace = () => {
 	let size = 0;
 	for (const item in window.localStorage) {
 		if (Object.prototype.hasOwnProperty.call(window.localStorage, item)) {
-			size += window.localStorage.getItem(item).length;
+			size += window.localStorage.getItem(item)!.length;
 		}
 	}
 	console.log("当前localStorage使用容量为" + (size / 1024).toFixed(2) + "KB");
@@ -164,7 +164,7 @@ storage.getSessionUsedSpace = () => {
 	let size = 0;
 	for (const item in window.sessionStorage) {
 		if (Object.prototype.hasOwnProperty.call(window.sessionStorage, item)) {
-			size += window.sessionStorage.getItem(item).length;
+			size += window.sessionStorage.getItem(item)!.length;
 		}
 	}
 	console.log("当前sessionStorage使用容量为" + (size / 1024).toFixed(2) + "KB");

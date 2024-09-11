@@ -1,13 +1,13 @@
 import heic2any from "heic2any";
 
-const utils = {
+const utils: any = {
 	blobToDataURL: (blob) => {
 		return new Promise((resolve, reject) => {
 			const reader = new FileReader();
 			reader.onerror = () => {
 				reject("ERR_DOM Error on converting blob to data URL");
 			};
-			reader.onloadend = (e) => resolve(e.target.result);
+			reader.onloadend = (e) => resolve(e.target!.result);
 			reader.readAsDataURL(blob);
 		});
 	},

@@ -15,7 +15,7 @@ import znCNLocale from "./modules/zh-cn";
 import enLocale from "./modules/en-us";
 
 // 读取 pinia 默认语言
-const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
+const { themeConfig } = <any>getStoreRefs(appStore.useThemeConfig);
 
 // 导出语言国际化
 // https://vue-i18n.intlify.dev/guide/essentials/fallback.html#explicit-fallback-with-one-locale
@@ -46,9 +46,9 @@ export const i18n = createI18n({
 
 export const readLocale = (prefix = zhCN.name) => {
 	return Object.fromEntries(
-		Object.entries(import.meta.glob("./modules/*.(j)?(t)?s", { eager: true })).map(([key, value]) => {
-			const matched = key.match(/([A-Za-z0-9-_]+)\./i)[1];
-			return [matched, value.default];
+		Object.entries(import.meta.glob("./modules/*.(j)?(t)?s", { eager: true })).map(([key, value]): [any, any] => {
+			const matched = key.match(/([A-Za-z0-9-_]+)\./i)![1];
+			return [matched, value!.default];
 		}),
 	)[prefix];
 };

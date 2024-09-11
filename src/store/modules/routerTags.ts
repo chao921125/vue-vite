@@ -17,7 +17,7 @@ export const useRouterTags = defineStore("tagsViewRoutes", {
 			// this.tagsViewRoutes = data;
 			Object.assign(this.tagsViewRoutes, data);
 		},
-		setCurrenFullscreen(bool) {
+		setCurrenFullscreen(bool: any) {
 			Storage.setSessionStorage("isTagsViewCurrenFull", bool);
 			Cookie.setCookie("isTagsViewCurrenFull", bool);
 			this.isTagsViewCurrenFull = bool;

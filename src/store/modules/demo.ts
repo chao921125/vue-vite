@@ -11,7 +11,7 @@ export const useDemo = defineStore("demo", {
 	},
 	getters: {
 		getDemoById: (state) => state.demo.id + 1,
-		getDemo() {
+		getDemo(): any {
 			return this.demo;
 		},
 	},
