@@ -1,4 +1,4 @@
-const axiosCancel = {
+const axiosCancel: any = {
 	addCancer: () => {},
 	removeCancer: () => {},
 	removeAllCancer: () => {},

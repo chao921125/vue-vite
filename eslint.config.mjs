@@ -51,6 +51,7 @@ export default [
 			], // 禁止定义未使用的变量
 			"no-var": "error", // 要求使用 let 或 const 而不是 var
 			"prefer-const": "error", // 此规则旨在标记使用 let 关键字声明但在初始分配后从未重新分配的变量，要求使用 const
+			"@typescript-eslint/no-explicit-any": "off",
 
 			// https://eslint.vuejs.org/
 			"vue/multi-word-component-names": "off",
