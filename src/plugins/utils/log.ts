@@ -1,3 +1,12 @@
+const log = {
+	capsule: () => {},
+	default: () => {},
+	primary: () => {},
+	success: () => {},
+	warning: () => {},
+	danger: () => {},
+};
+
 function typeColor(type = "default") {
 	let color = "";
 	switch (type) {
@@ -38,23 +47,29 @@ function colorful(textArr) {
 		...textArr.map((t) => `color: ${typeColor(t.type)};`),
 	);
 }
-export default {
-	capsule: (title, info, type = "primary") => {
-		console.log(`%c ${title} %c ${info} %c`, "background:#35495E; padding: 1px; border-radius: 3px 0 0 3px; color: #fff;", `background:${typeColor(type)}; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff;`, "background:transparent");
-	},
-	default: (text = "default") => {
-		colorful([{ text, type: "default" }]);
-	},
-	primary: (text = "primary") => {
-		colorful([{ text, type: "primary" }]);
-	},
-	success: (text = "success") => {
-		colorful([{ text, type: "success" }]);
-	},
-	warning: (text = "warning") => {
-		colorful([{ text, type: "warning" }]);
-	},
-	danger: (text = "danger") => {
-		colorful([{ text, type: "danger" }]);
-	},
+
+log.capsule = (title = "", info = "", type = "primary") => {
+	console.log(`%c ${title} %c ${info} %c`, "background:#35495E; padding: 1px; border-radius: 3px 0 0 3px; color: #fff;", `background:${typeColor(type)}; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff;`, "background:transparent");
 };
+
+log.default = (text = "default") => {
+	colorful([{ text, type: "default" }]);
+};
+
+log.primary = (text = "primary") => {
+	colorful([{ text, type: "primary" }]);
+};
+
+log.success = (text = "success") => {
+	colorful([{ text, type: "success" }]);
+};
+
+log.warning = (text = "warning") => {
+	colorful([{ text, type: "warning" }]);
+};
+
+log.danger = (text = "danger") => {
+	colorful([{ text, type: "danger" }]);
+};
+
+export default log;

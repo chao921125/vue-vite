@@ -1,6 +1,12 @@
 import Cookies from "js-cookie";
 
-const cookie = {};
+const cookie = {
+	setCookie: () => {},
+	getCookie: () => {},
+	getCookieAll: () => {},
+	removeCookie: () => {},
+	clearCookie: () => {},
+};
 
 const cookieSetting = {
 	expires: 7,
