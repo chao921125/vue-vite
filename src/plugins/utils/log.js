@@ -1,11 +1,4 @@
-const log = {
-	capsule: () => {},
-	default: () => {},
-	primary: () => {},
-	success: () => {},
-	warning: () => {},
-	danger: () => {},
-};
+const log = {};
 
 function typeColor(type = "default") {
 	let color = "";
@@ -48,7 +41,7 @@ function colorful(textArr) {
 	);
 }
 
-log.capsule = (title = "", info = "", type = "primary") => {
+log.capsule = (title, info, type = "primary") => {
 	console.log(`%c ${title} %c ${info} %c`, "background:#35495E; padding: 1px; border-radius: 3px 0 0 3px; color: #fff;", `background:${typeColor(type)}; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff;`, "background:transparent");
 };
 
