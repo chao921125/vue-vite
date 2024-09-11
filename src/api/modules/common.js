@@ -32,7 +32,7 @@ export default {
 			data,
 		});
 	},
-	queryAddressByIp: (data = {}) => {
+	queryAddressByIp: (data = { ip: "" }) => {
 		return Axios({
 			url: `${AxiosConfig.ipUrl}/index?ip=${data.ip}&type=0`,
 			method: "GET",
