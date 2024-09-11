@@ -4,7 +4,9 @@ export default {
 		if (!value) {
 			callback("字段不能为空");
 		} else {
-			if (Reg.userName.test(value)) {
+			if (rule && rule.test(value)) {
+				callback();
+			} else if (Reg.userName.test(value)) {
 				callback();
 			} else {
 				callback("格式错误");
@@ -16,7 +18,9 @@ export default {
 		if (!value) {
 			callback("字段不能为空");
 		} else {
-			if (Reg.password.test(value)) {
+			if (rule && rule.test(value)) {
+				callback();
+			} else if (Reg.password.test(value)) {
 				callback();
 			} else {
 				callback("格式错误");

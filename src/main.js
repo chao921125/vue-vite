@@ -20,7 +20,7 @@ import I18n from "@/plugins/i18n";
 app.use(I18n);
 
 // mock
-import initMock from "../mock/index.js";
+import initMock from "../mock/index";
 initMock();
 
 /*
@@ -124,9 +124,9 @@ app.config.errorHandler = (err, instance, info) => {
 			isShowError = true;
 		}
 		Log.danger(">>>>>> 错误信息 >>>>>>");
-		Log.primary(err || "");
+		Log.primary(String(err || ""));
 		Log.danger(">>>>>> Vue 实例 >>>>>>");
-		Log.primary(instance || "");
+		Log.primary(String(instance || ""));
 		Log.danger(">>>>>> Error >>>>>>");
 		Log.primary(info || "");
 	}
@@ -141,7 +141,7 @@ app.config.warnHandler = (msg, instance, trace) => {
 		Log.warning(">>>>>> 警告信息 >>>>>>");
 		Log.primary(msg || "");
 		Log.warning(">>>>>> Vue 实例 >>>>>>");
-		Log.primary(instance || "");
+		Log.primary(String(instance || ""));
 		Log.warning(">>>>>> Info >>>>>>");
 		Log.primary(trace || "");
 	}
