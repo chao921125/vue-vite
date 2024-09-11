@@ -26,12 +26,12 @@ const requestAnimFrame = (function () {
 function move(amount) {
 	document.documentElement.scrollTop = amount;
 
-	document.body.parentNode.scrollTop = amount;
+	document.body.parentNode!.scrollTop = amount;
 	document.body.scrollTop = amount;
 }
 
 function position() {
-	return document.documentElement.scrollTop || document.body.parentNode.scrollTop || document.body.scrollTop;
+	return document.documentElement.scrollTop || document.body.parentNode!.scrollTop || document.body.scrollTop;
 }
 
 /**

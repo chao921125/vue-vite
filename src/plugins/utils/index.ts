@@ -4,14 +4,14 @@ import { getStoreRefs, appStore } from "@/store";
 import I18n from "@/plugins/i18n";
 import ThemeConfig from "@/config/themeConfig";
 
-const util = {};
+const util: any = {};
 
 /**
  * @description 更新标题
  * @param titleText
  */
 util.setTitle = async () => {
-	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
+	const { themeConfig } = <any>getStoreRefs(appStore.useThemeConfig);
 	const globalTitle = themeConfig.value.globalTitle;
 	await nextTick(() => {
 		let title = "";
@@ -83,7 +83,7 @@ util.open = (url) => {
 	a.setAttribute("id", "open_window_blank");
 	document.body.appendChild(a);
 	a.click();
-	document.body.removeChild(document.getElementById("open_window_blank"));
+	document.body.removeChild(document.getElementById("open_window_blank")!);
 };
 
 /**
@@ -147,7 +147,7 @@ util.isMobile = (opts) => {
  * 判断微信
  */
 util.isWeixin = () => {
-	const ua = navigator.userAgent.toLowerCase();
+	const ua: any = navigator.userAgent.toLowerCase();
 
 	return ua.match(/MicroMessenger/i) === "micromessenger";
 };

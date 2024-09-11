@@ -55,7 +55,7 @@ router.beforeEach(async (to, from, next) => {
 		} else if (token && (RouterConfig.whiteList.includes(to.path) || to.path === RouterConfig.routeRoot)) {
 			next(Utils.isMobile() ? RouterConfig.routeMHome : RouterConfig.routeHome);
 		} else {
-			const { routerList } = getStoreRefs(appStore.useRouterList);
+			const { routerList } = <any>getStoreRefs(appStore.useRouterList);
 			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {
 					// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
@@ -128,7 +128,7 @@ async function setRouterList(data) {
  */
 function getRouter(data = []) {
 	if (data.length === 0) return [];
-	const rootRouter = [
+	const rootRouter: any = [
 		{
 			path: "/",
 			name: "/",
@@ -154,7 +154,7 @@ function getRouter(data = []) {
  */
 function setRouterItem(routerList, data = [], parentPath = "") {
 	if (data.length === 0) return [];
-	data.forEach((item) => {
+	data.forEach((item: any) => {
 		const path = parentPath + "/" + item.path;
 		const name = item.component.slice(item.component.lastIndexOf("/") + 1);
 		const route = {

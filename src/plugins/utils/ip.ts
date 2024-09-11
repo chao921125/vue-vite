@@ -11,20 +11,18 @@ export const getLocalIpList = (callback) => {
 		// <iframe id="iframe" sandbox="allow-same-origin"></iframe>
 		const iframe = document.createElement("iframe");
 
-		const win = iframe.contentWindow;
+		const win: any = iframe.contentWindow;
 
 		RTCPeerConnection = win.RTCPeerConnection || win.mozRTCPeerConnection || win.webkitRTCPeerConnection;
 	}
 	// let useWebKit = !!window.webkitRTCPeerConnection;
-	const mediaConstraints = {
+	const configuration: any = {
 		optional: [{ RtpDataChannels: true }],
-	};
-	// 这里就是需要的ICEServer了
-	const servers = {
 		iceServers: [{ urls: "stun:stun.services.mozilla.com" }, { urls: "stun:stun.l.google.com:19302" }],
 	};
+	// 这里就是需要的ICEServer了
 
-	const pc = new RTCPeerConnection(servers, mediaConstraints);
+	const pc: any = new RTCPeerConnection(configuration);
 	const handleCandidate = (candidate) => {
 		// /([0-9]{1,3}(\.[0-9]{1,3}){3}|([a-f0-9]{1,4}((:[a-f0-9]{1,4}){7}|:+[a-f0-9]{1,4}){6}))/g
 		const ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
@@ -32,7 +30,7 @@ export const getLocalIpList = (callback) => {
 		if (hasIp) {
 			// candidate.match(ip_regex)[1];
 
-			const ip_addr = ip_regex.exec(candidate)[1];
+			const ip_addr = ip_regex.exec(candidate)![1];
 			if (ip_dups[ip_addr] === undefined) callback(ip_addr);
 			ip_dups[ip_addr] = true;
 		}
@@ -65,10 +63,10 @@ export const getLocalIpList = (callback) => {
 export const getLocalIPs = () => {
 	const myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
 	// RTCPeerConnection是WebRTC用于构建点对点之间稳定、高效的流传输的组件。兼容火狐、谷歌等
-	const pc = new myPeerConnection({
+	const pc: any = new myPeerConnection({
 		// 创建点对点连接的RTCPeerConnection的实例
 
-		iceServers: [{ url: "stun:stun.services.mozilla.com" }, { url: "stun:stun.l.google.com:19302" }],
+		iceServers: <any>[{ url: "stun:stun.services.mozilla.com" }, { url: "stun:stun.l.google.com:19302" }],
 	}); // webRTC使用了ICE协议框架，包括STUN 和 TURN两个协议。我这里连接的是STUN协议服务器。STUN Server的作用是接受客户端的请求，并且把客户端的公网IP、Port封装到ICECandidate中。
 	const noop = function () {};
 	const localIPs = {}; // 记录有没有被调用到onNewIP这个listener上
@@ -185,7 +183,7 @@ export const getIp138 = () => {
 	xmlHttpRequest.open("get", url, false);
 	xmlHttpRequest.send(null);
 	const datalist = data.split("\n");
-	const patt = [/[0-9]+.[0-9]+.[0-9]+.[0-9]+/, /来自/, []];
+	const patt: any = [/[0-9]+.[0-9]+.[0-9]+.[0-9]+/, /来自/, []];
 
 	for (const i in datalist) {
 		if (patt[0].test(datalist[i]) && patt[1].test(datalist[i])) {
