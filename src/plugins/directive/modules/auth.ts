@@ -7,7 +7,7 @@ import { getStoreRefs, appStore } from "@/store";
 export const auth = {
 	mounted(el, binding) {
 		const { value } = binding;
-		const { userInfo } = getStoreRefs(appStore.useUserInfo);
+		const { userInfo } = <any>getStoreRefs(appStore.useUserInfo);
 		let classValue = el.getAttribute("class") || "";
 		if (value && value.length && userInfo.value.permission.includes(value)) {
 			el.hidden = false;

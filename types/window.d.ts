@@ -16,6 +16,9 @@ declare global {
 	interface Math {
 		easeInOutQuad: any;
 	}
+	interface navigator {
+		userAgentData: any;
+	}
 }
 
 export { global };

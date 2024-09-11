@@ -81,7 +81,7 @@ http.interceptors.request.use(
 		config.__retryCount = config.__retryCount || 0;
 		if (config.__retryCount >= config.retry) return Promise.reject(error);
 		config.__retryCount += 1;
-		const backOff = new Promise((resolve) => {
+		const backOff = new Promise((resolve: any) => {
 			setTimeout(() => {
 				resolve();
 			}, AxiosConfig.timeout || 1);

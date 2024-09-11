@@ -188,7 +188,7 @@ export const formatThousandPoint = (value, decimals, thousands_sep, dec_point) =
 		const k = Math.pow(10, prec);
 		return "" + Math.ceil(n * k) / k;
 	};
-	let s = [];
+	let s: any = [];
 	s = (prec ? toFixedFix(n, prec) : "" + Math.round(n)).split(".");
 	const re = /(-?\d+)(\d{3})/;
 	while (re.test(s[0])) {
