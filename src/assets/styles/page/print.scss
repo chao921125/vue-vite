@@ -1,0 +1,10 @@
+// 打印媒体查询
+@media print {
+	@page{
+		size:  auto;
+		margin: 3mm;
+	}
+	body{
+		height:auto;  //在实际页面中高度不够部分内容隐藏了
+	}
+}

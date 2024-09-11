@@ -1,0 +1,14 @@
+@use "../common/root";
+// 滚动条
+.el-scrollbar .el-scrollbar__view {
+	//height: 100%;
+}
+// 菜单
+.el-menu,
+.el-menu--vertical {
+	border-right: none !important;
+}
+.el-table .el-table__header .el-table__cell .cell {
+	font-weight: bolder;
+}
+// tag 标签下tab重置
