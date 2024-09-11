@@ -57,6 +57,9 @@
 		"useDefineForClassFields": true,
 		"skipLibCheck": true,
 		"types": [
+			"echarts",
+			"node",
+			"qs",
 			"vite/client",
 			"vite-plugin-pwa/client"
 		]
@@ -64,6 +67,7 @@
 	"plugins": [],
 	"include": [
 		"src/**/*",
+		"src/**/*.vue",
 		"types/**/*",
 		"build/**/*",
 		"mock/**/*",
@@ -71,9 +75,9 @@
 		"components.d.ts"
 	],
 	"exclude": [
-		"**/*.js",
 		"node_modules",
 		"dist",
+		"cypress",
 		"tests"
 	],
 	"references": [{ "path": "./tsconfig.node.json" }]

@@ -1,5 +1,4 @@
 import fs from "node:fs";
-// const fs = require("node:fs");
 
 const dirName = fs.readdirSync("./dist/public");
 
