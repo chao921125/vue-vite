@@ -1,5 +1,5 @@
 # [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-ts.vercel.app/) - [项目截图](./docs/Project.md)
-# 新增加简易版 JS 版本已搭建完毕，TS 版本正在进行中，请查看对应的分支即可，主分支等待下一步升级
+# 简易版 JS 版本，TS 版本，请查看对应的分支，主分支架构改版中
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
 2. husky + lint-staged + @commitlint/cli 规范提交格式（提交代码前自检） pnpx husky init
@@ -122,35 +122,34 @@
 |----------------------------------------------------------------------------------------|
 | [👍 Vue shadcn](https://www.shadcn-vue.com/) [👍 React shadcn](https://ui.shadcn.com/) |
 
-| UI PC 官方                                                                           |
-|------------------------------------------------------------------------------------|
-| [👍 vuetifyjs 超级古老框架 商业版收费](https://vuetifyjs.com/)                                |
-| [element-plus 官网](https://element-plus.org/)                                       |
-| [tdesign 腾讯多端UI 包含 Web 和手机端](https://tdesign.tencent.com/)                         |
-| [arco 字节 官网](https://arco.design/)                                                 |
-| [opentiny 华为云 官网](https://opentiny.design/)                                        |
-| [Vue ant-design-vue 社区维护](https://antdv.com/index)                                 |
-| [bootstrap](https://getbootstrap.com/)                                             |
-| [Vue bootstrap-vue-next](https://bootstrap-vue-next.github.io/bootstrap-vue-next/) |
-| [headlessui 组件简单](https://headlessui.com/)                                         |
-| [naiveui](https://www.naiveui.com/zh-CN/os-theme)                                  |
-| [chakra-ui 官网](https://chakra-ui.com/)                                             |
-| [quasarchs 官网](http://www.quasarchs.com/)                                          |
-| [heyui 官网](https://v2.heyui.top/)                                                  |
-| [BalmUI 官网](https://material.balmjs.com/)                                          |
-| [wave 官网](https://antoniandre.github.io/wave-ui/)                                  |
-| [iDux 官网](https://idux.site/)                                                      |
-| [relaxplus 官网](https://bsie.gitee.io/relaxplus/#/)                                 |
-| [quasar 官网](https://quasar.dev/)                                                   |
-| [primefaces 官网](https://primevue.org/)                                             |
-| [Vuestic UI 官网](https://vuestic.dev/)                                              |
-| [lobehub 官网](https://ui.lobehub.com/)                                              |
-| [React semi 官网](https://semi.design/zh-CN/)                                        |
-| [React ant-design 官网](https://ant.design/)                                         |
-| [React bootstrap 官网](https://react-bootstrap.github.io/)                           |
-| [React mui 官网](https://mui.com/zh/)                                                |
-| [React rsuitejs 官网](https://rsuitejs.com/zh/)                                      |
-| [React chakra 官网](https://chakra-ui.com/)                                          |
+| UI PC 官方                                                                       |
+|--------------------------------------------------------------------------------|
+| [bootstrap](https://getbootstrap.com/)                                         |
+| [bootstrap-vue-next](https://bootstrap-vue-next.github.io/bootstrap-vue-next/) |
+| [👍 vuetifyjs 超级古老框架 商业版收费](https://vuetifyjs.com/)                            |
+| [👍 element-plus 官网](https://element-plus.org/)                                |
+| [👍 ant-design-vue 社区维护](https://antdv.com/index)                              |
+| [quasarchs 官网](https://quasar.dev/)                                            |
+| [arco 字节 官网](https://arco.design/)                                             |
+| [tdesign 腾讯多端UI 包含 Web 和手机端](https://tdesign.tencent.com/)                     |
+| [opentiny 华为云 官网](https://opentiny.design/)                                    |
+| [headlessui 组件简单](https://headlessui.com/)                                     |
+| [heyui 官网](https://v2.heyui.top/)                                              |
+| [naiveui](https://www.naiveui.com/zh-CN/os-theme)                              |
+| [BalmUI 官网](https://material.balmjs.com/)                                      |
+| [iDux 官网](https://idux.site/)                                                  |
+| [relaxplus 官网](https://bsie.gitee.io/relaxplus/#/)                             |
+| [quasar 官网](https://quasar.dev/)                                               |
+| [primefaces 官网](https://primevue.org/)                                         |
+| [Vuestic UI 官网](https://vuestic.dev/)                                          |
+| [lobehub 官网](https://ui.lobehub.com/)                                          |
+| [React bootstrap 官网](https://react-bootstrap.github.io/)                       |
+| [React mui 官网](https://mui.com/zh/)                                            |
+| [React ant-design 官网](https://ant.design/)                                     |
+| [React chakra-ui 官网](https://chakra-ui.com/)                                   |
+| [React semi 官网](https://semi.design/zh-CN/)                                    |
+| [React rsuitejs 官网](https://rsuitejs.com/zh/)                                  |
+| [React chakra 官网](https://chakra-ui.com/)                                      |
 
 | UI Mobile 官方                                                  |
 |---------------------------------------------------------------|
@@ -159,24 +158,16 @@
 | [👍ionic-framework 官网 VRA](https://ionicframework.com/docs/)  |
 | [👍nutui @nutui/nutui@next 官网](https://nutui.jd.com/)         |
 | [👍taro 小程序](https://taro-ui.jd.com/#/)                       |
-| [uvui 官网](https://www.uvui.cn/)                               |
-| [onsen 官网](https://onsen.io/)                                 |
-| [varlet 官网](https://varlet-varletjs.vercel.app/#/en-US/index) |
-| [cube-ui 官网](https://didi.github.io/cube-ui/#/zh-CN)          |
-| [Wave UI 官网](https://antoniandre.github.io/wave-ui/)          |
-| [wu UI 官网](https://wu.geeks.ink/)                             |
 | [Tencent](https://github.com/Tencent/weui/)                   |
 | [vux](https://vux.li/)                                        |
-| [mui uni-app 停更 官网](https://dev.dcloud.net.cn/mui/)           |
-| [mint-ui 停更 官网](http://mint-ui.github.io/)                    |
+| [varlet 官网](https://varlet-varletjs.vercel.app/#/en-US/index) |
+| [onsen 官网](https://onsen.io/)                                 |
+| [uvui 官网](https://www.uvui.cn/)                               |
+| [wave 官网](https://antoniandre.github.io/wave-ui/)             |
+| [小程序 Tencent](https://github.com/Tencent/weui-wxss)           |
+| [小程序 Cube UI](https://didi.github.io/cube-ui/#/zh-CN)         |
+| [小程序 wux](https://wux-weapp.github.io/wux-weapp-docs/#/)      |
 | [firstui 含付费UI](https://www.firstui.cn/)                      |
-| [Tencent 小程序](https://github.com/Tencent/weui-wxss)           |
-| [mini 停更 小程序](https://doc.mini.talelin.com/)                  |
-| [wux 小程序](https://wux-weapp.github.io/wux-weapp-docs/#/)      |
-| [Cube UI 小程序](https://didi.github.io/cube-ui/#/zh-CN)         |
-| [ColorUI 停更 小程序](https://github.com/weilanwl/ColorUI)         |
-| [touchwx 停更 小程序](https://github.com/uileader/touchwx)         |
-| [iview 停更 小程序](https://github.com/TalkingData/iview-weapp)    |
 
 | AI                                                     |
 |--------------------------------------------------------|
