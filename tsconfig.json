@@ -45,7 +45,6 @@
 			"@/*": [
 				"src/*"
 			],
-			"/@/*": ["src/*"],
 			"/#/*": ["class/*"]
 		},
 		"removeComments": true,
