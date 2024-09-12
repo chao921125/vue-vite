@@ -22,27 +22,6 @@ body {
 		}
 	}
 }
-html {
-	font-size: 62.5%;
-}
-body {
-	font-size: 1rem;
-}
-@media only screen and (min-width: 1366px) {
-	html {
-		font-size: 94% !important;
-	}
-}
-@media only screen and (min-width: 1600px) {
-	html {
-		font-size: 109% !important;
-	}
-}
-@media only screen and (min-width: 1920px) {
-	html {
-		font-size: 125% !important;
-	}
-}
 
 /* 图片禁止拖拽 */
 img {
