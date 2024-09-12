@@ -126,7 +126,7 @@ app.config.errorHandler = (err, instance, info) => {
 		Log.danger(">>>>>> 错误信息 >>>>>>");
 		Log.primary(String(err || ""));
 		Log.danger(">>>>>> Vue 实例 >>>>>>");
-		Log.primary(String(instance || ""));
+		Log.primary(instance || "");
 		Log.danger(">>>>>> Error >>>>>>");
 		Log.primary(info || "");
 	}
@@ -141,7 +141,7 @@ app.config.warnHandler = (msg, instance, trace) => {
 		Log.warning(">>>>>> 警告信息 >>>>>>");
 		Log.primary(msg || "");
 		Log.warning(">>>>>> Vue 实例 >>>>>>");
-		Log.primary(String(instance || ""));
+		Log.primary(instance || "");
 		Log.warning(">>>>>> Info >>>>>>");
 		Log.primary(trace || "");
 	}
