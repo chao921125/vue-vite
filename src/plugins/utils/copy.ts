@@ -1,4 +1,4 @@
-export const writeText = (text: string) => {
+export const writeText = (text) => {
 	if (!navigator.clipboard) {
 		return false;
 	}
@@ -17,7 +17,7 @@ export const readText = () => {
 	}
 	navigator.clipboard
 		.readText()
-		.then((text: any) => {
+		.then((text) => {
 			return text;
 		})
 		.catch((err) => {

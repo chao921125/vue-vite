@@ -1,31 +1,34 @@
 import Reg from "./reg";
 export default {
-	// @ts-ignore
-	userName: (rule: any, value: any, callback: any) => {
+	userName: (rule, value, callback) => {
 		if (!value) {
 			callback("字段不能为空");
 		} else {
-			if (Reg.userName.test(value)) {
+			if (rule && rule.test(value)) {
+				callback();
+			} else if (Reg.userName.test(value)) {
 				callback();
 			} else {
 				callback("格式错误");
 			}
 		}
 	},
-	// @ts-ignore
-	password: (rule: any, value: any, callback: any) => {
+
+	password: (rule, value, callback) => {
 		if (!value) {
 			callback("字段不能为空");
 		} else {
-			if (Reg.password.test(value)) {
+			if (rule && rule.test(value)) {
+				callback();
+			} else if (Reg.password.test(value)) {
 				callback();
 			} else {
 				callback("格式错误");
 			}
 		}
 	},
-	// @ts-ignore
-	rePassword: (rule: any, value: any, callback: any) => {
+
+	rePassword: (rule, value, callback) => {
 		console.log(rule, value);
 		if (!value) {
 			callback("字段不能为空");

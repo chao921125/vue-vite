@@ -1,21 +1,15 @@
-import type { Directive, DirectiveBinding } from "vue";
 import { ElMessage } from "element-plus";
 import { $t } from "@/plugins/i18n";
 
-interface ElType extends HTMLElement {
-	copyData: string | number | undefined;
-	__handleClick__: any;
-}
-
-function getTextByTag(node: HTMLElement) {
+function getTextByTag(node) {
 	if (node.children.length) {
-		getTextByTag(<HTMLElement>node.children[0]);
+		getTextByTag(node.children[0]);
 	} else {
 		return node.innerHTML;
 	}
 }
 
-function copyData(val: any) {
+function copyData(val) {
 	const copyText = document.createElement("textarea");
 	copyText.innerHTML = val;
 	copyText.readOnly = true;
@@ -32,8 +26,8 @@ function copyData(val: any) {
 	});
 }
 
-export const copy: Directive = {
-	mounted(el: ElType, binding: DirectiveBinding) {
+export const copy = {
+	mounted(el, binding) {
 		if (binding.value) {
 			el.copyData = binding.value;
 		} else {
@@ -41,10 +35,10 @@ export const copy: Directive = {
 		}
 		el.addEventListener("click", () => copyData(el.copyData));
 	},
-	updated(el: ElType, binding: DirectiveBinding) {
+	updated(el, binding) {
 		el.copyData = binding.value;
 	},
-	beforeUnmount(el: ElType) {
+	beforeUnmount(el) {
 		el.removeEventListener("click", el.__handleClick__);
 	},
 };

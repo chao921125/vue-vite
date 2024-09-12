@@ -2,7 +2,7 @@ import { ref } from "vue";
 
 export function useClipboard() {
 	const isCopied = ref(false);
-	const copy = async (text: string) => {
+	const copy = async (text) => {
 		try {
 			await navigator.clipboard.writeText(text);
 			isCopied.value = true;

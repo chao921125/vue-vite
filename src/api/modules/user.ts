@@ -1,15 +1,15 @@
-import Axios from "@/plugins/axios";
-import AxiosConfig from "@/config/axiosConfig";
+import Axios from "@/plugins/http";
+import AxiosConfig from "@/config/httpConfig";
 
 export default {
-	loginUser: (data: any = {}) => {
+	loginUser: (data = {}) => {
 		return Axios({
 			url: `${AxiosConfig.baseUrl}/login`,
 			method: "POST",
 			data,
 		});
 	},
-	queryUserInfo: (data: any = {}) => {
+	queryUserInfo: (data = {}) => {
 		return Axios({
 			url: `${AxiosConfig.baseUrl}/user-info`,
 			method: "GET",

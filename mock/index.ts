@@ -1,22 +1,29 @@
-// @ts-ignore
-import { createProdMockServer } from "vite-plugin-mock/client";
+import MockAdapter from "axios-mock-adapter";
+import axios from "axios";
+// 创建一个 MockAdapter 实例
+const mock = new MockAdapter(axios);
 
-// 无法使用 import.meta.glob tsconfig配置后依然无效，如果有解决方案的大家可以提供一下
-// const modules: any = import.meta.glob("./modules/*.(j)?(t)?s", { eager: true, import: "default" });
-// const mockModules: any[] = [];
-//
-// Object.keys(modules).forEach((key: string) => {
-// 	if (key.includes("/_")) {
-// 		return false;
-// 	}
-// 	mockModules.push(...modules[key].default);
-// });
+const initMock = () => {
+	// mock模拟一个get方法的响应数据
+	mock.onGet("/users").reply(200, {
+		// 200 为状态码，后面对象为返回data
+		users: [{ id: 1, name: "李华" }],
+	});
+	// mock模拟一个post方法的响应数据
+	mock.onPost("/foo").reply(200, {
+		// 200 为状态码，后面对象为返回data
+		msg: "success",
+		desc: "恭喜，请求成功！",
+	});
 
-// import test from "./modules/test";
-import user from "./modules/user";
-import system from "./modules/system";
-const mockModules: any[] = [...user, ...system];
+	// 模拟一个带参数请求的响应
+	mock.onGet("/search", { params: { searchText: "张" } }).reply(200, {
+		users: [{ id: 1, name: "张小花" }],
+	});
 
-export const setupProdMockServer = () => {
-	createProdMockServer(mockModules);
+	// 模拟一个错误响应
+	mock.onPut("/api/users/1").networkError();
 };
+
+// 导出
+export default initMock;

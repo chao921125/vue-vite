@@ -1,7 +1,6 @@
 /**
  * 路由 配置 可以适当进行变更，但尽量不要变动
  */
-import { RouteRecordRaw } from "vue-router";
 
 /**
  * update router
@@ -18,7 +17,7 @@ import { RouteRecordRaw } from "vue-router";
  * 定义404、401、登录、注册等白名单界面
  * @link 参考：https://next.router.vuejs.org/zh/guide/essentials/history-mode.html#netlify
  */
-export const errorRoutes: Array<RouteRecordRaw> = [
+export const errorRoutes = [
 	{
 		path: "/:path(.*)*",
 		name: "redirect",
@@ -40,7 +39,7 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/401",
 		name: "noPower",
-		component: () => import("@/views/error/NoPower.vue"),
+		component: () => import("@/views/common/NoPower.vue"),
 		meta: {
 			title: "message.title.noPower",
 			name: "message.title.noPower",
@@ -51,7 +50,7 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/404",
 		name: "notFound",
-		component: () => import("@/views/error/NotFound.vue"),
+		component: () => import("@/views/common/NotFound.vue"),
 		meta: {
 			title: "message.title.notFound",
 			name: "message.title.notFound",
@@ -62,7 +61,7 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/500",
 		name: "serverError",
-		component: () => import("@/views/error/ServerError.vue"),
+		component: () => import("@/views/common/ServerError.vue"),
 		meta: {
 			title: "message.title.serverError",
 			name: "message.title.serverError",
@@ -72,7 +71,7 @@ export const errorRoutes: Array<RouteRecordRaw> = [
 	},
 ];
 
-export const baseRoutes: Array<RouteRecordRaw> = [
+export const baseRoutes = [
 	{
 		path: "",
 		name: "",
@@ -89,7 +88,7 @@ export const baseRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/login",
 		name: "login",
-		component: () => import("@/views/user/Login.vue"),
+		component: () => import("@/views/common/Login.vue"),
 		meta: {
 			title: "message.title.login",
 			name: "message.title.login",
@@ -100,32 +99,10 @@ export const baseRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/register",
 		name: "register",
-		component: () => import("@/views/user/Register.vue"),
+		component: () => import("@/views/common/Register.vue"),
 		meta: {
 			title: "message.title.register",
 			name: "message.title.register",
-			auth: false,
-			isHide: true,
-		},
-	},
-	{
-		path: "/auth",
-		name: "auth",
-		component: () => import("@/views/user/Auth.vue"),
-		meta: {
-			title: "message.title.auth",
-			name: "message.title.auth",
-			auth: false,
-			isHide: true,
-		},
-	},
-	{
-		path: "/equipment",
-		name: "equipment",
-		component: () => import("@/views/error/Equipment.vue"),
-		meta: {
-			title: "message.title.serverError",
-			name: "message.title.serverError",
 			auth: false,
 			isHide: true,
 		},

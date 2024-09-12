@@ -7,7 +7,7 @@ import Constants from "@/plugins/constants";
  * @methods setUserInfos 设置用户信息
  */
 export const useUserInfo = defineStore("userInfo", {
-	state: (): IUserInfoStates => ({
+	state: () => ({
 		userInfo: {
 			id: "",
 			userName: "",
@@ -18,7 +18,7 @@ export const useUserInfo = defineStore("userInfo", {
 		},
 	}),
 	actions: {
-		setUserInfo(data: any) {
+		setUserInfo(data) {
 			// 缓存中获取用户信息
 			const info = Storage.getLocalStorage(Constants.storageKey.userInfo) || Storage.getSessionStorage(Constants.storageKey.userInfo);
 			this.userInfo.id = info.id || "";

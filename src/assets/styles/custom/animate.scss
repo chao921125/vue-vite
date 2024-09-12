@@ -49,3 +49,17 @@
 	opacity: 0;
 	transform: scale(0.8);
 }
+
+.transition-w-1s {
+	transition: width 1s;
+	-moz-transition: width 1s; /* Firefox 4 */
+	-webkit-transition: width 1s; /* Safari 和 Chrome */
+	-o-transition: width 1s; /* Opera */
+}
+
+// 毛玻璃效果
+.header-trans {
+	background-image: radial-gradient(transparent 1px, #FFFFFF 1px);
+	background-size: 4px 4px;
+	backdrop-filter: saturate(50%) blur(4px);
+}

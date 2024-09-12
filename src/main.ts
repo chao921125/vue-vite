@@ -1,6 +1,5 @@
-import { createApp, type Directive } from "vue";
+import { createApp } from "vue";
 import App from "./App.vue";
-
 const app = createApp(App);
 // const app = createSSRApp(App);
 
@@ -14,11 +13,25 @@ app.use(Store);
 
 // mitt 总线 全局指令集 通过getCurrentInstance
 import mitt from "mitt";
-app.config.globalProperties.mittBus = mitt();
+app.config.globalProperties.$mitt = mitt();
+
+// vue i18n
+import I18n from "@/plugins/i18n";
+app.use(I18n);
+
+// mock
+import initMock from "../mock/index";
+initMock();
 
 /*
  * UI start
  * */
+// vuetify
+// import "vuetify/styles";
+// import { createVuetify } from "vuetify";
+// const vuetify = createVuetify({});
+// app.use(vuetify);
+
 // element
 import { ElMessage, ElMessageBox, ElNotification } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
@@ -26,48 +39,23 @@ import * as Icons from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
 
 // element 全局消息提示
-app.config.globalProperties.elMessage = ElMessage;
-app.config.globalProperties.elMessageBox = ElMessageBox;
-app.config.globalProperties.elNotification = ElNotification;
+app.config.globalProperties.$message = ElMessage;
+app.config.globalProperties.$messageBox = ElMessageBox;
+app.config.globalProperties.$notification = ElNotification;
 
 // element 注册element Icons组件
 Object.keys(Icons).forEach((key) => {
-	app.component(key, Icons[key as keyof typeof Icons]);
+	app.component(key, Icons[key]);
 });
 
-// @ts-ignore
-import VueLuckyCanvas from "@lucky-canvas/vue";
-app.use(VueLuckyCanvas);
-
 // vant
-import "vant/lib/index.css";
+// import "vant/lib/index.css";
 
-// svg font icon 字体、图标
-import "virtual:svg-icons-register";
-import "@/assets/fonts/font.css";
-import "@/assets/icon/iconfont.css";
+// 营销组件
+// import VueLuckyCanvas from "@lucky-canvas/vue";
+// app.use(VueLuckyCanvas);
 /*
  * UI end
- * */
-
-/*
- * 三方插件库 start
- * */
-// vue i18n
-import I18n from "@/plugins/i18n";
-app.use(I18n);
-
-// 工具
-import Log from "@/plugins/utils/log";
-
-// 动画
-import "animate.css/animate.min.css";
-import "animate.css/animate.compat.css";
-
-// 自定义样式
-import "@/assets/styles/index.scss";
-/*
- * 三方插件库 end
  * */
 
 /*
@@ -76,12 +64,10 @@ import "@/assets/styles/index.scss";
 // 全局自定义指令
 import * as directives from "@/plugins/directive";
 Object.keys(directives).forEach((key) => {
-	app.directive(key, (directives as { [key: string]: Directive })[key]);
+	app.directive(key, directives[key]);
 });
 
 // 全局信息定义 使用 inject: [""],
-// app.provide("", "");
-
 // provide app.provide("fn", FN) 配合 inject inject("fn") 使用
 // app.provide("", "");
 
@@ -90,12 +76,25 @@ Object.keys(directives).forEach((key) => {
 // app.use(globalComponent)
 
 // PWA
+// import { registerSW } from "virtual:pwa-register";
+// registerSW({
+// 	onNeedRefresh() {},
+// 	onOfflineReady() {},
+// });
 window.addEventListener("beforeinstallprompt", (e) => {
 	e.preventDefault();
-	// @ts-ignore
 	window.deferredPrompt = e;
 });
 
+// svg font icon 字体、图标
+import "@/assets/fonts/font.css";
+import "@/assets/icon/iconfont.css";
+
+// 动画
+import "animate.css/animate.min.css";
+import "animate.css/animate.compat.css";
+// 自定义样式
+import "@/assets/styles/index.scss";
 /*
  * 自定义 end
  * */
@@ -103,16 +102,19 @@ window.addEventListener("beforeinstallprompt", (e) => {
 /*
  * 启动运行日志 start
  * */
+// 工具
+import Log from "@/plugins/utils/log";
+
 // config log
 Log.success(">>>>>> 当前VUE版本 >>>>>>");
 Log.primary(app.version);
 // 防止错误和警告死循环，手动终止
-let isErrorNumMax: number = 10;
-let isErrorNum: number = 0;
-let isShowError: boolean = false;
-let isWanNumMax: number = 10;
-let isWanNum: number = 0;
-let isShowWan: boolean = false;
+const isErrorNumMax = 10;
+let isErrorNum = 0;
+let isShowError = false;
+const isWanNumMax = 10;
+let isWanNum = 0;
+let isShowWan = false;
 app.config.errorHandler = (err, instance, info) => {
 	// 处理错误
 	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
@@ -122,9 +124,9 @@ app.config.errorHandler = (err, instance, info) => {
 			isShowError = true;
 		}
 		Log.danger(">>>>>> 错误信息 >>>>>>");
-		Log.primary(err || "");
+		Log.primary(String(err || ""));
 		Log.danger(">>>>>> Vue 实例 >>>>>>");
-		Log.primary(instance || "");
+		Log.primary(String(instance || ""));
 		Log.danger(">>>>>> Error >>>>>>");
 		Log.primary(info || "");
 	}
@@ -139,7 +141,7 @@ app.config.warnHandler = (msg, instance, trace) => {
 		Log.warning(">>>>>> 警告信息 >>>>>>");
 		Log.primary(msg || "");
 		Log.warning(">>>>>> Vue 实例 >>>>>>");
-		Log.primary(instance || "");
+		Log.primary(String(instance || ""));
 		Log.warning(">>>>>> Info >>>>>>");
 		Log.primary(trace || "");
 	}
