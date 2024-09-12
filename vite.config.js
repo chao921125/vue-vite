@@ -29,12 +29,12 @@ import commonjs from "@rollup/plugin-commonjs";
 // 自动导入模块
 import autoImport from "unplugin-auto-import/vite";
 import components from "unplugin-vue-components/vite";
-import { VantResolver } from "unplugin-vue-components/resolvers";
+import { VantResolver, ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 // 自动导入模块 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import svgLoader from "vite-svg-loader";
-import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 // 自定义文件，变量处理
 import pkg from "./package.json";
 import { getEnvConfig, createProxy } from "./build";
@@ -47,7 +47,7 @@ const __APP_INFO__ = {
 export default defineConfig(({ command, mode }) => {
 	const __filename = fileURLToPath(import.meta.url);
 	const __dirname = path.dirname(__filename);
-	// eslint-disable-next-line
+	// eslint-disable-next-line no-undef
 	const envConfig = getEnvConfig(loadEnv(mode, process.cwd(), ""));
 	const browserslistConfig = browserslist.loadConfig({ path: "." });
 	const isBuild = command.includes("build");
@@ -227,11 +227,11 @@ export default defineConfig(({ command, mode }) => {
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core", "vue-i18n"],
 				dirs: ["./hooks", "./hooks/**", "./components", "./components/**"],
 				dts: true,
-				resolvers: [VantResolver(), IconsResolver()],
+				resolvers: [VantResolver(), ElementPlusResolver(), IconsResolver()],
 			}),
 			components({
 				dts: true,
-				resolvers: [VantResolver(), IconsResolver()],
+				resolvers: [VantResolver(), ElementPlusResolver(), IconsResolver()],
 				directoryAsNamespace: true,
 			}),
 			Vuetify({
@@ -375,7 +375,6 @@ export default defineConfig(({ command, mode }) => {
 					manualChunks: {
 						vue: ["vue", "vue-router", "pinia"],
 						echarts: ["echarts"],
-						elementPlus: ["element-plus"],
 					},
 				},
 			},
