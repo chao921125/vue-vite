@@ -174,6 +174,9 @@ importers:
       postcss-preset-env:
         specifier: ^10.0.3
         version: 10.0.3(postcss@8.4.45)
+      postcss-px-to-viewport-8-plugin:
+        specifier: ^1.2.5
+        version: 1.2.5
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -3530,6 +3533,10 @@ packages:
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
+  object-assign@4.1.1:
+    resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
+    engines: {node: '>=0.10.0'}
+
   object-inspect@1.13.2:
     resolution: {integrity: sha512-IRZSRuzJiynemAXPYtPe5BoI/RESNYR7TYm50MC5Mqbd3Jmw5y790sErYw3V6SryFJD64b74qQQs9wn5Bg/k3g==}
     engines: {node: '>= 0.4'}
@@ -3831,6 +3838,9 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       postcss: ^8.4
+
+  postcss-px-to-viewport-8-plugin@1.2.5:
+    resolution: {integrity: sha512-+yc69+q/euV7iKh5fGXY6C/lpepmVx2DGFHeYj5BpzIFyBBpdACDjZyrZ8AV0kCg+J0bplBv4ZA1QTzgaK0rGg==}
 
   postcss-replace-overflow-wrap@4.0.0:
     resolution: {integrity: sha512-KmF7SBPphT4gPPcKZc7aDkweHiKEEO8cla/GjcBK+ckKxiZslIu3C4GCRW3DNfL0o7yW7kMQu9xlZ1kXRXLXtw==}
@@ -8352,6 +8362,8 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
+  object-assign@4.1.1: {}
+
   object-inspect@1.13.2: {}
 
   object-keys@1.1.1: {}
@@ -8697,6 +8709,10 @@ snapshots:
     dependencies:
       postcss: 8.4.45
       postcss-selector-parser: 6.1.2
+
+  postcss-px-to-viewport-8-plugin@1.2.5:
+    dependencies:
+      object-assign: 4.1.1
 
   postcss-replace-overflow-wrap@4.0.0(postcss@8.4.45):
     dependencies:

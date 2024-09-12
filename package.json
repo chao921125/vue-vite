@@ -112,6 +112,7 @@
 		"postcss": "^8.4.45",
 		"postcss-html": "^1.7.0",
 		"postcss-preset-env": "^10.0.3",
+		"postcss-px-to-viewport-8-plugin": "^1.2.5",
 		"prettier": "^3.3.3",
 		"rimraf": "^6.0.1",
 		"rollup-plugin-visualizer": "^5.12.0",
