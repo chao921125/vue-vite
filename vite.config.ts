@@ -29,7 +29,7 @@ import commonjs from "@rollup/plugin-commonjs";
 // 自动导入模块
 import autoImport from "unplugin-auto-import/vite";
 import components from "unplugin-vue-components/vite";
-import { VantResolver } from "unplugin-vue-components/resolvers";
+import { VantResolver, ElementPlusResolver } from "unplugin-vue-components/resolvers";
 // 自动导入模块 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
@@ -226,11 +226,11 @@ export default defineConfig(({ command, mode }) => {
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core", "vue-i18n"],
 				dirs: ["./hooks", "./hooks/**", "./components", "./components/**"],
 				dts: true,
-				resolvers: [VantResolver(), IconsResolver()],
+				resolvers: [VantResolver(), ElementPlusResolver(), IconsResolver()],
 			}),
 			components({
 				dts: true,
-				resolvers: [VantResolver(), IconsResolver()],
+				resolvers: [VantResolver(), ElementPlusResolver(), IconsResolver()],
 				directoryAsNamespace: true,
 			}),
 			Vuetify({

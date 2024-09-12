@@ -46,9 +46,9 @@ export const i18n = createI18n({
 
 export const readLocale = (prefix = zhCN.name) => {
 	return Object.fromEntries(
-		Object.entries(import.meta.glob("./modules/*.(j)?(t)?s", { eager: true })).map(([key, value]): [any, any] => {
+		Object.entries(import.meta.glob("./modules/*.(j)?(t)?s", { eager: true })).map(([key, value]: [any, any]) => {
 			const matched = key.match(/([A-Za-z0-9-_]+)\./i)![1];
-			return [matched, value!.default];
+			return [matched, value.default];
 		}),
 	)[prefix];
 };

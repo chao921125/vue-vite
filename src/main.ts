@@ -27,33 +27,33 @@ initMock();
  * UI start
  * */
 // vuetify
-import "vuetify/styles";
-import { createVuetify } from "vuetify";
-const vuetify = createVuetify({});
-app.use(vuetify);
+// import "vuetify/styles";
+// import { createVuetify } from "vuetify";
+// const vuetify = createVuetify({});
+// app.use(vuetify);
 
 // element
-// import { ElMessage, ElMessageBox, ElNotification } from "element-plus";
-// import * as Icons from "@element-plus/icons-vue";
+import { ElMessage, ElMessageBox, ElNotification } from "element-plus";
+import * as Icons from "@element-plus/icons-vue";
 // element 按需引入解决Message等样式失效，需引入
-// import "element-plus/dist/index.css";
+import "element-plus/dist/index.css";
 
 // element 全局消息提示
-// app.config.globalProperties.$message = ElMessage;
-// app.config.globalProperties.$messageBox = ElMessageBox;
-// app.config.globalProperties.$notification = ElNotification;
+app.config.globalProperties.$message = ElMessage;
+app.config.globalProperties.$messageBox = ElMessageBox;
+app.config.globalProperties.$notification = ElNotification;
 
 // element 注册element Icons组件
-// Object.keys(Icons).forEach((key) => {
-// 	app.component(key, Icons[key]);
-// });
+Object.keys(Icons).forEach((key) => {
+	app.component(key, Icons[key]);
+});
+
+// vant
+import "vant/lib/index.css";
 
 // 营销组件
 // import VueLuckyCanvas from "@lucky-canvas/vue";
 // app.use(VueLuckyCanvas);
-
-// vant
-// import "vant/lib/index.css";
 /*
  * UI end
  * */
