@@ -47,8 +47,7 @@ const __APP_INFO__ = {
 export default defineConfig(({ command, mode }) => {
 	const __filename = fileURLToPath(import.meta.url);
 	const __dirname = path.dirname(__filename);
-	// eslint-disable-next-line no-undef
-	const envConfig = getEnvConfig(loadEnv(mode, process.cwd(), ""));
+	const envConfig = getEnvConfig(loadEnv(mode, import.meta.dirname, ""));
 	const browserslistConfig = browserslist.loadConfig({ path: "." });
 	const isBuild = command.includes("build");
 	/**
