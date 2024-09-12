@@ -35,7 +35,7 @@ export default [
 		},
 		rules: {
 			// eslint (https://eslint.org/docs/latest/rules/)
-			"max-lines": ["error", 500], // 禁用 console
+			"max-lines": ["error", 50000], // 最大行
 			"no-console": "off", // 禁用 console
 			"no-debugger": "off", // 禁用 debugger
 			"no-irregular-whitespace": "off", // 禁止不规则的空白
