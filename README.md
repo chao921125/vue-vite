@@ -1,5 +1,5 @@
 # [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-ts.vercel.app/) - [项目截图](./docs/Project.md)
-# 新增加简易版 JS 版本已搭建完毕，TS 版本正在进行中，请查看对应的分支即可，主分支等待下一步升级
+# 简易版 JS 版本，TS 版本，请查看对应的分支，主分支架构改版中
 ```text
 1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
 2. husky + lint-staged + @commitlint/cli 规范提交格式（提交代码前自检） pnpx husky init
