@@ -1,20 +1,11 @@
-<script setup lang="ts">
-	import HelloWorld from "./components/HelloWorld.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-	<HelloWorld msg="Hello World!" />
-	<div class="dis">test auto surfix</div>
+	<RouterView v-slot="{ Component }">
+		<KeepAlive>
+			<component :is="Component" />
+		</KeepAlive>
+	</RouterView>
 </template>
 
-<style scoped lang="scss">
-	.dis {
-		display: flex;
-		font-size: 16px;
-	}
-	@media screen and (max-width: 768px) {
-		.dis {
-			font-size: 32px;
-		}
-	}
-</style>
+<style scoped lang="scss"></style>

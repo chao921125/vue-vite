@@ -597,11 +597,13 @@
 | [cz-conventional-changelog](https://www.npmjs.com/package/cz-conventional-changelog) |
 | [cz-customizable](https://www.npmjs.com/package/cz-customizable)                     |
 
-| mock API -D                                                                              |
-|------------------------------------------------------------------------------------------|
-| [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock)                           |
-| [vite-plugin-mock-dev-server](https://github.com/pengzhanbo/vite-plugin-mock-dev-server) |
-| [vite-plugin-mock-server](https://github.com/enjoycoding/vite-plugin-mock-server)        |
+| mock API -D                                                                    |
+|--------------------------------------------------------------------------------|
+| [better-mock](https://github.com/lavyun/better-mock)                           |
+| [axios-mock-adapter 只拦截 axios](https://github.com/ctimmerm/axios-mock-adapter) |
+| [node-mocks-http](https://github.com/eugef/node-mocks-http)                    |
+| [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock)                 |
+| [mockjs 安全 bug 未解决请勿使用](https://github.com/nuysoft/Mock)                       |
 
 | 文档                                       |
 |------------------------------------------|

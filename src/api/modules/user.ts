@@ -16,4 +16,11 @@ export default {
 			data,
 		});
 	},
+	queryUser: (data = {}) => {
+		return Axios({
+			url: `${AxiosConfig.baseUrl}/user`,
+			method: "GET",
+			data,
+		});
+	},
 };

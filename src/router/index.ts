@@ -10,7 +10,7 @@ import Cookie from "@/plugins/utils/cookie";
 import Constants from "@/plugins/constants";
 import NProgress from "@/plugins/loading/progress";
 import RouterConfig from "@/config/routerConfig";
-// import RouteData from "@/config/routerData";
+import RouteData from "@/config/routerData";
 import AxiosCancel from "@/plugins/http/cancel";
 import api from "@/api/index";
 
@@ -24,7 +24,7 @@ if (isRequestRoutes) baseRoutes[0].children = [];
 baseRoutes[0].children = [];
 
 // 默认获取菜单及路由为静态数据
-let requestData = [];
+let requestData: any = [];
 
 // createWebHashHistory() hash路由#
 export const router = createRouter({
@@ -62,7 +62,7 @@ router.beforeEach(async (to, from, next) => {
 					const { data } = await api.systemApi.getMenuList({});
 					requestData = data.list || [];
 				} else {
-					requestData = []; //RouteData.menus;
+					requestData = RouteData.menus;
 				}
 				// 后端控制路由：路由数据初始化，防止刷新时丢失
 				await getDynamicRouter();

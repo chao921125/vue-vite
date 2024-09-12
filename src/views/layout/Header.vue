@@ -1,5 +1,4 @@
 <script setup lang="ts">
-	// 默认为 PC，如果是双端切换开启，如果不是默认或者删除
 	const props = defineProps({
 		name: {
 			required: false,
@@ -24,4 +23,9 @@
 	</div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+	.user-avatar {
+		width: 40px;
+		height: 40px;
+	}
+</style>

@@ -1,12 +1,11 @@
 import Reg from "./reg";
 export default {
 	userName: (rule, value, callback) => {
+		console.log(rule);
 		if (!value) {
 			callback("字段不能为空");
 		} else {
-			if (rule && rule.test(value)) {
-				callback();
-			} else if (Reg.userName.test(value)) {
+			if (Reg.userName.test(value)) {
 				callback();
 			} else {
 				callback("格式错误");
@@ -15,12 +14,11 @@ export default {
 	},
 
 	password: (rule, value, callback) => {
+		console.log(rule);
 		if (!value) {
 			callback("字段不能为空");
 		} else {
-			if (rule && rule.test(value)) {
-				callback();
-			} else if (Reg.password.test(value)) {
+			if (Reg.password.test(value)) {
 				callback();
 			} else {
 				callback("格式错误");
@@ -29,7 +27,7 @@ export default {
 	},
 
 	rePassword: (rule, value, callback) => {
-		console.log(rule, value);
+		console.log(rule);
 		if (!value) {
 			callback("字段不能为空");
 		} else {
