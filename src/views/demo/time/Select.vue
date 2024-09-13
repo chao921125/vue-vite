@@ -29,9 +29,9 @@
 		>
 	</el-form-item>
 	<!-- 选择时间段 -->
-	<time
+	<Time
 		v-if="timeQuantumProps.show"
-		:timeQuantumProps="timeQuantumProps"></time>
+		:timeQuantumProps="timeQuantumProps"></Time>
 </template>
 
 <style lang="scss"></style>

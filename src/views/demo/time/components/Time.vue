@@ -23,7 +23,7 @@
 	// 全部选择
 	const allweek = ref(false);
 	// 选择时间绑定的数据
-	const timeData: any = reactive();
+	const timeData: any = reactive([]);
 
 	// 初始化时间绑定的默认数据
 	const initializeDefaultData = () => {
