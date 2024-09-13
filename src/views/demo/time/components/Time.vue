@@ -123,7 +123,7 @@
 		trueList.map((val, key) => {
 			const data = calculateOffset(item, val);
 			Object.assign(
-				weektableDate.find((t) => t.week === item.week),
+				weektableDate.find((t: any) => t.week === item.week),
 				{
 					["left" + key]: data.leftOffset + "px",
 					["right" + key]: data.rightOffset + "px",
@@ -241,12 +241,12 @@
 		return t;
 	};
 
-	const currentCpn = getCurrentInstance();
+	// const currentCpn = getCurrentInstance();
 	// const parent = currentCpn.parent;
 	// 提交
 	function submit() {
 		// console.log(TimeData, props.timeQuantumProps.ruleForm, 'TimeData')
-		const resultsData = [];
+		const resultsData: any = [];
 		const selectData = TimeData.filter((item) => item.weekBooleanVal);
 		selectData.map((val) => {
 			const obj: any = {
