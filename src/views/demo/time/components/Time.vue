@@ -103,7 +103,7 @@
 
 	// 操作时间段
 	function operationTimeRange(item, rows, key) {
-		// console.log('rows,key=>', item, rows, key)
+		console.log("rows,key=>", item, rows, key);
 		if (rows.booleanVal) {
 			periodContrastProcessing(item, rows);
 		} else {
@@ -116,8 +116,8 @@
 	}
 	// 选择时段的处理
 	function periodContrastProcessing(item, rows) {
-		// console.log('item, rows=>', item, rows)
-		const { leftOffset, rightOffset } = calculateOffset(item, rows);
+		console.log("item, rows=>", item, rows);
+		// const { leftOffset, rightOffset } = <any>calculateOffset(item, rows);
 		// 这里总有六条选中区域的线，跟时间段编号进行
 		const trueList = item.periods.filter((i) => i.booleanVal);
 		trueList.map((val, key) => {
@@ -133,6 +133,7 @@
 	}
 	// 计算偏移量
 	function calculateOffset(item, rows) {
+		console.log("item, rows=>", item, rows);
 		const stra = countTotalNumberSeconds(rows.value[0]);
 		const end = countTotalNumberSeconds(rows.value[1]);
 
@@ -181,11 +182,11 @@
 	}
 
 	// 记录当前的鼠标按下的x轴坐标值
-	const pageXValue = ref(undefined);
+	const pageXValue: any = ref();
 	// 鼠标按下
 	const onmousedown = (e, item, index) => {
 		pageXValue.value = e.pageX;
-		console.log("鼠标按下=>", e.pageX, index);
+		console.log("鼠标按下=>", item, e.pageX, index);
 	};
 	// 鼠标抬起
 	const onmouseup = (e, item, index) => {
@@ -241,18 +242,18 @@
 	};
 
 	const currentCpn = getCurrentInstance();
-	const parent = currentCpn.parent;
+	// const parent = currentCpn.parent;
 	// 提交
 	function submit() {
 		// console.log(TimeData, props.timeQuantumProps.ruleForm, 'TimeData')
 		const resultsData = [];
 		const selectData = TimeData.filter((item) => item.weekBooleanVal);
 		selectData.map((val) => {
-			const obj = {
+			const obj: any = {
 				week: val.week,
 				periods: [],
 			};
-			val.periods.map((e) => {
+			val.periods.map((e: any) => {
 				if (e.booleanVal) {
 					obj.periods.push({ start: e.value[0], end: e.value[1] });
 				}
