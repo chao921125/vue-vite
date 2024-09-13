@@ -1,7 +1,6 @@
 # Project directories
 node_modules
 dist
-dev-dist
 dist-ssr
 tests
 test
@@ -20,9 +19,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-.stylelintcache*
 
-# Editor directories and files
+# Editor directories
 .DS_Store
 .hbuilderx
 .vscode/*
@@ -30,12 +28,15 @@ lerna-debug.log*
 .idea
 .vscode
 .project
+.cache
+.local
+
+# Editor files
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-.cache
-.local
 stats.html
 .eslintcache
+.stylelintcache

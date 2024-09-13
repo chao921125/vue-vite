@@ -1,7 +1,7 @@
 // @see https://prettier.io/
 export default {
 	// 超过最大值换行
-	printWidth: 200,
+	printWidth: 500,
 	// 缩进字节数
 	tabWidth: 2,
 	// 使用制表符而不是空格缩进行
@@ -44,4 +44,10 @@ export default {
 	// 控制是否 prettier 格式的引用代码嵌入在文件中。
 	embeddedLanguageFormatting: "auto",
 	singleAttributePerLine: true,
+	overrides: [
+		{
+			files: "*.{js,ts,mjs,mts,cjs,cts,json,jsx,tsx,css,less,scss,vue,html}",
+			options: {},
+		},
+	],
 };

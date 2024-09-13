@@ -1,3 +1,3 @@
-const db: any = {};
+const db = {};
 
 export default db;

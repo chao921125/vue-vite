@@ -1,15 +1,4 @@
-<template>
-	<div
-		ref="pdfRef"
-		class="pdf-viewer"></div>
-	<div class="pdf-option re-flex-row-between">
-		<div @click="gotoPage(-1)">pre</div>
-		<div>{{ pdfInfo.pageNum }}/{{ pdfInfo.pageSize }}</div>
-		<div @click="gotoPage(1)">next</div>
-	</div>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import * as pdfjsLib from "pdfjs-dist/build/pdf.min.mjs";
 	import "pdfjs-dist/build/pdf.worker.min.mjs";
 
@@ -54,6 +43,17 @@
 		loadPDF("https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf", 1);
 	});
 </script>
+
+<template>
+	<div
+		ref="pdfRef"
+		class="pdf-viewer"></div>
+	<div class="pdf-option re-f-row-between">
+		<div @click="gotoPage(-1)">pre</div>
+		<div>{{ pdfInfo.pageNum }}/{{ pdfInfo.pageSize }}</div>
+		<div @click="gotoPage(1)">next</div>
+	</div>
+</template>
 
 <style scoped lang="scss">
 	.pdf-option {

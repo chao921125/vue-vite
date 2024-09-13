@@ -1,14 +1,14 @@
-import Axios from "@/plugins/axios";
-import AxiosConfig from "@/config/axiosConfig";
+import Axios from "@/plugins/http";
+import AxiosConfig from "@/config/httpConfig";
 
 export default {
-	getImgLocale: (name: string, suffix?: string) => {
+	getImgLocale: (name, suffix) => {
 		if (!name) return "";
 		if (!suffix) suffix = "png";
 		// return `/src/assets/images/${type}.${suffix}`;
 		return new URL(`/src/assets/images/${name}.${suffix}`, import.meta.url).href;
 	},
-	previewFileById: (data: any) => {
+	previewFileById: (data) => {
 		return Axios({
 			url: `${AxiosConfig.uploadUrl}/login/${data}`,
 			method: "GET",
@@ -16,7 +16,7 @@ export default {
 			data,
 		});
 	},
-	previewFile: (data: any) => {
+	previewFile: (data) => {
 		return Axios({
 			url: `${AxiosConfig.uploadUrl}`,
 			method: "GET",
@@ -24,7 +24,7 @@ export default {
 			data,
 		});
 	},
-	uploadFile: (data: any = {}) => {
+	uploadFile: (data = {}) => {
 		return Axios({
 			url: `${AxiosConfig.uploadUrl}`,
 			method: "POST",
@@ -39,7 +39,7 @@ export default {
 			data,
 		});
 	},
-	queryIp: (data: any = {}) => {
+	queryIp: (data = {}) => {
 		return Axios({
 			url: `${AxiosConfig.uploadUrl}/index?ip=&type=0`,
 			method: "GET",

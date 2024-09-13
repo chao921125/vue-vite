@@ -1,16 +1,4 @@
-<template>
-	<el-date-picker
-		v-model="dateValue"
-		type="daterange"
-		unlink-panels
-		range-separator="To"
-		start-placeholder="Start date"
-		end-placeholder="End date"
-		:shortcuts="dateOptions.shortcuts"
-		@change="changeDate" />
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import { onMounted, reactive, ref } from "vue";
 	import { differenceInDays, format } from "date-fns";
 
@@ -83,5 +71,17 @@
 
 	defineExpose({});
 </script>
+
+<template>
+	<el-date-picker
+		v-model="dateValue"
+		type="daterange"
+		unlink-panels
+		range-separator="To"
+		start-placeholder="Start date"
+		end-placeholder="End date"
+		:shortcuts="dateOptions.shortcuts"
+		@change="changeDate" />
+</template>
 
 <style scoped lang="scss"></style>

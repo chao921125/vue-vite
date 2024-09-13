@@ -1,10 +1,5 @@
-<template>
-	<div>回退旧位置</div>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	const placeScroll = ref();
-	// @ts-ignore
 	onBeforeRouteLeave((to, from, next) => {
 		console.log(to, from);
 		placeScroll.value = document.documentElement.scrollTop;
@@ -21,5 +16,9 @@
 		});
 	});
 </script>
+
+<template>
+	<div>回退旧位置</div>
+</template>
 
 <style scoped lang="scss"></style>

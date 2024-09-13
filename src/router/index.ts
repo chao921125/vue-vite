@@ -1,7 +1,7 @@
 /**
  * 路由入口
  */
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import { getStoreRefs, appStore } from "@/store";
 import { baseRoutes, errorRoutes } from "./route";
 import Utils from "@/plugins/utils";
@@ -11,8 +11,8 @@ import Constants from "@/plugins/constants";
 import NProgress from "@/plugins/loading/progress";
 import RouterConfig from "@/config/routerConfig";
 import RouteData from "@/config/routerData";
-import AxiosCancel from "@/plugins/axios/cancel";
-import api from "@/api";
+import AxiosCancel from "@/plugins/http/cancel";
+import api from "@/api/index";
 
 // 配置文件修改是否从后端获取路由
 // 动态路由需要后端按照数据格式返回，静态数据直接填充即可
@@ -55,7 +55,7 @@ router.beforeEach(async (to, from, next) => {
 		} else if (token && (RouterConfig.whiteList.includes(to.path) || to.path === RouterConfig.routeRoot)) {
 			next(Utils.isMobile() ? RouterConfig.routeMHome : RouterConfig.routeHome);
 		} else {
-			const { routerList } = getStoreRefs(appStore.useRouterList);
+			const { routerList } = <any>getStoreRefs(appStore.useRouterList);
 			if (routerList.value.length === 0) {
 				if (isRequestRoutes) {
 					// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
@@ -92,9 +92,8 @@ router.afterEach(() => {
  * 5、渲染
  */
 
-// @ts-ignore
-const viewsModules: any = import.meta.glob("../views/**/**.{vue,tsx}");
-const dynamicViewsModules: Record<string, Function> = Object.assign({}, { ...viewsModules });
+const viewsModules = import.meta.glob("../views/**/**.{vue,tsx}");
+const dynamicViewsModules = Object.assign({}, { ...viewsModules });
 
 // 获取动态路由数据
 export async function getDynamicRouter() {
@@ -106,9 +105,9 @@ export async function getDynamicRouter() {
 }
 
 // 动态添加至路由中
-export async function setAddRoute(data: any[]) {
+export async function setAddRoute(data) {
 	const routerList = getRouter(data);
-	routerList.forEach((route: RouteRecordRaw) => {
+	routerList.forEach((route) => {
 		const { name } = route;
 		if (name && name !== "/") {
 			router.removeRoute(name || "");
@@ -119,7 +118,7 @@ export async function setAddRoute(data: any[]) {
 }
 
 // 存储原始数据
-async function setRouterList(data: any[]) {
+async function setRouterList(data) {
 	await appStore.useRouterList.setRouterList(data);
 }
 
@@ -127,19 +126,24 @@ async function setRouterList(data: any[]) {
  * update router
  * @param data
  */
-function getRouter(data: IMenuState[] = []) {
+function getRouter(data = []) {
 	if (data.length === 0) return [];
-	let rootRouter: Array<RouteRecordRaw> = [
+	const rootRouter: any = [
 		{
 			path: "/",
 			name: "/",
 			redirect: { path: "" },
 			component: () => import("@/views/layout/Index.vue"),
-			meta: { title: "message.title.home", name: "message.title.home", auth: false, isHide: false },
+			meta: {
+				title: "message.title.home",
+				name: "message.title.home",
+				auth: false,
+				isHide: false,
+			},
 			children: [],
 		},
 	];
-	let addRouters: any = [];
+	const addRouters = [];
 	setRouterItem(addRouters, data, "");
 	rootRouter[0].children = routeToComponent(addRouters);
 	rootRouter[0].children = [...rootRouter[0].children, ...errorRoutes];
@@ -148,12 +152,12 @@ function getRouter(data: IMenuState[] = []) {
 /**
  * update router
  */
-function setRouterItem(routerList: any, data: IMenuState[] = [], parentPath: string = "") {
+function setRouterItem(routerList, data = [], parentPath = "") {
 	if (data.length === 0) return [];
 	data.forEach((item: any) => {
-		let path = parentPath + "/" + item.path;
-		let name = item.component.slice(item.component.lastIndexOf("/") + 1);
-		let route: RouteRecordRaw = {
+		const path = parentPath + "/" + item.path;
+		const name = item.component.slice(item.component.lastIndexOf("/") + 1);
+		const route = {
 			path: path,
 			name: path.replace("/", "-") + "-" + name,
 			component: item.component,
@@ -184,16 +188,16 @@ function setRouterItem(routerList: any, data: IMenuState[] = [], parentPath: str
 	});
 }
 
-function routeToComponent(routes: any[]) {
+function routeToComponent(routes) {
 	if (!routes) return [];
-	return routes.map((item: any) => {
-		if (item.component) item.component = componentImport(dynamicViewsModules, item.component as string);
-		item.children && routeToComponent(item.children);
+	return routes.map((item) => {
+		if (item.component) item.component = componentImport(dynamicViewsModules, item.component);
+		if (item.children) routeToComponent(item.children);
 		return item;
 	});
 }
 
-function componentImport(viewsModule: Record<string, Function>, component: string) {
+function componentImport(viewsModule, component) {
 	const keys = Object.keys(viewsModule);
 	const matchKeys = keys.filter((key) => {
 		const k = key.replace(/..\/views|../, "");
@@ -209,7 +213,7 @@ function componentImport(viewsModule: Record<string, Function>, component: strin
 }
 
 // 存放tag数据
-export async function setTags(data: any[]) {
+export async function setTags(data) {
 	await appStore.useRouterTags.setTagsViewRoutes(data);
 }
 

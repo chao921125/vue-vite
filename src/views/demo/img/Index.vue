@@ -1,3 +1,61 @@
+<script setup lang="ts">
+	import type { UploadInstance, UploadFile, UploadFiles } from "element-plus";
+	// import { imgConvert } from "@/plugins/utils/img";
+
+	const fileUploadRef = ref<UploadInstance>();
+	const file = reactive({
+		optionsFileType: [
+			{
+				label: "jpg",
+				value: "image/jpg",
+			},
+			{
+				label: "jpeg",
+				value: "image/jpeg",
+			},
+			{
+				label: "png",
+				value: "image/png",
+			},
+		],
+		fileType: "image/png",
+		isCompress: false,
+		compressValue: 1,
+		marks: {},
+		fileList: [],
+		fileListCompress: [],
+		fileListUrl: [],
+		isLoading: false,
+	});
+
+	const changeFile = async (uploadFile: UploadFile | File, uploadFiles: UploadFiles) => {
+		file.isLoading = true;
+		// imgConvert(uploadFile, file.fileType, (result: any) => {
+		// 	console.log(result);
+		// 	file.isLoading = false;
+		// });
+		console.log(uploadFile, uploadFiles);
+	};
+
+	const clearFileList = () => {
+		nextTick(() => {
+			if (fileUploadRef.value) {
+				fileUploadRef.value.clearFiles();
+			}
+		});
+	};
+
+	const init = () => {
+		for (let i = 0; i <= 1; i = i + 0.05) {
+			file.marks[i] = (i * 100).toFixed(0) + "%";
+		}
+	};
+
+	onMounted(() => {
+		init();
+	});
+</script>
+
 <template>
 	<el-row>
 		<el-col :span="24">
@@ -67,63 +125,5 @@
 		</el-col>
 	</el-row>
 </template>
-
-<script lang="ts" setup name="">
-	import type { UploadInstance, UploadFile, UploadFiles } from "element-plus";
-	// import { imgConvert } from "@/plugins/utils/img";
-
-	const fileUploadRef = ref<UploadInstance>();
-	const file = reactive({
-		optionsFileType: [
-			{
-				label: "jpg",
-				value: "image/jpg",
-			},
-			{
-				label: "jpeg",
-				value: "image/jpeg",
-			},
-			{
-				label: "png",
-				value: "image/png",
-			},
-		],
-		fileType: "image/png",
-		isCompress: false,
-		compressValue: 1,
-		marks: {},
-		fileList: [],
-		fileListCompress: [],
-		fileListUrl: [],
-		isLoading: false,
-	});
-
-	const changeFile = async (uploadFile: UploadFile | File, uploadFiles: UploadFiles) => {
-		file.isLoading = true;
-		// imgConvert(uploadFile, file.fileType, (result: any) => {
-		// 	console.log(result);
-		// 	file.isLoading = false;
-		// });
-		console.log(uploadFile, uploadFiles);
-	};
-
-	const clearFileList = () => {
-		nextTick(() => {
-			if (fileUploadRef.value) {
-				fileUploadRef.value.clearFiles();
-			}
-		});
-	};
-
-	const init = () => {
-		for (let i = 0; i <= 1; i = i + 0.05) {
-			file.marks[i] = (i * 100).toFixed(0) + "%";
-		}
-	};
-
-	onMounted(() => {
-		init();
-	});
-</script>
 
 <style scoped lang="scss"></style>

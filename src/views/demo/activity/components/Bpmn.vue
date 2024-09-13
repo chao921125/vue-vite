@@ -1,18 +1,4 @@
-<template>
-	<!--创建容器-->
-	<div class="containers">
-		<div
-			class="canvas"
-			id="canvas"
-			ref="canvasRef"></div>
-		<!--属性面板将通过该元素呈现到其中-->
-		<div
-			class="panel"
-			id="js-properties-panel"></div>
-	</div>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import { ElMessage } from "element-plus";
 	import "bpmn-js/dist/assets/bpmn-js.css";
 	import "bpmn-js/dist/assets/diagram-js.css";
@@ -75,6 +61,20 @@
 		initBpmn();
 	});
 </script>
+
+<template>
+	<!--创建容器-->
+	<div class="containers">
+		<div
+			class="canvas"
+			id="canvas"
+			ref="canvasRef"></div>
+		<!--属性面板将通过该元素呈现到其中-->
+		<div
+			class="panel"
+			id="js-properties-panel"></div>
+	</div>
+</template>
 
 <style scoped lang="scss">
 	.containers {

@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
  * 布局配置
  */
 export const useThemeConfig = defineStore("themeConfig", {
-	state: (): IThemeConfigStates => ({
+	state: () => ({
 		themeConfig: {
 			// 默认初始语言，可选值"<zh-cn|en|zh-tw>"，默认 zh-cn
 			globalI18n: "zh-cn",
@@ -49,7 +49,7 @@ export const useThemeConfig = defineStore("themeConfig", {
 		},
 	}),
 	actions: {
-		setThemeConfig(data: IThemeConfigState) {
+		setThemeConfig(data) {
 			// this.themeConfig = data;
 			Object.assign(this.themeConfig, data);
 		},

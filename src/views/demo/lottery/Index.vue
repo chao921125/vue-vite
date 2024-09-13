@@ -1,55 +1,4 @@
-<template>
-	<el-row justify="space-between">
-		<el-col
-			:lg="8"
-			:sm="24">
-			<LuckyWheel
-				ref="wheelRef"
-				width="300px"
-				height="300px"
-				:prizes="wheelOptions.prizes"
-				:blocks="wheelOptions.blocks"
-				:buttons="wheelOptions.buttons"
-				@start="startWheel"
-				@end="endWheel"></LuckyWheel>
-		</el-col>
-		<el-col
-			:lg="8"
-			:sm="24">
-			<LuckyGrid
-				ref="gridRef"
-				width="300px"
-				height="300px"
-				:prizes="girdOptions.prizes"
-				:blocks="girdOptions.blocks"
-				:buttons="girdOptions.buttons"
-				:default-style="girdOptions.defaultStyle"
-				@start="startGrid"
-				@end="endGrid"></LuckyGrid>
-		</el-col>
-		<el-col
-			:lg="8"
-			:sm="24">
-			<SlotMachine
-				width="300px"
-				height="300px"
-				ref="machineRef"
-				:prizes="machineOptions.prizes"
-				:blocks="machineOptions.blocks"
-				:slots="machineOptions.slots"
-				:default-config="machineOptions.defaultConfig"
-				:default-style="machineOptions.defaultStyle"
-				@end="endMachine"></SlotMachine>
-			<el-button
-				@click="startMachine"
-				type="primary"
-				>Start</el-button
-			>
-		</el-col>
-	</el-row>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	const wheelOptions = reactive({
 		prizes: [
 			{ background: "#e9e8fe", fonts: [{ text: "旅游" }] },
@@ -179,5 +128,56 @@
 		isLoading.value = false;
 	};
 </script>
+
+<template>
+	<el-row justify="space-between">
+		<el-col
+			:lg="8"
+			:sm="24">
+			<LuckyWheel
+				ref="wheelRef"
+				width="300px"
+				height="300px"
+				:prizes="wheelOptions.prizes"
+				:blocks="wheelOptions.blocks"
+				:buttons="wheelOptions.buttons"
+				@start="startWheel"
+				@end="endWheel"></LuckyWheel>
+		</el-col>
+		<el-col
+			:lg="8"
+			:sm="24">
+			<LuckyGrid
+				ref="gridRef"
+				width="300px"
+				height="300px"
+				:prizes="girdOptions.prizes"
+				:blocks="girdOptions.blocks"
+				:buttons="girdOptions.buttons"
+				:default-style="girdOptions.defaultStyle"
+				@start="startGrid"
+				@end="endGrid"></LuckyGrid>
+		</el-col>
+		<el-col
+			:lg="8"
+			:sm="24">
+			<SlotMachine
+				width="300px"
+				height="300px"
+				ref="machineRef"
+				:prizes="machineOptions.prizes"
+				:blocks="machineOptions.blocks"
+				:slots="machineOptions.slots"
+				:default-config="machineOptions.defaultConfig"
+				:default-style="machineOptions.defaultStyle"
+				@end="endMachine"></SlotMachine>
+			<el-button
+				@click="startMachine"
+				type="primary"
+				>Start</el-button
+			>
+		</el-col>
+	</el-row>
+</template>
 
 <style scoped lang="scss"></style>

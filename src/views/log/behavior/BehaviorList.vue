@@ -1,49 +1,4 @@
-<template>
-	<el-form
-		ref="formSearchRef"
-		:model="formSearch"
-		status-icon
-		label-width=""
-		:inline="true">
-		<el-form-item
-			prop="name"
-			label="操作时间">
-			<el-date-picker
-				v-model="formSearch.name"
-				type="date"
-				placeholder="" />
-		</el-form-item>
-		<el-form-item
-			prop=""
-			label="">
-			<el-button type="primary">查询</el-button>
-			<el-button @click="resetForm(formSearchRef)">重置</el-button>
-		</el-form-item>
-	</el-form>
-	<el-table
-		:data="tableData"
-		style="width: 100%">
-		<el-table-column
-			prop="userName"
-			label="登录账号" />
-		<el-table-column
-			prop="date"
-			label="登录时间" />
-		<el-table-column
-			prop="ip"
-			label="登录IP" />
-		<el-table-column
-			prop="desc"
-			label="登录设备" />
-	</el-table>
-	<RePagination
-		:current="params.pageCurrent"
-		:total="params.pageTotal"
-		@change-size="pageChangeSize"
-		@change-current="pageChangeCurrent"></RePagination>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import { FormInstance } from "element-plus";
 
 	const formSearchRef = ref<FormInstance>();
@@ -108,5 +63,50 @@
 		initData();
 	});
 </script>
+
+<template>
+	<el-form
+		ref="formSearchRef"
+		:model="formSearch"
+		status-icon
+		label-width=""
+		:inline="true">
+		<el-form-item
+			prop="name"
+			label="操作时间">
+			<el-date-picker
+				v-model="formSearch.name"
+				type="date"
+				placeholder="" />
+		</el-form-item>
+		<el-form-item
+			prop=""
+			label="">
+			<el-button type="primary">查询</el-button>
+			<el-button @click="resetForm(formSearchRef)">重置</el-button>
+		</el-form-item>
+	</el-form>
+	<el-table
+		:data="tableData"
+		style="width: 100%">
+		<el-table-column
+			prop="userName"
+			label="登录账号" />
+		<el-table-column
+			prop="date"
+			label="登录时间" />
+		<el-table-column
+			prop="ip"
+			label="登录IP" />
+		<el-table-column
+			prop="desc"
+			label="登录设备" />
+	</el-table>
+	<RePagination
+		:current="params.pageCurrent"
+		:total="params.pageTotal"
+		@change-size="pageChangeSize"
+		@change-current="pageChangeCurrent"></RePagination>
+</template>
 
 <style scoped lang="scss"></style>

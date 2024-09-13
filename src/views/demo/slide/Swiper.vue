@@ -1,3 +1,15 @@
+<script setup lang="ts">
+	import { Swiper, SwiperSlide } from "swiper/vue";
+	import { EffectFade, Autoplay } from "swiper/modules";
+	import "swiper/css";
+	import "swiper/css/effect-fade";
+
+	// import { register } from "swiper/element";
+	// onMounted(() => {
+	// 	register();
+	// });
+</script>
+
 <template>
 	<el-row>
 		<el-col :span="24">基本示例 动画 自动播放 手动滑动后自动播放失效</el-col>
@@ -39,17 +51,5 @@
 		</el-col>
 	</el-row>
 </template>
-
-<script lang="ts" setup name="">
-	import { Swiper, SwiperSlide } from "swiper/vue";
-	import { EffectFade, Autoplay } from "swiper/modules";
-	import "swiper/css";
-	import "swiper/css/effect-fade";
-
-	// import { register } from "swiper/element";
-	// onMounted(() => {
-	// 	register();
-	// });
-</script>
 
 <style scoped lang="scss"></style>

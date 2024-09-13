@@ -1,62 +1,13 @@
-<template>
-	<el-container class="layout-container">
-		<el-aside
-			id="admin-aside"
-			class="layout-aside"
-			:class="styleCollapse"
-			><AdminMenu></AdminMenu
-		></el-aside>
-		<el-container
-			id="admin-body"
-			:class="{ 'admin-main': !isFixedHeader }">
-			<el-header
-				v-if="isFixedHeader"
-				:height="setHeaderHeight"
-				class="layout-header"
-				><AdminHeader></AdminHeader
-			></el-header>
-			<el-scrollbar
-				ref="refScrollbarMain"
-				:class="{ 'admin-main': isFixedHeader }">
-				<el-header
-					v-if="!isFixedHeader"
-					:height="setHeaderHeight"
-					class="layout-header">
-					<AdminHeader></AdminHeader>
-				</el-header>
-				<Tags></Tags>
-				<el-main class="layout-main">
-					<el-card class="main-body">
-						<router-view></router-view>
-					</el-card>
-				</el-main>
-				<el-footer
-					v-if="isShowFooter"
-					class="re-flex-row-center"
-					><AdminFooter></AdminFooter
-				></el-footer>
-			</el-scrollbar>
-			<el-backtop
-				target=".admin-main .el-scrollbar__wrap"
-				:visibility-height="300"
-				:right="20"
-				:bottom="20">
-				<el-icon :size="20"><ArrowUpBold /></el-icon>
-			</el-backtop>
-		</el-container>
-	</el-container>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import AdminMenu from "../menu/Index.vue";
-	import AdminHeader from "../header/Index.vue";
-	import AdminFooter from "../footer/Index.vue";
+	import AdminHeader from "../Header.vue";
+	import AdminFooter from "../Footer.vue";
 	import Tags from "../tags/Index.vue";
 	import { getStoreRefs, appStore } from "@/store";
 	import { ElScrollbar } from "element-plus";
 
 	// 修改项目设置
-	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
+	const { themeConfig } = <any>getStoreRefs(appStore.useThemeConfig);
 	const state: any = reactive({
 		clientWidth: 0,
 	});
@@ -93,5 +44,54 @@
 		state.clientWidth = document.body.clientWidth;
 	});
 </script>
+
+<template>
+	<el-container class="layout-container">
+		<el-aside
+			id="admin-aside"
+			class="layout-aside"
+			:class="styleCollapse">
+			<AdminMenu></AdminMenu>
+		</el-aside>
+		<el-container
+			id="admin-body"
+			:class="{ 'admin-main': !isFixedHeader }">
+			<el-header
+				v-if="isFixedHeader"
+				:height="setHeaderHeight"
+				class="layout-header">
+				<AdminHeader></AdminHeader>
+			</el-header>
+			<el-scrollbar
+				ref="refScrollbarMain"
+				:class="{ 'admin-main': isFixedHeader }">
+				<el-header
+					v-if="!isFixedHeader"
+					:height="setHeaderHeight"
+					class="layout-header">
+					<AdminHeader></AdminHeader>
+				</el-header>
+				<Tags></Tags>
+				<el-main class="layout-main">
+					<el-card class="main-body">
+						<router-view></router-view>
+					</el-card>
+				</el-main>
+				<el-footer
+					v-if="isShowFooter"
+					class="re-f-row-center">
+					<AdminFooter></AdminFooter>
+				</el-footer>
+			</el-scrollbar>
+			<el-backtop
+				target=".admin-main .el-scrollbar__wrap"
+				:visibility-height="300"
+				:right="20"
+				:bottom="20">
+				<el-icon :size="20"><ArrowUpBold /></el-icon>
+			</el-backtop>
+		</el-container>
+	</el-container>
+</template>
 
 <style scoped lang="scss"></style>

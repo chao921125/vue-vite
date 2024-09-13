@@ -1,11 +1,3 @@
-<template>
-	<div>
-		<canvas
-			id="canvas"
-			style="width: 320px; height: 240px"></canvas>
-	</div>
-</template>
-
 <script lang="ts">
 	export default defineComponent({
 		name: "MapOne",
@@ -185,5 +177,13 @@
 		},
 	});
 </script>
+
+<template>
+	<div>
+		<canvas
+			id="canvas"
+			style="width: 320px; height: 240px"></canvas>
+	</div>
+</template>
 
 <style scoped lang="scss"></style>

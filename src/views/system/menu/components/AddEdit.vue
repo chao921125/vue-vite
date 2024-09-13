@@ -1,169 +1,4 @@
-<template>
-	<el-dialog
-		v-model="dialogFormVisible"
-		@close="closeDialog">
-		<template #header>{{ menuInfo.id ? "编辑菜单" : "新增菜单" }}</template>
-		<el-form
-			:model="form"
-			:rules="rules"
-			:label-width="formLabelWidth"
-			ref="formRef">
-			<el-form-item
-				prop="parent"
-				label="父菜单">
-				<el-tree-select
-					v-model="form.parent"
-					:data="optionSelectMenu"
-					:render-after-expand="false"
-					:props="propsTreeMenu"
-					value-key="id"
-					check-strictly
-					placeholder="父菜单"
-					clearable>
-					<template #default="{ data }">
-						<span>{{ $t(data.name) }}</span>
-					</template>
-				</el-tree-select>
-			</el-form-item>
-			<el-form-item
-				prop="title"
-				label="标题">
-				<el-radio-group v-model="form.type">
-					<el-radio :label="1">菜单</el-radio>
-					<el-radio :label="2">目录</el-radio>
-				</el-radio-group>
-			</el-form-item>
-			<el-form-item
-				prop="title"
-				label="标题">
-				<el-input
-					v-model="form.title"
-					placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item
-				prop="icon"
-				label="图标">
-				<el-select
-					v-model="form.icon"
-					clearable
-					placeholder=""
-					popper-class="select-icons">
-					<el-option
-						v-for="(item, index) in IconfontData"
-						:key="index"
-						:label="item"
-						:value="item"
-						class="re-flex-row-center">
-						<i
-							class="iconfont"
-							:class="item"></i>
-					</el-option>
-				</el-select>
-			</el-form-item>
-			<el-form-item
-				prop="path"
-				label="URL">
-				<el-input
-					v-model="form.path"
-					placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item
-				prop="component"
-				label="组件">
-				<el-input
-					v-model="form.component"
-					placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item
-				prop="sort"
-				label="排序">
-				<el-input-number
-					v-model="form.sort"
-					:min="1"
-					:max="99999"
-					controls-position="right"></el-input-number>
-			</el-form-item>
-			<el-form-item
-				prop="isLink"
-				label="是否外链">
-				<el-switch
-					v-model="form.isLink"
-					:active-value="1"
-					:inactive-value="0"
-					:disabled="!!form.isIframe" />
-			</el-form-item>
-			<el-form-item
-				prop="isIframe"
-				label="是否内嵌">
-				<el-switch
-					v-model="form.isIframe"
-					:active-value="1"
-					:inactive-value="0"
-					:disabled="!!form.isLink" />
-			</el-form-item>
-			<el-form-item
-				prop="address"
-				label="地址">
-				<el-input
-					v-model="form.address"
-					placeholder=""
-					:disabled="!(form.isIframe || form.isLink)"></el-input>
-			</el-form-item>
-			<el-form-item
-				prop="isHide"
-				label="是否隐藏">
-				<el-switch
-					v-model="form.isHide"
-					:active-value="1"
-					:inactive-value="0" />
-			</el-form-item>
-			<el-form-item
-				prop="isDisable"
-				label="是否禁用">
-				<el-switch
-					v-model="form.isDisable"
-					:active-value="1"
-					:inactive-value="0" />
-			</el-form-item>
-			<el-form-item
-				prop="isKeepAlive"
-				label="是否缓存">
-				<el-switch
-					v-model="form.isKeepAlive"
-					:active-value="1"
-					:inactive-value="0" />
-			</el-form-item>
-			<el-form-item
-				prop="isAffix"
-				label="是否固定">
-				<el-switch
-					v-model="form.isAffix"
-					:active-value="1"
-					:inactive-value="0" />
-			</el-form-item>
-			<el-form-item
-				prop="isMobile"
-				label="是否手机端">
-				<el-switch
-					v-model="form.isMobile"
-					:active-value="1"
-					:inactive-value="0" />
-			</el-form-item>
-		</el-form>
-		<template #footer>
-			<span class="dialog-footer">
-				<el-button @click="closeDialog">取消</el-button>
-				<el-button
-					type="primary"
-					@click="changeMenuInfo"
-					>确认</el-button
-				>
-			</span>
-		</template>
-	</el-dialog>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import type { FormInstance, FormRules } from "element-plus";
 	import IconfontData from "@/config/iconfontData";
 
@@ -290,6 +125,180 @@
 	});
 </script>
 
-<style lang="scss">
-	@use "./index.scss";
+<template>
+	<el-dialog
+		v-model="dialogFormVisible"
+		@close="closeDialog">
+		<template #header>{{ menuInfo.id ? "编辑菜单" : "新增菜单" }}</template>
+		<el-form
+			:model="form"
+			:rules="rules"
+			:label-width="formLabelWidth"
+			ref="formRef">
+			<el-form-item
+				prop="parent"
+				label="父菜单">
+				<el-tree-select
+					v-model="form.parent"
+					:data="optionSelectMenu"
+					:render-after-expand="false"
+					:props="propsTreeMenu"
+					value-key="id"
+					check-strictly
+					placeholder="父菜单"
+					clearable>
+					<template #default="{ data }">
+						<span>{{ $t(data.name) }}</span>
+					</template>
+				</el-tree-select>
+			</el-form-item>
+			<el-form-item
+				prop="title"
+				label="标题">
+				<el-radio-group v-model="form.type">
+					<el-radio :label="1">菜单</el-radio>
+					<el-radio :label="2">目录</el-radio>
+				</el-radio-group>
+			</el-form-item>
+			<el-form-item
+				prop="title"
+				label="标题">
+				<el-input
+					v-model="form.title"
+					placeholder=""></el-input>
+			</el-form-item>
+			<el-form-item
+				prop="icon"
+				label="图标">
+				<el-select
+					v-model="form.icon"
+					clearable
+					placeholder=""
+					popper-class="select-icons">
+					<el-option
+						v-for="(item, index) in IconfontData"
+						:key="index"
+						:label="item"
+						:value="item"
+						class="re-f-row-center">
+						<i
+							class="iconfont"
+							:class="item"></i>
+					</el-option>
+				</el-select>
+			</el-form-item>
+			<el-form-item
+				prop="path"
+				label="URL">
+				<el-input
+					v-model="form.path"
+					placeholder=""></el-input>
+			</el-form-item>
+			<el-form-item
+				prop="component"
+				label="组件">
+				<el-input
+					v-model="form.component"
+					placeholder=""></el-input>
+			</el-form-item>
+			<el-form-item
+				prop="sort"
+				label="排序">
+				<el-input-number
+					v-model="form.sort"
+					:min="1"
+					:max="99999"
+					controls-position="right"></el-input-number>
+			</el-form-item>
+			<el-form-item
+				prop="isLink"
+				label="是否外链">
+				<el-switch
+					v-model="form.isLink"
+					:active-value="1"
+					:inactive-value="0"
+					:disabled="!!form.isIframe" />
+			</el-form-item>
+			<el-form-item
+				prop="isIframe"
+				label="是否内嵌">
+				<el-switch
+					v-model="form.isIframe"
+					:active-value="1"
+					:inactive-value="0"
+					:disabled="!!form.isLink" />
+			</el-form-item>
+			<el-form-item
+				prop="address"
+				label="地址">
+				<el-input
+					v-model="form.address"
+					placeholder=""
+					:disabled="!(form.isIframe || form.isLink)"></el-input>
+			</el-form-item>
+			<el-form-item
+				prop="isHide"
+				label="是否隐藏">
+				<el-switch
+					v-model="form.isHide"
+					:active-value="1"
+					:inactive-value="0" />
+			</el-form-item>
+			<el-form-item
+				prop="isDisable"
+				label="是否禁用">
+				<el-switch
+					v-model="form.isDisable"
+					:active-value="1"
+					:inactive-value="0" />
+			</el-form-item>
+			<el-form-item
+				prop="isKeepAlive"
+				label="是否缓存">
+				<el-switch
+					v-model="form.isKeepAlive"
+					:active-value="1"
+					:inactive-value="0" />
+			</el-form-item>
+			<el-form-item
+				prop="isAffix"
+				label="是否固定">
+				<el-switch
+					v-model="form.isAffix"
+					:active-value="1"
+					:inactive-value="0" />
+			</el-form-item>
+			<el-form-item
+				prop="isMobile"
+				label="是否手机端">
+				<el-switch
+					v-model="form.isMobile"
+					:active-value="1"
+					:inactive-value="0" />
+			</el-form-item>
+		</el-form>
+		<template #footer>
+			<span class="dialog-footer">
+				<el-button @click="closeDialog">取消</el-button>
+				<el-button
+					type="primary"
+					@click="changeMenuInfo">
+					确认
+				</el-button>
+			</span>
+		</template>
+	</el-dialog>
+</template>
+
+<style scoped lang="scss">
+	.select-icons ul {
+		width: 210px;
+		display: flex;
+		flex-wrap: wrap;
+		li {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
 </style>

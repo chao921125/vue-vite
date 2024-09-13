@@ -1,5 +1,5 @@
 // VITE 配置
-declare type Recordable<T = any> = Record<string, T>;
+declare type Recordable<T = never> = Record<string, T>;
 
 declare interface ViteEnv {
 	VITE_NODE_ENV: string;

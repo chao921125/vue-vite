@@ -1,6 +1,6 @@
-import fs from "fs";
+import fs from "node:fs";
 
-export const imgToBase = (limit: number = 4096) => {
+export const imgToBase = (limit = 4096) => {
 	return {
 		name: "vite-img-to-base64",
 		async transform(_, id) {

@@ -1,10 +1,4 @@
-<template>
-	<Mobile v-if="isMobile"></Mobile>
-	<Admin v-else-if="isAdmin"></Admin>
-	<Web v-else></Web>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import Admin from "./frame/Admin.vue";
 	import Web from "./frame/Web.vue";
 	import Mobile from "./frame/Mobile.vue";
@@ -48,5 +42,11 @@
 		};
 	});
 </script>
+
+<template>
+	<Mobile v-if="isMobile"></Mobile>
+	<Admin v-else-if="isAdmin"></Admin>
+	<Web v-else></Web>
+</template>
 
 <style scoped lang="scss"></style>

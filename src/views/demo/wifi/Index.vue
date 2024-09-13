@@ -1,51 +1,4 @@
-<template>
-	<el-row justify="center">
-		<el-col
-			:span="12"
-			class="re-flex-row-center wifi-title">
-			<icon-svg
-				name="wifi"
-				class="svg-icon-cus"></icon-svg>
-			<h1 class="re-ml-10">WiFi-CARD</h1>
-		</el-col>
-	</el-row>
-	<el-row justify="center">
-		<el-col
-			:span="wifiInfo.settings.direction ? 12 : 6"
-			class="re-flex-row-center re-mt-20">
-			<el-card
-				class="re-w-full"
-				id="printCard">
-				<WifiCard
-					ref="wifiCardRef"
-					:settings="wifiInfo.settings"
-					@changeSettings="changeSettings"></WifiCard>
-			</el-card>
-		</el-col>
-	</el-row>
-	<el-row justify="center">
-		<el-col
-			:span="12"
-			class="re-mt-20">
-			<WifiSettings
-				:settings="wifiInfo.settings"
-				@changeSettings="changeSettings"></WifiSettings>
-		</el-col>
-	</el-row>
-	<el-row justify="center">
-		<el-col
-			:span="12"
-			class="re-flex-row-center re-mt-20">
-			<el-button
-				type="primary"
-				@click="printCard"
-				>打印卡片</el-button
-			>
-		</el-col>
-	</el-row>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import WifiCard from "./components/WifiCard.vue";
 	import WifiSettings from "./components/WifiSettings.vue";
 	import printJS from "print-js";
@@ -115,6 +68,53 @@
 		}
 	};
 </script>
+
+<template>
+	<el-row justify="center">
+		<el-col
+			:span="12"
+			class="re-f-row-center wifi-title">
+			<icon-svg
+				name="wifi"
+				class="svg-icon-cus"></icon-svg>
+			<h1 class="re-ml-10">WiFi-CARD</h1>
+		</el-col>
+	</el-row>
+	<el-row justify="center">
+		<el-col
+			:span="wifiInfo.settings.direction ? 12 : 6"
+			class="re-f-row-center re-mt-20">
+			<el-card
+				class="re-w-full"
+				id="printCard">
+				<WifiCard
+					ref="wifiCardRef"
+					:settings="wifiInfo.settings"
+					@changeSettings="changeSettings"></WifiCard>
+			</el-card>
+		</el-col>
+	</el-row>
+	<el-row justify="center">
+		<el-col
+			:span="12"
+			class="re-mt-20">
+			<WifiSettings
+				:settings="wifiInfo.settings"
+				@changeSettings="changeSettings"></WifiSettings>
+		</el-col>
+	</el-row>
+	<el-row justify="center">
+		<el-col
+			:span="12"
+			class="re-f-row-center re-mt-20">
+			<el-button
+				type="primary"
+				@click="printCard"
+				>打印卡片</el-button
+			>
+		</el-col>
+	</el-row>
+</template>
 
 <style scoped lang="scss">
 	@use "@/assets/styles/page/print.scss";

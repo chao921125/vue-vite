@@ -1,24 +1,5 @@
-<template>
-	<el-form-item
-		label="监控时间段"
-		prop="monitorTimePeriods"
-		>{{ timeQuantumProps }}
-		<el-button
-			type="primary"
-			size="small"
-			@click="selectTimeQuantum('monitorTimePeriod')"
-			>设置</el-button
-		>
-	</el-form-item>
-	<!-- 选择时间段 -->
-	<time
-		v-if="timeQuantumProps.show"
-		:timeQuantumProps="timeQuantumProps"></time>
-</template>
-
-<script setup name="">
-	import { reactive, ref } from "vue";
-	import { ElMessage } from "element-plus";
+<script setup lang="ts">
+	import { reactive } from "vue";
 	import Time from "./components/Time.vue";
 	// 选择时间弹窗的数据
 	const timeQuantumProps = reactive({
@@ -34,4 +15,23 @@
 		});
 	}
 </script>
+
+<template>
+	<el-form-item
+		label="监控时间段"
+		prop="monitorTimePeriods"
+		>{{ timeQuantumProps }}
+		<el-button
+			type="primary"
+			size="small"
+			@click="selectTimeQuantum('monitorTimePeriod')"
+			>设置</el-button
+		>
+	</el-form-item>
+	<!-- 选择时间段 -->
+	<Time
+		v-if="timeQuantumProps.show"
+		:timeQuantumProps="timeQuantumProps"></Time>
+</template>
+
 <style lang="scss"></style>

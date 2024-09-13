@@ -1,16 +1,4 @@
-<template>
-	<el-skeleton
-		:rows="1"
-		animated
-		:loading="isLoading">
-		<el-row>
-			<el-col :span="24">浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }}</el-col>
-			<el-col :span="24">操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }}</el-col>
-		</el-row>
-	</el-skeleton>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import UA from "ua-parser-js";
 
 	const isLoading = ref(true);
@@ -27,5 +15,17 @@
 		}, 3000);
 	});
 </script>
+
+<template>
+	<el-skeleton
+		:rows="1"
+		animated
+		:loading="isLoading">
+		<el-row>
+			<el-col :span="24">浏览器：{{ uaInfo.browser.name }} 版本：{{ uaInfo.browser.version }}</el-col>
+			<el-col :span="24">操作系统：{{ uaInfo.os.name }} 版本：{{ uaInfo.os.version }}</el-col>
+		</el-row>
+	</el-skeleton>
+</template>
 
 <style scoped lang="scss"></style>

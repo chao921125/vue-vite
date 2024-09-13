@@ -1,39 +1,4 @@
-<template>
-	<el-upload
-		v-show="props.isShowAlways && props.fileList && props.fileList.length === props.fileLimit"
-		class="file-upload"
-		:action="props.uploadUrl"
-		:headers="props.uploadHeader"
-		:method="props.uploadMethod"
-		:multiple="props.isMultiple"
-		:drag="props.isDrag"
-		:show-file-list="props.isShowFileList"
-		:file-list="props.fileList"
-		:limit="props.fileLimit"
-		:accept="props.fileAccept"
-		:auto-upload="props.isAutoUpload"
-		:disabled="props.isDisabled">
-		<el-button
-			v-if="props.fileStyle === 1"
-			type="primary"
-			>{{ props.buttonText }}</el-button
-		>
-		<el-icon v-if="props.fileStyle === 1"><Plus /></el-icon>
-		<div v-if="props.fileStyle === 3">
-			<el-icon class="el-icon--upload"><upload-filled /></el-icon>
-			<div class="el-upload__text"> Drop file here or <em>click to upload</em> </div>
-		</div>
-		<template #tip>
-			<div
-				v-if="props.tipsText"
-				class="el-upload__tip"
-				>{{ props.tipsText }}</div
-			>
-		</template>
-	</el-upload>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import type { UploadUserFile } from "element-plus";
 	const props = defineProps({
 		isShowAlways: {
@@ -127,5 +92,40 @@
 		changeClick,
 	});
 </script>
+
+<template>
+	<el-upload
+		v-show="props.isShowAlways && props.fileList && props.fileList.length === props.fileLimit"
+		class="file-upload"
+		:action="props.uploadUrl"
+		:headers="props.uploadHeader"
+		:method="props.uploadMethod"
+		:multiple="props.isMultiple"
+		:drag="props.isDrag"
+		:show-file-list="props.isShowFileList"
+		:file-list="props.fileList"
+		:limit="props.fileLimit"
+		:accept="props.fileAccept"
+		:auto-upload="props.isAutoUpload"
+		:disabled="props.isDisabled">
+		<el-button
+			v-if="props.fileStyle === 1"
+			type="primary"
+			>{{ props.buttonText }}</el-button
+		>
+		<el-icon v-if="props.fileStyle === 1"><Plus /></el-icon>
+		<div v-if="props.fileStyle === 3">
+			<el-icon class="el-icon--upload"><upload-filled /></el-icon>
+			<div class="el-upload__text"> Drop file here or <em>click to upload</em> </div>
+		</div>
+		<template #tip>
+			<div
+				v-if="props.tipsText"
+				class="el-upload__tip"
+				>{{ props.tipsText }}</div
+			>
+		</template>
+	</el-upload>
+</template>
 
 <style scoped lang="scss"></style>

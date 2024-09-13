@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 export const useDemo = defineStore("demo", {
-	state: (): IDemoStates => {
+	state: () => {
 		return {
 			demo: {
 				id: 0,
@@ -11,12 +11,12 @@ export const useDemo = defineStore("demo", {
 	},
 	getters: {
 		getDemoById: (state) => state.demo.id + 1,
-		getDemo(): IDemoState {
+		getDemo(): any {
 			return this.demo;
 		},
 	},
 	actions: {
-		setDemo(data: IDemoState) {
+		setDemo(data) {
 			this.demo = data;
 		},
 	},

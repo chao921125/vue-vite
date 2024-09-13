@@ -1,11 +1,3 @@
-<template>
-	<div
-		class="map-box"
-		id="mapBox">
-		<canvas id="canvas">你的浏览器不支持 canvas 请升级你的浏览器</canvas>
-	</div>
-</template>
-
 <script lang="ts">
 	export default defineComponent({
 		name: "MapDemo",
@@ -227,6 +219,14 @@
 		},
 	});
 </script>
+
+<template>
+	<div
+		class="map-box"
+		id="mapBox">
+		<canvas id="canvas">你的浏览器不支持 canvas 请升级你的浏览器</canvas>
+	</div>
+</template>
 
 <style scoped lang="scss">
 	.map-box {

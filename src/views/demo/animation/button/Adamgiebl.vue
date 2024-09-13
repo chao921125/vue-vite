@@ -1,3 +1,7 @@
+<script setup lang="ts">
+	// https://uiverse.io/
+</script>
+
 <template>
 	<div>
 		<button class="cssbuttons-io">
@@ -17,10 +21,6 @@
 		</button>
 	</div>
 </template>
-
-<script lang="ts" setup name="">
-	// https://uiverse.io/
-</script>
 
 <style scoped lang="scss">
 	.cssbuttons-io {

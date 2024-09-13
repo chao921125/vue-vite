@@ -1,63 +1,4 @@
-<template>
-	<div style="text-align: center">
-		<h1 style="font-size: 24px; font-weight: bold">WiFi: {{ formWifi.ssid || "" }}</h1>
-	</div>
-	<div
-		class="re-w-full re-flex-row-between card-box"
-		:style="`width: 100%; margin-top: 20px; display: ${formWifi.direction ? 'flex' : 'block'}; justify-content: space-between; align-items: center;`">
-		<div
-			class="card-qr"
-			:style="`flex-shrink: 0; display: flex; justify-content: center; align-items: center; width: ${formWifi.direction ? '200px' : '100%'};`">
-			<QrcodeVue
-				:value="qrValue"
-				:size="150"></QrcodeVue>
-		</div>
-		<div
-			class="card-form"
-			:style="`flex-shrink: 0; align-self: flex-start; width: ${formWifi.direction ? 'calc(100% - 200px)' : '100%'};`">
-			<el-form
-				ref="formWifiRef"
-				:model="formWifi"
-				label-width="120px"
-				label-position="top"
-				status-icon
-				:style="`maring-left: ${formWifi.direction ? '20px' : '0'};`">
-				<el-form-item
-					label="WIFI 名称"
-					prop="ssid"
-					v-show="!formWifi.hiddenSSID"
-					style="maring-top: 10px">
-					<el-input
-						v-model="formWifi.ssid"
-						placeholder="WIFI 名称"
-						@input="onChangeSettings" />
-				</el-form-item>
-				<el-form-item
-					label="用户名"
-					prop="eapIdentity"
-					v-show="formWifi.encryptionMode === 'WPA2-EAP'"
-					style="maring-top: 10px">
-					<el-input
-						v-model="formWifi.eapIdentity"
-						placeholder="用户名"
-						@input="onChangeSettings" />
-				</el-form-item>
-				<el-form-item
-					label="WIFI 密码"
-					prop="password"
-					v-show="!formWifi.hidePassword"
-					style="maring-top: 10px">
-					<el-input
-						v-model="formWifi.password"
-						placeholder="WIFI 密码"
-						@input="onChangeSettings" />
-				</el-form-item>
-			</el-form>
-		</div>
-	</div>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import QrcodeVue from "qrcode.vue";
 	import type { FormInstance } from "element-plus";
 
@@ -188,6 +129,65 @@
 		validWifiForm,
 	});
 </script>
+
+<template>
+	<div style="text-align: center">
+		<h1 style="font-size: 24px; font-weight: bold">WiFi: {{ formWifi.ssid || "" }}</h1>
+	</div>
+	<div
+		class="re-w-full re-f-row-between card-box"
+		:style="`width: 100%; margin-top: 20px; display: ${formWifi.direction ? 'flex' : 'block'}; justify-content: space-between; align-items: center;`">
+		<div
+			class="card-qr"
+			:style="`flex-shrink: 0; display: flex; justify-content: center; align-items: center; width: ${formWifi.direction ? '200px' : '100%'};`">
+			<QrcodeVue
+				:value="qrValue"
+				:size="150"></QrcodeVue>
+		</div>
+		<div
+			class="card-form"
+			:style="`flex-shrink: 0; align-self: flex-start; width: ${formWifi.direction ? 'calc(100% - 200px)' : '100%'};`">
+			<el-form
+				ref="formWifiRef"
+				:model="formWifi"
+				label-width="120px"
+				label-position="top"
+				status-icon
+				:style="`maring-left: ${formWifi.direction ? '20px' : '0'};`">
+				<el-form-item
+					label="WIFI 名称"
+					prop="ssid"
+					v-show="!formWifi.hiddenSSID"
+					style="maring-top: 10px">
+					<el-input
+						v-model="formWifi.ssid"
+						placeholder="WIFI 名称"
+						@input="onChangeSettings" />
+				</el-form-item>
+				<el-form-item
+					label="用户名"
+					prop="eapIdentity"
+					v-show="formWifi.encryptionMode === 'WPA2-EAP'"
+					style="maring-top: 10px">
+					<el-input
+						v-model="formWifi.eapIdentity"
+						placeholder="用户名"
+						@input="onChangeSettings" />
+				</el-form-item>
+				<el-form-item
+					label="WIFI 密码"
+					prop="password"
+					v-show="!formWifi.hidePassword"
+					style="maring-top: 10px">
+					<el-input
+						v-model="formWifi.password"
+						placeholder="WIFI 密码"
+						@input="onChangeSettings" />
+				</el-form-item>
+			</el-form>
+		</div>
+	</div>
+</template>
 
 <style scoped lang="scss">
 	@use "./Wifi.scss";
