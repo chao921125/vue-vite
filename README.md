@@ -415,10 +415,10 @@
 | [lodash](https://www.npmjs.com/package/lodash) |
 | [lowdb](https://www.npmjs.com/package/lowdb)   |
 
-| 国际化                                                              |
-|------------------------------------------------------------------|
-| [i18n-next 支持VUE/React/Server......](https://github.com/i18next) |
-| [vue-i18n](https://www.npmjs.com/package/vue-i18n)               |
+| 国际化                                                                                          |
+|----------------------------------------------------------------------------------------------|
+| [i18n-next 不限制环境](https://github.com/i18next) [官网](https://www.i18next.com/)                 |
+| [vue-i18n](https://github.com/kazupon/vue-i18n) [官网](https://kazupon.github.io/vue-i18n/zh/) |
 
 | 复制粘贴                                                 |
 |------------------------------------------------------|
