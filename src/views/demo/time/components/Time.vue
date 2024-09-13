@@ -23,7 +23,9 @@
 	// 全部选择
 	const allweek = ref(false);
 	// 选择时间绑定的数据
+	/* eslint-disable */
 	const timeData: any = reactive([]);
+	/* eslint-disable */
 
 	// 初始化时间绑定的默认数据
 	const initializeDefaultData = () => {
@@ -123,10 +125,13 @@
 		trueList.map((val, key) => {
 			const data = calculateOffset(item, val);
 			const fWeek = weektableDate.find((t: any) => t.week === item.week);
-			Object.assign(fWeek, {
-				["left" + key]: data.leftOffset + "px",
-				["right" + key]: data.rightOffset + "px",
-			});
+			Object.assign(
+				{ ...fWeek },
+				{
+					["left" + key]: data.leftOffset + "px",
+					["right" + key]: data.rightOffset + "px",
+				},
+			);
 		});
 	}
 	// 计算偏移量
