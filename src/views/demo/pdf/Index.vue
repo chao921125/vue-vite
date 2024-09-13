@@ -48,7 +48,7 @@
 	<div
 		ref="pdfRef"
 		class="pdf-viewer"></div>
-	<div class="pdf-option re-flex-row-between">
+	<div class="pdf-option re-f-row-between">
 		<div @click="gotoPage(-1)">pre</div>
 		<div>{{ pdfInfo.pageNum }}/{{ pdfInfo.pageSize }}</div>
 		<div @click="gotoPage(1)">next</div>

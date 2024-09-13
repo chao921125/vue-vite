@@ -196,7 +196,7 @@
 		<el-col
 			:xs="24"
 			:sm="12">
-			<div class="re-h-full re-flex-row-center-ai">
+			<div class="re-h-full re-f-row-center-ai">
 				<el-icon
 					@click="changeCollapse"
 					class="re-cursor-pointer"
@@ -222,7 +222,7 @@
 		<el-col
 			:xs="24"
 			:sm="12">
-			<div class="re-h-full re-flex-row-end">
+			<div class="re-h-full re-f-row-end">
 				<el-dropdown
 					ref="dropdownComponents"
 					trigger="hover"
@@ -312,7 +312,7 @@
 		<!--		<template #header></template>-->
 		<el-row
 			:gutter="20"
-			class="re-flex-row-center-ai"
+			class="re-f-row-center-ai"
 			justify="space-between">
 			<el-col
 				:span="6"
@@ -329,7 +329,7 @@
 		</el-row>
 		<el-row
 			:gutter="20"
-			class="re-flex-row-center-ai"
+			class="re-f-row-center-ai"
 			justify="space-between">
 			<el-col
 				:span="6"
@@ -350,7 +350,7 @@
 		</el-row>
 		<el-row
 			:gutter="20"
-			class="re-flex-row-center-ai"
+			class="re-f-row-center-ai"
 			justify="space-between">
 			<el-col
 				:span="6"
@@ -369,7 +369,7 @@
 		</el-row>
 		<el-row
 			:gutter="20"
-			class="re-flex-row-center-ai"
+			class="re-f-row-center-ai"
 			justify="space-between">
 			<el-col
 				:span="6"

@@ -63,7 +63,7 @@
 	<el-row justify="end">
 		<el-col
 			:span="24"
-			class="re-flex-row-end page-box">
+			class="re-f-row-end page-box">
 			<el-pagination
 				v-model:currentPage="pageOption.pageCurrent"
 				v-model:page-size="pageOption.pageSize"

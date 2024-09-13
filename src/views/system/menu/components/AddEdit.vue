@@ -180,7 +180,7 @@
 						:key="index"
 						:label="item"
 						:value="item"
-						class="re-flex-row-center">
+						class="re-f-row-center">
 						<i
 							class="iconfont"
 							:class="item"></i>

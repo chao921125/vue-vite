@@ -73,7 +73,7 @@
 	<el-row justify="center">
 		<el-col
 			:span="12"
-			class="re-flex-row-center wifi-title">
+			class="re-f-row-center wifi-title">
 			<icon-svg
 				name="wifi"
 				class="svg-icon-cus"></icon-svg>
@@ -83,7 +83,7 @@
 	<el-row justify="center">
 		<el-col
 			:span="wifiInfo.settings.direction ? 12 : 6"
-			class="re-flex-row-center re-mt-20">
+			class="re-f-row-center re-mt-20">
 			<el-card
 				class="re-w-full"
 				id="printCard">
@@ -106,7 +106,7 @@
 	<el-row justify="center">
 		<el-col
 			:span="12"
-			class="re-flex-row-center re-mt-20">
+			class="re-f-row-center re-mt-20">
 			<el-button
 				type="primary"
 				@click="printCard"

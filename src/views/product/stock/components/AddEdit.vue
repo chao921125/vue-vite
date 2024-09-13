@@ -132,7 +132,7 @@
 			<el-form-item
 				prop="weightUnit"
 				label="体积">
-				<div class="re-flex-row-between re-w-full">
+				<div class="re-f-row-between re-w-full">
 					<label class="re-mr-5">长</label>
 					<el-input
 						v-model="form.volumeLength"
