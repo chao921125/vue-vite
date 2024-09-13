@@ -1,7 +1,7 @@
-import Fetch from "@/plugins/axios/fetch";
+import Fetch from "@/plugins/http/fetch";
 
 // 获取图像
-export const getImg = (data: { width: number; height: number }) => {
+export const getImg = (data) => {
 	const w = data.width || 200;
 	const h = data.height || 200;
 	return Fetch.request(`https://picsum.photos/${w}/${h}`, {}, { method: "GET" });

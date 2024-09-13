@@ -1,19 +1,4 @@
-<template>
-	<el-row>
-		<el-col :span="12">
-			<div
-				id="echartsAmount"
-				style="height: 300px"></div>
-		</el-col>
-		<el-col :span="12">
-			<div
-				id="echartsAmount1"
-				style="height: 300px"></div>
-		</el-col>
-	</el-row>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import Echarts from "@/plugins/echarts";
 
 	import * as echarts from "echarts";
@@ -65,5 +50,20 @@
 		initData();
 	});
 </script>
+
+<template>
+	<el-row>
+		<el-col :span="12">
+			<div
+				id="echartsAmount"
+				style="height: 300px"></div>
+		</el-col>
+		<el-col :span="12">
+			<div
+				id="echartsAmount1"
+				style="height: 300px"></div>
+		</el-col>
+	</el-row>
+</template>
 
 <style scoped lang="scss"></style>

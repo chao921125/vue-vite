@@ -1,83 +1,4 @@
-<template>
-	<el-form
-		ref="formWifiRef"
-		:model="formWifi"
-		label-width="120px"
-		status-icon>
-		<el-form-item
-			:label="`卡片方向(${formWifi.direction ? '横' : '竖'})`"
-			prop="direction">
-			<el-radio-group
-				v-model="formWifi.direction"
-				@change="onChangeSettings">
-				<el-radio
-					v-for="item in directionOptions"
-					:key="item.value"
-					:label="item.value"
-					>{{ item.label }}</el-radio
-				>
-			</el-radio-group>
-		</el-form-item>
-		<el-form-item
-			label="隐藏 WIFI 名称"
-			prop="hiddenSSID">
-			<el-radio-group
-				v-model="formWifi.hiddenSSID"
-				@change="onChangeSettings">
-				<el-radio
-					v-for="item in hideSsidOptions"
-					:key="item.value"
-					:label="item.value"
-					>{{ item.label }}</el-radio
-				>
-			</el-radio-group>
-		</el-form-item>
-		<el-form-item
-			label="隐藏 WIFI 密码"
-			prop="hidePassword">
-			<el-radio-group
-				v-model="formWifi.hidePassword"
-				@change="onChangeSettings">
-				<el-radio
-					v-for="item in hidePasswordOptions"
-					:key="item.value"
-					:label="item.value"
-					>{{ item.label }}</el-radio
-				>
-			</el-radio-group>
-		</el-form-item>
-		<el-form-item
-			label="加密方式"
-			prop="encryptionMode">
-			<el-radio-group
-				v-model="formWifi.encryptionMode"
-				@change="onChangeSettings">
-				<el-radio
-					v-for="item in encryptionOptions"
-					:key="item.value"
-					:label="item.value"
-					>{{ item.label }}</el-radio
-				>
-			</el-radio-group>
-		</el-form-item>
-		<el-form-item
-			label="EAP 加密方式"
-			prop="eapMethod">
-			<el-radio-group
-				v-model="formWifi.eapMethod"
-				@change="onChangeSettings">
-				<el-radio
-					v-for="item in eapOptions"
-					:key="item.value"
-					:label="item.value"
-					>{{ item.label }}</el-radio
-				>
-			</el-radio-group>
-		</el-form-item>
-	</el-form>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import type { FormInstance } from "element-plus";
 
 	const props = defineProps({
@@ -177,6 +98,85 @@
 		},
 	);
 </script>
+
+<template>
+	<el-form
+		ref="formWifiRef"
+		:model="formWifi"
+		label-width="120px"
+		status-icon>
+		<el-form-item
+			:label="`卡片方向(${formWifi.direction ? '横' : '竖'})`"
+			prop="direction">
+			<el-radio-group
+				v-model="formWifi.direction"
+				@change="onChangeSettings">
+				<el-radio
+					v-for="item in directionOptions"
+					:key="item.value"
+					:label="item.value"
+					>{{ item.label }}</el-radio
+				>
+			</el-radio-group>
+		</el-form-item>
+		<el-form-item
+			label="隐藏 WIFI 名称"
+			prop="hiddenSSID">
+			<el-radio-group
+				v-model="formWifi.hiddenSSID"
+				@change="onChangeSettings">
+				<el-radio
+					v-for="item in hideSsidOptions"
+					:key="item.value"
+					:label="item.value"
+					>{{ item.label }}</el-radio
+				>
+			</el-radio-group>
+		</el-form-item>
+		<el-form-item
+			label="隐藏 WIFI 密码"
+			prop="hidePassword">
+			<el-radio-group
+				v-model="formWifi.hidePassword"
+				@change="onChangeSettings">
+				<el-radio
+					v-for="item in hidePasswordOptions"
+					:key="item.value"
+					:label="item.value"
+					>{{ item.label }}</el-radio
+				>
+			</el-radio-group>
+		</el-form-item>
+		<el-form-item
+			label="加密方式"
+			prop="encryptionMode">
+			<el-radio-group
+				v-model="formWifi.encryptionMode"
+				@change="onChangeSettings">
+				<el-radio
+					v-for="item in encryptionOptions"
+					:key="item.value"
+					:label="item.value"
+					>{{ item.label }}</el-radio
+				>
+			</el-radio-group>
+		</el-form-item>
+		<el-form-item
+			label="EAP 加密方式"
+			prop="eapMethod">
+			<el-radio-group
+				v-model="formWifi.eapMethod"
+				@change="onChangeSettings">
+				<el-radio
+					v-for="item in eapOptions"
+					:key="item.value"
+					:label="item.value"
+					>{{ item.label }}</el-radio
+				>
+			</el-radio-group>
+		</el-form-item>
+	</el-form>
+</template>
 
 <style scoped lang="scss">
 	@use "./Wifi.scss";

@@ -1,3 +1,5 @@
+<script setup lang="ts"></script>
+
 <template>
 	<el-row>
 		<el-col :span="24">
@@ -5,8 +7,6 @@
 		</el-col>
 	</el-row>
 </template>
-
-<script lang="ts" setup name=""></script>
 
 <style scoped lang="scss">
 	.ani-tr {

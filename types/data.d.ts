@@ -54,7 +54,7 @@ declare interface IMenu extends IBase {
 	roles?: Array<string>;
 	icon?: string;
 	children?: Array<IMenu>;
-	parent?: any;
+	parent?: never;
 	sort?: number;
 }
 // 角色

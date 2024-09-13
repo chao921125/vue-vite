@@ -1,49 +1,4 @@
-<template>
-	<!--	<el-row class="tags-space">-->
-	<!--		<el-col :span="24"></el-col>-->
-	<!--	</el-row>-->
-	<div class="re-flex-row-between tags-content">
-		<el-scrollbar class="tags-list">
-			<div class="re-flex-row">
-				<el-tag
-					:disable-transitions="false"
-					class="re-cursor-pointer re-mr-10"
-					@click="changeRouter('/home')"
-					:type="tabValue === '/home' ? 'primary' : 'info'">
-					{{ $t("message.menu.home") }}
-				</el-tag>
-				<el-tag
-					v-for="(item, index) in tabs"
-					:key="index"
-					:closable="true"
-					:disable-transitions="false"
-					:type="tabValue === item.name ? 'primary' : 'info'"
-					@close="removeTab(item.name)"
-					@click="changeRouter(item.name)"
-					class="re-cursor-pointer re-mr-10">
-					{{ $t(item.label) }}
-				</el-tag>
-			</div>
-		</el-scrollbar>
-		<el-dropdown
-			@command="clickChange"
-			class="tags-option">
-			<el-button
-				type="primary"
-				size="small"
-				>更多</el-button
-			>
-			<template #dropdown>
-				<el-dropdown-menu>
-					<el-dropdown-item command="0">关闭其他标签</el-dropdown-item>
-					<el-dropdown-item command="1">关闭所有标签</el-dropdown-item>
-				</el-dropdown-menu>
-			</template>
-		</el-dropdown>
-	</div>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import Storage from "@/plugins/utils/storage";
 	import Constants from "@/plugins/constants";
 	import RouterConfig from "@/config/routerConfig";
@@ -51,7 +6,7 @@
 
 	const router = useRouter();
 	const route = useRoute();
-	let tabs = ref<any[]>([]);
+	let tabs = ref<any>([]);
 	const tabValue = ref<string>("/home");
 	const addTab = (routeCurrent: any) => {
 		if (routeCurrent.meta.isHide) {
@@ -138,6 +93,66 @@
 	});
 </script>
 
+<template>
+	<div class="re-f-row-between tags-content">
+		<el-scrollbar class="tags-list">
+			<div class="re-f-row">
+				<el-tag
+					:disable-transitions="false"
+					class="re-cursor-pointer re-mr-10"
+					@click="changeRouter('/home')"
+					:type="tabValue === '/home' ? 'primary' : 'info'">
+					{{ $t("message.menu.home") }}
+				</el-tag>
+				<el-tag
+					v-for="(item, index) in tabs"
+					:key="index"
+					:closable="true"
+					:disable-transitions="false"
+					:type="tabValue === item.name ? 'primary' : 'info'"
+					@close="removeTab(item.name)"
+					@click="changeRouter(item.name)"
+					class="re-cursor-pointer re-mr-10">
+					{{ $t(item.label) }}
+				</el-tag>
+			</div>
+		</el-scrollbar>
+		<el-dropdown
+			@command="clickChange"
+			class="tags-option">
+			<el-button
+				type="primary"
+				size="small">
+				更多
+			</el-button>
+			<template #dropdown>
+				<el-dropdown-menu>
+					<el-dropdown-item command="0">关闭其他标签</el-dropdown-item>
+					<el-dropdown-item command="1">关闭所有标签</el-dropdown-item>
+				</el-dropdown-menu>
+			</template>
+		</el-dropdown>
+	</div>
+</template>
+
 <style scoped lang="scss">
-	@use "./index.scss";
+	.tags-space {
+		width: 100%;
+		height: 25px;
+	}
+	.tags-content {
+		background-color: var(--el-bg-color);
+		box-sizing: border-box;
+		//position: fixed;
+		//z-index: 99999;
+		//top: 60px;
+		padding: 5px 20px;
+		//background-color: #fff;
+		.tags-list {
+			width: calc(100% - 70px);
+		}
+		.tags-option {
+			width: 50px;
+		}
+	}
 </style>

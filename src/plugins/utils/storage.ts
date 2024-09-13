@@ -1,6 +1,6 @@
-let storage: any = {};
+const storage: any = {};
 
-storage.setStorage = (key: string = "default", value: any = null) => {
+storage.setStorage = (key = "default", value = null) => {
 	if (!value) return false;
 	if (typeof value === "string") {
 		window.localStorage.setItem(key, value);
@@ -11,7 +11,7 @@ storage.setStorage = (key: string = "default", value: any = null) => {
 	}
 };
 
-storage.getStorage = (key: string = "default") => {
+storage.getStorage = (key = "default") => {
 	const item = window.localStorage.getItem(key) || window.sessionStorage.getItem(key);
 	if (!item) return null;
 	if (/^[{\\[].*[}\]]$/g.test(item)) {
@@ -21,7 +21,7 @@ storage.getStorage = (key: string = "default") => {
 	}
 };
 
-storage.removeStorage = (key: string = "default") => {
+storage.removeStorage = (key = "default") => {
 	window.localStorage.removeItem(key);
 	window.sessionStorage.removeItem(key);
 };
@@ -31,7 +31,7 @@ storage.clearStorage = () => {
 	window.sessionStorage.clear();
 };
 
-storage.setLocalStorage = (key: string = "default", value: any = null) => {
+storage.setLocalStorage = (key = "default", value = null) => {
 	if (!value) return false;
 	if (typeof value === "string") {
 		window.localStorage.setItem(key, value);
@@ -40,7 +40,7 @@ storage.setLocalStorage = (key: string = "default", value: any = null) => {
 	}
 };
 
-storage.getLocalStorage = (key: string = "default") => {
+storage.getLocalStorage = (key = "default") => {
 	const item = window.localStorage.getItem(key);
 	if (!item) return null;
 	if (/^[{\\[].*[}\]]$/g.test(item)) {
@@ -50,7 +50,7 @@ storage.getLocalStorage = (key: string = "default") => {
 	}
 };
 
-storage.removeLocalStorage = (key: string = "default") => {
+storage.removeLocalStorage = (key = "default") => {
 	window.localStorage.removeItem(key);
 };
 
@@ -63,7 +63,7 @@ storage.getLocalMaxSpace = () => {
 		console.log("当前浏览器不支持localStorage!");
 	}
 	let test = "0123456789";
-	let add = function (num) {
+	const add = function (num) {
 		num += num;
 		if (num.length === 10240) {
 			test = num;
@@ -73,14 +73,14 @@ storage.getLocalMaxSpace = () => {
 	};
 	add(test);
 	let sum = test;
-	let show = setInterval(function () {
+	const show = setInterval(function () {
 		sum += test;
 		try {
 			window.localStorage.removeItem("test");
 			window.localStorage.setItem("test", sum);
 			console.log(sum.length / 1024 + "KB");
 		} catch (e) {
-			console.log(sum.length / 1024 + "KB超出最大限制");
+			console.log(sum.length / 1024 + "KB超出最大限制", e);
 			clearInterval(show);
 		}
 	}, 0.1);
@@ -91,17 +91,17 @@ storage.getLocalUsedSpace = () => {
 		console.log("浏览器不支持localStorage");
 		return false;
 	}
-	let size: number = 0;
-	for (let item in window.localStorage) {
-		if (window.localStorage.hasOwnProperty(item)) {
-			size += window.localStorage!.getItem(item)!.length;
+	let size = 0;
+	for (const item in window.localStorage) {
+		if (Object.prototype.hasOwnProperty.call(window.localStorage, item)) {
+			size += window.localStorage.getItem(item)!.length;
 		}
 	}
 	console.log("当前localStorage使用容量为" + (size / 1024).toFixed(2) + "KB");
 	return (size / 1024).toFixed(2);
 };
 
-storage.setSessionStorage = (key: string = "default", value: any = null) => {
+storage.setSessionStorage = (key = "default", value = null) => {
 	if (!value) return false;
 	if (typeof value === "string") {
 		window.sessionStorage.setItem(key, value);
@@ -110,7 +110,7 @@ storage.setSessionStorage = (key: string = "default", value: any = null) => {
 	}
 };
 
-storage.getSessionStorage = (key: string = "default") => {
+storage.getSessionStorage = (key = "default") => {
 	const item = window.sessionStorage.getItem(key);
 	if (!item) return null;
 	if (/^[{\\[].*[}\]]$/g.test(item)) {
@@ -120,7 +120,7 @@ storage.getSessionStorage = (key: string = "default") => {
 	}
 };
 
-storage.removeSessionStorage = (key: string = "default") => {
+storage.removeSessionStorage = (key = "default") => {
 	window.sessionStorage.removeItem(key);
 };
 
@@ -133,7 +133,7 @@ storage.getSessionMaxSpace = () => {
 		console.log("当前浏览器不支持sessionStorage!");
 	}
 	let test = "0123456789";
-	let add = function (num) {
+	const add = function (num) {
 		num += num;
 		if (num.length === 10240) {
 			test = num;
@@ -143,14 +143,14 @@ storage.getSessionMaxSpace = () => {
 	};
 	add(test);
 	let sum = test;
-	let show = setInterval(function () {
+	const show = setInterval(function () {
 		sum += test;
 		try {
 			window.sessionStorage.removeItem("test");
 			window.sessionStorage.setItem("test", sum);
 			console.log(sum.length / 1024 + "KB");
 		} catch (e) {
-			console.log(sum.length / 1024 + "KB超出最大限制");
+			console.log(sum.length / 1024 + "KB超出最大限制", e);
 			clearInterval(show);
 		}
 	}, 0.1);
@@ -161,10 +161,10 @@ storage.getSessionUsedSpace = () => {
 		console.log("当前浏览器不支持sessionStorage");
 		return false;
 	}
-	let size: number = 0;
-	for (let item in window.sessionStorage) {
-		if (window.sessionStorage.hasOwnProperty(item)) {
-			size += window.sessionStorage!.getItem(item)!.length;
+	let size = 0;
+	for (const item in window.sessionStorage) {
+		if (Object.prototype.hasOwnProperty.call(window.sessionStorage, item)) {
+			size += window.sessionStorage.getItem(item)!.length;
 		}
 	}
 	console.log("当前sessionStorage使用容量为" + (size / 1024).toFixed(2) + "KB");

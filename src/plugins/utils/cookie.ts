@@ -1,12 +1,12 @@
 import Cookies from "js-cookie";
 
-let cookie: any = {};
+const cookie: any = {};
 
-const cookieSetting: any = {
+const cookieSetting = {
 	expires: 7,
 };
 
-export const setCookieCustomize = (cname: string, cvalue: any, exdays?: number) => {
+export const setCookieCustomize = (cname, cvalue, exdays) => {
 	if (!cname) {
 		cname = "";
 	}
@@ -16,20 +16,20 @@ export const setCookieCustomize = (cname: string, cvalue: any, exdays?: number) 
 	if (!exdays) {
 		exdays = 1;
 	}
-	let d = new Date();
+	const d = new Date();
 	d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
 	const expires = "expires=" + d.toUTCString();
 	document.cookie = cname + "=" + JSON.stringify(cvalue) + "; " + expires;
 };
 
-export const getCookieCustomize = (cname: string) => {
+export const getCookieCustomize = (cname) => {
 	if (!cname) {
 		return "";
 	}
-	let name = cname + "=";
-	let ca = document.cookie.split(";");
+	const name = cname + "=";
+	const ca = document.cookie.split(";");
 	for (let i = 0; i < ca.length; i++) {
-		let c = ca[i].trim();
+		const c = ca[i].trim();
 		if (c.indexOf(name) === 0) {
 			return c.substring(name.length, c.length);
 		}
@@ -37,7 +37,7 @@ export const getCookieCustomize = (cname: string) => {
 	return "";
 };
 
-cookie.setCookie = (key: string = "default", value: any = null, setting: any = {}) => {
+cookie.setCookie = (key = "default", value = null, setting = {}) => {
 	if (!value) return false;
 	Object.assign(cookieSetting, setting);
 	if (typeof value === "string") {
@@ -47,7 +47,7 @@ cookie.setCookie = (key: string = "default", value: any = null, setting: any = {
 	}
 };
 
-cookie.getCookie = (key: string = "default") => {
+cookie.getCookie = (key = "default") => {
 	const item = Cookies.get(key);
 	if (!item) return null;
 	if (/^[{\\[].*[}\]]$/g.test(item)) {
@@ -61,14 +61,14 @@ cookie.getCookieAll = () => {
 	return Cookies.get();
 };
 
-cookie.removeCookie = (key: string = "default") => {
+cookie.removeCookie = (key = "default") => {
 	Cookies.remove(key);
 };
 
 cookie.clearCookie = () => {
-	let keys = Cookies.get();
+	const keys = Cookies.get();
 	if (!keys || keys.toString().length === 0) return false;
-	for (let key in keys) {
+	for (const key in keys) {
 		Cookies.remove(key);
 	}
 };

@@ -1,8 +1,7 @@
-import type { Directive, DirectiveBinding } from "vue";
 // import { useIntersectionObserver } from "@vueuse/core";
 
-export const animate: Directive = {
-	mounted(el: HTMLElement, binding: DirectiveBinding) {
+export const animate = {
+	mounted(el, binding) {
 		// const { stop } = useIntersectionObserver(el, ([{ isIntersecting }], observerElement) => {
 		// 	if (isIntersecting) {
 		// 		el.classList.remove(options.animateOutClass);
@@ -12,7 +11,7 @@ export const animate: Directive = {
 		// });
 
 		el.classList.add("animate__animated");
-		let options = {
+		const options = {
 			animateInClass: (binding.value && binding.value.animateInClass) || "animate__fadeIn",
 			animateOutClass: (binding.value && binding.value.animateOutClass) || "animate__fadeOut",
 			repeat: (binding.value && binding.value.repeat) || false,
@@ -21,7 +20,7 @@ export const animate: Directive = {
 		let isEntered = false;
 
 		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry: IntersectionObserverEntry) => {
+			entries.forEach((entry) => {
 				// const viewHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 				// const elTop = el.offsetTop;
 				// const scrollTop = document.documentElement.scrollTop;

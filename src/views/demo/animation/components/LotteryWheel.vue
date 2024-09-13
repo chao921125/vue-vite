@@ -1,12 +1,4 @@
-<template>
-	<canvas
-		id="canvas"
-		width="300"
-		height="300"></canvas>
-	<button id="btn">click</button>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import { onMounted } from "vue";
 
 	const drawCanvas = () => {
@@ -76,5 +68,13 @@
 		drawCanvas();
 	});
 </script>
+
+<template>
+	<canvas
+		id="canvas"
+		width="300"
+		height="300"></canvas>
+	<button id="btn">click</button>
+</template>
 
 <style scoped lang="scss"></style>

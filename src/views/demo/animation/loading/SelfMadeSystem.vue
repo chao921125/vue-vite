@@ -1,3 +1,7 @@
+<script setup lang="ts">
+	// https://uiverse.io/
+</script>
+
 <template>
 	<div class="loader">
 		<svg
@@ -125,10 +129,6 @@
 		</svg>
 	</div>
 </template>
-
-<script lang="ts" setup name="">
-	// https://uiverse.io/
-</script>
 
 <style scoped lang="scss">
 	.absolute {

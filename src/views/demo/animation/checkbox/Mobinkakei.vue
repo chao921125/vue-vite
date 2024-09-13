@@ -1,3 +1,7 @@
+<script setup lang="ts">
+	// https://uiverse.io/
+</script>
+
 <template>
 	<div>
 		<input
@@ -29,10 +33,6 @@
 		</label>
 	</div>
 </template>
-
-<script lang="ts" setup name="">
-	// https://uiverse.io/
-</script>
 
 <style scoped lang="scss">
 	.btn-lock {

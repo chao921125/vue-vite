@@ -1,3 +1,34 @@
+<script setup lang="ts">
+	import { shuffle } from "lodash-es";
+	import SelfMadeSystem from "./loading/SelfMadeSystem.vue";
+	import Adamgiebl from "./button/Adamgiebl.vue";
+	import Mobinkakei from "./checkbox/Mobinkakei.vue";
+	import Rishichawda from "./switch/Rishichawda.vue";
+
+	const isShowText = ref(false);
+
+	const transition = ref(true);
+	const changeTransition = () => {
+		transition.value = !transition.value;
+	};
+	const initItems = () => {
+		return [1, 2, 3, 4];
+	};
+	const items = ref(initItems());
+	const addTransition = () => {
+		const l = Math.round(Math.random() * items.value.length);
+		items.value.splice(l, 0, Math.round(Math.random() * items.value.length));
+	};
+	const shuffleTransition = () => {
+		items.value = shuffle(items.value);
+	};
+	const resetTransition = () => {
+		items.value = initItems();
+	};
+
+	const collapseValue = ref("1");
+</script>
+
 <template>
 	<el-row>
 		<el-col :span="24">
@@ -38,9 +69,9 @@
 		<el-col
 			:span="24"
 			style="font-size: 60px"
-			v-animate="{ animateInClass: 'animate__backInLeft' }"
-			>进入可视化，有过渡效果</el-col
-		>
+			v-animate="{ animateInClass: 'animate__backInLeft' }">
+			进入可视化，有过渡效果
+		</el-col>
 		<el-col
 			:span="24"
 			class="re-mt-20">
@@ -101,37 +132,6 @@
 		</el-col>
 	</el-row>
 </template>
-
-<script lang="ts" setup name="">
-	import { shuffle } from "lodash-es";
-	import SelfMadeSystem from "./loading/SelfMadeSystem.vue";
-	import Adamgiebl from "./button/Adamgiebl.vue";
-	import Mobinkakei from "./checkbox/Mobinkakei.vue";
-	import Rishichawda from "./switch/Rishichawda.vue";
-
-	const isShowText = ref(false);
-
-	const transition = ref(true);
-	const changeTransition = () => {
-		transition.value = !transition.value;
-	};
-	const initItems = () => {
-		return [1, 2, 3, 4];
-	};
-	const items = ref(initItems());
-	const addTransition = () => {
-		const l = Math.round(Math.random() * items.value.length);
-		items.value.splice(l, 0, Math.round(Math.random() * items.value.length));
-	};
-	const shuffleTransition = () => {
-		items.value = shuffle(items.value);
-	};
-	const resetTransition = () => {
-		items.value = initItems();
-	};
-
-	const collapseValue = ref("1");
-</script>
 
 <style scoped lang="scss">
 	.container {

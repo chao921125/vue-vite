@@ -1,3 +1,5 @@
+<script setup lang="ts"></script>
+
 <template>
 	<svg
 		width="100%"
@@ -42,7 +44,5 @@
 		</text>
 	</svg>
 </template>
-
-<script lang="ts" setup name=""></script>
 
 <style scoped lang="scss"></style>

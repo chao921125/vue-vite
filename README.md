@@ -289,9 +289,9 @@
 | [vue2 vue-grid-layout](https://www.npmjs.com/package/vue-grid-layout)         |
 | [vue2 vue-drag-resize](https://github.com/kirillmurashov/vue-drag-resize)     |
 
-| 全屏                                                     |
-|--------------------------------------------------------|
-| [screenfull](https://www.npmjs.com/package/screenfull) |
+| 全屏                                                       |
+|----------------------------------------------------------|
+| [screenfull](https://github.com/sindresorhus/screenfull) |
 
 | html2canvas，页面截图                                         |
 |----------------------------------------------------------|
@@ -406,10 +406,11 @@
 | [lodash](https://www.npmjs.com/package/lodash) |
 | [lowdb](https://www.npmjs.com/package/lowdb)   |
 
-| 国际化                                                              |
-|------------------------------------------------------------------|
-| [i18n-next 支持VUE/React/Server......](https://github.com/i18next) |
-| [vue-i18n](https://www.npmjs.com/package/vue-i18n)               |
+| 国际化                                                                                          |
+|----------------------------------------------------------------------------------------------|
+| [i18n-next 不限制环境](https://github.com/i18next) [官网](https://www.i18next.com/)                 |
+| [vue-i18n](https://github.com/kazupon/vue-i18n) [官网](https://kazupon.github.io/vue-i18n/zh/) |
+| [vue-i18n + @intlify/unplugin-vue-i18n](https://github.com/intlify/bundle-tools)             |
 
 | 复制粘贴                                                 |
 |------------------------------------------------------|
@@ -588,11 +589,13 @@
 | [cz-conventional-changelog](https://www.npmjs.com/package/cz-conventional-changelog) |
 | [cz-customizable](https://www.npmjs.com/package/cz-customizable)                     |
 
-| mock API -D                                                                              |
-|------------------------------------------------------------------------------------------|
-| [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock)                           |
-| [vite-plugin-mock-dev-server](https://github.com/pengzhanbo/vite-plugin-mock-dev-server) |
-| [vite-plugin-mock-server](https://github.com/enjoycoding/vite-plugin-mock-server)        |
+| mock API -D                                                                    |
+|--------------------------------------------------------------------------------|
+| [better-mock](https://github.com/lavyun/better-mock)                           |
+| [axios-mock-adapter 只拦截 axios](https://github.com/ctimmerm/axios-mock-adapter) |
+| [node-mocks-http](https://github.com/eugef/node-mocks-http)                    |
+| [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock)                 |
+| [mockjs 安全 bug 未解决请勿使用](https://github.com/nuysoft/Mock)                       |
 
 | 文档                                       |
 |------------------------------------------|

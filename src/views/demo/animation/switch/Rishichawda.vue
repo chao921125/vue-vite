@@ -1,3 +1,7 @@
+<script setup lang="ts">
+	// https://uiverse.io/
+</script>
+
 <template>
 	<div>
 		<label id="theme-toggle-button">
@@ -172,10 +176,6 @@
 		</label>
 	</div>
 </template>
-
-<script lang="ts" setup name="">
-	// https://uiverse.io/
-</script>
 
 <style scoped lang="scss">
 	/* The switch - the box around the slider */

@@ -1,52 +1,15 @@
-<template>
-	<div
-		v-if="isColl"
-		class="logo-full re-flex-row-center">
-		<el-link
-			:underline="false"
-			@click="toHome">
-			<i class="iconfont icon-shouye"></i>
-			<span class="re-ml-10">CC ADMIN</span>
-		</el-link>
-	</div>
-	<div
-		v-else
-		class="animate__animated animate__zoomIn logo-only re-flex-row-center">
-		<el-link
-			:underline="false"
-			@click="toHome">
-			<i class="iconfont icon-shouye"></i>
-		</el-link>
-	</div>
-	<el-scrollbar>
-		<el-menu
-			class="menu-box"
-			:default-active="changeMenuKey"
-			mode="vertical"
-			:collapse="!isColl"
-			:unique-opened="true"
-			@select="toRouter"
-			@open="openMenu"
-			@close="closeMenu">
-			<SubMenu
-				v-if="state.menuList && state.menuList.length"
-				:menus="state.menuList"></SubMenu>
-		</el-menu>
-	</el-scrollbar>
-</template>
-
-<script lang="ts" setup name="">
-	import SubMenu from "./SubMenu.vue";
+<script setup lang="ts">
+	import MenuSub from "./MenuSub.vue";
 	import Store, { getStoreRefs, appStore } from "@/store";
 
 	// 折叠菜单
-	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
+	const { themeConfig } = <any>getStoreRefs(appStore.useThemeConfig);
 	const isColl = computed(() => {
 		let { isCollapse } = themeConfig.value;
 		return !isCollapse;
 	});
 	// 渲染菜单
-	const { menuList } = getStoreRefs(appStore.useRouterList);
+	const { menuList } = <any>getStoreRefs(appStore.useRouterList);
 	const state: any = reactive({ menuList: Array<any> });
 	const setMenu = () => {
 		(state.menuList as any) = menuList.value || [];
@@ -106,5 +69,42 @@
 		setMenu();
 	});
 </script>
+
+<template>
+	<div
+		v-if="isColl"
+		class="logo-full re-f-row-center">
+		<el-link
+			:underline="false"
+			@click="toHome">
+			<i class="iconfont icon-shouye"></i>
+			<span class="re-ml-10">CC ADMIN</span>
+		</el-link>
+	</div>
+	<div
+		v-else
+		class="animate__animated animate__zoomIn logo-only re-f-row-center">
+		<el-link
+			:underline="false"
+			@click="toHome">
+			<i class="iconfont icon-shouye"></i>
+		</el-link>
+	</div>
+	<el-scrollbar>
+		<el-menu
+			class="menu-box"
+			:default-active="changeMenuKey"
+			mode="vertical"
+			:collapse="!isColl"
+			:unique-opened="true"
+			@select="toRouter"
+			@open="openMenu"
+			@close="closeMenu">
+			<MenuSub
+				v-if="state.menuList && state.menuList.length"
+				:menus="state.menuList"></MenuSub>
+		</el-menu>
+	</el-scrollbar>
+</template>
 
 <style scoped lang="scss"></style>

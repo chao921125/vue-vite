@@ -1,4 +1,3 @@
-import type { Directive } from "vue";
 /**
  * 指令的钩子会传递以下几种参数：
  *
@@ -16,7 +15,7 @@ import type { Directive } from "vue";
  *
  * prevNode：之前的渲染中代表指令所绑定元素的 VNode。仅在 beforeUpdate 和 updated 钩子中可用。
  */
-export const myDirective: Directive = {
+export const myDirective = {
 	// 在绑定元素的 attribute 前
 	// 或事件监听器应用前调用
 	created(el, binding, vnode, prevVnode) {

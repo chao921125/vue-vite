@@ -1,262 +1,228 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-		<meta
-			http-equiv="X-UA-Compatible"
-			content="IE=edge" />
-		<meta
-			name="keywords"
-			content="vue，vue3，CompositionAPI，typescript，element plus，element，plus，admin，wonderful，wonderful-next，vue-next-admin，vite，vite-admin，快速，高效，后台模板，后台系统，管理系统" />
-		<meta
-			name="description"
-			content="vue，vue3，CompositionAPI，typescript，element plus，element，plus，admin，wonderful，wonderful-next，vue-next-admin，vite，vite-admin，快速，高效，后台模板，后台系统，管理系统" />
-		<meta
-			http-equiv="Content-Security-Policy"
-			content="default-src *; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src * 'self' 'unsafe-inline' https: http:*; font-src * 'self' data: https: http: *" />
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href="/favicon.ico" />
-		<title><%- title %></title>
-		<style>
-			body {
-				background: #e8e5ea;
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="keywords" content="vue，vue3，CompositionAPI，typescript，element plus，element，plus，admin，wonderful，wonderful-next，vue-next-admin，vite，vite-admin，快速，高效，后台模板，后台系统，管理系统" />
+	<meta name="description" content="vue，vue3，CompositionAPI，typescript，element plus，element，plus，admin，wonderful，wonderful-next，vue-next-admin，vite，vite-admin，快速，高效，后台模板，后台系统，管理系统" />
+	<meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src * 'self' 'unsafe-inline' https: http:*; font-src * 'self' data: https: http: *" />
+
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: light)" />
+	<meta name="theme-color" content="#373737" media="(prefers-color-scheme: dark)" />
+
+	<link rel="shortcut icon" type="image/svg+xml" href="/favicon.ico" />
+
+	<link rel="apple-touch-icon" type="image/svg+xml" href="/pwa-640.png" />
+	<title>
+		<%- title %>
+	</title>
+	<style>
+		body {
+			background: #e8e5ea;
+		}
+
+		.wrap {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 100px;
+			height: 200px;
+			margin-top: -100px;
+			margin-left: -50px;
+		}
+
+		.drop {
+			position: absolute;
+			left: 50%;
+			width: 40px;
+			height: 40px;
+			margin-left: -20px;
+			animation: drop 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s infinite;
+		}
+
+		.drop circle {
+			fill: #2a96ed;
+		}
+
+		.drop-outer {
+			position: absolute;
+			box-sizing: border-box;
+
+			/* border: 1px solid #333; */
+			width: 100px;
+			height: 200px;
+			overflow: hidden;
+			background-clip: padding-box;
+			border-bottom-right-radius: 50px;
+			border-bottom-left-radius: 50px;
+			mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+			transform: translate3d(0, 0, 0);
+			backface-visibility: hidden;
+		}
+
+		.ripple {
+			position: absolute;
+			top: 68px;
+			left: -70px;
+			box-sizing: border-box;
+			width: 240px;
+			height: 240px;
+			transform: rotateX(65deg);
+			perspective: 100px;
+		}
+
+		.ripple .ripple-svg {
+			position: absolute;
+			width: 240px;
+			height: 240px;
+			opacity: 0;
+		}
+
+		.ripple .ripple-svg circle {
+			fill: none;
+			stroke: #2a96ed;
+			stroke-width: 10px;
+			stroke-alignment: inner;
+		}
+
+		.ripple-1 {
+			animation: ripple 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s infinite;
+		}
+
+		.ripple-1 .ripple-svg {
+			animation: fade-in-out 2s linear 0s infinite;
+		}
+
+		.ripple-1 .ripple-svg circle {
+			animation: border 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s infinite;
+		}
+
+		.ripple-2 {
+			animation: ripple 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s infinite;
+		}
+
+		.ripple-2 .ripple-svg {
+			animation: fade-in-out 2s linear 0.2s infinite;
+		}
+
+		.ripple-2 .ripple-svg circle {
+			animation: border 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s infinite;
+		}
+
+		.ripple-3 {
+			animation: ripple 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s infinite;
+		}
+
+		.ripple-3 .ripple-svg {
+			animation: fade-in-out 2s linear 0.35s infinite;
+		}
+
+		.ripple-3 .ripple-svg circle {
+			animation: border 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s infinite;
+		}
+
+		@keyframes drop {
+			0% {
+				transform: scale3d(0.01, 0.01, 0.01) translateY(0);
 			}
 
-			.wrap {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				width: 100px;
-				height: 200px;
-				margin-top: -100px;
-				margin-left: -50px;
+			10% {
+				transform: scale3d(1, 1, 1);
 			}
 
-			.drop {
-				position: absolute;
-				left: 50%;
-				width: 40px;
-				height: 40px;
-				margin-left: -20px;
-				animation: drop 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s infinite;
+			44% {
+				transform: scale3d(1, 1, 1) translateY(200px);
 			}
 
-			.drop circle {
-				fill: #2a96ed;
+			100% {
+				transform: scale3d(1, 1, 1) translateY(200px);
 			}
+		}
 
-			.drop-outer {
-				position: absolute;
-				box-sizing: border-box;
-
-				/* border: 1px solid #333; */
-				width: 100px;
-				height: 200px;
-				overflow: hidden;
-				background-clip: padding-box;
-				border-bottom-right-radius: 50px;
-				border-bottom-left-radius: 50px;
-				mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
-				transform: translate3d(0, 0, 0);
-				backface-visibility: hidden;
-			}
-
-			.ripple {
-				position: absolute;
-				top: 68px;
-				left: -70px;
-				box-sizing: border-box;
-				width: 240px;
-				height: 240px;
-				transform: rotateX(65deg);
-				perspective: 100px;
-			}
-
-			.ripple .ripple-svg {
-				position: absolute;
-				width: 240px;
-				height: 240px;
+		@keyframes fade-in-out {
+			0% {
 				opacity: 0;
 			}
 
-			.ripple .ripple-svg circle {
-				fill: none;
-				stroke: #2a96ed;
-				stroke-width: 10px;
-				stroke-alignment: inner;
+			42% {
+				opacity: 0;
 			}
 
-			.ripple-1 {
-				animation: ripple 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s infinite;
+			52% {
+				opacity: 1;
 			}
 
-			.ripple-1 .ripple-svg {
-				animation: fade-in-out 2s linear 0s infinite;
+			65% {
+				opacity: 1;
 			}
 
-			.ripple-1 .ripple-svg circle {
-				animation: border 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s infinite;
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@keyframes ripple {
+			0% {
+				transform: rotateX(65deg) scale3d(0.2, 0.2, 0.2);
 			}
 
-			.ripple-2 {
-				animation: ripple 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s infinite;
+			42% {
+				transform: rotateX(65deg) scale3d(0.2, 0.2, 0.2);
 			}
 
-			.ripple-2 .ripple-svg {
-				animation: fade-in-out 2s linear 0.2s infinite;
+			100% {
+				transform: rotateX(65deg) scale3d(0.9, 0.9, 0.9);
+			}
+		}
+
+		@keyframes border {
+			0% {
+				stroke-width: 6px;
 			}
 
-			.ripple-2 .ripple-svg circle {
-				animation: border 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s infinite;
+			42% {
+				stroke-width: 6px;
 			}
 
-			.ripple-3 {
-				animation: ripple 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s infinite;
+			100% {
+				stroke-width: 2px;
 			}
+		}
+	</style>
+</head>
 
-			.ripple-3 .ripple-svg {
-				animation: fade-in-out 2s linear 0.35s infinite;
-			}
-
-			.ripple-3 .ripple-svg circle {
-				animation: border 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s infinite;
-			}
-
-			@keyframes drop {
-				0% {
-					transform: scale3d(0.01, 0.01, 0.01) translateY(0);
-				}
-
-				10% {
-					transform: scale3d(1, 1, 1);
-				}
-
-				44% {
-					transform: scale3d(1, 1, 1) translateY(200px);
-				}
-
-				100% {
-					transform: scale3d(1, 1, 1) translateY(200px);
-				}
-			}
-
-			@keyframes fade-in-out {
-				0% {
-					opacity: 0;
-				}
-
-				42% {
-					opacity: 0;
-				}
-
-				52% {
-					opacity: 1;
-				}
-
-				65% {
-					opacity: 1;
-				}
-
-				100% {
-					opacity: 0;
-				}
-			}
-
-			@keyframes ripple {
-				0% {
-					transform: rotateX(65deg) scale3d(0.2, 0.2, 0.2);
-				}
-
-				42% {
-					transform: rotateX(65deg) scale3d(0.2, 0.2, 0.2);
-				}
-
-				100% {
-					transform: rotateX(65deg) scale3d(0.9, 0.9, 0.9);
-				}
-			}
-
-			@keyframes border {
-				0% {
-					stroke-width: 6px;
-				}
-
-				42% {
-					stroke-width: 6px;
-				}
-
-				100% {
-					stroke-width: 2px;
-				}
-			}
-		</style>
-	</head>
-
-	<body>
-		<noscript>You need to enable JavaScript to run this app.</noscript>
-		<div id="app">
-			<div class="wrap">
-				<div class="drop-outer">
-					<svg
-						class="drop"
-						viewBox="0 0 40 40"
-						version="1.1"
-						xmlns="http://www.w3.org/2000/svg">
-						<circle
-							cx="20"
-							cy="20"
-							r="20" />
-					</svg>
-				</div>
-				<div class="ripple ripple-1">
-					<svg
-						class="ripple-svg"
-						viewBox="0 0 60 60"
-						version="1.1"
-						xmlns="http://www.w3.org/2000/svg">
-						<circle
-							cx="30"
-							cy="30"
-							r="24" />
-					</svg>
-				</div>
-				<div class="ripple ripple-2">
-					<svg
-						class="ripple-svg"
-						viewBox="0 0 60 60"
-						version="1.1"
-						xmlns="http://www.w3.org/2000/svg">
-						<circle
-							cx="30"
-							cy="30"
-							r="24" />
-					</svg>
-				</div>
-				<div class="ripple ripple-3">
-					<svg
-						class="ripple-svg"
-						viewBox="0 0 60 60"
-						version="1.1"
-						xmlns="http://www.w3.org/2000/svg">
-						<circle
-							cx="30"
-							cy="30"
-							r="24" />
-					</svg>
-				</div>
-			</div>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="app">
+	<div class="wrap">
+		<div class="drop-outer">
+			<svg class="drop" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="20" cy="20" r="20" />
+			</svg>
 		</div>
-	</body>
-	<!-- 引入文件 -->
-	<script
-		type="module"
-		src="./src/main.ts"></script>
-	<script
-		type="module"
-		src="./public/inject.js"></script>
+		<div class="ripple ripple-1">
+			<svg class="ripple-svg" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="30" cy="30" r="24" />
+			</svg>
+		</div>
+		<div class="ripple ripple-2">
+			<svg class="ripple-svg" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="30" cy="30" r="24" />
+			</svg>
+		</div>
+		<div class="ripple ripple-3">
+			<svg class="ripple-svg" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="30" cy="30" r="24" />
+			</svg>
+		</div>
+	</div>
+</div>
+</body>
+<!-- 引入文件 -->
+<script type="module" src="./src/main.ts"></script>
+<script type="module" src="./public/inject.js"></script>
 </html>

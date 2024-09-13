@@ -1,3 +1,93 @@
+<script setup lang="ts">
+	import { FormInstance } from "element-plus";
+	import AddEdit from "./components/AddEdit.vue";
+	import { replaceNullLine } from "@/plugins/utils/format";
+
+	const formSearchRef = ref<FormInstance>();
+	const formSearch: any = reactive({
+		name: "",
+	});
+	const resetForm = (formEl: FormInstance | undefined) => {
+		if (!formEl) return false;
+		formEl.resetFields();
+		getStockList();
+	};
+
+	const stockInfo = ref();
+	const dialogForm = ref();
+	const openEditStock = (item: any) => {
+		stockInfo.value = item;
+		dialogForm.value.openDialog();
+	};
+
+	const tableData = ref<any[]>([]);
+	const params: any = reactive({
+		pageCurrent: 1,
+		pageSize: 10,
+		pageTotal: 100,
+	});
+	const pageChangeSize = (val: number) => {
+		params.pageSize = val;
+		getStockList();
+	};
+	const pageChangeCurrent = (val: number) => {
+		params.pageCurrent = val;
+		getStockList();
+	};
+	const initData = () => {
+		params.pageSize = 1;
+		params.pageTotal = 100;
+		getStockList();
+	};
+	const getStockList = () => {
+		tableData.value = [
+			{
+				id: 1,
+				name: "外丝接头",
+				type: "NPT螺纹",
+				criterion: "国标",
+				number: "DN1233",
+				material: "钢",
+				specification: "DN52'R33",
+				weight: 123,
+				weightUnit: "g",
+				price: 3.33,
+				priceUnit: "元",
+				volumeLength: 12,
+				volumeWight: 23,
+				volumeHeight: 33,
+				volumeUnit: "m³",
+				unit: "个",
+				total: 123,
+				isStock: 1,
+			},
+			{
+				id: 1,
+				name: "扳手",
+				type: "配件",
+				criterion: "欧标",
+				number: "DN1233",
+				material: "",
+				specification: "DN52'R33",
+				weight: 123,
+				weightUnit: "g",
+				price: 3.33,
+				priceUnit: "元",
+				volumeLength: 12,
+				volumeWight: 23,
+				volumeHeight: 33,
+				volumeUnit: "m³",
+				unit: "个",
+				total: 123,
+				isStock: 1,
+			},
+		];
+	};
+	onMounted(() => {
+		initData();
+	});
+</script>
+
 <template>
 	<el-form
 		ref="formSearchRef"
@@ -112,95 +202,5 @@
 		ref="dialogForm"
 		@result="getStockList"></AddEdit>
 </template>
-
-<script lang="ts" setup name="">
-	import { FormInstance } from "element-plus";
-	import AddEdit from "./components/AddEdit.vue";
-	import { replaceNullLine } from "@/plugins/utils/format";
-
-	const formSearchRef = ref<FormInstance>();
-	const formSearch: any = reactive({
-		name: "",
-	});
-	const resetForm = (formEl: FormInstance | undefined) => {
-		if (!formEl) return false;
-		formEl.resetFields();
-		getStockList();
-	};
-
-	const stockInfo = ref();
-	const dialogForm = ref();
-	const openEditStock = (item: any) => {
-		stockInfo.value = item;
-		dialogForm.value.openDialog();
-	};
-
-	const tableData = ref<any[]>([]);
-	const params: any = reactive({
-		pageCurrent: 1,
-		pageSize: 10,
-		pageTotal: 100,
-	});
-	const pageChangeSize = (val: number) => {
-		params.pageSize = val;
-		getStockList();
-	};
-	const pageChangeCurrent = (val: number) => {
-		params.pageCurrent = val;
-		getStockList();
-	};
-	const initData = () => {
-		params.pageSize = 1;
-		params.pageTotal = 100;
-		getStockList();
-	};
-	const getStockList = () => {
-		tableData.value = [
-			{
-				id: 1,
-				name: "外丝接头",
-				type: "NPT螺纹",
-				criterion: "国标",
-				number: "DN1233",
-				material: "钢",
-				specification: "DN52'R33",
-				weight: 123,
-				weightUnit: "g",
-				price: 3.33,
-				priceUnit: "元",
-				volumeLength: 12,
-				volumeWight: 23,
-				volumeHeight: 33,
-				volumeUnit: "m³",
-				unit: "个",
-				total: 123,
-				isStock: 1,
-			},
-			{
-				id: 1,
-				name: "扳手",
-				type: "配件",
-				criterion: "欧标",
-				number: "DN1233",
-				material: "",
-				specification: "DN52'R33",
-				weight: 123,
-				weightUnit: "g",
-				price: 3.33,
-				priceUnit: "元",
-				volumeLength: 12,
-				volumeWight: 23,
-				volumeHeight: 33,
-				volumeUnit: "m³",
-				unit: "个",
-				total: 123,
-				isStock: 1,
-			},
-		];
-	};
-	onMounted(() => {
-		initData();
-	});
-</script>
 
 <style scoped lang="scss"></style>

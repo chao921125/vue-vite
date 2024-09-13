@@ -1,99 +1,4 @@
-<template>
-	<el-form
-		ref="formSearchRef"
-		:model="formSearch"
-		status-icon
-		label-width=""
-		:inline="true">
-		<el-form-item
-			prop="name"
-			label="菜单">
-			<el-input
-				v-model="formSearch.name"
-				placeholder=""></el-input>
-		</el-form-item>
-		<el-form-item
-			prop=""
-			label="">
-			<el-button type="primary">查询</el-button>
-			<el-button @click="resetForm(formSearchRef)">重置</el-button>
-			<el-button
-				type="success"
-				@click="openAddMenu"
-				>窗口打开新增</el-button
-			>
-			<el-button
-				type="success"
-				@click="toAddMenu"
-				>页面打开新增</el-button
-			>
-		</el-form-item>
-	</el-form>
-	<el-table
-		:data="tableData"
-		v-loading="isLoadData"
-		style="width: 100%"
-		row-key="id">
-		<el-table-column
-			prop="name"
-			label="名称"
-			width="200">
-			<template #default="scope">
-				<span>{{ $t(scope.row.name) }}</span>
-			</template>
-		</el-table-column>
-		<!--		<el-table-column prop="title" label="标题" width="120" />-->
-		<el-table-column
-			prop="path"
-			label="URL" />
-		<el-table-column
-			prop="component"
-			label="组件" />
-		<el-table-column
-			prop="icon"
-			label="图标"
-			width="60">
-			<template #default="scope">
-				<i
-					class="iconfont"
-					:class="scope.row.icon"></i>
-			</template>
-		</el-table-column>
-		<el-table-column
-			prop=""
-			label="操作"
-			width="120">
-			<template #default="scope">
-				<el-button
-					type="success"
-					link
-					@click="openEditMenu(scope.row)">
-					<el-icon><EditPen /></el-icon>
-				</el-button>
-				<el-popconfirm title="确认删除？">
-					<template #reference>
-						<el-button
-							type="danger"
-							link>
-							<el-icon><Delete /></el-icon>
-						</el-button>
-					</template>
-				</el-popconfirm>
-			</template>
-		</el-table-column>
-	</el-table>
-	<RePagination
-		:current="params.pageCurrent"
-		:total="params.pageTotal"
-		@change-size="pageChangeSize"
-		@change-current="pageChangeCurrent"></RePagination>
-	<AddEdit
-		:data="menuInfo"
-		ref="dialogForm"
-		@result="getMenuList"></AddEdit>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import type { FormInstance } from "element-plus";
 	import AddEdit from "./components/AddEdit.vue";
 
@@ -392,5 +297,100 @@
 		initData();
 	});
 </script>
+
+<template>
+	<el-form
+		ref="formSearchRef"
+		:model="formSearch"
+		status-icon
+		label-width=""
+		:inline="true">
+		<el-form-item
+			prop="name"
+			label="菜单">
+			<el-input
+				v-model="formSearch.name"
+				placeholder=""></el-input>
+		</el-form-item>
+		<el-form-item
+			prop=""
+			label="">
+			<el-button type="primary">查询</el-button>
+			<el-button @click="resetForm(formSearchRef)">重置</el-button>
+			<el-button
+				type="success"
+				@click="openAddMenu">
+				窗口打开新增
+			</el-button>
+			<el-button
+				type="success"
+				@click="toAddMenu">
+				页面打开新增
+			</el-button>
+		</el-form-item>
+	</el-form>
+	<el-table
+		:data="tableData"
+		v-loading="isLoadData"
+		style="width: 100%"
+		row-key="id">
+		<el-table-column
+			prop="name"
+			label="名称"
+			width="200">
+			<template #default="scope">
+				<span>{{ $t(scope.row.name) }}</span>
+			</template>
+		</el-table-column>
+		<!--		<el-table-column prop="title" label="标题" width="120" />-->
+		<el-table-column
+			prop="path"
+			label="URL" />
+		<el-table-column
+			prop="component"
+			label="组件" />
+		<el-table-column
+			prop="icon"
+			label="图标"
+			width="60">
+			<template #default="scope">
+				<i
+					class="iconfont"
+					:class="scope.row.icon"></i>
+			</template>
+		</el-table-column>
+		<el-table-column
+			prop=""
+			label="操作"
+			width="120">
+			<template #default="scope">
+				<el-button
+					type="success"
+					link
+					@click="openEditMenu(scope.row)">
+					<el-icon><EditPen /></el-icon>
+				</el-button>
+				<el-popconfirm title="确认删除？">
+					<template #reference>
+						<el-button
+							type="danger"
+							link>
+							<el-icon><Delete /></el-icon>
+						</el-button>
+					</template>
+				</el-popconfirm>
+			</template>
+		</el-table-column>
+	</el-table>
+	<RePagination
+		:current="params.pageCurrent"
+		:total="params.pageTotal"
+		@change-size="pageChangeSize"
+		@change-current="pageChangeCurrent"></RePagination>
+	<AddEdit
+		:data="menuInfo"
+		ref="dialogForm"
+		@result="getMenuList"></AddEdit>
+</template>
 
 <style scoped lang="scss"></style>

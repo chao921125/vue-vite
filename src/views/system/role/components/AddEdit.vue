@@ -1,51 +1,4 @@
-<template>
-	<el-dialog
-		v-model="dialogFormVisible"
-		@close="closeDialog">
-		<template #header>{{ roleInfo.id ? "编辑角色" : "新增角色" }}</template>
-		<el-form
-			:model="form"
-			:rules="rules"
-			:label-width="formLabelWidth"
-			ref="formRef">
-			<el-form-item
-				prop="realName"
-				label="名称">
-				<el-input
-					v-model="form.name"
-					placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item
-				prop="mail"
-				label="编码">
-				<el-input
-					v-model="form.number"
-					placeholder=""></el-input>
-			</el-form-item>
-			<el-form-item
-				prop="desc"
-				label="备注">
-				<el-input
-					type="textarea"
-					v-model="form.desc"
-					placeholder=""
-					:autosize="{ minRows: 2, maxRows: 5 }"></el-input>
-			</el-form-item>
-		</el-form>
-		<template #footer>
-			<span class="dialog-footer">
-				<el-button @click="closeDialog">取消</el-button>
-				<el-button
-					type="primary"
-					@click="changeRoleInfo"
-					>确认</el-button
-				>
-			</span>
-		</template>
-	</el-dialog>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import type { FormInstance, FormRules } from "element-plus";
 
 	// 组件内部函数 接收及传递结果
@@ -95,5 +48,52 @@
 		closeDialog,
 	});
 </script>
+
+<template>
+	<el-dialog
+		v-model="dialogFormVisible"
+		@close="closeDialog">
+		<template #header>{{ roleInfo.id ? "编辑角色" : "新增角色" }}</template>
+		<el-form
+			:model="form"
+			:rules="rules"
+			:label-width="formLabelWidth"
+			ref="formRef">
+			<el-form-item
+				prop="realName"
+				label="名称">
+				<el-input
+					v-model="form.name"
+					placeholder=""></el-input>
+			</el-form-item>
+			<el-form-item
+				prop="mail"
+				label="编码">
+				<el-input
+					v-model="form.number"
+					placeholder=""></el-input>
+			</el-form-item>
+			<el-form-item
+				prop="desc"
+				label="备注">
+				<el-input
+					type="textarea"
+					v-model="form.desc"
+					placeholder=""
+					:autosize="{ minRows: 2, maxRows: 5 }"></el-input>
+			</el-form-item>
+		</el-form>
+		<template #footer>
+			<span class="dialog-footer">
+				<el-button @click="closeDialog">取消</el-button>
+				<el-button
+					type="primary"
+					@click="changeRoleInfo">
+					确认
+				</el-button>
+			</span>
+		</template>
+	</el-dialog>
+</template>
 
 <style scoped lang="scss"></style>

@@ -1,5 +1,5 @@
-<template>预测单记录</template>
+<script setup lang="ts"></script>
 
-<script lang="ts" setup name=""></script>
+<template>预测单记录</template>
 
 <style scoped lang="scss"></style>

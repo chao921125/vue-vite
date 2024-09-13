@@ -1,3 +1,33 @@
+<script setup lang="ts">
+	import { $t } from "@/plugins/i18n";
+	import Logo from "@/assets/images/logo.png";
+	import api from "@/api";
+	import { ObjStatusUse } from "@/plugins/enums";
+
+	const isLoading = ref(true);
+	setTimeout(() => {
+		isLoading.value = false;
+	}, 2000);
+
+	// 复制指令测试
+	const copyValue = ref("copy test text");
+
+	// 权限指令测试
+	const authList = ref(["C", "R", "U", "D"]);
+
+	// 国际化
+	const tI18n = ref();
+	const testI18nMessage = () => {
+		tI18n.value = $t("message.title.login");
+	};
+
+	// 图片
+	const imgStatic = ref("/src/assets/images/logo.png");
+	const getImg = (name: string, suffix?: string) => {
+		return api.commonApi.getImgLocale(name, suffix);
+	};
+</script>
+
 <template>
 	<el-row>
 		<el-col :span="24">
@@ -90,35 +120,5 @@
 		<div>{{ ObjStatusUse[1] }}</div>
 	</el-row>
 </template>
-
-<script lang="ts" setup name="">
-	import { $t } from "@/plugins/i18n";
-	import Logo from "@/assets/images/logo.png";
-	import api from "@/api";
-	import { ObjStatusUse } from "@/plugins/enums";
-
-	const isLoading = ref(true);
-	setTimeout(() => {
-		isLoading.value = false;
-	}, 2000);
-
-	// 复制指令测试
-	const copyValue = ref("copy test text");
-
-	// 权限指令测试
-	const authList = ref(["C", "R", "U", "D"]);
-
-	// 国际化
-	const tI18n = ref();
-	const testI18nMessage = () => {
-		tI18n.value = $t("message.title.login");
-	};
-
-	// 图片
-	const imgStatic = ref("/src/assets/images/logo.png");
-	const getImg = (name: string, suffix?: string) => {
-		return api.commonApi.getImgLocale(name, suffix);
-	};
-</script>
 
 <style scoped lang="scss"></style>

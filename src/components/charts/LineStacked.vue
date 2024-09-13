@@ -1,16 +1,7 @@
-<template>
-	<div
-		class="w100 h100 chart-box"
-		:id="props.id"
-		:ref="props.id"></div>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	// 折线图 多条
 	import * as echarts from "echarts";
 	import { onMounted, watch } from "vue";
-
-	type EChartsOption = echarts.EChartsOption;
 
 	const props = defineProps({
 		id: {
@@ -44,7 +35,7 @@
 			myChart = echarts.init(chartDom);
 		}
 		myChart.clear();
-		let option: EChartsOption;
+		let option: echarts.EChartOption;
 
 		let seriesArray: any[] = [];
 		if (props.legendData?.length) {
@@ -105,9 +96,14 @@
 	});
 </script>
 
-<style scoped lang="scss">
-	@use "./index.scss";
+<template>
+	<div
+		class="w100 h100 chart-box"
+		:id="props.id"
+		:ref="props.id"></div>
+</template>
 
+<style scoped lang="scss">
 	.chart-box {
 		div {
 			width: 100% !important;

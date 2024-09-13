@@ -1,3 +1,7 @@
+<script setup lang="ts">
+	// import { Icon } from "@iconify/vue";
+</script>
+
 <template>
 	<el-row class="icon-box">
 		<el-col :span="24">
@@ -105,10 +109,6 @@
 		</el-col>
 	</el-row>
 </template>
-
-<script lang="ts" setup name="">
-	// import { Icon } from "@iconify/vue";
-</script>
 
 <style scoped lang="scss">
 	.icon-box {

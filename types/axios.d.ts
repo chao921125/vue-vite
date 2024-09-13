@@ -5,7 +5,7 @@ declare interface IResult {
 }
 
 // * 请求响应参数(包含data)
-declare interface IResultData<T = any> extends IResult {
+declare interface IResultData<T = never> extends IResult {
 	data?: T;
 }
 

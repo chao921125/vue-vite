@@ -1,18 +1,4 @@
-<template>
-	<div>
-		<input
-			type="file"
-			accept=".xlsx, .xls"
-			@change="importExcel" />
-	</div>
-	<div
-		v-for="(item, index) in fileObj.fileData"
-		:key="index"
-		>{{ item }}</div
-	>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import ExcelJS from "exceljs";
 
 	const fileObj = <any>reactive({
@@ -49,5 +35,19 @@
 	};
 	// ExcelJS
 </script>
+
+<template>
+	<div>
+		<input
+			type="file"
+			accept=".xlsx, .xls"
+			@change="importExcel" />
+	</div>
+	<div
+		v-for="(item, index) in fileObj.fileData"
+		:key="index"
+		>{{ item }}</div
+	>
+</template>
 
 <style scoped lang="scss"></style>

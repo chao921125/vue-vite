@@ -593,7 +593,7 @@ export default {
 		{
 			id: 9000,
 			path: "m-home",
-			component: "mobile/MHome",
+			component: "mobile/Home",
 			type: 1,
 			title: "message.menu.home",
 			icon: "icon-home",

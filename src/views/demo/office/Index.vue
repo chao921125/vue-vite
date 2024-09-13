@@ -1,9 +1,4 @@
-<template>
-	<div>exceljs: <el-button @click="toPageExcel">To ExcelJS</el-button></div>
-	<div>xlsx: <el-button @click="toPageXlsx">To Xlsx</el-button> 请注意此库有安全漏洞</div>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	import RouterConfig from "@/config/routerConfig";
 
 	// const { proxy } = getCurrentInstance() as any;
@@ -18,6 +13,11 @@
 		return false;
 	};
 </script>
+
+<template>
+	<div>exceljs: <el-button @click="toPageExcel">To ExcelJS</el-button></div>
+	<div>xlsx: <el-button @click="toPageXlsx">To Xlsx</el-button> 请注意此库有安全漏洞</div>
+</template>
 
 <style scoped lang="scss">
 	@use "./Xlsx.scss";

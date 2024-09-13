@@ -1,38 +1,41 @@
-// https://vitejs.dev/config/ 中文文档 https://cn.vitejs.dev/
-import type { UserConfig, ConfigEnv } from "vite";
-import { defineConfig, loadEnv } from "vite";
-import vue from "@vitejs/plugin-vue";
-import dayjs from "dayjs";
+// @see https://vitejs.dev/config/
 import path from "node:path";
 import fs from "node:fs";
+import { fileURLToPath } from "node:url";
+import dayjs from "dayjs";
+/**
+ * 核心
+ */
+import { defineConfig, loadEnv } from "vite";
+import vue from "@vitejs/plugin-vue";
+/**
+ * 插件
+ */
 // 热重载
-import viteRestart from "vite-plugin-restart";
-// build 构建
+import fullReload from "vite-plugin-full-reload";
+// build 生成打包分析的 html
 import { visualizer } from "rollup-plugin-visualizer";
+// ejs 支持，在 html 中使用 变量语法
 import { ViteEjsPlugin } from "vite-plugin-ejs";
+// 生成一个离线的快捷应用 PWA
 import { VitePWA } from "vite-plugin-pwa";
-// 向上兼容浏览器
+// gzip 压缩
+import { compression } from "vite-plugin-compression2";
+// 浏览器兼容
 import browserslist from "browserslist";
 import legacy from "@vitejs/plugin-legacy";
-import topLevelAwait from "vite-plugin-top-level-await";
-// CDN 配置
-import { Plugin as importToCDN } from "vite-plugin-cdn-import";
-import defineOptions from "unplugin-vue-define-options/vite";
-import viteCompression from "vite-plugin-compression";
+// 支持 ES6
+import commonjs from "@rollup/plugin-commonjs";
 // 自动导入模块
 import autoImport from "unplugin-auto-import/vite";
 import components from "unplugin-vue-components/vite";
-import { ElementPlusResolver, VantResolver } from "unplugin-vue-components/resolvers";
-// CSS 预构建
-// 图标
+import { VantResolver, ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
+// 自动导入模块 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
-import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
-// Mock
-import { viteMockServe } from "vite-plugin-mock";
-// 格式化
-import eslintPlugin from "vite-plugin-eslint";
-// 处理变量
+import svgLoader from "vite-svg-loader";
+// 自定义文件，变量处理
 import pkg from "./package.json";
 import { getEnvConfig, createProxy } from "./build";
 
@@ -41,23 +44,27 @@ const __APP_INFO__ = {
 	lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss"),
 };
 
-export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
-	const root = process.cwd();
-	const env = loadEnv(mode, root);
-	const envConfig = getEnvConfig(env);
-	const isBuild = command.includes("build");
+export default defineConfig(({ command, mode }) => {
+	const __filename = fileURLToPath(import.meta.url);
+	const __dirname = path.dirname(__filename);
+	const envConfig = getEnvConfig(loadEnv(mode, import.meta.dirname, ""));
 	const browserslistConfig = browserslist.loadConfig({ path: "." });
-	let dynamicConfig: UserConfig;
-	// 动态添加的一些配置
+	const isBuild = command.includes("build");
+	/**
+	 * 动态配置
+	 */
+	let dynamicConfig;
 	if (isBuild) {
 		// 新建一个build文件，用来告诉用户是否需要刷新页面升级，正常来说不需要告知用户
 		fs.writeFileSync(path.join(__dirname, "./public/build.json"), JSON.stringify({ version: `${Date.now()}` }));
 		dynamicConfig = {};
 	} else {
-		// command === "build"
 		dynamicConfig = {};
 	}
-	const defaultConfig: UserConfig = {
+	/**
+	 * 静态配置
+	 */
+	const defaultConfig = {
 		root: path.resolve(__dirname, ""), // "./public/index.html", // 入口，可以指定到public文件夹
 		base: isBuild ? envConfig.VITE_PUBLIC_PATH : "./", // 公共基础路径
 		// mode: "development", // 指令覆盖构建模式 --mode
@@ -68,39 +75,42 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			__APP_INFO__: JSON.stringify(__APP_INFO__),
 		},
 		plugins: [
-			// 插件
-			vue(),
-			eslintPlugin({
-				include: ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
-				cache: true,
-				failOnWarning: false,
-				failOnError: false,
+			vue({
+				template: { transformAssetUrls },
 			}),
-			// * vite 可以使用 jsx/tsx 语法
-			// * name 可以写在 script 标签上
-			defineOptions(),
-			// 浏览器上兼容
-			legacy({
-				renderLegacyChunks: false,
-				modernPolyfills: ["es.global-this"],
-				targets: browserslistConfig,
-			}),
-			// 热重载，包含配置文件的修改
-			viteRestart({
-				restart: ["vite.config.[jt]s"],
-			}),
-			// 渐进式配置
+			fullReload(["config/*", "src/**/*", "types/**/*"], { root: __dirname, delay: 100 }),
+			// * 是否生成包预览
+			envConfig.VITE_REPORT &&
+				visualizer({
+					emitFile: false,
+					filename: "stats.html",
+				}),
+			ViteEjsPlugin(
+				(viteConfig) => {
+					// viteConfig is the current viteResolved config.
+					return {
+						root: viteConfig.root,
+						title: envConfig.VITE_TITLE,
+					};
+				},
+				{
+					ejs: {
+						// ejs options goes here.
+						beautify: true,
+					},
+				},
+			),
 			VitePWA({
+				injectRegister: "auto",
 				registerType: "autoUpdate",
 				devOptions: {
 					enabled: false,
 				},
-				injectRegister: "auto",
 				includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
 				manifest: {
-					name: "vue-vite project",
-					short_name: "vue-vite",
-					description: "vue-vite-pwa",
+					name: "vue-vite",
+					short_name: "vv",
+					description: "vue-vite frame",
 					id: "vue-vite",
 					start_url: ".",
 					theme_color: "#FFFFFF",
@@ -195,91 +205,16 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					],
 				},
 			}),
-			ViteEjsPlugin(
-				(viteConfig) => {
-					// viteConfig is the current viteResolved config.
-					return {
-						root: viteConfig.root,
-						title: envConfig.VITE_TITLE,
-					};
-				},
-				{
-					ejs: {
-						// ejs options goes here.
-						beautify: true,
-					},
-				},
-			),
-			// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
-			// * cdn 引入（vue、element-plus）//cdn.jsdelivr.net/npm/
-			{
-				...importToCDN({
-					modules: [
-						// vue按需引入会导致依赖vue的插件出现问题(列如:pinia/vuex)
-						// {
-						// 	name: "vue",
-						// 	var: "Vue",
-						// 	path: "https://unpkg.com/vue@3"
-						// },
-						// 使用cdn引入element-plus时,开发环境还是需要在main.js中引入element-plus,可以不用引入css
-						// {
-						// 	name: "element-plus",
-						// 	var: "ElementPlus",
-						// 	path: "https://unpkg.com/element-plus",
-						// 	css: "https://unpkg.com/element-plus/dist/index.css",
-						// },
-						// {
-						// 	name: "vant",
-						// 	var: "Vant",
-						// 	path: "https://fastly.jsdelivr.net/npm/vant@4/lib/vant.min.js",
-						// 	css: "https://fastly.jsdelivr.net/npm/vant@4/lib/index.css",
-						// },
-					],
-				}),
-			},
-			// * 是否生成包预览
-			envConfig.VITE_REPORT &&
-				visualizer({
-					emitFile: false,
-					filename: "stats.html",
-				}),
-			// * gzip compress
-			envConfig.VITE_BUILD_GZIP &&
-				viteCompression({
-					verbose: true,
-					disable: false,
-					threshold: 1024,
-					algorithm: "gzip",
-					ext: ".gz",
-				}),
-			{
-				name: "@rollup/plugin-commonjs",
-				transform(code: string, filename: string | string[]) {
-					if (filename.includes(`/node_modules/`)) {
-						return code;
-					}
-
-					const cjsRegexp = /(const|let|var)[\n\s]+(\w+)[\n\s]*=[\n\s]*require\(["|](.+)["|]\)/g;
-					const res = code.match(cjsRegexp);
-					if (res) {
-						// const Store = require("electron-store") -> import Store from "electron-store"
-						code = code.replace(cjsRegexp, `import $2 from "$3"`);
-					}
-					return code;
-				},
-			},
-			// 图标
-			icons({
-				compiler: "vue3",
-				autoInstall: true,
+			legacy({
+				renderLegacyChunks: false,
+				modernPolyfills: ["es.global-this"],
+				targets: browserslistConfig,
 			}),
-			createSvgIconsPlugin({
-				// 指定 SVG图标 保存的文件夹路径
-				iconDirs: [path.resolve(process.cwd(), "src/assets/svgs")],
-				// 指定 使用svg图标的格式
-				symbolId: "svg-[dir]-[name]",
+			commonjs({
+				include: "node_modules/**",
+				defaultIsModuleExports: false,
 			}),
-			// https://github.com/antfu/unplugin-auto-import#readme
+			envConfig.VITE_BUILD_GZIP && compression(),
 			autoImport({
 				include: [
 					/\.[tj]s?$/, // .ts, .tsx, .js, .jsx
@@ -291,26 +226,24 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core", "vue-i18n"],
 				dirs: ["./hooks", "./hooks/**", "./components", "./components/**"],
 				dts: true,
-				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
+				resolvers: [VantResolver(), ElementPlusResolver(), IconsResolver()],
 			}),
 			components({
 				dts: true,
-				resolvers: [ElementPlusResolver(), VantResolver(), IconsResolver()],
+				resolvers: [VantResolver(), ElementPlusResolver(), IconsResolver()],
 				directoryAsNamespace: true,
 			}),
-			viteMockServe({
-				mockPath: envConfig.VITE_MOCK_PATH,
-				// configPath: envConfig.VITE_MOCK_PATH,
-				watchFiles: false,
-				enable: envConfig.VITE_MOCK,
-				logger: envConfig.VITE_MOCK,
+			Vuetify({
+				autoImport: true,
+				styles: {
+					configFile: "src/assets/styles/theme.scss",
+				},
 			}),
-			topLevelAwait({
-				// The export name of top-level await promise for each chunk module
-				promiseExportName: "__tla",
-				// The function to generate import names of top-level await promise in each chunk module
-				promiseImportName: (i) => `__tla_${i}`,
+			icons({
+				compiler: "vue3",
+				autoInstall: true,
 			}),
+			svgLoader({ defaultImport: "component" }),
 		],
 		// publicDir: "public", // 静态资源根路径，false关闭
 		// cacheDir: "node_modules/.vite", // 缓存路径
@@ -338,6 +271,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// },
 			preprocessorOptions: {
 				css: { charset: false },
+				styl: {
+					additionalData: `$injectedColor ?= orange`,
+				},
 				less: {
 					javascriptEnabled: true,
 					// additionalData: `$injectedColor: orange`
@@ -361,7 +297,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		},
 		// assetsInclude: "", // 静态资源处理
 		logLevel: "info", // 可以根据开发环境动态改变 "info" | "warn" | "error" | "silent"
-		// customLogger: looger,
 		clearScreen: false, // --clearScreen
 		// envDir: "", // 配置.env文件相关
 		// envPrefix: "", // 配置.env变量以VUE_还是默认的VITE_
@@ -370,7 +305,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			// host: "localhost",
 			port: envConfig.VITE_PORT,
 			strictPort: true, // 存在冲突端口，则继续下找可用端口
-			// https: "", // boolean | https.ServerOptions
+			// https: true, // boolean | https.ServerOptions
 			open: envConfig.VITE_OPEN, // boolean | string
 			proxy: createProxy(envConfig.VITE_PROXY),
 			// {
@@ -412,14 +347,12 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			//  deny: "",
 			// },
 			// origin: "",
-			// sourcemapIgnoreList: "", // false | (sourcePath: string, sourcemapPath: string) => boolean
 		},
 		build: {
 			target: "modules",
-			// modulePreload: true,
-			// polyfillDynamicImport: "", // boolean
-			outDir: path.join(__dirname, "dist"), // path.join(__dirname, "dist/render"),
-			assetsDir: path.join(__dirname, "assets"),
+			// polyfillModulePreload: true,
+			outDir: path.join(__dirname, "./dist"), // path.join(__dirname, "dist/render"),
+			assetsDir: path.join(__dirname, "./assets"),
 			assetsInlineLimit: 5120, // 5KB
 			// 如果设置为false，整个项目中的所有 CSS 将被提取到一个 CSS 文件中
 			cssCodeSplit: true,
@@ -428,7 +361,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			sourcemap: false,
 			rollupOptions: {
 				input: {
-					index: path.resolve(__dirname, "/index.html"),
+					index: path.resolve(__dirname, "./index.html"),
 					// color: path.resolve(__dirname, "/public/color.html"),
 				},
 				output: {
@@ -441,7 +374,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 					manualChunks: {
 						vue: ["vue", "vue-router", "pinia"],
 						echarts: ["echarts"],
-						elementPlus: ["element-plus"],
 					},
 				},
 			},
@@ -460,7 +392,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			},
 			// write: true,
 			// emptyOutDir: true, // outDiroutDir--emptyOutDir
-			// copyPublicDir: true,
 			reportCompressedSize: true,
 			chunkSizeWarningLimit: 2048,
 			// watch: 1024,
@@ -473,12 +404,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		//   open: "",
 		//   proxy: {},
 		//   cors: true,
-		//   headers: "", // OutgoingHttpHeaders
 		// },
 		optimizeDeps: {
 			// entries: "optimize.js",
-			exclude: [""],
-			include: ["lodash", "lodash-es", "@vueuse/core", "@vue/runtime-core", "element-plus", "vuedraggable", "@vue/shared"],
+			exclude: [],
+			include: [],
 			// esbuildOptions: "",
 			force: false,
 		},

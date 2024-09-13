@@ -3,7 +3,7 @@
  */
 import { ref } from "vue";
 
-export function useCountTime(downNum: number) {
+export function useCountTime(downNum) {
 	const sendBtnText = ref("发送验证码");
 	const countDownNum = ref(downNum);
 

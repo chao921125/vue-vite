@@ -1,7 +1,7 @@
 import Reg from "./reg";
 export default {
-	// @ts-ignore
-	userName: (rule: any, value: any, callback: any) => {
+	userName: (rule, value, callback) => {
+		console.log(rule);
 		if (!value) {
 			callback("字段不能为空");
 		} else {
@@ -12,8 +12,9 @@ export default {
 			}
 		}
 	},
-	// @ts-ignore
-	password: (rule: any, value: any, callback: any) => {
+
+	password: (rule, value, callback) => {
+		console.log(rule);
 		if (!value) {
 			callback("字段不能为空");
 		} else {
@@ -24,9 +25,9 @@ export default {
 			}
 		}
 	},
-	// @ts-ignore
-	rePassword: (rule: any, value: any, callback: any) => {
-		console.log(rule, value);
+
+	rePassword: (rule, value, callback) => {
+		console.log(rule);
 		if (!value) {
 			callback("字段不能为空");
 		} else {

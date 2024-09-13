@@ -1,29 +1,4 @@
-<template>
-	<div
-		class="drag-area"
-		@dragover.prevent="handleDragOver"
-		@drop="handleDrop">
-		<div
-			v-for="box in boxes"
-			:key="box.id"
-			:class="['drop-box', box.id === draggedBoxId ? 'dragging' : '']"
-			@drop="handleBoxDrop(box.id)">
-			<!-- 根据 box.content 来动态显示内容 -->
-			<div v-if="draggedBoxId !== box.id">{{ box.content }}</div>
-		</div>
-		<div
-			v-for="item in items"
-			:key="item.id"
-			draggable="true"
-			:class="['drag-item', item.id === draggedItemId ? 'dragging' : '']"
-			@dragstart="handleDragStart(item.id)">
-			<!-- 根据 item.content 来动态显示内容 -->
-			{{ item.content }}
-		</div>
-	</div>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	const draggedItemId = ref(null);
 	const draggedBoxId = ref(null);
 
@@ -68,6 +43,31 @@
 		draggedItemId.value = null; // 重置拖拽的项目ID
 	}
 </script>
+
+<template>
+	<div
+		class="drag-area"
+		@dragover.prevent="handleDragOver"
+		@drop="handleDrop">
+		<div
+			v-for="box in boxes"
+			:key="box.id"
+			:class="['drop-box', box.id === draggedBoxId ? 'dragging' : '']"
+			@drop="handleBoxDrop(box.id)">
+			<!-- 根据 box.content 来动态显示内容 -->
+			<div v-if="draggedBoxId !== box.id">{{ box.content }}</div>
+		</div>
+		<div
+			v-for="item in items"
+			:key="item.id"
+			draggable="true"
+			:class="['drag-item', item.id === draggedItemId ? 'dragging' : '']"
+			@dragstart="handleDragStart(item.id)">
+			<!-- 根据 item.content 来动态显示内容 -->
+			{{ item.content }}
+		</div>
+	</div>
+</template>
 
 <style scoped lang="scss">
 	.drag-area {

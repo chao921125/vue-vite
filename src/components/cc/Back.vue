@@ -1,13 +1,4 @@
-<template>
-	<el-button
-		link
-		@click="goBack"
-		type="primary"
-		>back</el-button
-	>
-</template>
-
-<script lang="ts" setup name="">
+<script setup lang="ts">
 	const props = defineProps({
 		url: {
 			type: String,
@@ -23,5 +14,14 @@
 		}
 	};
 </script>
+
+<template>
+	<el-button
+		link
+		@click="goBack"
+		type="primary">
+		back
+	</el-button>
+</template>
 
 <style scoped lang="scss"></style>
