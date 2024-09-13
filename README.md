@@ -298,9 +298,9 @@
 | [vue2 vue-grid-layout](https://www.npmjs.com/package/vue-grid-layout)         |
 | [vue2 vue-drag-resize](https://github.com/kirillmurashov/vue-drag-resize)     |
 
-| 全屏                                                     |
-|--------------------------------------------------------|
-| [screenfull](https://www.npmjs.com/package/screenfull) |
+| 全屏                                                       |
+|----------------------------------------------------------|
+| [screenfull](https://github.com/sindresorhus/screenfull) |
 
 | html2canvas，页面截图                                         |
 |----------------------------------------------------------|

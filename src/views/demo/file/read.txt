@@ -1,0 +1,27 @@
+1、解决按钮模拟点击 触发 file
+
+let fileEl: HTMLElement = document.querySelector("#file") as HTMLElement;
+        fileEl.click();
+
+2、文件切片上传
+https://github.com/shenmaxg/file-upload-react
+
+
+3、fetch 请求及解析
+fetch("/create", {
+            method: "post",
+            headers: {
+                token: Storage.getItem("unity-token") || getCookie('ua_once') || getCookie('ua_user'),
+            },
+            body: formData,
+        }).then(res => {
+            res.json().then(resp => {
+                if (!resp.code) handleOpenSuccess();
+                else handleOpenFail();
+            }).catch(() => {
+                handleOpenFail();
+            });
+        }).catch(() => {
+            handleOpenFail();
+        });
+
