@@ -419,6 +419,7 @@
 |----------------------------------------------------------------------------------------------|
 | [i18n-next 不限制环境](https://github.com/i18next) [官网](https://www.i18next.com/)                 |
 | [vue-i18n](https://github.com/kazupon/vue-i18n) [官网](https://kazupon.github.io/vue-i18n/zh/) |
+| [vue-i18n + @intlify/unplugin-vue-i18n](https://github.com/intlify/bundle-tools)             |
 
 | 复制粘贴                                                 |
 |------------------------------------------------------|
