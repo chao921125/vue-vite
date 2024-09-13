@@ -3,8 +3,6 @@
 	import * as echarts from "echarts";
 	import { onMounted, watch } from "vue";
 
-	type EChartsOption = echarts.EChartsOption;
-
 	const props = defineProps({
 		id: {
 			type: String,
@@ -33,7 +31,7 @@
 			myChart = echarts.init(chartDom);
 		}
 		myChart.clear();
-		let option: EChartsOption;
+		let option: echarts.EChartOption;
 
 		option = {
 			color: props.color as any,

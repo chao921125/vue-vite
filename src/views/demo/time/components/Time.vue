@@ -23,7 +23,7 @@
 	// 全部选择
 	const allweek = ref(false);
 	// 选择时间绑定的数据
-	const TimeData = reactive([]);
+	const TimeData: any = reactive([]);
 
 	// 初始化时间绑定的默认数据
 	const initializeDefaultData = () => {
@@ -37,7 +37,7 @@
 			6: "星期六",
 		};
 		for (let i = 0; i < 7; i++) {
-			const periods = [];
+			const periods: any = [];
 			for (let j = 1; j < 7; j++) {
 				periods.push({
 					time: "时间段" + j,
@@ -60,7 +60,7 @@
 	// 点击设置
 	const setUpTheClick = (value) => {
 		// console.log(value.week, TimeData, '1111')
-		TimeData.map((item) => {
+		TimeData.map((item: any) => {
 			Object.assign(item, {
 				weekBooleanVal: value.week === item.week,
 				currentBool: value.week === item.week,
@@ -71,7 +71,7 @@
 	watch(
 		() => TimeData,
 		(val) => {
-			const boollist = val.map((item) => item.weekBooleanVal).filter(Boolean);
+			const boollist = val.map((item: any) => item.weekBooleanVal).filter(Boolean);
 			allweek.value = boollist.length >= 7;
 		},
 		{ deep: true, immediate: true },

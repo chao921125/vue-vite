@@ -1,6 +1,5 @@
 <script setup lang="ts">
-	import { reactive, ref } from "vue";
-	import { ElMessage } from "element-plus";
+	import { reactive } from "vue";
 	import Time from "./components/Time.vue";
 	// 选择时间弹窗的数据
 	const timeQuantumProps = reactive({

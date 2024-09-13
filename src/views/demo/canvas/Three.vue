@@ -90,7 +90,7 @@
 					const maxValue = Math.max(box.max.x - box.min.x, box.max.y - box.min.y, box.max.z - box.min.z);
 					const scaleValue = camera.position.z / maxValue;
 					const scaleVal = scaleValue > 1 ? scaleValue / 2 : scaleValue;
-					object.scale.setScalar(scaleVal, scaleVal, scaleVal);
+					object.scale.setScalar(scaleVal);
 					object.position.y = -1 * (camera.position.z - maxValue);
 
 					scene.add(object);
