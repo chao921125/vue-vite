@@ -23,7 +23,7 @@
 	// 全部选择
 	const allweek = ref(false);
 	// 选择时间绑定的数据
-	const TimeData: any = reactive([]);
+	const timeData: any = reactive();
 
 	// 初始化时间绑定的默认数据
 	const initializeDefaultData = () => {
@@ -45,7 +45,7 @@
 					booleanVal: j === 1,
 				});
 			}
-			TimeData.push({
+			timeData.push({
 				periods,
 				week: i === 0 ? 7 : i,
 				weekName: weekData[i],
@@ -53,14 +53,14 @@
 				currentBool: i === 0,
 			});
 		}
-		console.log(TimeData, "TimeData");
+		console.log(timeData, "timeData");
 	};
 	initializeDefaultData();
 
 	// 点击设置
 	const setUpTheClick = (value) => {
-		// console.log(value.week, TimeData, '1111')
-		TimeData.map((item: any) => {
+		// console.log(value.week, timeData, '1111')
+		timeData.map((item: any) => {
 			Object.assign(item, {
 				weekBooleanVal: value.week === item.week,
 				currentBool: value.week === item.week,
@@ -69,7 +69,7 @@
 	};
 	// 监听是否全选
 	watch(
-		() => TimeData,
+		() => timeData,
 		(val) => {
 			const boollist = val.map((item: any) => item.weekBooleanVal).filter(Boolean);
 			allweek.value = boollist.length >= 7;
@@ -79,7 +79,7 @@
 
 	// 选择全部周
 	function selectAllWeek(rows) {
-		TimeData.map((item) => {
+		timeData.map((item) => {
 			Object.assign(item, {
 				weekBooleanVal: rows,
 			});
@@ -90,7 +90,7 @@
 	function cancelingSchedule(item, k) {
 		delete item["left" + k];
 		delete item["right" + k];
-		const data = TimeData.find((va) => va.week === item.week);
+		const data = timeData.find((va) => va.week === item.week);
 		data.periods.map((e, i) => {
 			if (i === k) {
 				Object.assign(e, {
@@ -122,13 +122,11 @@
 		const trueList = item.periods.filter((i) => i.booleanVal);
 		trueList.map((val, key) => {
 			const data = calculateOffset(item, val);
-			Object.assign(
-				weektableDate.find((t: any) => t.week === item.week),
-				{
-					["left" + key]: data.leftOffset + "px",
-					["right" + key]: data.rightOffset + "px",
-				},
-			);
+			const fWeek = weektableDate.find((t: any) => t.week === item.week);
+			Object.assign(fWeek, {
+				["left" + key]: data.leftOffset + "px",
+				["right" + key]: data.rightOffset + "px",
+			});
 		});
 	}
 	// 计算偏移量
@@ -159,13 +157,13 @@
 	// 如果有数据就进行初始化
 	if (props.timeQuantumProps.ruleForm[props.timeQuantumProps.tag]) {
 		const data = JSON.parse(props.timeQuantumProps.ruleForm[props.timeQuantumProps.tag]);
-		const TimeDataMap = new Map();
+		const timeDataMap = new Map();
 		data.map((item) => {
-			TimeDataMap.set(item.week, item);
+			timeDataMap.set(item.week, item);
 		});
-		TimeData.map((rows) => {
-			if (TimeDataMap.get(rows.week)) {
-				const { periods } = TimeDataMap.get(rows.week);
+		timeData.map((rows) => {
+			if (timeDataMap.get(rows.week)) {
+				const { periods } = timeDataMap.get(rows.week);
 				rows.periods.map((v, k) => {
 					if (periods[k]) {
 						// rows.weekBooleanVal = true
@@ -204,7 +202,7 @@
 		// 结束时间
 		const end = pageXValue.value < e.pageX ? secTotime((e.pageX - tableBox.left) / secondsOffset) : secTotime((pageXValue.value - tableBox.left) / secondsOffset);
 
-		const data = TimeData.find((val) => val.week === item.week);
+		const data = timeData.find((val) => val.week === item.week);
 		const _rows = data.periods.filter((item) => !item.booleanVal);
 
 		if (_rows.length) {
@@ -245,9 +243,9 @@
 	// const parent = currentCpn.parent;
 	// 提交
 	function submit() {
-		// console.log(TimeData, props.timeQuantumProps.ruleForm, 'TimeData')
+		// console.log(timeData, props.timeQuantumProps.ruleForm, 'timeData')
 		const resultsData: any = [];
-		const selectData = TimeData.filter((item) => item.weekBooleanVal);
+		const selectData = timeData.filter((item) => item.weekBooleanVal);
 		selectData.map((val) => {
 			const obj: any = {
 				week: val.week,
@@ -342,7 +340,7 @@
 					:disabled="props.timeQuantumProps.disabled"
 					@change="selectAllWeek" />
 				<el-checkbox
-					v-for="item in TimeData"
+					v-for="item in timeData"
 					:key="item.week"
 					v-model="item.weekBooleanVal"
 					:label="item.weekName"
@@ -352,7 +350,7 @@
 			</div>
 			<div
 				class="time-select"
-				v-for="item in TimeData"
+				v-for="item in timeData"
 				:key="item.week"
 				v-show="item.currentBool">
 				<div
