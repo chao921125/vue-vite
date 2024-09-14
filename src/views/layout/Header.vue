@@ -79,9 +79,11 @@
 	const i18ns = ThemeConfig.i18nKeys;
 	const changeI18n = (lang: string) => {
 		themeConfig.value.globalI18n = lang;
+		// 内置
+		proxy.$i18n.locale = lang;
 		Storage.setLocalStorage(Constants.storageKey.i18nLocale, lang);
 		setThemeConfig();
-		proxy.mittBus.emit("getI18nConfig", lang);
+		proxy.$mitt.emit("getI18nConfig", lang);
 		Utils.setTitle();
 	};
 	// 组件大小
@@ -89,7 +91,7 @@
 	const changeSize = (size: string) => {
 		themeConfig.value.globalComponentSize = size;
 		setThemeConfig();
-		proxy.mittBus.emit("getSizeConfig", size);
+		proxy.$mitt.emit("getSizeConfig", size);
 	};
 	// 设置
 	const isShowDrawer = ref(false);
@@ -199,7 +201,7 @@
 			<div class="re-h-full re-f-row-center-ai">
 				<el-icon
 					@click="changeCollapse"
-					class="re-cursor-pointer"
+					class="re-c-pointer"
 					:size="18">
 					<Fold v-if="isColl"></Fold>
 					<Expand v-else></Expand>
@@ -228,7 +230,7 @@
 					trigger="hover"
 					@command="changeSize">
 					<i
-						class="iconfont icon-zujian2 re-cursor-pointer re-ml-10"
+						class="iconfont icon-zujian2 re-c-pointer re-ml-10"
 						@click="showDropdownComponents"></i>
 					<template #dropdown>
 						<el-dropdown-menu>
@@ -246,7 +248,7 @@
 					trigger="hover"
 					@command="changeI18n">
 					<i
-						class="iconfont icon-duoyuyan re-cursor-pointer re-ml-10"
+						class="iconfont icon-duoyuyan re-c-pointer re-ml-10"
 						@click="showDropdownLanguage"></i>
 					<template #dropdown>
 						<el-dropdown-menu>
@@ -264,7 +266,7 @@
 					content="设置"
 					placement="bottom">
 					<i
-						class="iconfont icon-pifu re-cursor-pointer re-ml-10"
+						class="iconfont icon-pifu re-c-pointer re-ml-10"
 						@click="isShowDrawer = true"></i>
 				</el-tooltip>
 				<el-tooltip
@@ -273,11 +275,11 @@
 					placement="bottom">
 					<i
 						v-if="isScreenFull"
-						class="iconfont icon-fullscreen-exit re-cursor-pointer re-ml-10"
+						class="iconfont icon-fullscreen-exit re-c-pointer re-ml-10"
 						@click="changeScreenFull"></i>
 					<i
 						v-else
-						class="iconfont icon-fullscreen re-cursor-pointer re-ml-10"
+						class="iconfont icon-fullscreen re-c-pointer re-ml-10"
 						@click="changeScreenFull"></i>
 				</el-tooltip>
 				<div class="re-ml-10">{{ userInfoName }}</div>
@@ -287,7 +289,7 @@
 					<el-avatar
 						:src="userInfoAvatar"
 						fit="cover"
-						class="re-cursor-pointer user-avatar re-ml-10"
+						class="re-c-pointer user-avatar re-ml-10"
 						@click="showDropdownUser" />
 					<template #dropdown>
 						<el-dropdown-menu>
