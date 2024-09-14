@@ -17,7 +17,7 @@
 		},
 	});
 
-	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
+	const { themeConfig } = <any>getStoreRefs(appStore.useThemeConfig);
 	const route = useRoute();
 	const router = useRouter();
 	const initData = () => {
