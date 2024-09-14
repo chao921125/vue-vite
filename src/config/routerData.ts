@@ -553,7 +553,7 @@ export default {
 		{
 			id: 991,
 			path: "link",
-			component: "layout/window/Link",
+			component: "common/Link",
 			type: 1,
 			title: "message.menu.testLink",
 			icon: "icon-home",
@@ -573,7 +573,7 @@ export default {
 		{
 			id: 992,
 			path: "iframe",
-			component: "layout/window/Iframe",
+			component: "common/Iframe",
 			type: 1,
 			title: "message.menu.testIframe",
 			icon: "icon-home",
