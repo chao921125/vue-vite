@@ -33,12 +33,13 @@
 
 <template>
 	<div
-		class="re-fill"
+		class="re-full"
 		v-loading="iframeObj.loading"
 		:style="{ height: `calc(100vh - ${iframeHeight})`, border: 'none' }">
 		<iframe
 			id="iframe"
 			:src="iframeObj.url"
+			class="re-full"
 			width="100%"
 			height="100%"></iframe>
 	</div>

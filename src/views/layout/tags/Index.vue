@@ -99,7 +99,7 @@
 			<div class="re-f-row">
 				<el-tag
 					:disable-transitions="false"
-					class="re-cursor-pointer re-mr-10"
+					class="re-c-pointer re-mr-10"
 					@click="changeRouter('/home')"
 					:type="tabValue === '/home' ? 'primary' : 'info'">
 					{{ $t("message.menu.home") }}
@@ -112,7 +112,7 @@
 					:type="tabValue === item.name ? 'primary' : 'info'"
 					@close="removeTab(item.name)"
 					@click="changeRouter(item.name)"
-					class="re-cursor-pointer re-mr-10">
+					class="re-c-pointer re-mr-10">
 					{{ $t(item.label) }}
 				</el-tag>
 			</div>
