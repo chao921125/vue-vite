@@ -2,25 +2,22 @@
  * 路由入口
  */
 import { createRouter, createWebHistory } from "vue-router";
-import { getStoreRefs, appStore } from "@/store";
 import { baseRoutes, errorRoutes } from "./route";
-import Utils from "@/plugins/utils";
+import { getStoreRefs, appStore } from "@/store";
+import NProgress from "@/plugins/loading/progress";
 import Storage from "@/plugins/utils/storage";
 import Cookie from "@/plugins/utils/cookie";
+import AxiosCancel from "@/plugins/http/cancel";
 import Constants from "@/plugins/constants";
-import NProgress from "@/plugins/loading/progress";
 import RouterConfig from "@/config/routerConfig";
 // import RouteData from "@/config/routerData";
-import AxiosCancel from "@/plugins/http/cancel";
 import api from "@/api";
 
-// 配置文件修改是否从后端获取路由
-// 动态路由需要后端按照数据格式返回，静态数据直接填充即可
-const isRequestRoutes = RouterConfig.isRequestRoutes;
-
-// 动态路由刷新404，所以先行去掉匹配不存在路由重定向至404页
-if (isRequestRoutes) baseRoutes[0].children = [];
-// 纯静态配置，下面代码注释掉或删掉即可
+/**
+ * 配置文件修改是否从后端获取路由
+ * 动态路由需要后端按照数据格式返回，静态数据直接填充即可
+ * 动态路由刷新404，所以先行去掉匹配不存在路由重定向至404页
+ */
 baseRoutes[0].children = [];
 
 // 默认获取菜单及路由为静态数据
@@ -52,12 +49,12 @@ router.beforeEach(async (to, from, next) => {
 			Storage.removeSessionStorage(Constants.storageKey.token);
 			Cookie.removeCookie(Constants.cookieKey.token);
 			next(`${RouterConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
-		} else if (token && (RouterConfig.whiteList.includes(to.path) || to.path === RouterConfig.routeRoot)) {
-			next(Utils.isMobile() ? RouterConfig.routeMHome : RouterConfig.routeHome);
+		} else if (token && RouterConfig.whiteList.includes(to.path)) {
+			next(RouterConfig.routeHome);
 		} else {
 			const { routerList } = getStoreRefs(appStore.useRouterList);
 			if (routerList.value.length === 0) {
-				if (isRequestRoutes) {
+				if (RouterConfig.isRequestRoutes) {
 					// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
 					const { data } = await api.systemApi.getMenuList({});
 					requestData = data.list || [];
@@ -70,7 +67,6 @@ router.beforeEach(async (to, from, next) => {
 				// 确保 addRoute() 时动态添加的路由已经被完全加载上去
 				next({ ...to, replace: true });
 			} else {
-				appStore.useUserInfo.setUserInfo(to.meta);
 				next();
 			}
 		}
@@ -79,6 +75,10 @@ router.beforeEach(async (to, from, next) => {
 
 // 路由加载后，关闭loading
 router.afterEach(() => {
+	NProgress.done();
+});
+
+router.onError(() => {
 	NProgress.done();
 });
 
