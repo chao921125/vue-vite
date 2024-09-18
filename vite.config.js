@@ -217,7 +217,6 @@ export default defineConfig(({ command, mode }) => {
 			envConfig.VITE_BUILD_GZIP && compression(),
 			autoImport({
 				include: [
-					/\.[tj]s?$/, // .ts, .tsx, .js, .jsx
 					/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
 					/\.vue$/,
 					/\.vue\?vue/, // .vue
@@ -227,6 +226,9 @@ export default defineConfig(({ command, mode }) => {
 				dirs: ["./hooks", "./hooks/**", "./components", "./components/**"],
 				dts: true,
 				resolvers: [VantResolver(), ElementPlusResolver(), IconsResolver()],
+				eslintrc: {
+					enabled: true, // <-- this
+				},
 			}),
 			components({
 				dts: true,

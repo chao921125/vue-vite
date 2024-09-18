@@ -1,4 +1,6 @@
 <script setup>
+	// import { appStore } from "@/store/index.js";
+
 	const props = defineProps({
 		name: {
 			required: false,
@@ -10,6 +12,10 @@
 	const changeClick = () => {
 		emits("change", true);
 	};
+
+	// const ignoredOnLogin = () => {
+	// 	appStore.useUserInfo.setUserInfo({});
+	// };
 	defineExpose({
 		changeClick,
 	});

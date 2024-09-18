@@ -35,7 +35,7 @@ export default [
 		},
 		rules: {
 			// eslint (https://eslint.org/docs/latest/rules/)
-			"max-lines": ["error", 50000], // 最大行
+			"max-lines": "off", // 最大行
 			"no-console": "off", // 禁用 console
 			"no-debugger": "off", // 禁用 debugger
 			"no-irregular-whitespace": "off", // 禁止不规则的空白
@@ -44,14 +44,21 @@ export default [
 			"no-unused-vars": [
 				"error",
 				{
-					vars: "all",
+					vars: "local",
 					args: "none",
+					varsIgnorePattern: "/[iI]gnored/u",
+					caughtErrors: "all",
+					caughtErrorsIgnorePattern: "^ignore",
+					destructuredArrayIgnorePattern: "^_",
 					ignoreRestSiblings: false,
 				},
 			], // 禁止定义未使用的变量
 			"no-var": "error", // 要求使用 let 或 const 而不是 var
 			"prefer-const": "error", // 此规则旨在标记使用 let 关键字声明但在初始分配后从未重新分配的变量，要求使用 const
+
+			// https://eslint.org/docs/latest/rules/
 			"@typescript-eslint/no-explicit-any": "off",
+
 			// https://eslint.vuejs.org/
 			"vue/multi-word-component-names": "off",
 			"vue/max-attributes-per-line": [
