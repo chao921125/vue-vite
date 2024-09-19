@@ -173,14 +173,16 @@
 | [uvui 官网](https://www.uvui.cn/)                               |
 | [wave 官网](https://antoniandre.github.io/wave-ui/)             |
 
-| UI 小程序                                               |
-|------------------------------------------------------|
-| [👍vant](https://github.com/vant-ui/vant-weapp)      |
-| [👍taro](https://taro-ui.jd.com/#/)                  |
-| [Tencent](https://github.com/Tencent/weui-wxss)      |
-| [Cube UI](https://didi.github.io/cube-ui/#/zh-CN)    |
-| [wux](https://wux-weapp.github.io/wux-weapp-docs/#/) |
-| [firstui 含付费UI](https://www.firstui.cn/)             |
+| UI 小程序                                                       |
+|--------------------------------------------------------------|
+| [👍vant](https://github.com/vant-ui/vant-weapp)              |
+| [👍weui](https://weui.io/)                                   |
+| [👍taro](https://taro-ui.jd.com/#/)                          |
+| [Tencent](https://github.com/Tencent/weui-wxss)              |
+| [Cube UI](https://didi.github.io/cube-ui/#/zh-CN)            |
+| [wux](https://wux-weapp.github.io/wux-weapp-docs/#/)         |
+| [firstui 含付费UI](https://www.firstui.cn/)                     |
+| [awesome](https://github.com/justjavac/awesome-wechat-weapp) |
 
 | UI 单一组件                                                                |
 |------------------------------------------------------------------------|
@@ -688,7 +690,6 @@
 |-----------------------------------------------------------------|
 | [slidev 演示文稿工具](https://cn.sli.dev/)                            |
 | [uiverse 开源组件合集](https://uiverse.io/)                           |
-| [vite 开源插件合集](https://github.com/vitejs/awesome-vite)           |
 | [nodejs 开源插件合集](https://github.com/sindresorhus/awesome-nodejs) |
 | [组件](https://madewith.cn/)                                      |
 | [vue3 优秀组件收集](https://hu-snail.github.io/vue3-resource/)        |
