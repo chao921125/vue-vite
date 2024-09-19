@@ -1,35 +1,5 @@
 # [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-ts.vercel.app/) - [项目截图](./docs/Project.md)
-###### 简易版 JS & TS 版本抽离完成，TS 版本仅供学习
-```text
-1. 如果build失败或者运行异常请执行 pnpx mrm@2 lint-staged
-2. husky + lint-staged + @commitlint/cli 规范提交格式（提交代码前自检） pnpx husky init
-3. 如果有条件，请将 font 文件存入 CDN 否则将会在本地文件占用很大一部分资源，图片尽可能压缩
-```
-# 避坑指南 及 注意事项
-- 三方包引入尽可能小写，自定义尽可能大写
-- cjs在不久的未来将不再支持，后续尽可能使用mjs，由于现在某些包暂不支持，所以使用js+ts+mjs混用的方式
-- 推荐使用pnpm(curl -fsSL https://get.pnpm.io/install.sh | sh -)安装依赖，其次yarn或者npm
-- 更新升级包版本使用 pnpm 不再安装 ncu，直接执行 pnpm update
-- 注意所有配置菜单的数据，均由前端提供
-- 项目本身配置99%都在vite.config.ts里面，参数设置都在根目录下，而非src下
-- src下的config目录是系统默认参数，及部分数据配置
-- 使用 reactive 请使用 let，使用 ref 请使用const
-- ！！！注意VUE3中的reactive使用，如果需要更新视图需要抽出interface。！！！
-- 开发问题 Typescript 和 TSX TS的泛型<T> 在结合 tsx 的时候使用as形式(兼容jsx)
-- 如果你觉得你的package.json乱糟糟，那么使用 npx sort-package-json 来解决吧
-
-# 关于手机端适配（脱离业务场景谈解决方案都是耍流氓）[解决方案](./docs/PxAuto.md)
-1. 稳定解决方案：使用媒体查询，但建议企业官网等页面较少的网站，且对网站设计者和开发者水平有一定的要求，开发调试比较麻烦
-2. 切换URL改变页面呈现方式：通过监听获取当前是否是移动端，然后改变对应的URL。需要设计两套UI，开发者需要写两套页面及样式。优点是灵活，缺点是开发周期长
-3. rem 计算：目前最多的，通过对根字体的设置，自动换算
-4. vw 计算：当下及以后的趋势，本项目就是采用的此计算方式，不打算采用和rem混用的方式了
-```text
-我们实际的需求一般很少拿着网站在一个超大屏展示，部分均为正常屏幕所以vw模式基本上满足80%的要求
-一套UI同时适配PC与Mobile的话，尽可能使用媒体查询，且UI慎重选择，最好自己单独写
-如果PC和Mobile呈现不同的内容，那么最好写两套UI
-单独的PC和Mobile大家直接单独写，但是尽量根据设备判断不要在不适配的设备上展示
-```
-
+###### 简易版 JS & TS 分支
 # 命名规范及解释
 1. 命名遵循驼峰规则：demoUser
 2. 配置文件均按照xxConfig，数据配置均按照xxOption/xxData：
