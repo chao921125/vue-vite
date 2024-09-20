@@ -24,6 +24,12 @@
 | [vue3js](https://vue3js.cn/)                               |
 | [vue3-resource](https://hu-snail.github.io/vue3-resource/) |
 
+| JS 引擎                         |
+|-------------------------------|
+| [bun 下一代](https://bun.sh/)    |
+| [nodejs](https://nodejs.org/) |
+| [deno](https://deno.com/)     |
+
 | 构建工具                                 |
 |--------------------------------------|
 | [👍 vite 官网](https://cn.vitejs.dev/) |
