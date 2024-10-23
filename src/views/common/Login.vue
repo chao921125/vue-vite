@@ -78,6 +78,9 @@
 	onMounted(() => {
 		isLoading.value = false;
 	});
+	onActivated(() => {
+		isLoading.value = false;
+	});
 </script>
 
 <template>
@@ -113,7 +116,8 @@
 							maxlength="11"
 							placeholder="user name"
 							autofocus
-							@keyup.enter.native="loginUser(formUserRef)" />
+							@keyup.enter.native="loginUser(formUserRef)"
+							:disabled="isLoading" />
 					</el-form-item>
 					<el-form-item
 						label=""
@@ -122,7 +126,8 @@
 							v-model="formUser.password"
 							type="password"
 							placeholder="user password"
-							@keyup.enter.native="loginUser(formUserRef)" />
+							@keyup.enter.native="loginUser(formUserRef)"
+							:disabled="isLoading" />
 					</el-form-item>
 					<el-form-item
 						label=""
