@@ -1,5 +1,7 @@
 <script setup>
 	import { getStoreRefs, appStore } from "@/store";
+	import { computed, nextTick, onMounted, reactive, watch } from "vue";
+	import { useRoute } from "vue-router";
 
 	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 	const iframeHeight = computed(() => {

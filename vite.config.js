@@ -26,14 +26,9 @@ import browserslist from "browserslist";
 import legacy from "@vitejs/plugin-legacy";
 // 支持 ES6
 import commonjs from "@rollup/plugin-commonjs";
-// 自动导入模块
-import autoImport from "unplugin-auto-import/vite";
-import components from "unplugin-vue-components/vite";
-import { VantResolver, ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 // 自动导入模块 图标
 import icons from "unplugin-icons/vite";
-import IconsResolver from "unplugin-icons/resolver";
 import svgLoader from "vite-svg-loader";
 // 自定义文件，变量处理
 import pkg from "./package.json";
@@ -215,26 +210,6 @@ export default defineConfig(({ command, mode }) => {
 				defaultIsModuleExports: false,
 			}),
 			envConfig.VITE_BUILD_GZIP && compression(),
-			autoImport({
-				include: [
-					/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-					/\.vue$/,
-					/\.vue\?vue/, // .vue
-					/\.md$/, // .md
-				],
-				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core", "vue-i18n"],
-				dirs: ["./hooks", "./hooks/**", "./components", "./components/**"],
-				dts: true,
-				resolvers: [VantResolver(), ElementPlusResolver(), IconsResolver()],
-				eslintrc: {
-					enabled: true, // <-- this
-				},
-			}),
-			components({
-				dts: true,
-				resolvers: [VantResolver(), ElementPlusResolver(), IconsResolver()],
-				directoryAsNamespace: true,
-			}),
 			Vuetify({
 				autoImport: true,
 				styles: {

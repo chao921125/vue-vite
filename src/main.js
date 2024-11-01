@@ -33,11 +33,12 @@ initMock();
 // app.use(vuetify);
 
 // element
+import ElementPlus from "element-plus";
 import { ElMessage, ElMessageBox, ElNotification } from "element-plus";
 import * as Icons from "@element-plus/icons-vue";
 // element 按需引入解决Message等样式失效，需引入
 import "element-plus/dist/index.css";
-
+app.use(ElementPlus);
 // element 全局消息提示
 app.config.globalProperties.$message = ElMessage;
 app.config.globalProperties.$messageBox = ElMessageBox;
@@ -49,6 +50,9 @@ Object.keys(Icons).forEach((key) => {
 });
 
 // vant
+// import vant from "vant";
+// app.use(vant);
+// app.use(vant.Lazyload);
 // import "vant/lib/index.css";
 
 // 营销组件

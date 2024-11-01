@@ -1,5 +1,7 @@
 <script setup>
 	import Utils from "@/plugins/utils";
+	import { ref, onMounted } from "vue";
+	import { useRoute } from "vue-router";
 
 	const linkUrl = ref("");
 	const route = useRoute();
