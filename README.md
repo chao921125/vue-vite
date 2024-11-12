@@ -137,11 +137,10 @@
 
 | VUE UI                                                                         |
 |--------------------------------------------------------------------------------|
-| [bootstrap](https://getbootstrap.com/)                                         |
 | [bootstrap-vue-next](https://bootstrap-vue-next.github.io/bootstrap-vue-next/) |
-| [👍 vuetifyjs 超级古老框架 商业版收费](https://vuetifyjs.com/)                            |
-| [👍 element-plus 官网](https://element-plus.org/)                                |
+| [👍 vuetifyjs 超级古老框架 商业版收费 不适合管理端](https://vuetifyjs.com/)                     |
 | [👍 ant-design-vue 社区维护](https://antdv.com/index)                              |
+| [👍 element-plus 官网](https://element-plus.org/)                                |
 | [quasarchs 官网](https://quasar.dev/)                                            |
 | [arco 字节 官网](https://arco.design/)                                             |
 | [tdesign 腾讯多端UI 包含 Web 和手机端](https://tdesign.tencent.com/)                     |
