@@ -148,7 +148,7 @@
 				:key="item"
 				:class="{ 'btn-act': Number(data.current) === item }"
 				@click="onChange(item)"
-				>{{it em}}</div
+				>{{ item }}</div
 			>
 			<div
 				class="page-num"
