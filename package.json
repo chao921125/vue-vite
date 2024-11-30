@@ -150,11 +150,12 @@
 		"mysql": "2.18.1"
 	},
 	"engines": {
-		"node": ">=18.0.0",
-		"npm": ">=6.14.18",
-		"pnpm": ">=6.20.0",
-		"yarn": ">=3.0.0"
+		"node": "^18.0.0",
+		"npm": "^6.14.18",
+		"pnpm": "^7.5.1",
+		"yarn": "^3.0.0"
 	},
+	"packageManager": "pnpm@7.5.1",
 	"lint-staged": {
 		"*.js": "eslint --cache --fix",
 		"*.css": "stylelint --fix"
