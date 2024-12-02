@@ -102,7 +102,7 @@
 		"vant": "^4.9.8",
 		"vue": "^3.5.12",
 		"vue-clipboard3": "^2.0.0",
-		"vue-i18n": "^9.14.1",
+		"vue-i18n": "^9.14.2",
 		"vue-router": "^4.4.5",
 		"vue-treeselect": "^1.0.7",
 		"vuedraggable": "^4.1.0",
