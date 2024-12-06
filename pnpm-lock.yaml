@@ -319,7 +319,7 @@ importers:
         specifier: ^5.37.0
         version: 5.37.0
       typescript:
-        specifier: ^5.6.2
+        specifier: ^5.6.3
         version: 5.7.2
       typescript-eslint:
         specifier: ^8.17.0
@@ -364,7 +364,7 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0(vue@3.5.13(typescript@5.7.2))
       vue-tsc:
-        specifier: ^2.0.29
+        specifier: ^2.1.10
         version: 2.1.10(typescript@5.7.2)
 
 packages:
