@@ -33,8 +33,8 @@
 		"test": "vite --host --open --mode preview",
 		"prod": "vite --host --open --mode production",
 		"build": "npm run build:prod",
-		"build:test": "vue-tsc --noEmit --skipLibCheck &&vite build --mode preview",
-		"build:prod": "vue-tsc --noEmit --skipLibCheck &&vite build --mode production",
+		"build:test": "vue-tsc --noEmit --skipLibCheck && vite build --mode preview",
+		"build:prod": "vue-tsc --noEmit --skipLibCheck && vite build --mode production",
 		"build:no-cache": "npm clean:cache && npm run build",
 		"clean:cache": "rimraf yarn.lock && rimraf package.lock.json && rimraf pnpm-lock.yaml && rimraf node_modules && pnpm install",
 		"clean:lib": "rimraf node_modules",
@@ -126,13 +126,13 @@
 		"stylelint-prettier": "^5.0.2",
 		"stylelint-scss": "^6.10.0",
 		"terser": "^5.37.0",
-		"typescript": "^5.7.2",
+		"typescript": "5.6.3",
 		"typescript-eslint": "^8.17.0",
 		"unplugin-auto-import": "^0.18.6",
 		"unplugin-icons": "^0.19.3",
 		"unplugin-vue-components": "^0.27.5",
 		"unplugin-vue-define-options": "^1.5.2",
-		"vite": "^6.0.2",
+		"vite": "^6.0.3",
 		"vite-plugin-cdn-import": "^1.0.1",
 		"vite-plugin-checker": "^0.7.2",
 		"vite-plugin-compression2": "^1.3.3",
@@ -144,11 +144,11 @@
 		"vue-tsc": "^2.1.10"
 	},
 	"peerDependencies": {
-		"mysql2": ">=3.11.0"
+		"mysql": "2.18.1",
+		"mysql2": ">=3.11.0",
+		"typescript": "5.6.3"
 	},
-	"overrides": {
-		"mysql": "2.18.1"
-	},
+	"overrides": {},
 	"engines": {
 		"node": ">=18.0.0",
 		"npm": ">=6.14.18",
