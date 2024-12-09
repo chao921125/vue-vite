@@ -7,8 +7,17 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ChartsBarBasic: typeof import('./src/components/charts/BarBasic.vue')['default']
+    ChartsLineBasic: typeof import('./src/components/charts/LineBasic.vue')['default']
+    ChartsLineStacked: typeof import('./src/components/charts/LineStacked.vue')['default']
+    ChartsPieBasic: typeof import('./src/components/charts/PieBasic.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    IconSvg: typeof import('./src/components/icon/Svg.vue')['default']
     Page: typeof import('./src/components/page/Index.vue')['default']
+    ReBack: typeof import('./src/components/re/Back.vue')['default']
+    ReDateQuick: typeof import('./src/components/re/DateQuick.vue')['default']
+    ReFileUpload: typeof import('./src/components/re/FileUpload.vue')['default']
+    RePagination: typeof import('./src/components/re/Pagination.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

@@ -1,14 +1,20 @@
 <script setup lang="ts">
 	import { ref } from "vue";
 	import Assets from "@/plugins/assets";
+	import Page from "@/components/page/Index.vue";
 
-	defineProps<{ msg: string }>();
+	const props = defineProps({
+		msg: {
+			type: String,
+			default: "Hello World",
+		},
+	});
 
 	const count = ref(0);
 </script>
 
 <template>
-	<h1>{{ msg }}</h1>
+	<h1>{{ props.msg }}</h1>
 
 	<div class="card">
 		<button
@@ -41,6 +47,9 @@
 		.
 	</p>
 	<p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+	<div class="page-box">
+		<Page :total="200"></Page>
+	</div>
 	<img
 		alt="Vue logo"
 		:src="Assets.logo" />
@@ -50,5 +59,8 @@
 	.read-the-docs {
 		color: #888;
 		display: flex;
+	}
+	.page-box {
+		background-color: #421a74;
 	}
 </style>
