@@ -264,15 +264,20 @@
 | [vuejs-heatmap](https://www.npmjs.com/package/vuejs-heatmap)                     |
 | [mpvue-calendar](https://github.com/Hzy0913/mpvue-calendar)                      |
 
-| 图标                                                   |
-|------------------------------------------------------|
-| [iconfont 官网](https://www.iconfont.cn/)              |
-| [iconify 官网](https://icon-sets.iconify.design/)      |
-| [iconpark 官网](https://iconpark.oceanengine.com/home) |
-| 无字体库                                                 |
-| [flaticon 官网](https://www.flaticon.com/)             |
-| [icons8 官网](https://icons8.com/icons)                |
-| [iconfinder 官网](https://www.iconfinder.com/search)   |
+| 图标                                                                                           |
+|----------------------------------------------------------------------------------------------|
+| [iconfont 官网](https://www.iconfont.cn/)                                                      |
+| [iconify 官网](https://icon-sets.iconify.design/)                                              |
+| [iconpark 官网](https://iconpark.oceanengine.com/home)                                         |
+| [iconbox 官网](https://arco.design/iconbox/libs)                                               |
+| 安装包                                                                                          |
+| [unplugin-icons 官网](https://github.com/unplugin/unplugin-icons) [官网](https://icones.js.org/) |
+| [xicons 官网](https://github.com/07akioni/xicons) [官网](https://www.xicons.org/#/)              |
+| [boxicons 官网](https://github.com/atisawd/boxicons) [官网](https://boxicons.com/)               |
+| 无字体库                                                                                         |
+| [flaticon 官网](https://www.flaticon.com/)                                                     |
+| [icons8 官网](https://icons8.com/icons)                                                        |
+| [iconfinder 官网](https://www.iconfinder.com/search)                                           |
 
 | svg                                                                  |
 |----------------------------------------------------------------------|
@@ -300,9 +305,9 @@
 | [vue-draggable-plus](https://github.com/Alfred-Skyblue/vue-draggable-plus)    |
 | [revue-draggable](https://github.com/bcakmakoglu/revue-draggable)             |
 | [vue3 draggable-resizable](https://github.com/a7650/vue3-draggable-resizable) |
+| [vue-drag-resize](https://github.com/kirillmurashov/vue-drag-resize)          |
 | [vue2 Vue.Draggable](https://github.com/itmier/Vue.Draggable)                 |
 | [vue2 vue-grid-layout](https://www.npmjs.com/package/vue-grid-layout)         |
-| [vue2 vue-drag-resize](https://github.com/kirillmurashov/vue-drag-resize)     |
 
 | 二维码                                                    |
 |--------------------------------------------------------|
@@ -311,9 +316,10 @@
 | [qrcode.vue](https://www.npmjs.com/package/qrcode.vue) |
 | [qrcodejs2](https://www.npmjs.com/package/qrcodejs2)   |
 
-| 全屏                                                       |
-|----------------------------------------------------------|
-| [screenfull](https://github.com/sindresorhus/screenfull) |
+| 全屏                                                         |
+|------------------------------------------------------------|
+| [screenfull](https://github.com/sindresorhus/screenfull)   |
+| [vue-fullscreen](https://github.com/mirari/vue-fullscreen) |
 
 | html2canvas，页面截图                                         |
 |----------------------------------------------------------|
@@ -322,6 +328,8 @@
 | 裁剪图片                                                    |
 |---------------------------------------------------------|
 | [vue-cropper](https://github.com/xyxiao001/vue-cropper) |
+| [viewerjs](https://github.com/fengyuanchen/viewerjs)    |
+| [v-viewer](https://github.com/mirari/v-viewer)          |
 
 | 富文本编辑器                                                                 |                                                              
 |------------------------------------------------------------------------|
