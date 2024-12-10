@@ -214,21 +214,13 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 9px;
-			height: 8px;
-			font-family: Barlow-Medium, Barlow;
-			font-weight: 800;
-			font-size: 7px;
+			width: 20px;
+			height: 20px;
+			font-size: 16px;
 			color: #ffffff;
 			line-height: 1;
 			text-align: center;
-			font-style: normal;
 			border-radius: 2px;
-			padding-bottom: 1px;
-
-			.btn-act {
-				font-family: Barlow-ExtraBold, Barlow;
-			}
 		}
 
 		.page-btn {
@@ -236,8 +228,8 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 9px;
-			height: 8px;
+			width: 20px;
+			height: 20px;
 			background: radial-gradient(377% 109% at 25% 16%, #8a4dda 0%, #34288b 100%);
 			margin-left: 2px;
 			margin-right: 2px;
