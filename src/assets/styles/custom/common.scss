@@ -1,0 +1,20 @@
+// 隐藏滚动条，但保留功能
+/* 适用于所有现代浏览器 */
+.hidden-scrollbar {
+	overflow: auto; /* 仍然允许滚动 */
+	scrollbar-width: none; /* Firefox 隐藏滚动条 */
+	-ms-overflow-style: none; /* IE 和 Edge 隐藏滚动条 */
+}
+
+/* 隐藏滚动条 - 针对 Webkit (Chrome, Safari) */
+.hidden-scrollbar::-webkit-scrollbar {
+	display: none; /* 隐藏滚动条 */
+}
+.hide-scroll-horizontal {
+	overflow-x: hidden;
+	overflow-y: auto; /* 允许垂直滚动 */
+}
+.hide-scroll-vertical {
+	overflow-y: hidden;
+	overflow-x: auto; /* 允许水平滚动 */
+}

@@ -66,6 +66,7 @@
 		"axios": "^1.7.9",
 		"axios-mock-adapter": "^2.1.0",
 		"core-js": "^3.39.0",
+		"date-fns": "^4.1.0",
 		"dayjs": "^1.11.13",
 		"echarts": "^5.5.1",
 		"echarts-gl": "^2.0.9",
