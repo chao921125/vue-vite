@@ -38,12 +38,13 @@ export default {
 	// 在html中空格是否是敏感的 "css" - 遵守CSS显示属性的默认值， "strict" - 空格被认为是敏感的 ，"ignore" - 空格被认为是不敏感的
 	htmlWhitespaceSensitivity: "strict",
 	// Vue文件脚本和样式标签缩进
-	vueIndentScriptAndStyle: true,
+	vueIndentScriptAndStyle: false,
 	// 换行符使用 lf 结尾是 可选值"<auto|lf|crlf|cr>"
 	endOfLine: "auto",
 	// 控制是否 prettier 格式的引用代码嵌入在文件中。
 	embeddedLanguageFormatting: "auto",
-	singleAttributePerLine: true,
+	// 每行单个属性
+	singleAttributePerLine: false,
 	overrides: [
 		{
 			files: "*.{js,ts,mjs,mts,cjs,cts,json,jsx,tsx,css,less,scss,vue,html}",
