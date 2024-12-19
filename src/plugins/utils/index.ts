@@ -152,4 +152,44 @@ util.isWeixin = () => {
 	return ua.match(/MicroMessenger/i) === "micromessenger";
 };
 
+util.preload = async (mediaUrls: any) => {
+	for (const url of mediaUrls) {
+		if (url.endsWith(".mp4")) {
+			await preloadVideo(url);
+		} else if (url.endsWith(".mp3")) {
+			await preloadAudio(url);
+		} else {
+			await preloadImg(url);
+		}
+	}
+};
+
+function preloadImg(url: string) {
+	return new Promise((resolve, reject) => {
+		const img = new Image();
+		img.onload = () => {
+			resolve(img);
+		};
+		img.onerror = () => {
+			reject(img);
+		};
+		img.src = url;
+	});
+}
+function preloadAudio(url: string) {
+	return url;
+}
+function preloadVideo(url: string) {
+	return new Promise((resolve, reject) => {
+		const v = document.createElement("video");
+		v.onload = () => {
+			resolve(url);
+		};
+		v.onerror = () => {
+			reject(url);
+		};
+		v.src = url;
+	});
+}
+
 export default util;
