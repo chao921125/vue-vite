@@ -1,3 +1,10 @@
+export const download = async (url, name) => {
+	const link = document.createElement("a");
+	link.href = url; // 替换为文件的真实链接
+	link.download = name || `download${url.slice(url.lastIndexOf("."))}`; // 指定下载的文件名
+	link.click();
+};
+
 export const urlToBase64 = async (url) => {
 	if (!url) return "";
 	await fetch(url)
@@ -28,6 +35,21 @@ export const fileToBase64 = (file, callback) => {
 	};
 	fr.readAsDataURL(blob);
 };
+export const base64ToFile = (base64, fileName) => {
+	if (!base64) return "";
+	const arr = base64.split(",");
+	const type = arr[0].match(/:(.*?);/)[1];
+	const bstr = atob(arr[1]);
+	let n = bstr.length;
+	const u8arr = new Uint8Array(n);
+	while (n--) {
+		u8arr[n] = bstr.charCodeAt(n);
+	}
+	return new File([u8arr], fileName, {
+		type: type,
+	});
+};
+
 export const fileToBlob = (file, callback) => {
 	if (!file) return "";
 	const type = file.type;
@@ -43,6 +65,11 @@ export const fileToBlob = (file, callback) => {
 	};
 	fr.readAsDataURL(blob);
 };
+export const blobToFile = (blob, fileName) => {
+	if (!blob) return "";
+	return new File([blob], fileName);
+};
+
 export const blobToBase64 = (blob, callback) => {
 	if (!blob) return "";
 	const fr = new FileReader();
@@ -69,21 +96,5 @@ export const base64ToBlob = (base64) => {
 		type: type,
 	});
 };
-export const blobToFile = (blob, fileName) => {
-	if (!blob) return "";
-	return new File([blob], fileName);
-};
-export const base64ToFile = (base64, fileName) => {
-	if (!base64) return "";
-	const arr = base64.split(",");
-	const type = arr[0].match(/:(.*?);/)[1];
-	const bstr = atob(arr[1]);
-	let n = bstr.length;
-	const u8arr = new Uint8Array(n);
-	while (n--) {
-		u8arr[n] = bstr.charCodeAt(n);
-	}
-	return new File([u8arr], fileName, {
-		type: type,
-	});
-};
+
+export default { urlToBase64, fileToBase64, base64ToFile, fileToBlob, blobToFile, blobToBase64, base64ToBlob };
