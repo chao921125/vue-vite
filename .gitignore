@@ -40,5 +40,3 @@ lerna-debug.log*
 stats.html
 .eslintcache
 .stylelintcache
-auto-imports.d.ts
-components.d.ts
