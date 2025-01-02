@@ -51,7 +51,8 @@
 			"node",
 			"qs",
 			"vite/client",
-			"vite-plugin-pwa/client"
+			"vite-plugin-pwa/client",
+			"vite-plugin-pwa/vue"
 		]
 	},
 	"plugins": [],
