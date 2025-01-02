@@ -114,7 +114,6 @@ export const imgConvert = async (file, outputFormat = "image/jpeg", callback) =>
 		reader.onload = function (e: any) {
 			if (typeof e.target.result === "string") {
 				img.onload = function () {
-					debugger;
 					const canvas = document.createElement("canvas");
 					const ctx: any = canvas.getContext("2d");
 
