@@ -79,6 +79,7 @@ Object.keys(directives).forEach((key) => {
 // app.use(globalComponent)
 
 // PWA
+// 图标生成 npx pwa-asset-generator ./src/assets/logo.png ./public/icons
 // import { registerSW } from "virtual:pwa-register";
 // registerSW({
 // 	onNeedRefresh() {},
