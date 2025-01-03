@@ -185,10 +185,10 @@
 	"engines": {
 		"node": "^20.0.0",
 		"npm": "^10.9.2",
-		"pnpm": "^7.5.1",
+		"pnpm": "^9.15.2",
 		"yarn": "^3.8.7"
 	},
-	"packageManager": "pnpm@7.5.1",
+	"packageManager": "pnpm@9.15.2",
 	"lint-staged": {
 		"*.js": "eslint --cache --fix",
 		"*.css": "stylelint --fix"
