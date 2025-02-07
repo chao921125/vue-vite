@@ -270,7 +270,8 @@ export default defineConfig(({ command, mode }) => {
 			// false or jsx settings
 			// jsxFactory: "h",
 			// jsxFragment: "Fragment",
-			pure: envConfig.VITE_DROP_CONSOLE ? ["console.log", "debugger"] : [],
+			pure: envConfig.VITE_DROP_CONSOLE ? ["console.log"] : [],
+			drop: envConfig.VITE_DROP_CONSOLE ? ["debugger"] : [],
 		},
 		// assetsInclude: "", // 静态资源处理
 		logLevel: "info", // 可以根据开发环境动态改变 "info" | "warn" | "error" | "silent"
