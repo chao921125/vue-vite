@@ -313,6 +313,7 @@
     "whenever": true,
     "usePreferredReducedTransparency": true,
     "useSSRWidth": true,
-    "onElementRemoval": true
+    "onElementRemoval": true,
+    "useCountdown": true
   }
 }
