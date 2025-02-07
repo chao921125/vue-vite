@@ -47,7 +47,7 @@ const __APP_INFO__ = {
 export default defineConfig(({ command, mode }) => {
 	const __filename = fileURLToPath(import.meta.url);
 	const __dirname = path.dirname(__filename);
-	const envConfig = getEnvConfig(loadEnv(mode, import.meta.dirname, ""));
+	const envConfig: any = getEnvConfig(loadEnv(mode, import.meta.dirname, ""));
 	const browserslistConfig = browserslist.loadConfig({ path: "." });
 	const isBuild = command.includes("build");
 	/**
@@ -295,7 +295,8 @@ export default defineConfig(({ command, mode }) => {
 			// false or jsx settings
 			// jsxFactory: "h",
 			// jsxFragment: "Fragment",
-			pure: envConfig.VITE_DROP_CONSOLE ? ["console.log", "debugger"] : [],
+			pure: envConfig.VITE_DROP_CONSOLE ? ["console.log"] : [],
+			drop: envConfig.VITE_DROP_CONSOLE ? ["debugger"] : [],
 		},
 		// assetsInclude: "", // 静态资源处理
 		logLevel: "info", // 可以根据开发环境动态改变 "info" | "warn" | "error" | "silent"
