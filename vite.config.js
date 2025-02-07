@@ -18,7 +18,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 // ejs 支持，在 html 中使用 变量语法
 import { ViteEjsPlugin } from "vite-plugin-ejs";
 // 生成一个离线的快捷应用 PWA
-import { VitePWA } from "vite-plugin-pwa";
+// import { VitePWA } from "vite-plugin-pwa";
 // gzip 压缩
 import { compression } from "vite-plugin-compression2";
 // 浏览器兼容
@@ -95,111 +95,111 @@ export default defineConfig(({ command, mode }) => {
 					},
 				},
 			),
-			VitePWA({
-				injectRegister: "auto",
-				registerType: "autoUpdate",
-				devOptions: {
-					enabled: false,
-				},
-				includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
-				manifest: {
-					name: "vue-vite",
-					short_name: "vv",
-					description: "vue-vite frame",
-					id: "vue-vite",
-					start_url: ".",
-					theme_color: "#FFFFFF",
-					icons: [
-						{
-							src: "/pwa-640.png",
-							sizes: "640x640",
-							type: "image/png",
-						},
-					],
-				},
-				workbox: {
-					globPatterns: ["**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,css,scss,sass,less,html,ico,icon,png,jpg,jpeg,gif,webp,svg,ttf,otf,woff,woff2}"],
-					cleanupOutdatedCaches: false,
-					sourcemap: true,
-					maximumFileSizeToCacheInBytes: 15 * 1024 ** 2,
-					runtimeCaching: [
-						mode === "production"
-							? {
-									urlPattern: ({ url }) => url.origin.includes("https"),
-									handler: "NetworkFirst",
-									options: {
-										cacheName: "pwa-api",
-										cacheableResponse: {
-											statuses: [200],
-										},
-									},
-								}
-							: {
-									urlPattern: ({ url }) => url.origin.includes("test"),
-									handler: "NetworkFirst",
-									options: {
-										cacheName: "pwa-api",
-										cacheableResponse: {
-											statuses: [200],
-										},
-									},
-								},
-						{
-							urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
-							handler: "CacheFirst",
-							options: {
-								cacheName: "pwa-images",
-								expiration: {
-									// 最多30个图
-									maxEntries: 30,
-								},
-							},
-						},
-						{
-							urlPattern: /.*\.js.*/,
-							handler: "StaleWhileRevalidate",
-							options: {
-								cacheName: "pwa-js",
-								expiration: {
-									maxEntries: 30, // 最多缓存30个，超过的按照LRU原则删除
-									maxAgeSeconds: 30 * 24 * 60 * 60,
-								},
-								cacheableResponse: {
-									statuses: [200],
-								},
-							},
-						},
-						{
-							urlPattern: /.*\.css.*/,
-							handler: "StaleWhileRevalidate",
-							options: {
-								cacheName: "pwa-css",
-								expiration: {
-									maxEntries: 20,
-									maxAgeSeconds: 30 * 24 * 60 * 60,
-								},
-								cacheableResponse: {
-									statuses: [200],
-								},
-							},
-						},
-						{
-							urlPattern: /.*\.html.*/,
-							handler: "StaleWhileRevalidate",
-							options: {
-								cacheName: "pwa-html",
-								expiration: {
-									maxEntries: 20,
-									maxAgeSeconds: 30 * 24 * 60 * 60,
-								},
-								cacheableResponse: {
-									statuses: [200],
-								},
-							},
-						},
-					],
-				},
-			}),
+			// VitePWA({
+			// 	injectRegister: "auto",
+			// 	registerType: "autoUpdate",
+			// 	devOptions: {
+			// 		enabled: false,
+			// 	},
+			// 	includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
+			// 	manifest: {
+			// 		name: "vue-vite",
+			// 		short_name: "vv",
+			// 		description: "vue-vite frame",
+			// 		id: "vue-vite",
+			// 		start_url: ".",
+			// 		theme_color: "#FFFFFF",
+			// 		icons: [
+			// 			{
+			// 				src: "/pwa-640.png",
+			// 				sizes: "640x640",
+			// 				type: "image/png",
+			// 			},
+			// 		],
+			// 	},
+			// 	workbox: {
+			// 		globPatterns: ["**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,css,scss,sass,less,html,ico,icon,png,jpg,jpeg,gif,webp,svg,ttf,otf,woff,woff2}"],
+			// 		cleanupOutdatedCaches: false,
+			// 		sourcemap: true,
+			// 		maximumFileSizeToCacheInBytes: 15 * 1024 ** 2,
+			// 		runtimeCaching: [
+			// 			mode === "production"
+			// 				? {
+			// 						urlPattern: ({ url }) => url.origin.includes("https"),
+			// 						handler: "NetworkFirst",
+			// 						options: {
+			// 							cacheName: "pwa-api",
+			// 							cacheableResponse: {
+			// 								statuses: [200],
+			// 							},
+			// 						},
+			// 					}
+			// 				: {
+			// 						urlPattern: ({ url }) => url.origin.includes("test"),
+			// 						handler: "NetworkFirst",
+			// 						options: {
+			// 							cacheName: "pwa-api",
+			// 							cacheableResponse: {
+			// 								statuses: [200],
+			// 							},
+			// 						},
+			// 					},
+			// 			{
+			// 				urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
+			// 				handler: "CacheFirst",
+			// 				options: {
+			// 					cacheName: "pwa-images",
+			// 					expiration: {
+			// 						// 最多30个图
+			// 						maxEntries: 30,
+			// 					},
+			// 				},
+			// 			},
+			// 			{
+			// 				urlPattern: /.*\.js.*/,
+			// 				handler: "StaleWhileRevalidate",
+			// 				options: {
+			// 					cacheName: "pwa-js",
+			// 					expiration: {
+			// 						maxEntries: 30, // 最多缓存30个，超过的按照LRU原则删除
+			// 						maxAgeSeconds: 30 * 24 * 60 * 60,
+			// 					},
+			// 					cacheableResponse: {
+			// 						statuses: [200],
+			// 					},
+			// 				},
+			// 			},
+			// 			{
+			// 				urlPattern: /.*\.css.*/,
+			// 				handler: "StaleWhileRevalidate",
+			// 				options: {
+			// 					cacheName: "pwa-css",
+			// 					expiration: {
+			// 						maxEntries: 20,
+			// 						maxAgeSeconds: 30 * 24 * 60 * 60,
+			// 					},
+			// 					cacheableResponse: {
+			// 						statuses: [200],
+			// 					},
+			// 				},
+			// 			},
+			// 			{
+			// 				urlPattern: /.*\.html.*/,
+			// 				handler: "StaleWhileRevalidate",
+			// 				options: {
+			// 					cacheName: "pwa-html",
+			// 					expiration: {
+			// 						maxEntries: 20,
+			// 						maxAgeSeconds: 30 * 24 * 60 * 60,
+			// 					},
+			// 					cacheableResponse: {
+			// 						statuses: [200],
+			// 					},
+			// 				},
+			// 			},
+			// 		],
+			// 	},
+			// }),
 			legacy({
 				renderLegacyChunks: false,
 				modernPolyfills: ["es.global-this"],
