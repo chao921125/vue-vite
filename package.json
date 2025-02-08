@@ -1,6 +1,6 @@
 {
 	"name": "vue-vite",
-	"version": "4.10.14",
+	"version": "4.0.1",
 	"description": "vue-vite",
 	"keywords": [
 		"vue, vue2, vu3",
@@ -71,7 +71,7 @@
 		"echarts": "^5.6.0",
 		"echarts-gl": "^2.0.9",
 		"echarts-wordcloud": "^2.1.0",
-		"element-plus": "^2.9.3",
+		"element-plus": "^2.9.4",
 		"heic2any": "^0.0.4",
 		"js-cookie": "^3.0.5",
 		"mitt": "^3.0.1",
@@ -88,8 +88,8 @@
 		"@commitlint/config-conventional": "^19.7.1",
 		"@commitlint/format": "^19.5.0",
 		"@commitlint/types": "^19.5.0",
-		"@eslint/js": "^9.19.0",
-		"@rollup/plugin-commonjs": "^28.0.2",
+		"@eslint/js": "^9.20.0",
+		"@rollup/plugin-commonjs": "26.0.3",
 		"@types/echarts": "^5.0.0",
 		"@types/node": "^22.13.1",
 		"@types/qs": "^6.9.18",
@@ -99,7 +99,7 @@
 		"autoprefixer": "^10.4.20",
 		"browserslist": "^4.24.4",
 		"conventional-changelog-conventionalcommits": "^8.0.0",
-		"eslint": "^9.19.0",
+		"eslint": "^9.20.0",
 		"eslint-config-prettier": "^10.0.1",
 		"eslint-plugin-prettier": "^5.2.3",
 		"eslint-plugin-vue": "^9.32.0",
@@ -145,10 +145,16 @@
 	},
 	"peerDependencies": {
 		"mysql": "2.18.1",
-		"mysql2": "^3.11.0"
+		"mysql2": ">=3.11.0",
+		"typescript": "5.6.3"
 	},
 	"overrides": {},
-	"engines": {},
+	"engines": {
+		"node": ">=18.0.0",
+		"npm": ">=6.14.18",
+		"pnpm": ">=7.5.1",
+		"yarn": ">=3.0.0"
+	},
 	"lint-staged": {
 		"*.js": "eslint --cache --fix",
 		"*.css": "stylelint --fix"
