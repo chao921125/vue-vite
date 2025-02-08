@@ -1,5 +1,5 @@
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
+import * as NProgress from "nprogress-v2";
+import "nprogress-v2/dist/index.css";
 
 NProgress.configure({
 	// 动画方式
