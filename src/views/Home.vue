@@ -1,34 +1,27 @@
 <script setup lang="ts">
+	import { ref, onMounted, reactive } from "vue";
 	import { formatAxis, formatDate } from "@/plugins/utils/format";
-	import UA from "ua-parser-js";
 	import { getProxyIpInfo, getRealIpInfo } from "@/plugins/utils/ip";
 	import Constants from "@/plugins/constants";
+	import Ua from "@/plugins/utils/ua";
 
 	// 欢迎标语
 	const now = ref(formatAxis(new Date()));
 	const nowLocal = ref(formatDate(new Date(), "YYYY年mm月dd日 HH时MM分 WWW QQQQ ZZZ"));
 
 	// UA 及 IP信息
-	const uaInfo = ref<IDeviceInfo>();
-	const ipReal = reactive<IDeviceInfo>({ ip: "", province: "", region: "", country: "" });
-	const ipProxy = reactive<{
-		ip: string;
-		country: string;
-		region: string;
-		province: string;
-	}>({ ip: "", province: "", country: "", region: "" });
-	const getUaInfo = () => {
-		uaInfo.value = UA(navigator.userAgent) as any;
-	};
+	const uaInfo = Ua.uaInfo;
+	const ipReal = reactive({ ip: "", province: "", region: "", country: "" });
+	const ipProxy = reactive({ ip: "", province: "", country: "", region: "" });
 	const getIpInfo = () => {
-		getRealIpInfo(Constants.ipUrl.real.songzixian).then((res: any) => {
+		getRealIpInfo(Constants.ipUrl.real.songzixian).then((res) => {
 			ipReal.ip = res.data.ip;
 			ipReal.country = res.data.country + " " + res.data.countryCode;
 			ipReal.province = res.data.province;
 			ipReal.region = res.data.city + " " + res.data.isp;
 		});
 
-		getProxyIpInfo(Constants.ipUrl.proxy.ipapi).then((res: any) => {
+		getProxyIpInfo(Constants.ipUrl.proxy.ipapi).then((res) => {
 			console.log(res);
 			ipProxy.ip = res.ip;
 			ipProxy.province = res.city;
@@ -40,7 +33,6 @@
 	const isLoading = ref(true);
 	const isLoadingInfo = ref(true);
 	onMounted(() => {
-		getUaInfo();
 		getIpInfo();
 		setTimeout(() => {
 			isLoadingInfo.value = false;

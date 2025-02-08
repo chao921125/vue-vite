@@ -1,15 +1,11 @@
 <script setup lang="ts">
-	import UA from "ua-parser-js";
+	import { ref, onMounted } from "vue";
+	import Ua from "@/plugins/utils/ua";
 
 	const isLoading = ref(true);
-	const uaInfo = ref<any>();
-
-	const getUaInfo = () => {
-		uaInfo.value = UA(navigator.userAgent) as any;
-	};
+	const uaInfo = Ua.uaInfo;
 
 	onMounted(() => {
-		getUaInfo();
 		setTimeout(() => {
 			isLoading.value = false;
 		}, 3000);
