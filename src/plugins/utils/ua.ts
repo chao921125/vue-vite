@@ -1,6 +1,12 @@
 // PC 插件 https://github.com/faisalman/ua-parser-js
 // M 插件 https://github.com/hgoebl/mobile-detect.js/
 // IP 关于IP这一块，建议后端获取
+import UAParser from "ua-parser-js";
+
+const getUaInfo = () => {
+	return UAParser(navigator.userAgent) as any;
+};
+
 function getBrowserInfo() {
 	const uaData = (navigator as any).userAgentData;
 	return {
@@ -18,4 +24,5 @@ function getBrowserInfo() {
 }
 export default {
 	browserInfo: getBrowserInfo(),
+	uaInfo: getUaInfo(),
 };
