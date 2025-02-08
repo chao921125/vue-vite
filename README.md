@@ -30,6 +30,12 @@
 | [nodejs](https://nodejs.org/) |
 | [deno](https://deno.com/)     |
 
+| 包管理                              |
+|----------------------------------|
+| [pnpm 综合实用性最佳](https://pnpm.io/) |
+| [yarn2](https://yarnpkg.com/)    |
+| [npm](https://www.npmjs.com/)    |
+
 | 构建工具                                 |
 |--------------------------------------|
 | [👍 vite 官网](https://cn.vitejs.dev/) |

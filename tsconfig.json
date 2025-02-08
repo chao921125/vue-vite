@@ -51,7 +51,8 @@
 			"node",
 			"qs",
 			"vite/client",
-			"vite-plugin-pwa/client"
+			"vite-plugin-pwa/client",
+			"vite-plugin-pwa/vue"
 		]
 	},
 	"plugins": [],
@@ -70,5 +71,5 @@
 		"cypress",
 		"tests"
 	],
-	"references": [{ "path": "./tsconfig.node.json" }]
+//	"references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.app.json" }]
 }

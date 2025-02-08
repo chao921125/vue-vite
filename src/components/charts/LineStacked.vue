@@ -29,13 +29,14 @@ const props = defineProps({
 
 const drawChart = () => {
 	if (!props.seriesData?.length) return false;
-	let chartDom = document.getElementById(`${props.id}`)! as HTMLDivElement;
+	const chartDom = document.getElementById(`${props.id}`);
+	if (!chartDom) return false;
 	let myChart = echarts.getInstanceByDom(chartDom);
 	if (!myChart) {
 		myChart = echarts.init(chartDom);
 	}
 	myChart.clear();
-	let option: echarts.EChartOption;
+	let option = {};
 
 	let seriesArray: any[] = [];
 	if (props.legendData?.length) {
@@ -50,12 +51,12 @@ const drawChart = () => {
 	}
 
 	option = {
-		color: props.color as any,
+		color: props.color,
 		tooltip: {
 			trigger: "axis",
 		},
 		legend: {
-			data: props.legendData as any,
+			data: props.legendData,
 			left: "left",
 		},
 		grid: {
@@ -67,12 +68,12 @@ const drawChart = () => {
 		xAxis: {
 			type: "category",
 			boundaryGap: false,
-			data: props.xAxisData as any,
+			data: props.xAxisData,
 		},
 		yAxis: {
 			type: "value",
 		},
-		series: seriesArray as any,
+		series: seriesArray,
 	};
 
 	option && myChart.setOption(option);
