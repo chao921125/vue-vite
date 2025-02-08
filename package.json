@@ -143,7 +143,12 @@
 		"mysql2": "^3.11.0"
 	},
 	"overrides": {},
-	"engines": {},
+	"engines": {
+		"node": ">=18.0.0",
+		"npm": ">=6.14.18",
+		"pnpm": ">=7.5.1",
+		"yarn": ">=3.0.0"
+	},
 	"lint-staged": {
 		"*.js": "eslint --cache --fix",
 		"*.css": "stylelint --fix"
