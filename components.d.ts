@@ -13,6 +13,7 @@ declare module 'vue' {
     ChartsPieBasic: typeof import('./src/components/charts/PieBasic.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IconSvg: typeof import('./src/components/icon/Svg.vue')['default']
+    Img: typeof import('./src/components/img/Index.vue')['default']
     Page: typeof import('./src/components/page/Index.vue')['default']
     ReBack: typeof import('./src/components/re/Back.vue')['default']
     ReDateQuick: typeof import('./src/components/re/DateQuick.vue')['default']
