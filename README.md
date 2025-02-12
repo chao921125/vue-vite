@@ -36,11 +36,16 @@
 | [yarn2](https://yarnpkg.com/)    |
 | [npm](https://www.npmjs.com/)    |
 
-| 构建工具                                 |
-|--------------------------------------|
-| [👍 vite 官网](https://cn.vitejs.dev/) |
-| [👍 svelte 官网](https://svelte.dev/)  |
-| [turbo](https://turbo.build/)        |
+| 构建工具                                  |
+|---------------------------------------|
+| [👍 vite 官网](https://cn.vitejs.dev/)  |
+| [👍 svelte 官网](https://svelte.dev/)   |
+| [Rspack](https://rspack.dev/zh/index) |
+| [parceljs](https://parceljs.org/)     |
+| [Turbopack](https://turbo.build/)     |
+| [esbuild](https://esbuild.github.io/) |
+| [rollupjs](https://rollupjs.org/)     |
+| [webpack](https://webpack.js.org/)    |
 
 | 语法糖                                 |
 |-------------------------------------|
