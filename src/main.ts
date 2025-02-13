@@ -99,6 +99,10 @@ import "animate.css/animate.min.css";
 import "animate.css/animate.compat.css";
 // 自定义样式
 import "@/assets/styles/index.scss";
+
+// v11+ https://swiperjs.com/element
+// import { register } from "swiper/element/bundle";
+// register();
 /*
  * 自定义 end
  * */
