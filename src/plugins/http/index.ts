@@ -1,10 +1,10 @@
 // https://www.axios-http.cn/
 import axios from "axios";
 import Router from "@/router";
-import Log from "@/plugins/utils/log";
-import Storage from "@/plugins/utils/storage";
-import Cookie from "@/plugins/utils/cookie";
-import Constants from "@/plugins/constants";
+import Log from "@/utils/log";
+import Storage from "@/utils/storage";
+import Cookie from "@/utils/cookie";
+import Constants from "@/utils/constant/constants";
 import AxiosConfig from "@/config/httpConfig";
 import NProgress from "@/plugins/loading/progress";
 import RouterConfig from "@/config/routerConfig";

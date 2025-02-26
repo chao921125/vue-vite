@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
-import Storage from "@/plugins/utils/storage";
-import Cookie from "@/plugins/utils/cookie";
+import Storage from "@/utils/storage";
+import Cookie from "@/utils/cookie";
 
 /**
  * TagsView 路由列表

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import Assets from "@/plugins/assets";
+import Assets from "@/utils/constant/assets";
 import Page from "@/components/page/Index.vue";
 
 const props = defineProps({
