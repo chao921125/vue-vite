@@ -111,7 +111,7 @@ import "@/assets/styles/index.scss";
  * 启动运行日志 start
  * */
 // 工具
-import Log from "@/plugins/utils/log";
+import Log from "@/utils/log";
 
 // config log
 Log.success(">>>>>> 当前VUE版本 >>>>>>");

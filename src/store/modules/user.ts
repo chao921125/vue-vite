@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
-import Storage from "@/plugins/utils/storage";
-import Constants from "@/plugins/constants";
+import Storage from "@/utils/storage";
+import Constants from "@/utils/constant/constants";
 
 /**
  * 用户信息

@@ -5,13 +5,13 @@ import { createRouter, createWebHistory } from "vue-router";
 import { baseRoutes, errorRoutes } from "./route";
 import { getStoreRefs, appStore } from "@/store";
 import NProgress from "@/plugins/loading/progress";
-import Storage from "@/plugins/utils/storage";
-import Cookie from "@/plugins/utils/cookie";
+import Storage from "@/utils/storage";
+import Cookie from "@/utils/cookie";
 import AxiosCancel from "@/plugins/http/cancel";
-import Constants from "@/plugins/constants";
+import Constants from "@/utils/constant/constants";
 import RouterConfig from "@/config/routerConfig";
 // import RouteData from "@/config/routerData";
-import api from "@/api";
+import api from "@/plugins/api";
 
 /**
  * 配置文件修改是否从后端获取路由

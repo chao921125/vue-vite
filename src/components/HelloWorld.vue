@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import Assets from "@/plugins/assets";
+import Assets from "@/utils/constant/assets";
 import Page from "@/components/page/Index.vue";
+import SeamlessScroll from "@/components/seamless/SeamlessScroll.vue";
 
 const props = defineProps({
 	msg: {
@@ -11,6 +12,8 @@ const props = defineProps({
 });
 
 const count = ref(0);
+
+const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
 </script>
 
 <template>
@@ -18,27 +21,19 @@ const count = ref(0);
 
 	<div class="card">
 		<button type="button" @click="count++"> count is {{ count }} </button>
-		<p>
-			Edit
-			<code>components/HelloWorld.vue</code> to test HMR
-		</p>
+		<img alt="Vue logo" :src="Assets.logo" style="width: 30px; height: 30px" />
 	</div>
 
-	<p>
-		Check out
-		<a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"> create-vue </a>
-		, the official Vue + Vite starter
-	</p>
-	<p>
-		Learn more about IDE Support for Vue in the
-		<a href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support" target="_blank"> Vue Docs Scaling up Guide </a>
-		.
-	</p>
-	<p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 	<div class="page-box">
 		<Page :total="200"></Page>
 	</div>
-	<img alt="Vue logo" :src="Assets.logo" />
+	<div style="width: 100%; height: 50px">
+		<SeamlessScroll :speed="50" direction="up" :auto-play="true" :hover-stop="true">
+			<div v-for="(item, index) in items" :key="index" class="scroll-item">
+				{{ item }}
+			</div>
+		</SeamlessScroll>
+	</div>
 </template>
 
 <style scoped lang="scss">
@@ -48,5 +43,11 @@ const count = ref(0);
 }
 .page-box {
 	background-color: #421a74;
+}
+
+.scroll-item {
+	padding: 10px;
+	background: #f0f0f0;
+	border-bottom: 1px solid #ddd;
 }
 </style>
