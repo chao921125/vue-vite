@@ -22,5 +22,6 @@ declare module 'vue' {
     RePagination: typeof import('./src/components/re/Pagination.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SeamlessSeamlessScroll: typeof import('./src/components/seamless/SeamlessScroll.vue')['default']
   }
 }

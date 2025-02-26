@@ -2,7 +2,7 @@
 // eslint 补充规则 @stylistic/eslint-plugin
 import globals from "globals";
 import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
+import tsEslint from "typescript-eslint";
 import pluginVue from "eslint-plugin-vue";
 import eslintConfigPrettier from "eslint-config-prettier";
 import prettier from "eslint-plugin-prettier";
@@ -25,8 +25,8 @@ export default [
 		},
 	},
 	pluginJs.configs.recommended,
-	...tseslint.configs.recommended,
-	...pluginVue.configs["flat/essential"],
+	...tsEslint.configs.recommended,
+	...pluginVue.configs.recommended,
 	{
 		// processor: {},
 		/* 继承某些已有的规则 */
