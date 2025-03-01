@@ -9,6 +9,11 @@ import prettier from "eslint-plugin-prettier";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 export default [
+	pluginJs.configs.recommended,
+	...tsEslint.configs.recommended,
+	...pluginVue.configs.recommended,
+	eslintConfigPrettier,
+	eslintPluginPrettierRecommended,
 	{
 		files: ["**/*.{js,mjs,cjs,ts,mts,vue,jsx,tsx}"],
 		ignores: [".vscode", ".idea", ".local", "node_modules", "dist", "public", "!mock/", "!build", "Dockerfile", "index.html", "*.sh", "*.js", "*.d.js", "*.ts", "*.d.ts", "*.md", "*.scss", "*.woff", "*.ttf"],
@@ -23,11 +28,6 @@ export default [
 			noInlineConfig: true,
 			reportUnusedDisableDirectives: false,
 		},
-	},
-	pluginJs.configs.recommended,
-	...tsEslint.configs.recommended,
-	...pluginVue.configs.recommended,
-	{
 		// processor: {},
 		/* 继承某些已有的规则 */
 		plugins: {
@@ -75,6 +75,4 @@ export default [
 		},
 		// settings: {},
 	},
-	eslintConfigPrettier,
-	eslintPluginPrettierRecommended,
 ];
