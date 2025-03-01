@@ -1,5 +1,6 @@
 <script setup lang="ts">
 	import { shuffle } from "lodash-es";
+	import { ref } from "vue";
 	import SelfMadeSystem from "./loading/SelfMadeSystem.vue";
 	import Adamgiebl from "./button/Adamgiebl.vue";
 	import Mobinkakei from "./checkbox/Mobinkakei.vue";
@@ -26,7 +27,7 @@
 		items.value = initItems();
 	};
 
-	const collapseValue = ref("1");
+	const collapseValue = ref(1);
 </script>
 
 <template>
