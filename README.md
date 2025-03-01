@@ -1,4 +1,5 @@
 # [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-ts.vercel.app/) - [项目截图](./docs/Project.md)
+# TS、JS 分支为精简分支，主分支更新频率较慢，学习请参考那两个分支
 # 命名规范及解释
 1. 命名遵循驼峰规则：demoUser
 2. 配置文件均按照xxConfig，数据配置均按照xxOption/xxData：
