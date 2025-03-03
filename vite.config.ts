@@ -1,7 +1,7 @@
 // @see https://vitejs.dev/config/
 import path from "node:path";
 import fs from "node:fs";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, URL } from "node:url";
 import dayjs from "dayjs";
 /**
  * 核心
@@ -257,6 +257,7 @@ export default defineConfig(({ command, mode }) => {
 				// remove i18n waring
 				"vue-i18n": "vue-i18n/dist/vue-i18n.cjs.js",
 				"@": path.resolve(__dirname, "./src"),
+				// '@': fileURLToPath(new URL('./src', import.meta.url)),
 				"#": path.resolve(__dirname, "./types"),
 			},
 			// dedupe: "", // 一般SSR+ESM使用
