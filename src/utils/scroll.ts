@@ -65,3 +65,23 @@ export const scrollTo = (to, duration, callback) => {
 	};
 	animateScroll();
 };
+
+/**
+ * 锚点
+ * @param anchorId
+ */
+export const scrollToAnchorSmooth = (anchorId: any) => {
+	const element = document.getElementById(anchorId);
+	if (element) {
+		element.scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+		});
+		window.location.hash = anchorId;
+	}
+};
+
+export default {
+	scrollTo,
+	scrollToAnchorSmooth,
+};
