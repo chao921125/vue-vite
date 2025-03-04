@@ -1,4 +1,12 @@
 {
+	/* "files": [], */
+	/* "references": [], */
+	/* {
+		"path": "./tsconfig.node.json"
+	},
+	{
+		"path": "./tsconfig.vitest.json"
+	} */
 	/* Visit https://aka.ms/tsconfig.json to read more about this file https://www.tslang.cn/docs/handbook/tsconfig-json.html */
 	"compilerOptions": {
 		"allowJs": true,
@@ -23,7 +31,7 @@
 		],
 		"listEmittedFiles": true,
 		"listFiles": true,
-		"module": "ESNext",
+		"module": "esnext",
 		"moduleResolution": "Bundler",
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": false,
@@ -43,7 +51,7 @@
 		"sourceMap": true,
 		"strict": true,
 		"strictFunctionTypes": false,
-		"target": "ESNext",
+		"target": "esnext",
 		"useDefineForClassFields": true,
 		"skipLibCheck": true,
 		"types": [
