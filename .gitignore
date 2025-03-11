@@ -25,7 +25,8 @@ lerna-debug.log*
 .hbuilderx
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/*
+!.idea/prettier.xml
 .vscode
 .project
 .cache
