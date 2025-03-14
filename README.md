@@ -682,9 +682,11 @@
 | [小游戏 createjs](https://www.createjs.com/)                        |
 
 # 优秀项目推荐
-| AI                                                     |
-|--------------------------------------------------------|
-| [open-webui](https://github.com/open-webui/open-webui) |
+| AI                                                              |
+|-----------------------------------------------------------------|
+| [open-webui](https://github.com/open-webui/open-webui)          |
+| [OCR tesseract.js](https://github.com/naptha/tesseract.js)      |
+| [OCR tesseract.c++](https://github.com/tesseract-ocr/tesseract) |
 
 | 低代码                                                             |
 |-----------------------------------------------------------------|
