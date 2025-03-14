@@ -63,7 +63,7 @@
 		"@vueuse/metadata": "^13.0.0",
 		"@vueuse/shared": "^13.0.0",
 		"animate.css": "^4.1.1",
-		"axios": "^1.8.2",
+		"axios": "^1.8.3",
 		"axios-mock-adapter": "^2.1.0",
 		"core-js": "^3.41.0",
 		"date-fns": "^4.1.0",
@@ -82,7 +82,7 @@
 		"vue": "^3.5.13",
 		"vue-i18n": "^11.1.2",
 		"vue-router": "^4.5.0",
-		"vuetify": "^3.7.15"
+		"vuetify": "^3.7.16"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.8.0",
@@ -109,7 +109,7 @@
 		"husky": "^9.1.7",
 		"less": "^4.2.2",
 		"less-loader": "^12.2.0",
-		"lint-staged": "^15.4.3",
+		"lint-staged": "^15.5.0",
 		"postcss": "^8.5.3",
 		"postcss-html": "^1.8.0",
 		"postcss-preset-env": "^10.1.5",
