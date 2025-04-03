@@ -630,12 +630,11 @@
 |----------------------------------------------------------------------------------------|
 | [NuxtJS vue](https://nuxt.com/)                                                        |
 | [NuxtJS ui](https://ui.nuxt.com/)                                                      |
-| [Next.js react](https://github.com/vercel/next.js)                                     |
+| [NextJS Next.js](https://nextjs.org/)                                                  |
 | [astro](https://astro.build/)                                                          |
 | [quasar 官网 组件一体](https://quasar.dev/)                                                  |
 | [vite ssr-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) |
 | [vite-plugin-ssr](https://vite-plugin-ssr.com/)                                        |
-| [Next.js](https://github.com/vercel/next.js)                                           |
 | [Hugo](https://github.com/gohugoio/hugo)                                               |
 | [Docusaurus](https://github.com/facebook/docusaurus)                                   |
 | [Jekyll](https://github.com/jekyll/jekyll)                                             |
