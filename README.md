@@ -670,6 +670,11 @@
 | [strapi](https://github.com/strapi/strapi) |
 | [hexo 博客](https://github.com/hexojs/hexo)  |
 
+# Web3
+| Web3                                               |
+|----------------------------------------------------|
+| [@web3auth/auth](https://github.com/web3auth/Auth) |
+
 # 游戏
 | 游戏                            |
 |-------------------------------|
