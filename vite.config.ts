@@ -84,8 +84,9 @@ export default defineConfig(({ command, mode }) => {
 			// * 是否生成包预览
 			envConfig.VITE_REPORT &&
 				visualizer({
-					emitFile: false,
 					filename: "stats.html",
+					title: "Visualizer",
+					emitFile: true,
 				}),
 			ViteEjsPlugin(
 				(viteConfig) => {
