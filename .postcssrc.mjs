@@ -5,7 +5,6 @@ export default {
 	plugins: [
 		postcssPresetEnv({
 			autoprefixer: {
-				// overrideBrowserslist: ["Android >= 4.1", "iOS >= 7.1", "Chrome > 87", "ff > 78", "not ie"],
 				grid: true,
 			},
 			// "postcss-px-to-viewport-8-plugin": {
