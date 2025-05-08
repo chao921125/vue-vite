@@ -24,7 +24,7 @@ import { compression } from "vite-plugin-compression2";
 // 浏览器兼容
 import browserslist from "browserslist";
 import legacy from "@vitejs/plugin-legacy";
-// 支持 ES6
+// CommonJS 转 ES6
 import commonjs from "@rollup/plugin-commonjs";
 // 自动导入模块
 import autoImport from "unplugin-auto-import/vite";
