@@ -18,3 +18,14 @@ declare interface ViteEnv {
 	VITE_BUILD_IMAGE: boolean;
 	VITE_PWA: boolean;
 }
+
+// url?lqip
+declare module "*?lqip" {
+	const lqip: {
+		lqip: string;
+		width: number;
+		height: number;
+		src: string;
+	};
+	export default lqip;
+}

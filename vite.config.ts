@@ -35,6 +35,8 @@ import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import svgLoader from "vite-svg-loader";
+// 低质量图片展位
+import lqip from "vite-plugin-lqip";
 // 自定义文件，变量处理
 import pkg from "./package.json";
 import { getEnvConfig, createProxy } from "./build";
@@ -214,6 +216,7 @@ export default defineConfig(({ command, mode }) => {
 				include: "node_modules/**",
 				defaultIsModuleExports: false,
 			}),
+			lqip(),
 			envConfig.VITE_BUILD_GZIP && compression(),
 			autoImport({
 				include: [
