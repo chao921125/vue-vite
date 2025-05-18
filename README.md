@@ -185,16 +185,17 @@
 | [uvui 官网](https://www.uvui.cn/)                               |
 | [wave 官网](https://antoniandre.github.io/wave-ui/)             |
 
-| UI 小程序                                                       |
-|--------------------------------------------------------------|
-| [👍vant](https://github.com/vant-ui/vant-weapp)              |
-| [👍weui](https://weui.io/)                                   |
-| [👍taro](https://taro-ui.jd.com/#/)                          |
-| [Tencent](https://github.com/Tencent/weui-wxss)              |
-| [Cube UI](https://didi.github.io/cube-ui/#/zh-CN)            |
-| [wux](https://wux-weapp.github.io/wux-weapp-docs/#/)         |
-| [firstui 含付费UI](https://www.firstui.cn/)                     |
-| [awesome](https://github.com/justjavac/awesome-wechat-weapp) |
+| UI 小程序                                                                        |
+|-------------------------------------------------------------------------------|
+| [👍vant](https://github.com/vant-ui/vant-weapp)                               |
+| [👍weui](https://weui.io/)  [Tencent](https://github.com/Tencent/weui-wxss)   |
+| [👍taro](https://taro-ui.jd.com/#/)                                           |
+| [uni-ui](https://github.com/dcloudio/uni-ui)                                  |
+| [uvui](https://www.uvui.cn/)                                                  |
+| [Cube UI](https://didi.github.io/cube-ui/#/zh-CN)                             |
+| [wux](https://wux-weapp.github.io/wux-weapp-docs/#/)                          |
+| [firstui 含付费UI](https://www.firstui.cn/)                                      |
+| [awesome](https://github.com/justjavac/awesome-wechat-weapp)                  |
 
 | UI 单一组件                                                                |
 |------------------------------------------------------------------------|
