@@ -88,7 +88,7 @@ export const baseRoutes = [
 	{
 		path: "/login",
 		name: "login",
-		component: () => import("@/views/common/Login.vue"),
+		component: () => import("@/views/auth/Login.vue"),
 		meta: {
 			title: "message.title.login",
 			name: "message.title.login",
@@ -99,7 +99,7 @@ export const baseRoutes = [
 	{
 		path: "/register",
 		name: "register",
-		component: () => import("@/views/common/Register.vue"),
+		component: () => import("@/views/auth/Register.vue"),
 		meta: {
 			title: "message.title.register",
 			name: "message.title.register",
