@@ -24,8 +24,6 @@ import { compression } from "vite-plugin-compression2";
 // 浏览器兼容
 import browserslist from "browserslist";
 import legacy from "@vitejs/plugin-legacy";
-// CommonJS 转 ES6
-import commonjs from "@rollup/plugin-commonjs";
 // 自动导入模块
 import autoImport from "unplugin-auto-import/vite";
 import components from "unplugin-vue-components/vite";
@@ -212,10 +210,6 @@ export default defineConfig(({ command, mode }) => {
 				renderLegacyChunks: false,
 				modernPolyfills: ["es.global-this"],
 				targets: browserslistConfig,
-			}),
-			commonjs({
-				include: "node_modules/**",
-				defaultIsModuleExports: false,
 			}),
 			lqip(),
 			envConfig.VITE_BUILD_GZIP && compression(),
