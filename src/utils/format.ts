@@ -167,19 +167,27 @@ export const replaceNullLine = (value) => {
 /**
  * 转数字
  */
-export const replaceToNumber = (value) => {
-	return parseFloat(value.toString().replace(/[^\d.-]/g, ""));
+export const parseNumber = (value) => {
+	// 清理输入
+	const cleaned = String(value).replace(/[^0-9+\-Ee.]/g, "");
+
+	// 转换为数字
+	const number = parseFloat(cleaned);
+
+	// 验证有效性
+	return isNaN(number) ? null : number;
 };
 
 /**
  * 数字格式化千分位，同时选择保留几位小数，数值、几位小数、千分位符号、小数点符号
  */
-export const formatThousandPoint = (value, decimals, thousands_sep, dec_point) => {
+export const formatThousandPoint = (value, decimals = 0, thousands_sep = ",", dec_point = ".") => {
 	if (!value) return 0;
+	if (isNaN(Number(value))) return 0;
 	if (!decimals && !isFinite(Number(decimals))) decimals = 0;
 	if (!thousands_sep) thousands_sep = ",";
 	if (!dec_point) dec_point = ".";
-	value = (value + "").replace(/[^0-9+-Ee.]/g, "");
+	value = parseNumber(value);
 	const n = !isFinite(+value) ? 0 : +value,
 		prec = !isFinite(+decimals) ? 0 : Math.abs(Number(decimals)),
 		sep = typeof thousands_sep === "undefined" ? "," : thousands_sep,
