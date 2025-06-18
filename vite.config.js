@@ -47,7 +47,7 @@ const __APP_INFO__ = {
 export default defineConfig(({ command, mode }) => {
 	const __filename = fileURLToPath(import.meta.url);
 	const __dirname = path.dirname(__filename);
-	const envConfig: any = getEnvConfig(loadEnv(mode, import.meta.dirname, ""));
+	const envConfig = getEnvConfig(loadEnv(mode, import.meta.dirname, ""));
 	const browserslistConfig = browserslist.loadConfig({ path: "." });
 	const isBuild = command.includes("build");
 	/**
