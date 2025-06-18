@@ -5,7 +5,7 @@
 	"windicss": "^3.5.6"
 }
 ```
-# vite.config
+# vite.config.[tj]s
 ```ts
 import windiCSS from "vite-plugin-windicss";
 plugins: [

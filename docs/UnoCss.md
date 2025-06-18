@@ -4,7 +4,7 @@
 	"unocss": "^0.60.2"
 }
 ```
-# vite.config
+# vite.config.[tj]s
 ```ts
 import UnoCSS from "unocss/vite";
 
