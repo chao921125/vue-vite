@@ -15,6 +15,7 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IconSvg: typeof import('./src/components/icon/Svg.vue')['default']
     Img: typeof import('./src/components/img/Index.vue')['default']
+    MediaVideo: typeof import('./src/components/media/Video.vue')['default']
     Page: typeof import('./src/components/page/Index.vue')['default']
     ReBack: typeof import('./src/components/re/Back.vue')['default']
     ReDateQuick: typeof import('./src/components/re/DateQuick.vue')['default']

@@ -94,7 +94,20 @@ defineExpose({
 </script>
 
 <template>
-	<el-upload v-show="props.isShowAlways && props.fileList && props.fileList.length === props.fileLimit" class="file-upload" :action="props.uploadUrl" :headers="props.uploadHeader" :method="props.uploadMethod" :multiple="props.isMultiple" :drag="props.isDrag" :show-file-list="props.isShowFileList" :file-list="props.fileList" :limit="props.fileLimit" :accept="props.fileAccept" :auto-upload="props.isAutoUpload" :disabled="props.isDisabled">
+	<el-upload
+		v-show="props.isShowAlways && props.fileList && props.fileList.length === props.fileLimit"
+		class="file-upload"
+		:action="props.uploadUrl"
+		:headers="props.uploadHeader"
+		:method="props.uploadMethod"
+		:multiple="props.isMultiple"
+		:drag="props.isDrag"
+		:show-file-list="props.isShowFileList"
+		:file-list="props.fileList"
+		:limit="props.fileLimit"
+		:accept="props.fileAccept"
+		:auto-upload="props.isAutoUpload"
+		:disabled="props.isDisabled">
 		<el-button v-if="props.fileStyle === 1" type="primary">{{ props.buttonText }}</el-button>
 		<el-icon v-if="props.fileStyle === 1"><Plus /></el-icon>
 		<div v-if="props.fileStyle === 3">
