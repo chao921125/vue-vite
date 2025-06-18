@@ -595,24 +595,19 @@
 | [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem)                                              |
 | [amfe-flexible](https://github.com/amfe/lib-flexible)                                                   |
 
-| 跨端框架推荐：包含小程序啥的                                                   |
-|------------------------------------------------------------------|
-| [uni-app 官网](https://uniapp.dcloud.net.cn/) 全平台跨端含APP等等          |
-| [taro 官网](https://taro.jd.com/) 3.x已支持vue                        |
-| [hippy 官网](https://hippyjs.org/#/) 3.x已支持vue                     |
-| [~~mpvue 官网~~](https://mpvue.com/) 美团                            |
-| [~~wepyjs 官网~~](https://wepyjs.github.io/wepy-docs/) 腾讯 需要学习wepy |
-
-| APP开发                                                                                      |
-|--------------------------------------------------------------------------------------------|
-| [lynxjs 官网 React](https://lynxjs.org/zh/index.html)                                        |
-| [tauri 官网 Vue](https://tauri.app/)                                                         |
-| [flutter 官网](https://flutter.cn/)                                                          |
-| [ionic 官网](https://ionicframework.com/) [ionic](https://ionic.io/)                         |
-| [cordova 官网](http://cordova.axuer.com/)                                                    |
-| [Native Script 官网](https://nativescript.org/)                                              |
-| [React Native 官网](https://reactnative.cn/)                                                 |
-| [react-native-elements 官网](https://github.com/react-native-elements/react-native-elements) |
+| 框架（✅支持 ❌不支持 - 部分支持）                                 | 小程序   | Web   | Mobile | PC  |
+|-----------------------------------------------------|-------|-------|--------|-----|
+| [uni-app 官网](https://uniapp.dcloud.net.cn/)         | ✅     | ✅     | ✅      | ❌   |
+| [taro 官网](https://taro.jd.com/)                     | ✅     | ✅     | ✅      | -   |
+| [flutter 官网](https://flutter.cn/)                   | ❌     | -     | ✅      | ✅   |
+| [React Native 官网](https://reactnative.cn/)          | ❌     | -     | ✅      | ✅   |
+| [hippy 官网](https://hippyjs.org/#/)                  | ❌     | ✅     | ✅      | ❌   |
+| [ionic](https://ionic.io/)                          | ❌     | ❌     | ✅      | ✅   |
+| [ionic 官网](https://ionicframework.com/)             | ❌     | ❌     | ✅      | ✅   |
+| [Native Script 官网](https://nativescript.org/)       | ❌     | ✅     | ✅      | ✅   |
+| [lynxjs 官网 React](https://lynxjs.org/zh/index.html) | ❌     | ✅     | ✅      | ❌   |
+| [tauri 官网 Vue](https://tauri.app/)                  | ❌     | ✅     | ✅      | ✅   |
+| [electronjs 官网](https://www.electronjs.org/zh/)     | ❌     | ❌     | ✅      | ✅   |
 
 # 在线编码可视化
 | api                                                      |
@@ -677,12 +672,9 @@
 | [@web3auth/auth](https://github.com/web3auth/Auth) |
 
 # 游戏
-| 游戏                            |
-|-------------------------------|
-| [Eva.js](https://eva.js.org/) |
-
-| 游戏开发框架                                                           |
+| 游戏                                                               |
 |------------------------------------------------------------------|
+| [Eva.js](https://eva.js.org/)                                    |
 | [Unity 3D(C/JS) 3D大佬！](https://www.unrealengine.com/zh-CN/)      |
 | [Cocos(C/TS) 2D、2.5大佬！](https://www.unrealengine.com/zh-CN/)     |
 | [Unreal(C++) 这是一个追求画质的游戏引擎](https://www.unrealengine.com/zh-CN/) |
