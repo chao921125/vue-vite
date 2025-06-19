@@ -48,7 +48,7 @@ Object.keys(Icons).forEach((key) => {
 });
 
 // vant
-// import "vant/lib/index.css";
+import "vant/lib/index.css";
 
 // 营销组件
 // import VueLuckyCanvas from "@lucky-canvas/vue";
