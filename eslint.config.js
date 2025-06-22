@@ -11,7 +11,9 @@ import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
 export default [
 	pluginJs.configs.recommended,
 	...tsEslint.configs.recommended,
-	...pluginVue.configs.recommended,
+	...pluginVue.configs["flat/essential"],
+	...pluginVue.configs["flat/strongly-recommended"],
+	...pluginVue.configs["flat/recommended"],
 	eslintConfigPrettier,
 	eslintPluginPrettierRecommended,
 	{
