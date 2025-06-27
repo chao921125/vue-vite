@@ -478,6 +478,7 @@
 | [文件保存 file-saver](https://github.com/eligrey/FileSaver.js)                              |
 | [Uppy 官网](https://uppy.io/docs/vue/)                                                    |
 | [Vue-filepond 官网](https://github.com/pqina/vue-filepond#readme)                         |
+| [sharp 图片转换 官网](https://github.com/lovell/sharp)                                        |
 
 
 | 支付                                                                                  |

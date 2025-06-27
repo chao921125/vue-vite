@@ -1,0 +1,90 @@
+{
+	"name": "vue-vite",
+	"version": "1.0.0",
+	"description": "vue-vite",
+	"keywords": [
+		"vue, vue2, vu3",
+		"vite",
+		"vue-router",
+		"pina",
+		"admin"
+	],
+	"homepage": "https://github.com/chao921125/vue-vite",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/chao921125/vue-vite.git"
+	},
+	"bugs": {
+		"url": "https://github.com/chao921125/vue-vite/issues"
+	},
+	"author": {
+		"name": "chao921125",
+		"email": "chao921125@sina.com",
+		"url": "https://github.com/chao921125"
+	},
+	"license": "BSD-3-Clause",
+	"main": "index.html",
+	"module": "dist/index.esm.js",
+	"types": "dist/index.d.ts",
+	"unpkg": "dist/index.umd.js",
+	"jsdelivr": "dist/index.umd.js",
+	"type": "module",
+	"private": true,
+	"files": [
+		"dist",
+		"docs",
+		"examples",
+		"README.md",
+		"LICENSE"
+	],
+	"scripts": {
+		"review": "npm run build && npm run dev",
+		"serve": "npm run dev",
+		"dev": "vite --host --open --mode development",
+		"test": "vite --host --open --mode preview",
+		"prod": "vite --host --open --mode production",
+		"build": "npm run build:prod",
+		"build:test": "vue-tsc --noEmit --skipLibCheck && vite build --mode preview",
+		"build:prod": "vue-tsc --noEmit --skipLibCheck && vite build --mode production",
+		"build:no-cache": "npm clean:cache && npm run build",
+		"clean:cache": "rimraf yarn.lock && rimraf package.lock.json && rimraf pnpm-lock.yaml && rimraf node_modules && pnpm install",
+		"clean:lib": "rimraf node_modules",
+		"lint": "npm run lint:eslint",
+		"lint:eslint": "eslint --config eslint.config.js \"./**/*.{js,ts,mjs,mts,cjs,cts,jsx,tsx,css,less,scss,vue,html}\"",
+		"lint:prettier": "prettier --write --fix --loglevel warn \"./**/*.{js,ts,mjs,mts,cjs,cts,json,jsx,tsx,css,less,scss,vue,html}\"",
+		"lint:lint-staged": "lint-staged",
+		"lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,css,less,scss,postcss}\"",
+		"prepare": "husky",
+		"commitlint": "commitlint --config .commitlintrc.js -e -V",
+		"prepack": "npmignore --auto",
+		"test:br": "http-server dist --cors --brotli -c-1",
+		"test:gzip": "http-server dist --cors --gzip -c-1"
+	},
+	"dependencies": {},
+	"devDependencies": {},
+	"peerDependencies": {},
+	"overrides": {},
+	"engines": {
+		"node": ">=14.0.0",
+		"npm": ">=6.14.18",
+		"yarn": ">=3.0.0"
+	},
+	"browserslist": [
+		"defaults",
+		"> 1%",
+		"not dead",
+		"not op_mini all",
+		"last 2 versions",
+		"Chrome > 51",
+		"Edge > 15",
+		"Firefox > 54",
+		"Safari > 10",
+		"not IE <= 11",
+		"Android >= 6.0",
+		"iOS > 10",
+		"supports es6-module"
+	],
+	"publishConfig": {
+		"access": "public"
+	}
+}
