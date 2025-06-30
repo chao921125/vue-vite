@@ -1,7 +1,7 @@
 // @see https://vitejs.dev/config/
 import path from "node:path";
 import fs from "node:fs";
-import { fileURLToPath, URL } from "node:url";
+import { fileURLToPath } from "node:url";
 import dayjs from "dayjs";
 /**
  * 核心
@@ -65,6 +65,7 @@ export default defineConfig(({ command, mode }) => {
 	 * 静态配置
 	 */
 	const defaultConfig = {
+		// *** 公共 start ***
 		root: path.resolve(__dirname, ""), // "./public/index.html", // 入口，可以指定到public文件夹
 		base: isBuild ? envConfig.VITE_PUBLIC_PATH : "./", // 公共基础路径
 		// mode: "development", // 指令覆盖构建模式 --mode
@@ -264,6 +265,7 @@ export default defineConfig(({ command, mode }) => {
 			// extensions: "",
 			// preserveSymlinks: "",
 		},
+		// html: { cspNonce: {} }, // 一个在生成脚本或样式标签时会用到的 nonce 值占位符
 		css: {
 			// modules: "",
 			// 打开此处 postcss.config.js失效
@@ -284,12 +286,15 @@ export default defineConfig(({ command, mode }) => {
 					additionalData: `@use "@/assets/styles/theme.scss" as *;`,
 				},
 			},
+			// preprocessorMaxWorkers: true,,
 			// devSourcemap: false,
+			// transformer: "postcss", // 'postcss' | 'lightningcss'
+			// lightningcss: "CSSModulesConfig",
 		},
-		// json: {
-		//   namedExports: true, // 按名称导入
-		//   stringify: false, // 序列化后导入，即：JSON.parse()，开启后则namedExports失效
-		// },
+		json: {
+			namedExports: true, // 按名称导入
+			stringify: true, // 序列化后导入，即：JSON.parse()，开启后则namedExports失效
+		},
 		esbuild: {
 			// false or jsx settings
 			// jsxFactory: "h",
@@ -297,16 +302,20 @@ export default defineConfig(({ command, mode }) => {
 			pure: envConfig.VITE_DROP_CONSOLE ? ["console.log"] : [],
 			drop: envConfig.VITE_DROP_CONSOLE ? ["debugger"] : [],
 		},
-		// assetsInclude: "", // 静态资源处理
+		assetsInclude: ["**/*.gltf"], // 静态资源处理
 		logLevel: "info", // 可以根据开发环境动态改变 "info" | "warn" | "error" | "silent"
+		// customLogger: logger, // 可以根据开发环境动态改变 "info" | "warn" | "error" | "silent"
 		clearScreen: false, // --clearScreen
 		// envDir: "", // 配置.env文件相关
 		// envPrefix: "", // 配置.env变量以VUE_还是默认的VITE_
 		// appType: "", // 'spa' | 'mpa' | 'custom'
+		// future: "",
+		// *** 服务器 start ***
 		server: {
-			// host: "localhost",
+			host: true,
+			allowedHosts: true,
 			port: envConfig.VITE_PORT,
-			strictPort: true, // 存在冲突端口，则继续下找可用端口
+			strictPort: false, // 存在冲突端口，则继续下找可用端口
 			// https: true, // boolean | https.ServerOptions
 			open: envConfig.VITE_OPEN, // boolean | string
 			proxy: createProxy(envConfig.VITE_PROXY),
@@ -340,18 +349,21 @@ export default defineConfig(({ command, mode }) => {
 			cors: true, // boolean | CorsOptions
 			// headers: false, // OutgoingHttpHeaders 指定服务器响应的 header
 			hmr: true, // boolean | { protocol?: string, host?: string, port?: number, path?: string, timeout?: number, overlay?: boolean }
+			// warmup: "", // object
 			// watch: "", // object
 			// middlewareMode: "",
-			// base: "", // string | undefined
 			// fs: {
 			//  strict: "",
 			//  allow: "",
 			//  deny: "",
 			// },
 			// origin: "",
+			// sourcemapIgnoreList: "",
 		},
+		// *** 构建 start ***
 		build: {
 			target: "modules",
+			// modulePreload: {},
 			// polyfillModulePreload: true,
 			outDir: path.join(__dirname, "./dist"), // path.join(__dirname, "dist/render"),
 			assetsDir: path.join(__dirname, "./assets"),
@@ -360,7 +372,7 @@ export default defineConfig(({ command, mode }) => {
 			cssCodeSplit: true,
 			// cssTarget: true, // 与 build.target 一致
 			// cssMinify: true, // 与 build.minify 一致
-			sourcemap: false,
+			sourcemap: true,
 			rollupOptions: {
 				input: {
 					index: path.resolve(__dirname, "./index.html"),
@@ -385,6 +397,8 @@ export default defineConfig(({ command, mode }) => {
 			// manifest: false, // manifest.json
 			// ssrManifest: false,
 			// ssr: false,
+			// emitAssets: false,
+			// ssrEmitAssets: false,
 			minify: "terser", // boolean | "terser" | "esbuild"
 			terserOptions: {
 				compress: {
@@ -394,32 +408,46 @@ export default defineConfig(({ command, mode }) => {
 			},
 			// write: true,
 			// emptyOutDir: true, // outDiroutDir--emptyOutDir
+			// copyPublicDir: true, // outDiroutDir--emptyOutDir
 			reportCompressedSize: true,
-			chunkSizeWarningLimit: 2048,
+			chunkSizeWarningLimit: 1024,
 			// watch: 1024,
 		},
+		// *** 预览 start ***
 		// preview: {
 		//   host: "",
+		//   allowedHosts: "",
 		//   port: "",
 		//   strictPort: "",
 		//   https: "",
 		//   open: "",
 		//   proxy: {},
 		//   cors: true,
+		//   headers: "*",
 		// },
+		// *** 依赖优化 start ***
 		optimizeDeps: {
 			// entries: "optimize.js",
 			exclude: [],
 			include: [],
 			// esbuildOptions: "",
 			force: false,
+			// noDiscovery: false,
+			// holdUntilCrawlEnd: false,
+			// needsInterop: [],
 		},
+		// *** SSR start ***
 		// ssr: {
 		//   external: "",
 		//   noExternal: "",
 		//   target: "",
-		//   format: "esm",
+		//   resolve: {
+		//   	conditions: [],
+		//   	externalConditions: [],
+		//   	mainFields: [],
+		//   },
 		// },
+		// *** Worker start ***
 		// worker: {
 		//   format: "iife", // 'es' | 'iife'
 		//   plugins: [],
