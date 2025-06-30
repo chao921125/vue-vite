@@ -362,7 +362,7 @@ export default defineConfig(({ command, mode }) => {
 		},
 		// *** 构建 start ***
 		build: {
-			target: "modules",
+			target: "esnext",
 			// modulePreload: {},
 			// polyfillModulePreload: true,
 			outDir: path.join(__dirname, "./dist"), // path.join(__dirname, "dist/render"),
@@ -399,7 +399,7 @@ export default defineConfig(({ command, mode }) => {
 			// ssr: false,
 			// emitAssets: false,
 			// ssrEmitAssets: false,
-			minify: "terser", // boolean | "terser" | "esbuild"
+			minify: true, // boolean | "terser" | "esbuild"
 			terserOptions: {
 				compress: {
 					drop_console: isBuild, // 生产环境去除console
