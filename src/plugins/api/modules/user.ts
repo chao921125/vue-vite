@@ -4,7 +4,7 @@ import AxiosConfig from "@/config/httpConfig";
 export default {
 	loginUser: (data = {}) => {
 		return Axios({
-			url: `${AxiosConfig.baseUrl}/login`,
+			url: `${AxiosConfig.baseUrl}/auth/login`,
 			method: "POST",
 			data,
 		});

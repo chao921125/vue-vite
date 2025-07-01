@@ -1,22 +1,21 @@
 <script setup lang="ts">
-const props = defineProps({
-	name: {
-		required: false,
-		type: String,
-		default: "",
-	},
-});
-const emits = defineEmits(["change"]);
-const changeClick = () => {
-	emits("change", true);
+import Api from "@/plugins/api";
+
+const onLogin = () => {
+	Api.userApi
+		.loginUser({
+			userName: "admin",
+			password: "123123",
+		})
+		.then((res) => {
+			console.log(res);
+		});
 };
-defineExpose({
-	changeClick,
-});
 </script>
 
 <template>
-	<div @click="changeClick" class=""> template {{ props.name }} </div>
+	<div class=""> Login.vue </div>
+	<button @click="onLogin">登录</button>
 </template>
 
 <style scoped lang="scss"></style>

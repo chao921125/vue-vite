@@ -12,6 +12,7 @@ declare module 'vue' {
     ChartsLineBasic: typeof import('./src/components/charts/LineBasic.vue')['default']
     ChartsLineStacked: typeof import('./src/components/charts/LineStacked.vue')['default']
     ChartsPieBasic: typeof import('./src/components/charts/PieBasic.vue')['default']
+    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IconSvg: typeof import('./src/components/icon/Svg.vue')['default']
     Img: typeof import('./src/components/img/Index.vue')['default']

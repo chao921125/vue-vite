@@ -90,6 +90,7 @@
 | [vue-template-compiler](https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme) |
 | **postcss必装，自动添加浏览器适配前缀**                                                                            |
 | [postcss](https://github.com/postcss/postcss)                                                        |
+| [postcss-preset-env](https://github.com/csstools/postcss-plugins)                                    |
 | [autoprefixer](https://github.com/postcss/autoprefixer)                                              |
 | [postcss-loader](https://github.com/webpack-contrib/postcss-loader)                                  |
 | **快速样式CSS 并不推荐，建议大家自行封装**                                                                            |

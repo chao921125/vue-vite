@@ -2,7 +2,7 @@ export default {
 	timeout: 6000,
 	timeoutMsg: "请求超时",
 	tokenKey: "AUTH_TOKEN",
-	baseUrl: "/api",
+	baseUrl: "/api-admin",
 	uploadUrl: "/upload",
 	ipUrl: "/ip",
 	status: {
