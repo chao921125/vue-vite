@@ -92,7 +92,7 @@ router.onError(() => {
  * 5、渲染
  */
 
-const viewsModules = import.meta.glob("../views/**/**.{vue,tsx}");
+const viewsModules = import.meta.glob("../pages/**/**.{vue,tsx}");
 const dynamicViewsModules = Object.assign({}, { ...viewsModules });
 
 // 获取动态路由数据
@@ -133,7 +133,7 @@ function getRouter(data = []) {
 			path: "/",
 			name: "/",
 			redirect: { path: "" },
-			component: () => import("@/views/layout/Index.vue"),
+			component: () => import("@/pages/layout/Index.vue"),
 			meta: {
 				title: "message.title.home",
 				name: "message.title.home",

@@ -39,7 +39,7 @@ export const errorRoutes = [
 	{
 		path: "/401",
 		name: "noPower",
-		component: () => import("@/views/common/NoPower.vue"),
+		component: () => import("@/pages/common/NoPower.vue"),
 		meta: {
 			title: "message.title.noPower",
 			name: "message.title.noPower",
@@ -50,7 +50,7 @@ export const errorRoutes = [
 	{
 		path: "/404",
 		name: "notFound",
-		component: () => import("@/views/common/NotFound.vue"),
+		component: () => import("@/pages/common/NotFound.vue"),
 		meta: {
 			title: "message.title.notFound",
 			name: "message.title.notFound",
@@ -61,7 +61,7 @@ export const errorRoutes = [
 	{
 		path: "/500",
 		name: "serverError",
-		component: () => import("@/views/common/ServerError.vue"),
+		component: () => import("@/pages/common/ServerError.vue"),
 		meta: {
 			title: "message.title.serverError",
 			name: "message.title.serverError",
@@ -75,7 +75,7 @@ export const baseRoutes = [
 	{
 		path: "",
 		name: "",
-		component: () => import("@/views/layout/Index.vue"),
+		component: () => import("@/pages/layout/Index.vue"),
 		meta: {
 			auth: false,
 			isHide: false,
@@ -88,7 +88,7 @@ export const baseRoutes = [
 	{
 		path: "/login",
 		name: "login",
-		component: () => import("@/views/auth/Login.vue"),
+		component: () => import("@/pages/auth/Login.vue"),
 		meta: {
 			title: "message.title.login",
 			name: "message.title.login",
@@ -99,7 +99,7 @@ export const baseRoutes = [
 	{
 		path: "/register",
 		name: "register",
-		component: () => import("@/views/auth/Register.vue"),
+		component: () => import("@/pages/auth/Register.vue"),
 		meta: {
 			title: "message.title.register",
 			name: "message.title.register",
