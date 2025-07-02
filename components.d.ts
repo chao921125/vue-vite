@@ -12,6 +12,7 @@ declare module 'vue' {
     ChartsLineBasic: typeof import('./src/components/charts/LineBasic.vue')['default']
     ChartsLineStacked: typeof import('./src/components/charts/LineStacked.vue')['default']
     ChartsPieBasic: typeof import('./src/components/charts/PieBasic.vue')['default']
+    ElButton: typeof import('element-plus/es')['ElButton']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']

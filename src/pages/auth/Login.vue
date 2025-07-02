@@ -4,7 +4,7 @@ import { useRouter } from "vue-router";
 
 const onLogin = () => {
 	Api.userApi
-		.loginUser({
+		.login({
 			userName: "admin",
 			password: "123123",
 		})

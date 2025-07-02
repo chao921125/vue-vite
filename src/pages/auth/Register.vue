@@ -1,21 +1,24 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
 import { useRouter } from "vue-router";
+import Api from "@/plugins/api";
 
 const formRef = ref(null);
 
 const data = reactive({
 	form: {
-		name: "",
-		region: "",
-		date1: "",
-		date2: "",
-		delivery: false,
-		type: [],
-		resource: "",
-		desc: "",
+		userName: "",
+		password: "",
+		email: "",
+		phone: "",
 	},
 });
+
+const onSubmit = () => {
+	Api.userApi.register(data.form).then((res) => {
+		console.log(res);
+	});
+};
 
 const router = useRouter();
 const onToLogin = () => {
@@ -24,8 +27,12 @@ const onToLogin = () => {
 </script>
 
 <template>
-	<el-form ref="formRef" :model="data.form" label-width="80px">
-		<el-form-item label="Activity name"> <el-input v-model="data.form.name" /> </el-form-item>
+	<el-form ref="formRef" :model="data.form">
+		<el-form-item label="userName"> <el-input v-model="data.form.userName" /> </el-form-item>
+		<el-form-item label="password"> <el-input v-model="data.form.password" /> </el-form-item>
+		<el-form-item label="email"> <el-input v-model="data.form.email" /> </el-form-item>
+		<el-form-item label="phone"> <el-input v-model="data.form.phone" /> </el-form-item>
+		<el-form-item label=""> <el-button @click="onSubmit">submit</el-button> </el-form-item>
 	</el-form>
 	<button @click="onToLogin">login</button>
 </template>

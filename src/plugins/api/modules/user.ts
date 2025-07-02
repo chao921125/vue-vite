@@ -2,17 +2,17 @@ import Axios from "@/plugins/http";
 import AxiosConfig from "@/config/httpConfig";
 
 export default {
-	loginUser: (data = {}) => {
+	login: (data = {}) => {
 		return Axios({
 			url: `${AxiosConfig.baseUrl}/auth/login`,
 			method: "POST",
 			data,
 		});
 	},
-	queryUserInfo: (data = {}) => {
+	register: (data = {}) => {
 		return Axios({
-			url: `${AxiosConfig.baseUrl}/user-info`,
-			method: "GET",
+			url: `${AxiosConfig.baseUrl}/auth/register`,
+			method: "POST",
 			data,
 		});
 	},
