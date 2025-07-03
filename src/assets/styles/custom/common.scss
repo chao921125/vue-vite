@@ -1,13 +1,13 @@
 // 隐藏滚动条，但保留功能
 /* 适用于所有现代浏览器 */
-.hidden-scrollbar {
+.hide-scrollbar {
 	overflow: auto; /* 仍然允许滚动 */
 	scrollbar-width: none; /* Firefox 隐藏滚动条 */
 	-ms-overflow-style: none; /* IE 和 Edge 隐藏滚动条 */
 }
 
 /* 隐藏滚动条 - 针对 Webkit (Chrome, Safari) */
-.hidden-scrollbar::-webkit-scrollbar {
+.hide-scrollbar::-webkit-scrollbar {
 	display: none; /* 隐藏滚动条 */
 }
 .hide-scroll-horizontal {
@@ -18,3 +18,38 @@
 	overflow-y: hidden;
 	overflow-x: auto; /* 允许水平滚动 */
 }
+
+.vis-pc {
+	display: block;
+}
+.vis-m {
+	display: none;
+}
+.vis-pc_f {
+	display: flex;
+}
+.vis-m_f {
+	display: none;
+}
+// Large
+@media screen and (min-width: 1200px) {}
+// Normal
+@media screen and (min-width: 992px) and (max-width: 1200px) {}
+// Pad
+@media screen and (min-width: 768px) and (max-width: 992px) {}
+// Mobile
+@media screen and (max-width: 768px) {
+	.vis-pc {
+		display: none;
+	}
+	.vis-m {
+		display: block;
+	}
+	.vis-pc_f {
+		display: none;
+	}
+	.vis-m_f {
+		display: flex;
+	}
+}
+

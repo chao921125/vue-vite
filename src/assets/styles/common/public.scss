@@ -65,9 +65,6 @@
 	@include declare.flex-base;
 	@include declare.flex-col-center;
 }
-/**
- * Flex 基础布局
- */
 
 /**
  * 填充
@@ -78,87 +75,77 @@
 .#{declare.$prefix}-full {
 	@include declare.wh-full;
 }
-.#{declare.$prefix}-w-auto {
+.#{declare.$prefix}-auto-w {
 	width: auto;
 }
-.#{declare.$prefix}-w-fill {
+.#{declare.$prefix}-fill-w {
 	@include declare.width-fill;
 }
-.#{declare.$prefix}-w-fill-min {
+.#{declare.$prefix}-fill-w-min {
 	min-width: 100vw;
 }
-.#{declare.$prefix}-w-fill-max {
+.#{declare.$prefix}-fill-w-max {
 	max-width: 100vh;
 }
-.#{declare.$prefix}-w-full {
+.#{declare.$prefix}-full-w {
 	@include declare.width-full;
 }
-.#{declare.$prefix}-w-full-min {
+.#{declare.$prefix}-full-w-min {
 	min-width: 100%;
 }
-.#{declare.$prefix}-w-full-max {
+.#{declare.$prefix}-full-w-max {
 	max-width: 100%;
 }
-.#{declare.$prefix}-h-auto {
+.#{declare.$prefix}-auto-h {
 	height: auto;
 }
-.#{declare.$prefix}-h-fill {
+.#{declare.$prefix}-fill-h {
 	@include declare.height-fill;
 }
-.#{declare.$prefix}-h-fill-min {
+.#{declare.$prefix}-fill-h-min {
 	min-height: 100vh;
 }
-.#{declare.$prefix}-h-fill-max {
+.#{declare.$prefix}-fill-h-max {
 	max-height: 100vh;
 }
-.#{declare.$prefix}-h-full {
+.#{declare.$prefix}-full-h {
 	@include declare.height-full;
 }
-.#{declare.$prefix}-h-full-min {
+.#{declare.$prefix}-full-h-min {
 	min-height: 100%;
 }
-.#{declare.$prefix}-h-full-max {
+.#{declare.$prefix}-full-h-max {
 	max-height: 100%;
 }
-/**
- * 填充
- */
-
 
 /**
  * 文字
  */
-.#{declare.$prefix}-t-center {
+.#{declare.$prefix}-tc {
 	@include declare.text-center;
 }
-.#{declare.$prefix}-t-left {
+.#{declare.$prefix}-tl {
 	@include declare.text-left;
 }
-.#{declare.$prefix}-t-right {
+.#{declare.$prefix}-tr {
 	@include declare.text-right;
 }
-/**
- * 文字
- */
 
 /**
  * 鼠标
  */
-.#{declare.$prefix}-c-default {
+.#{declare.$prefix}-c {
 	cursor: default;
 }
-.#{declare.$prefix}-c-pointer {
+.#{declare.$prefix}-cp {
 	cursor: pointer;
 }
-.#{declare.$prefix}-c-help {
+.#{declare.$prefix}-ch {
 	cursor: help;
 }
-.#{declare.$prefix}-c-move {
+.#{declare.$prefix}-cm {
 	cursor: move;
 }
-/**
- * 鼠标
- */
 
 /**
  * 浮动
@@ -177,13 +164,7 @@
 .#{declare.$prefix}-clearfix:after {
 	clear: both;
 }
-/**
- * 浮动
- */
 
-//@while $i > 0 {
-//	$i: $i - 1;
-//}
 /**
  * 边距
  */
@@ -248,9 +229,6 @@
 		padding-left: #{$i}px;
 	}
 }
-/**
- * 边距
- */
 
 /**
  * 定位
@@ -284,6 +262,7 @@
 	}
 }
 
+
 //$sizes: 40px, 50px, 80px;
 //$sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
 //@each $size in $sizes {
@@ -298,35 +277,3 @@
 //	}
 //	@return $value;
 //}
-/**
- * 定位
- */
-
-// default PC
-.screen-pc {
-	display: block;
-}
-.screen-pad {
-	display: none;
-}
-.screen-mobile {
-	display: none;
-}
-// Large
-@media screen and (min-width: 1200px) {}
-// Normal
-@media screen and (min-width: 992px) and (max-width: 1200px) {}
-// Pad
-@media screen and (min-width: 768px) and (max-width: 992px) {}
-// Mobile
-@media screen and (max-width: 768px) {
-	.screen-pc {
-		display: none;
-	}
-	.screen-pad {
-		display: none;
-	}
-	.screen-mobile {
-		display: block;
-	}
-}

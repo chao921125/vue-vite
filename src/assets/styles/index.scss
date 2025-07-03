@@ -29,3 +29,8 @@
 // 流程图
 //@include meta.load-css("./custom/bpmn.scss");
 @use "./custom/bpmn.scss";
+//@include meta.load-css("./custom/common.scss");
+@use "./custom/common.scss";
+
+// page
+@use "./page/index.scss";
