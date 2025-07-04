@@ -80,6 +80,7 @@ const onToReg = () => {
 			<div class="form-item"> </div>
 			<div class="form-item">
 				<button @click="onLogin">登录</button>
+				<button @click="onToReg">登录</button>
 			</div>
 		</div>
 	</section>
