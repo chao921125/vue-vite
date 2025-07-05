@@ -18,7 +18,7 @@ export default {
 	// 白名单，无需要token即可访问的
 	whiteList: ["/login", "/register", "/auth"],
 	// 排除路由，即无需通过业务处理的路由，遇到即直接访问即可
-	executeList: ["/login", "/register", "/auth", "/equipment", "/no-data", "/home", "/m-home", "/", "/401", "/404", "/500"],
+	executeList: ["/login", "/register", "/auth", "/equipment", "/no-data", "/home", "/", "/401", "/404", "/500"],
 	routeEnum: {
 		product: {},
 		order: {

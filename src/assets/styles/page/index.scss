@@ -1,8 +1,67 @@
+/** 间距 **/
+// 边距
+.body-pd {
+	padding: 30px;
+}
+.body-pd_lr {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.body-pd_tb {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+@media screen and (max-width: 768px) {
+	.body-pd {
+		padding: 60px;
+	}
+	.body-pd_lr {
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+	.body-pd_tb {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+}
+
+/** 按钮 **/
+.btn {
+	font-size: 18px;
+	height: 40px;
+}
+
+/** 文本 **/
+.txt {
+	font-size: 18px;
+}
 // 单独页使用的 title
 .title {
-	font-size: 40px;
+	font-size: 80px;
+	font-weight: bold;
 }
 // 系统内使用的 title
 .title-large {}
 .title-default {}
 .title-small {}
+@media screen and (max-width: 768px) {
+	.title {
+		font-size: 120px;
+	}
+}
+
+/** 表单 **/
+.form-in {
+	input {
+		font-size: 18px;
+		height: 40px;
+	}
+}
+@media screen and (max-width: 768px) {
+	.form-in {
+		input {
+			font-size: 54px;
+			height: 120px;
+		}
+	}
+}

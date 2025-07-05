@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import Api from "@/plugins/api";
 import { useRouter } from "vue-router";
+import { reactive } from "vue";
+
+const data = reactive({
+	form: {
+		userName: "",
+		password: "",
+	},
+});
 
 const onLogin = () => {
 	Api.userApi
@@ -20,7 +28,7 @@ const onToReg = () => {
 </script>
 
 <template>
-	<section class="login re-fill re-f-row-center">
+	<section class="body-pd login re-f-row-center">
 		<div class="login-bg">
 			<div class="loader">
 				<div class="wrapper">
@@ -65,24 +73,24 @@ const onToReg = () => {
 				</div>
 			</div>
 		</div>
-		<div class="form">
-			<div class="form-item re-f-row-center">
-				<h1 class="title re-tc">CCNET</h1>
-			</div>
-			<div class="form-item">
-				<label for=""></label>
-				<input type="text" placeholder="请输入用户名" />
-			</div>
-			<div class="form-item">
-				<label for=""></label>
-				<input type="text" placeholder="请输入用户名" />
-			</div>
-			<div class="form-item"> </div>
-			<div class="form-item">
-				<button @click="onLogin">登录</button>
-				<button @click="onToReg">登录</button>
-			</div>
-		</div>
+		<el-form class="form">
+			<h1 class="title re-tc re-full-w">CCNET</h1>
+			<el-form-item class="form-item">
+				<el-input v-model="data.form.userName" class="form-in" placeholder="请输入用户名" />
+			</el-form-item>
+			<el-form-item class="form-item">
+				<el-input v-model="data.form.password" class="form-in" type="password" placeholder="请输入密码" />
+			</el-form-item>
+			<el-form-item class="form-item">
+				<div class="re-f-row-between re-full-w">
+					<el-text class="re-cp txt" type="info" @click="onToReg">忘记密码</el-text>
+					<el-text class="re-cp txt" type="primary" @click="onToReg">注册</el-text>
+				</div>
+			</el-form-item>
+			<el-form-item class="form-item re-f-row-center">
+				<el-button class="re-full-w btn" type="primary" @click="onLogin">登录</el-button>
+			</el-form-item>
+		</el-form>
 	</section>
 </template>
 
@@ -176,7 +184,28 @@ const onToReg = () => {
 }
 
 .form {
+	margin-top: 300px;
+	width: 100%;
+	max-width: 400px;
 	.form-item {
+		width: 100%;
+		margin-top: 20px;
+	}
+	.form-mt {
+		margin-top: 20px;
+	}
+}
+@media screen and (max-width: 768px) {
+	.form {
+		margin-top: 600px;
+		max-width: 100%;
+		.form-item {
+			width: 100%;
+			margin-top: 60px;
+		}
+		.form-mt {
+			margin-top: 60px;
+		}
 	}
 }
 </style>
