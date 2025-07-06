@@ -41,11 +41,12 @@ router.beforeEach(async (to, from, next) => {
 	Storage.setLocalStorage(Constants.storageKey.routerNext, to.path);
 	// 取消所有请求
 	AxiosCancel.removeAllCancer();
-	const token = Storage.getSessionStorage(Constants.storageKey.token) || Cookie.getCookie(Constants.cookieKey.token);
+	const token = Storage.getLocalStorage(Constants.storageKey.token) || Cookie.getCookie(Constants.cookieKey.token);
 	if (RouterConfig.whiteList.includes(to.path) && !token) {
 		next();
 	} else {
 		if (!token || token === "undefined") {
+			Storage.removeLocalStorage(Constants.storageKey.token);
 			Storage.removeSessionStorage(Constants.storageKey.token);
 			Cookie.removeCookie(Constants.cookieKey.token);
 			next(`${RouterConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { FormInstance } from "element-plus";
 import Storage from "@/utils/storage";
 import Cookie from "@/utils/cookie";
 import Constants from "@/utils/constant/constants";
@@ -9,7 +8,7 @@ import { useRouter } from "vue-router";
 import { reactive } from "vue";
 
 const { proxy } = getCurrentInstance() as any;
-const formRef = ref<FormInstance>();
+const formRef = ref();
 const formData: Record<string, any> = reactive({
 	userName: "",
 	password: "",
@@ -25,7 +24,7 @@ const data = reactive({
 	isLoading: false,
 });
 
-const onLogin = async (formEl: FormInstance | undefined) => {
+const onLogin = async (formEl) => {
 	if (!formEl) return false;
 	await formEl.validate((valid: boolean, fields) => {
 		if (valid) {
@@ -33,9 +32,11 @@ const onLogin = async (formEl: FormInstance | undefined) => {
 			const token = new Date().getTime();
 			Cookie.setCookie(Constants.cookieKey.token, token);
 			Storage.setSessionStorage(Constants.storageKey.token, token);
+			Storage.setLocalStorage(Constants.storageKey.token, token);
 			Storage.setLocalStorage(Constants.storageKey.userInfo, token);
 			// Cookie.setCookie(Constants.cookieKey.token, res.data.token);
 			// Storage.setSessionStorage(Constants.storageKey.token, res.data.token);
+			// Storage.setLocalStorage(Constants.storageKey.token, res.data);
 			// Storage.setLocalStorage(Constants.storageKey.userInfo, res.data);
 			if (route.query?.redirect && route.query?.redirect !== "/") {
 				router.push({
@@ -112,7 +113,7 @@ const onToReg = () => {
 				</div>
 			</div>
 		</div>
-		<el-form class="form" ref="formRef" :model="formData">
+		<el-form class="form" ref="formRef" :model="formData" :rules="formRules">
 			<h1 class="title re-tc re-full-w">CCNET</h1>
 			<el-form-item class="form-item" label="" prop="userName">
 				<el-input v-model="formData.userName" autofocus @keyup.enter.native="onLogin(formRef)" :disabled="data.isLoading" class="form-in" placeholder="请输入用户名" />
