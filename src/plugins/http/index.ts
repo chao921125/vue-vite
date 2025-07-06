@@ -3,7 +3,6 @@ import axios from "axios";
 import Router from "@/router";
 import Log from "@/utils/log";
 import Storage from "@/utils/storage";
-import Cookie from "@/utils/cookie";
 import Constants from "@/utils/constant/constants";
 import AxiosConfig from "@/config/httpConfig";
 import NProgress from "@/plugins/loading/progress";
@@ -56,10 +55,10 @@ http.interceptors.request.use(
 		NProgress.start();
 
 		config.headers["apifoxToken"] = "UpBZTbFlKA6vpmezjXyVjFrs4gCfy4o2";
-		if (Cookie.getCookie(Constants.cookieKey.token)) {
-			config.headers["token"] = "Bearer " + Cookie.getCookie(Constants.cookieKey.token);
+		if (Storage.getCookie(Constants.cookieKey.token)) {
+			config.headers["token"] = "Bearer " + Storage.getCookie(Constants.cookieKey.token);
 
-			config.headers["Authorization"] = "Bearer " + Cookie.getCookie(Constants.cookieKey.token);
+			config.headers["Authorization"] = "Bearer " + Storage.getCookie(Constants.cookieKey.token);
 		}
 		if (config.method?.toLowerCase() === "get") {
 			config.params = config.data;
@@ -68,7 +67,7 @@ http.interceptors.request.use(
 		// if (!/^https:\/\/|http:\/\//.test(<string>config.url)) {
 		// 	// 在请求发送之前做一些处理
 		// 	config.headers = {
-		// 		token: Cookie.getCookie(Constants.cookieKey.token),
+		// 		token: Storage.getCookie(Constants.cookieKey.token),
 		// 	};
 		// }
 		AxiosCancel.addCancer(config);
@@ -106,7 +105,7 @@ http.interceptors.response.use(
 			return response.data;
 		}
 		if (/^4\d{2}/.test(String(status))) {
-			Cookie.clearCookie();
+			Storage.clearCookie();
 			Storage.clearSessionStorage();
 			const toUrl = status === 404 ? RouterConfig.route404 : RouterConfig.route403;
 			await Router.replace({ path: toUrl });
@@ -181,7 +180,7 @@ http.interceptors.response.use(
 				default:
 					break;
 			}
-			if (!Cookie.getCookie(Constants.cookieKey.token)) {
+			if (!Storage.getCookie(Constants.cookieKey.token)) {
 				await Router.replace({ path: RouterConfig.routeLogin });
 			}
 		}

@@ -6,7 +6,6 @@ import { baseRoutes, errorRoutes } from "./route";
 import { getStoreRefs, appStore } from "@/store";
 import NProgress from "@/plugins/loading/progress";
 import Storage from "@/utils/storage";
-import Cookie from "@/utils/cookie";
 import AxiosCancel from "@/plugins/http/cancel";
 import Constants from "@/utils/constant/constants";
 import RouterConfig from "@/config/routerConfig";
@@ -41,14 +40,14 @@ router.beforeEach(async (to, from, next) => {
 	Storage.setLocalStorage(Constants.storageKey.routerNext, to.path);
 	// 取消所有请求
 	AxiosCancel.removeAllCancer();
-	const token = Storage.getLocalStorage(Constants.storageKey.token) || Cookie.getCookie(Constants.cookieKey.token);
+	const token = Storage.getLocalStorage(Constants.storageKey.token) || Storage.getCookie(Constants.cookieKey.token);
 	if (RouterConfig.whiteList.includes(to.path) && !token) {
 		next();
 	} else {
 		if (!token || token === "undefined") {
 			Storage.removeLocalStorage(Constants.storageKey.token);
 			Storage.removeSessionStorage(Constants.storageKey.token);
-			Cookie.removeCookie(Constants.cookieKey.token);
+			Storage.removeCookie(Constants.cookieKey.token);
 			next(`${RouterConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
 		} else if (token && RouterConfig.whiteList.includes(to.path)) {
 			next(RouterConfig.routeHome);
@@ -98,7 +97,7 @@ const dynamicViewsModules = Object.assign({}, { ...viewsModules });
 
 // 获取动态路由数据
 export async function getDynamicRouter() {
-	if (!(Storage.getSessionStorage(Constants.storageKey.token) || Cookie.getCookie(Constants.cookieKey.token))) return false;
+	if (!(Storage.getSessionStorage(Constants.storageKey.token) || Storage.getCookie(Constants.cookieKey.token))) return false;
 
 	await appStore.useRouterList.setMenuList(requestData);
 

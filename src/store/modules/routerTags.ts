@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import Storage from "@/utils/storage";
-import Cookie from "@/utils/cookie";
 
 /**
  * TagsView 路由列表
@@ -19,7 +18,7 @@ export const useRouterTags = defineStore("tagsViewRoutes", {
 		},
 		setCurrenFullscreen(bool: any) {
 			Storage.setSessionStorage("isTagsViewCurrenFull", bool);
-			Cookie.setCookie("isTagsViewCurrenFull", bool);
+			Storage.setCookie("isTagsViewCurrenFull", bool);
 			this.isTagsViewCurrenFull = bool;
 		},
 	},

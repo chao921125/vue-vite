@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Storage from "@/utils/storage";
-import Cookie from "@/utils/cookie";
 import Constants from "@/utils/constant/constants";
 import ValidateForm from "@/utils/validate/validateForm";
 // import Api from "@/plugins/api";
@@ -27,14 +26,15 @@ const data = reactive({
 const onLogin = async (formEl) => {
 	if (!formEl) return false;
 	await formEl.validate((valid: boolean, fields) => {
+		console.log("====", valid, fields);
 		if (valid) {
 			data.isLoading = true;
 			const token = new Date().getTime();
-			Cookie.setCookie(Constants.cookieKey.token, token);
+			Storage.setCookie(Constants.cookieKey.token, token);
 			Storage.setSessionStorage(Constants.storageKey.token, token);
 			Storage.setLocalStorage(Constants.storageKey.token, token);
 			Storage.setLocalStorage(Constants.storageKey.userInfo, token);
-			// Cookie.setCookie(Constants.cookieKey.token, res.data.token);
+			// Storage.setCookie(Constants.cookieKey.token, res.data.token);
 			// Storage.setSessionStorage(Constants.storageKey.token, res.data.token);
 			// Storage.setLocalStorage(Constants.storageKey.token, res.data);
 			// Storage.setLocalStorage(Constants.storageKey.userInfo, res.data);
