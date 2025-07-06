@@ -33,6 +33,9 @@ app.use(I18n);
 
 // element
 import { ElMessage, ElMessageBox, ElNotification } from "element-plus";
+// 全量引入
+// import ElementPlus from "element-plus";
+// app.use(ElementPlus);
 import * as Icons from "@element-plus/icons-vue";
 // element 按需引入解决Message等样式失效，需引入
 import "element-plus/dist/index.css";

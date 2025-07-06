@@ -10,8 +10,8 @@ import Cookie from "@/utils/cookie";
 import AxiosCancel from "@/plugins/http/cancel";
 import Constants from "@/utils/constant/constants";
 import RouterConfig from "@/config/routerConfig";
-// import RouteData from "@/config/routerData";
-import api from "@/plugins/api";
+import RouteData from "@/config/routerData";
+import Api from "@/plugins/api";
 
 /**
  * 配置文件修改是否从后端获取路由
@@ -21,7 +21,7 @@ import api from "@/plugins/api";
 baseRoutes[0].children = [];
 
 // 默认获取菜单及路由为静态数据
-let requestData = [];
+let requestData: any[] = [];
 
 // createWebHashHistory() hash路由#
 export const router = createRouter({
@@ -56,10 +56,10 @@ router.beforeEach(async (to, from, next) => {
 			if (routerList.value.length === 0) {
 				if (RouterConfig.isRequestRoutes) {
 					// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
-					const { data } = await api.systemApi.getMenuList({});
+					const { data } = await Api.systemApi.getMenuList({});
 					requestData = data.list || [];
 				} else {
-					requestData = []; //RouteData.menus;
+					requestData = RouteData;
 				}
 				// 后端控制路由：路由数据初始化，防止刷新时丢失
 				await getDynamicRouter();

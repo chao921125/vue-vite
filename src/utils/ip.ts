@@ -127,7 +127,7 @@ export const getInfoByIp = (url, ip) => {
  * @param url
  * @param ip
  */
-export const getIpInfo = (url, ip) => {
+export const getIpInfo = (url, ip?) => {
 	return Fetch.request(`${url}${ip || ""}`, {}, { method: "GET" });
 };
 
@@ -136,7 +136,7 @@ export const getIpInfo = (url, ip) => {
  * @param url
  * @param ip
  */
-export const getRealIpInfo = (url, ip) => {
+export const getRealIpInfo = (url, ip?) => {
 	return Fetch.request(`${url}${ip || ""}`, {}, { method: "GET" });
 };
 

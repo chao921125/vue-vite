@@ -1,27 +1,66 @@
 <script setup lang="ts">
-import Api from "@/plugins/api";
+import type { FormInstance } from "element-plus";
+import Storage from "@/utils/storage";
+import Cookie from "@/utils/cookie";
+import Constants from "@/utils/constant/constants";
+import ValidateForm from "@/utils/validate/validateForm";
+// import Api from "@/plugins/api";
 import { useRouter } from "vue-router";
 import { reactive } from "vue";
 
+const { proxy } = getCurrentInstance() as any;
+const formRef = ref<FormInstance>();
+const formData: Record<string, any> = reactive({
+	userName: "",
+	password: "",
+}) as any;
+const formRules: Record<string, any> = reactive({
+	userName: [{ validator: ValidateForm.userName, trigger: "blur" }],
+	password: [{ validator: ValidateForm.password, trigger: "blur" }],
+}) as any;
+
+const route = useRoute();
+const router = useRouter();
 const data = reactive({
-	form: {
-		userName: "",
-		password: "",
-	},
+	isLoading: false,
 });
 
-const onLogin = () => {
-	Api.userApi
-		.login({
-			userName: "admin",
-			password: "123123",
-		})
-		.then((res) => {
-			console.log(res);
-		});
+const onLogin = async (formEl: FormInstance | undefined) => {
+	if (!formEl) return false;
+	await formEl.validate((valid: boolean, fields) => {
+		if (valid) {
+			data.isLoading = true;
+			const token = new Date().getTime();
+			Cookie.setCookie(Constants.cookieKey.token, token);
+			Storage.setSessionStorage(Constants.storageKey.token, token);
+			Storage.setLocalStorage(Constants.storageKey.userInfo, token);
+			// Cookie.setCookie(Constants.cookieKey.token, res.data.token);
+			// Storage.setSessionStorage(Constants.storageKey.token, res.data.token);
+			// Storage.setLocalStorage(Constants.storageKey.userInfo, res.data);
+			if (route.query?.redirect && route.query?.redirect !== "/") {
+				router.push({
+					path: <string>route.query?.redirect,
+					query: Object.keys(<string>route.query?.params).length ? JSON.parse(<string>route.query?.params) : "",
+				});
+			} else {
+				router.push({ path: "/" });
+			}
+			// Api.userApi
+			// 	.login({
+			// 		userName: "admin",
+			// 		password: "123123",
+			// 	})
+			// 	.then((res) => {
+			// 		console.log(res);
+			// 	});
+		} else {
+			data.isLoading = false;
+			proxy.$message.error("登录失败", fields);
+			return false;
+		}
+	});
 };
 
-const router = useRouter();
 const onToReg = () => {
 	router.push({ path: "/register" });
 };
@@ -73,13 +112,13 @@ const onToReg = () => {
 				</div>
 			</div>
 		</div>
-		<el-form class="form">
+		<el-form class="form" ref="formRef" :model="formData">
 			<h1 class="title re-tc re-full-w">CCNET</h1>
-			<el-form-item class="form-item">
-				<el-input v-model="data.form.userName" class="form-in" placeholder="请输入用户名" />
+			<el-form-item class="form-item" label="" prop="userName">
+				<el-input v-model="formData.userName" autofocus @keyup.enter.native="onLogin(formRef)" :disabled="data.isLoading" class="form-in" placeholder="请输入用户名" />
 			</el-form-item>
-			<el-form-item class="form-item">
-				<el-input v-model="data.form.password" class="form-in" type="password" placeholder="请输入密码" />
+			<el-form-item class="form-item" label="" prop="password">
+				<el-input v-model="formData.password" @keyup.enter.native="onLogin(formRef)" :disabled="data.isLoading" class="form-in" type="password" placeholder="请输入密码" />
 			</el-form-item>
 			<el-form-item class="form-item">
 				<div class="re-f-row-between re-full-w">
@@ -88,7 +127,7 @@ const onToReg = () => {
 				</div>
 			</el-form-item>
 			<el-form-item class="form-item re-f-row-center">
-				<el-button class="re-full-w btn" type="primary" @click="onLogin">登录</el-button>
+				<el-button class="re-full-w btn" type="primary" @click.native.prevent="onLogin(formRef)" @keyup.enter.native="onLogin(formRef)" :loading="data.isLoading">登录</el-button>
 			</el-form-item>
 		</el-form>
 	</section>

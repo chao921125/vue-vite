@@ -1,7 +1,7 @@
 export default {
 	// 是否是管理端
 	isAdminIframe: true,
-	// 是否为动态路由方式，已经实现mock请求路由，大家改为true即可
+	// 是否为动态路由方式
 	isRequestRoutes: false,
 	// 常用路由：PC端，如果是动态路由，请和配置的路由名称保持一致！！！
 	routeLogin: "/login",

@@ -12,11 +12,18 @@ declare module 'vue' {
     ChartsLineBasic: typeof import('./src/components/charts/LineBasic.vue')['default']
     ChartsLineStacked: typeof import('./src/components/charts/LineStacked.vue')['default']
     ChartsPieBasic: typeof import('./src/components/charts/PieBasic.vue')['default']
+    ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    ElContainer: typeof import('element-plus/es')['ElContainer']
+    ElFooter: typeof import('element-plus/es')['ElFooter']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
+    ElHeader: typeof import('element-plus/es')['ElHeader']
     ElInput: typeof import('element-plus/es')['ElInput']
+    ElLink: typeof import('element-plus/es')['ElLink']
+    ElMain: typeof import('element-plus/es')['ElMain']
+    ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
     ElText: typeof import('element-plus/es')['ElText']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IconSvg: typeof import('./src/components/icon/Svg.vue')['default']
@@ -30,5 +37,8 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SeamlessSeamlessScroll: typeof import('./src/components/seamless/SeamlessScroll.vue')['default']
+  }
+  export interface GlobalDirectives {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
