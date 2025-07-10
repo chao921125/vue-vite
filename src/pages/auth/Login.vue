@@ -226,7 +226,7 @@ const onToReg = () => {
 .form {
 	margin-top: 300px;
 	width: 100%;
-	max-width: 400px;
+	max-width: 30vw;
 	.form-item {
 		width: 100%;
 		margin-top: 20px;
