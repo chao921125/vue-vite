@@ -1,13 +1,13 @@
 <script setup>
 import { onMounted, reactive, watch } from "vue";
-import IcoPrev from "@/assets/ico/p-prev.png";
-import IcoPrevUn from "@/assets/ico/p-prev-un.png";
-import IcoPrevF from "@/assets/ico/p-prev_f.png";
-import IcoPrevFUn from "@/assets/ico/p-prev_f-un.png";
-import IcoNext from "@/assets/ico/p-next.png";
-import IcoNextUn from "@/assets/ico/p-next-un.png";
-import IcoNextL from "@/assets/ico/p-next_l.png";
-import IcoNextLUn from "@/assets/ico/p-next_l-un.png";
+import IcoPrev from "@/assets/images/ico/p-prev.png";
+import IcoPrevUn from "@/assets/images/ico/p-prev-un.png";
+import IcoPrevF from "@/assets/images/ico/p-prev_f.png";
+import IcoPrevFUn from "@/assets/images/ico/p-prev_f-un.png";
+import IcoNext from "@/assets/images/ico/p-next.png";
+import IcoNextUn from "@/assets/images/ico/p-next-un.png";
+import IcoNextL from "@/assets/images/ico/p-next_l.png";
+import IcoNextLUn from "@/assets/images/ico/p-next_l-un.png";
 
 const props = defineProps({
 	current: {
