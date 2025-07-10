@@ -29,12 +29,38 @@
 .btn {
 	font-size: 18px;
 	height: 40px;
+	&.el-button {
+		font-size: 18px !important;
+		height: 40px !important;
+	}
+}
+@media screen and (max-width: 768px) {
+	.btn {
+		font-size: 54px;
+		height: 120px;
+		&.el-button {
+			font-size: 54px !important;
+			height: 120px !important;
+		}
+	}
 }
 
 /** 文本 **/
 .txt {
 	font-size: 18px;
+	&.el-text {
+		font-size: 18px !important;
+	}
 }
+@media screen and (max-width: 768px) {
+	.txt {
+		font-size: 66px;
+		&.el-text {
+			font-size: 66px !important;
+		}
+	}
+}
+
 // 单独页使用的 title
 .title {
 	font-size: 80px;

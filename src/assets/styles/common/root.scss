@@ -2,6 +2,7 @@
 // 定义项目全局 --re-color/text/bg/border-[value]
 // 定义模块 --re-[dir]-color/text/bg/border
 :root {
+	font-size: calc(0.5em + 1vw);
 	--re-np-color: #409eff;
 	--re-color-white: #ffffff;
 	--re-bg-main-color: #f8f8f8;
