@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import screenfull from "screenfull";
+import { fullscreen } from "js-use-core";
 import Storage from "@/utils/storage";
 import Constants from "@/utils/constant/constants";
 import ThemeConfig from "@/config/themeConfig";
@@ -95,11 +95,11 @@ const changeSize = (size: string) => {
 // 设置
 const isShowDrawer = ref(false);
 // 全屏
-const isScreenFull = ref(screenfull.isFullscreen);
+const isScreenFull = ref(fullscreen.isFullscreen);
 const changeScreenFull = () => {
-	if (screenfull.isEnabled) {
+	if (fullscreen.isEnabled) {
 		isScreenFull.value = !isScreenFull.value;
-		screenfull.toggle();
+		fullscreen.toggle();
 	}
 };
 // 退出
