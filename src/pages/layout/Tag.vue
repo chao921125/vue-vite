@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Storage from "@/plugins/utils/storage";
-import Constants from "@/plugins/constants";
+import Storage from "@/utils/storage";
+import Constants from "@/utils/constant/constants";
 import RouterConfig from "@/config/routerConfig";
 import { $t } from "@/plugins/i18n";
 
@@ -8,7 +8,7 @@ const router = useRouter();
 const route = useRoute();
 let tabs = ref<any>([]);
 const tabValue = ref<string>("/home");
-const addTab = (routeCurrent: any) => {
+const addTab = (routeCurrent) => {
 	if (routeCurrent.meta.isHide) {
 		return false;
 	}
@@ -22,17 +22,17 @@ const addTab = (routeCurrent: any) => {
 		name: routeCurrent.fullPath,
 		closable: true,
 	});
-	tabs.value = Array.from(new Set(tags.map((value: any) => JSON.stringify(value)))).map((item: any) => JSON.parse(item));
+	tabs.value = Array.from(new Set(tags.map((value) => JSON.stringify(value)))).map((item) => JSON.parse(item));
 	return tabs.value;
 };
-const removeTab = (name: string) => {
+const removeTab = (name) => {
 	if (name === RouterConfig.routeHome) {
 		return false;
 	}
 	let activeName = tabValue.value;
 	if (tabs.value.length) {
 		// const index = tabArray.map((item) => item.name).indexOf(name);
-		const index = tabs.value.findIndex((item: any) => item.name === name);
+		const index = tabs.value.findIndex((item) => item.name === name);
 		tabs.value.splice(index, 1);
 		if (name === activeName) {
 			if (!tabs.value.length) {
@@ -50,7 +50,7 @@ const removeTab = (name: string) => {
 	Storage.setLocalStorage(Constants.storageKey.tags, tabs.value);
 	router.push({ path: tabValue.value });
 };
-const changeRouter = (tabName: any) => {
+const changeRouter = (tabName) => {
 	router.push({ path: tabName });
 };
 // 点击更多

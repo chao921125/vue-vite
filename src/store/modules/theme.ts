@@ -29,7 +29,7 @@ export const useThemeConfig = defineStore("themeConfig", {
 			// 初始化变量，用于更新菜单 el-scrollbar 的高度，请勿删除
 			isFixedHeaderChange: false,
 			// 是否开启 Footer 底部版权信息
-			isFooter: false,
+			isFooter: true,
 			// 是否开启 面包屑
 			isBreadcrumb: true,
 			// 是否开启 Breadcrumb 图标

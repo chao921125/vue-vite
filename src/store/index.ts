@@ -5,7 +5,7 @@ import { createPinia, storeToRefs } from "pinia";
 const store = createPinia();
 
 // 不必额外导入，直接使用此方法
-export const getStoreRefs = (store) => {
+export const getStoreRefs: any = (store) => {
 	return storeToRefs(store);
 };
 

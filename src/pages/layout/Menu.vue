@@ -3,16 +3,16 @@ import MenuSub from "./MenuSub.vue";
 import Store, { getStoreRefs, appStore } from "@/store";
 
 // 折叠菜单
-const { themeConfig } = <any>getStoreRefs(appStore.useThemeConfig);
+const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 const isColl = computed(() => {
 	let { isCollapse } = themeConfig.value;
 	return !isCollapse;
 });
 // 渲染菜单
-const { menuList } = <any>getStoreRefs(appStore.useRouterList);
-const state: any = reactive({ menuList: Array<any> });
+const { menuList } = getStoreRefs(appStore.useRouterList);
+const state = reactive({ menuList: [] });
 const setMenu = () => {
-	(state.menuList as any) = menuList.value || [];
+	state.menuList = menuList.value || [];
 };
 // 设置菜单点击后的默认项
 const router = useRouter();
@@ -31,7 +31,7 @@ const changeMenuKey = computed(() => {
 	return path.toString();
 });
 // 点击路由跳转菜单
-const toRouter = (index: string) => {
+const toRouter = (index) => {
 	router.push({ path: "/" + index });
 };
 /**
@@ -39,13 +39,13 @@ const toRouter = (index: string) => {
  * 要点一：菜单的命名规则必须统一，比如父菜单：parent，对应的子菜单应该为：parent/children
  * 要点二：所有的展开菜单必须定义好，写到常量文件中和配置的菜单对应上，这个必须是开发人员提供配置
  */
-const openMenu = (index: string) => {
+const openMenu = (index) => {
 	console.log("openMenu", index);
 	// if (["/menu1", "/menu2"].includes(index) && route.path.indexOf(`${index}/`) === -1) {
 	// 	router.push({ path: index });
 	// }
 };
-const closeMenu = (index: string) => {
+const closeMenu = (index) => {
 	console.log("closeMenu", index);
 	// if (["/menu1", "/menu2"].includes(index)) {
 	// 	router.push({ path: index });
@@ -72,13 +72,13 @@ onBeforeMount(() => {
 
 <template>
 	<div v-if="isColl" class="logo-full re-f-row-center">
-		<el-link :underline="false" @click="toHome">
+		<el-link underline="never" @click="toHome">
 			<i class="iconfont icon-shouye"></i>
 			<span class="re-ml-10">CC ADMIN</span>
 		</el-link>
 	</div>
 	<div v-else class="animate__animated animate__zoomIn logo-only re-f-row-center">
-		<el-link :underline="false" @click="toHome">
+		<el-link underline="never" @click="toHome">
 			<i class="iconfont icon-shouye"></i>
 		</el-link>
 	</div>

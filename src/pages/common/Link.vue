@@ -17,7 +17,7 @@ onMounted(() => {
 <template>
 	<div class="re-w-full">
 		点击
-		<el-link :href="linkUrl" :underline="false" target="_blank">
+		<el-link :href="linkUrl" underline="never" target="_blank">
 			{{ linkUrl }}
 		</el-link>
 		访问
