@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // 饼图
 import * as echarts from "echarts";
-import { onMounted, watch } from "vue";
 
 const props = defineProps({
 	id: {

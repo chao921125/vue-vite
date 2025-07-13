@@ -1,4 +1,3 @@
-import { nextTick } from "vue";
 import Router from "@/router";
 import { getStoreRefs, appStore } from "@/store";
 import I18n from "@/plugins/i18n";

@@ -7,11 +7,12 @@ import Storage from "@/utils/storage";
 import Constants from "@/utils/constant/constants";
 import ThemeConfig from "@/config/themeConfig";
 
-const { proxy } = getCurrentInstance() as any;
+const instance = getCurrentInstance();
+const proxy = instance?.proxy;
 // large / default /small
 const config = reactive({
 	i18n: elI18n[ThemeConfig.i18nDef],
-	size: "default",
+	size: "default" as "default" | "large" | "small",
 	buttonSpace: {
 		autoInsertSpace: false,
 	},
@@ -20,16 +21,18 @@ const config = reactive({
 const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 const route = useRoute();
 const initData = () => {
-	proxy.$mitt.emit("getI18nConfig", Storage.getLocalStorage(Constants.storageKey.i18nLocale));
-	if (Storage.getLocalStorage(Constants.storageKey.themeConfig)) {
-		appStore.useThemeConfig.setThemeConfig(Storage.getLocalStorage(Constants.storageKey.themeConfig));
+	if (proxy) {
+		proxy.$mitt.emit("getI18nConfig", Storage.getLocalStorage(Constants.storageKey.i18nLocale));
+		if (Storage.getLocalStorage(Constants.storageKey.themeConfig)) {
+			appStore.useThemeConfig.setThemeConfig(Storage.getLocalStorage(Constants.storageKey.themeConfig));
+		}
+		proxy.$mitt.on("getI18nConfig", (locale: string) => {
+			config.i18n = elI18n[locale];
+		});
+		proxy.$mitt.on("getSizeConfig", (size: "default" | "large" | "small") => {
+			config.size = size;
+		});
 	}
-	proxy.$mitt.on("getI18nConfig", (locale: string) => {
-		config.i18n = elI18n[locale];
-	});
-	proxy.$mitt.on("getSizeConfig", (size: string) => {
-		config.size = size;
-	});
 };
 
 onBeforeMount(() => {
@@ -56,8 +59,10 @@ onMounted(() => {
 	});
 });
 onUnmounted(() => {
-	proxy.$mitt.off("getI18nConfig");
-	proxy.$mitt.off("getSizeConfig");
+	if (proxy) {
+		proxy.$mitt.off("getI18nConfig");
+		proxy.$mitt.off("getSizeConfig");
+	}
 });
 watch(
 	() => route.path,

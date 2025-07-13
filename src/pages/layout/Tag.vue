@@ -22,7 +22,7 @@ const addTab = (routeCurrent) => {
 		name: routeCurrent.fullPath,
 		closable: true,
 	});
-	tabs.value = Array.from(new Set(tags.map((value) => JSON.stringify(value)))).map((item) => JSON.parse(item));
+	tabs.value = Array.from(new Set(tags.map((value) => JSON.stringify(value)))).map((item) => JSON.parse(item as string));
 	return tabs.value;
 };
 const removeTab = (name) => {

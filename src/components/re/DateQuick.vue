@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref } from "vue";
 import { differenceInDays, format } from "date-fns";
 
 const props = defineProps({

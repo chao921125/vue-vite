@@ -45,7 +45,6 @@ declare module 'vue' {
     ElTag: typeof import('element-plus/es')['ElTag']
     ElText: typeof import('element-plus/es')['ElText']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IconSvg: typeof import('./src/components/icon/Svg.vue')['default']
     Img: typeof import('./src/components/img/Index.vue')['default']
     MediaVideo: typeof import('./src/components/media/Video.vue')['default']

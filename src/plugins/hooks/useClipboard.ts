@@ -1,5 +1,3 @@
-import { ref } from "vue";
-
 export function useClipboard() {
 	const isCopied = ref(false);
 	const copy = async (text) => {

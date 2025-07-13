@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // 折线图 多条
 import * as echarts from "echarts";
-import { onMounted, watch } from "vue";
 
 const props = defineProps({
 	id: {

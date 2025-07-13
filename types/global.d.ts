@@ -29,3 +29,20 @@ declare module "*?lqip" {
 	};
 	export default lqip;
 }
+
+// mitt 类型定义
+declare module "mitt" {
+	export interface Emitter<Events> {
+		on<Key extends keyof Events>(type: Key, handler: Events[Key]): void;
+		off<Key extends keyof Events>(type: Key, handler: Events[Key]): void;
+		emit<Key extends keyof Events>(type: Key, evt?: Events[Key]): void;
+	}
+	export default function mitt<Events>(): Emitter<Events>;
+}
+
+// Vue 全局属性类型扩展
+declare module "@vue/runtime-core" {
+	interface ComponentCustomProperties {
+		$mitt: ReturnType<typeof import("mitt")>;
+	}
+}
