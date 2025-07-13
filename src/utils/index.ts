@@ -38,7 +38,7 @@ const setTitleI18n = (value) => {
 		}
 	} else {
 		// 非自定义 tagsView 名称
-		tagsViewName = I18n.global.t(meta.title);
+		tagsViewName = I18n.global.t(meta.title || import.meta.env.VITE_TITLE);
 	}
 	return tagsViewName;
 };

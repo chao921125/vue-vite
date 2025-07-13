@@ -1,7 +1,7 @@
 /**
  * 本地静态路由数据配置，该配置由开发人员维护
  * 路由菜单配置，数据格式必须遵循一下规则，否则请自定义修改
- * I18n message.menu.home
+ * I18n title message.menu.home
  * **** true false 也可以用 0 和 1 代替，必须为数值或者boolean ****
  * path					必填 请求路径
  * component		必填 组件路径，默认在views/目录下，但不用填写views/
