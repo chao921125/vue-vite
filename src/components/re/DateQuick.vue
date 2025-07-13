@@ -15,7 +15,7 @@ const props = defineProps({
 
 const emit = defineEmits(["change", "getDays"]);
 
-const dateOptions: any = reactive({
+const dateOptions = reactive({
 	shortcuts: [
 		{
 			text: "Last week",

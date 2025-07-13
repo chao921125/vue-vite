@@ -8,7 +8,7 @@ import { getStoreRefs, appStore } from "@/store";
 import { Sunny, Moon } from "@element-plus/icons-vue";
 import Utils from "@/utils";
 
-const { themeConfig } = <any>getStoreRefs(appStore.useThemeConfig);
+const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 // 折叠菜单 start
 const isColl = computed(() => {
 	let { isCollapse } = themeConfig.value;
@@ -21,7 +21,7 @@ const changeCollapse = () => {
 // 折叠菜单 end
 // 面包屑导航 start
 const route = useRoute();
-const { menuList } = <any>getStoreRefs(appStore.useRouterList);
+const { menuList } = getStoreRefs(appStore.useRouterList);
 const breadcrumbList = ref<any[]>([]);
 const initBreadcrumbList = (path: string) => {
 	if (RouterConfig.executeList.includes(path)) {

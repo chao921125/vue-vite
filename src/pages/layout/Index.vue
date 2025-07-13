@@ -8,8 +8,8 @@ import { ElScrollbar } from "element-plus";
 import { ArrowUpBold } from "@element-plus/icons-vue";
 
 // 修改项目设置
-const { themeConfig } = <any>getStoreRefs(appStore.useThemeConfig);
-const state: any = reactive({
+const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
+const state = reactive({
 	clientWidth: 0,
 });
 // 固定header

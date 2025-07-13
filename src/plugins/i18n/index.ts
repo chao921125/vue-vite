@@ -15,7 +15,7 @@ import znCNLocale from "./modules/zh-cn";
 import enLocale from "./modules/en-us";
 
 // 读取 pinia 默认语言
-const { themeConfig } = <any>getStoreRefs(appStore.useThemeConfig);
+const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 
 // 导出语言国际化
 // https://vue-i18n.intlify.dev/guide/essentials/fallback.html#explicit-fallback-with-one-locale

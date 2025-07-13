@@ -11,7 +11,7 @@ const util: any = {};
  * @param titleText
  */
 util.setTitle = async () => {
-	const { themeConfig } = <any>getStoreRefs(appStore.useThemeConfig);
+	const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 	const globalTitle = themeConfig.value.globalTitle;
 	await nextTick(() => {
 		let title = "";

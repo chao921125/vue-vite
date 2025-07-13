@@ -9,7 +9,7 @@ import ThemeConfig from "@/config/themeConfig";
 
 const { proxy } = getCurrentInstance() as any;
 // large / default /small
-const config: any = reactive({
+const config = reactive({
 	i18n: elI18n[ThemeConfig.i18nDef],
 	size: "default",
 	buttonSpace: {
@@ -17,7 +17,7 @@ const config: any = reactive({
 	},
 });
 
-const { themeConfig } = <any>getStoreRefs(appStore.useThemeConfig);
+const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 const route = useRoute();
 const initData = () => {
 	proxy.$mitt.emit("getI18nConfig", Storage.getLocalStorage(Constants.storageKey.i18nLocale));

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { getStoreRefs, appStore } from "@/store";
 
-const { themeConfig } = <any>getStoreRefs(appStore.useThemeConfig);
+const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 const iframeHeight = computed(() => {
 	if (themeConfig.value.isTagsView) {
 		return "120px";
 	}
 	return "100px";
 });
-const iframeObj: any = reactive({
+const iframeObj = reactive({
 	url: "",
 	loading: true,
 });

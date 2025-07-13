@@ -52,7 +52,7 @@ router.beforeEach(async (to, from, next) => {
 		} else if (token && RouterConfig.whiteList.includes(to.path)) {
 			next(RouterConfig.routeHome);
 		} else {
-			const { routerList } = <any>getStoreRefs(appStore.useRouterList);
+			const { routerList } = getStoreRefs(appStore.useRouterList);
 			if (routerList.value.length === 0) {
 				if (RouterConfig.isRequestRoutes) {
 					// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
