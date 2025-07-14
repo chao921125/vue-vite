@@ -1,4 +1,4 @@
-# [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-ts.vercel.app/) - [项目截图](./docs/Project.md)
+# [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-pages.vercel.app/) - [项目截图](./docs/Project.md)
 # 命名规范及解释
 1. 命名遵循驼峰规则：demoUser
 2. 配置文件均按照xxConfig，数据配置均按照xxOption/xxData：
