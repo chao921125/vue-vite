@@ -71,13 +71,13 @@ onBeforeMount(() => {
 </script>
 
 <template>
-	<div v-if="isColl" class="logo-full re-f-row-center">
+	<div v-if="isColl" class="logo-full re-fr-center">
 		<el-link underline="never" @click="toHome">
 			<i class="iconfont icon-shouye"></i>
 			<span class="re-ml-10">CC ADMIN</span>
 		</el-link>
 	</div>
-	<div v-else class="animate__animated animate__zoomIn logo-only re-f-row-center">
+	<div v-else class="animate__animated animate__zoomIn logo-only re-fr-center">
 		<el-link underline="never" @click="toHome">
 			<i class="iconfont icon-shouye"></i>
 		</el-link>

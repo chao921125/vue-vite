@@ -25,43 +25,43 @@
 	flex: 1;
 	overflow: hidden;
 }
-.#{declare.$prefix}-f-row {
+.#{declare.$prefix}-fr {
 	@include declare.flex-base;
 	flex-direction: row;
 }
-.#{declare.$prefix}-f-row-end {
+.#{declare.$prefix}-fr-end {
 	@include declare.flex-base;
 	flex-direction: row;
 	align-items: center;
 	justify-content: flex-end;
 }
-.#{declare.$prefix}-f-row-center {
+.#{declare.$prefix}-fr-center {
 	@include declare.flex-base;
 	@include declare.flex-row-center;
 }
-.#{declare.$prefix}-f-row-center-jc {
+.#{declare.$prefix}-fr-center-jc {
 	@include declare.flex-base;
 	justify-content: center;
 }
-.#{declare.$prefix}-f-row-center-ai {
+.#{declare.$prefix}-fr-center-ai {
 	@include declare.flex-base;
 	align-items: center;
 }
-.#{declare.$prefix}-f-row-between {
+.#{declare.$prefix}-fr-between {
 	@include declare.flex-base;
 	justify-content: space-between;
 	align-items: center;
 }
-.#{declare.$prefix}-f-row-reverse {
+.#{declare.$prefix}-fr-reverse {
 	@include declare.flex-base;
 	flex-direction: row-reverse;
 	align-items: center;
 }
-.#{declare.$prefix}-f-col {
+.#{declare.$prefix}-fc {
 	@include declare.flex-base;
 	flex-direction: column;
 }
-.#{declare.$prefix}-f-col-center {
+.#{declare.$prefix}-fc-center {
 	@include declare.flex-base;
 	@include declare.flex-col-center;
 }
@@ -233,19 +233,19 @@
 /**
  * 定位
  */
-.#{declare.$prefix}-pos-ft {
+.#{declare.$prefix}-pf-t {
 	position: fixed;
 	top: 0;
 }
-.#{declare.$prefix}-pos-fb {
+.#{declare.$prefix}-pf-b {
 	position: fixed;
 	bottom: 0;
 }
-.#{declare.$prefix}-pos-fl {
+.#{declare.$prefix}-pf-l {
 	position: fixed;
 	left: 0;
 }
-.#{declare.$prefix}-pos-fr {
+.#{declare.$prefix}-pf-r {
 	position: fixed;
 	right: 0;
 }
@@ -256,20 +256,12 @@
 	z-index: -1;
 }
 
-@for $i from 1 through 99999 {
-	.#{declare.$prefix}-zi-#{$i} {
-		z-index: #{$i};
+$zindexs: (0, 5, 9, 10, 15, 19, 20, 25, 29, 30, 35, 39, 40, 45, 49, 50, 55, 59, 60, 65, 69, 70, 75, 79, 80, 85, 89, 90, 95, 99, 100);
+@each $zindex in $zindexs {
+	.#{declare.$prefix}-zi-#{$zindex} {
+		z-index: #{$zindex};
 	}
 }
-
-
-//$sizes: 40px, 50px, 80px;
-//$sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
-//@each $size in $sizes {
-//	.#{declare.$prefix}-zi-#{$size} {
-//		z-index: #{$size};
-//	}
-//}
 
 //@function scale-below($value, $base, $ratio: 1.618) {
 //	@while $value > $base {

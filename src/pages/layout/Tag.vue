@@ -94,9 +94,9 @@ onBeforeRouteUpdate((to) => {
 </script>
 
 <template>
-	<div class="re-f-row-between tags-content">
+	<div class="re-fr-between tags-content">
 		<el-scrollbar class="tags-list">
-			<div class="re-f-row">
+			<div class="re-fr">
 				<el-tag :disable-transitions="false" class="re-c-pointer re-mr-10" @click="changeRouter('/home')" :type="tabValue === '/home' ? 'primary' : 'info'">
 					{{ $t("message.menu.home") }}
 				</el-tag>

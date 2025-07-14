@@ -192,7 +192,7 @@ onBeforeRouteUpdate((to) => {
 	<el-row :gutter="10" justify="space-between" class="re-h-full">
 		<!--		面包屑导航-->
 		<el-col :xs="24" :sm="12">
-			<div class="re-h-full re-f-row-center-ai">
+			<div class="re-h-full re-fr-center-ai">
 				<el-icon @click="changeCollapse" class="re-c-pointer" :size="18">
 					<Fold v-if="isColl"></Fold>
 					<Expand v-else></Expand>
@@ -208,7 +208,7 @@ onBeforeRouteUpdate((to) => {
 		</el-col>
 		<!--		右侧快捷栏-->
 		<el-col :xs="24" :sm="12">
-			<div class="re-h-full re-f-row-end">
+			<div class="re-h-full re-fr-end">
 				<el-dropdown ref="dropdownComponents" trigger="hover" @command="changeSize">
 					<i class="iconfont icon-zujian2 re-c-pointer re-ml-10" @click="showDropdownComponents"></i>
 					<template #dropdown>
@@ -257,25 +257,25 @@ onBeforeRouteUpdate((to) => {
 	</el-row>
 	<el-drawer v-model="isShowDrawer" title="主题设置" size="20%">
 		<!--		<template #header></template>-->
-		<el-row :gutter="20" class="re-f-row-center-ai" justify="space-between">
+		<el-row :gutter="20" class="re-fr-center-ai" justify="space-between">
 			<el-col :span="6" class="re-text-left"> 颜色 </el-col>
 			<el-col :span="18" class="re-text-right">
 				<el-color-picker v-model="colorPicker" @change="changeColorPicker" />
 			</el-col>
 		</el-row>
-		<el-row :gutter="20" class="re-f-row-center-ai" justify="space-between">
+		<el-row :gutter="20" class="re-fr-center-ai" justify="space-between">
 			<el-col :span="6" class="re-text-left"> 暗黑 </el-col>
 			<el-col :span="18" class="re-text-right">
 				<el-switch v-model="isThemDark" :disabled="isThemGrey || isThemInvert" inline-prompt :active-icon="Sunny" :inactive-icon="Moon" @change="changeDark" />
 			</el-col>
 		</el-row>
-		<el-row :gutter="20" class="re-f-row-center-ai" justify="space-between">
+		<el-row :gutter="20" class="re-fr-center-ai" justify="space-between">
 			<el-col :span="6" class="re-text-left"> 灰色 </el-col>
 			<el-col :span="18" class="re-text-right">
 				<el-switch v-model="isThemGrey" :disabled="isThemDark || isThemInvert" inline-prompt @change="changeGrey" />
 			</el-col>
 		</el-row>
-		<el-row :gutter="20" class="re-f-row-center-ai" justify="space-between">
+		<el-row :gutter="20" class="re-fr-center-ai" justify="space-between">
 			<el-col :span="6" class="re-text-left"> 色弱 </el-col>
 			<el-col :span="18" class="re-text-right">
 				<el-switch v-model="isThemInvert" :disabled="isThemDark || isThemGrey" inline-prompt @change="changeInvert" />
