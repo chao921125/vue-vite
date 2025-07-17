@@ -36,22 +36,23 @@
 | [yarn next](https://yarnpkg.com/) |
 | [npm](https://www.npmjs.com/)     |
 
-| 构建工具                                  |
-|---------------------------------------|
-| [👍 vite 官网](https://cn.vitejs.dev/)  |
-| [👍 svelte 官网](https://svelte.dev/)   |
-| [Rspack](https://rspack.dev/zh/index) |
-| [parceljs](https://parceljs.org/)     |
-| [Turbopack](https://turbo.build/)     |
-| [esbuild](https://esbuild.github.io/) |
-| [rollupjs](https://rollupjs.org/)     |
-| [webpack](https://webpack.js.org/)    |
+| 构建工具                                                                 |
+|----------------------------------------------------------------------|
+| [👍 Vite 开发环境极速启动（ESM 原生加载）](https://github.com/vitejs/vite)         |
+| [Webpack 插件生态丰富，支持代码分割、热更新](https://github.com/webpack/webpack)      |
+| [Parcel ](https://github.com/parcel-bundler/parcel)                  |
+| [SWC](https://github.com/swc-project/swc)                            |
+| [esbuild 极速构建（Go 语言编写，并行处理）](https://github.com/evanw/esbuild)       |
+| [Turborepo](https://github.com/vercel/turborepo)                     |
+| [Rollup 	生成更小的库代码，Tree-shaking 高效](https://github.com/rollup/rollup) |
+| [Rspack](https://github.com/web-infra-dev/rspack)                    |
 
-| 语法糖                                 |
-|-------------------------------------|
-| [vue3 官网](https://vuejs.org/)       |
-| [react 官网](https://react.dev/)      |
-| [vue2 官网](https://v2.cn.vuejs.org/) |
+| 语法糖                                                |
+|----------------------------------------------------|
+| [vue3 官网](https://vuejs.org/)                      |
+| [👍 svelte 官网](https://github.com/sveltejs/svelte) |
+| [react 官网](https://react.dev/)                     |
+| [vue2 官网](https://v2.cn.vuejs.org/)                |
 
 | TS                                                         |
 |------------------------------------------------------------|
