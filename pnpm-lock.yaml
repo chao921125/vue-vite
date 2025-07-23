@@ -19,7 +19,7 @@ importers:
         version: 13.5.0(vue@3.5.17(typescript@5.8.3))
       '@vueuse/integrations':
         specifier: ^13.5.0
-        version: 13.5.0(async-validator@4.2.5)(axios@1.10.0)(nprogress@0.2.0)(vue@3.5.17(typescript@5.8.3))
+        version: 13.5.0(async-validator@4.2.5)(axios@1.11.0)(nprogress@0.2.0)(vue@3.5.17(typescript@5.8.3))
       '@vueuse/metadata':
         specifier: ^13.5.0
         version: 13.5.0
@@ -30,11 +30,11 @@ importers:
         specifier: ^4.1.1
         version: 4.1.1
       axios:
-        specifier: ^1.10.0
-        version: 1.10.0
+        specifier: ^1.11.0
+        version: 1.11.0
       axios-mock-adapter:
         specifier: ^2.1.0
-        version: 2.1.0(axios@1.10.0)
+        version: 2.1.0(axios@1.11.0)
       core-js:
         specifier: ^3.44.0
         version: 3.44.0
@@ -2182,8 +2182,8 @@ packages:
     peerDependencies:
       axios: '>= 0.17.0'
 
-  axios@1.10.0:
-    resolution: {integrity: sha512-/1xYAC4MP/HEG+3duIhFr4ZQXR4sQXOIe+o6sdqzeykGLx6Upp/1p8MHqhINOvGeP7xyNHe7tsiJByc4SSVUxw==}
+  axios@1.11.0:
+    resolution: {integrity: sha512-1Lx3WLFQWm3ooKDYZD1eXmoGO9fxYQjrycfHFC8P0sCfQVXyROp0p9PFWBehewBOdCwHc+f/b8I0fMto5eSfwA==}
 
   babel-plugin-polyfill-corejs2@0.4.14:
     resolution: {integrity: sha512-Co2Y9wX854ts6U8gAAPXfn0GmAyctHuK8n0Yhfjd6t30g7yvKjspvvOo9yG+z52PZRgFErt7Ka2pYnXCjLKEpg==}
@@ -2866,8 +2866,8 @@ packages:
     resolution: {integrity: sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==}
     engines: {node: '>=14'}
 
-  form-data@4.0.3:
-    resolution: {integrity: sha512-qsITQPfmvMOSAdeyZ+12I1c+CKSstAFAwu+97zrnWAbIr5u8wfsExUzCesVLC8NgHuRUqNN4Zy6UPWUTRGslcA==}
+  form-data@4.0.4:
+    resolution: {integrity: sha512-KrGhL9Q4zjj0kiUt5OO4Mr/A/jlI2jDYs5eHBpYHPcBEVSiipAvn2Ko2HnPe20rmcuuvMHNdZFp+4IlGTMF0Ow==}
     engines: {node: '>= 6'}
 
   fraction.js@4.3.7:
@@ -6721,7 +6721,7 @@ snapshots:
   '@types/node-fetch@2.6.12':
     dependencies:
       '@types/node': 24.0.14
-      form-data: 4.0.3
+      form-data: 4.0.4
 
   '@types/node@24.0.14':
     dependencies:
@@ -7001,14 +7001,14 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/integrations@13.5.0(async-validator@4.2.5)(axios@1.10.0)(nprogress@0.2.0)(vue@3.5.17(typescript@5.8.3))':
+  '@vueuse/integrations@13.5.0(async-validator@4.2.5)(axios@1.11.0)(nprogress@0.2.0)(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       '@vueuse/core': 13.5.0(vue@3.5.17(typescript@5.8.3))
       '@vueuse/shared': 13.5.0(vue@3.5.17(typescript@5.8.3))
       vue: 3.5.17(typescript@5.8.3)
     optionalDependencies:
       async-validator: 4.2.5
-      axios: 1.10.0
+      axios: 1.11.0
       nprogress: 0.2.0
 
   '@vueuse/metadata@13.5.0': {}
@@ -7133,16 +7133,16 @@ snapshots:
 
   aws-ssl-profiles@1.1.2: {}
 
-  axios-mock-adapter@2.1.0(axios@1.10.0):
+  axios-mock-adapter@2.1.0(axios@1.11.0):
     dependencies:
-      axios: 1.10.0
+      axios: 1.11.0
       fast-deep-equal: 3.1.3
       is-buffer: 2.0.5
 
-  axios@1.10.0:
+  axios@1.11.0:
     dependencies:
       follow-redirects: 1.15.9
-      form-data: 4.0.3
+      form-data: 4.0.4
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
@@ -7920,7 +7920,7 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
-  form-data@4.0.3:
+  form-data@4.0.4:
     dependencies:
       asynckit: 0.4.0
       combined-stream: 1.0.8
