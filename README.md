@@ -144,7 +144,7 @@
 |----------------------------------------------------------------------------------------|
 | [👍 Vue shadcn](https://www.shadcn-vue.com/) [👍 React shadcn](https://ui.shadcn.com/) |
 
-| VUE UI                                                                   |
+| VUE                                                                      |
 |--------------------------------------------------------------------------|
 | [bootstrap 官网](https://bootstrap-vue-next.github.io/bootstrap-vue-next/) |
 | [👍 vuetifyjs 超级古老框架 商业版收费 不适合管理端](https://vuetifyjs.com/)               |
@@ -165,7 +165,7 @@
 | [Vuestic UI 官网](https://vuestic.dev/)                                    |
 | [lobehub 官网](https://ui.lobehub.com/)                                    |
 
-| React UI                                           |
+| React                                              |
 |----------------------------------------------------|
 | [bootstrap 官网](https://react-bootstrap.github.io/) |
 | [mui 官网](https://mui.com/zh/)                      |
@@ -175,7 +175,7 @@
 | [rsuitejs 官网](https://rsuitejs.com/zh/)            |
 | [chakra 官网](https://chakra-ui.com/)                |
 
-| UI 移动端                                                        |
+| 移动端                                                           |
 |---------------------------------------------------------------|
 | [👍vant](https://vant-ui.github.io/vant/#/zh-CN)              |
 | [👍ionic-framework 官网 VRA](https://ionicframework.com/docs/)  |
@@ -187,17 +187,23 @@
 | [uvui 官网](https://www.uvui.cn/)                               |
 | [wave 官网](https://antoniandre.github.io/wave-ui/)             |
 
-| UI 小程序                                                                        |
-|-------------------------------------------------------------------------------|
-| [👍vant](https://github.com/vant-ui/vant-weapp)                               |
-| [👍weui](https://weui.io/)  [Tencent](https://github.com/Tencent/weui-wxss)   |
-| [👍taro](https://taro-ui.jd.com/#/)                                           |
-| [uni-ui](https://github.com/dcloudio/uni-ui)                                  |
-| [uvui](https://www.uvui.cn/)                                                  |
-| [Cube UI](https://didi.github.io/cube-ui/#/zh-CN)                             |
-| [wux](https://wux-weapp.github.io/wux-weapp-docs/#/)                          |
-| [firstui 含付费UI](https://www.firstui.cn/)                                      |
-| [awesome](https://github.com/justjavac/awesome-wechat-weapp)                  |
+| 小程序                                                                        |
+|----------------------------------------------------------------------------|
+| [👍vant](https://github.com/vant-ui/vant-weapp)                            |
+| [👍weui](https://weui.io/)                                                 |
+| [weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram) |
+| [weui-wxss](https://github.com/Tencent/weui-wxss)                          |
+| [👍taro](https://taro-ui.jd.com/#/)                                        |
+| [uni-ui](https://github.com/dcloudio/uni-ui)                               |
+| [停更 uvui](https://www.uvui.cn/)                                            |
+| [Cube UI](https://didi.github.io/cube-ui/#/zh-CN)                          |
+| [awesome](https://github.com/justjavac/awesome-wechat-weapp)               |
+| [停更 wux](https://wux-weapp.github.io/wux-weapp-docs/#/)                    |
+| [停更 开源版 FirstUI 含付费UI](https://github.com/FirstUI/FirstUI-weixini)         |
+| [停更 lin-ui](https://github.com/TaleLin/lin-ui)                             |
+| [停更 iview](https://github.com/TalkingData/iview-weapp)                     |
+| [停更 colorui](https://github.com/weilanwl/coloruicss)                       |
+| [停更 Touch WX](https://github.com/uileader/touchwx)                         |
 
 | UI 单一组件                                                                |
 |------------------------------------------------------------------------|
