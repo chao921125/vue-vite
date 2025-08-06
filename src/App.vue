@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import { getStoreRefs, appStore } from "@/store";
 import { elI18n } from "@/plugins/i18n";
-import { font } from "js-use-core";
+import { FontManager } from "js-use-core";
 import Utils from "@/utils";
 import Storage from "@/utils/storage";
 import Constants from "@/utils/constant/constants";
 import ThemeConfig from "@/config/themeConfig";
+import { getCurrentInstance, onBeforeMount, onMounted, onUnmounted, reactive, watch } from "vue";
+import { useRoute } from "vue-router";
 
 const instance = getCurrentInstance();
 const proxy = instance?.proxy;
 // large / default /small
 const config = reactive({
 	i18n: elI18n[ThemeConfig.i18nDef],
-	size: "default" as "default" | "large" | "small",
+	size: "default", //"default" | "large" | "small",
 	buttonSpace: {
 		autoInsertSpace: false,
 	},
@@ -26,10 +28,11 @@ const initData = () => {
 		if (Storage.getLocalStorage(Constants.storageKey.themeConfig)) {
 			appStore.useThemeConfig.setThemeConfig(Storage.getLocalStorage(Constants.storageKey.themeConfig));
 		}
-		proxy.$mitt.on("getI18nConfig", (locale: string) => {
+		proxy.$mitt.on("getI18nConfig", (locale) => {
 			config.i18n = elI18n[locale];
 		});
-		proxy.$mitt.on("getSizeConfig", (size: "default" | "large" | "small") => {
+		// "default" | "large" | "small"
+		proxy.$mitt.on("getSizeConfig", (size) => {
 			config.size = size;
 		});
 	}
@@ -49,7 +52,7 @@ onBeforeMount(() => {
 
 onMounted(() => {
 	initData();
-	const checker = new font();
+	const checker = new FontManager();
 	checker.check(["NotoSans-Regular", "NotoSans-Medium"]).then((res) => {
 		if (res.success) {
 			console.log("字体库加载成功");
