@@ -71,7 +71,7 @@
 		"echarts": "^6.0.0",
 		"echarts-gl": "^2.0.9",
 		"echarts-wordcloud": "^2.1.0",
-		"element-plus": "^2.10.7",
+		"element-plus": "^2.11.0",
 		"heic2any": "^0.0.4",
 		"js-cookie": "^3.0.5",
 		"js-use-core": "^1.2.0",
