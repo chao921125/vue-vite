@@ -6,7 +6,6 @@ import Utils from "@/utils";
 import Storage from "@/utils/storage";
 import Constants from "@/utils/constant/constants";
 import ThemeConfig from "@/config/themeConfig";
-import { getCurrentInstance, onBeforeMount, onMounted, onUnmounted, reactive, watch } from "vue";
 import { useRoute } from "vue-router";
 
 const instance = getCurrentInstance();
