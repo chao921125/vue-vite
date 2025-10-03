@@ -189,21 +189,23 @@
 
 | 小程序                                                                        |
 |----------------------------------------------------------------------------|
-| [👍vant](https://github.com/vant-ui/vant-weapp)                            |
-| [👍weui](https://weui.io/)                                                 |
-| [weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram) |
-| [weui-wxss](https://github.com/Tencent/weui-wxss)                          |
-| [👍taro](https://taro-ui.jd.com/#/)                                        |
-| [uni-ui](https://github.com/dcloudio/uni-ui)                               |
-| [停更 uvui](https://www.uvui.cn/)                                            |
-| [Cube UI](https://didi.github.io/cube-ui/#/zh-CN)                          |
 | [awesome](https://github.com/justjavac/awesome-wechat-weapp)               |
+| [uni-ui 支持 uni-app x](https://github.com/dcloudio/uni-ui)                  |
+| [👍vant](https://github.com/vant-ui/vant-weapp)                            |
+| [👍taro](https://taro-ui.jd.com/#/)                                        |
+| [weui](https://weui.io/)                                                   |
+| [weui-wxss](https://github.com/Tencent/weui-wxss)                          |
+| [weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram) |
+| [停更 uvui](https://www.uvui.cn/)                                            |
+| [停更 Cube UI](https://didi.github.io/cube-ui/#/zh-CN)                       |
 | [停更 wux](https://wux-weapp.github.io/wux-weapp-docs/#/)                    |
-| [停更 开源版 FirstUI 含付费UI](https://github.com/FirstUI/FirstUI-weixini)         |
-| [停更 lin-ui](https://github.com/TaleLin/lin-ui)                             |
-| [停更 iview](https://github.com/TalkingData/iview-weapp)                     |
 | [停更 colorui](https://github.com/weilanwl/coloruicss)                       |
+| [停更 iview](https://github.com/TalkingData/iview-weapp)                     |
+| [停更 lin-ui](https://github.com/TaleLin/lin-ui)                             |
+| [停更 uView 2](https://github.com/umicro/uView2.0)                           |
 | [停更 Touch WX](https://github.com/uileader/touchwx)                         |
+| [付费 limex 支持 uni-app x](https://limex.qcoon.cn/)                           |
+| [付费 FirstUI](https://github.com/FirstUI)                                   |
 
 | UI 单一组件                                                                |
 |------------------------------------------------------------------------|
