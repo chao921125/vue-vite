@@ -3,7 +3,9 @@
 	"version": "4.0.1",
 	"description": "vue-vite",
 	"keywords": [
-		"vue, vue2, vu3",
+		"vue",
+		"vue2",
+		"vue3",
 		"vite",
 		"vue-router",
 		"pina",
