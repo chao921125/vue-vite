@@ -16,7 +16,7 @@ const addTab = (routeCurrent) => {
 	if (routeCurrent.fullPath === "/home") {
 		return false;
 	}
-	let tags = Storage.getLocalStorage(Constants.storageKey.tags) || [];
+	let tags = Storage.getLocalStorage(Constants.keys.tags) || [];
 	tags.push({
 		label: routeCurrent.meta.title,
 		name: routeCurrent.fullPath,
@@ -47,7 +47,7 @@ const removeTab = (name) => {
 		activeName = RouterConfig.routeHome;
 	}
 	tabValue.value = activeName;
-	Storage.setLocalStorage(Constants.storageKey.tags, tabs.value);
+	Storage.setLocalStorage(Constants.keys.tags, tabs.value);
 	router.push({ path: tabValue.value });
 };
 const changeRouter = (tabName) => {
@@ -71,13 +71,13 @@ const clickChange = (command: string | number | object) => {
 		activeName = RouterConfig.routeHome;
 		tabs.value = [];
 	}
-	Storage.setLocalStorage(Constants.storageKey.tags, tabs.value);
+	Storage.setLocalStorage(Constants.keys.tags, tabs.value);
 	tabValue.value = activeName;
 	router.push({ path: tabValue.value });
 };
 onMounted(() => {
-	// if (!Storage.getLocalStorage(Constants.storageKey.tags)) {
-	// 	Storage.setLocalStorage(Constants.storageKey.tags, [
+	// if (!Storage.getLocalStorage(Constants.keys.tags)) {
+	// 	Storage.setLocalStorage(Constants.keys.tags, [
 	// 		{
 	// 			label: $t("message.menu.home"),
 	// 			name: "/home",
@@ -85,11 +85,11 @@ onMounted(() => {
 	// 		},
 	// 	]);
 	// }
-	tabs.value = Storage.getLocalStorage(Constants.storageKey.tags) || [];
+	tabs.value = Storage.getLocalStorage(Constants.keys.tags) || [];
 	tabValue.value = route.path;
 });
 onBeforeRouteUpdate((to) => {
-	Storage.setLocalStorage(Constants.storageKey.tags, addTab(to));
+	Storage.setLocalStorage(Constants.keys.tags, addTab(to));
 });
 </script>
 

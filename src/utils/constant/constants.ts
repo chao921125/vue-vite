@@ -1,5 +1,5 @@
 export default {
-	storageKey: {
+	keys: {
 		token: "auth-token",
 		themeConfig: "theme-config",
 		i18nLocale: "i18n-locale",
@@ -7,9 +7,6 @@ export default {
 		tags: "tags",
 		routerPrev: "router-prev",
 		routerNext: "router-next",
-	},
-	cookieKey: {
-		token: "auth-token",
 	},
 	mittBusKey: {},
 	ipUrl: {

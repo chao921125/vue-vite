@@ -55,10 +55,10 @@ http.interceptors.request.use(
 		NProgress.start();
 
 		config.headers["apifoxToken"] = "UpBZTbFlKA6vpmezjXyVjFrs4gCfy4o2";
-		if (Storage.getCookie(Constants.cookieKey.token)) {
-			config.headers["token"] = "Bearer " + Storage.getCookie(Constants.cookieKey.token);
+		if (Storage.getCookie(Constants.keys.token)) {
+			config.headers["token"] = "Bearer " + Storage.getCookie(Constants.keys.token);
 
-			config.headers["Authorization"] = "Bearer " + Storage.getCookie(Constants.cookieKey.token);
+			config.headers["Authorization"] = "Bearer " + Storage.getCookie(Constants.keys.token);
 		}
 		if (config.method?.toLowerCase() === "get") {
 			config.params = config.data;
@@ -67,7 +67,7 @@ http.interceptors.request.use(
 		// if (!/^https:\/\/|http:\/\//.test(<string>config.url)) {
 		// 	// 在请求发送之前做一些处理
 		// 	config.headers = {
-		// 		token: Storage.getCookie(Constants.cookieKey.token),
+		// 		token: Storage.getCookie(Constants.keys.token),
 		// 	};
 		// }
 		AxiosCancel.addCancer(config);
@@ -180,7 +180,7 @@ http.interceptors.response.use(
 				default:
 					break;
 			}
-			if (!Storage.getCookie(Constants.cookieKey.token)) {
+			if (!Storage.getCookie(Constants.keys.token)) {
 				await Router.replace({ path: RouterConfig.routeLogin });
 			}
 		}

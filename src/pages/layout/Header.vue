@@ -80,7 +80,7 @@ const changeI18n = (lang: string) => {
 	themeConfig.value.globalI18n = lang;
 	// 内置
 	proxy.$i18n.locale = lang;
-	Storage.setLocalStorage(Constants.storageKey.i18nLocale, lang);
+	Storage.setLocalStorage(Constants.keys.i18nLocale, lang);
 	setThemeConfig();
 	proxy.$mitt.emit("getI18nConfig", lang);
 	Utils.setTitle();
@@ -105,8 +105,8 @@ const changeScreenFull = () => {
 // 退出
 const router = useRouter();
 const logout = () => {
-	Storage.removeSessionStorage(Constants.storageKey.token);
-	Storage.removeCookie(Constants.cookieKey.token);
+	Storage.removeSessionStorage(Constants.keys.token);
+	Storage.removeCookie(Constants.keys.token);
 	router.push({ path: RouterConfig.routeLogin });
 };
 // 个人中心 end
@@ -155,20 +155,20 @@ const changeInvert = (e) => {
 
 // 本地持久化配置
 const setThemeConfig = () => {
-	Storage.removeLocalStorage(Constants.storageKey.themeConfig);
-	Storage.setLocalStorage(Constants.storageKey.themeConfig, themeConfig.value);
+	Storage.removeLocalStorage(Constants.keys.themeConfig);
+	Storage.setLocalStorage(Constants.keys.themeConfig, themeConfig.value);
 };
 const userInfoAvatar = ref("");
 const userInfoName = ref("");
 const initData = () => {
-	const userInfo = Storage.getLocalStorage(Constants.storageKey.userInfo) || null;
+	const userInfo = Storage.getLocalStorage(Constants.keys.userInfo) || null;
 	if (userInfo) {
 		userInfoAvatar.value = userInfo.avatar || "";
 		userInfoName.value = userInfo.name || "";
 	}
-	isThemGrey.value = Storage.getLocalStorage(Constants.storageKey.themeConfig)?.isGrey || false;
+	isThemGrey.value = Storage.getLocalStorage(Constants.keys.themeConfig)?.isGrey || false;
 	changeGrey(isThemGrey.value);
-	isThemInvert.value = Storage.getLocalStorage(Constants.storageKey.themeConfig)?.isInvert || false;
+	isThemInvert.value = Storage.getLocalStorage(Constants.keys.themeConfig)?.isInvert || false;
 	changeInvert(isThemInvert.value);
 };
 // 渲染调用
@@ -176,7 +176,7 @@ onMounted(() => {
 	initData();
 	breadcrumbList.value = [];
 	initBreadcrumbList(route.path);
-	const localI18n = Storage.getLocalStorage(Constants.storageKey.i18nLocale);
+	const localI18n = Storage.getLocalStorage(Constants.keys.i18nLocale);
 	if (localI18n) {
 		changeI18n(localI18n);
 	}

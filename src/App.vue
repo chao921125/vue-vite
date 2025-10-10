@@ -23,9 +23,9 @@ const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 const route = useRoute();
 const initData = () => {
 	if (proxy) {
-		proxy.$mitt.emit("getI18nConfig", Storage.getLocalStorage(Constants.storageKey.i18nLocale));
-		if (Storage.getLocalStorage(Constants.storageKey.themeConfig)) {
-			appStore.useThemeConfig.setThemeConfig(Storage.getLocalStorage(Constants.storageKey.themeConfig));
+		proxy.$mitt.emit("getI18nConfig", Storage.getLocalStorage(Constants.keys.i18nLocale));
+		if (Storage.getLocalStorage(Constants.keys.themeConfig)) {
+			appStore.useThemeConfig.setThemeConfig(Storage.getLocalStorage(Constants.keys.themeConfig));
 		}
 		proxy.$mitt.on("getI18nConfig", (locale) => {
 			config.i18n = elI18n[locale];
@@ -40,12 +40,12 @@ const initData = () => {
 onBeforeMount(() => {
 	Utils.setCssCdn();
 	Utils.setJsCdn();
-	if (!Storage.getLocalStorage(Constants.storageKey.themeConfig)) {
-		Storage.setLocalStorage(Constants.storageKey.themeConfig, themeConfig.value);
+	if (!Storage.getLocalStorage(Constants.keys.themeConfig)) {
+		Storage.setLocalStorage(Constants.keys.themeConfig, themeConfig.value);
 		config.i18n = elI18n[themeConfig.value.globalI18n];
 	}
-	if (!Storage.getLocalStorage(Constants.storageKey.i18nLocale)) {
-		Storage.setLocalStorage(Constants.storageKey.i18nLocale, import.meta.env.VITE_LOCAL);
+	if (!Storage.getLocalStorage(Constants.keys.i18nLocale)) {
+		Storage.setLocalStorage(Constants.keys.i18nLocale, import.meta.env.VITE_LOCAL);
 	}
 });
 

@@ -36,18 +36,18 @@ export const router = createRouter({
 // 路由加载前
 router.beforeEach(async (to, from, next) => {
 	NProgress.start();
-	Storage.setLocalStorage(Constants.storageKey.routerPrev, from.path);
-	Storage.setLocalStorage(Constants.storageKey.routerNext, to.path);
+	Storage.setLocalStorage(Constants.keys.routerPrev, from.path);
+	Storage.setLocalStorage(Constants.keys.routerNext, to.path);
 	// 取消所有请求
 	AxiosCancel.removeAllCancer();
-	const token = Storage.getLocalStorage(Constants.storageKey.token) || Storage.getCookie(Constants.cookieKey.token);
+	const token = Storage.getLocalStorage(Constants.keys.token) || Storage.getCookie(Constants.keys.token);
 	if (RouterConfig.whiteList.includes(to.path) && !token) {
 		next();
 	} else {
 		if (!token || token === "undefined") {
-			Storage.removeLocalStorage(Constants.storageKey.token);
-			Storage.removeSessionStorage(Constants.storageKey.token);
-			Storage.removeCookie(Constants.cookieKey.token);
+			Storage.removeLocalStorage(Constants.keys.token);
+			Storage.removeSessionStorage(Constants.keys.token);
+			Storage.removeCookie(Constants.keys.token);
 			next(`${RouterConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`);
 		} else if (token && RouterConfig.whiteList.includes(to.path)) {
 			next(RouterConfig.routeHome);
@@ -97,8 +97,6 @@ const dynamicViewsModules = Object.assign({}, { ...viewsModules });
 
 // 获取动态路由数据
 export async function getDynamicRouter() {
-	if (!(Storage.getSessionStorage(Constants.storageKey.token) || Storage.getCookie(Constants.cookieKey.token))) return false;
-
 	await appStore.useRouterList.setMenuList(requestData);
 
 	await setAddRoute(requestData);

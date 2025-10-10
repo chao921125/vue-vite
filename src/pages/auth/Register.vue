@@ -29,14 +29,14 @@ const onLogin = async (formEl) => {
 		if (valid) {
 			data.isLoading = true;
 			const token = new Date().getTime();
-			Storage.setCookie(Constants.cookieKey.token, token);
-			Storage.setSessionStorage(Constants.storageKey.token, token);
-			Storage.setLocalStorage(Constants.storageKey.token, token);
-			Storage.setLocalStorage(Constants.storageKey.userInfo, token);
-			// Storage.setCookie(Constants.cookieKey.token, res.data.token);
-			// Storage.setSessionStorage(Constants.storageKey.token, res.data.token);
-			// Storage.setLocalStorage(Constants.storageKey.token, res.data);
-			// Storage.setLocalStorage(Constants.storageKey.userInfo, res.data);
+			Storage.setCookie(Constants.keys.token, token);
+			Storage.setSessionStorage(Constants.keys.token, token);
+			Storage.setLocalStorage(Constants.keys.token, token);
+			Storage.setLocalStorage(Constants.keys.userInfo, token);
+			// Storage.setCookie(Constants.keys.token, res.data.token);
+			// Storage.setSessionStorage(Constants.keys.token, res.data.token);
+			// Storage.setLocalStorage(Constants.keys.token, res.data);
+			// Storage.setLocalStorage(Constants.keys.userInfo, res.data);
 			if (route.query?.redirect && route.query?.redirect !== "/") {
 				router.push({
 					path: <string>route.query?.redirect,
