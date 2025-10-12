@@ -187,7 +187,7 @@
 | [uvui 官网](https://www.uvui.cn/)                               |
 | [wave 官网](https://antoniandre.github.io/wave-ui/)             |
 
-| 小程序                                                                        |
+| 小程序 UI                                                                     |
 |----------------------------------------------------------------------------|
 | [awesome](https://github.com/justjavac/awesome-wechat-weapp)               |
 | [uni-ui 支持 uni-app x](https://github.com/dcloudio/uni-ui)                  |
@@ -206,6 +206,11 @@
 | [停更 Touch WX](https://github.com/uileader/touchwx)                         |
 | [付费 limex 支持 uni-app x](https://limex.qcoon.cn/)                           |
 | [付费 FirstUI](https://github.com/FirstUI)                                   |
+
+| 小程序 图表                                                                                   |
+|------------------------------------------------------------------------------------------|
+| [uCharts](https://gitee.com/uCharts/uCharts)  [uCharts 官网](https://www.ucharts.cn/v2/#/) |
+| [echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin)                       |
 
 | UI 单一组件                                                                |
 |------------------------------------------------------------------------|
