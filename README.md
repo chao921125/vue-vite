@@ -627,11 +627,14 @@
 | [electronjs 官网](https://www.electronjs.org/zh/)     | ❌     | ❌     | ✅      | ✅   |
 
 # 在线编码可视化
-| api                                                      |
-|----------------------------------------------------------|
-| [apifox](https://apifox.com/)                            |
-| [yapi](https://yapi.pro/)                                |
-| [hoppscotch](https://github.com/hoppscotch/hoppscotch)   |
+| api                                                    |
+|--------------------------------------------------------|
+| [hoppscotch](https://github.com/hoppscotch/hoppscotch) |
+| [bruno](https://github.com/usebruno/bruno)             |
+| [insomnia](https://github.com/Kong/insomnia)           |
+| [yapi 支持本地部署](https://github.com/YMFE/yapi)            |
+| [apifox](https://apifox.com/)                          |
+| [apipost](https://www.apipost.cn/)                     |
 
 | code                               |
 |------------------------------------|
@@ -808,6 +811,10 @@
 | https://github.com/ynzy/vite-vue3-h5-template         |
 | https://github.com/Sujb-sus/vue3-vite2-ts-blog-h5     |
 | https://github.com/xsf0105/vue3-h5-template           |
+
+| 公共 API 调用                                             |
+|-------------------------------------------------------|
+| https://github.com/public-apis/public-apis            |
 
 ```text
 言外
