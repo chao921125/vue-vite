@@ -1,4 +1,4 @@
-const axiosCancel: any = {};
+const axiosCancel: ICommon = {};
 const cancelMap = new Map();
 
 function getPending(config) {

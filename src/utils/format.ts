@@ -196,8 +196,7 @@ export const formatThousandPoint = (value, decimals = 0, thousands_sep = ",", de
 		const k = Math.pow(10, prec);
 		return "" + Math.ceil(n * k) / k;
 	};
-	let s: any = [];
-	s = (prec ? toFixedFix(n, prec) : "" + Math.round(n)).split(".");
+	const s: [string, string?] = (prec ? toFixedFix(n, prec) : "" + Math.round(n)).split(".") as [string, string?];
 	const re = /(-?\d+)(\d{3})/;
 	while (re.test(s[0])) {
 		s[0] = s[0].replace(re, "$1" + sep + "$2");

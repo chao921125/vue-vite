@@ -56,7 +56,7 @@ export default defineConfig(({ command, mode }) => {
 	let dynamicConfig;
 	if (isBuild) {
 		// 新建一个build文件，用来告诉用户是否需要刷新页面升级，正常来说不需要告知用户
-		fs.writeFileSync(path.join(__dirname, "./public/build.json"), JSON.stringify({ version: `${Date.now()}` }));
+		fs.writeFileSync(path.join(__dirname, "./public/manifest.json"), JSON.stringify({ version: `${Date.now()}` }));
 		dynamicConfig = {};
 	} else {
 		dynamicConfig = {};

@@ -37,9 +37,9 @@ const drawChart = () => {
 	myChart.clear();
 	let option = {};
 
-	let seriesArray: any[] = [];
+	let seriesArray[] = [];
 	if (props.legendData?.length) {
-		props.legendData.map((item: any, index: number) => {
+		props.legendData.map((item, index: number) => {
 			seriesArray.push({
 				name: item,
 				type: "line",

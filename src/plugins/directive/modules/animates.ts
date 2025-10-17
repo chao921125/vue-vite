@@ -45,7 +45,7 @@ function applyAnimation(el, bindingValue) {
 		delay: "",
 		iterationCount: "",
 		infinite: "",
-		onAnimationEnd: (e?: any) => {
+		onAnimationEnd: (e?) => {
 			console.log("Animation ended:", e);
 		},
 	};

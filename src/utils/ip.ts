@@ -11,18 +11,18 @@ export const getLocalIpList = (callback) => {
 		// <iframe id="iframe" sandbox="allow-same-origin"></iframe>
 		const iframe = document.createElement("iframe");
 
-		const win: any = iframe.contentWindow;
+		const win = iframe.contentWindow;
 
 		RTCPeerConnection = win.RTCPeerConnection || win.mozRTCPeerConnection || win.webkitRTCPeerConnection;
 	}
 	// let useWebKit = !!window.webkitRTCPeerConnection;
-	const configuration: any = {
+	const configuration = {
 		optional: [{ RtpDataChannels: true }],
 		iceServers: [{ urls: "stun:stun.services.mozilla.com" }, { urls: "stun:stun.l.google.com:19302" }],
 	};
 	// 这里就是需要的ICEServer了
 
-	const pc: any = new RTCPeerConnection(configuration);
+	const pc = new RTCPeerConnection(configuration);
 	const handleCandidate = (candidate) => {
 		// /([0-9]{1,3}(\.[0-9]{1,3}){3}|([a-f0-9]{1,4}((:[a-f0-9]{1,4}){7}|:+[a-f0-9]{1,4}){6}))/g
 		const ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
@@ -63,7 +63,7 @@ export const getLocalIpList = (callback) => {
 export const getLocalIPs = () => {
 	const myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
 	// RTCPeerConnection是WebRTC用于构建点对点之间稳定、高效的流传输的组件。兼容火狐、谷歌等
-	const pc: any = new myPeerConnection({
+	const pc = new myPeerConnection({
 		// 创建点对点连接的RTCPeerConnection的实例
 
 		iceServers: <any>[{ url: "stun:stun.services.mozilla.com" }, { url: "stun:stun.l.google.com:19302" }],
@@ -183,7 +183,7 @@ export const getIp138 = () => {
 	xmlHttpRequest.open("get", url, false);
 	xmlHttpRequest.send(null);
 	const datalist = data.split("\n");
-	const patt: any = [/[0-9]+.[0-9]+.[0-9]+.[0-9]+/, /来自/, []];
+	const patt = [/[0-9]+.[0-9]+.[0-9]+.[0-9]+/, /来自/, []];
 
 	for (const i in datalist) {
 		if (patt[0].test(datalist[i]) && patt[1].test(datalist[i])) {

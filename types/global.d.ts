@@ -1,3 +1,8 @@
+// 适用函数等未知类型
+declare interface ICommon {
+	[key: string]: any;
+}
+
 // VITE 配置
 declare type Recordable<T = never> = Record<string, T>;
 

@@ -46,9 +46,9 @@ const dateOptions = reactive({
 	],
 });
 
-const dateValue: any = ref<any[]>([]);
+const dateValue = ref<any[]>([]);
 
-const changeDate = (value: any[]) => {
+const changeDate = (value[]) => {
 	emit("getDays", Math.abs(differenceInDays(value[0], value[1])));
 	emit("change", [format(new Date(dateValue.value[0]), "yyyy-MM-dd"), format(new Date(dateValue.value[1]), "yyyy-MM-dd")]);
 };

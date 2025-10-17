@@ -1,6 +1,6 @@
 import heic2any from "heic2any";
 
-const utils: any = {
+const utils = {
 	blobToDataURL: (blob) => {
 		return new Promise((resolve, reject) => {
 			const reader = new FileReader();
@@ -23,7 +23,7 @@ const utils: any = {
 			img.onload = function () {
 				canvas.width = img.naturalWidth * window.devicePixelRatio;
 				canvas.height = img.naturalHeight * window.devicePixelRatio;
-				const ctx: any = canvas.getContext("2d");
+				const ctx = canvas.getContext("2d");
 				ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 				const dataURL = canvas.toDataURL();
 				resolve(dataURL);
@@ -47,7 +47,7 @@ const utils: any = {
 				ia[i] = byteString.charCodeAt(i);
 			}
 			return new Blob([ab], { type: mimeString });
-		} catch (e: any) {
+		} catch (e) {
 			return "ERR_DOM Error on converting data URI to blob " + e && e.toString ? e.toString() : e;
 		}
 	},
@@ -63,7 +63,7 @@ const utils: any = {
 			img.onload = function () {
 				canvas.width = img.naturalWidth * window.devicePixelRatio;
 				canvas.height = img.naturalHeight * window.devicePixelRatio;
-				const ctx: any = canvas.getContext("2d");
+				const ctx = canvas.getContext("2d");
 				ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 				canvas.toBlob((blob) => resolve(blob));
 			};
@@ -88,13 +88,13 @@ const utils: any = {
 };
 
 export const imgConvert = async (file, outputFormat = "image/jpeg", callback) => {
-	const result: any = {
+	const result = {
 		file: null,
 		fileUrl: "",
 	};
 	if (file.type === "heic" || file.type === "image/heic") {
 		const blob = new Blob([file], { type: file.type });
-		const reBlob: any = await heic2any({
+		const reBlob = await heic2any({
 			blob: blob,
 			toType: "image/jpeg",
 		});
@@ -111,11 +111,11 @@ export const imgConvert = async (file, outputFormat = "image/jpeg", callback) =>
 		const reader = new FileReader();
 		const img = new Image();
 
-		reader.onload = function (e: any) {
+		reader.onload = function (e) {
 			if (typeof e.target.result === "string") {
 				img.onload = function () {
 					const canvas = document.createElement("canvas");
-					const ctx: any = canvas.getContext("2d");
+					const ctx = canvas.getContext("2d");
 
 					canvas.width = img.width;
 					canvas.height = img.height;
@@ -136,7 +136,7 @@ export const imgConvert = async (file, outputFormat = "image/jpeg", callback) =>
 export const imgCompress = async (file, type = "image/jpeg", quality = 0.6) => {
 	const fileName = file.name;
 	const canvas = document.createElement("canvas");
-	const context: any = canvas.getContext("2d");
+	const context = canvas.getContext("2d");
 	const base64 = await utils.blobToDataURL(file);
 	const img = await utils.dataURLToImage(base64);
 	canvas.width = img.width;

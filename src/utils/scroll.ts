@@ -70,7 +70,7 @@ export const scrollTo = (to, duration, callback) => {
  * 锚点
  * @param anchorId
  */
-export const scrollToAnchorSmooth = (anchorId: any) => {
+export const scrollToAnchorSmooth = (anchorId) => {
 	const element = document.getElementById(anchorId);
 	if (element) {
 		element.scrollIntoView({

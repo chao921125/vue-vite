@@ -14,10 +14,10 @@ declare global {
 		nextLoading: boolean;
 	}
 	interface Math {
-		easeInOutQuad: any;
+		easeInOutQuad;
 	}
 	interface navigator {
-		userAgentData: any;
+		userAgentData;
 	}
 }
 

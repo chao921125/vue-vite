@@ -1,4 +1,4 @@
-const storage: any = {};
+const storage: ICommon = {};
 
 storage.setStorage = (key = "default", value = null) => {
 	if (!value) return false;
@@ -211,7 +211,7 @@ storage.getCookieCustomize = (cname) => {
 	return "";
 };
 
-storage.setCookie = (key = "default", value, settings?) => {
+storage.setCookie = (key = "default", value: string, settings?) => {
 	let cookieString = `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
 	const options = Object.assign(
 		{

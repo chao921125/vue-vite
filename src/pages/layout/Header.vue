@@ -50,8 +50,8 @@ const initBreadcrumbList = (path: string) => {
 	// });
 };
 const setBreadcrumbList = (array: Array<any>) => {
-	array.forEach((item: any) => {
-		breadcrumbList.value.forEach((obj: any) => {
+	array.forEach((item) => {
+		breadcrumbList.value.forEach((obj) => {
 			if (item.path === obj.name) {
 				obj.title = item.title;
 				if (item.children) setBreadcrumbList(item.children);

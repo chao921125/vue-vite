@@ -1,3 +1,8 @@
+declare interface IDemo {
+	id: number;
+	name: string;
+}
+
 import { defineStore } from "pinia";
 
 export const useDemo = defineStore("demo", {
@@ -11,7 +16,7 @@ export const useDemo = defineStore("demo", {
 	},
 	getters: {
 		getDemoById: (state) => state.demo.id + 1,
-		getDemo(): any {
+		getDemo(): IDemo {
 			return this.demo;
 		},
 	},

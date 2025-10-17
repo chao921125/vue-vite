@@ -25,7 +25,7 @@ function createVideoToCanvas(videoSrc, width, height) {
 
 	// 加载视频
 	function loadVideo() {
-		return new Promise((resolve: any, reject) => {
+		return new Promise((resolve, reject) => {
 			video.onloadeddata = () => {
 				resolve();
 			};

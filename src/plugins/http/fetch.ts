@@ -1,6 +1,6 @@
-const Fetch: any = {};
+const Fetch = {};
 
-Fetch.request = async (url = "", data = {}, options: any = { method: "GET" }) => {
+Fetch.request = async (url = "", data = {}, options = { method: "GET" }) => {
 	const headers = new Headers(
 		Object.assign(
 			{
@@ -32,7 +32,7 @@ Fetch.request = async (url = "", data = {}, options: any = { method: "GET" }) =>
 			(options && options.method === "GET") || { body: JSON.stringify(data) },
 		),
 	);
-	let response: any = {};
+	let response = {};
 	if (!url) return response;
 	try {
 		response = await fetch(request);

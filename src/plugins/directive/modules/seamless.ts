@@ -15,7 +15,7 @@ export default {
 		el.style.position = "relative";
 
 		// 创建滚动容器，包裹内容，并复制一份以实现无缝滚动
-		const wrapper: any = document.createElement("div");
+		const wrapper: HTMLDivElement = document.createElement("div");
 		wrapper.className = "seamless-scroll-wrapper";
 
 		// 根据滚动方向决定布局方式
@@ -41,12 +41,13 @@ export default {
 		// 等待浏览器渲染布局后计算尺寸并设置动画
 		setTimeout(() => {
 			let distance = 0;
+			const firstChild = wrapper.children[0] as HTMLElement;
 			if (config.direction === "left" || config.direction === "right") {
 				// 横向滚动：取第一组内容的宽度
-				distance = wrapper.children[0]!.offsetWidth!;
+				distance = firstChild!.offsetWidth!;
 			} else {
 				// 纵向滚动：取第一组内容的高度
-				distance = wrapper.children[0]!.offsetHeight!;
+				distance = firstChild!.offsetHeight!;
 			}
 
 			// 根据速度计算动画持续时间（秒）

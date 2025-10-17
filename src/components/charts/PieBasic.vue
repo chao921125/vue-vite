@@ -52,7 +52,7 @@ const drawChart = () => {
 					},
 				},
 				label: {
-					formatter: (e: any) => {
+					formatter: (e) => {
 						let data = e.data;
 						return `{name|${data.name}}: {value|${data.value}}`;
 					},
