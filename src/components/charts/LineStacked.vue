@@ -2,6 +2,13 @@
 // 折线图 多条
 import * as echarts from "echarts";
 
+declare interface IChart {
+	name: string;
+	type: string;
+	stack: string;
+	data: any;
+}
+
 const props = defineProps({
 	id: {
 		type: String,
@@ -37,7 +44,7 @@ const drawChart = () => {
 	myChart.clear();
 	let option = {};
 
-	let seriesArray[] = [];
+	let seriesArray: IChart[] = [];
 	if (props.legendData?.length) {
 		props.legendData.map((item, index: number) => {
 			seriesArray.push({
