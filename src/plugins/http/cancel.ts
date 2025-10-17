@@ -1,11 +1,11 @@
-const axiosCancel: ICommon = {};
+const axiosCancel: any = {};
 const cancelMap = new Map();
 
-function getPending(config) {
+function getPending(config: any) {
 	return [config.url, config.method].join("&");
 }
 
-axiosCancel.addCancer = (config) => {
+axiosCancel.addCancer = (config: any) => {
 	// 防止重复请求
 	axiosCancel.removeCancer(config);
 	// 取消请求
@@ -16,7 +16,7 @@ axiosCancel.addCancer = (config) => {
 		cancelMap.set(key, controller);
 	}
 };
-axiosCancel.removeCancer = (config) => {
+axiosCancel.removeCancer = (config: any) => {
 	const key = getPending(config);
 	if (cancelMap.has(key)) {
 		const cancel = cancelMap.get(key);

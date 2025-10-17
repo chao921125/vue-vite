@@ -1,4 +1,4 @@
-const log = {};
+const log: ICommon = {};
 
 function typeColor(type = "default") {
 	let color = "";

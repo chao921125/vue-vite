@@ -51,3 +51,40 @@ declare module "@vue/runtime-core" {
 		$mitt: ReturnType<typeof import("mitt")>;
 	}
 }
+
+// 模块声明
+declare module "@/router" {
+	import { Router } from "vue-router";
+	const router: Router;
+	export default router;
+}
+
+declare module "@/utils/log" {
+	const Log: any;
+	export default Log;
+}
+
+declare module "@/utils/storage" {
+	const Storage: any;
+	export default Storage;
+}
+
+declare module "@/utils/constant/constants" {
+	const Constants: any;
+	export default Constants;
+}
+
+declare module "@/config/httpConfig" {
+	const AxiosConfig: any;
+	export default AxiosConfig;
+}
+
+declare module "@/plugins/loading/progress" {
+	const NProgress: any;
+	export default NProgress;
+}
+
+declare module "@/config/routerConfig" {
+	const RouterConfig: any;
+	export default RouterConfig;
+}

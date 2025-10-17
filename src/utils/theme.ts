@@ -5,14 +5,14 @@ import { ElMessage } from "element-plus";
  * @param str 颜色值字符串
  * @returns MessageHandler
  */
-export const hexToRgb = (str) => {
-	let hexs = "";
+export const hexToRgb = (str: string) => {
+	let hexs: (string | number)[] = [];
 	const reg = /^#?[0-9A-Fa-f]{6}$/;
 	if (!reg.test(str)) return ElMessage.warning("输入错误的hex");
 	str = str.replace("#", "");
-	hexs = str.match(/../g);
-	for (let i = 0; i < 3; i++) hexs[i] = parseInt(hexs[i], 16);
-	return hexs;
+	hexs = str.match(/../g) || [];
+	for (let i = 0; i < 3; i++) hexs[i] = parseInt(hexs[i] as string, 16);
+	return hexs as number[];
 };
 
 /**
@@ -22,9 +22,9 @@ export const hexToRgb = (str) => {
  * @param b 代表蓝色
  * @returns string
  */
-export const rgbToHex = (r, g, b) => {
+export const rgbToHex = (r: number, g: number, b: number) => {
 	const reg = /^\d{1,3}$/;
-	if (!reg.test(r) || !reg.test(g) || !reg.test(b)) {
+	if (!reg.test(r.toString()) || !reg.test(g.toString()) || !reg.test(b.toString())) {
 		ElMessage.warning("输入错误的rgb颜色值");
 		return "";
 	}
@@ -39,7 +39,7 @@ export const rgbToHex = (r, g, b) => {
  * @param level 加深的程度，限0-1之间
  * @returns string
  */
-export const getDarkColor = (color, level) => {
+export const getDarkColor = (color: string, level: number) => {
 	const reg = /^#?[0-9A-Fa-f]{6}$/;
 	if (!reg.test(color)) {
 		ElMessage.warning("输入错误的hex颜色值");
@@ -56,7 +56,7 @@ export const getDarkColor = (color, level) => {
  * @param level 加深的程度，限0-1之间
  * @returns string
  */
-export const getLightColor = (color, level) => {
+export const getLightColor = (color: string, level: number) => {
 	const reg = /^#?[0-9A-Fa-f]{6}$/;
 	if (!reg.test(color)) {
 		ElMessage.warning("输入错误的hex颜色值");

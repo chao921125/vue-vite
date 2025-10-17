@@ -22,7 +22,7 @@ function errorLog(err) {
 	// 添加到日志
 
 	// 打印到控制台
-	if (import.meta.env.VITE_NODE_ENV === "development") {
+	if (process.env.VITE_NODE_ENV === "development") {
 		Log.danger(">>>>>> Error >>>>>>");
 		Log.danger(err);
 	}
@@ -35,7 +35,7 @@ function errorLog(err) {
 }
 
 const defaultHeader = {
-	baseURL: import.meta.env.VITE_API_URL_PREFIX || "",
+	baseURL: process.env.VITE_API_URL_PREFIX || "",
 	timeout: AxiosConfig.timeout,
 	timeoutErrorMessage: AxiosConfig.timeoutMsg,
 	withCredentials: true,
@@ -80,7 +80,7 @@ http.interceptors.request.use(
 		config.__retryCount = config.__retryCount || 0;
 		if (config.__retryCount >= config.retry) return Promise.reject(error);
 		config.__retryCount += 1;
-		const backOff = new Promise((resolve) => {
+		const backOff = new Promise<void>((resolve) => {
 			setTimeout(() => {
 				resolve();
 			}, AxiosConfig.timeout || 1);

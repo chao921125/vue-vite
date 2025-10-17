@@ -3,7 +3,7 @@ import { getStoreRefs, appStore } from "@/store";
 import I18n from "@/plugins/i18n";
 import ThemeConfig from "@/config/themeConfig";
 
-const util = {};
+const util: ICommon = {};
 
 /**
  * @description 更新标题
@@ -149,7 +149,7 @@ util.isMobile = (opts) => {
 util.isWeixin = () => {
 	const ua = navigator.userAgent.toLowerCase();
 
-	return ua.match(/MicroMessenger/i) === "micromessenger";
+	return ua.match(/MicroMessenger/i)?.[0] === "micromessenger";
 };
 
 util.preload = async (mediaUrls) => {

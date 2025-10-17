@@ -1,7 +1,7 @@
-function createVideoToCanvas(videoSrc, width, height) {
-	let video;
-	let canvas;
-	let context;
+function createVideoToCanvas(videoSrc: string, width: number, height: number) {
+	let video: HTMLVideoElement;
+	let canvas: HTMLCanvasElement;
+	let context: CanvasRenderingContext2D | null;
 
 	// 初始化视频和 canvas
 	async function init() {
@@ -25,7 +25,7 @@ function createVideoToCanvas(videoSrc, width, height) {
 
 	// 加载视频
 	function loadVideo() {
-		return new Promise((resolve, reject) => {
+		return new Promise<void>((resolve, reject) => {
 			video.onloadeddata = () => {
 				resolve();
 			};
@@ -36,13 +36,15 @@ function createVideoToCanvas(videoSrc, width, height) {
 	}
 
 	// 捕捉指定时间点的帧
-	function captureFrameAt(timeInSeconds) {
-		return new Promise((resolve, reject) => {
+	function captureFrameAt(timeInSeconds: number) {
+		return new Promise<HTMLCanvasElement>((resolve, reject) => {
 			video.currentTime = timeInSeconds;
 
 			// 等待视频跳转到指定时间
 			video.onseeked = () => {
-				context.drawImage(video, 0, 0, width, height);
+				if (context) {
+					context.drawImage(video, 0, 0, width, height);
+				}
 				resolve(canvas); // 返回包含视频帧的 canvas
 			};
 
@@ -59,7 +61,7 @@ function createVideoToCanvas(videoSrc, width, height) {
 
 	// 获取当前帧的 Blob 数据
 	function getFrameAsBlob() {
-		return new Promise((resolve) => {
+		return new Promise<Blob | null>((resolve) => {
 			canvas.toBlob((blob) => {
 				resolve(blob);
 			}, "image/png");
