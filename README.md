@@ -1,3 +1,4 @@
+# 迁移 vite+ 中
 # [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-pages.vercel.app/) - [项目截图](./docs/Project.md)
 # 命名规范及解释
 1. 命名遵循驼峰规则：demoUser
@@ -39,11 +40,11 @@
 | 构建工具                                                                 |
 |----------------------------------------------------------------------|
 | [👍 Vite 开发环境极速启动（ESM 原生加载）](https://github.com/vitejs/vite)         |
-| [Webpack 插件生态丰富，支持代码分割、热更新](https://github.com/webpack/webpack)      |
+| [Webpack 插件生态丰富，支持代码分割、热更新 笨重](https://github.com/webpack/webpack)   |
+| [Turborepo 下一代 Webpack](https://github.com/vercel/turborepo)         |
 | [Parcel ](https://github.com/parcel-bundler/parcel)                  |
 | [SWC](https://github.com/swc-project/swc)                            |
 | [esbuild 极速构建（Go 语言编写，并行处理）](https://github.com/evanw/esbuild)       |
-| [Turborepo](https://github.com/vercel/turborepo)                     |
 | [Rollup 	生成更小的库代码，Tree-shaking 高效](https://github.com/rollup/rollup) |
 | [Rspack](https://github.com/web-infra-dev/rspack)                    |
 
