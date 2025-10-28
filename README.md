@@ -40,6 +40,7 @@
 | 构建工具                                                                 |
 |----------------------------------------------------------------------|
 | [👍 Vite 开发环境极速启动（ESM 原生加载）](https://github.com/vitejs/vite)         |
+| [👍 Vite Plus 下一代 未上线](https://viteplus.dev/)                        |
 | [Webpack 插件生态丰富，支持代码分割、热更新 笨重](https://github.com/webpack/webpack)   |
 | [Turborepo 下一代 Webpack](https://github.com/vercel/turborepo)         |
 | [Parcel ](https://github.com/parcel-bundler/parcel)                  |
@@ -151,7 +152,7 @@
 | [👍 vuetifyjs 超级古老框架 商业版收费 不适合管理端](https://vuetifyjs.com/)               |
 | [👍 ant-design-vue 社区维护](https://antdv.com/index)                        |
 | [👍 element-plus 官网](https://element-plus.org/)                          |
-| [quasarchs 官网](https://quasar.dev/)                                      |
+| [quasar 官网](https://quasar.dev/)                                         |
 | [arco 字节 官网](https://arco.design/)                                       |
 | [tdesign 腾讯多端UI 包含 Web 和手机端](https://tdesign.tencent.com/)               |
 | [opentiny 华为云 官网](https://opentiny.design/)                              |
@@ -161,7 +162,6 @@
 | [BalmUI 官网](https://material.balmjs.com/)                                |
 | [iDux 官网](https://idux.site/)                                            |
 | [relaxplus 官网](https://bsie.gitee.io/relaxplus/#/)                       |
-| [quasar 官网](https://quasar.dev/)                                         |
 | [primefaces 官网](https://primevue.org/)                                   |
 | [Vuestic UI 官网](https://vuestic.dev/)                                    |
 | [lobehub 官网](https://ui.lobehub.com/)                                    |
@@ -192,7 +192,7 @@
 |----------------------------------------------------------------------------|
 | [awesome](https://github.com/justjavac/awesome-wechat-weapp)               |
 | [uni-ui 支持 uni-app x](https://github.com/dcloudio/uni-ui)                  |
-| [👍vant](https://github.com/vant-ui/vant-weapp)                            |
+| [👍vant weapp](https://github.com/vant-ui/vant-weapp)                      |
 | [👍taro](https://taro-ui.jd.com/#/)                                        |
 | [weui](https://weui.io/)                                                   |
 | [weui-wxss](https://github.com/Tencent/weui-wxss)                          |
@@ -613,19 +613,20 @@
 | [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem)                                              |
 | [amfe-flexible](https://github.com/amfe/lib-flexible)                                                   |
 
-| 框架（✅支持 ❌不支持 - 部分支持）                                 | 小程序   | Web   | Mobile | PC  |
-|-----------------------------------------------------|-------|-------|--------|-----|
-| [uni-app 官网 小程序首选](https://uniapp.dcloud.net.cn/)   | ✅     | ✅     | ✅      | ❌   |
-| [taro 官网 京东系首选](https://taro.jd.com/)               | ✅     | ✅     | ✅      | -   |
-| [flutter 官网 👍性能优先](https://flutter.cn/)            | ❌     | -     | ✅      | ✅   |
-| [React Native 官网](https://reactnative.cn/)          | ❌     | -     | ✅      | ✅   |
-| [hippy 官网](https://hippyjs.org/#/)                  | ❌     | ✅     | ✅      | ❌   |
-| [ionic](https://ionic.io/)                          | ❌     | ❌     | ✅      | ✅   |
-| [ionic 官网](https://ionicframework.com/)             | ❌     | ❌     | ✅      | ✅   |
-| [Native Script 官网](https://nativescript.org/)       | ❌     | ✅     | ✅      | ✅   |
-| [lynxjs 官网 React](https://lynxjs.org/zh/index.html) | ❌     | ✅     | ✅      | ❌   |
-| [tauri 官网 Vue](https://tauri.app/)                  | ❌     | ✅     | ✅      | ✅   |
-| [electronjs 官网](https://www.electronjs.org/zh/)     | ❌     | ❌     | ✅      | ✅   |
+| 框架（✅支持 ❌不支持 - 部分支持）                                  | 小程序   | Web   | Mobile | PC  |
+|------------------------------------------------------|-------|-------|--------|-----|
+| [uni-app 官网 小程序首选](https://uniapp.dcloud.net.cn/)    | ✅     | ✅     | ✅      | ❌   |
+| [taro 官网 京东系首选](https://taro.jd.com/)                | ✅     | ✅     | ✅      | -   |
+| [flutter 官网 👍性能优先](https://flutter.cn/)             | ❌     | -     | ✅      | ✅   |
+| [React Native 官网](https://reactnative.cn/)           | ❌     | -     | ✅      | ✅   |
+| [hippy 官网](https://hippyjs.org/#/)                   | ❌     | ✅     | ✅      | ❌   |
+| [ionic](https://ionic.io/)                           | ❌     | ❌     | ✅      | ✅   |
+| [ionic 官网](https://ionicframework.com/)              | ❌     | ❌     | ✅      | ✅   |
+| [Native Script 官网](https://nativescript.org/)        | ❌     | ✅     | ✅      | ✅   |
+| [lynxjs 官网 React](https://lynxjs.org/zh/index.html)  | ❌     | ✅     | ✅      | ❌   |
+| [tauri 官网 Vue](https://tauri.app/)                   | ❌     | ✅     | ✅      | ✅   |
+| [electronjs 官网](https://www.electronjs.org/zh/)      | ❌     | ❌     | ✅      | ✅   |
+| [nativescript-vue 官网](https://nativescript-vue.org/) | ❌     | ❌     | ✅      | ✅   |
 
 # 在线编码可视化
 | api                                                    |
