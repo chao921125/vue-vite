@@ -276,6 +276,7 @@
 |---------------------------------------------------------------------------|
 | [swiper 支持PC、H5](https://swiperjs.com/)                                   |
 | [@splidejs/vue-splide](https://github.com/Splidejs/vue-splide)            |
+| [slidev 演示文稿](https://github.com/slidevjs/slidev)                         |
 | [vue3 seamless 无缝滚动](https://github.com/xfy520/vue3-seamless-scroll)      |
 | [vue2 seamless 无缝滚动](https://github.com/chenxuan0000/vue-seamless-scroll) |
 | [vue3 infinite 无限滚动](https://github.com/tnfe/vue3-infinite-list)          |
@@ -382,6 +383,8 @@
 | [Vditor 官网](https://b3log.org/vditor/)                                            |
 | [Vue-markdown-editor 官网](https://code-farmer-i.github.io/vue-markdown-editor/zh/) |
 | [Md-editor-v3 官网](https://imzbf.github.io/md-editor-v3/index)                     |
+| [markdown-exit 官网](https://github.com/serkodev/markdown-exit)                     |
+| [vue-markdown-renderer 官网](https://github.com/Simon-He95/vue-markdown-renderer)   |
 
 | 流程图                                                                 |
 |---------------------------------------------------------------------|
