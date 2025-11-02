@@ -194,9 +194,13 @@
 | [uni-ui 支持 uni-app x](https://github.com/dcloudio/uni-ui)                  |
 | [👍vant weapp](https://github.com/vant-ui/vant-weapp)                      |
 | [👍taro](https://taro-ui.jd.com/#/)                                        |
+| [riceui uni-app x](https://riceui.cn/)                                     |
+| [uxframe uni-app x](https://www.uxframe.cn/)                               |
+| [uview-plus uni-app](https://github.com/ijry/uview-plus)                   |
 | [weui](https://weui.io/)                                                   |
 | [weui-wxss](https://github.com/Tencent/weui-wxss)                          |
 | [weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram) |
+| [停更 turbo-ui uni-app x](https://turbo-ui.cn/)                              |
 | [停更 uvui](https://www.uvui.cn/)                                            |
 | [停更 Cube UI](https://didi.github.io/cube-ui/#/zh-CN)                       |
 | [停更 wux](https://wux-weapp.github.io/wux-weapp-docs/#/)                    |
