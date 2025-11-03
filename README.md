@@ -154,7 +154,7 @@
 | [👍 element-plus 官网](https://element-plus.org/)                          |
 | [quasar 官网](https://quasar.dev/)                                         |
 | [arco 字节 官网](https://arco.design/)                                       |
-| [tdesign 腾讯多端UI 包含 Web 和手机端](https://tdesign.tencent.com/)               |
+| [tdesign 腾讯多端UI](https://tdesign.tencent.com/)                           |
 | [opentiny 华为云 官网](https://opentiny.design/)                              |
 | [headlessui 组件简单](https://headlessui.com/)                               |
 | [heyui 官网](https://v2.heyui.top/)                                        |
@@ -188,34 +188,30 @@
 | [uvui 官网](https://www.uvui.cn/)                               |
 | [wave 官网](https://antoniandre.github.io/wave-ui/)             |
 
-| 小程序 UI                                                                     |
-|----------------------------------------------------------------------------|
-| [awesome](https://github.com/justjavac/awesome-wechat-weapp)               |
-| [uni-ui 支持 uni-app x](https://github.com/dcloudio/uni-ui)                  |
-| [👍vant weapp](https://github.com/vant-ui/vant-weapp)                      |
-| [👍taro](https://taro-ui.jd.com/#/)                                        |
-| [riceui uni-app x](https://riceui.cn/)                                     |
-| [uxframe uni-app x](https://www.uxframe.cn/)                               |
-| [uview-plus uni-app](https://github.com/ijry/uview-plus)                   |
-| [weui](https://weui.io/)                                                   |
-| [weui-wxss](https://github.com/Tencent/weui-wxss)                          |
-| [weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram) |
-| [停更 turbo-ui uni-app x](https://turbo-ui.cn/)                              |
-| [停更 uvui](https://www.uvui.cn/)                                            |
-| [停更 Cube UI](https://didi.github.io/cube-ui/#/zh-CN)                       |
-| [停更 wux](https://wux-weapp.github.io/wux-weapp-docs/#/)                    |
-| [停更 colorui](https://github.com/weilanwl/coloruicss)                       |
-| [停更 iview](https://github.com/TalkingData/iview-weapp)                     |
-| [停更 lin-ui](https://github.com/TaleLin/lin-ui)                             |
-| [停更 uView 2](https://github.com/umicro/uView2.0)                           |
-| [停更 Touch WX](https://github.com/uileader/touchwx)                         |
-| [付费 limex 支持 uni-app x](https://limex.qcoon.cn/)                           |
-| [付费 FirstUI](https://github.com/FirstUI)                                   |
-
-| 小程序 图表                                                                                   |
-|------------------------------------------------------------------------------------------|
-| [uCharts](https://gitee.com/uCharts/uCharts)  [uCharts 官网](https://www.ucharts.cn/v2/#/) |
-| [echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin)                       |
+| 小程序 UI                                                                        |
+|-------------------------------------------------------------------------------|
+| [awesome](https://github.com/justjavac/awesome-wechat-weapp)                  |
+| [👍vant weapp](https://github.com/vant-ui/vant-weapp)                         |
+| [腾讯 weui](https://weui.io/)                                                   |
+| [腾讯 weui-wxss](https://github.com/Tencent/weui-wxss)                          |
+| [腾讯 weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram) |
+| [腾讯 tdesign](https://github.com/Tencent/tdesign-miniprogram)                  |
+| [uni-app uni-ui 支持 uni-app x](https://github.com/dcloudio/uni-ui)             |
+| [uni-app riceui uni-app x](https://riceui.cn/)                                |
+| [uni-app uxframe uni-app x](https://www.uxframe.cn/)                          |
+| [强制广告 uview-plus uni-app](https://github.com/ijry/uview-plus)                 |
+| [停更 iview](https://github.com/TalkingData/iview-weapp)                        |
+| [停更 taro-ui](https://taro-ui.jd.com/#/)                                       |
+| [停更 wux](https://wux-weapp.github.io/wux-weapp-docs/#/)                       |
+| [停更 lin-ui](https://github.com/TaleLin/lin-ui)                                |
+| [停更 turbo-ui uni-app x](https://turbo-ui.cn/)                                 |
+| [停更 uvui](https://www.uvui.cn/)                                               |
+| [停更 Cube UI](https://didi.github.io/cube-ui/#/zh-CN)                          |
+| [停更 colorui](https://github.com/weilanwl/coloruicss)                          |
+| [停更 uView 2](https://github.com/umicro/uView2.0)                              |
+| [停更 Touch WX](https://github.com/uileader/touchwx)                            |
+| [付费 limex 支持 uni-app x](https://limex.qcoon.cn/)                              |
+| [付费 FirstUI](https://github.com/FirstUI)                                      |
 
 | UI 单一组件                                                                |
 |------------------------------------------------------------------------|
@@ -271,6 +267,11 @@
 | [vue-chart-3 官网](https://vue-chart-3.netlify.app/)               |
 | [vue3charts 官网](https://vue3charts.org/)                         |
 | [vue-echarts 官网](https://ecomfe.github.io/vue-echarts/)          |
+
+| 图表 小程序                                                                                   |
+|------------------------------------------------------------------------------------------|
+| [uCharts](https://gitee.com/uCharts/uCharts)  [uCharts 官网](https://www.ucharts.cn/v2/#/) |
+| [echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin)                       |
 
 | 轮播图                                                                       |
 |---------------------------------------------------------------------------|
@@ -358,7 +359,7 @@
 | [viewerjs](https://github.com/fengyuanchen/viewerjs)    |
 | [v-viewer](https://github.com/mirari/v-viewer)          |
 
-| 富文本编辑器                                                               |                                                              
+| 富文本                                                                  |                                                              
 |----------------------------------------------------------------------|
 | [editor.js 官网](https://github.com/codex-team/editor.js)              |
 | [tiptap 官网](https://tiptap.dev/)                                     |
@@ -377,6 +378,10 @@
 | [squire](https://github.com/neilj/Squire)                            |
 | [summernote](https://summernote.org/)                                |
 | [bytemd](https://bytemd.js.org/)                                     |
+
+| 富文本 小程序                                          |
+|--------------------------------------------------|
+| [mp-html](https://github.com/jin-yufeng/mp-html) |
 
 | Markdown编辑器                                                                       |
 |-----------------------------------------------------------------------------------|
