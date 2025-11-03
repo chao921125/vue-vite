@@ -622,20 +622,21 @@
 | [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem)                                              |
 | [amfe-flexible](https://github.com/amfe/lib-flexible)                                                   |
 
-| 框架（✅支持 ❌不支持 - 部分支持）                                  | 小程序   | Web   | Mobile | PC  |
-|------------------------------------------------------|-------|-------|--------|-----|
-| [uni-app 官网 小程序首选](https://uniapp.dcloud.net.cn/)    | ✅     | ✅     | ✅      | ❌   |
-| [taro 官网 京东系首选](https://taro.jd.com/)                | ✅     | ✅     | ✅      | -   |
-| [flutter 官网 👍性能优先](https://flutter.cn/)             | ❌     | -     | ✅      | ✅   |
-| [React Native 官网](https://reactnative.cn/)           | ❌     | -     | ✅      | ✅   |
-| [hippy 官网](https://hippyjs.org/#/)                   | ❌     | ✅     | ✅      | ❌   |
-| [ionic](https://ionic.io/)                           | ❌     | ❌     | ✅      | ✅   |
-| [ionic 官网](https://ionicframework.com/)              | ❌     | ❌     | ✅      | ✅   |
-| [Native Script 官网](https://nativescript.org/)        | ❌     | ✅     | ✅      | ✅   |
-| [lynxjs 官网 React](https://lynxjs.org/zh/index.html)  | ❌     | ✅     | ✅      | ❌   |
-| [tauri 官网 Vue](https://tauri.app/)                   | ❌     | ✅     | ✅      | ✅   |
-| [electronjs 官网](https://www.electronjs.org/zh/)      | ❌     | ❌     | ✅      | ✅   |
-| [nativescript-vue 官网](https://nativescript-vue.org/) | ❌     | ❌     | ✅      | ✅   |
+| 框架（✅支持 ❌不支持 - 部分支持）                                    | 小程序 | Web | Android | IOS | HarmonyOS | PC  |
+|--------------------------------------------------------|-----|-----|---------|-----|-----------|-----|
+| [uni-app 官网 小程序首选](https://uniapp.dcloud.net.cn/)      | ✅   | ✅   | ✅       | ✅   | ✅         | ❌   |
+| [taro 官网 京东系首选](https://taro.jd.com/)                  | ✅   | ✅   | ✅       | ✅   | ✅         | ❌   |
+| [flutter 官网 👍性能优先](https://flutter.cn/)               | ❌   | ✅   | ✅       | ✅   | ❌         | ✅   |
+| [React Native 官网](https://reactnative.cn/)             | ❌   | ✅   | ✅       | ✅   | ❌         | ✅   |
+| [hippy 官网](https://hippyjs.org/#/)                     | ❌   | ✅   | ✅       | ❌   | ❌         |
+| [ionic](https://ionic.io/)                             | ❌   | ❌   | ✅       | ✅   | ❌         | ✅   |
+| [ionic 官网](https://ionicframework.com/)                | ❌   | ❌   | ✅       | ✅   | ❌         | ✅   |
+| [Native Script 官网](https://nativescript.org/)          | ❌   | ✅   | ✅       | ✅   | ❌         | ✅   |
+| [lynxjs 官网 React](https://lynxjs.org/zh/index.html)    | ❌   | ✅   | ✅       | ✅   | ❌         | ❌   |
+| [tauri 官网 Vue](https://tauri.app/)                     | ❌   | ✅   | ✅       | ✅   | ❌         | ✅   |
+| [electronjs 官网](https://www.electronjs.org/zh/)        | ❌   | ❌   | ✅       | ✅   | ❌         | ✅   |
+| [nativescript-vue 官网](https://nativescript-vue.org/)   | ❌   | ❌   | ✅       | ✅   | ❌         | ✅   |
+| [腾讯微信 官网](https://developers.weixin.qq.com/)           | ✅   | ❌   | ✅       | ✅   | ✅         | ❌   |
 
 # 在线编码可视化
 | api                                                    |
