@@ -122,4 +122,15 @@
 <!-- 引入文件 -->
 <script type="module" src="./src/main.ts"></script>
 <script type="module" src="/inject.js"></script>
+
+<script>
+	// 如果你有特殊需求可以增加一下代码，防止浏览器被调试
+	setInterval(() => {
+		if (window.outerHeight - window.innerHeight > 200 || /HeadlessChrome/.test(navigator.userAgent)) {
+			// 触发反调试逻辑
+			document.documentElement.innerHTML = "";
+			window.stop();
+		}
+	}, 1000);
+</script>
 </html>
