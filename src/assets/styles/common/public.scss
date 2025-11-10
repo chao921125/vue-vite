@@ -20,50 +20,51 @@
 /**
  * Flex 基础布局
  */
-.#{declare.$prefix}-f-auto {
-	@include declare.flex-base;
+.#{declare.$prefix}-flex {
+	@include declare.flex;
+}
+.#{declare.$prefix}-flex-auto {
+	@include declare.flex;
 	flex: 1;
 	overflow: hidden;
 }
-.#{declare.$prefix}-fr {
-	@include declare.flex-base;
-	flex-direction: row;
-}
-.#{declare.$prefix}-fr-end {
-	@include declare.flex-base;
-	flex-direction: row;
+.#{declare.$prefix}-flex-center {
+	@include declare.flex;
+	justify-content: center;
 	align-items: center;
-	justify-content: flex-end;
 }
-.#{declare.$prefix}-fr-center {
-	@include declare.flex-base;
-	@include declare.flex-row-center;
-}
-.#{declare.$prefix}-fr-center-jc {
-	@include declare.flex-base;
+.#{declare.$prefix}-flex-ch {
+	@include declare.flex;
 	justify-content: center;
 }
-.#{declare.$prefix}-fr-center-ai {
-	@include declare.flex-base;
+.#{declare.$prefix}-flex-cv {
+	@include declare.flex;
 	align-items: center;
 }
-.#{declare.$prefix}-fr-between {
-	@include declare.flex-base;
+.#{declare.$prefix}-flex-between {
+	@include declare.flex;
 	justify-content: space-between;
 	align-items: center;
 }
-.#{declare.$prefix}-fr-reverse {
-	@include declare.flex-base;
+.#{declare.$prefix}-flex-end {
+	@include declare.flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.#{declare.$prefix}-flex-reverse {
+	@include declare.flex;
 	flex-direction: row-reverse;
 	align-items: center;
 }
-.#{declare.$prefix}-fc {
-	@include declare.flex-base;
-	flex-direction: column;
+.#{declare.$prefix}-flex-col {
+	@include declare.flex;
+	@include declare.flex-col;
 }
-.#{declare.$prefix}-fc-center {
-	@include declare.flex-base;
-	@include declare.flex-col-center;
+.#{declare.$prefix}-flex-col-center {
+	@include declare.flex;
+	@include declare.flex-col;
+	align-items: center;
+	justify-content: center;
 }
 
 /**

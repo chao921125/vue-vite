@@ -103,18 +103,11 @@ $z-index-9: 9000;
 }
 
 // flex 垂直水平居中 两端对齐
-@mixin flex-base {
+@mixin flex {
 	display: flex;
 }
-@mixin flex-row-center {
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-}
-@mixin flex-col-center {
+@mixin flex-col {
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 }
 
 // 将元素模拟成卡片外观

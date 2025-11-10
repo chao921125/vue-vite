@@ -62,7 +62,7 @@ onBeforeMount(() => {
 						<router-view></router-view>
 					</el-card>
 				</el-main>
-				<el-footer v-if="isShowFooter" class="re-fr-center">
+				<el-footer v-if="isShowFooter" class="re-flex-center">
 					<Footer></Footer>
 				</el-footer>
 			</el-scrollbar>

@@ -28,7 +28,7 @@ import legacy from "@vitejs/plugin-legacy";
 import autoImport from "unplugin-auto-import/vite";
 import components from "unplugin-vue-components/vite";
 import { VantResolver, ElementPlusResolver } from "unplugin-vue-components/resolvers";
-import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
+// import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 // 自动导入模块 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
@@ -77,7 +77,7 @@ export default defineConfig(({ command, mode }) => {
 		},
 		plugins: [
 			vue({
-				template: { transformAssetUrls },
+				// template: { transformAssetUrls },
 			}),
 			fullReload(["config/*", "src/**/*", "types/**/*"], { root: __dirname, delay: 100 }),
 			// * 是否生成包预览
@@ -221,27 +221,76 @@ export default defineConfig(({ command, mode }) => {
 					/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
 					/\.vue$/,
 					/\.vue\?vue/, // .vue
+					/\.vue\.[tj]sx?\?vue/,
 					/\.md$/, // .md
 				],
-				imports: ["vue", "vue-router", "pinia", "@vueuse/head", "@vueuse/core", "vue-i18n"],
+				imports: [
+					"vue",
+					"vue-router",
+					"pinia",
+					"@vueuse/head",
+					"@vueuse/core",
+					"vue-i18n",
+					{
+						axios: [
+							// default imports
+							["default", "axios"], // import { default as axios } from 'axios',
+						],
+					},
+				],
 				dirs: ["./hooks", "./hooks/**", "./components", "./components/**"],
-				dts: true,
+				dirsScanOptions: {
+					filePatterns: ["*.ts"], // Glob patterns for matching files
+					fileFilter: (file) => file.endsWith(".ts"), // Filter files
+					types: true, // Enable auto import the types under the directories
+				},
 				resolvers: [VantResolver(), ElementPlusResolver(), IconsResolver()],
+				dts: true,
+				dtsMode: "append",
+				defaultExportByFilename: false,
+				ignore: ["useMouse", "useFetch"],
+				ignoreDts: ["ignoredFunction", /^ignore_/],
+				vueTemplate: false,
+				viteOptimizeDeps: true,
+				injectAtEnd: true,
 				eslintrc: {
 					enabled: true, // <-- this
+					filepath: "./.eslintrc-auto-import.json", // Default `./.eslintrc-auto-import.json`
+					globalsPropValue: true,
 				},
+				biomelintrc: {
+					enabled: false, // Default `false`
+					filepath: "./.biomelintrc-auto-import.json", // Default `./.biomelintrc-auto-import.json`
+				},
+				dumpUnimportItems: "./auto-imports.json",
 			}),
 			components({
-				dts: true,
+				include: [/\.vue$/, /\.vue\?vue/, /\.vue\.[tj]sx?\?vue/],
+				exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
+				excludeNames: [/^Async.+/],
+				dirs: ["src/components"],
+				extensions: ["vue"],
+				globs: ["src/components/*.vue"],
 				resolvers: [VantResolver(), ElementPlusResolver(), IconsResolver()],
-				directoryAsNamespace: true,
+				dts: true,
+				deep: true,
+				directoryAsNamespace: false,
+				dtsTsx: false,
+				collapseSamePrefixes: false,
+				globalNamespaces: [],
+				directives: true,
+				allowOverrides: false,
+				version: 3,
+				types: [],
+				dumpComponentsInfo: false,
+				syncMode: "default",
 			}),
-			Vuetify({
-				autoImport: true,
-				styles: {
-					configFile: "src/assets/styles/theme.scss",
-				},
-			}),
+			// Vuetify({
+			// 	autoImport: true,
+			// 	styles: {
+			// 		configFile: "src/assets/styles/theme.scss",
+			// 	},
+			// }),
 			icons({
 				compiler: "vue3",
 				autoInstall: true,

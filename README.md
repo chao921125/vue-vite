@@ -14,7 +14,7 @@
 | 写入  | save / add      | create        | saveDemo / addDemo   | createDemo            |
 | 编辑  | edit / update   | update        | editDemo             | updateDemo            |
 | 删除  | remove / delete | delete        | removeDemo           | deleteDemo            |
-| 上传  | upload          | import        | uploadDemo           | importDemo            |
+| 上传  | upload          | upload        | uploadDemo           | uploadDemo            |
 | 下载  | download        | export        | downloadDemo         | exportDemo            |
 | 实体  | get / set       |               | getDemo / setDemo    |                       |
 
@@ -625,6 +625,7 @@
 | 框架（✅支持 ❌不支持）                                         | 小程序 | Web | Android | IOS | HarmonyOS | PC | HarmonyOS PC |
 |------------------------------------------------------|-----|-----|---------|-----|-----------|----|--------------|
 | [uni-app 官网 小程序首选](https://uniapp.dcloud.net.cn/)    | ✅   | ✅   | ✅       | ✅   | ✅         | ❌  | ❌            |
+| [uni-app x 官网 不推荐](https://uniapp.dcloud.net.cn/)    | ✅   | ✅   | ✅       | ✅   | ✅         | ❌  | ✅            |
 | [taro 官网 京东系首选](https://taro.jd.com/)                | ✅   | ✅   | ✅       | ✅   | ✅         | ❌  | ❌            |
 | [flutter 官网 👍性能优先](https://flutter.cn/)             | ❌   | ✅   | ✅       | ✅   | ❌         | ✅  | ❌            |
 | [React Native 官网](https://reactnative.cn/)           | ❌   | ❌   | ✅       | ✅   | ❌         | ✅  | ❌            |

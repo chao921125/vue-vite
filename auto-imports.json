@@ -1,0 +1,1629 @@
+[
+  {
+    "from": "vue",
+    "name": "onActivated",
+    "as": "onActivated"
+  },
+  {
+    "from": "vue",
+    "name": "onBeforeMount",
+    "as": "onBeforeMount"
+  },
+  {
+    "from": "vue",
+    "name": "onBeforeUnmount",
+    "as": "onBeforeUnmount"
+  },
+  {
+    "from": "vue",
+    "name": "onBeforeUpdate",
+    "as": "onBeforeUpdate"
+  },
+  {
+    "from": "vue",
+    "name": "onErrorCaptured",
+    "as": "onErrorCaptured"
+  },
+  {
+    "from": "vue",
+    "name": "onDeactivated",
+    "as": "onDeactivated"
+  },
+  {
+    "from": "vue",
+    "name": "onMounted",
+    "as": "onMounted"
+  },
+  {
+    "from": "vue",
+    "name": "onServerPrefetch",
+    "as": "onServerPrefetch"
+  },
+  {
+    "from": "vue",
+    "name": "onUnmounted",
+    "as": "onUnmounted"
+  },
+  {
+    "from": "vue",
+    "name": "onUpdated",
+    "as": "onUpdated"
+  },
+  {
+    "from": "vue",
+    "name": "useAttrs",
+    "as": "useAttrs"
+  },
+  {
+    "from": "vue",
+    "name": "useSlots",
+    "as": "useSlots"
+  },
+  {
+    "from": "vue",
+    "name": "computed",
+    "as": "computed"
+  },
+  {
+    "from": "vue",
+    "name": "customRef",
+    "as": "customRef"
+  },
+  {
+    "from": "vue",
+    "name": "isReadonly",
+    "as": "isReadonly"
+  },
+  {
+    "from": "vue",
+    "name": "isRef",
+    "as": "isRef"
+  },
+  {
+    "from": "vue",
+    "name": "isShallow",
+    "as": "isShallow"
+  },
+  {
+    "from": "vue",
+    "name": "isProxy",
+    "as": "isProxy"
+  },
+  {
+    "from": "vue",
+    "name": "isReactive",
+    "as": "isReactive"
+  },
+  {
+    "from": "vue",
+    "name": "markRaw",
+    "as": "markRaw"
+  },
+  {
+    "from": "vue",
+    "name": "reactive",
+    "as": "reactive"
+  },
+  {
+    "from": "vue",
+    "name": "readonly",
+    "as": "readonly"
+  },
+  {
+    "from": "vue",
+    "name": "ref",
+    "as": "ref"
+  },
+  {
+    "from": "vue",
+    "name": "shallowReactive",
+    "as": "shallowReactive"
+  },
+  {
+    "from": "vue",
+    "name": "shallowReadonly",
+    "as": "shallowReadonly"
+  },
+  {
+    "from": "vue",
+    "name": "shallowRef",
+    "as": "shallowRef"
+  },
+  {
+    "from": "vue",
+    "name": "triggerRef",
+    "as": "triggerRef"
+  },
+  {
+    "from": "vue",
+    "name": "toRaw",
+    "as": "toRaw"
+  },
+  {
+    "from": "vue",
+    "name": "toRef",
+    "as": "toRef"
+  },
+  {
+    "from": "vue",
+    "name": "toRefs",
+    "as": "toRefs"
+  },
+  {
+    "from": "vue",
+    "name": "toValue",
+    "as": "toValue"
+  },
+  {
+    "from": "vue",
+    "name": "unref",
+    "as": "unref"
+  },
+  {
+    "from": "vue",
+    "name": "watch",
+    "as": "watch"
+  },
+  {
+    "from": "vue",
+    "name": "watchEffect",
+    "as": "watchEffect"
+  },
+  {
+    "from": "vue",
+    "name": "watchPostEffect",
+    "as": "watchPostEffect"
+  },
+  {
+    "from": "vue",
+    "name": "watchSyncEffect",
+    "as": "watchSyncEffect"
+  },
+  {
+    "from": "vue",
+    "name": "defineComponent",
+    "as": "defineComponent"
+  },
+  {
+    "from": "vue",
+    "name": "defineAsyncComponent",
+    "as": "defineAsyncComponent"
+  },
+  {
+    "from": "vue",
+    "name": "getCurrentInstance",
+    "as": "getCurrentInstance"
+  },
+  {
+    "from": "vue",
+    "name": "h",
+    "as": "h"
+  },
+  {
+    "from": "vue",
+    "name": "inject",
+    "as": "inject"
+  },
+  {
+    "from": "vue",
+    "name": "nextTick",
+    "as": "nextTick"
+  },
+  {
+    "from": "vue",
+    "name": "provide",
+    "as": "provide"
+  },
+  {
+    "from": "vue",
+    "name": "useCssModule",
+    "as": "useCssModule"
+  },
+  {
+    "from": "vue",
+    "name": "createApp",
+    "as": "createApp"
+  },
+  {
+    "from": "vue",
+    "name": "effectScope",
+    "as": "effectScope"
+  },
+  {
+    "from": "vue",
+    "name": "EffectScope",
+    "as": "EffectScope"
+  },
+  {
+    "from": "vue",
+    "name": "getCurrentScope",
+    "as": "getCurrentScope"
+  },
+  {
+    "from": "vue",
+    "name": "onScopeDispose",
+    "as": "onScopeDispose"
+  },
+  {
+    "from": "vue",
+    "name": "Component",
+    "type": true,
+    "as": "Component"
+  },
+  {
+    "from": "vue",
+    "name": "Slot",
+    "type": true,
+    "as": "Slot"
+  },
+  {
+    "from": "vue",
+    "name": "Slots",
+    "type": true,
+    "as": "Slots"
+  },
+  {
+    "from": "vue",
+    "name": "ComponentPublicInstance",
+    "type": true,
+    "as": "ComponentPublicInstance"
+  },
+  {
+    "from": "vue",
+    "name": "ComputedRef",
+    "type": true,
+    "as": "ComputedRef"
+  },
+  {
+    "from": "vue",
+    "name": "DirectiveBinding",
+    "type": true,
+    "as": "DirectiveBinding"
+  },
+  {
+    "from": "vue",
+    "name": "ExtractDefaultPropTypes",
+    "type": true,
+    "as": "ExtractDefaultPropTypes"
+  },
+  {
+    "from": "vue",
+    "name": "ExtractPropTypes",
+    "type": true,
+    "as": "ExtractPropTypes"
+  },
+  {
+    "from": "vue",
+    "name": "ExtractPublicPropTypes",
+    "type": true,
+    "as": "ExtractPublicPropTypes"
+  },
+  {
+    "from": "vue",
+    "name": "InjectionKey",
+    "type": true,
+    "as": "InjectionKey"
+  },
+  {
+    "from": "vue",
+    "name": "PropType",
+    "type": true,
+    "as": "PropType"
+  },
+  {
+    "from": "vue",
+    "name": "Ref",
+    "type": true,
+    "as": "Ref"
+  },
+  {
+    "from": "vue",
+    "name": "ShallowRef",
+    "type": true,
+    "as": "ShallowRef"
+  },
+  {
+    "from": "vue",
+    "name": "MaybeRef",
+    "type": true,
+    "as": "MaybeRef"
+  },
+  {
+    "from": "vue",
+    "name": "MaybeRefOrGetter",
+    "type": true,
+    "as": "MaybeRefOrGetter"
+  },
+  {
+    "from": "vue",
+    "name": "VNode",
+    "type": true,
+    "as": "VNode"
+  },
+  {
+    "from": "vue",
+    "name": "WritableComputedRef",
+    "type": true,
+    "as": "WritableComputedRef"
+  },
+  {
+    "from": "vue",
+    "name": "onRenderTracked",
+    "as": "onRenderTracked"
+  },
+  {
+    "from": "vue",
+    "name": "onRenderTriggered",
+    "as": "onRenderTriggered"
+  },
+  {
+    "from": "vue",
+    "name": "resolveComponent",
+    "as": "resolveComponent"
+  },
+  {
+    "from": "vue",
+    "name": "useCssVars",
+    "as": "useCssVars"
+  },
+  {
+    "from": "vue",
+    "name": "useModel",
+    "as": "useModel"
+  },
+  {
+    "from": "vue",
+    "name": "getCurrentWatcher",
+    "as": "getCurrentWatcher"
+  },
+  {
+    "from": "vue",
+    "name": "onWatcherCleanup",
+    "as": "onWatcherCleanup"
+  },
+  {
+    "from": "vue",
+    "name": "useId",
+    "as": "useId"
+  },
+  {
+    "from": "vue",
+    "name": "useTemplateRef",
+    "as": "useTemplateRef"
+  },
+  {
+    "from": "vue-router",
+    "name": "useRouter",
+    "as": "useRouter"
+  },
+  {
+    "from": "vue-router",
+    "name": "useRoute",
+    "as": "useRoute"
+  },
+  {
+    "from": "vue-router",
+    "name": "useLink",
+    "as": "useLink"
+  },
+  {
+    "from": "vue-router",
+    "name": "onBeforeRouteLeave",
+    "as": "onBeforeRouteLeave"
+  },
+  {
+    "from": "vue-router",
+    "name": "onBeforeRouteUpdate",
+    "as": "onBeforeRouteUpdate"
+  },
+  {
+    "from": "pinia",
+    "name": "acceptHMRUpdate",
+    "as": "acceptHMRUpdate"
+  },
+  {
+    "from": "pinia",
+    "name": "createPinia",
+    "as": "createPinia"
+  },
+  {
+    "from": "pinia",
+    "name": "defineStore",
+    "as": "defineStore"
+  },
+  {
+    "from": "pinia",
+    "name": "getActivePinia",
+    "as": "getActivePinia"
+  },
+  {
+    "from": "pinia",
+    "name": "mapActions",
+    "as": "mapActions"
+  },
+  {
+    "from": "pinia",
+    "name": "mapGetters",
+    "as": "mapGetters"
+  },
+  {
+    "from": "pinia",
+    "name": "mapState",
+    "as": "mapState"
+  },
+  {
+    "from": "pinia",
+    "name": "mapStores",
+    "as": "mapStores"
+  },
+  {
+    "from": "pinia",
+    "name": "mapWritableState",
+    "as": "mapWritableState"
+  },
+  {
+    "from": "pinia",
+    "name": "setActivePinia",
+    "as": "setActivePinia"
+  },
+  {
+    "from": "pinia",
+    "name": "setMapStoreSuffix",
+    "as": "setMapStoreSuffix"
+  },
+  {
+    "from": "pinia",
+    "name": "storeToRefs",
+    "as": "storeToRefs"
+  },
+  {
+    "from": "@vueuse/head",
+    "name": "useHead",
+    "as": "useHead"
+  },
+  {
+    "from": "@vueuse/head",
+    "name": "useSeoMeta",
+    "as": "useSeoMeta"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "computedAsync",
+    "as": "computedAsync"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "asyncComputed",
+    "as": "asyncComputed"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "computedEager",
+    "as": "computedEager"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "eagerComputed",
+    "as": "eagerComputed"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "computedInject",
+    "as": "computedInject"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "computedWithControl",
+    "as": "computedWithControl"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "controlledComputed",
+    "as": "controlledComputed"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "createEventHook",
+    "as": "createEventHook"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "createGlobalState",
+    "as": "createGlobalState"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "createInjectionState",
+    "as": "createInjectionState"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "createRef",
+    "as": "createRef"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "createReusableTemplate",
+    "as": "createReusableTemplate"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "createSharedComposable",
+    "as": "createSharedComposable"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "createTemplatePromise",
+    "as": "createTemplatePromise"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "createUnrefFn",
+    "as": "createUnrefFn"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "extendRef",
+    "as": "extendRef"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "injectLocal",
+    "as": "injectLocal"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "isDefined",
+    "as": "isDefined"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "makeDestructurable",
+    "as": "makeDestructurable"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "onClickOutside",
+    "as": "onClickOutside"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "onElementRemoval",
+    "as": "onElementRemoval"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "onKeyStroke",
+    "as": "onKeyStroke"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "onLongPress",
+    "as": "onLongPress"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "onStartTyping",
+    "as": "onStartTyping"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "provideLocal",
+    "as": "provideLocal"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "reactify",
+    "as": "reactify"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "createReactiveFn",
+    "as": "createReactiveFn"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "reactifyObject",
+    "as": "reactifyObject"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "reactiveComputed",
+    "as": "reactiveComputed"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "reactiveOmit",
+    "as": "reactiveOmit"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "reactivePick",
+    "as": "reactivePick"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "refAutoReset",
+    "as": "refAutoReset"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "autoResetRef",
+    "as": "autoResetRef"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "refDebounced",
+    "as": "refDebounced"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDebounce",
+    "as": "useDebounce"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "debouncedRef",
+    "as": "debouncedRef"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "refDefault",
+    "as": "refDefault"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "refManualReset",
+    "as": "refManualReset"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "manualResetRef",
+    "as": "manualResetRef"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "refThrottled",
+    "as": "refThrottled"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useThrottle",
+    "as": "useThrottle"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "throttledRef",
+    "as": "throttledRef"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "refWithControl",
+    "as": "refWithControl"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "controlledRef",
+    "as": "controlledRef"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "syncRef",
+    "as": "syncRef"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "syncRefs",
+    "as": "syncRefs"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "templateRef",
+    "as": "templateRef"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "toReactive",
+    "as": "toReactive"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "resolveRef",
+    "as": "resolveRef"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "tryOnBeforeMount",
+    "as": "tryOnBeforeMount"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "tryOnBeforeUnmount",
+    "as": "tryOnBeforeUnmount"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "tryOnMounted",
+    "as": "tryOnMounted"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "tryOnScopeDispose",
+    "as": "tryOnScopeDispose"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "tryOnUnmounted",
+    "as": "tryOnUnmounted"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "unrefElement",
+    "as": "unrefElement"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "until",
+    "as": "until"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useActiveElement",
+    "as": "useActiveElement"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useAnimate",
+    "as": "useAnimate"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useArrayDifference",
+    "as": "useArrayDifference"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useArrayEvery",
+    "as": "useArrayEvery"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useArrayFilter",
+    "as": "useArrayFilter"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useArrayFind",
+    "as": "useArrayFind"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useArrayFindIndex",
+    "as": "useArrayFindIndex"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useArrayFindLast",
+    "as": "useArrayFindLast"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useArrayIncludes",
+    "as": "useArrayIncludes"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useArrayJoin",
+    "as": "useArrayJoin"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useArrayMap",
+    "as": "useArrayMap"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useArrayReduce",
+    "as": "useArrayReduce"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useArraySome",
+    "as": "useArraySome"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useArrayUnique",
+    "as": "useArrayUnique"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useAsyncQueue",
+    "as": "useAsyncQueue"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useAsyncState",
+    "as": "useAsyncState"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useBase64",
+    "as": "useBase64"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useBattery",
+    "as": "useBattery"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useBluetooth",
+    "as": "useBluetooth"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useBreakpoints",
+    "as": "useBreakpoints"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useBroadcastChannel",
+    "as": "useBroadcastChannel"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useBrowserLocation",
+    "as": "useBrowserLocation"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useCached",
+    "as": "useCached"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useClipboard",
+    "as": "useClipboard"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useClipboardItems",
+    "as": "useClipboardItems"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useCloned",
+    "as": "useCloned"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useColorMode",
+    "as": "useColorMode"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useConfirmDialog",
+    "as": "useConfirmDialog"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useCountdown",
+    "as": "useCountdown"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useCounter",
+    "as": "useCounter"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useCssVar",
+    "as": "useCssVar"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useCurrentElement",
+    "as": "useCurrentElement"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useCycleList",
+    "as": "useCycleList"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDark",
+    "as": "useDark"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDateFormat",
+    "as": "useDateFormat"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDebouncedRefHistory",
+    "as": "useDebouncedRefHistory"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDebounceFn",
+    "as": "useDebounceFn"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDeviceMotion",
+    "as": "useDeviceMotion"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDeviceOrientation",
+    "as": "useDeviceOrientation"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDevicePixelRatio",
+    "as": "useDevicePixelRatio"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDevicesList",
+    "as": "useDevicesList"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDisplayMedia",
+    "as": "useDisplayMedia"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDocumentVisibility",
+    "as": "useDocumentVisibility"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDraggable",
+    "as": "useDraggable"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useDropZone",
+    "as": "useDropZone"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useElementBounding",
+    "as": "useElementBounding"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useElementByPoint",
+    "as": "useElementByPoint"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useElementHover",
+    "as": "useElementHover"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useElementSize",
+    "as": "useElementSize"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useElementVisibility",
+    "as": "useElementVisibility"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useEventBus",
+    "as": "useEventBus"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useEventListener",
+    "as": "useEventListener"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useEventSource",
+    "as": "useEventSource"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useEyeDropper",
+    "as": "useEyeDropper"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useFavicon",
+    "as": "useFavicon"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useFileDialog",
+    "as": "useFileDialog"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useFileSystemAccess",
+    "as": "useFileSystemAccess"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useFocus",
+    "as": "useFocus"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useFocusWithin",
+    "as": "useFocusWithin"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useFps",
+    "as": "useFps"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useFullscreen",
+    "as": "useFullscreen"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useGamepad",
+    "as": "useGamepad"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useGeolocation",
+    "as": "useGeolocation"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useIdle",
+    "as": "useIdle"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useImage",
+    "as": "useImage"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useInfiniteScroll",
+    "as": "useInfiniteScroll"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useIntersectionObserver",
+    "as": "useIntersectionObserver"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useInterval",
+    "as": "useInterval"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useIntervalFn",
+    "as": "useIntervalFn"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useKeyModifier",
+    "as": "useKeyModifier"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useLastChanged",
+    "as": "useLastChanged"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useLocalStorage",
+    "as": "useLocalStorage"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useMagicKeys",
+    "as": "useMagicKeys"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useManualRefHistory",
+    "as": "useManualRefHistory"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useMediaControls",
+    "as": "useMediaControls"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useMediaQuery",
+    "as": "useMediaQuery"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useMemoize",
+    "as": "useMemoize"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useMemory",
+    "as": "useMemory"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useMounted",
+    "as": "useMounted"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useMouseInElement",
+    "as": "useMouseInElement"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useMousePressed",
+    "as": "useMousePressed"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useMutationObserver",
+    "as": "useMutationObserver"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useNavigatorLanguage",
+    "as": "useNavigatorLanguage"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useNetwork",
+    "as": "useNetwork"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useNow",
+    "as": "useNow"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useObjectUrl",
+    "as": "useObjectUrl"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useOffsetPagination",
+    "as": "useOffsetPagination"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useOnline",
+    "as": "useOnline"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePageLeave",
+    "as": "usePageLeave"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useParallax",
+    "as": "useParallax"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useParentElement",
+    "as": "useParentElement"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePerformanceObserver",
+    "as": "usePerformanceObserver"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePermission",
+    "as": "usePermission"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePointer",
+    "as": "usePointer"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePointerLock",
+    "as": "usePointerLock"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePointerSwipe",
+    "as": "usePointerSwipe"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePreferredColorScheme",
+    "as": "usePreferredColorScheme"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePreferredContrast",
+    "as": "usePreferredContrast"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePreferredDark",
+    "as": "usePreferredDark"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePreferredLanguages",
+    "as": "usePreferredLanguages"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePreferredReducedMotion",
+    "as": "usePreferredReducedMotion"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePreferredReducedTransparency",
+    "as": "usePreferredReducedTransparency"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "usePrevious",
+    "as": "usePrevious"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useRafFn",
+    "as": "useRafFn"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useRefHistory",
+    "as": "useRefHistory"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useResizeObserver",
+    "as": "useResizeObserver"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useScreenOrientation",
+    "as": "useScreenOrientation"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useScreenSafeArea",
+    "as": "useScreenSafeArea"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useScriptTag",
+    "as": "useScriptTag"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useScroll",
+    "as": "useScroll"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useScrollLock",
+    "as": "useScrollLock"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useSessionStorage",
+    "as": "useSessionStorage"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useShare",
+    "as": "useShare"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useSorted",
+    "as": "useSorted"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useSpeechRecognition",
+    "as": "useSpeechRecognition"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useSpeechSynthesis",
+    "as": "useSpeechSynthesis"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useSSRWidth",
+    "as": "useSSRWidth"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useStepper",
+    "as": "useStepper"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useStorage",
+    "as": "useStorage"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useStorageAsync",
+    "as": "useStorageAsync"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useStyleTag",
+    "as": "useStyleTag"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useSupported",
+    "as": "useSupported"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useSwipe",
+    "as": "useSwipe"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useTemplateRefsList",
+    "as": "useTemplateRefsList"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useTextareaAutosize",
+    "as": "useTextareaAutosize"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useTextDirection",
+    "as": "useTextDirection"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useTextSelection",
+    "as": "useTextSelection"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useThrottledRefHistory",
+    "as": "useThrottledRefHistory"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useThrottleFn",
+    "as": "useThrottleFn"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useTimeAgo",
+    "as": "useTimeAgo"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useTimeAgoIntl",
+    "as": "useTimeAgoIntl"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useTimeout",
+    "as": "useTimeout"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useTimeoutFn",
+    "as": "useTimeoutFn"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useTimeoutPoll",
+    "as": "useTimeoutPoll"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useTimestamp",
+    "as": "useTimestamp"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useTitle",
+    "as": "useTitle"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useToggle",
+    "as": "useToggle"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useToNumber",
+    "as": "useToNumber"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useToString",
+    "as": "useToString"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useTransition",
+    "as": "useTransition"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useUrlSearchParams",
+    "as": "useUrlSearchParams"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useUserMedia",
+    "as": "useUserMedia"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useVibrate",
+    "as": "useVibrate"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useVirtualList",
+    "as": "useVirtualList"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useVModel",
+    "as": "useVModel"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useVModels",
+    "as": "useVModels"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useWakeLock",
+    "as": "useWakeLock"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useWebNotification",
+    "as": "useWebNotification"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useWebSocket",
+    "as": "useWebSocket"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useWebWorker",
+    "as": "useWebWorker"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useWebWorkerFn",
+    "as": "useWebWorkerFn"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useWindowFocus",
+    "as": "useWindowFocus"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useWindowScroll",
+    "as": "useWindowScroll"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useWindowSize",
+    "as": "useWindowSize"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "watchArray",
+    "as": "watchArray"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "watchAtMost",
+    "as": "watchAtMost"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "watchDebounced",
+    "as": "watchDebounced"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "debouncedWatch",
+    "as": "debouncedWatch"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "watchDeep",
+    "as": "watchDeep"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "watchIgnorable",
+    "as": "watchIgnorable"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "ignorableWatch",
+    "as": "ignorableWatch"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "watchImmediate",
+    "as": "watchImmediate"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "watchOnce",
+    "as": "watchOnce"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "watchPausable",
+    "as": "watchPausable"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "pausableWatch",
+    "as": "pausableWatch"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "watchThrottled",
+    "as": "watchThrottled"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "throttledWatch",
+    "as": "throttledWatch"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "watchTriggerable",
+    "as": "watchTriggerable"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "watchWithFilter",
+    "as": "watchWithFilter"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "whenever",
+    "as": "whenever"
+  },
+  {
+    "from": "vue-i18n",
+    "name": "useI18n",
+    "as": "useI18n"
+  },
+  {
+    "from": "axios",
+    "name": "default",
+    "as": "axios"
+  }
+]

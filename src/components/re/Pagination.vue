@@ -61,7 +61,7 @@ defineExpose({
 
 <template>
 	<el-row justify="end">
-		<el-col :span="24" class="re-fr-end page-box">
+		<el-col :span="24" class="re-flex-end page-box">
 			<el-pagination
 				v-model:currentPage="pageOption.pageCurrent"
 				v-model:page-size="pageOption.pageSize"
