@@ -197,8 +197,9 @@
 | [腾讯 weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram) |
 | [腾讯 tdesign](https://github.com/Tencent/tdesign-miniprogram)                  |
 | [uni-ui 支持 uni-app x](https://github.com/dcloudio/uni-ui)                     |
-| [riceui 支持 uni-app x](https://riceui.cn/)                                     |
 | [uxframe 支持 uni-app x](https://www.uxframe.cn/)                               |
+| [riceui 支持 uni-app x](https://riceui.cn/)                                     |
+| [Cool 支持 uni-app x](https://unix.cool-js.com/)                                |
 | [强制广告 uview-plus](https://github.com/ijry/uview-plus)                         |
 | [停更 Cube UI](https://github.com/didi/cube-ui)                                 |
 | [停更 taro-ui](https://github.com/jd-opensource/taro-ui)                        |
@@ -206,9 +207,12 @@
 | [停更 lin-ui](https://github.com/TaleLin/lin-ui)                                |
 | [停更 uView 2](https://github.com/umicro/uView2.0)                              |
 | [停更 uvui](https://github.com/climblee/uv-ui)                                  |
-| [付费 FirstUI 支持 uni-app x](https://github.com/FirstUI)                         |
 | [付费 limex 支持 uni-app x](https://limex.qcoon.cn/)                              |
+| [付费 Tui-Plus 支持 uni-app x](https://life.yundie.xyz/tuiplus/docs/index.html)   |
 | [付费 停更 turbo-ui 支持 uni-app x](https://turbo-ui.cn/)                           |
+| [付费 TM-UI 支持 uni-app x](https://ext.dcloud.net.cn/plugin?id=16369)            |
+| [付费 FirstUI 支持 uni-app x](https://github.com/FirstUI)                         |
+| [付费 graceui 支持 uni-app x](https://www.graceui.com/)                           |
 
 | UI 单一组件                                                                |
 |------------------------------------------------------------------------|
