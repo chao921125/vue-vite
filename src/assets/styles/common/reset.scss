@@ -1,95 +1,215 @@
 /*
-   v0.0.13 | 20240905
+Modern CSS Reset | 2025
+A minimal reset for modern browsers
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-main, menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+/* Reset default margin, padding, border and outline */
+*, *::before, *::after {
+	font-size: 100%;
+	font-weight: inherit;
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	outline: 0;
+	box-sizing: border-box;
 	vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, main, menu, nav, section {
-	display: block;
+/* Set core root defaults */
+html {
+	scroll-behavior: smooth;
+	line-height: 1;
+	-webkit-text-size-adjust: 100%;
+	-moz-tab-size: 4;
+	tab-size: 4;
 }
+
+/* Set core body defaults */
 body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	line-height: 1;
 }
-menu, ol, ul {
+
+/* Make images easier to work with */
+img, picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Inherit fonts for form controls */
+input, button, textarea, select {
+	font: inherit;
+	color: inherit;
+}
+
+/* Remove built-in form typography styles */
+input, button, textarea, select {
+	background: none;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+}
+
+/* Put cursor for buttons */
+button,
+[role="button"] {
+	cursor: pointer;
+}
+
+/* Remove default styling for lists */
+ol, ul {
 	list-style: none;
 }
-blockquote, q {
-	quotes: none;
+
+/* Remove default link styles */
+a {
+	color: inherit;
+	text-decoration: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: "";
-}
+
+/* Remove default table spacing */
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-decoration,
-input[type=search]::-webkit-search-results-button,
-input[type=search]::-webkit-search-results-decoration {
-	-webkit-appearance: none;
-	-moz-appearance: none;
+
+/* Remove default fieldset styles */
+fieldset {
+	min-width: 0;
 }
-input[type=search] {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	box-sizing: content-box;
+
+/* Hidden attribute */
+[hidden] {
+	display: none !important;
 }
+
+/* Remove default blockquote and quote styles */
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+
+/* Remove default hr styles */
+hr {
+	height: 0;
+	color: inherit;
+	border-top: 1px solid;
+}
+
+/* Remove default code styles */
+code, kbd, samp, pre {
+	font-size: 1em;
+	font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+/* Remove default small styles */
+small {
+	font-size: 80%;
+}
+
+/* Remove default sub and sup styles */
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+/* Remove default mark styles */
+mark {
+	background-color: transparent;
+	color: inherit;
+}
+
+/* Remove default b and strong styles */
+b, strong {
+	font-weight: bold;
+}
+
+/* Remove default i and em styles */
+i, em {
+	font-style: italic;
+}
+
+/* Remove default textarea resize */
 textarea {
-	overflow: auto;
-	vertical-align: top;
 	resize: vertical;
 }
 
-/**
- * HTML5 hidden-attribute fix for newer browsers
- * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
- * Known issue: no IE 6 support.
- */
-*[hidden] {
-	display: none;
+/* Remove default details styles */
+details {
+	display: block;
 }
 
-/* make sure to set some focus styles for accessibility */
-:focus, :active, :hover {
-	outline: 0;
+summary {
+	display: list-item;
 }
 
-/* Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3. */
-audio, canvas, video {
-	display: inline-block;
-	zoom: 1;
+/* Remove default dialog styles */
+dialog {
+	padding: 0;
+}
+
+/* Remove default abbr styles */
+abbr[title] {
+	text-decoration: underline dotted;
+}
+
+/* Remove default SVG styles */
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/* Media elements */
+audio, canvas, iframe, video {
+	display: block;
 	max-width: 100%;
 }
 
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-audio:not([controls]) {
-	display: none;
-	height: 0;
+/* Remove default meter and progress styles */
+meter, progress {
+	appearance: none;
+}
+
+/* Remove default search styles */
+input[type="search"] {
+	appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/* Remove default checkbox and radio styles */
+input[type="checkbox"],
+input[type="radio"] {
+	appearance: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* Remove default number input styles */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	height: auto;
 }

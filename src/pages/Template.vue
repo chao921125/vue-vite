@@ -16,7 +16,7 @@ defineExpose({
 </script>
 
 <template>
-	<div @click="changeClick" class=""> template {{ props.name }} </div>
+	<div @click="changeClick"> template {{ props.name }} </div>
 </template>
 
 <style scoped lang="scss"></style>

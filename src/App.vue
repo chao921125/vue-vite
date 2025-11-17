@@ -48,7 +48,6 @@ onBeforeMount(() => {
 		Storage.setLocalStorage(Constants.keys.i18nLocale, import.meta.env.VITE_LOCAL);
 	}
 });
-
 onMounted(() => {
 	initData();
 	const checker = new FontManager();

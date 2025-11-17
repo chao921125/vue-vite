@@ -5,9 +5,9 @@
 	2、@while 尽量配合 @function 使用，单独定义适用 @each & @for
 	3、@each 迭代固定数组，@for 迭代一个上限值
 */
+@use "sass:meta";
 // ****全局style，重置、定义，顺序不可以更换****
 // 重置
-@use "sass:meta";
 @use "./common/reset.scss";
 // 声明
 @use "./common/declare.scss";
