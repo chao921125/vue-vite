@@ -1,17 +1,11 @@
-@use "./root.scss";
-@use "./declare.scss";
-
 * {
 	font-size: 16px;
 }
 
 html,
 body {
-	margin: 0;
-	padding: 0;
 	width: 100%;
 	height: 100%;
-	font-family: "NotoSans", "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
 	font-size: 100%;
 	font-weight: normal;
 	-webkit-font-smoothing: antialiased;
@@ -21,15 +15,7 @@ body {
 	#app {
 		width: 100%;
 		height: 100%;
-		a {
-			text-decoration: none;
-		}
 	}
-}
-
-/* 图片禁止拖拽 */
-img {
-	-webkit-user-drag: none;
 }
 
 // 布局样式

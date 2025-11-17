@@ -36,6 +36,8 @@ body {
 img, picture {
 	max-width: 100%;
 	display: block;
+	/* 图片禁止拖拽 */
+	-webkit-user-drag: none;
 }
 
 /* Inherit fonts for form controls */
@@ -109,7 +111,7 @@ hr {
 /* Remove default code styles */
 code, kbd, samp, pre {
 	font-size: 1em;
-	font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+	font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
 }
 
 /* Remove default small styles */

@@ -7,6 +7,8 @@
 */
 @use "sass:meta";
 // ****全局style，重置、定义，顺序不可以更换****
+// 根
+@use "./common/root.scss";
 // 重置
 @use "./common/reset.scss";
 // 声明
@@ -16,7 +18,7 @@
 // ****自定义style，包括对三方的重写****
 // 基础布局
 //@include meta.load-css("./common/layout.scss");
-@use "./common/layout.scss";
+@use "./custom/layout";
 // UI element
 //@include meta.load-css("./custom/ui.scss");
 @use "./custom/ui.scss";

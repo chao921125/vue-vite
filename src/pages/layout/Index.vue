@@ -47,7 +47,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-	<el-container id="layout" class="layout container">
+	<el-container id="layout" class="layout-container">
 		<el-aside id="aside" class="aside" :class="styleCollapse" width="200px">
 			<Menu></Menu>
 		</el-aside>
