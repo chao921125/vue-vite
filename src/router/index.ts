@@ -10,7 +10,7 @@ import AxiosCancel from "@/plugins/http/cancel";
 import Constants from "@/utils/constant/constants";
 import RouterConfig from "@/config/routerConfig";
 import RouteData from "@/config/routerData";
-import Api from "@/plugins/api";
+import Api from "@/api";
 
 /**
  * 配置文件修改是否从后端获取路由

@@ -97,12 +97,7 @@ export const getLocalIPs = () => {
 	};
 };
 
-// Test
-// getLocalIpList((ip) => {console.log(ip);});
-
-// TODO https://github.com/ihmily/ip-info-api
-// http://ip-api.com/json/
-
+// 三方 API 仅用来测试，且仅支持跨域请求 https://github.com/ihmily/ip-info-api
 // http://www.net.cn/static/customercare/yourip.asp
 // https://www.ip.cn/
 // https://www.ip138.com/
