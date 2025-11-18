@@ -73,8 +73,10 @@ export const errorRoutes = [
 
 export const baseRoutes = [
 	{
-		path: "",
-		name: "",
+		// 明确使用根路径 '/'，便于在浏览器直接访问根地址时进行重定向
+		path: "/",
+		name: "/",
+		// 根路径不在此静态配置中重定向，重定向逻辑由 `src/router/index.ts` 在动态路由加载后处理
 		component: () => import("@/pages/layout/Index.vue"),
 		meta: {
 			auth: false,

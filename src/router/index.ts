@@ -62,11 +62,15 @@ router.beforeEach(async (to, from, next) => {
 				} else {
 					requestData = RouteData;
 				}
-				// 后端控制路由：路由数据初始化，防止刷新时丢失
+				// 后端/本地控制路由：路由数据初始化，防止刷新时丢失
 				await getDynamicRouter();
-				// 动态添加路由：防止非首页刷新时跳转回首页的问题
-				// 确保 addRoute() 时动态添加的路由已经被完全加载上去
-				next({ ...to, replace: true });
+				// 如果首次访问为根路径，重定向到配置的首页，避免在重定向前发生无匹配警告
+				if (to.path === "/" || to.path === "") {
+					next(RouterConfig.routeHome);
+				} else {
+					// 确保 addRoute() 时动态添加的路由已经被完全加载上去，再重试原始导航
+					next({ ...to, replace: true });
+				}
 			} else {
 				next();
 			}

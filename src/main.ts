@@ -158,5 +158,9 @@ app.config.performance = import.meta.env.VITE_NODE_ENV === "development";
  * 启动运行日志 end
  * */
 
-app.mount("#app");
+// 等待路由就绪后再挂载应用，避免在动态路由注册完成前触发首次导航导致的 "No match found" 警告
+// Router 已在文件顶部引入并通过 `app.use(Router)` 注册
+Router.isReady().then(() => {
+	app.mount("#app");
+});
 // app.unmount();
