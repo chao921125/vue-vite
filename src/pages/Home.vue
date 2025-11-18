@@ -51,7 +51,6 @@ onMounted(() => {
 		<h1>浏览器：{{ uaInfo?.browser?.name }} 版本：{{ uaInfo?.browser?.version }}</h1>
 		<h1 v-if="ipReal.ip">当前登录IP：{{ ipReal.ip }} - {{ ipReal.country }} {{ ipReal.province }} {{ ipReal.region }}</h1>
 		<template v-if="ipReal.ip">
-			<h1 v-show="ipReal.ip && ipReal.ip.toString() !== ipProxy.ip" class="error">您使用了代理!!!</h1>
 			<h1 v-show="ipReal.ip && ipReal.ip.toString() !== ipProxy.ip" class="error"> 当前代理IP为：{{ ipProxy.ip }} - {{ ipProxy.country }} {{ ipProxy.province }} {{ ipProxy.region }} </h1>
 		</template>
 	</el-skeleton>
