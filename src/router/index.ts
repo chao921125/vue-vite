@@ -15,7 +15,8 @@ import Api from "@/plugins/api";
 /**
  * 配置文件修改是否从后端获取路由
  * 动态路由需要后端按照数据格式返回，静态数据直接填充即可
- * 动态路由刷新404，所以先行去掉匹配不存在路由重定向至404页
+ * 动态路由刷新404时会导致首次直接访问子路由报错。
+ * 这里在创建路由时先清空 `baseRoutes[0].children`，避免 catch-all（errorRoutes）在动态路由注册之前优先匹配导致重定向到 404。
  */
 baseRoutes[0].children = [];
 
@@ -130,7 +131,8 @@ function getRouter(data = []) {
 		{
 			path: "/",
 			name: "/",
-			redirect: { path: "" },
+			// 访问根路径时默认跳转到主页（由 RouterConfig.routeHome 指定，通常为 "/home"）
+			redirect: { path: RouterConfig.routeHome || "/" },
 			component: () => import("@/pages/layout/Index.vue"),
 			meta: {
 				title: "message.title.home",
