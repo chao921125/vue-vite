@@ -107,6 +107,7 @@ export default {
 			ipapi: "https://api.ipapi.is/", // https://api.ipapi.is/?ip=0.0.0.0
 			freeipapi: "https://freeipapi.com/api/json", // https://freeipapi.com/api/json/0.0.0.0
 			ipwhois: "https://ipwhois.app/json/?format=json", // https://ipwhois.app/json/0.0.0.0?format=json
+			ipapiCo: "https://ipapi.co/json/", // https://api.ip.sb/geoip/0.0.0.0
 			// CORS
 			ip2location: "https://api.ip2location.io/", // https://api.ip2location.io/?ip=0.0.0.0
 			// CORS

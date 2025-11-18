@@ -97,13 +97,7 @@ export const getLocalIPs = () => {
 	};
 };
 
-// 三方 API 仅用来测试，且仅支持跨域请求 https://github.com/ihmily/ip-info-api
-// http://www.net.cn/static/customercare/yourip.asp
-// https://www.ip.cn/
-// https://www.ip138.com/
-// https://www.hao7188.com/
-// https://www.lingfengyun.com/
-
+// API https://github.com/ihmily/ip-info-api
 /**
  * 只获取 ip 信息
  * mode: "no-cors"
@@ -142,12 +136,6 @@ export const getIpInfoProxy = (url: string) => {
 /**
  * 需要单独处理的
  */
-
-// https://ifconfig.me/
-// https://ifconfig.es/
-// https://ipcalf.com/
-// https://tnx.nl/ip
-
 export const getIpChaXun = () => {
 	const url = `https://${new Date().getFullYear()}.ipchaxun.com/`;
 	return Fetch.request(url, {}, { method: "GET" });

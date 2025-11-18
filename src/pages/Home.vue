@@ -20,11 +20,11 @@ const getIpInfo = () => {
 		ipReal.region = res.data.city + " " + res.data.isp;
 	});
 
-	getIpInfoProxy(Constants.ipUrl.proxy.ipapi).then((res) => {
+	getIpInfoProxy(Constants.ipUrl.proxy.ipapiCo).then((res) => {
 		ipProxy.ip = res.ip;
 		ipProxy.province = res.city;
-		ipProxy.country = res.datacenter.country + " " + res.datacenter.city;
-		ipProxy.region = res.location.state + " " + res.location.city;
+		ipProxy.country = res.country + " " + res.continent_code;
+		ipProxy.region = res.region + " " + res.region_code;
 	});
 };
 
