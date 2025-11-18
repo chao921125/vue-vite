@@ -193,7 +193,7 @@ onBeforeRouteUpdate((to) => {
 		<!--		面包屑导航-->
 		<el-col :xs="24" :sm="12">
 			<div class="re-h-full re-flex-cv">
-				<el-icon @click="changeCollapse" class="re-c-pointer" :size="18">
+				<el-icon @click="changeCollapse" class="re-cp" :size="18">
 					<Fold v-if="isColl"></Fold>
 					<Expand v-else></Expand>
 				</el-icon>
@@ -210,7 +210,7 @@ onBeforeRouteUpdate((to) => {
 		<el-col :xs="24" :sm="12">
 			<div class="re-h-full re-flex-end">
 				<el-dropdown ref="dropdownComponents" trigger="hover" @command="changeSize">
-					<i class="iconfont icon-zujian2 re-c-pointer re-ml-10" @click="showDropdownComponents"></i>
+					<i class="iconfont icon-zujian2 re-cp re-ml-10" @click="showDropdownComponents"></i>
 					<template #dropdown>
 						<el-dropdown-menu>
 							<el-dropdown-item v-for="(item, index) in sizes" :key="index" :command="item.value">
@@ -220,7 +220,7 @@ onBeforeRouteUpdate((to) => {
 					</template>
 				</el-dropdown>
 				<el-dropdown ref="dropdownLanguage" trigger="hover" @command="changeI18n">
-					<i class="iconfont icon-duoyuyan re-c-pointer re-ml-10" @click="showDropdownLanguage"></i>
+					<i class="iconfont icon-duoyuyan re-cp re-ml-10" @click="showDropdownLanguage"></i>
 					<template #dropdown>
 						<el-dropdown-menu>
 							<el-dropdown-item v-for="(item, index) in i18ns" :key="index" :command="item.value">
@@ -230,15 +230,15 @@ onBeforeRouteUpdate((to) => {
 					</template>
 				</el-dropdown>
 				<el-tooltip effect="dark" content="设置" placement="bottom">
-					<i class="iconfont icon-pifu re-c-pointer re-ml-10" @click="isShowDrawer = true"></i>
+					<i class="iconfont icon-pifu re-cp re-ml-10" @click="isShowDrawer = true"></i>
 				</el-tooltip>
 				<el-tooltip effect="dark" :content="isScreenFull ? '退出全屏' : '全屏'" placement="bottom">
-					<i v-if="isScreenFull" class="iconfont icon-fullscreen-exit re-c-pointer re-ml-10" @click="changeScreenFull"></i>
-					<i v-else class="iconfont icon-fullscreen re-c-pointer re-ml-10" @click="changeScreenFull"></i>
+					<i v-if="isScreenFull" class="iconfont icon-fullscreen-exit re-cp re-ml-10" @click="changeScreenFull"></i>
+					<i v-else class="iconfont icon-fullscreen re-cp re-ml-10" @click="changeScreenFull"></i>
 				</el-tooltip>
 				<div class="re-ml-10">{{ userInfoName }}</div>
 				<el-dropdown ref="dropdownUser" trigger="hover">
-					<el-avatar :src="userInfoAvatar" fit="cover" class="re-c-pointer user-avatar re-ml-10" @click="showDropdownUser" />
+					<el-avatar :src="userInfoAvatar" fit="cover" class="re-cp user-avatar re-ml-10" @click="showDropdownUser" />
 					<template #dropdown>
 						<el-dropdown-menu>
 							<el-dropdown-item>

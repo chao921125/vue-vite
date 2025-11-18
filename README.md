@@ -1,7 +1,7 @@
 # 迁移 vite+ 中
 # [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-pages.vercel.app/) - [项目截图](./docs/Project.md)
 
-# 插件，UI 及推荐项目等
+# 插件，UI 搜集整理归纳
 | 插件网站                                                       |
 |------------------------------------------------------------|
 | [Vite 官方推荐插件](https://github.com/vitejs/awesome-vite)      |

@@ -97,7 +97,7 @@ onBeforeRouteUpdate((to) => {
 	<div class="re-flex-between tags-content">
 		<el-scrollbar class="tags-list">
 			<div class="re-flex">
-				<el-tag :disable-transitions="false" class="re-c-pointer re-mr-10" @click="changeRouter('/home')" :type="tabValue === '/home' ? 'primary' : 'info'">
+				<el-tag :disable-transitions="false" class="re-cp re-mr-10" @click="changeRouter('/home')" :type="tabValue === '/home' ? 'primary' : 'info'">
 					{{ $t("message.menu.home") }}
 				</el-tag>
 				<el-tag
@@ -108,7 +108,7 @@ onBeforeRouteUpdate((to) => {
 					:type="tabValue === item.name ? 'primary' : 'info'"
 					@close="removeTab(item.name)"
 					@click="changeRouter(item.name)"
-					class="re-c-pointer re-mr-10">
+					class="re-cp re-mr-10">
 					{{ $t(item.label) }}
 				</el-tag>
 			</div>

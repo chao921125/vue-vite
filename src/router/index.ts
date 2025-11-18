@@ -198,7 +198,7 @@ function routeToComponent(routes) {
 function componentImport(viewsModule, component) {
 	const keys = Object.keys(viewsModule);
 	const matchKeys = keys.filter((key) => {
-		const k = key.replace(/..\/views|../, "");
+		const k = key.replace(/..\/pages|../, "");
 		return k.startsWith(`${component}`) || k.startsWith(`/${component}`);
 	});
 	if (matchKeys?.length === 1) {

@@ -48,7 +48,7 @@ onBeforeMount(() => {
 
 <template>
 	<el-container id="layout" class="layout-container">
-		<el-aside id="aside" class="aside" :class="styleCollapse" width="200px">
+		<el-aside id="aside" class="aside" :class="styleCollapse">
 			<Menu></Menu>
 		</el-aside>
 		<el-container id="admin-body" :class="{ 'admin-main': !isFixedHeader }">
