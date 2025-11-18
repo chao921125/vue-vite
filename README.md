@@ -1,22 +1,5 @@
 # 迁移 vite+ 中
 # [访问地址](https://vue-vite.pages.dev/) - [访问地址 国外](https://vue-vite-pages.vercel.app/) - [项目截图](./docs/Project.md)
-# 命名规范及解释
-1. 命名遵循驼峰规则：demoUser
-2. 配置文件均按照xxConfig，数据配置均按照xxOption/xxData：
-3. 封装的函数均按照export const FN = () => {}，内部调用函数用普通的function FN() {}
-4. Store中对外函数命名均为useXx
-5. interface尽量抽取出来，且抽取到最小粒度
-##### API前端使用及后端接口命名规则对应：列举，可以对此进行变更
-
-| 接口  | 前端              | 后端            | 前端API示例              | 后端API示例               |
-|-----|-----------------|---------------|----------------------|-----------------------|
-| 读取  | search / get    | read / select | searchDemo / getDemo | readDemo / selectDemo |
-| 写入  | save / add      | create        | saveDemo / addDemo   | createDemo            |
-| 编辑  | edit / update   | update        | editDemo             | updateDemo            |
-| 删除  | remove / delete | delete        | removeDemo           | deleteDemo            |
-| 上传  | upload          | upload        | uploadDemo           | uploadDemo            |
-| 下载  | download        | export        | downloadDemo         | exportDemo            |
-| 实体  | get / set       |               | getDemo / setDemo    |                       |
 
 # 插件，UI 及推荐项目等
 | 插件网站                                                       |
@@ -833,6 +816,24 @@
 | 公共 API 调用                                             |
 |-------------------------------------------------------|
 | https://github.com/public-apis/public-apis            |
+
+# 命名规范及解释
+1. 命名遵循驼峰规则：demoUser
+2. 配置文件均按照xxConfig，数据配置均按照xxOption/xxData：
+3. 封装的函数均按照export const FN = () => {}，内部调用函数用普通的function FN() {}
+4. Store中对外函数命名均为useXx
+5. interface尽量抽取出来，且抽取到最小粒度
+##### API前端使用及后端接口命名规则对应：列举，可以对此进行变更
+
+| 接口  | 前端              | 后端            | 前端API示例              | 后端API示例               |
+|-----|-----------------|---------------|----------------------|-----------------------|
+| 读取  | search / get    | read / select | searchDemo / getDemo | readDemo / selectDemo |
+| 写入  | save / add      | create        | saveDemo / addDemo   | createDemo            |
+| 编辑  | edit / update   | update        | editDemo             | updateDemo            |
+| 删除  | remove / delete | delete        | removeDemo           | deleteDemo            |
+| 上传  | upload          | upload        | uploadDemo           | uploadDemo            |
+| 下载  | download        | export        | downloadDemo         | exportDemo            |
+| 实体  | get / set       |               | getDemo / setDemo    |                       |
 
 ```text
 言外
