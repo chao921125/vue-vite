@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { formatAxis, formatDate } from "@/utils/format";
-import { getProxyIpInfo, getRealIpInfo } from "@/utils/ip";
+import { getIpInfoProxy, getIpInfoReal } from "@/utils/ip";
 import Constants from "@/utils/constant/constants";
 import Ua from "@/utils/ua";
 
@@ -13,19 +13,18 @@ const uaInfo = Ua.uaInfo;
 const ipReal = reactive({ ip: "", province: "", region: "", country: "" });
 const ipProxy = reactive({ ip: "", province: "", country: "", region: "" });
 const getIpInfo = () => {
-	getRealIpInfo(Constants.ipUrl.real.songzixian).then((res) => {
+	getIpInfoReal(Constants.ipUrl.real.songzixian).then((res) => {
 		ipReal.ip = res.data.ip;
 		ipReal.country = res.data.country + " " + res.data.countryCode;
 		ipReal.province = res.data.province;
 		ipReal.region = res.data.city + " " + res.data.isp;
 	});
 
-	getProxyIpInfo(Constants.ipUrl.proxy.ipapi).then((res) => {
-		console.log(res);
+	getIpInfoProxy(Constants.ipUrl.proxy.ipapi).then((res) => {
 		ipProxy.ip = res.ip;
 		ipProxy.province = res.city;
-		ipProxy.country = res.country + " " + res.continent_code;
-		ipProxy.region = res.region + " " + res.region_code;
+		ipProxy.country = res.datacenter.country + " " + res.datacenter.city;
+		ipProxy.region = res.location.state + " " + res.location.city;
 	});
 };
 

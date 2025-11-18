@@ -105,6 +105,7 @@ export const getLocalIPs = () => {
 // https://www.lingfengyun.com/
 
 /**
+ * 只获取 ip 信息
  * mode: "no-cors"
  * @param url
  */
@@ -117,16 +118,7 @@ export const getIp = (url: string) => {
  * @param url
  * @param ip
  */
-export const getInfoByIp = (url: string, ip?: string) => {
-	return Fetch.request(`${url}${ip || ""}`, {}, { method: "GET" });
-};
-
-/**
- * 获取 ip 信息，或者，根据 ip 地址获取信息
- * @param url
- * @param ip
- */
-export const getIpInfo = (url: string, ip?: string) => {
+export const getIpInfoByIp = (url: string, ip?: string) => {
 	return Fetch.request(`${url}${ip || ""}`, {}, { method: "GET" });
 };
 
@@ -135,7 +127,7 @@ export const getIpInfo = (url: string, ip?: string) => {
  * @param url
  * @param ip
  */
-export const getRealIpInfo = (url: string, ip?: string) => {
+export const getIpInfoReal = (url: string, ip?: string) => {
 	return Fetch.request(`${url}${ip || ""}`, {}, { method: "GET" });
 };
 
@@ -143,7 +135,7 @@ export const getRealIpInfo = (url: string, ip?: string) => {
  * 获取 IP 为代理后的地址
  * @param url
  */
-export const getProxyIpInfo = (url: string) => {
+export const getIpInfoProxy = (url: string) => {
 	return Fetch.request(url, {}, { method: "GET" });
 };
 
