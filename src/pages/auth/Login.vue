@@ -37,6 +37,7 @@ const onLogin = async (formEl) => {
 			// Storage.setSessionStorage(Constants.keys.token, res.data.token);
 			// Storage.setLocalStorage(Constants.keys.token, res.data);
 			// Storage.setLocalStorage(Constants.keys.userInfo, res.data);
+			data.isLoading = false;
 			if (route.query?.redirect && route.query?.redirect !== "/") {
 				router.push({
 					path: <string>route.query?.redirect,

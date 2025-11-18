@@ -104,9 +104,10 @@ const changeScreenFull = () => {
 };
 // 退出
 const router = useRouter();
-const logout = () => {
+const onLogout = () => {
 	Storage.removeSessionStorage(Constants.keys.token);
 	Storage.removeCookie(Constants.keys.token);
+	Storage.removeLocalStorage(Constants.keys.token);
 	router.push({ path: RouterConfig.routeLogin });
 };
 // 个人中心 end
@@ -245,7 +246,7 @@ onBeforeRouteUpdate((to) => {
 								<el-icon><User></User></el-icon>
 								<span>个人中心</span>
 							</el-dropdown-item>
-							<el-dropdown-item @click="logout">
+							<el-dropdown-item @click="onLogout">
 								<el-icon><SwitchButton></SwitchButton></el-icon>
 								<span>退出登录</span>
 							</el-dropdown-item>
