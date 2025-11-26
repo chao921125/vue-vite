@@ -670,6 +670,11 @@
 | [egg](https://github.com/eggjs/egg)                    |
 | [midwayjs](https://www.midwayjs.org/)                  |
 
+| 公共 API 调用                                         |
+|---------------------------------------------------|
+| [API](https://github.com/public-apis/public-apis) |
+| [IP API](https://github.com/ihmily/ip-info-api)   |
+
 # CDN
 | 节省资源，请使用这个                                                            |
 |-----------------------------------------------------------------------|
@@ -812,10 +817,6 @@
 | https://github.com/ynzy/vite-vue3-h5-template         |
 | https://github.com/Sujb-sus/vue3-vite2-ts-blog-h5     |
 | https://github.com/xsf0105/vue3-h5-template           |
-
-| 公共 API 调用                                             |
-|-------------------------------------------------------|
-| https://github.com/public-apis/public-apis            |
 
 # 命名规范及解释
 1. 命名遵循驼峰规则：demoUser

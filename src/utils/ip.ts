@@ -97,7 +97,6 @@ export const getLocalIPs = () => {
 	};
 };
 
-// API https://github.com/ihmily/ip-info-api
 /**
  * 只获取 ip 信息
  * mode: "no-cors"
