@@ -40,7 +40,7 @@ router.beforeEach(async (to, from, next) => {
 	Storage.setLocalStorage(Constants.keys.routerPrev, from.path);
 	Storage.setLocalStorage(Constants.keys.routerNext, to.path);
 	// 取消所有请求
-	AxiosCancel.removeAllCancer();
+	AxiosCancel.removeAllCancel();
 	const token = Storage.getLocalStorage(Constants.keys.token) || Storage.getCookie(Constants.keys.token);
 	if (RouterConfig.whiteList.includes(to.path) && !token) {
 		next();
@@ -53,26 +53,32 @@ router.beforeEach(async (to, from, next) => {
 		} else if (token && RouterConfig.whiteList.includes(to.path)) {
 			next(RouterConfig.routeHome);
 		} else {
-			const { routerList } = getStoreRefs(appStore.useRouterList);
-			if (routerList.value.length === 0) {
-				if (RouterConfig.isRequestRoutes) {
-					// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
-					const { data } = await Api.systemApi.getMenuList({});
-					requestData = data.list || [];
+			try {
+				const { routerList } = getStoreRefs(appStore.useRouterList);
+				if (routerList.value.length === 0) {
+					if (RouterConfig.isRequestRoutes) {
+						// 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
+						const { data } = await Api.systemApi.getMenuList({});
+						requestData = data.list || [];
+					} else {
+						requestData = RouteData;
+					}
+					// 后端/本地控制路由：路由数据初始化，防止刷新时丢失
+					await getDynamicRouter();
+					// 如果首次访问为根路径，重定向到配置的首页，避免在重定向前发生无匹配警告
+					if (to.path === "/" || to.path === "") {
+						next(RouterConfig.routeHome);
+					} else {
+						// 确保 addRoute() 时动态添加的路由已经被完全加载上去，再重试原始导航
+						next({ ...to, replace: true });
+					}
 				} else {
-					requestData = RouteData;
+					next();
 				}
-				// 后端/本地控制路由：路由数据初始化，防止刷新时丢失
-				await getDynamicRouter();
-				// 如果首次访问为根路径，重定向到配置的首页，避免在重定向前发生无匹配警告
-				if (to.path === "/" || to.path === "") {
-					next(RouterConfig.routeHome);
-				} else {
-					// 确保 addRoute() 时动态添加的路由已经被完全加载上去，再重试原始导航
-					next({ ...to, replace: true });
-				}
-			} else {
-				next();
+			} catch (error) {
+				console.error("路由加载出错:", error);
+				// 出错时跳转到错误页面
+				next("/500");
 			}
 		}
 	}
@@ -131,22 +137,7 @@ async function setRouterList(data) {
  */
 function getRouter(data = []) {
 	if (data.length === 0) return [];
-	const rootRouter: any = [
-		{
-			path: "/",
-			name: "/",
-			// 访问根路径时默认跳转到主页（由 RouterConfig.routeHome 指定，通常为 "/home"）
-			redirect: { path: RouterConfig.routeHome || "/" },
-			component: () => import("@/pages/layout/Index.vue"),
-			meta: {
-				title: "message.title.home",
-				name: "message.title.home",
-				auth: false,
-				isHide: false,
-			},
-			children: [],
-		},
-	];
+	const rootRouter: any = [baseRoutes[0]];
 	const addRouters = [];
 	setRouterItem(addRouters, data, "");
 	rootRouter[0].children = routeToComponent(addRouters);
@@ -159,11 +150,15 @@ function getRouter(data = []) {
 function setRouterItem(routerList, data = [], parentPath = "") {
 	if (data.length === 0) return [];
 	data.forEach((item: any) => {
-		const path = parentPath + "/" + item.path;
-		const name = item.component.slice(item.component.lastIndexOf("/") + 1);
+		// 确保路径格式正确
+		const cleanPath = item.path.replace(/^\/+|\/+$/g, ""); // 移除开头和结尾的斜杠
+		const path = parentPath ? `${parentPath}/${cleanPath}` : `/${cleanPath}`;
+
+		// 生成唯一的路由名称
+		const name = path.replace(/\//g, "-").substring(1) || "root";
 		const route = {
 			path: path,
-			name: path.replace("/", "-") + "-" + name,
+			name: name,
 			component: item.component,
 			meta: {
 				title: item.title,
@@ -195,7 +190,15 @@ function setRouterItem(routerList, data = [], parentPath = "") {
 function routeToComponent(routes) {
 	if (!routes) return [];
 	return routes.map((item) => {
-		if (item.component) item.component = componentImport(dynamicViewsModules, item.component);
+		if (item.component) {
+			const component = componentImport(dynamicViewsModules, item.component);
+			if (component === false) {
+				console.error(`路由组件 "${item.component}" 匹配到多个组件，请检查路径唯一性`);
+			} else if (component === undefined) {
+				console.error(`路由组件 "${item.component}" 未找到，请检查路径是否正确`);
+			}
+			item.component = component;
+		}
 		if (item.children) routeToComponent(item.children);
 		return item;
 	});
@@ -204,16 +207,21 @@ function routeToComponent(routes) {
 function componentImport(viewsModule, component) {
 	const keys = Object.keys(viewsModule);
 	const matchKeys = keys.filter((key) => {
-		const k = key.replace(/..\/pages|../, "");
-		return k.startsWith(`${component}`) || k.startsWith(`/${component}`);
+		const k = key.replace(/^\.\.\/pages/, "");
+		return k === `/${component}.vue` || k === `/${component}/index.vue` || k === `/${component}.tsx` || k === `/${component}/index.tsx`;
 	});
 	if (matchKeys?.length === 1) {
 		const matchKey = matchKeys[0];
 		return viewsModule[matchKey];
 	}
 	if (matchKeys?.length > 1) {
-		return false;
+		console.warn("找到多个匹配的组件:", matchKeys, "使用第一个匹配项");
+		return viewsModule[matchKeys[0]];
 	}
+
+	// 未找到匹配组件时，返回默认页面或错误提示页面
+	console.error("未找到匹配的组件:", component);
+	return errorRoutes[4].component; // 返回404页面
 }
 
 // 存放tag数据

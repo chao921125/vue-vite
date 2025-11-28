@@ -26,7 +26,7 @@ axiosCancel.removeCancer = (config: any) => {
 		cancelMap.delete(key);
 	}
 };
-axiosCancel.removeAllCancer = () => {
+axiosCancel.removeAllCancel = () => {
 	cancelMap.forEach((cancel) => {
 		if (cancel) {
 			cancel.abort();

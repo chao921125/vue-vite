@@ -13,6 +13,8 @@
  * }
  */
 
+import RouterConfig from "@/config/routerConfig";
+
 /**
  * 定义404、401、登录、注册等白名单界面
  * @link 参考：https://next.router.vuejs.org/zh/guide/essentials/history-mode.html#netlify
@@ -76,9 +78,13 @@ export const baseRoutes = [
 		// 明确使用根路径 '/'，便于在浏览器直接访问根地址时进行重定向
 		path: "/",
 		name: "/",
+		// 访问根路径时默认跳转到主页（由 RouterConfig.routeHome 指定，通常为 "/home"）
+		redirect: { path: RouterConfig.routeHome || "/" },
 		// 根路径不在此静态配置中重定向，重定向逻辑由 `src/router/index.ts` 在动态路由加载后处理
 		component: () => import("@/pages/layout/Index.vue"),
 		meta: {
+			title: "message.title.home",
+			name: "message.title.home",
 			auth: false,
 			isHide: false,
 		},

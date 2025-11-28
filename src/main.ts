@@ -14,13 +14,13 @@ app.use(Router);
 import Store from "@/store";
 app.use(Store);
 
-// mitt 总线 全局指令集 通过getCurrentInstance
-import mitt from "mitt";
-app.config.globalProperties.$mitt = mitt();
-
 // vue i18n
 import I18n from "@/plugins/i18n";
 app.use(I18n);
+
+// mitt 总线 全局指令集 通过getCurrentInstance
+import mitt from "mitt";
+app.config.globalProperties.$mitt = mitt();
 
 /*
  * UI start
