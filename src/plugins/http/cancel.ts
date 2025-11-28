@@ -5,9 +5,9 @@ function getPending(config: any) {
 	return [config.url, config.method].join("&");
 }
 
-axiosCancel.addCancer = (config: any) => {
+axiosCancel.addCancel = (config: any) => {
 	// 防止重复请求
-	axiosCancel.removeCancer(config);
+	axiosCancel.removeCancel(config);
 	// 取消请求
 	const controller = new AbortController();
 	const key = getPending(config);
@@ -16,7 +16,7 @@ axiosCancel.addCancer = (config: any) => {
 		cancelMap.set(key, controller);
 	}
 };
-axiosCancel.removeCancer = (config: any) => {
+axiosCancel.removeCancel = (config: any) => {
 	const key = getPending(config);
 	if (cancelMap.has(key)) {
 		const cancel = cancelMap.get(key);

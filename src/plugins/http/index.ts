@@ -70,7 +70,7 @@ http.interceptors.request.use(
 		// 		token: Storage.getCookie(Constants.keys.token),
 		// 	};
 		// }
-		AxiosCancel.addCancer(config);
+		AxiosCancel.addCancel(config);
 		return config;
 	},
 	async (error) => {
@@ -94,7 +94,7 @@ http.interceptors.request.use(
 http.interceptors.response.use(
 	async (response) => {
 		NProgress.done();
-		AxiosCancel.removeCancer(response.config);
+		AxiosCancel.removeCancel(response.config);
 		// resp 是 axios 返回数据中的 data
 		const resp = response.data || null;
 		const status = response.status || 200;
