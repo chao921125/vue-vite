@@ -1,6 +1,4 @@
-/**
- * 路由入口
- */
+// https://router.vuejs.org/zh/
 import { createRouter, createWebHistory } from "vue-router";
 import { baseRoutes, errorRoutes } from "./route";
 import { getStoreRefs, appStore } from "@/store";

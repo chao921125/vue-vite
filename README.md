@@ -31,6 +31,7 @@
 | [esbuild 极速构建（Go 语言编写，并行处理）](https://github.com/evanw/esbuild)       |
 | [Rollup 	生成更小的库代码，Tree-shaking 高效](https://github.com/rollup/rollup) |
 | [Rspack](https://github.com/web-infra-dev/rspack)                    |
+| [Rolldown](https://rolldown.rs/)                                     |
 
 | 语法糖                                                |
 |----------------------------------------------------|
@@ -86,6 +87,7 @@
 
 | 语法检查 -D                                                                         |
 |---------------------------------------------------------------------------------|
+| [👍 oxc](https://oxc.rs/)                                                       |
 | [eslint](https://github.com/eslint/eslint) [doc](https://eslint.org/)           |
 | [👍 prettier](https://github.com/prettier/prettier) [doc](https://prettier.io/) |
 | [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)    |
