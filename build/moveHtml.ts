@@ -6,7 +6,7 @@ for (let i = 0; i < dirName.length; i++) {
 	fs.copyFileSync(`./dist/public/${dirName[i]}`, `./dist/${dirName[i]}`);
 }
 
-fs.rmdirSync(`./dist/public`, { recursive: true });
+fs.rmSync(`./dist/public`, { recursive: true, force: true });
 
 // moveFile("./dist/public", "./dist");
 //

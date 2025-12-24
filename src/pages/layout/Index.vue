@@ -4,7 +4,6 @@ import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 import Tags from "./Tag.vue";
 import { getStoreRefs, appStore } from "@/store";
-import { ElScrollbar } from "element-plus";
 import { ArrowUpBold } from "@element-plus/icons-vue";
 
 // 修改项目设置
