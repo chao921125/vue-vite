@@ -23,7 +23,7 @@
     "listEmittedFiles": true,
     "listFiles": true,
     "module": "esnext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
     "noLib": false,

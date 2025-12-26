@@ -5,7 +5,7 @@ import Footer from "./Footer.vue";
 import Tags from "./Tag.vue";
 import { getStoreRefs, appStore } from "@/store";
 import { ArrowUpBold } from "@element-plus/icons-vue";
-import { computed, getCurrentInstance, onBeforeMount, reactive, watch } from "vue";
+
 import { useRoute } from "vue-router";
 
 // 修改项目设置

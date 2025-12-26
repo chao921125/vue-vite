@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { getCurrentInstance, onBeforeMount, onMounted, onUnmounted, reactive, watch } from "vue";
-import { useRoute } from "vue-router";
 import { getStoreRefs, appStore } from "@/store";
 import { elI18n } from "@/plugins/i18n";
 import { FontManager } from "js-use-core";
@@ -8,6 +6,7 @@ import Utils from "@/utils";
 import Storage from "@/utils/storage";
 import Constants from "@/utils/constant/constants";
 import ThemeConfig from "@/config/themeConfig";
+import { useRoute } from "vue-router";
 
 const instance = getCurrentInstance();
 const proxy = instance?.proxy as any;
