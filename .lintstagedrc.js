@@ -19,10 +19,7 @@ export default {
     // 返回并行执行命令（性能最优）
     return [`oxlint --fix ${files}`, `oxfmt --write ${files}`];
   },
-  "{!(package)*.json,*.code-snippets,.!{npm,browserslist}*rc.{js,cjs,mjs}}": [
-    "oxfmt --write",
-  ],
+  "{!(package)*.json,*.code-snippets,.!{npm,browserslist}*rc.{js,cjs,mjs}}": ["oxfmt --write"],
   "*.json": ["oxfmt --write"],
   "*.{css,scss,less,styl,html}": ["oxfmt --write", "stylelint --cache --fix"],
-  "*.{md, mdx}": ["oxfmt --write"],
 };

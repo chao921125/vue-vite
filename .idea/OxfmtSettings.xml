@@ -14,7 +14,6 @@
         <option value=".mts" />
         <option value=".vue" />
         <option value=".json" />
-        <option value=".md" />
         <option value=".astro" />
       </list>
     </option>
