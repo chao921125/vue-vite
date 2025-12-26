@@ -7,6 +7,7 @@ export default {
         !file.includes("/node_modules/") && // 排除依赖
         !file.includes("/public/") && // 排除静态资源
         !file.includes("/types/") && // 排除类型文件
+        !file.includes(".d.ts") && // 排除类型定义文件
         !file.includes("vite.config.") && // 排除 Vite 配置
         !file.includes(".lintstagedrc."), // 排除自身
     );
