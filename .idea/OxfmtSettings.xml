@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="OxfmtSettings">
+    <option name="fixAllOnSave" value="true" />
+    <option name="supportedExtensions">
+      <list>
+        <option value=".js" />
+        <option value=".jsx" />
+        <option value=".cjs" />
+        <option value=".mjs" />
+        <option value=".ts" />
+        <option value=".tsx" />
+        <option value=".cts" />
+        <option value=".mts" />
+        <option value=".vue" />
+        <option value=".json" />
+        <option value=".md" />
+        <option value=".astro" />
+      </list>
+    </option>
+  </component>
+</project>
