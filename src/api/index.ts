@@ -10,9 +10,9 @@ import system from "./modules/system";
  */
 
 const api = {
-	commonApi: common,
-	userApi: user,
-	systemApi: system,
+  commonApi: common,
+  userApi: user,
+  systemApi: system,
 };
 
 export default api;

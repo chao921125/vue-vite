@@ -77,13 +77,13 @@ watch(
 </script>
 
 <template>
-	<el-config-provider :locale="config.i18n" :size="config.size" :button="config.buttonSpace">
-		<RouterView v-slot="{ Component }">
-			<KeepAlive>
-				<component :is="Component" />
-			</KeepAlive>
-		</RouterView>
-	</el-config-provider>
+  <el-config-provider :locale="config.i18n" :size="config.size" :button="config.buttonSpace">
+    <RouterView v-slot="{ Component }">
+      <KeepAlive>
+        <component :is="Component" />
+      </KeepAlive>
+    </RouterView>
+  </el-config-provider>
 </template>
 
 <style scoped lang="scss"></style>
