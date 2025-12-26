@@ -1,18 +1,23 @@
 # Package.json
+
 ```json
 {
 	"vite-plugin-windicss": "^1.8.10",
 	"windicss": "^3.5.6"
 }
 ```
+
 # vite.config.[tj]s
+
 ```ts
 import windiCSS from "vite-plugin-windicss";
 plugins: [
 	windiCSS(),
 ]
 ```
+
 # windi.config.ts
+
 ```ts
 import { defineConfig } from "vite-plugin-windicss";
 // import { primaryColor } from "./build/config/themeConfig";

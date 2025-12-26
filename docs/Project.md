@@ -1,4 +1,5 @@
 # 已实现功能 [持续更新] [项目核心包](#项目依赖)
+
 - [x] vue3 + vite5 + vue-router4 + pinia + element plus + typescript
 - [x] 国际化：vue-i18n
 - [x] 动态路由/动态菜单：vue-router v4+
@@ -20,14 +21,15 @@
 - [x] 示例：xlsx
 - [x] 示例：pdf.js
 - [ ] 注意：由于使用了vw，大家若不需要直接删除即可
-  ![登录](img-01.png)
-  ![首页](img-02.png)
-  ![示例](img-03.png)
-  ![IP](img-04.png)
+      ![登录](img-01.png)
+      ![首页](img-02.png)
+      ![示例](img-03.png)
+      ![IP](img-04.png)
 
 # 项目依赖
-| 核心库          | 核心库 -D             |
-|--------------|--------------------|
+
+| 核心库       | 核心库 -D          |
+| ------------ | ------------------ |
 | @vueuse/core |                    |
 | vue          |                    |
 |              | @vitejs/plugin-vue |
@@ -41,8 +43,8 @@
 |              | postcss-html       |
 |              | rimraf             |
 
-| 代码格式化 -D               |
-|------------------------|
+| 代码格式化 -D          |
+| ---------------------- |
 | @eslint/js             |
 | eslint                 |
 | eslint-config-prettier |
@@ -51,29 +53,29 @@
 | globals                |
 | typescript-eslint      |
 
-| 样式 -D        |
-|--------------|
-| less         |
-| less-loader  |
-| sass         |
-| sass-loader  |
-| stylelint  |
-| stylelint-config-standard  |
+| 样式 -D                      |
+| ---------------------------- |
+| less                         |
+| less-loader                  |
+| sass                         |
+| sass-loader                  |
+| stylelint                    |
+| stylelint-config-standard    |
 | stylelint-config-recommended |
 
-| 提交格式 |
-|------|
-| husky     |
-| lint-staged |
-| @commitlint/cli |
+| 提交格式                        |
+| ------------------------------- |
+| husky                           |
+| lint-staged                     |
+| @commitlint/cli                 |
 | @commitlint/config-conventional |
-| @commitlint/types |
+| @commitlint/types               |
 
 ```
 npx husky init
 echo "npm test" > .husky/pre-commit
 ```
 
-|  |
-|--|
-|  |
+|     |
+| --- |
+|     |

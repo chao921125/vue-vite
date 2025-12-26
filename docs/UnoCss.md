@@ -1,10 +1,13 @@
 # Package.json
+
 ```json
 {
 	"unocss": "^0.60.2"
 }
 ```
+
 # vite.config.[tj]s
+
 ```ts
 import UnoCSS from "unocss/vite";
 
@@ -12,11 +15,15 @@ plugins: [
 	UnoCSS(),
 ]
 ```
+
 # main.ts
+
 ```ts
 import "virtual:uno.css";
 ```
+
 # uno.config.ts
+
 ```ts
 import { defineConfig } from "unocss";
 
