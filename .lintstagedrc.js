@@ -1,16 +1,15 @@
 export default {
   "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue}": (filenames) => {
     // 智能过滤：排除构建产物、依赖、类型定义和配置文件
-    const files = filenames
-      .filter(
-        (file) =>
-          !file.includes("/dist/") && // 排除构建产物
-          !file.includes("/node_modules/") && // 排除依赖
-          !file.includes("/public/") && // 排除静态资源
-          !file.includes("/types/") && // 排除类型文件
-          !file.includes("vite.config.") && // 排除 Vite 配置
-          !file.includes(".lintstagedrc."), // 排除自身
-      );
+    const files = filenames.filter(
+      (file) =>
+        !file.includes("/dist/") && // 排除构建产物
+        !file.includes("/node_modules/") && // 排除依赖
+        !file.includes("/public/") && // 排除静态资源
+        !file.includes("/types/") && // 排除类型文件
+        !file.includes("vite.config.") && // 排除 Vite 配置
+        !file.includes(".lintstagedrc."), // 排除自身
+    );
 
     // 如果过滤后没有文件，返回空数组
     if (files.length === 0) return [];
@@ -18,32 +17,6 @@ export default {
     const filesStr = files.join(" ");
     // 返回并行执行命令（性能最优）
     return [`oxlint --fix ${filesStr}`, `oxfmt --write ${filesStr}`];
-  },
-  "{!(package)*.json,*.code-snippets,.!{npm,browserslist}*rc.{js,cjs,mjs}}": (filenames) => {
-    // 过滤掉配置文件，避免oxfmt无法处理
-    const filteredFiles = filenames.filter(
-      (file) =>
-        !file.includes("oxfmt.json") &&
-        !file.includes("oxlint.json") &&
-        !file.includes(".npmrc") &&
-        !file.includes(".browserslistrc")
-    );
-    if (filteredFiles.length === 0) return [];
-    const filesStr = filteredFiles.join(" ");
-    return [`oxfmt --write ${filesStr}`];
-  },
-  "*.json": (filenames) => {
-    // 过滤掉配置文件，避免oxfmt无法处理
-    const filteredFiles = filenames.filter(
-      (file) =>
-        !file.includes("oxfmt.json") &&
-        !file.includes("oxlint.json") &&
-        !file.includes("package.json") &&
-        !file.includes("tsconfig.json")
-    );
-    if (filteredFiles.length === 0) return [];
-    const filesStr = filteredFiles.join(" ");
-    return [`oxfmt --write ${filesStr}`];
   },
   "*.{css,scss,less,styl,html}": (filenames) => {
     if (filenames.length === 0) return [];
