@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, reactive, onMounted } from "vue";
 import { formatAxis, formatDate } from "@/utils/format";
 import { getIpInfoProxy, getIpInfoReal } from "@/utils/ip";
 import Constants from "@/utils/constant/constants";

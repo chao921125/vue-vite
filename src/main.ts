@@ -86,6 +86,7 @@ Object.keys(directives).forEach((key) => {
 // });
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
+  // @ts-ignore
   window.deferredPrompt = e;
 });
 

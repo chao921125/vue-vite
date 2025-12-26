@@ -7,6 +7,9 @@ import RouterConfig from "@/config/routerConfig";
 import { getStoreRefs, appStore } from "@/store";
 import { Sunny, Moon } from "@element-plus/icons-vue";
 import Utils from "@/utils";
+import { computed, getCurrentInstance, onMounted, ref } from "vue";
+import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
+import { useDark, useToggle } from "@vueuse/core";
 
 const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 // 折叠菜单 start
