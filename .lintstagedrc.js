@@ -10,14 +10,14 @@ export default {
           !file.includes("/types/") && // 排除类型文件
           !file.includes("vite.config.") && // 排除 Vite 配置
           !file.includes(".lintstagedrc."), // 排除自身
-      )
-      .join(" ");
+      );
 
     // 如果过滤后没有文件，返回空数组
-    if (!files) return [];
+    if (files.length === 0) return [];
 
+    const filesStr = files.join(" ");
     // 返回并行执行命令（性能最优）
-    return [`oxlint --fix ${files}`, `oxfmt --write ${files}`];
+    return [`oxlint --fix ${filesStr}`, `oxfmt --write ${filesStr}`];
   },
   "{!(package)*.json,*.code-snippets,.!{npm,browserslist}*rc.{js,cjs,mjs}}": ["oxfmt --write"],
   "*.json": ["oxfmt --write"],
