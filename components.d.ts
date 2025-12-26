@@ -11,10 +11,6 @@ export {};
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    ChartsBarBasic: typeof import('./src/components/charts/BarBasic.vue')['default']
-    ChartsLineBasic: typeof import('./src/components/charts/LineBasic.vue')['default']
-    ChartsLineStacked: typeof import('./src/components/charts/LineStacked.vue')['default']
-    ChartsPieBasic: typeof import('./src/components/charts/PieBasic.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBacktop: typeof import('element-plus/es')['ElBacktop']
@@ -48,17 +44,6 @@ declare module 'vue' {
     ElTag: typeof import('element-plus/es')['ElTag']
     ElText: typeof import('element-plus/es')['ElText']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
-    IconSvg: typeof import('./src/components/icon/Svg.vue')['default']
-    Img: typeof import('./src/components/img/Index.vue')['default']
-    MediaVideo: typeof import('./src/components/media/Video.vue')['default']
-    Page: typeof import('./src/components/page/Index.vue')['default']
-    ReBack: typeof import('./src/components/re/Back.vue')['default']
-    ReDateQuick: typeof import('./src/components/re/DateQuick.vue')['default']
-    ReFileUpload: typeof import('./src/components/re/FileUpload.vue')['default']
-    RePagination: typeof import('./src/components/re/Pagination.vue')['default']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
-    SeamlessSeamlessScroll: typeof import('./src/components/seamless/SeamlessScroll.vue')['default']
   }
   export interface GlobalDirectives {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

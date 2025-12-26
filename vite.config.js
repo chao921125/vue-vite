@@ -250,7 +250,7 @@ export default defineConfig(({ command, mode }) => {
           types: true, // Enable auto import the types under the directories
         },
         resolvers: [VantResolver(), ElementPlusResolver(), IconsResolver()],
-        dts: true,
+        dts: "./auto-imports.d.ts",
         dtsMode: "append",
         defaultExportByFilename: false,
         ignore: ["useMouse", "useFetch"],
