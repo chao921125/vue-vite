@@ -3,7 +3,7 @@ import fs from "node:fs";
 const dirName = fs.readdirSync("./dist/public");
 
 for (let i = 0; i < dirName.length; i++) {
-	fs.copyFileSync(`./dist/public/${dirName[i]}`, `./dist/${dirName[i]}`);
+  fs.copyFileSync(`./dist/public/${dirName[i]}`, `./dist/${dirName[i]}`);
 }
 
 fs.rmSync(`./dist/public`, { recursive: true, force: true });

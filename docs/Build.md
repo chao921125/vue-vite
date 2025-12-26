@@ -1,4 +1,5 @@
 # vite-plugin-html
+
 ```ts
 
 import { createHtmlPlugin } from "vite-plugin-html";
