@@ -19,7 +19,35 @@ export default {
     // 返回并行执行命令（性能最优）
     return [`oxlint --fix ${filesStr}`, `oxfmt --write ${filesStr}`];
   },
-  "{!(package)*.json,*.code-snippets,.!{npm,browserslist}*rc.{js,cjs,mjs}}": ["oxfmt --write"],
-  "*.json": ["oxfmt --write"],
-  "*.{css,scss,less,styl,html}": ["oxfmt --write", "stylelint --cache --fix"],
+  "{!(package)*.json,*.code-snippets,.!{npm,browserslist}*rc.{js,cjs,mjs}}": (filenames) => {
+    // 过滤掉配置文件，避免oxfmt无法处理
+    const filteredFiles = filenames.filter(
+      (file) =>
+        !file.includes("oxfmt.json") &&
+        !file.includes("oxlint.json") &&
+        !file.includes(".npmrc") &&
+        !file.includes(".browserslistrc")
+    );
+    if (filteredFiles.length === 0) return [];
+    const filesStr = filteredFiles.join(" ");
+    return [`oxfmt --write ${filesStr}`];
+  },
+  "*.json": (filenames) => {
+    // 过滤掉配置文件，避免oxfmt无法处理
+    const filteredFiles = filenames.filter(
+      (file) =>
+        !file.includes("oxfmt.json") &&
+        !file.includes("oxlint.json") &&
+        !file.includes("package.json") &&
+        !file.includes("tsconfig.json")
+    );
+    if (filteredFiles.length === 0) return [];
+    const filesStr = filteredFiles.join(" ");
+    return [`oxfmt --write ${filesStr}`];
+  },
+  "*.{css,scss,less,styl,html}": (filenames) => {
+    if (filenames.length === 0) return [];
+    const filesStr = filenames.join(" ");
+    return [`oxfmt --write ${filesStr}`, `stylelint --cache --fix ${filesStr}`];
+  },
 };
