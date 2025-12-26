@@ -1,5 +1,5 @@
 if (self === top) {
-	document.documentElement.style.display = 'block';
+  document.documentElement.style.display = "block";
 } else {
-	top.location = self.location;
+  top.location = self.location;
 }
