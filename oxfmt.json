@@ -1,0 +1,42 @@
+{
+  "printWidth": 220,
+  "tabWidth": 2,
+  "useTabs": true,
+  "semi": true,
+  "singleQuote": false,
+  "jsxSingleQuote": false,
+  "quoteProps": "as-needed",
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "bracketSameLine": true,
+  "jsxBracketSameLine": true,
+  "arrowParens": "always",
+  "vueIndentScriptAndStyle": false,
+  "endOfLine": "auto",
+  "singleAttributePerLine": false,
+  "ignorePatterns": [
+    ".vscode",
+    ".idea",
+    ".git",
+
+    "dist",
+    "node_modules",
+    "public",
+    "docs",
+    "src/libs/",
+    "src/assets",
+
+    "*.local",
+    "**/*.svg",
+    "**/*.sh",
+    "*.md",
+    "*.json",
+    "*.json5",
+    "*.yml",
+    "*.yaml",
+    "*.lock",
+    "*.html",
+    "auto-imports.d.ts",
+    "components.d.ts"
+  ]
+}

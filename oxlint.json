@@ -1,0 +1,40 @@
+{
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn",
+    "style": "off"
+  },
+  "rules": {
+    "no-console": "off",
+    "vue/block-order": [
+      "error",
+      {
+        "order": ["script", "template", "style"]
+      }
+    ]
+  },
+  "ignorePatterns": [
+    ".vscode",
+    ".idea",
+    ".local",
+    "node_modules/**",
+    "dist/**",
+    "public/**",
+    "**/types/**",
+    "!mock",
+    "!build",
+    "Dockerfile",
+    "index.html",
+    "*.sh",
+    "*.js",
+    "*.d.js",
+    "*.ts",
+    "*.d.ts",
+    "*.md",
+    "*.scss",
+    "*.woff",
+    "*.ttf",
+    "vite.config.ts"
+  ]
+}
