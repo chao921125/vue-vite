@@ -6,6 +6,6 @@
 // }
 
 export const ObjStatusUse = Object.freeze({
-	0: "停用",
-	1: "启用",
+  0: "停用",
+  1: "启用",
 });

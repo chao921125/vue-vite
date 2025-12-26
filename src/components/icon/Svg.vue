@@ -31,9 +31,9 @@ const symbolId = computed(() => `#${props.prefix}-${props.name}`);
 </script>
 
 <template>
-	<svg class="svg-icon" aria-hidden="true" :name="props.name">
-		<use :xlink:href="symbolId" :fill="color" />
-	</svg>
+  <svg class="svg-icon" aria-hidden="true" :name="props.name">
+    <use :xlink:href="symbolId" :fill="color" />
+  </svg>
 </template>
 
 <style scoped lang="scss">

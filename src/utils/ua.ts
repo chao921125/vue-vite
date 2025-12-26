@@ -4,26 +4,26 @@
 import { UAParser } from "ua-parser-js";
 
 export function getUaInfo() {
-	const parser = new UAParser(navigator.userAgent);
-	return parser.getResult();
+  const parser = new UAParser(navigator.userAgent);
+  return parser.getResult();
 }
 
 export function getBrowserInfo() {
-	const uaData = (navigator as any).userAgentData;
-	return {
-		languageBrowser: navigator.language,
-		languageSystem: navigator.languages,
-		online: navigator.onLine,
-		cookiesEnabled: navigator.cookieEnabled,
-		ua: navigator.userAgent,
-		uaData: uaData,
-		name: uaData.brands[uaData.brands.length - 1].brand,
-		version: uaData.brands[uaData.brands.length - 1].version,
-		isMobile: uaData.mobile,
-		system: uaData.platform,
-	};
+  const uaData = (navigator as any).userAgentData;
+  return {
+    languageBrowser: navigator.language,
+    languageSystem: navigator.languages,
+    online: navigator.onLine,
+    cookiesEnabled: navigator.cookieEnabled,
+    ua: navigator.userAgent,
+    uaData: uaData,
+    name: uaData.brands[uaData.brands.length - 1].brand,
+    version: uaData.brands[uaData.brands.length - 1].version,
+    isMobile: uaData.mobile,
+    system: uaData.platform,
+  };
 }
 export default {
-	browserInfo: getBrowserInfo(),
-	uaInfo: getUaInfo(),
+  browserInfo: getBrowserInfo(),
+  uaInfo: getUaInfo(),
 };

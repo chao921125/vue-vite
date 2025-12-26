@@ -5,15 +5,15 @@
  * @param value 值
  */
 export const setObjDeep = (obj, path, value) => {
-	let schema = obj;
-	const pList = path.split(".");
-	const len = pList.length;
-	for (let i = 0; i < len - 1; i++) {
-		const elem = String(pList[i]);
-		schema = schema[elem] || {};
-	}
+  let schema = obj;
+  const pList = path.split(".");
+  const len = pList.length;
+  for (let i = 0; i < len - 1; i++) {
+    const elem = String(pList[i]);
+    schema = schema[elem] || {};
+  }
 
-	schema[pList[len - 1]] = value;
+  schema[pList[len - 1]] = value;
 };
 
 /**
@@ -23,7 +23,7 @@ export const setObjDeep = (obj, path, value) => {
  * @param obj 取值的对象
  */
 export const resolve = (path, obj) => {
-	return path.split(".").reduce(function (prev, curr) {
-		return prev ? prev[curr] : null;
-	}, obj || self);
+  return path.split(".").reduce(function (prev, curr) {
+    return prev ? prev[curr] : null;
+  }, obj || self);
 };

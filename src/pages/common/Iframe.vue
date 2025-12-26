@@ -32,9 +32,13 @@ watch(
 </script>
 
 <template>
-	<div class="re-full" v-loading="iframeObj.loading" :style="{ height: `calc(100vh - ${iframeHeight})`, border: 'none' }">
-		<iframe id="iframe" :src="iframeObj.url" class="re-full" width="100%" height="100%"></iframe>
-	</div>
+  <div
+    class="re-full"
+    v-loading="iframeObj.loading"
+    :style="{ height: `calc(100vh - ${iframeHeight})`, border: 'none' }"
+  >
+    <iframe id="iframe" :src="iframeObj.url" class="re-full" width="100%" height="100%"></iframe>
+  </div>
 </template>
 
 <style scoped lang="scss"></style>

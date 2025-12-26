@@ -14,13 +14,13 @@ onMounted(() => {
 </script>
 
 <template>
-	<div class="re-w-full">
-		点击
-		<el-link :href="linkUrl" underline="never" target="_blank">
-			{{ linkUrl }}
-		</el-link>
-		访问
-	</div>
+  <div class="re-w-full">
+    点击
+    <el-link :href="linkUrl" underline="never" target="_blank">
+      {{ linkUrl }}
+    </el-link>
+    访问
+  </div>
 </template>
 
 <style scoped lang="scss"></style>

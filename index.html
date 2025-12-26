@@ -1,136 +1,146 @@
 <!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="keywords" content="vue，vue3，CompositionAPI，typescript，element plus，element，plus，admin，wonderful，wonderful-next，vue-next-admin，vite，vite-admin，快速，高效，后台模板，后台系统，管理系统" />
-	<meta name="description" content="vue，vue3，CompositionAPI，typescript，element plus，element，plus，admin，wonderful，wonderful-next，vue-next-admin，vite，vite-admin，快速，高效，后台模板，后台系统，管理系统" />
-	<meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src * 'self' 'unsafe-inline' https: http:*; font-src * 'self' data: https: http: *" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="keywords"
+      content="vue，vue3，CompositionAPI，typescript，element plus，element，plus，admin，wonderful，wonderful-next，vue-next-admin，vite，vite-admin，快速，高效，后台模板，后台系统，管理系统"
+    />
+    <meta
+      name="description"
+      content="vue，vue3，CompositionAPI，typescript，element plus，element，plus，admin，wonderful，wonderful-next，vue-next-admin，vite，vite-admin，快速，高效，后台模板，后台系统，管理系统"
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src *; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src * 'self' 'unsafe-inline' https: http:*; font-src * 'self' data: https: http: *"
+    />
 
-	<meta name="mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	<meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: light)" />
-	<meta name="theme-color" content="#373737" media="(prefers-color-scheme: dark)" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#373737" media="(prefers-color-scheme: dark)" />
 
-	<link rel="shortcut icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="shortcut icon" type="image/svg+xml" href="/favicon.ico" />
 
-	<link rel="apple-touch-icon" type="image/svg+xml" href="/pwa-640.png" />
-	<title>
-		<%- title %>
-	</title>
-	<style>
-		.load-box {
-			width: 100vw;
-			height: 100vh;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
+    <link rel="apple-touch-icon" type="image/svg+xml" href="/pwa-640.png" />
+    <title><%- title %></title>
+    <style>
+      .load-box {
+      	width: 100vw;
+      	height: 100vh;
+      	display: flex;
+      	justify-content: center;
+      	align-items: center;
+      }
 
-		.loader {
-			width: 6em;
-			height: 6em;
-			font-size: 10px;
-			position: relative;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
+      .loader {
+      	width: 6em;
+      	height: 6em;
+      	font-size: 10px;
+      	position: relative;
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      }
 
-		.loader .face {
-			position: absolute;
-			border-radius: 50%;
-			border-style: solid;
-			animation: animate023845 3s linear infinite;
-		}
+      .loader .face {
+      	position: absolute;
+      	border-radius: 50%;
+      	border-style: solid;
+      	animation: animate023845 3s linear infinite;
+      }
 
-		.loader .face:nth-child(1) {
-			--deg: -45deg;
+      .loader .face:nth-child(1) {
+      	--deg: -45deg;
 
-			width: 100%;
-			height: 100%;
-			color: gold;
-			border-color: currentcolor transparent transparent currentcolor;
-			border-width: 0.2em 0.2em 0 0;
-			animation-direction: normal;
-		}
+      	width: 100%;
+      	height: 100%;
+      	color: gold;
+      	border-color: currentcolor transparent transparent currentcolor;
+      	border-width: 0.2em 0.2em 0 0;
+      	animation-direction: normal;
+      }
 
-		.loader .face:nth-child(2) {
-			--deg: -135deg;
+      .loader .face:nth-child(2) {
+      	--deg: -135deg;
 
-			width: 70%;
-			height: 70%;
-			color: lime;
-			border-color: currentcolor currentcolor transparent transparent;
-			border-width: 0.2em 0 0 0.2em;
-			animation-direction: reverse;
-		}
+      	width: 70%;
+      	height: 70%;
+      	color: lime;
+      	border-color: currentcolor currentcolor transparent transparent;
+      	border-width: 0.2em 0 0 0.2em;
+      	animation-direction: reverse;
+      }
 
-		.loader .face .circle {
-			position: absolute;
-			width: 50%;
-			height: 0.1em;
-			top: 50%;
-			left: 50%;
-			background-color: transparent;
-			transform: rotate(var(--deg));
-			transform-origin: left;
-		}
+      .loader .face .circle {
+      	position: absolute;
+      	width: 50%;
+      	height: 0.1em;
+      	top: 50%;
+      	left: 50%;
+      	background-color: transparent;
+      	transform: rotate(var(--deg));
+      	transform-origin: left;
+      }
 
-		.loader .face .circle::before {
-			position: absolute;
-			top: -0.5em;
-			right: -0.5em;
-			content: '';
-			width: 1em;
-			height: 1em;
-			background-color: currentcolor;
-			border-radius: 50%;
-			box-shadow: 0 0 2em,
-			0 0 4em,
-			0 0 6em,
-			0 0 8em,
-			0 0 10em,
-			0 0 0 0.5em rgb(255 255 0 / 10%);
-		}
+      .loader .face .circle::before {
+      	position: absolute;
+      	top: -0.5em;
+      	right: -0.5em;
+      	content: '';
+      	width: 1em;
+      	height: 1em;
+      	background-color: currentcolor;
+      	border-radius: 50%;
+      	box-shadow: 0 0 2em,
+      	0 0 4em,
+      	0 0 6em,
+      	0 0 8em,
+      	0 0 10em,
+      	0 0 0 0.5em rgb(255 255 0 / 10%);
+      }
 
-		@keyframes animate023845 {
-			to {
-				transform: rotate(1turn);
-			}
-		}
-	</style>
-</head>
+      @keyframes animate023845 {
+      	to {
+      		transform: rotate(1turn);
+      	}
+      }
+    </style>
+  </head>
 
-<body>
-<noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="app">
-	<div class="load-box">
-		<div class="loader">
-			<div class="face">
-				<div class="circle"></div>
-			</div>
-			<div class="face">
-				<div class="circle"></div>
-			</div>
-		</div>
-	</div>
-</div>
-</body>
-<!-- 引入文件 -->
-<script type="module" src="./src/main.ts"></script>
-<script type="module" src="/inject.js"></script>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="app">
+      <div class="load-box">
+        <div class="loader">
+          <div class="face">
+            <div class="circle"></div>
+          </div>
+          <div class="face">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- 引入文件 -->
+  <script type="module" src="./src/main.ts"></script>
+  <script type="module" src="/inject.js"></script>
 
-<script>
-	// 以下代码仅在商业环境下，有需求的时候使用
-	// setInterval(() => {
-	// 	if (window.outerHeight - window.innerHeight > 200 || /HeadlessChrome/.test(navigator.userAgent)) {
-	// 		// 触发反调试逻辑
-	// 		document.documentElement.innerHTML = "";
-	// 		window.stop();
-	// 	}
-	// }, 1000);
-</script>
+  <script>
+    // 以下代码仅在商业环境下，有需求的时候使用
+    // setInterval(() => {
+    // 	if (window.outerHeight - window.innerHeight > 200 || /HeadlessChrome/.test(navigator.userAgent)) {
+    // 		// 触发反调试逻辑
+    // 		document.documentElement.innerHTML = "";
+    // 		window.stop();
+    // 	}
+    // }, 1000);
+  </script>
 </html>

@@ -2,37 +2,37 @@ const axiosCancel: any = {};
 const cancelMap = new Map();
 
 function getPending(config: any) {
-	return [config.url, config.method].join("&");
+  return [config.url, config.method].join("&");
 }
 
 axiosCancel.addCancel = (config: any) => {
-	// 防止重复请求
-	axiosCancel.removeCancel(config);
-	// 取消请求
-	const controller = new AbortController();
-	const key = getPending(config);
-	config.signal = controller.signal;
-	if (!cancelMap.has(key)) {
-		cancelMap.set(key, controller);
-	}
+  // 防止重复请求
+  axiosCancel.removeCancel(config);
+  // 取消请求
+  const controller = new AbortController();
+  const key = getPending(config);
+  config.signal = controller.signal;
+  if (!cancelMap.has(key)) {
+    cancelMap.set(key, controller);
+  }
 };
 axiosCancel.removeCancel = (config: any) => {
-	const key = getPending(config);
-	if (cancelMap.has(key)) {
-		const cancel = cancelMap.get(key);
-		if (cancel) {
-			cancel.abort(key);
-		}
-		cancelMap.delete(key);
-	}
+  const key = getPending(config);
+  if (cancelMap.has(key)) {
+    const cancel = cancelMap.get(key);
+    if (cancel) {
+      cancel.abort(key);
+    }
+    cancelMap.delete(key);
+  }
 };
 axiosCancel.removeAllCancel = () => {
-	cancelMap.forEach((cancel) => {
-		if (cancel) {
-			cancel.abort();
-		}
-	});
-	cancelMap.clear();
+  cancelMap.forEach((cancel) => {
+    if (cancel) {
+      cancel.abort();
+    }
+  });
+  cancelMap.clear();
 };
 
 export default axiosCancel;

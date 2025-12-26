@@ -92,7 +92,7 @@ defineExpose({
 </script>
 
 <template>
-	<div class="w100 h100 chart-box" :id="props.id" :ref="props.id"></div>
+  <div class="w100 h100 chart-box" :id="props.id" :ref="props.id"></div>
 </template>
 
 <style scoped lang="scss">

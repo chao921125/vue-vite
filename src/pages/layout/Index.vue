@@ -46,30 +46,35 @@ onBeforeMount(() => {
 </script>
 
 <template>
-	<el-container id="layout" class="layout-container">
-		<el-aside id="aside" class="aside" :class="styleCollapse">
-			<Menu></Menu>
-		</el-aside>
-		<el-container id="admin-body" :class="{ 'admin-main': !isFixedHeader }">
-			<el-scrollbar ref="refScrollbarMain" :class="{ 'admin-main': isFixedHeader }">
-				<el-header v-if="isFixedHeader" :height="setHeaderHeight" class="layout-header">
-					<Header></Header>
-				</el-header>
-				<Tags></Tags>
-				<el-main class="layout-main">
-					<el-card class="main-body">
-						<router-view></router-view>
-					</el-card>
-				</el-main>
-				<el-footer v-if="isShowFooter" class="re-flex-center">
-					<Footer></Footer>
-				</el-footer>
-			</el-scrollbar>
-			<el-backtop target=".admin-main .el-scrollbar__wrap" :visibility-height="300" :right="20" :bottom="20">
-				<el-icon :size="20"><ArrowUpBold /></el-icon>
-			</el-backtop>
-		</el-container>
-	</el-container>
+  <el-container id="layout" class="layout-container">
+    <el-aside id="aside" class="aside" :class="styleCollapse">
+      <Menu></Menu>
+    </el-aside>
+    <el-container id="admin-body" :class="{ 'admin-main': !isFixedHeader }">
+      <el-scrollbar ref="refScrollbarMain" :class="{ 'admin-main': isFixedHeader }">
+        <el-header v-if="isFixedHeader" :height="setHeaderHeight" class="layout-header">
+          <Header></Header>
+        </el-header>
+        <Tags></Tags>
+        <el-main class="layout-main">
+          <el-card class="main-body">
+            <router-view></router-view>
+          </el-card>
+        </el-main>
+        <el-footer v-if="isShowFooter" class="re-flex-center">
+          <Footer></Footer>
+        </el-footer>
+      </el-scrollbar>
+      <el-backtop
+        target=".admin-main .el-scrollbar__wrap"
+        :visibility-height="300"
+        :right="20"
+        :bottom="20"
+      >
+        <el-icon :size="20"><ArrowUpBold /></el-icon>
+      </el-backtop>
+    </el-container>
+  </el-container>
 </template>
 
 <style scoped lang="scss"></style>

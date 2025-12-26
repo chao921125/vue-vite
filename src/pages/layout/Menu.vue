@@ -71,22 +71,31 @@ onBeforeMount(() => {
 </script>
 
 <template>
-	<div v-if="isColl" class="logo-full re-flex-center">
-		<el-link underline="never" @click="toHome">
-			<i class="iconfont icon-shouye"></i>
-			<span class="re-ml-10">CC ADMIN</span>
-		</el-link>
-	</div>
-	<div v-else class="animate__animated animate__zoomIn logo-only re-flex-center">
-		<el-link underline="never" @click="toHome">
-			<i class="iconfont icon-shouye"></i>
-		</el-link>
-	</div>
-	<el-scrollbar>
-		<el-menu class="menu-box" :default-active="changeMenuKey" mode="vertical" :collapse="!isColl" :unique-opened="true" @select="toRouter" @open="openMenu" @close="closeMenu">
-			<MenuSub v-if="state.menuList && state.menuList.length" :menus="state.menuList"></MenuSub>
-		</el-menu>
-	</el-scrollbar>
+  <div v-if="isColl" class="logo-full re-flex-center">
+    <el-link underline="never" @click="toHome">
+      <i class="iconfont icon-shouye"></i>
+      <span class="re-ml-10">CC ADMIN</span>
+    </el-link>
+  </div>
+  <div v-else class="animate__animated animate__zoomIn logo-only re-flex-center">
+    <el-link underline="never" @click="toHome">
+      <i class="iconfont icon-shouye"></i>
+    </el-link>
+  </div>
+  <el-scrollbar>
+    <el-menu
+      class="menu-box"
+      :default-active="changeMenuKey"
+      mode="vertical"
+      :collapse="!isColl"
+      :unique-opened="true"
+      @select="toRouter"
+      @open="openMenu"
+      @close="closeMenu"
+    >
+      <MenuSub v-if="state.menuList && state.menuList.length" :menus="state.menuList"></MenuSub>
+    </el-menu>
+  </el-scrollbar>
 </template>
 
 <style scoped lang="scss"></style>

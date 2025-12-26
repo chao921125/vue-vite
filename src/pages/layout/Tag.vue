@@ -94,35 +94,41 @@ onBeforeRouteUpdate((to) => {
 </script>
 
 <template>
-	<div class="re-flex-between tags-content">
-		<el-scrollbar class="tags-list">
-			<div class="re-flex">
-				<el-tag :disable-transitions="false" class="re-cp re-mr-10" @click="changeRouter('/home')" :type="tabValue === '/home' ? 'primary' : 'info'">
-					{{ $t("message.menu.home") }}
-				</el-tag>
-				<el-tag
-					v-for="(item, index) in tabs"
-					:key="index"
-					:closable="true"
-					:disable-transitions="false"
-					:type="tabValue === item.name ? 'primary' : 'info'"
-					@close="removeTab(item.name)"
-					@click="changeRouter(item.name)"
-					class="re-cp re-mr-10">
-					{{ $t(item.label) }}
-				</el-tag>
-			</div>
-		</el-scrollbar>
-		<el-dropdown @command="clickChange" class="tags-option">
-			<el-button type="primary" size="small"> 更多 </el-button>
-			<template #dropdown>
-				<el-dropdown-menu>
-					<el-dropdown-item command="0">关闭其他标签</el-dropdown-item>
-					<el-dropdown-item command="1">关闭所有标签</el-dropdown-item>
-				</el-dropdown-menu>
-			</template>
-		</el-dropdown>
-	</div>
+  <div class="re-flex-between tags-content">
+    <el-scrollbar class="tags-list">
+      <div class="re-flex">
+        <el-tag
+          :disable-transitions="false"
+          class="re-cp re-mr-10"
+          @click="changeRouter('/home')"
+          :type="tabValue === '/home' ? 'primary' : 'info'"
+        >
+          {{ $t("message.menu.home") }}
+        </el-tag>
+        <el-tag
+          v-for="(item, index) in tabs"
+          :key="index"
+          :closable="true"
+          :disable-transitions="false"
+          :type="tabValue === item.name ? 'primary' : 'info'"
+          @close="removeTab(item.name)"
+          @click="changeRouter(item.name)"
+          class="re-cp re-mr-10"
+        >
+          {{ $t(item.label) }}
+        </el-tag>
+      </div>
+    </el-scrollbar>
+    <el-dropdown @command="clickChange" class="tags-option">
+      <el-button type="primary" size="small"> 更多 </el-button>
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item command="0">关闭其他标签</el-dropdown-item>
+          <el-dropdown-item command="1">关闭所有标签</el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
+  </div>
 </template>
 
 <style scoped lang="scss">

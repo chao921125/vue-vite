@@ -5,9 +5,9 @@
  * *States 实例集合 属性实例key
  */
 declare interface IDemoState {
-	id: number;
-	name: string;
+  id: number;
+  name: string;
 }
 declare interface IDemoStates {
-	demo: IDemoState;
+  demo: IDemoState;
 }

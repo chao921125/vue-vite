@@ -100,33 +100,54 @@ watch(props, () => {
 </script>
 
 <template>
-	<div class="page-box" v-if="props.total">
-		<div class="page-btn">
-			<img :src="IcoPrevFUn" alt="" class="ico-img" v-if="Number(data.current) === 1" />
-			<img :src="IcoPrevF" alt="" class="ico-img" v-else @click="onPrevFirst" />
-		</div>
-		<div class="page-btn">
-			<img :src="IcoPrevUn" alt="" class="ico-img" v-if="Number(data.current) === 1" />
-			<img :src="IcoPrev" alt="" class="ico-img" v-else @click="onPrev" />
-		</div>
-		<div class="page-nums">
-			<div class="page-num" v-if="data.listSize > 5" :class="{ 'btn-act': Number(data.current) === 1 }" @click="onChange(1)">1</div>
-			<div class="page-num" v-if="data.listSize > 5 && data.current > 3">...</div>
-			<div class="page-num" v-for="item in data.showList" :key="item" :class="{ 'btn-act': Number(data.current) === item }" @click="onChange(item)">{{ item }}</div>
-			<div class="page-num" v-if="data.listSize > 5 && data.current < data.listSize - 2">...</div>
-			<template v-if="data.listSize > 5 && data.current < data.listSize - 2">
-				<div class="page-num" :class="{ 'btn-act': Number(data.current) === data.listSize }" @click="onChange(data.listSize)">{{ data.listSize }}</div>
-			</template>
-		</div>
-		<div class="page-btn">
-			<img :src="IcoNextUn" alt="" class="ico-img" v-if="Number(data.current) === data.listSize" />
-			<img :src="IcoNext" alt="" class="ico-img" v-else @click="onNext" />
-		</div>
-		<div class="page-btn">
-			<img :src="IcoNextLUn" alt="" class="ico-img" v-if="Number(data.current) === data.listSize" />
-			<img :src="IcoNextL" alt="" class="ico-img" v-else @click="onNextLast" />
-		</div>
-	</div>
+  <div class="page-box" v-if="props.total">
+    <div class="page-btn">
+      <img :src="IcoPrevFUn" alt="" class="ico-img" v-if="Number(data.current) === 1" />
+      <img :src="IcoPrevF" alt="" class="ico-img" v-else @click="onPrevFirst" />
+    </div>
+    <div class="page-btn">
+      <img :src="IcoPrevUn" alt="" class="ico-img" v-if="Number(data.current) === 1" />
+      <img :src="IcoPrev" alt="" class="ico-img" v-else @click="onPrev" />
+    </div>
+    <div class="page-nums">
+      <div
+        class="page-num"
+        v-if="data.listSize > 5"
+        :class="{ 'btn-act': Number(data.current) === 1 }"
+        @click="onChange(1)"
+      >
+        1
+      </div>
+      <div class="page-num" v-if="data.listSize > 5 && data.current > 3">...</div>
+      <div
+        class="page-num"
+        v-for="item in data.showList"
+        :key="item"
+        :class="{ 'btn-act': Number(data.current) === item }"
+        @click="onChange(item)"
+      >
+        {{ item }}
+      </div>
+      <div class="page-num" v-if="data.listSize > 5 && data.current < data.listSize - 2">...</div>
+      <template v-if="data.listSize > 5 && data.current < data.listSize - 2">
+        <div
+          class="page-num"
+          :class="{ 'btn-act': Number(data.current) === data.listSize }"
+          @click="onChange(data.listSize)"
+        >
+          {{ data.listSize }}
+        </div>
+      </template>
+    </div>
+    <div class="page-btn">
+      <img :src="IcoNextUn" alt="" class="ico-img" v-if="Number(data.current) === data.listSize" />
+      <img :src="IcoNext" alt="" class="ico-img" v-else @click="onNext" />
+    </div>
+    <div class="page-btn">
+      <img :src="IcoNextLUn" alt="" class="ico-img" v-if="Number(data.current) === data.listSize" />
+      <img :src="IcoNextL" alt="" class="ico-img" v-else @click="onNextLast" />
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">

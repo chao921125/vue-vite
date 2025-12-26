@@ -60,21 +60,22 @@ defineExpose({
 </script>
 
 <template>
-	<el-row justify="end">
-		<el-col :span="24" class="re-flex-end page-box">
-			<el-pagination
-				v-model:currentPage="pageOption.pageCurrent"
-				v-model:page-size="pageOption.pageSize"
-				:page-sizes="pageOption.pageSizes"
-				:small="pageOption.small"
-				:disabled="pageOption.disabled"
-				:background="pageOption.background"
-				:layout="pageOption.layout"
-				:total="pageOption.pageTotal"
-				@size-change="pageChangeSize"
-				@current-change="pageChangeCurrent" />
-		</el-col>
-	</el-row>
+  <el-row justify="end">
+    <el-col :span="24" class="re-flex-end page-box">
+      <el-pagination
+        v-model:currentPage="pageOption.pageCurrent"
+        v-model:page-size="pageOption.pageSize"
+        :page-sizes="pageOption.pageSizes"
+        :small="pageOption.small"
+        :disabled="pageOption.disabled"
+        :background="pageOption.background"
+        :layout="pageOption.layout"
+        :total="pageOption.pageTotal"
+        @size-change="pageChangeSize"
+        @current-change="pageChangeCurrent"
+      />
+    </el-col>
+  </el-row>
 </template>
 
 <style scoped lang="scss"></style>

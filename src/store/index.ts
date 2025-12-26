@@ -6,7 +6,7 @@ const store = createPinia();
 
 // 不必额外导入，直接使用此方法
 export const getStoreRefs = (store) => {
-	return storeToRefs(store);
+  return storeToRefs(store);
 };
 
 // pinia.use(() => {
@@ -20,9 +20,9 @@ import { useThemeConfig } from "./modules/theme";
 import { useUserInfo } from "./modules/user";
 
 export const appStore = {
-	useRouterList: useRouterList(store),
-	useRouterTags: useRouterTags(store),
-	useThemeConfig: useThemeConfig(store),
-	useUserInfo: useUserInfo(store),
+  useRouterList: useRouterList(store),
+  useRouterTags: useRouterTags(store),
+  useThemeConfig: useThemeConfig(store),
+  useUserInfo: useUserInfo(store),
 };
 export default store;

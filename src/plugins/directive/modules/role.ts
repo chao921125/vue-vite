@@ -6,7 +6,7 @@
  * 4、按钮级别的展示一样如此
  */
 export const role = {
-	mounted(el, binding) {
-		console.log(el, binding);
-	},
+  mounted(el, binding) {
+    console.log(el, binding);
+  },
 };

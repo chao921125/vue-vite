@@ -70,26 +70,47 @@ const onToReg = () => {
 </script>
 
 <template>
-	<section class="body-pd login re-flex-center">
-		<el-form class="form" ref="formRef" :model="formData" :rules="formRules">
-			<h1 class="title re-tc re-full-w">CCNET</h1>
-			<el-form-item class="form-item" label="" prop="userName">
-				<el-input v-model="formData.userName" autofocus @keyup.enter.native="onLogin(formRef)" :disabled="data.isLoading" class="form-in" placeholder="请输入用户名" />
-			</el-form-item>
-			<el-form-item class="form-item" label="" prop="password">
-				<el-input v-model="formData.password" @keyup.enter.native="onLogin(formRef)" :disabled="data.isLoading" class="form-in" type="password" placeholder="请输入密码" />
-			</el-form-item>
-			<el-form-item class="form-item">
-				<div class="re-flex-between re-full-w">
-					<el-text class="re-cp txt" type="info" @click="onToReg">忘记密码</el-text>
-					<el-text class="re-cp txt" type="primary" @click="onToLogin">登录</el-text>
-				</div>
-			</el-form-item>
-			<el-form-item class="form-item re-flex-center">
-				<el-button class="re-full-w btn" type="primary" @click.native.prevent="onLogin(formRef)" @keyup.enter.native="onLogin(formRef)" :loading="data.isLoading">注册</el-button>
-			</el-form-item>
-		</el-form>
-	</section>
+  <section class="body-pd login re-flex-center">
+    <el-form class="form" ref="formRef" :model="formData" :rules="formRules">
+      <h1 class="title re-tc re-full-w">CCNET</h1>
+      <el-form-item class="form-item" label="" prop="userName">
+        <el-input
+          v-model="formData.userName"
+          autofocus
+          @keyup.enter.native="onLogin(formRef)"
+          :disabled="data.isLoading"
+          class="form-in"
+          placeholder="请输入用户名"
+        />
+      </el-form-item>
+      <el-form-item class="form-item" label="" prop="password">
+        <el-input
+          v-model="formData.password"
+          @keyup.enter.native="onLogin(formRef)"
+          :disabled="data.isLoading"
+          class="form-in"
+          type="password"
+          placeholder="请输入密码"
+        />
+      </el-form-item>
+      <el-form-item class="form-item">
+        <div class="re-flex-between re-full-w">
+          <el-text class="re-cp txt" type="info" @click="onToReg">忘记密码</el-text>
+          <el-text class="re-cp txt" type="primary" @click="onToLogin">登录</el-text>
+        </div>
+      </el-form-item>
+      <el-form-item class="form-item re-flex-center">
+        <el-button
+          class="re-full-w btn"
+          type="primary"
+          @click.native.prevent="onLogin(formRef)"
+          @keyup.enter.native="onLogin(formRef)"
+          :loading="data.isLoading"
+          >注册</el-button
+        >
+      </el-form-item>
+    </el-form>
+  </section>
 </template>
 
 <style scoped lang="scss">

@@ -1,34 +1,34 @@
 export default {
-	screenMobile: 991,
-	screenNormal: 992,
-	screenData: 3840,
-	menuTitle: import.meta.env.VITE_TITLE,
-	i18nDef: import.meta.env.VITE_LOCALE,
-	i18nKey: /\/zh-cn|en|zh-tw\//,
-	i18nKeys: [
-		{
-			label: "中文简体",
-			value: "zh-cn",
-		},
-		{
-			label: "English",
-			value: "en",
-		},
-	],
-	sizeKeys: [
-		{
-			label: "默认",
-			value: "default",
-		},
-		{
-			label: "大型",
-			value: "large",
-		},
-		{
-			label: "小型",
-			value: "small",
-		},
-	],
+  screenMobile: 991,
+  screenNormal: 992,
+  screenData: 3840,
+  menuTitle: import.meta.env.VITE_TITLE,
+  i18nDef: import.meta.env.VITE_LOCALE,
+  i18nKey: /\/zh-cn|en|zh-tw\//,
+  i18nKeys: [
+    {
+      label: "中文简体",
+      value: "zh-cn",
+    },
+    {
+      label: "English",
+      value: "en",
+    },
+  ],
+  sizeKeys: [
+    {
+      label: "默认",
+      value: "default",
+    },
+    {
+      label: "大型",
+      value: "large",
+    },
+    {
+      label: "小型",
+      value: "small",
+    },
+  ],
 };
 /**
  * 简体中文（zh-cn）

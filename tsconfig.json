@@ -1,83 +1,67 @@
 {
-	/* "files": [], */
-	/* "references": [], */
-	/* {
+  /* "files": [], */
+  /* "references": [], */
+  /* {
 		"path": "./tsconfig.node.json"
 	},
 	{
 		"path": "./tsconfig.vitest.json"
 	} */
-	/* Visit https://aka.ms/tsconfig.json to read more about this file https://www.tslang.cn/docs/handbook/tsconfig-json.html */
-	"compilerOptions": {
-		"allowJs": true,
-		"allowSyntheticDefaultImports": true,
-		"declaration": true,
-		"declarationDir": "./types",
-		"declarationMap": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"incremental": false,
-		"isolatedModules": true,
-		"jsx": "preserve",
-		"lib": [
-			"ES5",
-			"ES6",
-			"ES7",
-			"ESNext",
-			"DOM",
-			"DOM.Iterable",
-			"ScriptHost",
-			"Decorators"
-		],
-		"listEmittedFiles": true,
-		"listFiles": true,
-		"module": "esnext",
-		"moduleResolution": "Bundler",
-		"noFallthroughCasesInSwitch": true,
-		"noImplicitAny": false,
-		"noLib": false,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"baseUrl": "./",
-		"outDir": "./dist",
-		"paths": {
-			"@/*": [
-				"src/*"
-			],
-			"/#/*": ["class/*"]
-		},
-		"removeComments": true,
-		"resolveJsonModule": true,
-		"sourceMap": true,
-		"strict": true,
-		"strictFunctionTypes": false,
-		"target": "esnext",
-		"useDefineForClassFields": true,
-		"skipLibCheck": true,
-		"types": [
-			"echarts",
-			"node",
-			"qs",
-			"vite/client",
-			"vite-plugin-pwa/client",
-			"vite-plugin-pwa/vue"
-		]
-	},
-	"plugins": [],
-	"include": [
-		"src/**/*",
-		"src/**/*.vue",
-		"types/**/*",
-		"build/**/*",
-		"mock/**/*",
-		"auto-imports.d.ts",
-		"components.d.ts"
-	],
-	"exclude": [
-		"node_modules",
-		"dist",
-		"cypress",
-		"tests"
-	],
-//	"references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.app.json" }]
+  /* Visit https://aka.ms/tsconfig.json to read more about this file https://www.tslang.cn/docs/handbook/tsconfig-json.html */
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationDir": "./types",
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": false,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "lib": ["ES5", "ES6", "ES7", "ESNext", "DOM", "DOM.Iterable", "ScriptHost", "Decorators"],
+    "listEmittedFiles": true,
+    "listFiles": true,
+    "module": "esnext",
+    "moduleResolution": "Bundler",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noLib": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "paths": {
+      "@/*": ["src/*"],
+      "/#/*": ["class/*"]
+    },
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictFunctionTypes": false,
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "skipLibCheck": true,
+    "types": [
+      "echarts",
+      "node",
+      "qs",
+      "vite/client",
+      "vite-plugin-pwa/client",
+      "vite-plugin-pwa/vue"
+    ]
+  },
+  "plugins": [],
+  "include": [
+    "src/**/*",
+    "src/**/*.vue",
+    "types/**/*",
+    "build/**/*",
+    "mock/**/*",
+    "auto-imports.d.ts",
+    "components.d.ts"
+  ],
+  "exclude": ["node_modules", "dist", "cypress", "tests"]
+  //	"references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.app.json" }]
 }

@@ -72,7 +72,16 @@ defineExpose({});
 </script>
 
 <template>
-	<el-date-picker v-model="dateValue" type="daterange" unlink-panels range-separator="To" start-placeholder="Start date" end-placeholder="End date" :shortcuts="dateOptions.shortcuts" @change="changeDate" />
+  <el-date-picker
+    v-model="dateValue"
+    type="daterange"
+    unlink-panels
+    range-separator="To"
+    start-placeholder="Start date"
+    end-placeholder="End date"
+    :shortcuts="dateOptions.shortcuts"
+    @change="changeDate"
+  />
 </template>
 
 <style scoped lang="scss"></style>

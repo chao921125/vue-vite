@@ -47,7 +47,7 @@ app.config.globalProperties.$notification = ElNotification;
 
 // element 注册element Icons组件
 Object.keys(Icons).forEach((key) => {
-	app.component(key, Icons[key]);
+  app.component(key, Icons[key]);
 });
 
 // vant
@@ -66,7 +66,7 @@ import "vant/lib/index.css";
 // 全局自定义指令
 import * as directives from "@/plugins/directive";
 Object.keys(directives).forEach((key) => {
-	app.directive(key, directives[key]);
+  app.directive(key, directives[key]);
 });
 
 // 全局信息定义 使用 inject: [""],
@@ -85,8 +85,8 @@ Object.keys(directives).forEach((key) => {
 // 	onOfflineReady() {},
 // });
 window.addEventListener("beforeinstallprompt", (e) => {
-	e.preventDefault();
-	window.deferredPrompt = e;
+  e.preventDefault();
+  window.deferredPrompt = e;
 });
 
 // svg font icon 字体、图标
@@ -123,35 +123,35 @@ const isWanNumMax = 10;
 let isWanNum = 0;
 let isShowWan = false;
 app.config.errorHandler = (err, instance, info) => {
-	// 处理错误
-	// `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
-	// 只在开发模式下打印 log
-	if (import.meta.env.VITE_NODE_ENV === "development" && !isShowError) {
-		if (++isErrorNum > isErrorNumMax) {
-			isShowError = true;
-		}
-		Log.danger(">>>>>> 错误信息 >>>>>>");
-		Log.primary(String(err || ""));
-		Log.danger(">>>>>> Vue 实例 >>>>>>");
-		Log.primary(instance || "");
-		Log.danger(">>>>>> Error >>>>>>");
-		Log.primary(info || "");
-	}
+  // 处理错误
+  // `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
+  // 只在开发模式下打印 log
+  if (import.meta.env.VITE_NODE_ENV === "development" && !isShowError) {
+    if (++isErrorNum > isErrorNumMax) {
+      isShowError = true;
+    }
+    Log.danger(">>>>>> 错误信息 >>>>>>");
+    Log.primary(String(err || ""));
+    Log.danger(">>>>>> Vue 实例 >>>>>>");
+    Log.primary(instance || "");
+    Log.danger(">>>>>> Error >>>>>>");
+    Log.primary(info || "");
+  }
 };
 app.config.warnHandler = (msg, instance, trace) => {
-	// 显示在控制台
-	if (import.meta.env.VITE_NODE_ENV === "development" && !isShowWan) {
-		if (++isWanNum > isWanNumMax) {
-			isShowWan = true;
-		}
-		// `trace` 是组件的继承关系追踪
-		Log.warning(">>>>>> 警告信息 >>>>>>");
-		Log.primary(msg || "");
-		Log.warning(">>>>>> Vue 实例 >>>>>>");
-		Log.primary(instance || "");
-		Log.warning(">>>>>> Info >>>>>>");
-		Log.primary(trace || "");
-	}
+  // 显示在控制台
+  if (import.meta.env.VITE_NODE_ENV === "development" && !isShowWan) {
+    if (++isWanNum > isWanNumMax) {
+      isShowWan = true;
+    }
+    // `trace` 是组件的继承关系追踪
+    Log.warning(">>>>>> 警告信息 >>>>>>");
+    Log.primary(msg || "");
+    Log.warning(">>>>>> Vue 实例 >>>>>>");
+    Log.primary(instance || "");
+    Log.warning(">>>>>> Info >>>>>>");
+    Log.primary(trace || "");
+  }
 };
 app.config.performance = import.meta.env.VITE_NODE_ENV === "development";
 /*
@@ -161,6 +161,6 @@ app.config.performance = import.meta.env.VITE_NODE_ENV === "development";
 // 等待路由就绪后再挂载应用，避免在动态路由注册完成前触发首次导航导致的 "No match found" 警告
 // Router 已在文件顶部引入并通过 `app.use(Router)` 注册
 Router.isReady().then(() => {
-	app.mount("#app");
+  app.mount("#app");
 });
 // app.unmount();
