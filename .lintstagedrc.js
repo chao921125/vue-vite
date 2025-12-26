@@ -20,7 +20,7 @@ export default {
     return [`oxlint --fix ${files}`, `oxfmt --write ${files}`];
   },
   "{!(package)*.json,*.code-snippets,.!{npm,browserslist}*rc.{js,cjs,mjs}}": [
-    "oxfmt --write--parser json",
+    "oxfmt --write",
   ],
   "*.json": ["oxfmt --write"],
   "*.{css,scss,less,styl,html}": ["oxfmt --write", "stylelint --cache --fix"],
