@@ -65,7 +65,6 @@
       "isRef",
       "isShallow",
       "makeDestructurable",
-      "manualResetRef",
       "mapActions",
       "mapGetters",
       "mapState",

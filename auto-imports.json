@@ -678,11 +678,6 @@
   },
   {
     "from": "@vueuse/core",
-    "name": "manualResetRef",
-    "as": "manualResetRef"
-  },
-  {
-    "from": "@vueuse/core",
     "name": "refThrottled",
     "as": "refThrottled"
   },
