@@ -1,5 +1,4 @@
 <script setup>
-import { onMounted, reactive, watch } from "vue";
 import IcoPrev from "@/assets/images/ico/p-prev.png";
 import IcoPrevUn from "@/assets/images/ico/p-prev-un.png";
 import IcoPrevF from "@/assets/images/ico/p-prev_f.png";
