@@ -1,25 +1,25 @@
 // 默认重写的颜色
 $--colors: (
-	"white": #ffffff,
-	"black": #000000,
-	"primary": (
-		"base": #409eff,
-	),
-	"success": (
-		"base": #67c23a,
-	),
-	"warning": (
-		"base": #e6a23c,
-	),
-	"danger": (
-		"base": #db2828,
-	),
-	"error": (
-		"base": #db2828,
-	),
-	"info": (
-		"base": #909399,
-	),
+  "white": #ffffff,
+  "black": #000000,
+  "primary": (
+    "base": #409eff,
+  ),
+  "success": (
+    "base": #67c23a,
+  ),
+  "warning": (
+    "base": #e6a23c,
+  ),
+  "danger": (
+    "base": #db2828,
+  ),
+  "error": (
+    "base": #db2828,
+  ),
+  "info": (
+    "base": #909399,
+  ),
 );
 
 // 我们可以将其添加到自定义命名空间中, 默认值 'el'

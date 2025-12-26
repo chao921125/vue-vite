@@ -1,55 +1,57 @@
 // 隐藏滚动条，但保留功能
 /* 适用于所有现代浏览器 */
 .hide-scrollbar {
-	overflow: auto; /* 仍然允许滚动 */
-	scrollbar-width: none; /* Firefox 隐藏滚动条 */
-	-ms-overflow-style: none; /* IE 和 Edge 隐藏滚动条 */
+  overflow: auto; /* 仍然允许滚动 */
+  scrollbar-width: none; /* Firefox 隐藏滚动条 */
+  -ms-overflow-style: none; /* IE 和 Edge 隐藏滚动条 */
 }
 
 /* 隐藏滚动条 - 针对 Webkit (Chrome, Safari) */
 .hide-scrollbar::-webkit-scrollbar {
-	display: none; /* 隐藏滚动条 */
+  display: none; /* 隐藏滚动条 */
 }
 .hide-scroll-horizontal {
-	overflow-x: hidden;
-	overflow-y: auto; /* 允许垂直滚动 */
+  overflow-x: hidden;
+  overflow-y: auto; /* 允许垂直滚动 */
 }
 .hide-scroll-vertical {
-	overflow-y: hidden;
-	overflow-x: auto; /* 允许水平滚动 */
+  overflow-y: hidden;
+  overflow-x: auto; /* 允许水平滚动 */
 }
 
 .vis-pc {
-	display: block;
+  display: block;
 }
 .vis-m {
-	display: none;
+  display: none;
 }
 .vis-pc_f {
-	display: flex;
+  display: flex;
 }
 .vis-m_f {
-	display: none;
+  display: none;
 }
 // Large
-@media screen and (min-width: 1200px) {}
+@media screen and (min-width: 1200px) {
+}
 // Normal
-@media screen and (min-width: 992px) and (max-width: 1200px) {}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+}
 // Pad
-@media screen and (min-width: 768px) and (max-width: 992px) {}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+}
 // Mobile
 @media screen and (max-width: 768px) {
-	.vis-pc {
-		display: none;
-	}
-	.vis-m {
-		display: block;
-	}
-	.vis-pc_f {
-		display: none;
-	}
-	.vis-m_f {
-		display: flex;
-	}
+  .vis-pc {
+    display: none;
+  }
+  .vis-m {
+    display: block;
+  }
+  .vis-pc_f {
+    display: none;
+  }
+  .vis-m_f {
+    display: flex;
+  }
 }
-

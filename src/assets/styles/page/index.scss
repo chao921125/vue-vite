@@ -2,93 +2,96 @@
 /** 间距 **/
 // 边距
 .body-pd {
-	padding: 30px;
+  padding: 30px;
 }
 .body-pd_lr {
-	padding-left: 30px;
-	padding-right: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .body-pd_tb {
-	padding-top: 30px;
-	padding-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 @media screen and (max-width: 768px) {
-	.body-pd {
-		padding: 60px;
-	}
-	.body-pd_lr {
-		padding-left: 60px;
-		padding-right: 60px;
-	}
-	.body-pd_tb {
-		padding-top: 60px;
-		padding-bottom: 60px;
-	}
+  .body-pd {
+    padding: 60px;
+  }
+  .body-pd_lr {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  .body-pd_tb {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
 
 /** 按钮 **/
 .btn {
-	font-size: 18px;
-	height: 40px;
-	&.el-button {
-		font-size: 18px !important;
-		height: 40px !important;
-	}
+  font-size: 18px;
+  height: 40px;
+  &.el-button {
+    font-size: 18px !important;
+    height: 40px !important;
+  }
 }
 @media screen and (max-width: 768px) {
-	.btn {
-		font-size: 54px;
-		height: 120px;
-		&.el-button {
-			font-size: 54px !important;
-			height: 120px !important;
-		}
-	}
+  .btn {
+    font-size: 54px;
+    height: 120px;
+    &.el-button {
+      font-size: 54px !important;
+      height: 120px !important;
+    }
+  }
 }
 
 /** 文本 **/
 .txt {
-	font-size: 18px;
-	&.el-text {
-		font-size: 18px !important;
-	}
+  font-size: 18px;
+  &.el-text {
+    font-size: 18px !important;
+  }
 }
 @media screen and (max-width: 768px) {
-	.txt {
-		font-size: 66px;
-		&.el-text {
-			font-size: 66px !important;
-		}
-	}
+  .txt {
+    font-size: 66px;
+    &.el-text {
+      font-size: 66px !important;
+    }
+  }
 }
 
 // 单独页使用的 title
 .title {
-	font-size: 80px;
-	font-weight: bold;
+  font-size: 80px;
+  font-weight: bold;
 }
 // 系统内使用的 title
-.title-large {}
-.title-default {}
-.title-small {}
+.title-large {
+}
+.title-default {
+}
+.title-small {
+}
 @media screen and (max-width: 768px) {
-	.title {
-		font-size: 120px;
-	}
+  .title {
+    font-size: 120px;
+  }
 }
 
 /** 表单 **/
 .form-in {
-	input {
-		font-size: 18px;
-		height: 40px;
-	}
+  input {
+    font-size: 18px;
+    height: 40px;
+  }
 }
 @media screen and (max-width: 768px) {
-	.form-in {
-		input {
-			font-size: 54px;
-			height: 120px;
-		}
-	}
+  .form-in {
+    input {
+      font-size: 54px;
+      height: 120px;
+    }
+  }
 }

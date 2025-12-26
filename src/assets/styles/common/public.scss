@@ -5,263 +5,295 @@
 
 // 占位符
 .#{declare.$prefix}-place {
-	width: 1px;
-	height: 1px;
+  width: 1px;
+  height: 1px;
 }
 
 // 元素展示隐藏
 .#{declare.$prefix}-show {
-	display: initial;
+  display: initial;
 }
 .#{declare.$prefix}-hidden {
-	 display: none !important;
+  display: none !important;
 }
 
 /**
  * Flex 基础布局
  */
 .#{declare.$prefix}-flex {
-	@include declare.flex;
+  @include declare.flex;
 }
 .#{declare.$prefix}-flex-auto {
-	@include declare.flex;
-	flex: 1;
-	overflow: hidden;
+  @include declare.flex;
+  flex: 1;
+  overflow: hidden;
 }
 .#{declare.$prefix}-flex-center {
-	@include declare.flex;
-	justify-content: center;
-	align-items: center;
+  @include declare.flex;
+  justify-content: center;
+  align-items: center;
 }
 .#{declare.$prefix}-flex-ch {
-	@include declare.flex;
-	justify-content: center;
+  @include declare.flex;
+  justify-content: center;
 }
 .#{declare.$prefix}-flex-cv {
-	@include declare.flex;
-	align-items: center;
+  @include declare.flex;
+  align-items: center;
 }
 .#{declare.$prefix}-flex-between {
-	@include declare.flex;
-	justify-content: space-between;
-	align-items: center;
+  @include declare.flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .#{declare.$prefix}-flex-end {
-	@include declare.flex;
-	justify-content: flex-end;
-	align-items: center;
+  @include declare.flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 .#{declare.$prefix}-flex-reverse {
-	@include declare.flex;
-	flex-direction: row-reverse;
-	align-items: center;
+  @include declare.flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 .#{declare.$prefix}-flex-col {
-	@include declare.flex;
-	@include declare.flex-col;
+  @include declare.flex;
+  @include declare.flex-col;
 }
 .#{declare.$prefix}-flex-col-center {
-	@include declare.flex;
-	@include declare.flex-col;
-	align-items: center;
-	justify-content: center;
+  @include declare.flex;
+  @include declare.flex-col;
+  align-items: center;
+  justify-content: center;
 }
 
 /**
  * 填充
  */
 .#{declare.$prefix}-fill {
-	@include declare.wh-fill;
+  @include declare.wh-fill;
 }
 .#{declare.$prefix}-full {
-	@include declare.wh-full;
+  @include declare.wh-full;
 }
 .#{declare.$prefix}-auto-w {
-	width: auto;
+  width: auto;
 }
 .#{declare.$prefix}-fill-w {
-	@include declare.width-fill;
+  @include declare.width-fill;
 }
 .#{declare.$prefix}-fill-w-min {
-	min-width: 100vw;
+  min-width: 100vw;
 }
 .#{declare.$prefix}-fill-w-max {
-	max-width: 100vh;
+  max-width: 100vh;
 }
 .#{declare.$prefix}-full-w {
-	@include declare.width-full;
+  @include declare.width-full;
 }
 .#{declare.$prefix}-full-w-min {
-	min-width: 100%;
+  min-width: 100%;
 }
 .#{declare.$prefix}-full-w-max {
-	max-width: 100%;
+  max-width: 100%;
 }
 .#{declare.$prefix}-auto-h {
-	height: auto;
+  height: auto;
 }
 .#{declare.$prefix}-fill-h {
-	@include declare.height-fill;
+  @include declare.height-fill;
 }
 .#{declare.$prefix}-fill-h-min {
-	min-height: 100vh;
+  min-height: 100vh;
 }
 .#{declare.$prefix}-fill-h-max {
-	max-height: 100vh;
+  max-height: 100vh;
 }
 .#{declare.$prefix}-full-h {
-	@include declare.height-full;
+  @include declare.height-full;
 }
 .#{declare.$prefix}-full-h-min {
-	min-height: 100%;
+  min-height: 100%;
 }
 .#{declare.$prefix}-full-h-max {
-	max-height: 100%;
+  max-height: 100%;
 }
 
 /**
  * 文字
  */
 .#{declare.$prefix}-tc {
-	@include declare.text-center;
+  @include declare.text-center;
 }
 .#{declare.$prefix}-tl {
-	@include declare.text-left;
+  @include declare.text-left;
 }
 .#{declare.$prefix}-tr {
-	@include declare.text-right;
+  @include declare.text-right;
 }
 
 /**
  * 鼠标
  */
 .#{declare.$prefix}-c {
-	cursor: default;
+  cursor: default;
 }
 .#{declare.$prefix}-cp {
-	cursor: pointer;
+  cursor: pointer;
 }
 .#{declare.$prefix}-ch {
-	cursor: help;
+  cursor: help;
 }
 .#{declare.$prefix}-cm {
-	cursor: move;
+  cursor: move;
 }
 
 /**
  * 浮动
  */
 .#{declare.$prefix}-fl {
-	float: left;
+  float: left;
 }
 .#{declare.$prefix}-fr {
-	float: right;
+  float: right;
 }
 .#{declare.$prefix}-clearfix:before,
 .#{declare.$prefix}-clearfix:after {
-	display: table;
-	content: "";
+  display: table;
+  content: "";
 }
 .#{declare.$prefix}-clearfix:after {
-	clear: both;
+  clear: both;
 }
 
 /**
  * 边距
  */
 @for $i from 1 to 500 {
-	// 宽高
-	.#{declare.$prefix}-wh-#{$i} {
-		width: #{$i}px;
-		height: #{$i}px;
-	}
-	.#{declare.$prefix}-w-#{$i} {
-		width: #{$i}px;
-	}
-	.#{declare.$prefix}-h-#{$i} {
-		height: #{$i}px;
-	}
-	// 外边距
-	.#{declare.$prefix}-m-#{$i} {
-		margin: #{$i}px;
-	}
-	.#{declare.$prefix}-my-#{$i} {
-		margin-top: #{$i}px;
-		margin-bottom: #{$i}px;
-	}
-	.#{declare.$prefix}-mx-#{$i} {
-		margin-left: #{$i}px;
-		margin-right: #{$i}px;
-	}
-	.#{declare.$prefix}-mt-#{$i} {
-		margin-top: #{$i}px;
-	}
-	.#{declare.$prefix}-mr-#{$i} {
-		margin-right: #{$i}px;
-	}
-	.#{declare.$prefix}-mb-#{$i} {
-		margin-bottom: #{$i}px;
-	}
-	.#{declare.$prefix}-ml-#{$i} {
-		margin-left: #{$i}px;
-	}
-	// 内边距
-	.#{declare.$prefix}-p-#{$i} {
-		padding: #{$i}px;
-	}
-	.#{declare.$prefix}-py-#{$i} {
-		padding-top: #{$i}px;
-		padding-bottom: #{$i}px;
-	}
-	.#{declare.$prefix}-px-#{$i} {
-		padding-left: #{$i}px;
-		padding-right: #{$i}px;
-	}
-	.#{declare.$prefix}-pt-#{$i} {
-		padding-top: #{$i}px;
-	}
-	.#{declare.$prefix}-pr-#{$i} {
-		padding-right: #{$i}px;
-	}
-	.#{declare.$prefix}-pb-#{$i} {
-		padding-bottom: #{$i}px;
-	}
-	.#{declare.$prefix}-pl-#{$i} {
-		padding-left: #{$i}px;
-	}
+  // 宽高
+  .#{declare.$prefix}-wh-#{$i} {
+    width: #{$i}px;
+    height: #{$i}px;
+  }
+  .#{declare.$prefix}-w-#{$i} {
+    width: #{$i}px;
+  }
+  .#{declare.$prefix}-h-#{$i} {
+    height: #{$i}px;
+  }
+  // 外边距
+  .#{declare.$prefix}-m-#{$i} {
+    margin: #{$i}px;
+  }
+  .#{declare.$prefix}-my-#{$i} {
+    margin-top: #{$i}px;
+    margin-bottom: #{$i}px;
+  }
+  .#{declare.$prefix}-mx-#{$i} {
+    margin-left: #{$i}px;
+    margin-right: #{$i}px;
+  }
+  .#{declare.$prefix}-mt-#{$i} {
+    margin-top: #{$i}px;
+  }
+  .#{declare.$prefix}-mr-#{$i} {
+    margin-right: #{$i}px;
+  }
+  .#{declare.$prefix}-mb-#{$i} {
+    margin-bottom: #{$i}px;
+  }
+  .#{declare.$prefix}-ml-#{$i} {
+    margin-left: #{$i}px;
+  }
+  // 内边距
+  .#{declare.$prefix}-p-#{$i} {
+    padding: #{$i}px;
+  }
+  .#{declare.$prefix}-py-#{$i} {
+    padding-top: #{$i}px;
+    padding-bottom: #{$i}px;
+  }
+  .#{declare.$prefix}-px-#{$i} {
+    padding-left: #{$i}px;
+    padding-right: #{$i}px;
+  }
+  .#{declare.$prefix}-pt-#{$i} {
+    padding-top: #{$i}px;
+  }
+  .#{declare.$prefix}-pr-#{$i} {
+    padding-right: #{$i}px;
+  }
+  .#{declare.$prefix}-pb-#{$i} {
+    padding-bottom: #{$i}px;
+  }
+  .#{declare.$prefix}-pl-#{$i} {
+    padding-left: #{$i}px;
+  }
 }
 
 /**
  * 定位
  */
 .#{declare.$prefix}-pf-t {
-	position: fixed;
-	top: 0;
+  position: fixed;
+  top: 0;
 }
 .#{declare.$prefix}-pf-b {
-	position: fixed;
-	bottom: 0;
+  position: fixed;
+  bottom: 0;
 }
 .#{declare.$prefix}-pf-l {
-	position: fixed;
-	left: 0;
+  position: fixed;
+  left: 0;
 }
 .#{declare.$prefix}-pf-r {
-	position: fixed;
-	right: 0;
+  position: fixed;
+  right: 0;
 }
 .#{declare.$prefix}-zi-max {
-	z-index: 99999;
+  z-index: 99999;
 }
 .#{declare.$prefix}-zi-min {
-	z-index: -1;
+  z-index: -1;
 }
 
-$zindexs: (0, 5, 9, 10, 15, 19, 20, 25, 29, 30, 35, 39, 40, 45, 49, 50, 55, 59, 60, 65, 69, 70, 75, 79, 80, 85, 89, 90, 95, 99, 100);
+$zindexs: (
+  0,
+  5,
+  9,
+  10,
+  15,
+  19,
+  20,
+  25,
+  29,
+  30,
+  35,
+  39,
+  40,
+  45,
+  49,
+  50,
+  55,
+  59,
+  60,
+  65,
+  69,
+  70,
+  75,
+  79,
+  80,
+  85,
+  89,
+  90,
+  95,
+  99,
+  100
+);
 @each $zindex in $zindexs {
-	.#{declare.$prefix}-zi-#{$zindex} {
-		z-index: #{$zindex};
-	}
+  .#{declare.$prefix}-zi-#{$zindex} {
+    z-index: #{$zindex};
+  }
 }
 
 //@function scale-below($value, $base, $ratio: 1.618) {

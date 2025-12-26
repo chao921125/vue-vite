@@ -1,38 +1,39 @@
 @font-face {
-	font-family: "NotoSans";
-	src: url("NotoSans-Regular.ttf") format("truetype"),
-		url("NotoSans-Medium.ttf") format("truetype"),
-		url("NotoSans-Bold.ttf") format("truetype"),
-		url("NotoSans-Black.ttf") format("truetype"),
-		url("NotoSans-ExtraBold.ttf") format("truetype"),
-		url("NotoSans-Thin.ttf") format("truetype"),
-		url("NotoSans-Light.ttf") format("truetype"),
-		url("NotoSans-Italic.ttf") format("truetype");
-	font-weight: normal;
-	font-style: normal;
+  font-family: "NotoSans";
+  src:
+    url("NotoSans-Regular.ttf") format("truetype"),
+    url("NotoSans-Medium.ttf") format("truetype"),
+    url("NotoSans-Bold.ttf") format("truetype"),
+    url("NotoSans-Black.ttf") format("truetype"),
+    url("NotoSans-ExtraBold.ttf") format("truetype"),
+    url("NotoSans-Thin.ttf") format("truetype"),
+    url("NotoSans-Light.ttf") format("truetype"),
+    url("NotoSans-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-	font-family: "NotoSans-Regular";
-	src: url("NotoSans-Regular.ttf") format("truetype");
-	font-weight: normal;
-	font-style: normal;
+  font-family: "NotoSans-Regular";
+  src: url("NotoSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-	font-family: "NotoSans-Medium";
-	src: url("NotoSans-Medium.ttf") format("truetype");
-	font-weight: normal;
-	font-style: normal;
+  font-family: "NotoSans-Medium";
+  src: url("NotoSans-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-	font-family: "NotoSans-Bold";
-	src: url("NotoSans-Bold.ttf") format("truetype");
-	font-weight: normal;
-	font-style: normal;
+  font-family: "NotoSans-Bold";
+  src: url("NotoSans-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-	font-family: "NotoSans-Black";
-	src: url("NotoSans-Black.ttf") format("truetype");
-	font-weight: normal;
-	font-style: normal;
+  font-family: "NotoSans-Black";
+  src: url("NotoSans-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }

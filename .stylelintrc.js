@@ -1,7 +1,7 @@
 // @see: https://stylelint.io
 export default {
   root: true,
-  plugins: ["stylelint-scss", "stylelint-order", "stylelint-prettier"],
+  plugins: ["stylelint-scss", "stylelint-order"],
   customSyntax: "postcss-html",
   /* 继承某些已有的规则 */
   extends: [

@@ -57,64 +57,64 @@ $z-index-9: 9000;
 
 // 禁止用户选中
 @mixin unable-select {
-	user-select: none;
+  user-select: none;
 }
 
 // 填满父元素 position: relative | absolute;
 @mixin full {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 // 文字 居中 左 右
 @mixin text-center {
-	text-align: center;
+  text-align: center;
 }
 @mixin text-left {
-	text-align: left;
+  text-align: left;
 }
 @mixin text-right {
-	text-align: right;
+  text-align: right;
 }
 
 // 填充 宽高
 @mixin wh-full {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 @mixin width-full {
-	width: 100%;
+  width: 100%;
 }
 @mixin height-full {
-	height: 100%;
+  height: 100%;
 }
 @mixin wh-fill {
-	width: 100vw;
-	height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 @mixin width-fill {
-	width: 100vw;
+  width: 100vw;
 }
 @mixin height-fill {
-	height: 100vh;
+  height: 100vh;
 }
 
 // flex 垂直水平居中 两端对齐
 @mixin flex {
-	display: flex;
+  display: flex;
 }
 @mixin flex-col {
-	flex-direction: column;
+  flex-direction: column;
 }
 
 // 将元素模拟成卡片外观
 @mixin card {
-	//border: 1px solid $color-border-white;
-	background: #fff;
-	border-radius: 4px;
-	font-size: 14px;
-	position: relative;
+  //border: 1px solid $color-border-white;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  position: relative;
 }
