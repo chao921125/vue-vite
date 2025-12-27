@@ -48,16 +48,46 @@ onBeforeMount(() => {
 		Storage.setLocalStorage(Constants.keys.i18nLocale, import.meta.env.VITE_LOCAL);
 	}
 });
-onMounted(() => {
+onMounted(async () => {
 	initData();
-	const checker = new FontManager();
-	checker.check(["NotoSans-Regular", "NotoSans-Medium"]).then((res) => {
-		if (res.success) {
-			console.log("字体库加载成功");
-		} else {
-			console.log("字体库加载失败");
+
+	// 等待字体加载完成后再进行检测
+	const checkFonts = async () => {
+		try {
+			// 首先等待 document.fonts 准备就绪
+			if (document.fonts && document.fonts.ready) {
+				await document.fonts.ready;
+			}
+
+			// 创建 FontManager 实例
+			const checker = new FontManager();
+
+			// 检查字体是否可用
+			// 使用多次尝试机制，因为字体可能需要时间加载
+			let result = await checker.check(["NotoSans-Regular", "NotoSans-Medium"]);
+
+			// 如果检测失败，等待更多时间再试
+			if (!result.success) {
+				console.log("首次检测失败，等待字体加载...");
+				await new Promise(resolve => setTimeout(resolve, 1000)); // 等待1秒
+
+				// 再次检查
+				result = await checker.check(["NotoSans-Regular", "NotoSans-Medium"]);
+			}
+
+			if (result.success) {
+				console.log("FontManager 检测: 字体库加载成功");
+			} else {
+				console.log("FontManager 检测: 字体库加载失败");
+				console.log("失败的字体:", result.failedFonts);
+			}
+		} catch (error) {
+			console.error("字体检测失败:", error);
 		}
-	});
+	};
+
+	// 执行字体检查
+	checkFonts();
 });
 onUnmounted(() => {
 	if (proxy) {
