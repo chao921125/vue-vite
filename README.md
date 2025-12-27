@@ -136,9 +136,20 @@
 
 | AI UI                                                                                                |
 |------------------------------------------------------------------------------------------------------|
+| [assistant-ui](https://github.com/assistant-ui/assistant-ui) [官网](https://www.assistant-ui.com/)     |
+| [ChatUI](https://github.com/alibaba/ChatUI) [官网](https://chatui.io/)                                 |
+| [ant-design-x](https://github.com/ant-design/x) [官网](https://x.ant.design/index-cn)                  |
+| [ant-design-x-vue](https://github.com/wzc520pyfm/ant-design-x-vue)                                   |
 | [element-plus-x](https://github.com/element-plus-x/Element-Plus-X) [官网](https://element-plus-x.com/) |
+| [tdesign](https://tdesign.tencent.com/chat/)                                                         |
 | [ai-elements-vue](https://github.com/vuepont/ai-elements-vue) [官网](https://www.ai-elements-vue.com/) |
 | [目录](#目录)                                                                                            |
+
+| AI Chat                                                |
+|--------------------------------------------------------|
+| [vercel ai](https://github.com/vercel/ai)              |
+| [CopilotKit](https://github.com/CopilotKit/CopilotKit) |
+| [目录](#目录)                                              |
 
 | VUE                                                                      |
 |--------------------------------------------------------------------------|
