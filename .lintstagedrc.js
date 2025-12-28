@@ -19,9 +19,9 @@ export default {
     // 返回并行执行命令（性能最优）
     return [`oxlint --fix ${filesStr}`, `oxfmt --write ${filesStr}`];
   },
-  "*.{css,scss,less,styl,html}": (filenames) => {
+  "*.{css,scss,sass,less,styl,html}": (filenames) => {
     if (filenames.length === 0) return [];
     const filesStr = filenames.join(" ");
-    return [`oxfmt --write ${filesStr}`, `stylelint --cache --fix ${filesStr}`];
+    return [`stylelint --cache --fix ${filesStr}`];
   },
 };
