@@ -204,28 +204,28 @@
 | 小程序 UI 仅罗列支持 vue3                                                             |
 |-------------------------------------------------------------------------------|
 | [awesome](https://github.com/justjavac/awesome-wechat-weapp)                  |
-| [vant weapp](https://github.com/vant-ui/vant-weapp)                           |
+| [uni-ui 支持 uni-app x](https://github.com/dcloudio/uni-ui)                     |
+| [👍有广告 uview-plus 不适配SASS 1.8+](https://github.com/ijry/uview-plus)           |
+| [付费服务 Tui-Plus 支持 uni-app x](https://life.yundie.xyz/tuiplus/docs/index.html) |
+| [Cool 支持 uni-app x](https://unix.cool-js.com/)                                |
+| [riceui 支持 uni-app x](https://riceui.cn/)                                     |
+| [腾讯 tdesign 仅支持原生 小程序](https://github.com/Tencent/tdesign-miniprogram)        |
 | [腾讯 weui](https://weui.io/)                                                   |
 | [腾讯 weui-wxss](https://github.com/Tencent/weui-wxss)                          |
 | [腾讯 weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram) |
-| [👍腾讯 tdesign](https://github.com/Tencent/tdesign-miniprogram)                |
-| [uni-ui 支持 uni-app x](https://github.com/dcloudio/uni-ui)                     |
-| [uxframe 支持 uni-app x](https://www.uxframe.cn/)                               |
-| [riceui 支持 uni-app x](https://riceui.cn/)                                     |
-| [Cool 支持 uni-app x](https://unix.cool-js.com/)                                |
-| [👍有广告 uview-plus 不适配SASS 1.8+](https://github.com/ijry/uview-plus)           |
+| [停更 vant weapp](https://github.com/vant-ui/vant-weapp)                        |
 | [停更 Cube UI](https://github.com/didi/cube-ui)                                 |
 | [停更 taro-ui](https://github.com/jd-opensource/taro-ui)                        |
 | [停更 wux](https://github.com/wux-weapp/wux-weapp/)                             |
 | [停更 lin-ui](https://github.com/TaleLin/lin-ui)                                |
 | [停更 uView 2](https://github.com/umicro/uView2.0)                              |
 | [停更 uvui](https://github.com/climblee/uv-ui)                                  |
-| [付费 limex 支持 uni-app x](https://limex.qcoon.cn/)                              |
-| [付费 Tui-Plus 支持 uni-app x](https://life.yundie.xyz/tuiplus/docs/index.html)   |
-| [付费 停更 turbo-ui 支持 uni-app x](https://turbo-ui.cn/)                           |
 | [付费 TM-UI 支持 uni-app x](https://ext.dcloud.net.cn/plugin?id=16369)            |
+| [付费 uxframe 支持 uni-app x](https://www.uxframe.cn/)                            |
+| [付费 limex 支持 uni-app x](https://limex.qcoon.cn/)                              |
 | [付费 FirstUI 支持 uni-app x](https://github.com/FirstUI)                         |
 | [付费 graceui 支持 uni-app x](https://www.graceui.com/)                           |
+| [付费 turbo-ui 支持 uni-app x](https://turbo-ui.cn/)                              |
 | [目录](#目录)                                                                     |
 
 | UI 单一组件                                                                |
