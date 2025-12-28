@@ -15,7 +15,7 @@ util.setTitle = async () => {
   await nextTick(() => {
     let title = "";
     title = setTitleI18n(Router.currentRoute.value);
-    window.document.title = `${title}` || globalTitle;
+    window.document.title = `${globalTitle} ${title}` || globalTitle;
   });
 };
 

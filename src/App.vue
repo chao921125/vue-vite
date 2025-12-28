@@ -22,6 +22,7 @@ const config = reactive({
 const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 const route = useRoute();
 const initData = () => {
+	Utils.setTitle();
 	if (proxy) {
 		proxy.$mitt.emit("getI18nConfig", Storage.getLocalStorage(Constants.keys.i18nLocale));
 		if (Storage.getLocalStorage(Constants.keys.themeConfig)) {
