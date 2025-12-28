@@ -145,6 +145,11 @@
 | [ai-elements-vue](https://github.com/vuepont/ai-elements-vue) [官网](https://www.ai-elements-vue.com/) |
 | [目录](#目录)                                                                                            |
 
+| AI 小程序 UI                                                |
+|----------------------------------------------------------|
+| [tdesign](https://tdesign.tencent.com/miniprogram-chat/) |
+| [目录](#目录)                                                |
+
 | AI Chat                                                |
 |--------------------------------------------------------|
 | [vercel ai](https://github.com/vercel/ai)              |
@@ -199,16 +204,16 @@
 | 小程序 UI 仅罗列支持 vue3                                                             |
 |-------------------------------------------------------------------------------|
 | [awesome](https://github.com/justjavac/awesome-wechat-weapp)                  |
-| [👍vant weapp](https://github.com/vant-ui/vant-weapp)                         |
+| [vant weapp](https://github.com/vant-ui/vant-weapp)                           |
 | [腾讯 weui](https://weui.io/)                                                   |
 | [腾讯 weui-wxss](https://github.com/Tencent/weui-wxss)                          |
 | [腾讯 weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram) |
-| [腾讯 tdesign](https://github.com/Tencent/tdesign-miniprogram)                  |
+| [👍腾讯 tdesign](https://github.com/Tencent/tdesign-miniprogram)                |
 | [uni-ui 支持 uni-app x](https://github.com/dcloudio/uni-ui)                     |
 | [uxframe 支持 uni-app x](https://www.uxframe.cn/)                               |
 | [riceui 支持 uni-app x](https://riceui.cn/)                                     |
 | [Cool 支持 uni-app x](https://unix.cool-js.com/)                                |
-| [强制广告 uview-plus](https://github.com/ijry/uview-plus)                         |
+| [👍有广告 uview-plus 不适配SASS 1.8+](https://github.com/ijry/uview-plus)           |
 | [停更 Cube UI](https://github.com/didi/cube-ui)                                 |
 | [停更 taro-ui](https://github.com/jd-opensource/taro-ui)                        |
 | [停更 wux](https://github.com/wux-weapp/wux-weapp/)                             |
