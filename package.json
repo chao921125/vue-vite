@@ -61,7 +61,7 @@
     "@vueuse/metadata": "^14.1.0",
     "@vueuse/shared": "^14.1.0",
     "animate.css": "^4.1.1",
-    "axios": "^1.13.2",
+    "axios": "^1.13.5",
     "axios-mock-adapter": "^2.1.0",
     "core-js": "^3.47.0",
     "date-fns": "^4.1.0",
