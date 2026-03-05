@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { useRoute, useRouter } from "vue-router";
 import Storage from "@/utils/storage";
 import Constants from "@/utils/constant/constants";
@@ -9,62 +8,81 @@ import ValidateForm from "@/utils/validate/validateForm";
 const { proxy } = getCurrentInstance() as any;
 const formRef = ref();
 const formData: Record<string, any> = reactive({
-	userName: "",
-	password: "",
+  userName: "",
+  password: "",
 }) as any;
 const formRules: Record<string, any> = reactive({
-	userName: [{ validator: ValidateForm.userName, trigger: "blur" }],
-	password: [{ validator: ValidateForm.password, trigger: "blur" }],
+  userName: [{ validator: ValidateForm.userName, trigger: "blur" }],
+  password: [{ validator: ValidateForm.password, trigger: "blur" }],
 }) as any;
 
 const route = useRoute();
 const router = useRouter();
 const data = reactive({
-	isLoading: false,
+  isLoading: false,
 });
 
 const onLogin = async (formEl) => {
-	if (!formEl) return false;
-	await formEl.validate((valid: boolean, fields) => {
-		console.log("====", valid, fields);
-		if (valid) {
-			data.isLoading = true;
-			const token = new Date().getTime();
-			Storage.setCookie(Constants.keys.token, token);
-			Storage.setSessionStorage(Constants.keys.token, token);
-			Storage.setLocalStorage(Constants.keys.token, token);
-			Storage.setLocalStorage(Constants.keys.userInfo, token);
-			// Storage.setCookie(Constants.keys.token, res.data.token);
-			// Storage.setSessionStorage(Constants.keys.token, res.data.token);
-			// Storage.setLocalStorage(Constants.keys.token, res.data);
-			// Storage.setLocalStorage(Constants.keys.userInfo, res.data);
-			data.isLoading = false;
-			if (route.query?.redirect && route.query?.redirect !== "/") {
-				router.push({
-					path: <string>route.query?.redirect,
-					query: Object.keys(<string>route.query?.params).length ? JSON.parse(<string>route.query?.params) : "",
-				});
-			} else {
-				router.push({ path: "/" });
-			}
-			// Api.userApi
-			// 	.login({
-			// 		userName: "admin",
-			// 		password: "123123",
-			// 	})
-			// 	.then((res) => {
-			// 		console.log(res);
-			// 	});
-		} else {
-			data.isLoading = false;
-			proxy.$message.error("登录失败", fields);
-			return false;
-		}
-	});
+  if (!formEl) return false;
+  await formEl.validate((valid: boolean, fields) => {
+    console.log("====", valid, fields);
+    if (valid) {
+      data.isLoading = true;
+      const token = new Date().getTime();
+      Storage.setCookie(Constants.keys.token, token);
+      Storage.setSessionStorage(Constants.keys.token, token);
+      Storage.setLocalStorage(Constants.keys.token, token);
+      Storage.setLocalStorage(Constants.keys.userInfo, token);
+      // Storage.setCookie(Constants.keys.token, res.data.token);
+      // Storage.setSessionStorage(Constants.keys.token, res.data.token);
+      // Storage.setLocalStorage(Constants.keys.token, res.data);
+      // Storage.setLocalStorage(Constants.keys.userInfo, res.data);
+      data.isLoading = false;
+      if (route.query?.redirect && route.query?.redirect !== "/") {
+        router.push({
+          path: <string>route.query?.redirect,
+          query: Object.keys(<string>route.query?.params).length
+            ? JSON.parse(<string>route.query?.params)
+            : "",
+        });
+      } else {
+        router.push({ path: "/" });
+      }
+      // Api.userApi
+      // 	.login({
+      // 		userName: "admin",
+      // 		password: "123123",
+      // 	})
+      // 	.then((res) => {
+      // 		console.log(res);
+      // 	});
+    } else {
+      data.isLoading = false;
+      proxy.$message.error("登录失败", fields);
+      return false;
+    }
+  });
 };
 
 const onToReg = () => {
-	router.push({ path: "/register" });
+  router.push({ path: "/register" });
+};
+
+const testExcel = () => {
+  fetch("https://nfs.nacta.gov.pk/_blazor?id=uT5Dp_mYTw_od-c0l1i5Mg&_=1769089689394", {
+    cache: "no-cache",
+    credentials: "include",
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+      "X-SignalR-User-Agent":
+        "Microsoft SignalR/0.0 (0.0.0-DEV_BUILD; Unknown OS; Browser; Unknown Runtime Version)",
+    },
+    method: "GET",
+    mode: "cors",
+    redirect: "follow",
+  }).then((res) => {
+    console.log(res);
+  });
 };
 </script>
 
@@ -195,121 +213,122 @@ const onToReg = () => {
         >
       </el-form-item>
     </el-form>
+    <el-button @click="testExcel">download</el-button>
   </section>
 </template>
 
 <style scoped lang="scss">
 .login {
-	position: relative;
+  position: relative;
 }
 .login-bg {
-	position: absolute;
-	left: 50%;
-	top: 25%;
-	transform: translate(-50%, -25%);
-	.loader {
-		width: fit-content;
-		height: fit-content;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	.wrapper {
-		width: fit-content;
-		height: fit-content;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-	.catContainer {
-		width: 100%;
-		height: fit-content;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: relative;
-	}
-	.catbody {
-		width: 80px;
-	}
-	.tail {
-		position: absolute;
-		width: 17px;
-		top: 50%;
-		animation: tail 0.5s ease-in infinite alternate-reverse;
-		transform-origin: top;
-	}
-	@keyframes tail {
-		0% {
-			transform: rotateZ(60deg);
-		}
-		50% {
-			transform: rotateZ(0deg);
-		}
-		100% {
-			transform: rotateZ(-20deg);
-		}
-	}
-	.wall {
-		width: 300px;
-	}
-	.text {
-		display: flex;
-		flex-direction: column;
-		width: 50px;
-		position: absolute;
-		margin: 0px 0px 100px 120px;
-	}
-	.zzz {
-		color: black;
-		font-weight: 700;
-		font-size: 15px;
-		animation: zzz 2s linear infinite;
-	}
-	.bigzzz {
-		color: black;
-		font-weight: 700;
-		font-size: 25px;
-		margin-left: 10px;
-		animation: zzz 2.3s linear infinite;
-	}
-	@keyframes zzz {
-		0% {
-			color: transparent;
-		}
-		50% {
-			color: black;
-		}
-		100% {
-			color: transparent;
-		}
-	}
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -25%);
+  .loader {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .wrapper {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .catContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .catbody {
+    width: 80px;
+  }
+  .tail {
+    position: absolute;
+    width: 17px;
+    top: 50%;
+    animation: tail 0.5s ease-in infinite alternate-reverse;
+    transform-origin: top;
+  }
+  @keyframes tail {
+    0% {
+      transform: rotateZ(60deg);
+    }
+    50% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      transform: rotateZ(-20deg);
+    }
+  }
+  .wall {
+    width: 300px;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    position: absolute;
+    margin: 0px 0px 100px 120px;
+  }
+  .zzz {
+    color: black;
+    font-weight: 700;
+    font-size: 15px;
+    animation: zzz 2s linear infinite;
+  }
+  .bigzzz {
+    color: black;
+    font-weight: 700;
+    font-size: 25px;
+    margin-left: 10px;
+    animation: zzz 2.3s linear infinite;
+  }
+  @keyframes zzz {
+    0% {
+      color: transparent;
+    }
+    50% {
+      color: black;
+    }
+    100% {
+      color: transparent;
+    }
+  }
 }
 
 .form {
-	margin-top: 300px;
-	width: 100%;
-	max-width: 30vw;
-	.form-item {
-		width: 100%;
-		margin-top: 20px;
-	}
-	.form-mt {
-		margin-top: 20px;
-	}
+  margin-top: 300px;
+  width: 100%;
+  max-width: 30vw;
+  .form-item {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .form-mt {
+    margin-top: 20px;
+  }
 }
 @media screen and (max-width: 768px) {
-	.form {
-		margin-top: 600px;
-		max-width: 100%;
-		.form-item {
-			width: 100%;
-			margin-top: 60px;
-		}
-		.form-mt {
-			margin-top: 60px;
-		}
-	}
+  .form {
+    margin-top: 600px;
+    max-width: 100%;
+    .form-item {
+      width: 100%;
+      margin-top: 60px;
+    }
+    .form-mt {
+      margin-top: 60px;
+    }
+  }
 }
 </style>

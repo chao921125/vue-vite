@@ -913,6 +913,11 @@
   },
   {
     "from": "@vueuse/core",
+    "name": "useCssSupports",
+    "as": "useCssSupports"
+  },
+  {
+    "from": "@vueuse/core",
     "name": "useCssVar",
     "as": "useCssVar"
   },

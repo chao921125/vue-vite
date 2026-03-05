@@ -169,6 +169,7 @@
       "useCountdown",
       "useCounter",
       "useCssModule",
+      "useCssSupports",
       "useCssVar",
       "useCssVars",
       "useCurrentElement",
