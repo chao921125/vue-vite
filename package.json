@@ -174,7 +174,7 @@
     "supports es6-module"
   ],
   "engines": {
-    "node": ">=20.19.0",
+    "node": "22.x",
     "npm": ">=10.8.2",
     "yarn": ">=3.8.7"
   },
