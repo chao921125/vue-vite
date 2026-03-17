@@ -3,6 +3,7 @@ import path from "node:path";
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 import dayjs from "dayjs";
+import { nodePolyfills } from "vite-plugin-node-polyfills";
 /**
  * 核心
  */
@@ -50,6 +51,8 @@ export default defineConfig(({ command, mode }) => {
   const envConfig = getEnvConfig(loadEnv(mode, import.meta.dirname, ""));
   const browserslistConfig = browserslist.loadConfig({ path: "." });
   const isBuild = command.includes("build");
+  // 是否为微前端子应用
+  // const isMicroApp = !!env.VITE_MICRO_APP;
   /**
    * 动态配置
    */
@@ -68,7 +71,12 @@ export default defineConfig(({ command, mode }) => {
    * 静态配置
    */
   const defaultConfig = {
-    // *** 公共 start ***
+    /**
+     * =======================================================================
+     * 1. 共享选项 (Shared Options)
+     * 参考: https://vite.dev/config/shared-options
+     * =======================================================================
+     */
     root: path.resolve(__dirname, ""), // "./public/index.html", // 入口，可以指定到public文件夹
     base: isBuild ? envConfig.VITE_PUBLIC_PATH : "./", // 公共基础路径
     // mode: "development", // 指令覆盖构建模式 --mode
@@ -82,6 +90,7 @@ export default defineConfig(({ command, mode }) => {
       vue({
         // template: { transformAssetUrls },
       }),
+      nodePolyfills(),
       fullReload(["config/*", "src/**/*", "types/**/*"], { root: __dirname, delay: 100 }),
       // * 是否生成包预览
       isBuild &&
@@ -315,15 +324,16 @@ export default defineConfig(({ command, mode }) => {
         // '@': fileURLToPath(new URL('./src', import.meta.url)),
         "#": path.resolve(__dirname, "./types"),
       },
-      // dedupe: "", // 一般SSR+ESM使用
-      // conditions: "",
-      // mainFields: "",
-      // extensions: "",
-      // preserveSymlinks: "",
+      // dedupe: [""], // 一般SSR+ESM使用
+      // conditions: ["module", "browser"],
+      // mainFields: [""],
+      // extensions: [""],
+      // preserveSymlinks: false,
+      // tsconfigPaths: false,
     },
     // html: { cspNonce: {} }, // 一个在生成脚本或样式标签时会用到的 nonce 值占位符
     css: {
-      // modules: "",
+      // modules: {},
       // 打开此处 postcss.config.js失效
       // postcss: {
       // 	plugins: [],
@@ -351,13 +361,7 @@ export default defineConfig(({ command, mode }) => {
       namedExports: true, // 按名称导入
       stringify: true, // 序列化后导入，即：JSON.parse()，开启后则namedExports失效
     },
-    esbuild: {
-      // false or jsx settings
-      // jsxFactory: "h",
-      // jsxFragment: "Fragment",
-      pure: envConfig.VITE_DROP_CONSOLE ? ["console.log"] : [],
-      drop: envConfig.VITE_DROP_CONSOLE ? ["debugger"] : [],
-    },
+    oxc: {},
     assetsInclude: ["**/*.gltf"], // 静态资源处理
     logLevel: "info", // 可以根据开发环境动态改变 "info" | "warn" | "error" | "silent"
     // customLogger: logger, // 可以根据开发环境动态改变 "info" | "warn" | "error" | "silent"
@@ -365,8 +369,12 @@ export default defineConfig(({ command, mode }) => {
     // envDir: "", // 配置.env文件相关
     // envPrefix: "", // 配置.env变量以VUE_还是默认的VITE_
     // appType: "", // 'spa' | 'mpa' | 'custom'
+    // devtools: false,
     // future: "",
-    // *** 服务器 start ***
+    /**
+     * 2. 服务器选项 (Server Options)
+     * 参考: https://vite.dev/config/server-options
+     */
     server: {
       host: true,
       allowedHosts: true,
@@ -405,6 +413,10 @@ export default defineConfig(({ command, mode }) => {
       cors: true, // boolean | CorsOptions
       // headers: false, // OutgoingHttpHeaders 指定服务器响应的 header
       hmr: true, // boolean | { protocol?: string, host?: string, port?: number, path?: string, timeout?: number, overlay?: boolean }
+      forwardConsole: {
+        unhandledErrors: true,
+        logLevels: ['warn', 'error'],
+      },
       // warmup: "", // object
       // watch: "", // object
       // middlewareMode: "",
@@ -416,11 +428,13 @@ export default defineConfig(({ command, mode }) => {
       // origin: "",
       // sourcemapIgnoreList: "",
     },
-    // *** 构建 start ***
+    /**
+     * 3. 构建选项 (Build Options)
+     * 参考: https://vite.dev/config/build-options
+     */
     build: {
       target: "esnext",
       // modulePreload: {},
-      // polyfillModulePreload: true,
       outDir: path.join(__dirname, "./dist"), // path.join(__dirname, "dist/render"),
       assetsDir: path.join(__dirname, "./assets"),
       assetsInlineLimit: 5120, // 5KB
@@ -429,7 +443,7 @@ export default defineConfig(({ command, mode }) => {
       // cssTarget: true, // 与 build.target 一致
       // cssMinify: true, // 与 build.minify 一致
       sourcemap: true,
-      rollupOptions: {
+      rolldownOptions: {
         input: {
           index: path.resolve(__dirname, "./index.html"),
           // color: path.resolve(__dirname, "/public/color.html"),
@@ -441,21 +455,29 @@ export default defineConfig(({ command, mode }) => {
           entryFileNames: "assets/js/[name]-[hash].js",
           assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
           compact: true,
-          manualChunks: {
-            vue: ["vue", "vue-router", "pinia"],
-            echarts: ["echarts"],
+          codeSplitting: true,
+          advancedChunks: {
+            groups: [{
+              name: "vue",
+              test: /[\\/]node_modules[\\/](vue|pinia|vue-router|axios)[\\/]/,
+              enforce: true
+            }, {
+              name: "echarts",
+              test: /[\\/]node_modules[\\/](echarts)[\\/]/,
+              enforce: true
+            }]
           },
         },
       },
-      // commonjsOptions: "",
       // dynamicImportVarsOptions: "",
       // lib: "",
+      // license: false,
       // manifest: false, // manifest.json
       // ssrManifest: false,
       // ssr: false,
       // emitAssets: false,
       // ssrEmitAssets: false,
-      minify: true, // boolean | "terser" | "esbuild"
+      minify: true, // boolean | "terser" | "oxc"
       terserOptions: {
         compress: {
           drop_console: isBuild, // 生产环境去除console
@@ -469,30 +491,40 @@ export default defineConfig(({ command, mode }) => {
       chunkSizeWarningLimit: 1024,
       // watch: 1024,
     },
-    // *** 预览 start ***
+    /**
+     * 4. 预览选项 (Preview Options)
+     * 参考: https://vite.dev/config/preview-options
+     * (用于 vite preview 命令)
+     */
     // preview: {
-    //   host: "",
+    //   host: "0.0.0.0",
     //   allowedHosts: "",
-    //   port: "",
-    //   strictPort: "",
-    //   https: "",
-    //   open: "",
+    //   port: 5000,
+    //   strictPort: true,
+    //   https: false,
+    //   open: false,
     //   proxy: {},
     //   cors: true,
     //   headers: "*",
     // },
-    // *** 依赖优化 start ***
+    /**
+     * 5. 依赖优化选项 (Dep Optimization Options)
+     * 参考: https://vite.dev/config/dep-optimization-options
+     */
     optimizeDeps: {
       // entries: "optimize.js",
       exclude: [],
       include: [],
-      // esbuildOptions: "",
+      rolldownOptions: {},
       force: false,
       // noDiscovery: false,
       // holdUntilCrawlEnd: false,
       // needsInterop: [],
     },
-    // *** SSR start ***
+    /**
+     * 6. SSR 选项 (SSR Options)
+     * 参考: https://vite.dev/config/ssr-options
+     */
     // ssr: {
     //   external: "",
     //   noExternal: "",
@@ -503,11 +535,14 @@ export default defineConfig(({ command, mode }) => {
     //   	mainFields: [],
     //   },
     // },
-    // *** Worker start ***
+    /**
+     * 7. Worker 选项 (Worker Options)
+     * 参考: https://vite.dev/config/worker-options
+     */
     // worker: {
     //   format: "iife", // 'es' | 'iife'
     //   plugins: [],
-    //   rollupOptions: {},
+    //   rolldownOptions: {},
     // },
   };
   return Object.assign(defaultConfig, dynamicConfig);
