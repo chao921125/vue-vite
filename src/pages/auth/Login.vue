@@ -213,7 +213,6 @@ const testExcel = () => {
         >
       </el-form-item>
     </el-form>
-    <el-button @click="testExcel">download</el-button>
   </section>
 </template>
 
