@@ -68,22 +68,22 @@ const onToReg = () => {
   router.push({ path: "/register" });
 };
 
-const testExcel = () => {
-  fetch("https://nfs.nacta.gov.pk/_blazor?id=uT5Dp_mYTw_od-c0l1i5Mg&_=1769089689394", {
-    cache: "no-cache",
-    credentials: "include",
-    headers: {
-      "X-Requested-With": "XMLHttpRequest",
-      "X-SignalR-User-Agent":
-        "Microsoft SignalR/0.0 (0.0.0-DEV_BUILD; Unknown OS; Browser; Unknown Runtime Version)",
-    },
-    method: "GET",
-    mode: "cors",
-    redirect: "follow",
-  }).then((res) => {
-    console.log(res);
-  });
-};
+// const testExcel = () => {
+//   fetch("https://nfs.nacta.gov.pk/_blazor?id=uT5Dp_mYTw_od-c0l1i5Mg&_=1769089689394", {
+//     cache: "no-cache",
+//     credentials: "include",
+//     headers: {
+//       "X-Requested-With": "XMLHttpRequest",
+//       "X-SignalR-User-Agent":
+//         "Microsoft SignalR/0.0 (0.0.0-DEV_BUILD; Unknown OS; Browser; Unknown Runtime Version)",
+//     },
+//     method: "GET",
+//     mode: "cors",
+//     redirect: "follow",
+//   }).then((res) => {
+//     console.log(res);
+//   });
+// };
 </script>
 
 <template>
