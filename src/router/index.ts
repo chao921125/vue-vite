@@ -33,7 +33,7 @@ export const router = createRouter({
 });
 
 // 路由加载前
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, from) => {
   NProgress.start();
   Storage.setLocalStorage(Constants.keys.routerPrev, from.path);
   Storage.setLocalStorage(Constants.keys.routerNext, to.path);
@@ -41,18 +41,20 @@ router.beforeEach(async (to, from, next) => {
   AxiosCancel.removeAllCancel();
   const token =
     Storage.getLocalStorage(Constants.keys.token) || Storage.getCookie(Constants.keys.token);
-  if (RouterConfig.whiteList.includes(to.path) && !token) {
-    next();
-  } else {
+  if (!(RouterConfig.whiteList.includes(to.path) && !token)) {
     if (!token || token === "undefined") {
       Storage.removeLocalStorage(Constants.keys.token);
       Storage.removeSessionStorage(Constants.keys.token);
       Storage.removeCookie(Constants.keys.token);
-      next(
-        `${RouterConfig.routeLogin}?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`,
-      );
+      return {
+        name: RouterConfig.routeLogin,
+        query: {
+          redirect: to.path,
+          params: JSON.stringify(to.query ? to.query : to.params),
+        },
+      };
     } else if (token && RouterConfig.whiteList.includes(to.path)) {
-      next(RouterConfig.routeHome);
+      return RouterConfig.routeHome;
     } else {
       try {
         const { routerList } = getStoreRefs(appStore.useRouterList);
@@ -68,18 +70,16 @@ router.beforeEach(async (to, from, next) => {
           await getDynamicRouter();
           // 如果首次访问为根路径，重定向到配置的首页，避免在重定向前发生无匹配警告
           if (to.path === "/" || to.path === "") {
-            next(RouterConfig.routeHome);
+            return RouterConfig.routeHome;
           } else {
             // 确保 addRoute() 时动态添加的路由已经被完全加载上去，再重试原始导航
-            next({ ...to, replace: true });
+            return { ...to, replace: true };
           }
-        } else {
-          next();
         }
       } catch (error) {
         console.error("路由加载出错:", error);
         // 出错时跳转到错误页面
-        next("/500");
+        return "/500";
       }
     }
   }
