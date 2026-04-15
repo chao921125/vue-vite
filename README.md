@@ -728,7 +728,7 @@
 | 框架（✅支持 ❌不支持）                                         | 小程序  | Web | Android | IOS | HarmonyOS | PC  | HarmonyOS PC |
 |------------------------------------------------------|------|-----|---------|-----|-----------|-----|--------------|
 | [uni-app 官网 小程序首选](https://uniapp.dcloud.net.cn/)    | ✅    | ✅   | ✅       | ✅   | ✅         | ❌   | ❌            |
-| [uni-app x 官网 不推荐](https://uniapp.dcloud.net.cn/)    | ✅    | ✅   | ✅       | ✅   | ✅         | ❌   | ✅            |
+| [uni-app x 官网](https://uniapp.dcloud.net.cn/)        | ✅    | ✅   | ✅       | ✅   | ✅         | ❌   | ✅            |
 | [taro 官网 京东系首选](https://github.com/nervjs/taro)      | ✅    | ✅   | ✅       | ✅   | ✅         | ❌   | ❌            |
 | [flutter 官网 👍性能优先](https://flutter.cn/)             | ❌    | ✅   | ✅       | ✅   | ❌         | ✅   | ❌            |
 | [React Native 官网](https://reactnative.cn/)           | ❌    | ❌   | ✅       | ✅   | ❌         | ✅   | ❌            |
