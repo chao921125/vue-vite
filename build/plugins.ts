@@ -1,9 +1,10 @@
+import type { Plugin } from "vite";
 import fs from "node:fs";
 
-export const imgToBase = (limit = 4096) => {
+export const imgToBase = (limit = 4096): Plugin => {
   return {
     name: "vite-img-to-base64",
-    async transform(_, id) {
+    async transform(_code: string, id: string) {
       if (!/\.(png|jpg|jpeg|gif)$/.test(id)) return id;
       const stat = await fs.promises.stat(id);
       if (stat.size > limit) return id;

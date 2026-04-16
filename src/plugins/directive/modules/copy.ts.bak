@@ -1,7 +1,7 @@
 import { ElMessage } from "element-plus";
 import { $t } from "@/plugins/i18n";
 
-function getTextByTag(node: any) {
+function getTextByTag(node) {
   if (node.children.length) {
     getTextByTag(node.children[0]);
   } else {
@@ -9,7 +9,7 @@ function getTextByTag(node: any) {
   }
 }
 
-function copyData(val: any) {
+function copyData(val) {
   const copyText = document.createElement("textarea");
   copyText.innerHTML = val;
   copyText.readOnly = true;
@@ -27,7 +27,7 @@ function copyData(val: any) {
 }
 
 export const copy = {
-  mounted(el: any, binding: any) {
+  mounted(el, binding) {
     if (binding.value) {
       el.copyData = binding.value;
     } else {
@@ -35,10 +35,10 @@ export const copy = {
     }
     el.addEventListener("click", () => copyData(el.copyData));
   },
-  updated(el: any, binding: any) {
+  updated(el, binding) {
     el.copyData = binding.value;
   },
-  beforeUnmount(el: any) {
+  beforeUnmount(el) {
     el.removeEventListener("click", el.__handleClick__);
   },
 };

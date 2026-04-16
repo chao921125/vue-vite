@@ -115,9 +115,9 @@ export async function getDynamicRouter() {
 }
 
 // 动态添加至路由中
-export async function setAddRoute(data) {
+export async function setAddRoute(data: any) {
   const routerList = getRouter(data);
-  routerList.forEach((route) => {
+  routerList.forEach((route: any) => {
     const { name } = route;
     if (name && name !== "/") {
       router.removeRoute(name || "");
@@ -128,7 +128,7 @@ export async function setAddRoute(data) {
 }
 
 // 存储原始数据
-async function setRouterList(data) {
+async function setRouterList(data: any) {
   await appStore.useRouterList.setRouterList(data);
 }
 
@@ -139,7 +139,7 @@ async function setRouterList(data) {
 function getRouter(data = []) {
   if (data.length === 0) return [];
   const rootRouter: any = [baseRoutes[0]];
-  const addRouters = [];
+  const addRouters: any[] = [];
   setRouterItem(addRouters, data, "");
   rootRouter[0].children = routeToComponent(addRouters);
   rootRouter[0].children = [...rootRouter[0].children, ...errorRoutes];
@@ -148,7 +148,7 @@ function getRouter(data = []) {
 /**
  * update router
  */
-function setRouterItem(routerList, data = [], parentPath = "") {
+function setRouterItem(routerList: any[], data: any[] = [], parentPath: string = "") {
   if (data.length === 0) return [];
   data.forEach((item: any) => {
     // 确保路径格式正确
@@ -188,9 +188,9 @@ function setRouterItem(routerList, data = [], parentPath = "") {
   });
 }
 
-function routeToComponent(routes) {
+function routeToComponent(routes: any[]) {
   if (!routes) return [];
-  return routes.map((item) => {
+  return routes.map((item: any) => {
     if (item.component) {
       const component = componentImport(dynamicViewsModules, item.component);
       if (component === false) {
@@ -205,7 +205,7 @@ function routeToComponent(routes) {
   });
 }
 
-function componentImport(viewsModule, component) {
+function componentImport(viewsModule: any, component: string) {
   const keys = Object.keys(viewsModule);
   const matchKeys = keys.filter((key) => {
     const k = key.replace(/^\.\.\/pages/, "");
@@ -231,7 +231,7 @@ function componentImport(viewsModule, component) {
 }
 
 // 存放tag数据
-export async function setTags(data) {
+export async function setTags(data: any) {
   await appStore.useRouterTags.setTagsViewRoutes(data);
 }
 

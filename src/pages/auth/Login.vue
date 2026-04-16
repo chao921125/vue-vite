@@ -22,9 +22,9 @@ const data = reactive({
   isLoading: false,
 });
 
-const onLogin = async (formEl) => {
+const onLogin = async (formEl: any) => {
   if (!formEl) return false;
-  await formEl.validate((valid: boolean, fields) => {
+  await formEl.validate((valid: boolean, fields: any) => {
     console.log("====", valid, fields);
     if (valid) {
       data.isLoading = true;

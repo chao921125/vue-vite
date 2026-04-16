@@ -4,7 +4,7 @@
  * @param path 需要赋值的属性 如：aaa.bbb
  * @param value 值
  */
-export const setObjDeep = (obj, path, value) => {
+export const setObjDeep = (obj: any, path: string, value: any) => {
   let schema = obj;
   const pList = path.split(".");
   const len = pList.length;
@@ -22,7 +22,7 @@ export const setObjDeep = (obj, path, value) => {
  * @param path 对象深度属性路径
  * @param obj 取值的对象
  */
-export const resolve = (path, obj) => {
+export const resolve = (path: string, obj: any) => {
   return path.split(".").reduce(function (prev, curr) {
     return prev ? prev[curr] : null;
   }, obj || self);

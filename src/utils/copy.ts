@@ -1,4 +1,4 @@
-export const writeText = (text) => {
+export const writeText = (text: string) => {
   if (!navigator.clipboard) {
     return false;
   }

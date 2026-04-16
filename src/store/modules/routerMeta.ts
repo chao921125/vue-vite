@@ -14,18 +14,18 @@ export const useRouterList = defineStore("routerList", {
     isColumnsNavHover: false,
   }),
   actions: {
-    async setRouterList(data) {
+    async setRouterList(data: any) {
       // this.routerList = data;
       Object.assign(this.routerList, data);
     },
-    async setMenuList(data) {
+    async setMenuList(data: any) {
       // this.menuList = data;
       Object.assign(this.menuList, data);
     },
-    async setColumnsMenuHover(bool) {
+    async setColumnsMenuHover(bool: any) {
       this.isColumnsMenuHover = bool;
     },
-    async setColumnsNavHover(bool) {
+    async setColumnsNavHover(bool: any) {
       this.isColumnsNavHover = bool;
     },
   },

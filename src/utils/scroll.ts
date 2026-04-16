@@ -1,4 +1,4 @@
-Math.easeInOutQuad = function (t, b, c, d) {
+Math.easeInOutQuad = function (t: number, b: number, c: number, d: number) {
   t /= d / 2;
   if (t < 1) {
     return (c / 2) * t * t + b;
@@ -23,7 +23,7 @@ const requestAnimFrame = (function () {
  * Because it's so fucking difficult to detect the scrolling element, just move them all
  * @param {number} amount
  */
-function move(amount) {
+function move(amount: number) {
   document.documentElement.scrollTop = amount;
 
   (document.body.parentNode as any).scrollTop = amount;
@@ -43,7 +43,7 @@ function position() {
  * @param {number} duration
  * @param {Function} callback
  */
-export const scrollTo = (to, duration, callback) => {
+export const scrollTo = (to: number, duration: number, callback?: Function) => {
   const start = position();
   const change = to - start;
   const increment = 20;
@@ -74,7 +74,7 @@ export const scrollTo = (to, duration, callback) => {
  * 锚点
  * @param anchorId
  */
-export const scrollToAnchorSmooth = (anchorId) => {
+export const scrollToAnchorSmooth = (anchorId: string) => {
   const element = document.getElementById(anchorId);
   if (element) {
     element.scrollIntoView({

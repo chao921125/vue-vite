@@ -1,6 +1,6 @@
 import Reg from "./reg";
 
-export const verifyNumber = (val) => {
+export const verifyNumber = (val: string) => {
   if (!val) return false;
   val = val.trim();
   return Reg.number.test(val);
@@ -10,7 +10,7 @@ export const verifyNumber = (val) => {
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export const verifyNumberPercentage = (val) => {
+export const verifyNumberPercentage = (val: string) => {
   if (!val) return "";
   // 匹配空格
   let v = val.replace(/(^\s*)|(\s*$)/g, "");
@@ -29,7 +29,7 @@ export const verifyNumberPercentage = (val) => {
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export const verifyNumberPercentageFloat = (val) => {
+export const verifyNumberPercentageFloat = (val: string) => {
   if (!val) return "";
   let v = verifyNumberIntegerAndFloat(val);
   // 数字超过100，赋值成最大值100
@@ -45,7 +45,7 @@ export const verifyNumberPercentageFloat = (val) => {
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export const verifyNumberIntegerAndFloat = (val) => {
+export const verifyNumberIntegerAndFloat = (val: string) => {
   // 匹配空格
   let v = val.replace(/(^\s*)|(\s*$)/g, "");
   // 只能是数字和小数点，不能是其他输入
@@ -67,7 +67,7 @@ export const verifyNumberIntegerAndFloat = (val) => {
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export const verifyNumberInteger = (val) => {
+export const verifyNumberInteger = (val: string) => {
   if (!val) return false;
   // 匹配空格
   let v = val.replace(/(^\s*)|(\s*$)/g, "");
@@ -88,7 +88,7 @@ export const verifyNumberInteger = (val) => {
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export const verifyCnAndSpace = (val) => {
+export const verifyCnAndSpace = (val: string) => {
   if (!val) return false;
   // 匹配中文与空格
   let v = val.replace(/[\u4e00-\u9fa5\s]+/g, "");
@@ -103,7 +103,7 @@ export const verifyCnAndSpace = (val) => {
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export const verifyEnAndSpace = (val) => {
+export const verifyEnAndSpace = (val: string) => {
   if (!val) return false;
   // 匹配英文与空格
   let v = val.replace(/[a-zA-Z]+/g, "");
@@ -118,7 +118,7 @@ export const verifyEnAndSpace = (val) => {
  * @param val 当前值字符串
  * @returns 返回处理后的字符串
  */
-export const verifyAndSpace = (val) => {
+export const verifyAndSpace = (val: string) => {
   if (!val) return false;
   // 匹配空格
   return val.replace(/(^\s*)|(\s*$)/g, "");
@@ -129,18 +129,16 @@ export const verifyAndSpace = (val) => {
  * @param val 当前值字符串
  * @returns string
  */
-export const verifyNumberComma = (val) => {
+export const verifyNumberComma = (val: string) => {
   if (!val) return "";
   // 调用小数或整数(不可以负数)方法
   let v = verifyNumberIntegerAndFloat(val);
   // 字符串转成数组
-  v = v.toString().split(".");
+  let vArr = v.toString().split(".");
   // \B 匹配非单词边界，两边都是单词字符或者两边都是非单词字符
-  v[0] = v[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  vArr[0] = vArr[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   // 数组转字符串
-  v = v.join(".");
-  // 返回结果
-  return v;
+  return vArr.join(".");
 };
 
 /**
@@ -150,7 +148,7 @@ export const verifyNumberComma = (val) => {
  * @param color 搜索到时字体高亮颜色
  * @returns string
  */
-export const verifyTextColor = (val, text = "", color = "red") => {
+export const verifyTextColor = (val: string, text: string = "", color: string = "red") => {
   if (!val) return "";
   // 返回内容，添加颜色
   // 返回结果
@@ -164,8 +162,12 @@ export const verifyTextColor = (val, text = "", color = "red") => {
  * @param v
  * @returns 返回处理后的字符串
  */
-export const verifyNumberCnUppercase = (val, unit = "仟佰拾亿仟佰拾万仟佰拾元角分", v = "") => {
-  if (!val) return false;
+export const verifyNumberCnUppercase = (
+  val: string,
+  unit: string = "仟佰拾亿仟佰拾万仟佰拾元角分",
+  v: string = "",
+) => {
+  if (!val) return "";
   // 当前内容字符串添加 2个0，为什么??
   val += "00";
   // 返回某个指定的字符串值在字符串中首次出现的位置，没有出现，则该方法返回 -1
@@ -176,7 +178,7 @@ export const verifyNumberCnUppercase = (val, unit = "仟佰拾亿仟佰拾万仟
   unit = unit.substr(unit.length - val.length);
   // 循环截取拼接大写
   for (let i = 0; i < val.length; i++) {
-    v += "零壹贰叁肆伍陆柒捌玖".substr(val.substr(i, 1), 1) + unit.substr(i, 1);
+    v += "零壹贰叁肆伍陆柒捌玖".substr(val.substr(i, 1) as any, 1) + unit.substr(i, 1);
   }
   // 正则处理
   v = v
@@ -196,7 +198,7 @@ export const verifyNumberCnUppercase = (val, unit = "仟佰拾亿仟佰拾万仟
  * @param val 当前值字符串
  * @returns 返回 true: 手机号码正确
  */
-export const verifyPhone = (val) => {
+export const verifyPhone = (val: string) => {
   if (!val) return false;
   // false: 手机号码不正确
   return /^((12[0-9])|(13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0|1,5-9]))\d{8}$/.test(val);
@@ -207,7 +209,7 @@ export const verifyPhone = (val) => {
  * @param val 当前值字符串
  * @returns 返回 true: 国内电话号码正确
  */
-export const verifyTelPhone = (val) => {
+export const verifyTelPhone = (val: string) => {
   if (!val) return false;
   // false: 国内电话号码不正确
   return /\d{3}-\d{8}|\d{4}-\d{7}/.test(val);
@@ -218,7 +220,7 @@ export const verifyTelPhone = (val) => {
  * @param val 当前值字符串
  * @returns 返回 true: 登录账号正确
  */
-export const verifyAccount = (val) => {
+export const verifyAccount = (val: string) => {
   if (!val) return false;
   // false: 登录账号不正确
   return /^[A-Z][A-Z0-9_]{4,15}$/i.test(val);
@@ -229,7 +231,7 @@ export const verifyAccount = (val) => {
  * @param val 当前值字符串
  * @returns 返回 true: 密码正确
  */
-export const verifyPassword = (val) => {
+export const verifyPassword = (val: string) => {
   if (!val) return false;
   // false: 密码不正确
   return /^[A-Z]\w{5,15}$/i.test(val);
@@ -240,7 +242,7 @@ export const verifyPassword = (val) => {
  * @param val 当前值字符串
  * @returns 返回 true: 强密码正确
  */
-export const verifyPasswordPowerful = (val) => {
+export const verifyPasswordPowerful = (val: string) => {
   if (!val) return false;
   // false: 强密码不正确
   return /^(?![A-Z]+$)(?!\d+$)(?![!@#$%^&\\.*]+$)(?![A-Z\d]+$)(?![A-Z!@#$%^&\\.*]+$)(?![\d!@#$%^&\\.*]+$)[A-Z\d!@#$%^&\\.*]{6,16}$/i.test(
@@ -256,7 +258,7 @@ export const verifyPasswordPowerful = (val) => {
  * @description 强：字母+数字+特殊字符
  * @returns 返回处理后的字符串：弱、中、强
  */
-export const verifyPasswordStrength = (val) => {
+export const verifyPasswordStrength = (val: string) => {
   if (!val) return false;
   let v = "";
   // 弱：纯数字，纯字母，纯特殊字符
@@ -279,7 +281,7 @@ export const verifyPasswordStrength = (val) => {
  * @param val 当前值字符串
  * @returns 返回 true: IP地址正确
  */
-export const verifyIPAddress = (val) => {
+export const verifyIPAddress = (val: string) => {
   if (!val) return false;
   // false: IP地址不正确
   return /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/.test(
@@ -292,7 +294,7 @@ export const verifyIPAddress = (val) => {
  * @param val 当前值字符串
  * @returns 返回 true: 邮箱正确
  */
-export const verifyEmail = (val) => {
+export const verifyEmail = (val: string) => {
   if (!val) return false;
   // false: 邮箱不正确
   return /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$/i.test(val);
@@ -303,7 +305,7 @@ export const verifyEmail = (val) => {
  * @param val 当前值字符串
  * @returns 返回 true: 身份证正确
  */
-export const verifyIdCard = (val) => {
+export const verifyIdCard = (val: string) => {
   if (!val) return false;
   // false: 身份证不正确
   return /^[1-9]\d{5}(18|19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/.test(
@@ -316,7 +318,7 @@ export const verifyIdCard = (val) => {
  * @param val 当前值字符串
  * @returns 返回 true: 姓名正确
  */
-export const verifyFullName = (val) => {
+export const verifyFullName = (val: string) => {
   if (!val) return false;
   // false: 姓名不正确
   return /^[\u4e00-\u9fa5]{1,6}(·[\u4e00-\u9fa5]{1,6}){0,2}$/.test(val);
@@ -327,7 +329,7 @@ export const verifyFullName = (val) => {
  * @param val 当前值字符串
  * @returns 返回 true: 邮政编码正确
  */
-export const verifyPostalCode = (val) => {
+export const verifyPostalCode = (val: string) => {
   if (!val) return false;
   // false: 邮政编码不正确
   return /^[1-9][0-9]{5}$/.test(val);
@@ -338,7 +340,7 @@ export const verifyPostalCode = (val) => {
  * @param val 当前值字符串
  * @returns 返回 true: url 正确
  */
-export const verifyUrl = (val) => {
+export const verifyUrl = (val: string) => {
   // false: url不正确
   if (!val) return false;
   // if (!/^((https|http|ftp|ws|wss)?:\/\/(([a-zA-Z0-9]+-?)+[a-zA-Z0-9]+\.)+[a-zA-Z]+)(:\d+)?(\/.*)?(\?.*)?(#.*)?$/i.test(val)) return false;
@@ -352,7 +354,7 @@ export const verifyUrl = (val) => {
  * @param val 当前值字符串
  * @returns 返回 true：车牌号正确
  */
-export const verifyCarNum = (val) => {
+export const verifyCarNum = (val: string) => {
   if (!val) return false;
   // false: 车牌号不正确
   return /^(([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z](([0-9]{5}[DF])|([DF]([A-HJ-NP-Z0-9])[0-9]{4})))|([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳使领]))$/.test(

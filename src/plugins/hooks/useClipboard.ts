@@ -1,6 +1,6 @@
 export function useClipboard() {
   const isCopied = ref(false);
-  const copy = async (text) => {
+  const copy = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
       isCopied.value = true;

@@ -1,5 +1,5 @@
 export default {
-  qqMapToBMap: (lng, lat) => {
+  qqMapToBMap: (lng: number, lat: number) => {
     const x_pi = (3.14159265358979324 * 3000.0) / 180.0;
     const x = lng;
     const y = lat;
@@ -9,7 +9,7 @@ export default {
     const bdLat = z * Math.sin(theta) + 0.006;
     return { lng: bdLng, lat: bdLat };
   },
-  bMapToQQMap: (lng, lat) => {
+  bMapToQQMap: (lng: number, lat: number) => {
     const x_pi = (3.14159265358979324 * 3000.0) / 180.0;
     const x = lng - 0.0065;
     const y = lat - 0.006;

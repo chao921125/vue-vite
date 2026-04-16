@@ -1,67 +1,69 @@
 {
-  /* "files": [], */
-  /* "references": [], */
-  /* {
-		"path": "./tsconfig.node.json"
+	"compilerOptions": {
+		/* === 语言与语法 === */
+		"target": "ESNext",
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"jsx": "preserve",
+
+		/* === 模块 === */
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+
+		/* === 严格性 === */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"forceConsistentCasingInFileNames": true,
+
+		/* === 路径别名（TS 仅用于类型检查） === */
+		"paths": {
+			"@/*": ["./src/*"],
+			"#/*": ["./class/*"]
+		},
+
+		/* === 输出 === */
+		"outDir": "dist",
+		"declaration": true,
+		"declarationDir": "types",
+		"declarationMap": true,
+		"sourceMap": true,
+		"removeComments": true,
+
+		/* === 兼容性 === */
+		"skipLibCheck": true,
+		"allowJs": true,
+
+		/* === 插件类型 === */
+		"types": [
+			"node",
+			"vite/client",
+			"vite-plugin-pwa/client",
+			"vite-plugin-pwa/vue",
+			"echarts",
+			"qs"
+		]
 	},
-	{
-		"path": "./tsconfig.vitest.json"
-	} */
-  /* Visit https://aka.ms/tsconfig.json to read more about this file https://www.tslang.cn/docs/handbook/tsconfig-json.html */
-  "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "declarationDir": "./types",
-    "declarationMap": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "incremental": false,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "lib": ["ES5", "ES6", "ES7", "ESNext", "DOM", "DOM.Iterable", "ScriptHost", "Decorators"],
-    "listEmittedFiles": true,
-    "listFiles": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": false,
-    "noLib": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "baseUrl": "./",
-    "outDir": "./dist",
-    "paths": {
-      "@/*": ["src/*"],
-      "/#/*": ["class/*"]
-    },
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "sourceMap": true,
-    "strict": true,
-    "strictFunctionTypes": false,
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "skipLibCheck": true,
-    "types": [
-      "echarts",
-      "node",
-      "qs",
-      "vite/client",
-      "vite-plugin-pwa/client",
-      "vite-plugin-pwa/vue"
-    ]
-  },
-  "plugins": [],
-  "include": [
-    "src/**/*",
-    "src/**/*.vue",
-    "types/**/*",
-    "build/**/*",
-    "mock/**/*",
-    "auto-imports.d.ts",
-    "components.d.ts"
-  ],
-  "exclude": ["node_modules", "dist", "cypress", "tests"]
-  //	"references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.app.json" }]
+
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.tsx",
+		"src/**/*.vue",
+		"types/**/*",
+		"build/**/*",
+		"mock/**/*",
+		"auto-imports.d.ts",
+		"components.d.ts"
+	],
+
+	"exclude": [
+		"node_modules",
+		"dist",
+		"cypress",
+		"tests"
+	]
 }

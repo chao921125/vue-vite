@@ -1,7 +1,7 @@
 // import { useIntersectionObserver } from "@vueuse/core";
 
 export const animate = {
-  mounted(el, binding) {
+  mounted(el: any, binding: any) {
     // const { stop } = useIntersectionObserver(el, ([{ isIntersecting }], observerElement) => {
     // 	if (isIntersecting) {
     // 		el.classList.remove(options.animateOutClass);

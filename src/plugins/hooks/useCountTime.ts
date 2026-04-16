@@ -2,7 +2,7 @@
  * 实现倒计时
  */
 
-export function useCountTime(downNum) {
+export function useCountTime(downNum: number) {
   const sendBtnText = ref("发送验证码");
   const countDownNum = ref(downNum);
 

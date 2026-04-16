@@ -1,6 +1,6 @@
 export const clickOutside = {
-  mounted(el: any, binding: any) {
-    const handler = (e: any) => {
+  mounted(el, binding) {
+    const handler = (e) => {
       if (el.contains(e.target)) {
         return false;
       }
@@ -8,7 +8,7 @@ export const clickOutside = {
     };
     document.addEventListener("click", handler);
   },
-  unmounted(el: any) {
+  unmounted(el) {
     document.removeEventListener("click", el);
   },
 };

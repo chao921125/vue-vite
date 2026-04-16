@@ -11,14 +11,14 @@ import AxiosCancel from "./cancel";
 import { ElMessage } from "element-plus";
 
 // 创建一个错误
-function errorCreate(msg) {
+function errorCreate(msg: string) {
   const err = new Error(msg);
   errorLog(err);
   throw err;
 }
 
 // 记录和显示错误
-function errorLog(err) {
+function errorLog(err: any) {
   // 添加到日志
 
   // 打印到控制台

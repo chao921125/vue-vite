@@ -21,7 +21,7 @@ export const useDemo = defineStore("demo", {
     },
   },
   actions: {
-    setDemo(data) {
+    setDemo(data: any) {
       this.demo = data;
     },
   },

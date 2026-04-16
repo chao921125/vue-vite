@@ -1,9 +1,10 @@
 // @see https://vitejs.dev/config/
-import path from "node:path";
-import fs from "node:fs";
-import { fileURLToPath } from "node:url";
+import path from "path";
+import fs from "fs";
+import { fileURLToPath } from "url";
 import dayjs from "dayjs";
-import { nodePolyfills } from "vite-plugin-node-polyfills";
+// import { nodePolyfills } from "vite-plugin-node-polyfills";
+
 /**
  * 核心
  */
@@ -90,7 +91,6 @@ export default defineConfig(({ command, mode }) => {
       vue({
         // template: { transformAssetUrls },
       }),
-      nodePolyfills(),
       fullReload(["config/*", "src/**/*", "types/**/*"], { root: __dirname, delay: 100 }),
       // * 是否生成包预览
       isBuild &&
@@ -226,7 +226,7 @@ export default defineConfig(({ command, mode }) => {
       legacy({
         renderLegacyChunks: false,
         modernPolyfills: ["es.global-this"],
-        targets: browserslistConfig,
+        modernTargets: "defaults and supports es6-module",
       }),
       lqip(),
       isBuild && envConfig.VITE_BUILD_GZIP && compression(),
@@ -433,7 +433,7 @@ export default defineConfig(({ command, mode }) => {
      * 参考: https://vite.dev/config/build-options
      */
     build: {
-      target: "esnext",
+      // target 由 legacy 插件的 modernTargets 控制
       // modulePreload: {},
       outDir: path.join(__dirname, "./dist"), // path.join(__dirname, "dist/render"),
       assetsDir: path.join(__dirname, "./assets"),
@@ -454,17 +454,13 @@ export default defineConfig(({ command, mode }) => {
           chunkFileNames: "assets/js/[name]-[hash].js",
           entryFileNames: "assets/js/[name]-[hash].js",
           assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
-          compact: true,
-          codeSplitting: true,
-          advancedChunks: {
+          codeSplitting: {
             groups: [{
               name: "vue",
               test: /[\\/]node_modules[\\/](vue|pinia|vue-router|axios)[\\/]/,
-              enforce: true
             }, {
               name: "echarts",
               test: /[\\/]node_modules[\\/](echarts)[\\/]/,
-              enforce: true
             }]
           },
         },

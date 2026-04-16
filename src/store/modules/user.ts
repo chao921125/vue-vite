@@ -18,7 +18,7 @@ export const useUserInfo = defineStore("userInfo", {
     },
   }),
   actions: {
-    setUserInfo(data) {
+    setUserInfo(data: any) {
       // 缓存中获取用户信息
       const info =
         Storage.getLocalStorage(Constants.keys.userInfo) ||

@@ -10,23 +10,23 @@
  *       }"
  */
 export const animates = {
-  mounted(el, binding) {
+  mounted(el: any, binding: any) {
     applyAnimation(el, binding.value);
   },
-  updated(el, binding) {
+  updated(el: any, binding: any) {
     // 清理之前的动画类和内联样式（除基础类外）
     resetAnimation(el);
     applyAnimation(el, binding.value);
   },
-  unmounted(el) {
+  unmounted(el: any) {
     resetAnimation(el);
   },
 };
 
 // 内部方法：重置动画相关的类和样式
-function resetAnimation(el) {
+function resetAnimation(el: any) {
   // 保留基础类 animate__animated 与 animate__infinite（后续根据配置添加或移除）
-  el.classList.forEach((cls) => {
+  el.classList.forEach((cls: any) => {
     if (cls.startsWith("animate__") && cls !== "animate__animated" && cls !== "animate__infinite") {
       el.classList.remove(cls);
     }
@@ -37,7 +37,7 @@ function resetAnimation(el) {
 }
 
 // 内部方法：应用动画配置
-function applyAnimation(el, bindingValue) {
+function applyAnimation(el: any, bindingValue: any) {
   // 如果传入为字符串，则视为动画名称，其他配置采用默认值
   let config = {
     animation: "",
@@ -45,7 +45,7 @@ function applyAnimation(el, bindingValue) {
     delay: "",
     iterationCount: "",
     infinite: "",
-    onAnimationEnd: (e?) => {
+    onAnimationEnd: (e?: any) => {
       console.log("Animation ended:", e);
     },
   };

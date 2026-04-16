@@ -24,7 +24,7 @@ function typeColor(type = "default") {
   return color;
 }
 
-function colorful(textArr) {
+function colorful(textArr: any[]) {
   console.log(
     `%c${textArr
       .map((t) => {
@@ -41,7 +41,7 @@ function colorful(textArr) {
   );
 }
 
-log.capsule = (title, info, type = "primary") => {
+log.capsule = (title: any, info: any, type: string = "primary") => {
   console.log(
     `%c ${title} %c ${info} %c`,
     "background:#35495E; padding: 1px; border-radius: 3px 0 0 3px; color: #fff;",

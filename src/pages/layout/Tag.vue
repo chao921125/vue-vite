@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
 import Storage from "@/utils/storage";
 import Constants from "@/utils/constant/constants";
@@ -10,88 +9,90 @@ const router = useRouter();
 const route = useRoute();
 let tabs = ref<any>([]);
 const tabValue = ref<string>("/home");
-const addTab = (routeCurrent) => {
-	if (routeCurrent.meta.isHide) {
-		return false;
-	}
-	tabValue.value = routeCurrent.fullPath;
-	if (routeCurrent.fullPath === "/home") {
-		return false;
-	}
-	let tags = Storage.getLocalStorage(Constants.keys.tags) || [];
-	tags.push({
-		label: routeCurrent.meta.title,
-		name: routeCurrent.fullPath,
-		closable: true,
-	});
-	tabs.value = Array.from(new Set(tags.map((value) => JSON.stringify(value)))).map((item) => JSON.parse(item as string));
-	return tabs.value;
+const addTab = (routeCurrent: any) => {
+  if (routeCurrent.meta.isHide) {
+    return false;
+  }
+  tabValue.value = routeCurrent.fullPath;
+  if (routeCurrent.fullPath === "/home") {
+    return false;
+  }
+  let tags = Storage.getLocalStorage(Constants.keys.tags) || [];
+  tags.push({
+    label: routeCurrent.meta.title,
+    name: routeCurrent.fullPath,
+    closable: true,
+  });
+  tabs.value = Array.from(new Set(tags.map((value: any) => JSON.stringify(value)))).map((item) =>
+    JSON.parse(item as string),
+  );
+  return tabs.value;
 };
-const removeTab = (name) => {
-	if (name === RouterConfig.routeHome) {
-		return false;
-	}
-	let activeName = tabValue.value;
-	if (tabs.value.length) {
-		// const index = tabArray.map((item) => item.name).indexOf(name);
-		const index = tabs.value.findIndex((item) => item.name === name);
-		tabs.value.splice(index, 1);
-		if (name === activeName) {
-			if (!tabs.value.length) {
-				activeName = RouterConfig.routeHome;
-			} else if (index === tabs.value.length) {
-				activeName = tabs.value[index - 1].name;
-			} else {
-				activeName = tabs.value[index].name;
-			}
-		}
-	} else {
-		activeName = RouterConfig.routeHome;
-	}
-	tabValue.value = activeName;
-	Storage.setLocalStorage(Constants.keys.tags, tabs.value);
-	router.push({ path: tabValue.value });
+const removeTab = (name: any) => {
+  if (name === RouterConfig.routeHome) {
+    return false;
+  }
+  let activeName = tabValue.value;
+  if (tabs.value.length) {
+    // const index = tabArray.map((item) => item.name).indexOf(name);
+    const index = tabs.value.findIndex((item: any) => item.name === name);
+    tabs.value.splice(index, 1);
+    if (name === activeName) {
+      if (!tabs.value.length) {
+        activeName = RouterConfig.routeHome;
+      } else if (index === tabs.value.length) {
+        activeName = tabs.value[index - 1].name;
+      } else {
+        activeName = tabs.value[index].name;
+      }
+    }
+  } else {
+    activeName = RouterConfig.routeHome;
+  }
+  tabValue.value = activeName;
+  Storage.setLocalStorage(Constants.keys.tags, tabs.value);
+  router.push({ path: tabValue.value });
 };
-const changeRouter = (tabName) => {
-	router.push({ path: tabName });
+const changeRouter = (tabName: any) => {
+  router.push({ path: tabName });
 };
 // 点击更多
 const clickChange = (command: string | number | object) => {
-	let routeTemp = {},
-		activeName = tabValue.value;
-	if (command === "0" || command === 0) {
-		routeTemp = {
-			label: String(route.meta.title!),
-			name: route.fullPath,
-			closable: true,
-		};
-		activeName = route.fullPath;
-		tabs.value = [];
-		tabs.value.push(routeTemp);
-	}
-	if (command === "1" || command === 1) {
-		activeName = RouterConfig.routeHome;
-		tabs.value = [];
-	}
-	Storage.setLocalStorage(Constants.keys.tags, tabs.value);
-	tabValue.value = activeName;
-	router.push({ path: tabValue.value });
+  let routeTemp = {},
+    activeName = tabValue.value;
+  if (command === "0" || command === 0) {
+    routeTemp = {
+      label: String(route.meta.title!),
+      name: route.fullPath,
+      closable: true,
+    };
+    activeName = route.fullPath;
+    tabs.value = [];
+    tabs.value.push(routeTemp);
+  }
+  if (command === "1" || command === 1) {
+    activeName = RouterConfig.routeHome;
+    tabs.value = [];
+  }
+  Storage.setLocalStorage(Constants.keys.tags, tabs.value);
+  tabValue.value = activeName;
+  router.push({ path: tabValue.value });
 };
 onMounted(() => {
-	// if (!Storage.getLocalStorage(Constants.keys.tags)) {
-	// 	Storage.setLocalStorage(Constants.keys.tags, [
-	// 		{
-	// 			label: $t("message.menu.home"),
-	// 			name: "/home",
-	// 			closable: false,
-	// 		},
-	// 	]);
-	// }
-	tabs.value = Storage.getLocalStorage(Constants.keys.tags) || [];
-	tabValue.value = route.path;
+  // if (!Storage.getLocalStorage(Constants.keys.tags)) {
+  // 	Storage.setLocalStorage(Constants.keys.tags, [
+  // 		{
+  // 			label: $t("message.menu.home"),
+  // 			name: "/home",
+  // 			closable: false,
+  // 		},
+  // 	]);
+  // }
+  tabs.value = Storage.getLocalStorage(Constants.keys.tags) || [];
+  tabValue.value = route.path;
 });
 onBeforeRouteUpdate((to) => {
-	Storage.setLocalStorage(Constants.keys.tags, addTab(to));
+  Storage.setLocalStorage(Constants.keys.tags, addTab(to));
 });
 </script>
 
@@ -135,22 +136,22 @@ onBeforeRouteUpdate((to) => {
 
 <style scoped lang="scss">
 .tags-space {
-	width: 100%;
-	height: 25px;
+  width: 100%;
+  height: 25px;
 }
 .tags-content {
-	background-color: var(--el-bg-color);
-	box-sizing: border-box;
-	//position: fixed;
-	//z-index: 99999;
-	//top: 60px;
-	padding: 5px 20px;
-	//background-color: #fff;
-	.tags-list {
-		width: calc(100% - 70px);
-	}
-	.tags-option {
-		width: 50px;
-	}
+  background-color: var(--el-bg-color);
+  box-sizing: border-box;
+  //position: fixed;
+  //z-index: 99999;
+  //top: 60px;
+  padding: 5px 20px;
+  //background-color: #fff;
+  .tags-list {
+    width: calc(100% - 70px);
+  }
+  .tags-option {
+    width: 50px;
+  }
 }
 </style>

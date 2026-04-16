@@ -19,11 +19,11 @@ util.setTitle = async () => {
   });
 };
 
-util.tagsName = (value) => {
+util.tagsName = (value: any) => {
   return setTitleI18n(value);
 };
 
-const setTitleI18n = (value) => {
+const setTitleI18n = (value: any) => {
   let tagsViewName = import.meta.env.VITE_TITLE;
   const { query, params, meta } = value;
   if (query?.tagsViewName || params?.tagsViewName) {
@@ -51,13 +51,13 @@ const setTitleI18n = (value) => {
  * 设置cdn
  */
 // 字体图标 url
-const cssCdnUrlList = [];
+const cssCdnUrlList: string[] = [];
 // 第三方 js url
-const jsCdnUrlList = [];
+const jsCdnUrlList: string[] = [];
 // 动态批量设置字体图标
 util.setCssCdn = () => {
   if (cssCdnUrlList.length <= 0) return false;
-  cssCdnUrlList.map((v) => {
+  cssCdnUrlList.map((v: string) => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = v;
@@ -68,7 +68,7 @@ util.setCssCdn = () => {
 // 动态批量设置第三方js
 util.setJsCdn = () => {
   if (jsCdnUrlList.length <= 0) return false;
-  jsCdnUrlList.map((v) => {
+  jsCdnUrlList.map((v: string) => {
     const link = document.createElement("script");
     link.src = v;
     document.body.appendChild(link);
@@ -79,7 +79,7 @@ util.setJsCdn = () => {
  * @description 打开新页面
  * @param {String} url 地址
  */
-util.open = (url) => {
+util.open = (url: string) => {
   if (!url) return false;
   const a = document.createElement("a");
   a.setAttribute("href", url);
@@ -96,13 +96,16 @@ util.open = (url) => {
  *   "url": "string"
  * }
  * */
-util.urlToObj = (url) => {
-  const obj = {};
+util.urlToObj = (url: string) => {
+  const obj: Record<string, string> = {};
   if (!url) return obj;
 
-  url.replace(/([^?=&#]+)=([^?=&#]+)/g, (_, key, value) => (obj[key] = value));
+  url.replace(
+    /([^?=&#]+)=([^?=&#]+)/g,
+    (_: string, key: string, value: string) => (obj[key] = value),
+  );
 
-  url.replace(/#([^?=&#]+)/g, (_, hash) => (obj["HASH"] = hash));
+  url.replace(/#([^?=&#]+)/g, (_: string, hash: string) => (obj["HASH"] = hash));
   return obj;
 };
 
@@ -128,7 +131,7 @@ export function isMobileTouch2() {
  * https://github.com/matthewhudson/current-device
  * @param opts
  */
-util.isMobile = (opts) => {
+util.isMobile = (opts?: any) => {
   const mobileRE =
     /(android|bb\d+|meego).+mobile|armv7l|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series[46]0|samsungbrowser.*mobile|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i;
   const notMobileRE = /CrOS/;
@@ -165,7 +168,7 @@ util.isWeixin = () => {
   return ua.match(/MicroMessenger/i)?.[0] === "micromessenger";
 };
 
-util.preload = async (mediaUrls) => {
+util.preload = async (mediaUrls: string[]) => {
   for (const url of mediaUrls) {
     if (url.endsWith(".mp4")) {
       await preloadVideo(url);

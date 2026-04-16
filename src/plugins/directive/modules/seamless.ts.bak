@@ -1,6 +1,6 @@
 // v-seamless-scroll.js
 export default {
-  mounted(el: any, binding: any) {
+  mounted(el, binding) {
     // 解析配置项
     const config = Object.assign(
       {

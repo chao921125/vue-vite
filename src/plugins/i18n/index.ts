@@ -2,7 +2,9 @@ import { createI18n, useI18n } from "vue-i18n";
 import { getStoreRefs, appStore } from "@/store";
 
 // 引入国际化文件
+// @ts-ignore
 import zhCN from "element-plus/dist/locale/zh-cn.mjs";
+// @ts-ignore
 import en from "element-plus/dist/locale/en.mjs";
 
 export const elI18n = {
@@ -56,10 +58,10 @@ export const readLocale = (prefix = zhCN.name) => {
 };
 
 // 以下两种方式均可以实现在js中动态国际化
-export const $t = (args) => {
+export const $t = (args: string) => {
   return i18n.global.t(args);
 };
-export const useI18nMessage = (args) => {
+export const useI18nMessage = (args: string) => {
   const { t } = useI18n();
   return t(args);
 };

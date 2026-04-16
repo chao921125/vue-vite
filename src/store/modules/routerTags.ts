@@ -12,11 +12,11 @@ export const useRouterTags = defineStore("tagsViewRoutes", {
     isTagsViewCurrenFull: false,
   }),
   actions: {
-    async setTagsViewRoutes(data) {
+    async setTagsViewRoutes(data: any) {
       // this.tagsViewRoutes = data;
       Object.assign(this.tagsViewRoutes, data);
     },
-    setCurrenFullscreen(bool) {
+    setCurrenFullscreen(bool: any) {
       Storage.setSessionStorage("isTagsViewCurrenFull", bool);
       Storage.setCookie("isTagsViewCurrenFull", bool);
       this.isTagsViewCurrenFull = bool;

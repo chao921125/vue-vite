@@ -66,7 +66,7 @@ storage.getLocalMaxSpace = () => {
     console.log("当前浏览器不支持localStorage!");
   }
   let test = "0123456789";
-  const add = function (num) {
+  const add = function (num: any) {
     num += num;
     if (num.length === 10240) {
       test = num;
@@ -139,7 +139,7 @@ storage.getSessionMaxSpace = () => {
     console.log("当前浏览器不支持sessionStorage!");
   }
   let test = "0123456789";
-  const add = function (num) {
+  const add = function (num: any) {
     num += num;
     if (num.length === 10240) {
       test = num;
@@ -180,7 +180,7 @@ storage.getSessionUsedSpace = () => {
 /**
  * Cookie
  */
-storage.setCookieCustomize = (cname, cvalue, exdays) => {
+storage.setCookieCustomize = (cname: string, cvalue: any, exdays: number) => {
   if (!cname) {
     cname = "";
   }
@@ -196,7 +196,7 @@ storage.setCookieCustomize = (cname, cvalue, exdays) => {
   document.cookie = cname + "=" + JSON.stringify(cvalue) + "; " + expires;
 };
 
-storage.getCookieCustomize = (cname) => {
+storage.getCookieCustomize = (cname: string) => {
   if (!cname) {
     return "";
   }
@@ -211,7 +211,7 @@ storage.getCookieCustomize = (cname) => {
   return "";
 };
 
-storage.setCookie = (key = "default", value: string, settings?) => {
+storage.setCookie = (key: string = "default", value: string, settings?: any) => {
   let cookieString = `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
   const options = Object.assign(
     {
@@ -259,7 +259,7 @@ storage.setCookie = (key = "default", value: string, settings?) => {
   document.cookie = cookieString;
 };
 
-storage.getCookie = (key = "default") => {
+storage.getCookie = (key: string = "default") => {
   const nameEQ = `${encodeURIComponent(key)}=`;
   const cookies = document.cookie.split(";");
 
@@ -277,8 +277,8 @@ storage.getCookie = (key = "default") => {
   return null;
 };
 
-storage.getCookieAll = () => {
-  const cookies = {};
+storage.getCookieAll = (): Record<string, string> => {
+  const cookies: Record<string, string> = {};
 
   if (document.cookie) {
     document.cookie.split(";").forEach((cookie) => {
@@ -290,7 +290,7 @@ storage.getCookieAll = () => {
   return cookies;
 };
 
-storage.removeCookie = (key = "default", options?) => {
+storage.removeCookie = (key: string = "default", options?: any) => {
   // 设置过期时间为过去的时间
   storage.setCookie(key, "", {
     ...options,

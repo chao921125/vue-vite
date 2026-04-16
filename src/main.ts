@@ -46,8 +46,8 @@ app.config.globalProperties.$messageBox = ElMessageBox;
 app.config.globalProperties.$notification = ElNotification;
 
 // element 注册element Icons组件
-Object.keys(Icons).forEach((key) => {
-  app.component(key, Icons[key]);
+Object.keys(Icons).forEach((key: string) => {
+  app.component(key, Icons[key as keyof typeof Icons]);
 });
 
 // vant
@@ -65,8 +65,8 @@ import "vant/lib/index.css";
  * */
 // 全局自定义指令
 import * as directives from "@/plugins/directive";
-Object.keys(directives).forEach((key) => {
-  app.directive(key, directives[key]);
+Object.keys(directives).forEach((key: string) => {
+  app.directive(key, directives[key as keyof typeof directives]);
 });
 
 // 全局信息定义 使用 inject: [""],
@@ -123,7 +123,7 @@ let isShowError = false;
 const isWanNumMax = 10;
 let isWanNum = 0;
 let isShowWan = false;
-app.config.errorHandler = (err, instance, info) => {
+app.config.errorHandler = (err: unknown, instance: any, info: string) => {
   // 处理错误
   // `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
   // 只在开发模式下打印 log
@@ -139,7 +139,7 @@ app.config.errorHandler = (err, instance, info) => {
     Log.primary(info || "");
   }
 };
-app.config.warnHandler = (msg, instance, trace) => {
+app.config.warnHandler = (msg: string, instance: any, trace: string) => {
   // 显示在控制台
   if (import.meta.env.VITE_NODE_ENV === "development" && !isShowWan) {
     if (++isWanNum > isWanNumMax) {

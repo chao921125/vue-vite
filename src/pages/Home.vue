@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { formatAxis, formatDate } from "@/utils/format";
 import { getIpInfoProxy, getIpInfoReal } from "@/utils/ip";
 import Constants from "@/utils/constant/constants";
@@ -14,31 +13,31 @@ const uaInfo = Ua.uaInfo;
 const ipReal = reactive({ ip: "", province: "", region: "", country: "" });
 const ipProxy = reactive({ ip: "", province: "", country: "", region: "" });
 const getIpInfo = () => {
-	getIpInfoReal(Constants.ipUrl.real.songzixian).then((res) => {
-		ipReal.ip = res.data.ip;
-		ipReal.country = res.data.country + " " + res.data.countryCode;
-		ipReal.province = res.data.province;
-		ipReal.region = res.data.city + " " + res.data.isp;
-	});
+  getIpInfoReal(Constants.ipUrl.real.songzixian).then((res: any) => {
+    ipReal.ip = res.data.ip;
+    ipReal.country = res.data.country + " " + res.data.countryCode;
+    ipReal.province = res.data.province;
+    ipReal.region = res.data.city + " " + res.data.isp;
+  });
 
-	getIpInfoProxy(Constants.ipUrl.proxy.ipapiCo).then((res) => {
-		ipProxy.ip = res.ip;
-		ipProxy.province = res.city;
-		ipProxy.country = res.country + " " + res.continent_code;
-		ipProxy.region = res.region + " " + res.region_code;
-	});
+  getIpInfoProxy(Constants.ipUrl.proxy.ipapiCo).then((res: any) => {
+    ipProxy.ip = res.ip;
+    ipProxy.province = res.city;
+    ipProxy.country = res.country + " " + res.continent_code;
+    ipProxy.region = res.region + " " + res.region_code;
+  });
 };
 
 const isLoading = ref(true);
 const isLoadingInfo = ref(true);
 onMounted(() => {
-	getIpInfo();
-	setTimeout(() => {
-		isLoadingInfo.value = false;
-	}, 3000);
-	setTimeout(() => {
-		isLoading.value = false;
-	}, 1000);
+  getIpInfo();
+  setTimeout(() => {
+    isLoadingInfo.value = false;
+  }, 3000);
+  setTimeout(() => {
+    isLoading.value = false;
+  }, 1000);
 });
 </script>
 
@@ -64,9 +63,9 @@ onMounted(() => {
 
 <style scoped lang="scss">
 h1 {
-	line-height: 1.5;
+  line-height: 1.5;
 }
 .error {
-	color: #ff0000;
+  color: #ff0000;
 }
 </style>

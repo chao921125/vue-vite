@@ -1,7 +1,7 @@
 import Fetch from "@/plugins/http/fetch";
 
 // 获取图像
-export const getImg = (data) => {
+export const getImg = (data: any) => {
   const w = data.width || 200;
   const h = data.height || 200;
   return Fetch.request(`https://picsum.photos/${w}/${h}`, {}, { method: "GET" });

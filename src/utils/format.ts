@@ -21,7 +21,7 @@ export const FORMAT_ENUM = {
  * @description format 季度 + 星期 + 几周："YYYY-mm-dd HH:MM:SS WWW QQQQ ZZZ"
  * @returns 返回拼接后的时间字符串
  */
-export const formatDate = (date, format) => {
+export const formatDate = (date: Date, format: string) => {
   const we = date.getDay(); // 星期
   const z = getWeek(date); // 周
   const qut = Math.floor((date.getMonth() + 3) / 3).toString(); // 季度
@@ -56,14 +56,16 @@ export const formatDate = (date, format) => {
       RegExp.$1,
       RegExp.$1.length > 1
         ? RegExp.$1.length > 2
-          ? "星期" + week[we]
-          : "周" + week[we]
-        : week[we],
+          ? "星期" + week[we as keyof typeof week]
+          : "周" + week[we as keyof typeof week]
+        : week[we as keyof typeof week],
     );
   if (/(Q+)/.test(format))
     format = format.replace(
       RegExp.$1,
-      RegExp.$1.length === 4 ? "第" + quarter[qut] + "季度" : quarter[qut],
+      RegExp.$1.length === 4
+        ? "第" + quarter[qut as unknown as keyof typeof quarter] + "季度"
+        : quarter[qut as unknown as keyof typeof quarter],
     );
   if (/(Z+)/.test(format))
     format = format.replace(RegExp.$1, RegExp.$1.length === 3 ? "第" + z + "周" : z + "");
@@ -73,7 +75,9 @@ export const formatDate = (date, format) => {
     if (r)
       format = format.replace(
         r[1],
-        RegExp.$1.length === 1 ? opt[k] : opt[k].padStart(RegExp.$1.length, "0"),
+        RegExp.$1.length === 1
+          ? opt[k as keyof typeof opt]
+          : opt[k as keyof typeof opt].padStart(RegExp.$1.length, "0"),
       );
   }
   return format;
@@ -84,7 +88,7 @@ export const formatDate = (date, format) => {
  * @param dateTime 当前传入的日期值
  * @returns number
  */
-function getWeek(dateTime) {
+function getWeek(dateTime: Date) {
   const temptTime = new Date(dateTime.getTime());
   // 周几
   const weekday = temptTime.getDay() || 7;
@@ -110,7 +114,7 @@ function getWeek(dateTime) {
  * @description param 3天：   60 * 60* 24 * 1000 * 3
  * @returns string
  */
-export const formatPast = (param, format = "YYYY-mm-dd") => {
+export const formatPast = (param: any, format: string = "YYYY-mm-dd") => {
   // 传入格式处理、存储转换值
   let t, s;
   // 获取js 时间戳
@@ -155,7 +159,7 @@ export const formatPast = (param, format = "YYYY-mm-dd") => {
  * @description param 调用 `formatAxis(new Date())` 输出 `上午好`
  * @returns string
  */
-export const formatAxis = (param) => {
+export const formatAxis = (param: any) => {
   const hour = new Date(param).getHours();
   if (hour < 6) return "凌晨好";
   else if (hour < 9) return "早上好";
@@ -167,14 +171,14 @@ export const formatAxis = (param) => {
   else return "夜里好";
 };
 
-export const replaceChar = (value) => {
+export const replaceChar = (value: string) => {
   if (!value) return "******";
   // const reg = /[a-zA-Z0-9]{3}\w*[a-zA-Z0-9]{4}/;
   // return pwd.replace(reg, "$1****$2");
   return value.slice(0, 2) + "****" + value.slice(value.length - 2);
 };
 
-export const replaceNullLine = (value) => {
+export const replaceNullLine = (value: any) => {
   if (!value) {
     return "-";
   }
@@ -184,7 +188,7 @@ export const replaceNullLine = (value) => {
 /**
  * 转数字
  */
-export const parseNumber = (value) => {
+export const parseNumber = (value: any) => {
   // 清理输入
   const cleaned = String(value).replace(/[^0-9+\-Ee.]/g, "");
 
@@ -198,7 +202,12 @@ export const parseNumber = (value) => {
 /**
  * 数字格式化千分位，同时选择保留几位小数，数值、几位小数、千分位符号、小数点符号
  */
-export const formatThousandPoint = (value, decimals = 0, thousands_sep = ",", dec_point = ".") => {
+export const formatThousandPoint = (
+  value: any,
+  decimals: number = 0,
+  thousands_sep: string = ",",
+  dec_point: string = ".",
+) => {
   if (!value) return 0;
   if (isNaN(Number(value))) return 0;
   if (!decimals && !isFinite(Number(decimals))) decimals = 0;
@@ -209,7 +218,7 @@ export const formatThousandPoint = (value, decimals = 0, thousands_sep = ",", de
     prec = !isFinite(+decimals) ? 0 : Math.abs(Number(decimals)),
     sep = typeof thousands_sep === "undefined" ? "," : thousands_sep,
     dec = typeof dec_point === "undefined" ? "." : dec_point;
-  const toFixedFix = (n, prec) => {
+  const toFixedFix = (n: number, prec: number) => {
     const k = Math.pow(10, prec);
     return "" + Math.ceil(n * k) / k;
   };
@@ -231,7 +240,7 @@ export const formatThousandPoint = (value, decimals = 0, thousands_sep = ",", de
 /**
  * 数字格式化千分位
  */
-export const formatThousand = (value) => {
+export const formatThousand = (value: any) => {
   if (!value) return 0;
   value = Number(value);
   return (+value || 0).toString().replace(/^-?\d+/g, (m) => m.replace(/(?=(?!\b)(\d{3})+$)/g, ","));

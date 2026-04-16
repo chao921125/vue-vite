@@ -14,12 +14,12 @@ import { useDark, useToggle } from "@vueuse/core";
 const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 // 折叠菜单 start
 const isColl = computed(() => {
-	let { isCollapse } = themeConfig.value;
-	return !isCollapse;
+  let { isCollapse } = themeConfig.value;
+  return !isCollapse;
 });
 const changeCollapse = () => {
-	themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
-	setThemeConfig();
+  themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
+  setThemeConfig();
 };
 // 折叠菜单 end
 // 面包屑导航 start
@@ -27,40 +27,40 @@ const route = useRoute();
 const { menuList } = getStoreRefs(appStore.useRouterList);
 const breadcrumbList = ref<any[]>([]);
 const initBreadcrumbList = (path: string) => {
-	if (RouterConfig.executeList.includes(path)) {
-		breadcrumbList.value.push({
-			name: menuList.value[0].path,
-			title: menuList.value[0].title,
-			path: "/" + menuList.value[0].path,
-		});
-		return false;
-	}
-	let pathArr = path.split("/");
-	pathArr.shift();
-	for (let i = 0; i < pathArr.length; i++) {
-		breadcrumbList.value.push({
-			name: pathArr[i],
-			title: "",
-			path: i === pathArr.length ? "/" + pathArr.slice(0, i + 1).join("/") : "",
-		});
-	}
-	setBreadcrumbList(menuList.value);
-	// 去掉包含首页的面包屑
-	// breadcrumbList.value.unshift({
-	// 	name: menuList.value[0].path,
-	// 	title: menuList.value[0].title,
-	// 	path: "/" + menuList.value[0].path,
-	// });
+  if (RouterConfig.executeList.includes(path)) {
+    breadcrumbList.value.push({
+      name: menuList.value[0].path,
+      title: menuList.value[0].title,
+      path: "/" + menuList.value[0].path,
+    });
+    return false;
+  }
+  let pathArr = path.split("/");
+  pathArr.shift();
+  for (let i = 0; i < pathArr.length; i++) {
+    breadcrumbList.value.push({
+      name: pathArr[i],
+      title: "",
+      path: i === pathArr.length ? "/" + pathArr.slice(0, i + 1).join("/") : "",
+    });
+  }
+  setBreadcrumbList(menuList.value);
+  // 去掉包含首页的面包屑
+  // breadcrumbList.value.unshift({
+  // 	name: menuList.value[0].path,
+  // 	title: menuList.value[0].title,
+  // 	path: "/" + menuList.value[0].path,
+  // });
 };
 const setBreadcrumbList = (array: Array<any>) => {
-	array.forEach((item) => {
-		breadcrumbList.value.forEach((obj) => {
-			if (item.path === obj.name) {
-				obj.title = item.title;
-				if (item.children) setBreadcrumbList(item.children);
-			}
-		});
-	});
+  array.forEach((item) => {
+    breadcrumbList.value.forEach((obj: any) => {
+      if (item.path === obj.name) {
+        obj.title = item.title;
+        if (item.children) setBreadcrumbList(item.children);
+      }
+    });
+  });
 };
 // 面包屑导航 end
 // 个人中心 start
@@ -69,31 +69,31 @@ const dropdownUser = ref();
 const dropdownComponents = ref();
 const dropdownLanguage = ref();
 const showDropdownUser = () => {
-	dropdownUser.value.handleOpen();
+  dropdownUser.value.handleOpen();
 };
 const showDropdownComponents = () => {
-	dropdownComponents.value.handleOpen();
+  dropdownComponents.value.handleOpen();
 };
 const showDropdownLanguage = () => {
-	dropdownLanguage.value.handleOpen();
+  dropdownLanguage.value.handleOpen();
 };
 // i18n
 const i18ns = ThemeConfig.i18nKeys;
 const changeI18n = (lang: string) => {
-	themeConfig.value.globalI18n = lang;
-	// 内置
-	proxy.$i18n.locale = lang;
-	Storage.setLocalStorage(Constants.keys.i18nLocale, lang);
-	setThemeConfig();
-	proxy.$mitt.emit("getI18nConfig", lang);
-	Utils.setTitle();
+  themeConfig.value.globalI18n = lang;
+  // 内置
+  proxy.$i18n.locale = lang;
+  Storage.setLocalStorage(Constants.keys.i18nLocale, lang);
+  setThemeConfig();
+  proxy.$mitt.emit("getI18nConfig", lang);
+  Utils.setTitle();
 };
 // 组件大小
 const sizes = ThemeConfig.sizeKeys;
 const changeSize = (size: string) => {
-	themeConfig.value.globalComponentSize = size;
-	setThemeConfig();
-	proxy.$mitt.emit("getSizeConfig", size);
+  themeConfig.value.globalComponentSize = size;
+  setThemeConfig();
+  proxy.$mitt.emit("getSizeConfig", size);
 };
 // 设置
 const isShowDrawer = ref(false);
@@ -101,95 +101,95 @@ const isShowDrawer = ref(false);
 const fullscreen = new FullscreenManager();
 const isScreenFull = ref(fullscreen.isFullscreen);
 const changeScreenFull = () => {
-	if (fullscreen.isSupported && fullscreen.isEnabled) {
-		fullscreen.toggle();
-		isScreenFull.value = fullscreen.isFullscreen;
-	}
+  if (fullscreen.isSupported && fullscreen.isEnabled) {
+    fullscreen.toggle();
+    isScreenFull.value = fullscreen.isFullscreen;
+  }
 };
 // 退出
 const router = useRouter();
 const onLogout = () => {
-	Storage.removeSessionStorage(Constants.keys.token);
-	Storage.removeCookie(Constants.keys.token);
-	Storage.removeLocalStorage(Constants.keys.token);
-	router.push({ path: RouterConfig.routeLogin });
+  Storage.removeSessionStorage(Constants.keys.token);
+  Storage.removeCookie(Constants.keys.token);
+  Storage.removeLocalStorage(Constants.keys.token);
+  router.push({ path: RouterConfig.routeLogin });
 };
 // 个人中心 end
 
 // 设置 抽屉 start
 const colorPicker = ref();
 const changeColorPicker = () => {
-	console.log("color is ", colorPicker.value);
+  console.log("color is ", colorPicker.value);
 };
 // 暗黑模式 有两种方式，利用vueuse和自定义
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 const isThemDark = ref(themeConfig.value.isDark);
-const changeDark = (e) => {
-	themeConfig.value.isDark = e;
-	setThemeConfig();
-	toggleDark();
-	// let html = document.documentElement as HTMLElement;
-	// if (e) {
-	// 	html.setAttribute("class", "dark");
-	// } else {
-	// 	html.removeAttribute("class");
-	// }
+const changeDark = (e: any) => {
+  themeConfig.value.isDark = e;
+  setThemeConfig();
+  toggleDark();
+  // let html = document.documentElement as HTMLElement;
+  // if (e) {
+  // 	html.setAttribute("class", "dark");
+  // } else {
+  // 	html.removeAttribute("class");
+  // }
 };
 const isThemGrey = ref(themeConfig.value.isGrey);
-const changeGrey = (e) => {
-	themeConfig.value.isGrey = e;
-	setThemeConfig();
-	if (e) {
-		document.querySelector("body")!.setAttribute("style", `filter: grayscale(1)`);
-	} else {
-		document.querySelector("body")!.removeAttribute("style");
-	}
+const changeGrey = (e: any) => {
+  themeConfig.value.isGrey = e;
+  setThemeConfig();
+  if (e) {
+    document.querySelector("body")!.setAttribute("style", `filter: grayscale(1)`);
+  } else {
+    document.querySelector("body")!.removeAttribute("style");
+  }
 };
 const isThemInvert = ref(themeConfig.value.isInvert);
-const changeInvert = (e) => {
-	themeConfig.value.isInvert = e;
-	setThemeConfig();
-	if (e) {
-		document.querySelector("body")!.setAttribute("style", `filter: invert(1)`);
-	} else {
-		document.querySelector("body")!.removeAttribute("style");
-	}
+const changeInvert = (e: any) => {
+  themeConfig.value.isInvert = e;
+  setThemeConfig();
+  if (e) {
+    document.querySelector("body")!.setAttribute("style", `filter: invert(1)`);
+  } else {
+    document.querySelector("body")!.removeAttribute("style");
+  }
 };
 // 设置 抽屉 end
 
 // 本地持久化配置
 const setThemeConfig = () => {
-	Storage.removeLocalStorage(Constants.keys.themeConfig);
-	Storage.setLocalStorage(Constants.keys.themeConfig, themeConfig.value);
+  Storage.removeLocalStorage(Constants.keys.themeConfig);
+  Storage.setLocalStorage(Constants.keys.themeConfig, themeConfig.value);
 };
 const userInfoAvatar = ref("");
 const userInfoName = ref("");
 const initData = () => {
-	const userInfo = Storage.getLocalStorage(Constants.keys.userInfo) || null;
-	if (userInfo) {
-		userInfoAvatar.value = userInfo.avatar || "";
-		userInfoName.value = userInfo.name || "";
-	}
-	isThemGrey.value = Storage.getLocalStorage(Constants.keys.themeConfig)?.isGrey || false;
-	changeGrey(isThemGrey.value);
-	isThemInvert.value = Storage.getLocalStorage(Constants.keys.themeConfig)?.isInvert || false;
-	changeInvert(isThemInvert.value);
+  const userInfo = Storage.getLocalStorage(Constants.keys.userInfo) || null;
+  if (userInfo) {
+    userInfoAvatar.value = userInfo.avatar || "";
+    userInfoName.value = userInfo.name || "";
+  }
+  isThemGrey.value = Storage.getLocalStorage(Constants.keys.themeConfig)?.isGrey || false;
+  changeGrey(isThemGrey.value);
+  isThemInvert.value = Storage.getLocalStorage(Constants.keys.themeConfig)?.isInvert || false;
+  changeInvert(isThemInvert.value);
 };
 // 渲染调用
 onMounted(() => {
-	initData();
-	breadcrumbList.value = [];
-	initBreadcrumbList(route.path);
-	const localI18n = Storage.getLocalStorage(Constants.keys.i18nLocale);
-	if (localI18n) {
-		changeI18n(localI18n);
-	}
+  initData();
+  breadcrumbList.value = [];
+  initBreadcrumbList(route.path);
+  const localI18n = Storage.getLocalStorage(Constants.keys.i18nLocale);
+  if (localI18n) {
+    changeI18n(localI18n);
+  }
 });
 
 onBeforeRouteUpdate((to) => {
-	breadcrumbList.value = [];
-	initBreadcrumbList(to.path);
+  breadcrumbList.value = [];
+  initBreadcrumbList(to.path);
 });
 </script>
 
@@ -321,7 +321,7 @@ onBeforeRouteUpdate((to) => {
 
 <style scoped lang="scss">
 .user-avatar {
-	width: 40px;
-	height: 40px;
+  width: 40px;
+  height: 40px;
 }
 </style>

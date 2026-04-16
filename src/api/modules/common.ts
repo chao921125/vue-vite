@@ -2,13 +2,13 @@ import Axios from "@/plugins/http";
 import AxiosConfig from "@/config/httpConfig";
 
 export default {
-  getImgLocale: (name, suffix) => {
+  getImgLocale: (name: string, suffix?: string) => {
     if (!name) return "";
     if (!suffix) suffix = "png";
     // return `/src/assets/images/${type}.${suffix}`;
     return new URL(`/src/assets/images/${name}.${suffix}`, import.meta.url).href;
   },
-  previewFileById: (data) => {
+  previewFileById: (data: any) => {
     return Axios({
       url: `${AxiosConfig.uploadUrl}/login/${data}`,
       method: "GET",
@@ -16,7 +16,7 @@ export default {
       data,
     });
   },
-  previewFile: (data) => {
+  previewFile: (data: any) => {
     return Axios({
       url: `${AxiosConfig.uploadUrl}`,
       method: "GET",
@@ -24,7 +24,7 @@ export default {
       data,
     });
   },
-  uploadFile: (data = {}) => {
+  uploadFile: (data: any = {}) => {
     return Axios({
       url: `${AxiosConfig.uploadUrl}`,
       method: "POST",
@@ -39,7 +39,7 @@ export default {
       data,
     });
   },
-  queryIp: (data = {}) => {
+  queryIp: (data: any = {}) => {
     return Axios({
       url: `${AxiosConfig.uploadUrl}/index?ip=&type=0`,
       method: "GET",
