@@ -207,8 +207,8 @@
 | [uni-ui 支持 uni-app x](https://github.com/dcloudio/uni-ui)                     |
 | [👍有广告 uview-plus 不适配SASS 1.8+](https://github.com/ijry/uview-plus)           |
 | [付费服务 Tui-Plus 支持 uni-app x](https://life.yundie.xyz/tuiplus/docs/index.html) |
-| [Cool 支持 uni-app x](https://unix.cool-js.com/)                                |
-| [riceui 支持 uni-app x](https://riceui.cn/)                                     |
+| [Cool 支持 uni-app x](https://github.com/cool-team-official/cool-unix)          |
+| [Riceui 支持 uni-app x](https://gitee.com/riceui/rice-ui)                       |
 | [腾讯 tdesign 仅支持原生 小程序](https://github.com/Tencent/tdesign-miniprogram)        |
 | [腾讯 weui](https://weui.io/)                                                   |
 | [腾讯 weui-wxss](https://github.com/Tencent/weui-wxss)                          |
