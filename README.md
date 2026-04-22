@@ -51,7 +51,7 @@
 | 构建工具                                                                |
 |---------------------------------------------------------------------|
 | [👍 Vite 开发环境极速启动（ESM 原生加载）](https://github.com/vitejs/vite)        |
-| [👍 Vite Plus 下一代 未上线](https://viteplus.dev/)                       |
+| [👍 Vite Plus](https://viteplus.dev/)                               |
 | [Webpack 插件生态丰富，支持代码分割、热更新 笨重](https://github.com/webpack/webpack)  |
 | [Turborepo 下一代 Webpack](https://github.com/vercel/turborepo)        |
 | [Parcel ](https://github.com/parcel-bundler/parcel)                 |
