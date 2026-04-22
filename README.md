@@ -34,12 +34,13 @@
 | [deno](https://deno.com/)     |
 | [目录](#目录)                     |
 
-| 包管理                               |
-|-----------------------------------|
-| [pnpm 综合实用性最佳](https://pnpm.io/)  |
-| [yarn next](https://yarnpkg.com/) |
-| [npm](https://www.npmjs.com/)     |
-| [目录](#目录)                         |
+| 包管理                                   |
+|---------------------------------------|
+| [pnpm 综合实用性最佳](https://pnpm.io/)      |
+| [yarn next](https://yarnpkg.com/)     |
+| [npm](https://www.npmjs.com/)         |
+| [Vite Plus 工具](https://viteplus.dev/) |
+| [目录](#目录)                             |
 
 | 插件网站                                                       |
 |------------------------------------------------------------|
@@ -51,7 +52,6 @@
 | 构建工具                                                                |
 |---------------------------------------------------------------------|
 | [👍 Vite 开发环境极速启动（ESM 原生加载）](https://github.com/vitejs/vite)        |
-| [👍 Vite Plus](https://viteplus.dev/)                               |
 | [Webpack 插件生态丰富，支持代码分割、热更新 笨重](https://github.com/webpack/webpack)  |
 | [Turborepo 下一代 Webpack](https://github.com/vercel/turborepo)        |
 | [Parcel ](https://github.com/parcel-bundler/parcel)                 |
