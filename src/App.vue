@@ -22,7 +22,7 @@ const config = reactive({
 const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 const route = useRoute();
 const initData = () => {
-  Utils.setTitle();
+  Utils.setTitle?.();
   if (proxy) {
     proxy.$mitt.emit("getI18nConfig", Storage.getLocalStorage(Constants.keys.i18nLocale));
     if (Storage.getLocalStorage(Constants.keys.themeConfig)) {
@@ -39,8 +39,8 @@ const initData = () => {
 };
 
 onBeforeMount(() => {
-  Utils.setCssCdn();
-  Utils.setJsCdn();
+  Utils.setCssCdn?.();
+  Utils.setJsCdn?.();
   if (!Storage.getLocalStorage(Constants.keys.themeConfig)) {
     Storage.setLocalStorage(Constants.keys.themeConfig, themeConfig.value);
     config.i18n = elI18n[themeConfig.value.globalI18n];
@@ -99,7 +99,7 @@ onUnmounted(() => {
 watch(
   () => route.path,
   () => {
-    Utils.setTitle();
+    Utils.setTitle?.();
   },
   {
     deep: true,

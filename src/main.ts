@@ -139,7 +139,7 @@ app.config.errorHandler = (err: unknown, instance: any, info: string) => {
     Log.primary(info || "");
   }
 };
-app.config.warnHandler = (msg: string, instance: any, trace: string) => {
+app.config.warnHandler = (msg: string, instance: ComponentPublicInstance | null, trace: string) => {
   // 显示在控制台
   if (import.meta.env.VITE_NODE_ENV === "development" && !isShowWan) {
     if (++isWanNum > isWanNumMax) {

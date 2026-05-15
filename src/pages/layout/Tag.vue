@@ -1,15 +1,22 @@
 <script setup lang="ts">
-import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
+import {
+  onBeforeRouteUpdate,
+  useRoute,
+  useRouter,
+  type RouteLocationNormalizedLoaded,
+} from "vue-router";
 import Storage from "@/utils/storage";
 import Constants from "@/utils/constant/constants";
 import RouterConfig from "@/config/routerConfig";
 import { $t } from "@/plugins/i18n";
+import type { TagViewItem } from "#/types";
 
 const router = useRouter();
 const route = useRoute();
-let tabs = ref<any>([]);
+let tabs = ref<TagViewItem[]>([]);
 const tabValue = ref<string>("/home");
-const addTab = (routeCurrent: any) => {
+
+const addTab = (routeCurrent: RouteLocationNormalizedLoaded): TagViewItem[] | false => {
   if (routeCurrent.meta.isHide) {
     return false;
   }
@@ -17,25 +24,26 @@ const addTab = (routeCurrent: any) => {
   if (routeCurrent.fullPath === "/home") {
     return false;
   }
-  let tags = Storage.getLocalStorage(Constants.keys.tags) || [];
+  let tags = Storage.getLocalStorage<TagViewItem[]>(Constants.keys.tags) || [];
   tags.push({
-    label: routeCurrent.meta.title,
+    label: String(routeCurrent.meta.title),
     name: routeCurrent.fullPath,
     closable: true,
   });
-  tabs.value = Array.from(new Set(tags.map((value: any) => JSON.stringify(value)))).map((item) =>
-    JSON.parse(item as string),
+  tabs.value = Array.from(new Set(tags.map((value: TagViewItem) => JSON.stringify(value)))).map(
+    (item) => JSON.parse(item as string) as TagViewItem,
   );
   return tabs.value;
 };
-const removeTab = (name: any) => {
+
+const removeTab = (name: string) => {
   if (name === RouterConfig.routeHome) {
     return false;
   }
   let activeName = tabValue.value;
   if (tabs.value.length) {
     // const index = tabArray.map((item) => item.name).indexOf(name);
-    const index = tabs.value.findIndex((item: any) => item.name === name);
+    const index = tabs.value.findIndex((item: TagViewItem) => item.name === name);
     tabs.value.splice(index, 1);
     if (name === activeName) {
       if (!tabs.value.length) {
@@ -53,7 +61,8 @@ const removeTab = (name: any) => {
   Storage.setLocalStorage(Constants.keys.tags, tabs.value);
   router.push({ path: tabValue.value });
 };
-const changeRouter = (tabName: any) => {
+
+const changeRouter = (tabName: string) => {
   router.push({ path: tabName });
 };
 // 点击更多

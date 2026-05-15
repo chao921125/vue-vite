@@ -5,11 +5,16 @@ import { getStoreRefs, appStore } from "@/store";
  * 这里我做一个演示：定义好的权限有：C/R/U/D，当然也可以动态读取后端配置
  */
 export const auth = {
-  mounted(el: any, binding: any) {
+  mounted(el: HTMLElement, binding: any) {
     const { value } = binding;
     const { userInfo } = getStoreRefs(appStore.useUserInfo);
     let classValue = el.getAttribute("class") || "";
-    if (value && value.length && userInfo.value.permission.includes(value)) {
+    if (
+      value &&
+      Array.isArray(value) &&
+      value.length > 0 &&
+      userInfo.value.permission?.includes(value as any)
+    ) {
       el.hidden = false;
       classValue = classValue.replace("re-hidden", "");
     } else {

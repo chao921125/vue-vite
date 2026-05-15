@@ -1,24 +1,4 @@
-// * 请求响应参数(不包含data)
-declare interface IResult {
-  code: string;
-  msg: string;
-}
-
-// * 请求响应参数(包含data)
-declare interface IResultData<T = never> extends IResult {
-  data?: T;
-}
-
-// * 分页响应参数
-declare interface IResPage<T> {
-  datalist: T[];
-  pageNum: number;
-  pageSize: number;
-  total: number;
-}
-
-// * 分页请求参数
-declare interface IReqPage {
-  pageNum: number;
-  pageSize: number;
-}
+// ==================== 局部类型定义 ====================
+// 这些类型需要手动导入：import type { xxx } from "#/types";
+// 注意：本文件中的类型已移至 global.d.ts 作为全局类型
+// 此文件保留用于未来可能的局部类型定义

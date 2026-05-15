@@ -1,36 +1,29 @@
 <script setup lang="ts">
 // 折线图 多条
 import * as echarts from "echarts";
+import type { EChartsOption } from "echarts";
 
 declare interface IChart {
   name: string;
   type: string;
   stack: string;
-  data: any;
+  data: number[];
 }
 
-const props = defineProps({
-  id: {
-    type: String,
-    require: true,
-    default: "main",
-  },
-  legendData: {
-    type: Array,
-    default: () => [],
-  },
-  xAxisData: {
-    type: Array,
-    default: () => [],
-  },
-  seriesData: {
-    type: Array,
-    default: () => [],
-  },
-  color: {
-    type: Array,
-    default: () => ["#80D3CB", "#007177", "#F08080", "#B2F26E", "#FFCC00"],
-  },
+interface LineStackedProps {
+  id?: string;
+  legendData?: string[];
+  xAxisData?: string[];
+  seriesData?: number[][];
+  color?: string[];
+}
+
+const props = withDefaults(defineProps<LineStackedProps>(), {
+  id: "main",
+  legendData: () => [],
+  xAxisData: () => [],
+  seriesData: () => [],
+  color: () => ["#80D3CB", "#007177", "#F08080", "#B2F26E", "#FFCC00"],
 });
 
 const drawChart = () => {
@@ -42,21 +35,20 @@ const drawChart = () => {
     myChart = echarts.init(chartDom);
   }
   myChart.clear();
-  let option = {};
 
-  let seriesArray: IChart[] = [];
+  let seriesArray: any[] = [];
   if (props.legendData?.length) {
-    props.legendData.map((item: any, index: number) => {
+    props.legendData.forEach((item: string, index: number) => {
       seriesArray.push({
         name: item,
         type: "line",
         stack: "Total",
-        data: props.seriesData?.[index],
+        data: props.seriesData?.[index] || [],
       });
     });
   }
 
-  option = {
+  const option: EChartsOption = {
     color: props.color,
     tooltip: {
       trigger: "axis",

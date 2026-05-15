@@ -86,7 +86,7 @@ const changeI18n = (lang: string) => {
   Storage.setLocalStorage(Constants.keys.i18nLocale, lang);
   setThemeConfig();
   proxy.$mitt.emit("getI18nConfig", lang);
-  Utils.setTitle();
+  Utils.setTitle?.();
 };
 // 组件大小
 const sizes = ThemeConfig.sizeKeys;

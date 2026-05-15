@@ -1,15 +1,15 @@
 import { ElMessage } from "element-plus";
 import { $t } from "@/plugins/i18n";
 
-function getTextByTag(node: any) {
+function getTextByTag(node: HTMLElement): string {
   if (node.children.length) {
-    getTextByTag(node.children[0]);
+    return getTextByTag(node.children[0] as HTMLElement);
   } else {
     return node.innerHTML;
   }
 }
 
-function copyData(val: any) {
+function copyData(val: string) {
   const copyText = document.createElement("textarea");
   copyText.innerHTML = val;
   copyText.readOnly = true;
@@ -26,19 +26,28 @@ function copyData(val: any) {
   });
 }
 
+type CopyElement = HTMLElement & {
+  copyData?: string;
+  __handleClick__?: () => void;
+};
+
 export const copy = {
-  mounted(el: any, binding: any) {
+  mounted(el: CopyElement, binding: any) {
     if (binding.value) {
       el.copyData = binding.value;
     } else {
       el.copyData = getTextByTag(el);
     }
-    el.addEventListener("click", () => copyData(el.copyData));
+    const handleClick = () => copyData(el.copyData || "");
+    el.__handleClick__ = handleClick;
+    el.addEventListener("click", handleClick);
   },
-  updated(el: any, binding: any) {
+  updated(el: CopyElement, binding: any) {
     el.copyData = binding.value;
   },
-  beforeUnmount(el: any) {
-    el.removeEventListener("click", el.__handleClick__);
+  beforeUnmount(el: CopyElement) {
+    if (el.__handleClick__) {
+      el.removeEventListener("click", el.__handleClick__);
+    }
   },
 };

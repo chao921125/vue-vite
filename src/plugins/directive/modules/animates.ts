@@ -9,24 +9,36 @@
  *         onAnimationEnd: handleAnimationEnd
  *       }"
  */
+
+type AnimateConfig = {
+  animation?: string;
+  duration?: string;
+  delay?: string;
+  iterationCount?: string;
+  infinite?: boolean;
+  onAnimationEnd?: (el: HTMLElement) => void;
+};
+
+type AnimateBindingValue = string | AnimateConfig;
+
 export const animates = {
-  mounted(el: any, binding: any) {
+  mounted(el: HTMLElement, binding: any) {
     applyAnimation(el, binding.value);
   },
-  updated(el: any, binding: any) {
+  updated(el: HTMLElement, binding: any) {
     // 清理之前的动画类和内联样式（除基础类外）
     resetAnimation(el);
     applyAnimation(el, binding.value);
   },
-  unmounted(el: any) {
+  unmounted(el: HTMLElement) {
     resetAnimation(el);
   },
 };
 
 // 内部方法：重置动画相关的类和样式
-function resetAnimation(el: any) {
+function resetAnimation(el: HTMLElement) {
   // 保留基础类 animate__animated 与 animate__infinite（后续根据配置添加或移除）
-  el.classList.forEach((cls: any) => {
+  el.classList.forEach((cls: string) => {
     if (cls.startsWith("animate__") && cls !== "animate__animated" && cls !== "animate__infinite") {
       el.classList.remove(cls);
     }
@@ -37,15 +49,15 @@ function resetAnimation(el: any) {
 }
 
 // 内部方法：应用动画配置
-function applyAnimation(el: any, bindingValue: any) {
+function applyAnimation(el: HTMLElement, bindingValue: AnimateBindingValue) {
   // 如果传入为字符串，则视为动画名称，其他配置采用默认值
-  let config = {
+  let config: AnimateConfig = {
     animation: "",
     duration: "",
     delay: "",
     iterationCount: "",
-    infinite: "",
-    onAnimationEnd: (e?: any) => {
+    infinite: false,
+    onAnimationEnd: (e?: HTMLElement) => {
       console.log("Animation ended:", e);
     },
   };

@@ -1,16 +1,15 @@
 <script setup lang="ts">
-
 import { useRoute } from "vue-router";
 import Utils from "@/utils";
 
 const linkUrl = ref("");
 const route = useRoute();
 const initData = () => {
-	linkUrl.value = String(route.meta.address) || "";
-	Utils.open(linkUrl.value);
+  linkUrl.value = String(route.meta.address) || "";
+  Utils.open?.(linkUrl.value);
 };
 onMounted(() => {
-	initData();
+  initData();
 });
 </script>
 

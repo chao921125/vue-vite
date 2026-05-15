@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import type { RouterListState } from "#/types";
 
 /**
  * 路由列表
@@ -7,25 +8,25 @@ import { defineStore } from "pinia";
  * @methods setColumnsNavHover 设置分栏布局最左侧导航鼠标移入 boolean
  */
 export const useRouterList = defineStore("routerList", {
-  state: () => ({
+  state: (): RouterListState => ({
     routerList: [],
     menuList: [],
     isColumnsMenuHover: false,
     isColumnsNavHover: false,
   }),
   actions: {
-    async setRouterList(data: any) {
+    async setRouterList(data: any[]) {
       // this.routerList = data;
       Object.assign(this.routerList, data);
     },
-    async setMenuList(data: any) {
+    async setMenuList(data: any[]) {
       // this.menuList = data;
       Object.assign(this.menuList, data);
     },
-    async setColumnsMenuHover(bool: any) {
+    async setColumnsMenuHover(bool: boolean) {
       this.isColumnsMenuHover = bool;
     },
-    async setColumnsNavHover(bool: any) {
+    async setColumnsNavHover(bool: boolean) {
       this.isColumnsNavHover = bool;
     },
   },

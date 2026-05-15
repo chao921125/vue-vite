@@ -29,7 +29,7 @@ const onLogin = async (formEl: any) => {
     if (valid) {
       data.isLoading = true;
       const token = new Date().getTime();
-      Storage.setCookie(Constants.keys.token, token);
+      Storage.setCookie(Constants.keys.token, String(token));
       Storage.setSessionStorage(Constants.keys.token, token);
       Storage.setLocalStorage(Constants.keys.token, token);
       Storage.setLocalStorage(Constants.keys.userInfo, token);

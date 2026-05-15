@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+	"permission": {
+		"skill": {
+			"*": "allow",
+			"internal-*": "deny",
+			"experimental-*": "ask"
+		}
+	}
+}

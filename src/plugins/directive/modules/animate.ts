@@ -1,7 +1,11 @@
-// import { useIntersectionObserver } from "@vueuse/core";
+type AnimateBindingValue = {
+  animateInClass?: string;
+  animateOutClass?: string;
+  repeat?: boolean;
+};
 
 export const animate = {
-  mounted(el: any, binding: any) {
+  mounted(el: HTMLElement, binding: { value?: AnimateBindingValue }) {
     // const { stop } = useIntersectionObserver(el, ([{ isIntersecting }], observerElement) => {
     // 	if (isIntersecting) {
     // 		el.classList.remove(options.animateOutClass);
@@ -11,7 +15,7 @@ export const animate = {
     // });
 
     el.classList.add("animate__animated");
-    const options = {
+    const options: AnimateBindingValue = {
       animateInClass: (binding.value && binding.value.animateInClass) || "animate__fadeIn",
       animateOutClass: (binding.value && binding.value.animateOutClass) || "animate__fadeOut",
       repeat: (binding.value && binding.value.repeat) || false,
@@ -27,8 +31,8 @@ export const animate = {
         // const top = elTop - scrollTop;
         console.log(entry.isIntersecting);
         if (entry.isIntersecting && !isEntered) {
-          el.classList.remove(options.animateOutClass);
-          el.classList.add(options.animateInClass);
+          el.classList.remove(options.animateOutClass!);
+          el.classList.add(options.animateInClass!);
           isEntered = true;
         }
       });
