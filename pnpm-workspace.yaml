@@ -1,0 +1,6 @@
+allowBuilds:
+  '@parcel/watcher': true
+  core-js: true
+  sharp: true
+minimumReleaseAgeExclude:
+  - stylelint@17.12.0
