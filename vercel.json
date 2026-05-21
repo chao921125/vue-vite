@@ -1,7 +1,7 @@
 {
-"buildCommand": "npm run build",
-"outputDirectory": "dist",
-"devCommand": "npm run dev",
-"installCommand": "corepack enable && corepack prepare pnpm@11.1.3 --activate && pnpm install --no-frozen-lockfile",
-"framework": "vite"
+	"buildCommand": "npm run build",
+	"outputDirectory": "dist",
+	"devCommand": "npm run dev",
+	"installCommand": "corepack enable && corepack use pnpm@11.1.3 && pnpm install --no-frozen-lockfile",
+	"framework": "vite"
 }
