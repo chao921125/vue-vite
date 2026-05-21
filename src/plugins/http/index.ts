@@ -1,7 +1,7 @@
 // https://www.axios-http.cn/
 import axios from "axios";
 import Router from "@/router";
-import Storage from "@/utils/storage";
+import Storage from "@/utils/browser/storage";
 import Constants from "@/utils/constant/constants";
 import AxiosConfig from "@/config/httpConfig";
 import NProgress from "@/plugins/loading/progress";

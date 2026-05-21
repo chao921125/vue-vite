@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import Constants from "@/utils/constant/constants";
-import { createPersistedState, createPersistedActions } from "@/plugins/golbal/storePersist";
+import { createPersistedState, createPersistedActions } from "@/plugins/global/storePersist";
 
 /**
  * 用户信息接口

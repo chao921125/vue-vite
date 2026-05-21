@@ -15,7 +15,7 @@
  * })
  */
 
-import Storage from "@/utils/storage";
+import Storage from "@/utils/browser/storage";
 
 /**
  * 存储类型

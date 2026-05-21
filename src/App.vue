@@ -3,7 +3,7 @@ import { getStoreRefs, appStore } from "@/store";
 import { elI18n } from "@/plugins/i18n";
 import { FontManager } from "js-use-core";
 import Utils from "@/utils";
-import Storage from "@/utils/storage";
+import Storage from "@/utils/browser/storage";
 import Constants from "@/utils/constant/constants";
 import ThemeConfig from "@/config/themeConfig";
 import { useRoute } from "vue-router";

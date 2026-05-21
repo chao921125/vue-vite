@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
-import Storage from "@/utils/storage";
+import Storage from "@/utils/browser/storage";
 import Constants from "@/utils/constant/constants";
 import ValidateForm from "@/utils/validate/validateForm";
 // import Api from "@/plugins/api";

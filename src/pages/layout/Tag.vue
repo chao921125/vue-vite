@@ -5,7 +5,7 @@ import {
   useRouter,
   type RouteLocationNormalizedLoaded,
 } from "vue-router";
-import Storage from "@/utils/storage";
+import Storage from "@/utils/browser/storage";
 import Constants from "@/utils/constant/constants";
 import RouterConfig from "@/config/routerConfig";
 import { $t } from "@/plugins/i18n";

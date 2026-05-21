@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import { baseRoutes, errorRoutes } from "./route";
 import { appStore } from "@/store";
 import NProgress from "@/plugins/loading/progress";
-import Storage from "@/utils/storage";
+import Storage from "@/utils/browser/storage";
 import AxiosCancel from "@/plugins/http/cancel";
 import Constants from "@/utils/constant/constants";
 import RouterConfig from "@/config/routerConfig";

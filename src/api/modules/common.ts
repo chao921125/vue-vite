@@ -1,6 +1,12 @@
 import Axios from "@/plugins/http";
 import AxiosConfig from "@/config/httpConfig";
-import type { UploadFileParams, PreviewFileParams, QueryIpParams } from "#/types";
+import type {
+  UploadFileParams,
+  PreviewFileParams,
+  QueryIpParams,
+  IpInfoResponse,
+  FileInfo,
+} from "#/types";
 
 export default {
   getImgLocale: (name: string, suffix?: string) => {
@@ -10,15 +16,15 @@ export default {
     return new URL(`/src/assets/images/${name}.${suffix}`, import.meta.url).href;
   },
   previewFileById: (data: PreviewFileParams | string | number) => {
-    return Axios({
+    return Axios<FileInfo>({
       url: `${AxiosConfig.uploadUrl}/login/${typeof data === "object" ? data.id : data}`,
       method: "GET",
       responseType: "blob",
       data,
     });
   },
-  previewFile: (data: any) => {
-    return Axios({
+  previewFile: (data: PreviewFileParams) => {
+    return Axios<FileInfo>({
       url: `${AxiosConfig.uploadUrl}`,
       method: "GET",
       responseType: "blob",
@@ -26,7 +32,7 @@ export default {
     });
   },
   uploadFile: (data?: UploadFileParams | FormData) => {
-    return Axios({
+    return Axios<FileInfo>({
       url: `${AxiosConfig.uploadUrl}`,
       method: "POST",
       headers: { "Content-Type": "multipart/form-data" },
@@ -34,14 +40,14 @@ export default {
     });
   },
   queryAddressByIp: (data: QueryIpParams = {}) => {
-    return Axios({
+    return Axios<IpInfoResponse>({
       url: `${AxiosConfig.ipUrl}/index?ip=${data.ip}&type=0`,
       method: "GET",
       data,
     });
   },
   queryIp: (data: QueryIpParams = {}) => {
-    return Axios({
+    return Axios<IpInfoResponse>({
       url: `${AxiosConfig.uploadUrl}/index?ip=&type=0`,
       method: "GET",
       data,

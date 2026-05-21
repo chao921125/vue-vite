@@ -8,8 +8,8 @@
 import { ElMessage } from "element-plus";
 import Router from "@/router";
 import RouterConfig from "@/config/routerConfig";
-import Storage from "@/utils/storage";
-import Log from "@/utils/log";
+import Storage from "@/utils/browser/storage";
+import Log from "@/utils/common/log";
 
 /**
  * HTTP 状态码映射

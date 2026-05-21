@@ -3,7 +3,6 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import { format } from "date-fns";
-// import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 /**
  * 核心
@@ -30,7 +29,6 @@ import legacy from "@vitejs/plugin-legacy";
 import autoImport from "unplugin-auto-import/vite";
 import components from "unplugin-vue-components/vite";
 import { VantResolver, ElementPlusResolver } from "unplugin-vue-components/resolvers";
-// import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 // 自动导入模块 图标
 import icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
@@ -280,7 +278,7 @@ export default defineConfig(({ command, mode }) => {
       }),
       components({
         include: [/\.vue$/, /\.vue\?vue/, /\.vue\.[tj]sx?\?vue/],
-        exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
+        exclude: [/[\/]node_modules[\/]/, /[\/]\.git[\/]/, /[\/]\.nuxt[\/]/],
         excludeNames: [/^Async.+/],
         dirs: ["src/components"],
         extensions: ["vue"],
@@ -299,12 +297,6 @@ export default defineConfig(({ command, mode }) => {
         dumpComponentsInfo: false,
         syncMode: "default",
       }),
-      // Vuetify({
-      // 	autoImport: true,
-      // 	styles: {
-      // 		configFile: "src/assets/styles/theme.scss",
-      // 	},
-      // }),
       icons({
         compiler: "vue3",
         autoInstall: true,
@@ -315,29 +307,13 @@ export default defineConfig(({ command, mode }) => {
     // cacheDir: "node_modules/.vite", // 缓存路径
     resolve: {
       alias: {
-        // 别名必须以 / 开头、结尾
-        // "/@/": root, -- vite 内部在用，这里不能用了
-        // "/root/": __dirname, -- vite 内部在用，这里不能用了
-        // remove i18n waring
         "vue-i18n": "vue-i18n/dist/vue-i18n.cjs.js",
         "@": path.resolve(__dirname, "./src"),
-        // '@': fileURLToPath(new URL('./src', import.meta.url)),
         "#": path.resolve(__dirname, "./types"),
       },
-      // dedupe: [""], // 一般SSR+ESM使用
-      // conditions: ["module", "browser"],
-      // mainFields: [""],
-      // extensions: [""],
-      // preserveSymlinks: false,
-      // tsconfigPaths: false,
     },
     // html: { cspNonce: {} }, // 一个在生成脚本或样式标签时会用到的 nonce 值占位符
     css: {
-      // modules: {},
-      // 打开此处 postcss.config.js失效
-      // postcss: {
-      // 	plugins: [],
-      // },
       preprocessorOptions: {
         css: { charset: false },
         styl: {
@@ -345,17 +321,12 @@ export default defineConfig(({ command, mode }) => {
         },
         less: {
           javascriptEnabled: true,
-          // additionalData: `$injectedColor: orange`
         },
         scss: {
           javascriptEnabled: true,
           additionalData: `@use "@/assets/styles/theme.scss" as *;`,
         },
       },
-      // preprocessorMaxWorkers: true,,
-      // devSourcemap: false,
-      // transformer: "postcss", // 'postcss' | 'lightningcss'
-      // lightningcss: "CSSModulesConfig",
     },
     json: {
       namedExports: true, // 按名称导入
@@ -379,167 +350,61 @@ export default defineConfig(({ command, mode }) => {
       host: true,
       allowedHosts: true,
       port: envConfig.VITE_PORT,
-      strictPort: false, // 存在冲突端口，则继续下找可用端口
-      // https: true, // boolean | https.ServerOptions
-      open: envConfig.VITE_OPEN, // boolean | string
+      strictPort: false,
+      open: envConfig.VITE_OPEN,
       proxy: createProxy(envConfig.VITE_PROXY),
-      // {
-      // 	// string shorthand
-      // 	// "/foo": "http://localhost:4567/foo",
-      // 	"/api": {
-      // 		target: "http://jsonplaceholder.typicode.com",
-      // 		changeOrigin: true,
-      // 		rewrite: path => path.replace(/^\/api/, ""),
-      // 	},
-      // 	// with RegEx
-      // 	// "^/fallback/.*": {
-      // 	//   target: "http://jsonplaceholder.typicode.com",
-      // 	//   changeOrigin: true,
-      // 	//   rewrite: (path) => path.replace(/^\/fallback/, "")
-      // 	// },
-      // 	// 使用 proxy 实例
-      // 	// "api": {
-      // 	//   target: "http://jsonplaceholder.typicode.com",
-      // 	//   changeOrigin: true,
-      // 	//   configure: () => {
-      // 	//      // proxy http-proxy
-      // 	//   },
-      // 	// },
-      // 	// '/socket.io': {
-      // 	// 	target: 'ws://localhost:3000',
-      // 	// 	ws: true
-      // 	// }
-      // },
-      cors: true, // boolean | CorsOptions
-      // headers: false, // OutgoingHttpHeaders 指定服务器响应的 header
-      hmr: true, // boolean | { protocol?: string, host?: string, port?: number, path?: string, timeout?: number, overlay?: boolean }
+      cors: true,
+      hmr: true,
       forwardConsole: {
         unhandledErrors: true,
         logLevels: ['warn', 'error'],
       },
-      // warmup: "", // object
-      // watch: "", // object
-      // middlewareMode: "",
-      // fs: {
-      //  strict: "",
-      //  allow: "",
-      //  deny: "",
-      // },
-      // origin: "",
-      // sourcemapIgnoreList: "",
     },
     /**
      * 3. 构建选项 (Build Options)
      * 参考: https://vite.dev/config/build-options
      */
     build: {
-      // target 由 legacy 插件的 modernTargets 控制
-      // modulePreload: {},
-      outDir: path.join(__dirname, "./dist"), // path.join(__dirname, "dist/render"),
+      outDir: path.join(__dirname, "./dist"),
       assetsDir: path.join(__dirname, "./assets"),
       assetsInlineLimit: 5120, // 5KB
-      // 如果设置为false，整个项目中的所有 CSS 将被提取到一个 CSS 文件中
       cssCodeSplit: true,
-      // cssTarget: true, // 与 build.target 一致
-      // cssMinify: true, // 与 build.minify 一致
       sourcemap: true,
       rolldownOptions: {
         input: {
           index: path.resolve(__dirname, "./index.html"),
-          // color: path.resolve(__dirname, "/public/color.html"),
         },
         output: {
           dir: "dist",
-          // Static resource classification and packaging
           chunkFileNames: "assets/js/[name]-[hash].js",
           entryFileNames: "assets/js/[name]-[hash].js",
           assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
-          codeSplitting: {
-            groups: [{
-              name: "vue",
-              test: /[\\/]node_modules[\\/](vue|pinia|vue-router|axios)[\\/]/,
-            }, {
-              name: "echarts",
-              test: /[\\/]node_modules[\\/](echarts)[\\/]/,
-            }]
-          },
         },
       },
-      // dynamicImportVarsOptions: "",
-      // lib: "",
-      // license: false,
-      // manifest: false, // manifest.json
-      // ssrManifest: false,
-      // ssr: false,
-      // emitAssets: false,
-      // ssrEmitAssets: false,
-      minify: true, // boolean | "terser" | "oxc"
+      minify: true,
       terserOptions: {
         compress: {
-          drop_console: isBuild, // 生产环境去除console
-          drop_debugger: isBuild, // 生产环境去除debugger
+          drop_console: isBuild,
+          drop_debugger: isBuild,
         },
       },
-      // write: true,
-      // emptyOutDir: true, // outDiroutDir--emptyOutDir
-      // copyPublicDir: true, // outDiroutDir--emptyOutDir
       reportCompressedSize: true,
       chunkSizeWarningLimit: 1024,
-      // watch: 1024,
     },
     /**
      * 4. 预览选项 (Preview Options)
      * 参考: https://vite.dev/config/preview-options
-     * (用于 vite preview 命令)
      */
-    // preview: {
-    //   host: "0.0.0.0",
-    //   allowedHosts: "",
-    //   port: 5000,
-    //   strictPort: true,
-    //   https: false,
-    //   open: false,
-    //   proxy: {},
-    //   cors: true,
-    //   headers: "*",
-    // },
     /**
      * 5. 依赖优化选项 (Dep Optimization Options)
      * 参考: https://vite.dev/config/dep-optimization-options
      */
     optimizeDeps: {
-      // entries: "optimize.js",
       exclude: [],
       include: [],
       rolldownOptions: {},
       force: false,
-      // noDiscovery: false,
-      // holdUntilCrawlEnd: false,
-      // needsInterop: [],
     },
-    /**
-     * 6. SSR 选项 (SSR Options)
-     * 参考: https://vite.dev/config/ssr-options
-     */
-    // ssr: {
-    //   external: "",
-    //   noExternal: "",
-    //   target: "",
-    //   resolve: {
-    //   	conditions: [],
-    //   	externalConditions: [],
-    //   	mainFields: [],
-    //   },
-    // },
-    /**
-     * 7. Worker 选项 (Worker Options)
-     * 参考: https://vite.dev/config/worker-options
-     */
-    // worker: {
-    //   format: "iife", // 'es' | 'iife'
-    //   plugins: [],
-    //   rolldownOptions: {},
-    // },
   };
   return Object.assign(defaultConfig, dynamicConfig);
 });

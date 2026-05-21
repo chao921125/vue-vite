@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { FullscreenManager } from "js-use-core";
-import Storage from "@/utils/storage";
+import Storage from "@/utils/browser/storage";
 import Constants from "@/utils/constant/constants";
 import ThemeConfig from "@/config/themeConfig";
 import RouterConfig from "@/config/routerConfig";

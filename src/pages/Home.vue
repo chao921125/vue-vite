@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { formatAxis, formatDate } from "@/utils/format";
-import { getIpInfoProxy, getIpInfoReal } from "@/utils/ip";
+import { formatAxis, formatDate } from "@/utils/format/index";
+import { getIpInfoProxy, getIpInfoReal } from "@/utils/browser/ip";
 import Constants from "@/utils/constant/constants";
-import Ua from "@/utils/ua";
+import Ua from "@/utils/browser/ua";
 
 // 欢迎标语
 const now = ref(formatAxis(new Date()));

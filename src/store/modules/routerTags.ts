@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import type { TagViewItem } from "#/types";
-import { createPersistedState, createPersistedActions } from "@/plugins/golbal/storePersist";
+import { createPersistedState, createPersistedActions } from "@/plugins/global/storePersist";
 
 /**
  * TagsView 路由列表 Store
