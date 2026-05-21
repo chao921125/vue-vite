@@ -1,7 +1,9 @@
 $prefix: re;
 
-// 1. 颜色系统
-// 色值定义
+// 1. 颜色系统（Colors）
+// ============================================
+
+// 基础色值
 $color-primary: #409eff;
 $color-white: #ffffff;
 $color-white-ghost: #f8f8ff;
@@ -10,45 +12,41 @@ $color-black: #000000;
 $color-grey: #bebebe;
 $color-red: #ff0000;
 
-// 自定义色值，不常用的、特有的、针对性的
+// 自定义特殊色值
 $color-re-re: #123123;
 
-// 文本颜色
-$text-link: #5677fc;
-$text-default: #fff;
+// 文本颜色（统一使用 text- 前缀）
 $text-primary: #000;
+$text-default: #fff;
+$text-link: #5677fc;
 $text-success: #03c03c;
 $text-error: #e34234;
 $text-waring: #ff9933;
 $text-placeholder: #ccc;
 $text-prohibit: #8a8a8a;
 
-// 按钮颜色
-$btn-default: #fff;
-$btn-success: #03c03c;
-$btn-error: #e34234;
-$btn-waring: #ff9933;
+// 按钮颜色（复用文本颜色，避免重复）
+$btn-default: $color-white;
+$btn-success: $text-success;
+$btn-error: $text-error;
+$btn-waring: $text-waring;
 
-// 边框颜色
-$border-error: #e34234;
-$border-waring: #ff9933;
+// 边框颜色（复用文本颜色）
+$border-error: $text-error;
+$border-waring: $text-waring;
 
-// 可点击颜色
-$link-success: #03c03c;
+// 链接颜色
+$link-success: $text-success;
 
 // 2. 字体系统（Typography）
 
-// 字体大小阶梯（基于 1rem = 78px）
+// 字体大小阶梯（基于 1rem = 78px，设计稿 780px）
 $font-size-xs: 10px;      // 0.128rem - 辅助文字
 $font-size-sm: 12px;      // 0.154rem - 小字
 $font-size-base: 14px;    // 0.179rem - 正文
 $font-size-md: 16px;      // 0.205rem - 常规
 $font-size-lg: 18px;      // 0.231rem - 标题小
 $font-size-xl: 20px;      // 0.256rem - 标题中
-$font-size-2xl: 24px;     // 0.308rem - 标题大
-$font-size-3xl: 30px;     // 0.385rem - 标题特大
-$font-size-4xl: 36px;     // 0.462rem - 展示标题
-$font-size-5xl: 48px;     // 0.615rem - 超大标题
 
 // 字体粗细
 $font-weight-light: 300;
@@ -93,15 +91,13 @@ $spacings: 0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128;
 
 // 4. 圆角系统（Border Radius）
 
-// 圆角大小
+// 圆角大小（基于 780 设计稿）
 $radius-none: 0;
 $radius-sm: 2px;
 $radius-base: 4px;
 $radius-md: 8px;
 $radius-lg: 12px;
 $radius-xl: 16px;
-$radius-2xl: 24px;
-$radius-3xl: 32px;
 $radius-full: 9999px;
 
 // 5. 阴影系统（Box Shadow）
@@ -112,7 +108,6 @@ $shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 $shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 $shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 $shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 $shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
 
 // 6. 过渡动画（Transitions）
@@ -142,43 +137,44 @@ $breakpoint-sm: 640px;   // 小屏手
 $breakpoint-md: 768px;   // 平板
 $breakpoint-lg: 1024px;  // 桌面
 $breakpoint-xl: 1280px;  // 大屏桌面
-$breakpoint-2xl: 1536px; // 超大屏
 
 // 断点 Map（用于循环）
 $breakpoints: (
   sm: $breakpoint-sm,
   md: $breakpoint-md,
   lg: $breakpoint-lg,
-  xl: $breakpoint-xl,
-  2xl: $breakpoint-2xl
+  xl: $breakpoint-xl
 );
 
 // 8. 组件尺寸（Component Sizes）
 
-// 输入框尺寸
+// 输入框尺寸（基于 780 设计稿）
 $input-height-sm: 32px;
 $input-height-base: 40px;
 $input-height-lg: 48px;
 $input-height-xl: 56px;
-$input-height-2xl: 72px;
-$input-height-3xl: 96px;
 
 $input-padding-sm: 8px 12px;
 $input-padding-base: 10px 16px;
 $input-padding-lg: 12px 20px;
 $input-padding-xl: 16px 24px;
 
-// 按钮尺寸
+// 按钮尺寸（基于 780 设计稿）
 $btn-height-sm: 32px;
 $btn-height-base: 40px;
 $btn-height-lg: 48px;
 $btn-height-xl: 56px;
-$btn-height-2xl: 72px;
-$btn-height-3xl: 96px;
 
 $btn-padding-sm: 8px 16px;
 $btn-padding-base: 12px 24px;
 $btn-padding-lg: 16px 32px;
+$btn-padding-xl: 20px 40px;
+
+// 按钮字体大小
+$btn-font-size-sm: 12px;
+$btn-font-size-base: 14px;
+$btn-font-size-lg: 16px;
+$btn-font-size-xl: 18px;
 
 // 9. 容器宽度（Container）
 
@@ -187,7 +183,6 @@ $container-sm: 640px;
 $container-md: 768px;
 $container-lg: 1024px;
 $container-xl: 1280px;
-$container-2xl: 1536px;
 $container-full: 100%;
 
 // 10. 项目共有的宽高设定
@@ -211,14 +206,65 @@ $z-index-7: 7000;
 $z-index-8: 8000;
 $z-index-9: 9000;
 
+// ============================================
 // 11. Mixin - 常用工具函数
+// ============================================
 
-// 禁止用户选中
-@mixin unable-select {
-  user-select: none;
+// 布局工具
+@mixin flex {
+  display: flex;
 }
 
-// 填满父元素 position: relative | absolute;
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@mixin flex-col {
+  flex-direction: column;
+}
+
+// 宽高填充
+@mixin wh-full {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin width-full {
+  width: 100%;
+}
+
+@mixin height-full {
+  height: 100%;
+}
+
+@mixin wh-fill {
+  width: 100vw;
+  height: 100vh;
+}
+
+@mixin width-fill {
+  width: 100vw;
+}
+
+@mixin height-fill {
+  height: 100vh;
+}
+
+// 绝对定位填充
 @mixin full {
   position: absolute;
   top: 0;
@@ -227,64 +273,34 @@ $z-index-9: 9000;
   left: 0;
 }
 
-// 文字 居中 左 右
+// 居中对齐
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 文本对齐
 @mixin text-center {
   text-align: center;
 }
+
 @mixin text-left {
   text-align: left;
 }
+
 @mixin text-right {
   text-align: right;
 }
 
-// 填充 宽高
-@mixin wh-full {
-  width: 100%;
-  height: 100%;
-}
-@mixin width-full {
-  width: 100%;
-}
-@mixin height-full {
-  height: 100%;
-}
-@mixin wh-fill {
-  width: 100vw;
-  height: 100vh;
-}
-@mixin width-fill {
-  width: 100vw;
-}
-@mixin height-fill {
-  height: 100vh;
-}
-
-// flex 垂直水平居中 两端对齐
-@mixin flex {
-  display: flex;
-}
-@mixin flex-col {
-  flex-direction: column;
-}
-
-// 将元素模拟成卡片外观
-@mixin card {
-  //border: 1px solid $color-border-white;
-  background: #fff;
-  border-radius: 4px;
-  font-size: 14px;
-  position: relative;
-}
-
-// 文本省略（单行）
+// 文本省略
 @mixin text-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-// 文本省略（多行）
 @mixin text-ellipsis-multi($lines: 2) {
   display: -webkit-box;
   -webkit-line-clamp: $lines;
@@ -302,31 +318,21 @@ $z-index-9: 9000;
   }
 }
 
-// 绝对居中
-@mixin absolute-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+// 禁止选中
+@mixin unable-select {
+  user-select: none;
 }
 
-// Flex 居中变体
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@mixin flex-around {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+// 卡片基础样式（合并重复的 card 和 card-base）
+@mixin card-base {
+  background: $color-white;
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+  transition: $transition-shadow;
+  
+  &:hover {
+    box-shadow: $card-shadow-hover;
+  }
 }
 
 // 响应式 Mixin
@@ -393,18 +399,6 @@ $card-radius: $radius-lg;        // 12px
 // 卡片阴影
 $card-shadow: $shadow-base;
 $card-shadow-hover: $shadow-lg;
-
-// 卡片混合宏
-@mixin card-base {
-  background: $color-white;
-  border-radius: $card-radius;
-  box-shadow: $card-shadow;
-  transition: $transition-shadow;
-  
-  &:hover {
-    box-shadow: $card-shadow-hover;
-  }
-}
 
 // ============================================
 // 13. 标签组件规范（Tags/Badges）

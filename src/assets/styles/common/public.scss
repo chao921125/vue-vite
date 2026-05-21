@@ -191,10 +191,6 @@
 .#{d.$prefix}-fs-md { font-size: d.$font-size-md; }
 .#{d.$prefix}-fs-lg { font-size: d.$font-size-lg; }
 .#{d.$prefix}-fs-xl { font-size: d.$font-size-xl; }
-.#{d.$prefix}-fs-2xl { font-size: d.$font-size-2xl; }
-.#{d.$prefix}-fs-3xl { font-size: d.$font-size-3xl; }
-.#{d.$prefix}-fs-4xl { font-size: d.$font-size-4xl; }
-.#{d.$prefix}-fs-5xl { font-size: d.$font-size-5xl; }
 
 // 字体粗细
 .#{d.$prefix}-fw-light { font-weight: d.$font-weight-light; }
@@ -287,8 +283,6 @@
 .#{d.$prefix}-rounded-md { border-radius: d.$radius-md; }
 .#{d.$prefix}-rounded-lg { border-radius: d.$radius-lg; }
 .#{d.$prefix}-rounded-xl { border-radius: d.$radius-xl; }
-.#{d.$prefix}-rounded-2xl { border-radius: d.$radius-2xl; }
-.#{d.$prefix}-rounded-3xl { border-radius: d.$radius-3xl; }
 .#{d.$prefix}-rounded-full { border-radius: d.$radius-full; }
 
 // 单独方向的圆角
@@ -304,7 +298,6 @@
 .#{d.$prefix}-shadow-md { box-shadow: d.$shadow-md; }
 .#{d.$prefix}-shadow-lg { box-shadow: d.$shadow-lg; }
 .#{d.$prefix}-shadow-xl { box-shadow: d.$shadow-xl; }
-.#{d.$prefix}-shadow-2xl { box-shadow: d.$shadow-2xl; }
 .#{d.$prefix}-shadow-inner { box-shadow: d.$shadow-inner; }
 .#{d.$prefix}-shadow-none { box-shadow: none; }
 

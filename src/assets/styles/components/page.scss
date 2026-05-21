@@ -3,6 +3,7 @@
  * 可直接在页面中使用的预定义样式类
  */
 
+@use "sass:color";
 @use "../common/declare" as d;
 
 // ============================================
@@ -11,7 +12,7 @@
 
 // 大号标题
 .title-large {
-  font-size: d.$font-size-4xl;    // 36px
+  font-size: d.$font-size-xl;     // 20px
   font-weight: d.$font-weight-bold; // 700
   line-height: d.$line-height-tight;
   color: d.$text-primary;
@@ -20,7 +21,7 @@
 
 // 标准标题
 .title {
-  font-size: d.$font-size-2xl;    // 24px
+  font-size: d.$font-size-lg;     // 18px
   font-weight: d.$font-weight-bold; // 700
   line-height: d.$line-height-tight;
   color: d.$text-primary;
@@ -64,31 +65,7 @@
 // 文本类 (Text)
 // ============================================
 
-// 大号正文
-.text-large {
-  font-size: d.$font-size-md;     // 16px
-  font-weight: d.$font-weight-normal;
-  line-height: d.$line-height-normal;
-  color: d.$text-primary;
-}
-
-// 标准正文
-.text {
-  font-size: d.$font-size-base;   // 14px
-  font-weight: d.$font-weight-normal;
-  line-height: d.$line-height-normal;
-  color: d.$text-primary;
-}
-
-// 小号正文
-.text-small {
-  font-size: d.$font-size-sm;     // 12px
-  font-weight: d.$font-weight-normal;
-  line-height: d.$line-height-normal;
-  color: d.$text-default;
-}
-
-// 超小正文（辅助文字）
+// 超小文本（辅助文字）
 .text-xs {
   font-size: d.$font-size-xs;     // 10px
   font-weight: d.$font-weight-normal;
@@ -96,14 +73,70 @@
   color: d.$text-placeholder;
 }
 
-// 粗体文本
-.text-bold {
-  font-weight: d.$font-weight-bold;
+// 小号文本
+.text-sm {
+  font-size: d.$font-size-sm;     // 12px
+  font-weight: d.$font-weight-normal;
+  line-height: d.$line-height-normal;
+  color: d.$text-default;
 }
 
+// 默认文本（标准正文）
+.text-md {
+  font-size: d.$font-size-base;   // 14px
+  font-weight: d.$font-weight-normal;
+  line-height: d.$line-height-normal;
+  color: d.$text-primary;
+}
+
+// 大号文本
+.text-lg {
+  font-size: d.$font-size-lg;     // 18px
+  font-weight: d.$font-weight-normal;
+  line-height: d.$line-height-normal;
+  color: d.$text-primary;
+}
+
+// 超大文本（标题）
+.text-xl {
+  font-size: d.$font-size-xl;     // 20px
+  font-weight: d.$font-weight-normal;
+  line-height: d.$line-height-normal;
+  color: d.$text-primary;
+}
+
+// ============================================
+// 文本粗细变体
+// ============================================
+
 // 细体文本
-.text-thin {
-  font-weight: d.$font-weight-light;
+.text-light {
+  font-weight: d.$font-weight-light;    // 300
+}
+
+// 常规文本
+.text-normal {
+  font-weight: d.$font-weight-normal;   // 400
+}
+
+// 中等文本
+.text-medium {
+  font-weight: d.$font-weight-medium;   // 500
+}
+
+// 半粗体文本
+.text-semibold {
+  font-weight: d.$font-weight-semibold; // 600
+}
+
+// 粗体文本
+.text-bold {
+  font-weight: d.$font-weight-bold;     // 700
+}
+
+// 最粗文本
+.text-black {
+  font-weight: d.$font-weight-black;    // 900
 }
 
 // 主要文字颜色
@@ -240,7 +273,7 @@
   color: d.$color-white;
   
   &:hover {
-    background-color: darken(d.$color-primary, 10%);
+    background-color: color.adjust(d.$color-primary, $lightness: -10%);
   }
 }
 
@@ -249,7 +282,7 @@
   color: d.$color-white;
   
   &:hover {
-    background-color: darken(d.$btn-success, 10%);
+    background-color: color.adjust(d.$btn-success, $lightness: -10%);
   }
 }
 
@@ -258,7 +291,7 @@
   color: d.$color-white;
   
   &:hover {
-    background-color: darken(d.$btn-error, 10%);
+    background-color: color.adjust(d.$btn-error, $lightness: -10%);
   }
 }
 
@@ -267,7 +300,7 @@
   color: d.$color-white;
   
   &:hover {
-    background-color: darken(d.$btn-waring, 10%);
+    background-color: color.adjust(d.$btn-waring, $lightness: -10%);
   }
 }
 
