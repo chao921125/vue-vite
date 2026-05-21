@@ -96,9 +96,9 @@ const checkFontsAsync = () => {
       const result = await checker.check(["NotoSans-Regular", "NotoSans-Medium"]);
 
       if (result.success) {
-        console.log("字体检测成功:", result.loadedFonts);
+        console.log("字体检测成功:", (result as any).loadedFonts);
       } else {
-        console.warn("字体检测失败，使用系统字体降级:", result.failedFonts);
+        console.warn("字体检测失败，使用系统字体降级:", (result as any).failedFonts);
       }
     } catch (error) {
       console.error("字体检测异常:", error);

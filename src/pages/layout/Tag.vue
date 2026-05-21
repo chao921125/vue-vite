@@ -24,7 +24,7 @@ const addTab = (routeCurrent: RouteLocationNormalizedLoaded): TagViewItem[] | fa
   if (routeCurrent.fullPath === "/home") {
     return false;
   }
-  let tags = Storage.getLocalStorage<TagViewItem[]>(Constants.keys.tags) || [];
+  let tags: TagViewItem[] = (Storage.getLocalStorage(Constants.keys.tags) as TagViewItem[]) || [];
   tags.push({
     label: String(routeCurrent.meta.title),
     name: routeCurrent.fullPath,

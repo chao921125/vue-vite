@@ -400,19 +400,32 @@ export default defineConfig(({ command, mode }) => {
           chunkFileNames: "assets/js/[name]-[hash].js",
           entryFileNames: "assets/js/[name]-[hash].js",
           assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
-          // 代码分割策略：优化首屏加载
-          manualChunks: {
-            // Vue 核心库
-            'vue-vendor': ['vue', 'vue-router', 'pinia'],
-            // Element Plus UI 库
-            'element-plus': ['element-plus'],
-            // HTTP 请求库
-            'axios': ['axios'],
-            // 图表库（按需加载）
-            'echarts': ['echarts'],
-            // 工具库
-            'utils': ['date-fns', 'lodash-es'],
-          },
+        },
+        // 代码分割策略：优化首屏加载
+        manualChunks(id) {
+          // Vue 核心库
+          if (id.includes('node_modules/vue') || 
+              id.includes('node_modules/vue-router') || 
+              id.includes('node_modules/pinia')) {
+            return 'vue-vendor';
+          }
+          // Element Plus UI 库
+          if (id.includes('node_modules/element-plus')) {
+            return 'element-plus';
+          }
+          // HTTP 请求库
+          if (id.includes('node_modules/axios')) {
+            return 'axios';
+          }
+          // 图表库
+          if (id.includes('node_modules/echarts')) {
+            return 'echarts';
+          }
+          // 工具库
+          if (id.includes('node_modules/date-fns') || 
+              id.includes('node_modules/lodash-es')) {
+            return 'utils';
+          }
         },
         // 路由懒加载优化：按页面分割代码
         plugins: [

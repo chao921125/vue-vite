@@ -15,6 +15,7 @@ const ipReal = reactive({ ip: "", province: "", region: "", country: "" });
 const ipProxy = reactive({ ip: "", province: "", country: "", region: "" });
 const getIpInfo = () => {
   getIpInfoReal(Constants.ipUrl.real.songzixian).then((res: IpInfoResponse) => {
+    if (!res.data) return;
     ipReal.ip = res.data.ip;
     ipReal.country = res.data.country + " " + res.data.countryCode;
     ipReal.province = res.data.province;
@@ -22,10 +23,10 @@ const getIpInfo = () => {
   });
 
   getIpInfoProxy(Constants.ipUrl.proxy.ipapiCo).then((res: IpInfoResponse) => {
-    ipProxy.ip = res.ip;
-    ipProxy.province = res.city;
-    ipProxy.country = res.country + " " + res.continent_code;
-    ipProxy.region = res.region + " " + res.region_code;
+    ipProxy.ip = res.ip || "";
+    ipProxy.province = res.city || "";
+    ipProxy.country = (res.country || "") + " " + (res.continent_code || "");
+    ipProxy.region = (res.region || "") + " " + (res.region_code || "");
   });
 };
 
