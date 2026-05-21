@@ -1,8 +1,0 @@
-allowBuilds:
-  '@parcel/watcher': true
-  core-js: true
-  sharp: true
-  esbuild: true
-  vue-demi: true
-minimumReleaseAgeExclude:
-  - stylelint@17.12.0
