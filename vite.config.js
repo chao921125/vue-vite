@@ -2,7 +2,7 @@
 import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
-import dayjs from "dayjs";
+import { format } from "date-fns";
 // import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 /**
@@ -43,7 +43,7 @@ import { getEnvConfig, createProxy } from "./build";
 
 const __APP_INFO__ = {
   pkg,
-  lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss"),
+  lastBuildTime: format(new Date(), "yyyy-MM-dd HH:mm:ss"),
 };
 
 export default defineConfig(({ command, mode }) => {

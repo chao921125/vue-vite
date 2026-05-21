@@ -1,0 +1,6 @@
+allowBuilds:
+  '@parcel/watcher': set this to true or false
+  core-js: set this to true or false
+  sharp: set this to true or false
+minimumReleaseAgeExclude:
+  - stylelint@17.12.0
