@@ -1,0 +1,13 @@
+{
+  "name": "vue-vite-server",
+  "version": "1.0.0",
+  "description": "Vue Vite production server with History mode support",
+  "type": "module",
+  "scripts": {
+    "start": "node server-express.js",
+    "dev": "node --watch server-express.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
