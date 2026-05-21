@@ -187,10 +187,9 @@
 // 字体大小
 .#{d.$prefix}-fs-xs { font-size: d.$font-size-xs; }
 .#{d.$prefix}-fs-sm { font-size: d.$font-size-sm; }
-.#{d.$prefix}-fs-base { font-size: d.$font-size-base; }
-.#{d.$prefix}-fs-md { font-size: d.$font-size-md; }
-.#{d.$prefix}-fs-lg { font-size: d.$font-size-lg; }
-.#{d.$prefix}-fs-xl { font-size: d.$font-size-xl; }
+.#{d.$prefix}-fs-md { font-size: d.$font-size-md; }  // 基准字体 70px
+.#{d.$prefix}-fs-lg { font-size: d.$font-size-lg; }  // 大字体 120px
+.#{d.$prefix}-fs-xl { font-size: d.$font-size-xl; }  // 超大字体 240px
 
 // 字体粗细
 .#{d.$prefix}-fw-light { font-weight: d.$font-weight-light; }
@@ -281,8 +280,8 @@
 .#{d.$prefix}-rounded-sm { border-radius: d.$radius-sm; }
 .#{d.$prefix}-rounded { border-radius: d.$radius-base; }
 .#{d.$prefix}-rounded-md { border-radius: d.$radius-md; }
-.#{d.$prefix}-rounded-lg { border-radius: d.$radius-lg; }
-.#{d.$prefix}-rounded-xl { border-radius: d.$radius-xl; }
+.#{d.$prefix}-rounded-lg { border-radius: d.$radius-lg; }  // 登录页圆角 24px
+.#{d.$prefix}-rounded-xl { border-radius: d.$radius-xl; }  // 登录页容器圆角 60px
 .#{d.$prefix}-rounded-full { border-radius: d.$radius-full; }
 
 // 单独方向的圆角

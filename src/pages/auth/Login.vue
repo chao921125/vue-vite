@@ -226,6 +226,17 @@ const onToReg = () => {
 </template>
 
 <style scoped lang="scss">
+// 登录页统一样式变量（待迁移至 SCSS 设计规范）
+$login-title-size: 240px; // 标题字体大小
+$login-input-font-size: 70px; // 输入框字体大小
+$login-btn-height: 150px; // 登录按钮高度
+$login-btn-font-size: 70px; // 登录按钮字体大小
+$login-link-font-size: 70px; // 链接文字大小
+$login-item-gap: 80px; // 表单项间距
+$login-radius: 24px; // 输入框/按钮圆角
+$login-container-radius: 60px; // 容器圆角
+$login-form-padding: 180px; // 表单区域内边距
+
 .login {
   position: relative;
   width: 100%;
@@ -241,7 +252,7 @@ const onToReg = () => {
 .login-container {
   width: 70%;
   background: #ffffff;
-  border-radius: 64px;
+  border-radius: $login-container-radius;
   box-shadow: 0 80px 240px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
@@ -360,7 +371,7 @@ const onToReg = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 180px;
+  padding: $login-form-padding;
   background: #ffffff;
   flex-shrink: 0;
   min-height: 600px;
@@ -372,7 +383,7 @@ const onToReg = () => {
 
 .form-title {
   width: 100%;
-  font-size: 234px; /* 3rem × 78 */
+  font-size: $login-title-size;
   font-weight: bold;
   color: #333;
   text-align: center;
@@ -386,34 +397,42 @@ const onToReg = () => {
   .form-item {
     width: 100%;
     padding: 47px 39px; /* 0.6rem 0.5rem × 78 */
-    margin-top: 80px;
+    margin-top: $login-item-gap;
 
     :deep(.el-input__wrapper) {
       height: 100%;
-      border-radius: 24px;
+      border-radius: $login-radius;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
 
     :deep(.form-in input) {
-      font-size: 70px; /* 0.9rem × 78 */
+      font-size: $login-input-font-size;
+      height: 100%;
+      padding: 30px 20px;
     }
 
     :deep(.el-button) {
-      height: 156px !important; /* 2rem × 78 */
-      border-radius: 24px;
+      height: $login-btn-height !important;
+      border-radius: $login-radius;
       font-weight: 600;
       letter-spacing: 8px;
     }
 
     :deep(.el-button > span) {
-      font-size: 62px !important; /* 0.8rem × 78 */
+      font-size: $login-btn-font-size !important;
+    }
+
+    :deep(.el-form-item__error) {
+      font-size: 70px;
+      color: #e34234;
+      margin-top: 20px;
     }
   }
 
   :deep(.txt.el-text) {
     cursor: pointer;
     user-select: none;
-    font-size: 62px !important; /* 0.8rem × 78 */
+    font-size: $login-link-font-size !important;
   }
 }
 
@@ -480,9 +499,10 @@ const onToReg = () => {
 
     .form-item {
       margin-top: 32px;
+      padding: 90px 39px; /* 0.6rem 0.5rem × 78 */
 
       :deep(.el-input__wrapper) {
-        height: 60px;
+        height: 190px;
         font-size: 18px;
       }
 

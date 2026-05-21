@@ -83,7 +83,7 @@
 
 // 默认文本（标准正文）
 .text-md {
-  font-size: d.$font-size-base;   // 14px
+  font-size: d.$font-size-md;     // 70px
   font-weight: d.$font-weight-normal;
   line-height: d.$line-height-normal;
   color: d.$text-primary;
@@ -97,11 +97,11 @@
   color: d.$text-primary;
 }
 
-// 超大文本（标题）
+// 超大文本（登录页 CCNET 标题）
 .text-xl {
-  font-size: d.$font-size-xl;     // 20px
-  font-weight: d.$font-weight-normal;
-  line-height: d.$line-height-normal;
+  font-size: d.$font-size-xl;     // 240px
+  font-weight: d.$font-weight-bold;
+  line-height: d.$line-height-tight;
   color: d.$text-primary;
 }
 
@@ -191,8 +191,8 @@
 
 // 标准按钮
 .btn {
-  height: d.$btn-height-base;         // 40px
-  font-size: d.$font-size-base;       // 14px
+  height: d.$btn-height-base;         // 150px
+  font-size: d.$font-size-md;         // 70px
   padding: 0 d.$btn-padding-base;
   border-radius: d.$radius-base;
   font-weight: d.$font-weight-medium;
@@ -341,8 +341,8 @@
 
 // 标准输入框
 .input {
-  height: d.$input-height-base;       // 40px
-  font-size: d.$font-size-base;       // 14px
+  height: d.$input-height-base;       // 150px
+  font-size: d.$font-size-md;         // 70px
   padding: d.$input-padding-base;
   border-radius: d.$radius-base;
   border: 1px solid #dcdfe6;

@@ -42,11 +42,10 @@ $link-success: $text-success;
 
 // 字体大小阶梯（基于 1rem = 78px，设计稿 780px）
 $font-size-xs: 10px;      // 0.128rem - 辅助文字
-$font-size-sm: 12px;      // 0.154rem - 小字
-$font-size-base: 14px;    // 0.179rem - 正文
-$font-size-md: 16px;      // 0.205rem - 常规
-$font-size-lg: 18px;      // 0.231rem - 标题小
-$font-size-xl: 20px;      // 0.256rem - 标题中
+$font-size-sm: 30px;      // 0.154rem - 小字
+$font-size-md: 70px;      // 基准字体（登录页输入框/按钮/链接）
+$font-size-lg: 120px;     // 大字体
+$font-size-xl: 240px;     // 超大字体（登录页 CCNET 标题）
 
 // 字体粗细
 $font-weight-light: 300;
@@ -96,8 +95,8 @@ $radius-none: 0;
 $radius-sm: 2px;
 $radius-base: 4px;
 $radius-md: 8px;
-$radius-lg: 12px;
-$radius-xl: 16px;
+$radius-lg: 24px;      // 登录页圆角
+$radius-xl: 60px;      // 登录页容器圆角
 $radius-full: 9999px;
 
 // 5. 阴影系统（Box Shadow）
@@ -149,32 +148,30 @@ $breakpoints: (
 // 8. 组件尺寸（Component Sizes）
 
 // 输入框尺寸（基于 780 设计稿）
-$input-height-sm: 32px;
-$input-height-base: 40px;
-$input-height-lg: 48px;
-$input-height-xl: 56px;
+$input-height-xs: 32px;
+$input-height-sm: 48px;
+$input-height-md: 150px;   // 常规高度（登录页输入框）
+$input-height-lg: 200px;
+$input-height-xl: 280px;
 
-$input-padding-sm: 8px 12px;
-$input-padding-base: 10px 16px;
-$input-padding-lg: 12px 20px;
-$input-padding-xl: 16px 24px;
+$input-padding-xs: 8px 12px;
+$input-padding-sm: 12px 16px;
+$input-padding-md: 30px 20px;  // 登录页输入框内边距
+$input-padding-lg: 40px 24px;
+$input-padding-xl: 50px 28px;
 
 // 按钮尺寸（基于 780 设计稿）
-$btn-height-sm: 32px;
-$btn-height-base: 40px;
-$btn-height-lg: 48px;
-$btn-height-xl: 56px;
+$btn-height-xs: 32px;
+$btn-height-sm: 48px;
+$btn-height-md: 150px;   // 常规高度（登录页按钮）
+$btn-height-lg: 200px;
+$btn-height-xl: 280px;
 
-$btn-padding-sm: 8px 16px;
-$btn-padding-base: 12px 24px;
-$btn-padding-lg: 16px 32px;
-$btn-padding-xl: 20px 40px;
-
-// 按钮字体大小
-$btn-font-size-sm: 12px;
-$btn-font-size-base: 14px;
-$btn-font-size-lg: 16px;
-$btn-font-size-xl: 18px;
+$btn-padding-xs: 8px 16px;
+$btn-padding-sm: 12px 24px;
+$btn-padding-md: 16px 32px;
+$btn-padding-lg: 20px 40px;
+$btn-padding-xl: 24px 48px;
 
 // 9. 容器宽度（Container）
 
@@ -419,8 +416,8 @@ $tag-padding-horizontal-lg: 12px;
 // 标签字体
 $tag-font-size-xs: $font-size-xs;  // 10px
 $tag-font-size-sm: $font-size-sm;  // 12px
-$tag-font-size-base: $font-size-base; // 14px
-$tag-font-size-lg: $font-size-md;  // 16px
+$tag-font-size-md: $font-size-md;  // 70px
+$tag-font-size-lg: $font-size-lg;  // 120px
 
 // ============================================
 // 14. 对话框/弹窗规范（Dialogs/Modals）
@@ -468,7 +465,7 @@ $form-item-gap: $spacing-5;  // 20px
 
 // 表单项标签
 $form-label-width: 100px;    // 标签宽度
-$form-label-font-size: $font-size-base;  // 14px
+$form-label-font-size: $font-size-sm;  // 12px
 $form-label-font-weight: $font-weight-medium; // 500
 
 // 表单项提示文字
@@ -493,7 +490,7 @@ $nav-item-padding-horizontal: $spacing-4;   // 16px
 $nav-item-padding-vertical: $spacing-3;     // 12px
 
 // 导航项字体
-$nav-item-font-size: $font-size-base;       // 14px
+$nav-item-font-size: $font-size-sm;       // 12px
 $nav-item-font-weight: $font-weight-medium; // 500
 
 // ============================================
@@ -517,20 +514,23 @@ $btn-icon-size-lg: 24px;
 // ============================================
 
 // Element Plus 输入框自定义
-@mixin element-input-custom($size: 'base') {
+@mixin element-input-custom($size: 'md') {
   :deep(.el-input__wrapper) {
-    @if $size == 'sm' {
+    @if $size == 'xs' {
+      height: $input-height-xs;
+      font-size: $font-size-xs;
+    } @else if $size == 'sm' {
       height: $input-height-sm;
       font-size: $font-size-sm;
-    } @else if $size == 'base' {
-      height: $input-height-base;
-      font-size: $font-size-base;
+    } @else if $size == 'md' {
+      height: $input-height-md;
+      font-size: $font-size-md;
     } @else if $size == 'lg' {
       height: $input-height-lg;
-      font-size: $font-size-md;
+      font-size: $font-size-lg;
     } @else if $size == 'xl' {
       height: $input-height-xl;
-      font-size: $font-size-lg;
+      font-size: $font-size-xl;
     }
     
     border-radius: $radius-base;
@@ -548,19 +548,27 @@ $btn-icon-size-lg: 24px;
 }
 
 // Element Plus 按钮自定义
-@mixin element-button-custom($size: 'base', $radius: 'base') {
-  @if $size == 'sm' {
+@mixin element-button-custom($size: 'md', $radius: 'base') {
+  @if $size == 'xs' {
+    height: $btn-height-xs;
+    font-size: $font-size-xs;
+    padding: 0 $btn-padding-xs;
+  } @else if $size == 'sm' {
     height: $btn-height-sm;
-    font-size: $btn-font-size-sm;
+    font-size: $font-size-sm;
     padding: 0 $btn-padding-sm;
-  } @else if $size == 'base' {
-    height: $btn-height-base;
-    font-size: $btn-font-size-base;
-    padding: 0 $btn-padding-base;
+  } @else if $size == 'md' {
+    height: $btn-height-md;
+    font-size: $font-size-md;
+    padding: 0 $btn-padding-md;
   } @else if $size == 'lg' {
     height: $btn-height-lg;
-    font-size: $btn-font-size-lg;
+    font-size: $font-size-lg;
     padding: 0 $btn-padding-lg;
+  } @else if $size == 'xl' {
+    height: $btn-height-xl;
+    font-size: $font-size-xl;
+    padding: 0 $btn-padding-xl;
   }
   
   @if $radius == 'sm' {
@@ -587,10 +595,10 @@ $btn-icon-size-lg: 24px;
     color: $text-primary;
   }
   
-  :deep(.el-form-item__error) {
-    font-size: $form-error-font-size;
-    color: $form-error-color;
-  }
+  //:deep(.el-form-item__error) {
+  //  font-size: $form-error-font-size;
+  //  color: $form-error-color;
+  //}
   
   :deep(.el-form-item) {
     margin-bottom: $form-item-gap;
