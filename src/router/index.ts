@@ -1,5 +1,5 @@
 // https://router.vuejs.org/zh/
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory, type RouteRecordRaw } from "vue-router";
 import { baseRoutes, errorRoutes } from "./route";
 import { appStore } from "@/store";
 import NProgress from "@/plugins/loading/progress";
@@ -9,6 +9,7 @@ import Constants from "@/utils/constant/constants";
 import RouterConfig from "@/config/routerConfig";
 import RouteData from "@/config/routerData";
 import Api from "@/api";
+import type { DynamicRouteData, RouteConfig, MenuListResponse } from "#/types";
 
 /**
  * 动态路由优化说明：
@@ -24,10 +25,33 @@ let isRoutesLoaded = false;
 const loadedRouteNames = new Set<string>();
 
 // 动态路由数据缓存
-let cachedRouteData: any[] = [];
+let cachedRouteData: DynamicRouteData[] = [];
 
 // 路由组件模块缓存
+// 使用 eager: false 确保懒加载
 const viewsModules = import.meta.glob("../pages/**/**.{vue,tsx}");
+
+// 预加载常用页面组件（在浏览器空闲时）
+const preloadCommonPages = () => {
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(
+      () => {
+        // 预加载首页和常用页面
+        const commonPages = ["../pages/Home.vue", "../pages/layout/Index.vue"];
+
+        commonPages.forEach((page) => {
+          const matchKey = Object.keys(viewsModules).find((key) =>
+            key.includes(page.replace("../pages/", "")),
+          );
+          if (matchKey) {
+            viewsModules[matchKey](); // 预加载
+          }
+        });
+      },
+      { timeout: 3000 },
+    );
+  }
+};
 
 // createWebHashHistory() hash路由#
 export const router = createRouter({
@@ -121,10 +145,11 @@ async function loadRoutesIfNeeded() {
 
   // 获取路由数据
   if (RouterConfig.isRequestRoutes) {
-    const { data } = await Api.systemApi.getMenuList({});
+    const { data } = (await Api.systemApi.getMenuList({})) as { data: MenuListResponse };
     cachedRouteData = data.list || [];
   } else {
-    cachedRouteData = RouteData;
+    // RouteData 是本地静态数据，类型可能不完全匹配，使用双重类型断言
+    cachedRouteData = RouteData as unknown as DynamicRouteData[];
   }
 
   console.log("📦 开始加载动态路由...");
@@ -139,6 +164,9 @@ async function loadRoutesIfNeeded() {
 
   // 等待路由完全注册
   await nextTick();
+
+  // 预加载常用页面（不阻塞当前导航）
+  preloadCommonPages();
 }
 
 // 路由加载后，关闭loading
@@ -154,7 +182,7 @@ router.onError(() => {
  * 动态添加路由
  * @param routeData 路由数据
  */
-export async function addDynamicRoutes(routeData: any[]) {
+export async function addDynamicRoutes(routeData: DynamicRouteData[]) {
   console.log("🔧 addDynamicRoutes 被调用", "路由数据数量:", routeData.length);
 
   // 存储菜单列表到 Store
@@ -192,11 +220,11 @@ export async function addDynamicRoutes(routeData: any[]) {
  * @param data 路由数据
  * @returns 路由配置数组
  */
-function buildRoutes(data: any[]): any[] {
+function buildRoutes(data: DynamicRouteData[]): RouteRecordRaw[] {
   if (data.length === 0) return [];
 
-  const rootRouter = { ...baseRoutes[0], children: [] as any[] };
-  const routeList: any[] = [];
+  const rootRouter = { ...baseRoutes[0], children: [] as RouteRecordRaw[] };
+  const routeList: RouteConfig[] = [];
 
   // 递归处理路由数据
   processRouteData(routeList, data, "");
@@ -205,9 +233,9 @@ function buildRoutes(data: any[]): any[] {
   const routesWithComponent = mapRoutesToComponent(routeList);
 
   // 添加到根路由的 children
-  rootRouter.children = [...routesWithComponent, ...errorRoutes];
+  rootRouter.children = [...routesWithComponent, ...errorRoutes] as RouteRecordRaw[];
 
-  return [rootRouter];
+  return [rootRouter] as RouteRecordRaw[];
 }
 /**
  * 递归处理路由数据
@@ -215,10 +243,14 @@ function buildRoutes(data: any[]): any[] {
  * @param data 路由数据
  * @param parentPath 父路径
  */
-function processRouteData(routeList: any[], data: any[] = [], parentPath: string = "") {
+function processRouteData(
+  routeList: RouteConfig[],
+  data: DynamicRouteData[] = [],
+  parentPath: string = "",
+) {
   if (data.length === 0) return;
 
-  data.forEach((item: any) => {
+  data.forEach((item: DynamicRouteData) => {
     // 清理路径
     const cleanPath = item.path.replace(/^\/+|\/+$/g, "");
     const path = parentPath ? `${parentPath}/${cleanPath}` : `/${cleanPath}`;
@@ -262,10 +294,10 @@ function processRouteData(routeList: any[], data: any[] = [], parentPath: string
  * @param routes 路由列表
  * @returns 映射后的路由列表
  */
-function mapRoutesToComponent(routes: any[]) {
+function mapRoutesToComponent(routes: RouteConfig[]): RouteConfig[] {
   if (!routes || routes.length === 0) return [];
 
-  return routes.map((item: any) => {
+  return routes.map((item: RouteConfig) => {
     if (item.component) {
       const component = loadComponent(item.component);
       if (!component) {
@@ -281,6 +313,11 @@ function mapRoutesToComponent(routes: any[]) {
  * 动态加载组件
  * @param componentPath 组件路径
  * @returns 组件加载函数
+ *
+ * 懒加载说明：
+ * - import.meta.glob 默认使用动态 import()，实现代码分割
+ * - 每个页面组件会被打包成独立的 chunk
+ * - 仅在访问对应路由时才加载组件代码
  */
 function loadComponent(componentPath: string) {
   const keys = Object.keys(viewsModules);
@@ -313,7 +350,7 @@ function loadComponent(componentPath: string) {
 }
 
 // 存放tag数据
-export async function setTags(data: any) {
+export async function setTags(data: DynamicRouteData[]) {
   await appStore.useRouterTags.setTagsViewRoutes(data);
 }
 

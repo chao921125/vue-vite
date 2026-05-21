@@ -136,7 +136,18 @@ export interface IpInfo {
 
 /** IP 查询响应 */
 export interface IpInfoResponse {
-  data: IpInfo;
+  ip: string;
+  country: string;
+  countryCode?: string;
+  province: string;
+  city: string;
+  isp?: string;
+  continent_code?: string;
+  region?: string;
+  region_code?: string;
+  latitude?: number;
+  longitude?: number;
+  data?: IpInfo;
   code?: number;
   message?: string;
 }

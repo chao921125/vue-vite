@@ -32,7 +32,7 @@ const changeMenuKey = computed(() => {
   return path.toString();
 });
 // 点击路由跳转菜单
-const toRouter = (index: any) => {
+const toRouter = (index: string) => {
   router.push({ path: "/" + index });
 };
 /**
@@ -40,13 +40,13 @@ const toRouter = (index: any) => {
  * 要点一：菜单的命名规则必须统一，比如父菜单：parent，对应的子菜单应该为：parent/children
  * 要点二：所有的展开菜单必须定义好，写到常量文件中和配置的菜单对应上，这个必须是开发人员提供配置
  */
-const openMenu = (index: any) => {
+const openMenu = (index: string, _indexPath: string[]) => {
   console.log("openMenu", index);
   // if (["/menu1", "/menu2"].includes(index) && route.path.indexOf(`${index}/`) === -1) {
   // 	router.push({ path: index });
   // }
 };
-const closeMenu = (index: any) => {
+const closeMenu = (index: string, _indexPath: string[]) => {
   console.log("closeMenu", index);
   // if (["/menu1", "/menu2"].includes(index)) {
   // 	router.push({ path: index });

@@ -2,6 +2,7 @@
 import axios from "axios";
 import Router from "@/router";
 import Storage from "@/utils/browser/storage";
+import { secureStorage } from "@/utils/browser/crypto";
 import Constants from "@/utils/constant/constants";
 import AxiosConfig from "@/config/httpConfig";
 import NProgress from "@/plugins/loading/progress";
@@ -35,10 +36,21 @@ http.interceptors.request.use(
     // - 如不需要，可直接删除此行
     config.headers["apifoxToken"] = "UpBZTbFlKA6vpmezjXyVjFrs4gCfy4o2";
 
-    // 用户认证 Token（从 Cookie 中获取）
-    if (Storage.getCookie(Constants.keys.token)) {
-      config.headers["token"] = "Bearer " + Storage.getCookie(Constants.keys.token);
-      config.headers["Authorization"] = "Bearer " + Storage.getCookie(Constants.keys.token);
+    // 用户认证 Token（优先使用加密存储，降级使用 Cookie）
+    const encryptedToken = secureStorage.getToken();
+    const cookieToken = Storage.getCookie(Constants.keys.token);
+    const token = encryptedToken || cookieToken;
+
+    if (token) {
+      config.headers["token"] = "Bearer " + token;
+      config.headers["Authorization"] = "Bearer " + token;
+    }
+
+    // CSRF Token（仅 POST/PUT/DELETE 请求）
+    const csrfToken = Storage.getSessionStorage(Constants.keys.csrfToken);
+    if (csrfToken && !["get", "GET"].includes(config.method || "")) {
+      config.headers["X-CSRF-Token"] = csrfToken;
+      config.headers["X-Requested-With"] = "XMLHttpRequest";
     }
 
     // GET 请求参数处理：将 data 合并到 params
@@ -48,13 +60,6 @@ http.interceptors.request.use(
       config.params = { ...config.params, ...config.data };
       config.data = undefined; // 清除 data，GET 请求不需要请求体
     }
-    // config.data = JSON.stringify(config.data);
-    // if (!/^https:\/\/|http:\/\//.test(<string>config.url)) {
-    // 	// 在请求发送之前做一些处理
-    // 	config.headers = {
-    // 		token: Storage.getCookie(Constants.keys.token),
-    // 	};
-    // }
 
     // 添加请求到取消列表
     AxiosCancel.addCancel(config);

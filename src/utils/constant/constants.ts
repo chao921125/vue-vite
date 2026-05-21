@@ -1,6 +1,8 @@
 export default {
   keys: {
     token: "auth-token",
+    csrfToken: "csrf-token", // CSRF Token
+    encryptionKey: "encryption-key", // 加密密钥
     themeConfig: "theme-config",
     i18nLocale: "i18n-locale",
     userInfo: "user-info",

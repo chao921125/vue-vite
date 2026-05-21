@@ -359,6 +359,27 @@ export default defineConfig(({ command, mode }) => {
         unhandledErrors: true,
         logLevels: ['warn', 'error'],
       },
+      // 开发环境安全头
+      headers: {
+        'Content-Security-Policy': `
+          default-src 'self';
+          script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:*;
+          style-src 'self' 'unsafe-inline';
+          img-src 'self' data: https: blob:;
+          font-src 'self' data: https:;
+          connect-src 'self' https: http://localhost:* ws://localhost:*;
+          media-src 'self';
+          object-src 'none';
+          frame-src 'self';
+          base-uri 'self';
+          form-action 'self';
+          frame-ancestors 'none';
+        `.replace(/\s+/g, ' ').trim(),
+        'X-Content-Type-Options': 'nosniff',
+        'X-Frame-Options': 'DENY',
+        'X-XSS-Protection': '1; mode=block',
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
+      },
     },
     /**
      * 3. 构建选项 (Build Options)
@@ -379,7 +400,27 @@ export default defineConfig(({ command, mode }) => {
           chunkFileNames: "assets/js/[name]-[hash].js",
           entryFileNames: "assets/js/[name]-[hash].js",
           assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+          // 代码分割策略：优化首屏加载
+          manualChunks: {
+            // Vue 核心库
+            'vue-vendor': ['vue', 'vue-router', 'pinia'],
+            // Element Plus UI 库
+            'element-plus': ['element-plus'],
+            // HTTP 请求库
+            'axios': ['axios'],
+            // 图表库（按需加载）
+            'echarts': ['echarts'],
+            // 工具库
+            'utils': ['date-fns', 'lodash-es'],
+          },
         },
+        // 路由懒加载优化：按页面分割代码
+        plugins: [
+          {
+            name: 'route-chunking',
+            enforce: 'post',
+          }
+        ],
       },
       minify: true,
       terserOptions: {

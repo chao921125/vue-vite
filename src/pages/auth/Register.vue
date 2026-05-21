@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from "vue-router";
 import Storage from "@/utils/browser/storage";
+import { secureStorage } from "@/utils/browser/crypto";
 import Constants from "@/utils/constant/constants";
 import ValidateForm from "@/utils/validate/validateForm";
+import type { FormInstance } from "element-plus";
 // import Api from "@/plugins/api";
 
 const { proxy } = getCurrentInstance() as any;
@@ -22,21 +24,26 @@ const data = reactive({
   isLoading: false,
 });
 
-const onLogin = async (formEl: any) => {
+const onLogin = async (formEl: FormInstance | undefined) => {
   if (!formEl) return false;
-  await formEl.validate((valid: boolean, fields: any) => {
+  await formEl.validate((valid: boolean, fields: Record<string, any> | undefined) => {
     console.log("====", valid, fields);
     if (valid) {
       data.isLoading = true;
       const token = new Date().getTime();
+
+      // ✅ 使用加密存储 Token（安全）
+      secureStorage.setToken(String(token));
+
+      // 同时存储到 Cookie（兼容旧逻辑）
       Storage.setCookie(Constants.keys.token, String(token));
-      Storage.setSessionStorage(Constants.keys.token, token);
-      Storage.setLocalStorage(Constants.keys.token, token);
+
+      // ❌ 移除明文存储（不安全）
+      // Storage.setSessionStorage(Constants.keys.token, token);
+      // Storage.setLocalStorage(Constants.keys.token, token);
+
       Storage.setLocalStorage(Constants.keys.userInfo, token);
-      // Storage.setCookie(Constants.keys.token, res.data.token);
-      // Storage.setSessionStorage(Constants.keys.token, res.data.token);
-      // Storage.setLocalStorage(Constants.keys.token, res.data);
-      // Storage.setLocalStorage(Constants.keys.userInfo, res.data);
+      data.isLoading = false;
       if (route.query?.redirect && route.query?.redirect !== "/") {
         router.push({
           path: <string>route.query?.redirect,
@@ -47,17 +54,9 @@ const onLogin = async (formEl: any) => {
       } else {
         router.push({ path: "/" });
       }
-      // Api.userApi
-      // 	.login({
-      // 		userName: "admin",
-      // 		password: "123123",
-      // 	})
-      // 	.then((res) => {
-      // 		console.log(res);
-      // 	});
     } else {
       data.isLoading = false;
-      proxy.$message.error("登录失败", fields);
+      proxy.$message.error("注册失败", fields);
       return false;
     }
   });

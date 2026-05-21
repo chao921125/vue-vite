@@ -38,7 +38,7 @@ export default [
     address: "",
     isHide: 0,
     isAffix: 1,
-    isKeepAlive: 1,
+    isKeepAlive: 1, // ✅ 缓存：首页频繁访问
     isDisable: 0,
     isMobile: 0,
     roles: ["admin", "system"],
@@ -57,7 +57,7 @@ export default [
     isIframe: 0,
     address: "",
     isAffix: 0,
-    isKeepAlive: 0,
+    isKeepAlive: 0, // ❌ 不缓存：布局组件
     isDisable: 0,
     isHide: 0,
     isMobile: 0,
@@ -76,7 +76,7 @@ export default [
         isIframe: 0,
         address: "",
         isAffix: 0,
-        isKeepAlive: 0,
+        isKeepAlive: 1, // ✅ 缓存：列表页保留筛选条件
         isDisable: 0,
         isHide: 0,
         isMobile: 0,
@@ -98,7 +98,7 @@ export default [
     isIframe: 0,
     address: "https://cn.bing.com/",
     isAffix: 1,
-    isKeepAlive: 1,
+    isKeepAlive: 0, // ❌ 不缓存：外部链接不需要缓存
     isDisable: 0,
     isHide: 0,
     isMobile: 0,
@@ -118,7 +118,7 @@ export default [
     isIframe: 1,
     address: "https://nodejs.org/",
     isAffix: 1,
-    isKeepAlive: 1,
+    isKeepAlive: 0, // ❌ 不缓存：Iframe 占用大量内存
     isDisable: 0,
     isHide: 0,
     isMobile: 0,

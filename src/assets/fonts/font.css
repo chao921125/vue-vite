@@ -3,6 +3,7 @@
   src: url("./NotoSans-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap; /* 先显示系统字体，加载后替换，避免阻塞渲染 */
 }
 
 @font-face {
@@ -17,6 +18,7 @@
   src: url("./NotoSans-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
+  font-display: swap; /* 先显示系统字体，加载后替换 */
 }
 
 @font-face {
@@ -31,6 +33,7 @@
   src: url("./NotoSans-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
+  font-display: swap; /* 先显示系统字体，加载后替换 */
 }
 
 @font-face {

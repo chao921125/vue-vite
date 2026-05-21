@@ -125,19 +125,13 @@ const changeColorPicker = () => {
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 const isThemDark = ref(themeConfig.value.isDark);
-const changeDark = (e: any) => {
+const changeDark = (e: boolean) => {
   themeConfig.value.isDark = e;
   setThemeConfig();
   toggleDark();
-  // let html = document.documentElement as HTMLElement;
-  // if (e) {
-  // 	html.setAttribute("class", "dark");
-  // } else {
-  // 	html.removeAttribute("class");
-  // }
 };
 const isThemGrey = ref(themeConfig.value.isGrey);
-const changeGrey = (e: any) => {
+const changeGrey = (e: boolean) => {
   themeConfig.value.isGrey = e;
   setThemeConfig();
   if (e) {
@@ -147,7 +141,7 @@ const changeGrey = (e: any) => {
   }
 };
 const isThemInvert = ref(themeConfig.value.isInvert);
-const changeInvert = (e: any) => {
+const changeInvert = (e: boolean) => {
   themeConfig.value.isInvert = e;
   setThemeConfig();
   if (e) {

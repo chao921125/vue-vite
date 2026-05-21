@@ -21,6 +21,31 @@ const config = reactive({
 
 const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 const route = useRoute();
+
+/**
+ * 需要缓存的路由名称列表
+ * 根据路由 meta.isKeepAlive 配置动态生成
+ */
+const cachedRoutes = computed(() => {
+  const routerList = appStore.useRouterList.routerList;
+  if (!routerList || routerList.length === 0) return [];
+
+  // 递归收集所有需要缓存的路由名称
+  const collectKeepAliveRoutes = (routes: any[]): string[] => {
+    const names: string[] = [];
+    routes.forEach((route) => {
+      if (route.meta?.isKeepAlive && route.name) {
+        names.push(route.name);
+      }
+      if (route.children?.length) {
+        names.push(...collectKeepAliveRoutes(route.children));
+      }
+    });
+    return names;
+  };
+
+  return collectKeepAliveRoutes(routerList);
+});
 const initData = () => {
   Utils.setTitle?.();
   if (proxy) {
@@ -52,44 +77,47 @@ onBeforeMount(() => {
 onMounted(async () => {
   initData();
 
-  // 等待字体加载完成后再进行检测
-  const checkFonts = async () => {
-    try {
-      // 首先等待 document.fonts 准备就绪
-      if (document.fonts && document.fonts.ready) {
-        await document.fonts.ready;
-      }
+  // 使用非阻塞方式检测字体
+  // 页面立即渲染，字体在后台异步检测
+  checkFontsAsync();
+});
 
+/**
+ * 异步字体检测（不阻塞渲染）
+ * 使用 requestIdleCallback 在浏览器空闲时执行
+ */
+const checkFontsAsync = () => {
+  const detect = async () => {
+    try {
       // 创建 FontManager 实例
       const checker = new FontManager();
 
-      // 检查字体是否可用
-      // 使用多次尝试机制，因为字体可能需要时间加载
-      let result = await checker.check(["NotoSans-Regular", "NotoSans-Medium"]);
-
-      // 如果检测失败，等待更多时间再试
-      if (!result.success) {
-        console.log("首次检测失败，等待字体加载...");
-        await new Promise((resolve) => setTimeout(resolve, 1000)); // 等待1秒
-
-        // 再次检查
-        result = await checker.check(["NotoSans-Regular", "NotoSans-Medium"]);
-      }
+      // 检查关键字体
+      const result = await checker.check(["NotoSans-Regular", "NotoSans-Medium"]);
 
       if (result.success) {
-        console.log("FontManager 检测: 字体库加载成功");
+        console.log("字体检测成功:", result.loadedFonts);
       } else {
-        console.log("FontManager 检测: 字体库加载失败");
-        console.log("失败的字体:", result.failedFonts);
+        console.warn("字体检测失败，使用系统字体降级:", result.failedFonts);
       }
     } catch (error) {
-      console.error("字体检测失败:", error);
+      console.error("字体检测异常:", error);
     }
   };
 
-  // 执行字体检查
-  checkFonts();
-});
+  // 使用 requestIdleCallback 在浏览器空闲时检测
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(
+      () => {
+        detect();
+      },
+      { timeout: 2000 }, // 最多等待2秒，超时也会执行
+    );
+  } else {
+    // 降级方案：延迟1秒后检测
+    setTimeout(detect, 1000);
+  }
+};
 onUnmounted(() => {
   if (proxy) {
     proxy.$mitt.off("getI18nConfig");
@@ -110,8 +138,9 @@ watch(
 <template>
   <el-config-provider :locale="config.i18n" :size="config.size" :button="config.buttonSpace">
     <RouterView v-slot="{ Component }">
-      <KeepAlive>
-        <component :is="Component" />
+      <!-- 根据路由 meta.isKeepAlive 决定是否缓存 -->
+      <KeepAlive :include="cachedRoutes">
+        <component :is="Component" :key="route.name" />
       </KeepAlive>
     </RouterView>
   </el-config-provider>

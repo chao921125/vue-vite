@@ -35,7 +35,7 @@
 <!--				{{ props.loadingText }}-->
 <!--			</slot>-->
 <!--		</div>-->
-<!--		<img v-else :src="props.src" alt="" @load="onLoad" @error="onError" />-->
+<!--		<img v-else :src="props.src" alt="" @load="onLoad" @error="onError" loading="lazy"/>-->
 <!--		<div v-if="hasError" class="error">-->
 <!--			<slot name="error">-->
 <!--				{{ props.errorText }}-->

@@ -3,6 +3,7 @@ import { formatAxis, formatDate } from "@/utils/format/index";
 import { getIpInfoProxy, getIpInfoReal } from "@/utils/browser/ip";
 import Constants from "@/utils/constant/constants";
 import Ua from "@/utils/browser/ua";
+import type { IpInfoResponse } from "#/types";
 
 // 欢迎标语
 const now = ref(formatAxis(new Date()));
@@ -13,14 +14,14 @@ const uaInfo = Ua.uaInfo;
 const ipReal = reactive({ ip: "", province: "", region: "", country: "" });
 const ipProxy = reactive({ ip: "", province: "", country: "", region: "" });
 const getIpInfo = () => {
-  getIpInfoReal(Constants.ipUrl.real.songzixian).then((res: any) => {
+  getIpInfoReal(Constants.ipUrl.real.songzixian).then((res: IpInfoResponse) => {
     ipReal.ip = res.data.ip;
     ipReal.country = res.data.country + " " + res.data.countryCode;
     ipReal.province = res.data.province;
     ipReal.region = res.data.city + " " + res.data.isp;
   });
 
-  getIpInfoProxy(Constants.ipUrl.proxy.ipapiCo).then((res: any) => {
+  getIpInfoProxy(Constants.ipUrl.proxy.ipapiCo).then((res: IpInfoResponse) => {
     ipProxy.ip = res.ip;
     ipProxy.province = res.city;
     ipProxy.country = res.country + " " + res.continent_code;
@@ -42,6 +43,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <!--	<img loading="lazy" />-->
   <el-skeleton :rows="1" animated :loading="isLoading">
     <h1>{{ now }}，今天是：{{ nowLocal }}</h1>
   </el-skeleton>
