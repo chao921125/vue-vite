@@ -88,10 +88,7 @@ export const baseRoutes = [
       auth: false,
       isHide: false,
     },
-    children: [
-      // 请不要往这里 `children` 中添加内容，此内容为了防止 No match found for location with path "xxx" 问题
-      ...errorRoutes,
-    ],
+    children: [], // 动态路由将添加到这里
   },
   {
     path: "/login",

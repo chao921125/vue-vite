@@ -1,7 +1,7 @@
 // https://router.vuejs.org/zh/
 import { createRouter, createWebHistory } from "vue-router";
 import { baseRoutes, errorRoutes } from "./route";
-import { getStoreRefs, appStore } from "@/store";
+import { appStore } from "@/store";
 import NProgress from "@/plugins/loading/progress";
 import Storage from "@/utils/storage";
 import AxiosCancel from "@/plugins/http/cancel";
@@ -11,15 +11,23 @@ import RouteData from "@/config/routerData";
 import Api from "@/api";
 
 /**
- * 配置文件修改是否从后端获取路由
- * 动态路由需要后端按照数据格式返回，静态数据直接填充即可
- * 动态路由刷新404时会导致首次直接访问子路由报错。
- * 这里在创建路由时先清空 `baseRoutes[0].children`，避免 catch-all（errorRoutes）在动态路由注册之前优先匹配导致重定向到 404。
+ * 动态路由优化说明：
+ * 1. 使用 Set 记录已加载的路由，避免重复添加
+ * 2. 使用 router.hasRoute() 检查路由是否存在
+ * 3. 减少重定向次数，优化导航流程
+ * 4. 移除全局变量，使用更安全的方案
  */
-baseRoutes[0].children = [];
 
-// 默认获取菜单及路由为静态数据
-let requestData: any[] = [];
+// 路由加载标记，避免重复加载
+let isRoutesLoaded = false;
+// 已加载的路由名称集合
+const loadedRouteNames = new Set<string>();
+
+// 动态路由数据缓存
+let cachedRouteData: any[] = [];
+
+// 路由组件模块缓存
+const viewsModules = import.meta.glob("../pages/**/**.{vue,tsx}");
 
 // createWebHashHistory() hash路由#
 export const router = createRouter({
@@ -39,49 +47,64 @@ router.beforeEach(async (to, from) => {
   Storage.setLocalStorage(Constants.keys.routerNext, to.path);
   // 取消所有请求
   AxiosCancel.removeAllCancel();
+
   const token =
     Storage.getLocalStorage(Constants.keys.token) || Storage.getCookie(Constants.keys.token);
-  if (!(RouterConfig.whiteList.includes(to.path) && !token)) {
-    if (!token || token === "undefined") {
-      Storage.removeLocalStorage(Constants.keys.token);
-      Storage.removeSessionStorage(Constants.keys.token);
-      Storage.removeCookie(Constants.keys.token);
-      return {
-        name: RouterConfig.routeLogin,
-        query: {
-          redirect: to.path,
-          params: JSON.stringify(to.query ? to.query : to.params),
-        },
-      };
-    } else if (token && RouterConfig.whiteList.includes(to.path)) {
+
+  // 白名单路由直接放行（包括登录、注册等）
+  if (RouterConfig.whiteList.includes(to.path)) {
+    // 如果已登录且访问登录页，跳转到首页
+    if (token && token !== "undefined") {
       return RouterConfig.routeHome;
-    } else {
-      try {
-        const { routerList } = getStoreRefs(appStore.useRouterList);
-        if (routerList.value.length === 0) {
-          if (RouterConfig.isRequestRoutes) {
-            // 从后端接口中重新获取数据，如果数据格式变化，直接写一个公共方法去转义即可
-            const { data } = await Api.systemApi.getMenuList({});
-            requestData = data.list || [];
-          } else {
-            requestData = RouteData;
-          }
-          // 后端/本地控制路由：路由数据初始化，防止刷新时丢失
-          await getDynamicRouter();
-          // 如果首次访问为根路径，重定向到配置的首页，避免在重定向前发生无匹配警告
-          if (to.path === "/" || to.path === "") {
-            return RouterConfig.routeHome;
-          } else {
-            // 确保 addRoute() 时动态添加的路由已经被完全加载上去，再重试原始导航
-            return { ...to, replace: true };
-          }
-        }
-      } catch (error) {
-        console.error("路由加载出错:", error);
-        // 出错时跳转到错误页面
-        return "/500";
-      }
     }
+    return true;
+  }
+
+  // 无 Token 或 Token 无效，跳转登录
+  if (!token || token === "undefined") {
+    Storage.removeLocalStorage(Constants.keys.token);
+    Storage.removeSessionStorage(Constants.keys.token);
+    Storage.removeCookie(Constants.keys.token);
+    return {
+      path: RouterConfig.routeLogin,
+      query: {
+        redirect: to.path,
+        params: JSON.stringify(to.query ? to.query : to.params),
+      },
+    };
+  }
+
+  // 已登录且非白名单路由，需要加载动态路由
+  try {
+    // 如果路由已加载，直接放行
+    if (isRoutesLoaded) {
+      return true;
+    }
+
+    // 获取路由数据
+    if (RouterConfig.isRequestRoutes) {
+      const { data } = await Api.systemApi.getMenuList({});
+      cachedRouteData = data.list || [];
+    } else {
+      cachedRouteData = RouteData;
+    }
+
+    // 动态添加路由
+    await addDynamicRoutes(cachedRouteData);
+
+    // 标记路由已加载
+    isRoutesLoaded = true;
+
+    // 如果访问根路径，重定向到首页
+    if (to.path === "/" || to.path === "") {
+      return RouterConfig.routeHome;
+    }
+
+    // 其他路径，重试当前导航（路由已添加）
+    return { ...to, replace: true };
+  } catch (error) {
+    console.error("路由加载出错:", error);
+    return "/500";
   }
 });
 
@@ -95,71 +118,70 @@ router.onError(() => {
 });
 
 /**
- * 处理路由数据
- * 动态路由处理思路：
- * 1、配置静态路由（无需登录即访问的，比如登录/注册/404等）
- * 2、拦截处理配置
- * 3、获取动态路由（将菜单存放状态管理中/将处理后的路由存放状态管理中，方便改变数据及时渲染）
- * 4、处理获取到的路由数据转为路由并动态添加进去
- * 5、渲染
+ * 动态添加路由
+ * @param routeData 路由数据
  */
+export async function addDynamicRoutes(routeData: any[]) {
+  // 存储菜单列表到 Store
+  await appStore.useRouterList.setMenuList(routeData);
 
-const viewsModules = import.meta.glob("../pages/**/**.{vue,tsx}");
-const dynamicViewsModules = Object.assign({}, { ...viewsModules });
+  // 构建路由配置
+  const routes = buildRoutes(routeData);
 
-// 获取动态路由数据
-export async function getDynamicRouter() {
-  await appStore.useRouterList.setMenuList(requestData);
-
-  await setAddRoute(requestData);
-}
-
-// 动态添加至路由中
-export async function setAddRoute(data: any) {
-  const routerList = getRouter(data);
-  routerList.forEach((route: any) => {
-    const { name } = route;
-    if (name && name !== "/") {
-      router.removeRoute(name || "");
+  // 添加路由（避免重复添加）
+  routes.forEach((route) => {
+    if (route.name && !router.hasRoute(route.name)) {
+      router.addRoute(route);
+      loadedRouteNames.add(route.name as string);
     }
-    router.addRoute(route);
   });
-  await setRouterList(routerList);
-}
 
-// 存储原始数据
-async function setRouterList(data: any) {
-  await appStore.useRouterList.setRouterList(data);
+  // 存储路由列表到 Store
+  await appStore.useRouterList.setRouterList(routes);
 }
 
 /**
- * update router
- * @param data
+ * 构建路由配置
+ * @param data 路由数据
+ * @returns 路由配置数组
  */
-function getRouter(data = []) {
+function buildRoutes(data: any[]): any[] {
   if (data.length === 0) return [];
-  const rootRouter: any = [baseRoutes[0]];
-  const addRouters: any[] = [];
-  setRouterItem(addRouters, data, "");
-  rootRouter[0].children = routeToComponent(addRouters);
-  rootRouter[0].children = [...rootRouter[0].children, ...errorRoutes];
-  return rootRouter;
+
+  const rootRouter = { ...baseRoutes[0], children: [] as any[] };
+  const routeList: any[] = [];
+
+  // 递归处理路由数据
+  processRouteData(routeList, data, "");
+
+  // 将路径映射为组件
+  const routesWithComponent = mapRoutesToComponent(routeList);
+
+  // 添加到根路由的 children
+  rootRouter.children = [...routesWithComponent, ...errorRoutes];
+
+  return [rootRouter];
 }
 /**
- * update router
+ * 递归处理路由数据
+ * @param routeList 路由列表
+ * @param data 路由数据
+ * @param parentPath 父路径
  */
-function setRouterItem(routerList: any[], data: any[] = [], parentPath: string = "") {
-  if (data.length === 0) return [];
+function processRouteData(routeList: any[], data: any[] = [], parentPath: string = "") {
+  if (data.length === 0) return;
+
   data.forEach((item: any) => {
-    // 确保路径格式正确
-    const cleanPath = item.path.replace(/^\/+|\/+$/g, ""); // 移除开头和结尾的斜杠
+    // 清理路径
+    const cleanPath = item.path.replace(/^\/+|\/+$/g, "");
     const path = parentPath ? `${parentPath}/${cleanPath}` : `/${cleanPath}`;
 
     // 生成唯一的路由名称
     const name = path.replace(/\//g, "-").substring(1) || "root";
+
     const route = {
-      path: path,
-      name: name,
+      path,
+      name,
       component: item.component,
       meta: {
         title: item.title,
@@ -178,56 +200,69 @@ function setRouterItem(routerList: any[], data: any[] = [], parentPath: string =
         permission: item.permission || [],
       },
     };
-    if (item.children && item.children.length) {
-      // 当访问的路由是含有子节点的路由，并且子节点非菜单，那么重定向
-      routerList.push(route);
-      setRouterItem(routerList, item.children, path);
-    } else {
-      routerList.push(route);
+
+    routeList.push(route);
+
+    // 递归处理子路由
+    if (item.children && item.children.length > 0) {
+      processRouteData(routeList, item.children, path);
     }
   });
 }
 
-function routeToComponent(routes: any[]) {
-  if (!routes) return [];
+/**
+ * 将路由路径映射为组件
+ * @param routes 路由列表
+ * @returns 映射后的路由列表
+ */
+function mapRoutesToComponent(routes: any[]) {
+  if (!routes || routes.length === 0) return [];
+
   return routes.map((item: any) => {
     if (item.component) {
-      const component = componentImport(dynamicViewsModules, item.component);
-      if (component === false) {
-        console.error(`路由组件 "${item.component}" 匹配到多个组件，请检查路径唯一性`);
-      } else if (component === undefined) {
+      const component = loadComponent(item.component);
+      if (!component) {
         console.error(`路由组件 "${item.component}" 未找到，请检查路径是否正确`);
       }
       item.component = component;
     }
-    if (item.children) routeToComponent(item.children);
     return item;
   });
 }
 
-function componentImport(viewsModule: any, component: string) {
-  const keys = Object.keys(viewsModule);
+/**
+ * 动态加载组件
+ * @param componentPath 组件路径
+ * @returns 组件加载函数
+ */
+function loadComponent(componentPath: string) {
+  const keys = Object.keys(viewsModules);
+
+  // 匹配组件路径
   const matchKeys = keys.filter((key) => {
     const k = key.replace(/^\.\.\/pages/, "");
     return (
-      k === `/${component}.vue` ||
-      k === `/${component}/index.vue` ||
-      k === `/${component}.tsx` ||
-      k === `/${component}/index.tsx`
+      k === `/${componentPath}.vue` ||
+      k === `/${componentPath}/index.vue` ||
+      k === `/${componentPath}.tsx` ||
+      k === `/${componentPath}/index.tsx`
     );
   });
-  if (matchKeys?.length === 1) {
-    const matchKey = matchKeys[0];
-    return viewsModule[matchKey];
-  }
-  if (matchKeys?.length > 1) {
-    console.warn("找到多个匹配的组件:", matchKeys, "使用第一个匹配项");
-    return viewsModule[matchKeys[0]];
+
+  // 精确匹配
+  if (matchKeys.length === 1) {
+    return viewsModules[matchKeys[0]];
   }
 
-  // 未找到匹配组件时，返回默认页面或错误提示页面
-  console.error("未找到匹配的组件:", component);
-  return errorRoutes[4].component; // 返回404页面
+  // 多个匹配，使用第一个并警告
+  if (matchKeys.length > 1) {
+    console.warn("找到多个匹配的组件:", matchKeys, "使用第一个匹配项");
+    return viewsModules[matchKeys[0]];
+  }
+
+  // 未找到，返回 404 页面
+  console.error("未找到匹配的组件:", componentPath);
+  return errorRoutes[4].component;
 }
 
 // 存放tag数据
