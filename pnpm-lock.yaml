@@ -126,6 +126,9 @@ importers:
       '@vue/compiler-sfc':
         specifier: ^3.5.34
         version: 3.5.34
+      '@vue/shared':
+        specifier: ^3.5.34
+        version: 3.5.34
       browserslist:
         specifier: ^4.28.2
         version: 4.28.2
