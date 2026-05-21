@@ -1,0 +1,17 @@
+# 1. 声明工作区范围（单项目必备，防止报错）
+packages:
+  - "."
+
+# 2. 显式关闭 Monorepo 的 hoist 行为（单项目最佳实践，让依赖更严格）
+hoist: false
+
+# 3. 供应链安全检查配置（解决你最初遇到的 stylelint 发布时间校验失败的问题）
+# 如果是个人小项目，可以直接设为 0 跳过等待；企业级项目建议保持默认 1440（24小时）
+minimumReleaseAge: 0
+
+# 4. 构建脚本白名单（替代旧版的 onlyBuiltDependencies）
+# 将这几个你信任的包设置为 true，pnpm 就不再拦截它们了
+allowBuilds:
+  "@parcel/watcher": true
+  "core-js": true
+  "sharp": true
