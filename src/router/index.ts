@@ -42,6 +42,8 @@ export const router = createRouter({
 
 // 路由加载前
 router.beforeEach(async (to, from) => {
+  console.log("🔍 路由守卫触发:", { from: from.path, to: to.path });
+
   NProgress.start();
   Storage.setLocalStorage(Constants.keys.routerPrev, from.path);
   Storage.setLocalStorage(Constants.keys.routerNext, to.path);
@@ -51,17 +53,28 @@ router.beforeEach(async (to, from) => {
   const token =
     Storage.getLocalStorage(Constants.keys.token) || Storage.getCookie(Constants.keys.token);
 
+  console.log("🔑 Token 检查:", token ? "有 token" : "无 token");
+
   // 白名单路由直接放行（包括登录、注册等）
   if (RouterConfig.whiteList.includes(to.path)) {
+    console.log("⚪ 白名单路由:", to.path);
     // 如果已登录且访问登录页，跳转到首页
     if (token && token !== "undefined") {
-      return RouterConfig.routeHome;
+      console.log("🔀 已登录，准备跳转到首页");
+      // 确保动态路由已加载
+      if (!isRoutesLoaded) {
+        console.log("📦 需要先加载动态路由");
+        await loadRoutesIfNeeded();
+      }
+      console.log("➡️ 重定向到:", RouterConfig.routeHome);
+      return { path: RouterConfig.routeHome, replace: true };
     }
     return true;
   }
 
   // 无 Token 或 Token 无效，跳转登录
   if (!token || token === "undefined") {
+    console.log("🚫 无 token，跳转登录");
     Storage.removeLocalStorage(Constants.keys.token);
     Storage.removeSessionStorage(Constants.keys.token);
     Storage.removeCookie(Constants.keys.token);
@@ -78,35 +91,55 @@ router.beforeEach(async (to, from) => {
   try {
     // 如果路由已加载，直接放行
     if (isRoutesLoaded) {
+      console.log("✅ 路由已加载，直接放行");
       return true;
     }
 
-    // 获取路由数据
-    if (RouterConfig.isRequestRoutes) {
-      const { data } = await Api.systemApi.getMenuList({});
-      cachedRouteData = data.list || [];
-    } else {
-      cachedRouteData = RouteData;
-    }
-
-    // 动态添加路由
-    await addDynamicRoutes(cachedRouteData);
-
-    // 标记路由已加载
-    isRoutesLoaded = true;
+    // 加载动态路由
+    await loadRoutesIfNeeded();
 
     // 如果访问根路径，重定向到首页
     if (to.path === "/" || to.path === "") {
-      return RouterConfig.routeHome;
+      console.log("➡️ 根路径，重定向到:", RouterConfig.routeHome);
+      return { path: RouterConfig.routeHome, replace: true };
     }
 
     // 其他路径，重试当前导航（路由已添加）
+    console.log("🔄 重试当前导航:", to.path);
     return { ...to, replace: true };
   } catch (error) {
-    console.error("路由加载出错:", error);
+    console.error("❌ 路由加载出错:", error);
     return "/500";
   }
 });
+
+/**
+ * 加载动态路由（如果需要）
+ */
+async function loadRoutesIfNeeded() {
+  if (isRoutesLoaded) return;
+
+  // 获取路由数据
+  if (RouterConfig.isRequestRoutes) {
+    const { data } = await Api.systemApi.getMenuList({});
+    cachedRouteData = data.list || [];
+  } else {
+    cachedRouteData = RouteData;
+  }
+
+  console.log("📦 开始加载动态路由...");
+
+  // 动态添加路由
+  await addDynamicRoutes(cachedRouteData);
+
+  // 标记路由已加载
+  isRoutesLoaded = true;
+
+  console.log("✅ 动态路由加载完成");
+
+  // 等待路由完全注册
+  await nextTick();
+}
 
 // 路由加载后，关闭loading
 router.afterEach(() => {
@@ -122,17 +155,31 @@ router.onError(() => {
  * @param routeData 路由数据
  */
 export async function addDynamicRoutes(routeData: any[]) {
+  console.log("🔧 addDynamicRoutes 被调用", "路由数据数量:", routeData.length);
+
   // 存储菜单列表到 Store
   await appStore.useRouterList.setMenuList(routeData);
 
   // 构建路由配置
   const routes = buildRoutes(routeData);
+  console.log("🔧 构建的路由数量:", routes.length);
 
   // 添加路由（避免重复添加）
   routes.forEach((route) => {
-    if (route.name && !router.hasRoute(route.name)) {
+    const routeName = route.name as string;
+    console.log("🔧 检查路由:", routeName, "已存在:", router.hasRoute(routeName));
+
+    // 对于根路由，需要删除旧的再添加新的（因为 children 变了）
+    if (routeName === "/") {
+      console.log("🔧 处理根路由，删除旧路由");
+      router.removeRoute(routeName);
+    }
+
+    // 添加路由
+    if (!router.hasRoute(routeName)) {
       router.addRoute(route);
-      loadedRouteNames.add(route.name as string);
+      loadedRouteNames.add(routeName);
+      console.log("✅ 动态路由已添加:", routeName, "子路由数量:", route.children?.length || 0);
     }
   });
 

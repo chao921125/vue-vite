@@ -50,8 +50,11 @@ export const useThemeConfig = defineStore("themeConfig", {
     },
   }),
   actions: {
+    /**
+     * 设置主题配置
+     * @param data - 部分主题配置对象
+     */
     setThemeConfig(data: Partial<ThemeConfigState>) {
-      // this.themeConfig = data;
       Object.assign(this.themeConfig, data);
     },
   },

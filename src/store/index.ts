@@ -1,11 +1,15 @@
-// https://pinia.vuejs.org/ 不必采用高级的setup写法
-import { createPinia, storeToRefs } from "pinia";
+// https://pinia.vuejs.org/
+import { createPinia, storeToRefs, type StoreGeneric } from "pinia";
 
-// 创建
+// 创建 Pinia 实例
 const store = createPinia();
 
-// 不必额外导入，直接使用此方法
-export const getStoreRefs = (store: any): any => {
+/**
+ * 获取 Store 的响应式引用
+ * @param store - Pinia store 实例
+ * @returns 响应式的 store 引用
+ */
+export const getStoreRefs = <T extends StoreGeneric>(store: T) => {
   return storeToRefs(store);
 };
 

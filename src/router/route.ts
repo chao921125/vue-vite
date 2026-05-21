@@ -13,7 +13,7 @@
  * }
  */
 
-import RouterConfig from "@/config/routerConfig";
+// 注意：RouterConfig 不再在此文件中使用，重定向逻辑已移至路由守卫
 
 /**
  * 定义404、401、登录、注册等白名单界面
@@ -78,9 +78,8 @@ export const baseRoutes = [
     // 明确使用根路径 '/'，便于在浏览器直接访问根地址时进行重定向
     path: "/",
     name: "/",
-    // 访问根路径时默认跳转到主页（由 RouterConfig.routeHome 指定，通常为 "/home"）
-    redirect: { path: RouterConfig.routeHome || "/" },
-    // 根路径不在此静态配置中重定向，重定向逻辑由 `src/router/index.ts` 在动态路由加载后处理
+    // 注意：移除了 redirect 配置，因为 /home 是动态路由
+    // 重定向逻辑由 src/router/index.ts 的路由守卫在动态路由加载后处理
     component: () => import("@/pages/layout/Index.vue"),
     meta: {
       title: "message.title.home",
