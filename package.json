@@ -90,7 +90,6 @@
     "@commitlint/types": "^20.5.0",
     "@rollup/plugin-commonjs": "^29.0.2",
     "@rollup/plugin-node-resolve": "^16.0.3",
-    "@types/echarts": "^5.0.0",
     "@types/node": "^25.9.1",
     "@types/qs": "^6.15.1",
     "@vitejs/plugin-legacy": "^8.0.2",
@@ -140,7 +139,6 @@
     "vite-svg-loader": "^5.1.1",
     "vue-tsc": "^3.3.1"
   },
-  "peerDependencies": {},
   "overrides": {
     "typescript": "5.8.3"
   },
