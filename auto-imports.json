@@ -523,6 +523,11 @@
   },
   {
     "from": "@vueuse/core",
+    "name": "createDisposableDirective",
+    "as": "createDisposableDirective"
+  },
+  {
+    "from": "@vueuse/core",
     "name": "createEventHook",
     "as": "createEventHook"
   },
@@ -720,11 +725,6 @@
     "from": "@vueuse/core",
     "name": "toReactive",
     "as": "toReactive"
-  },
-  {
-    "from": "@vueuse/core",
-    "name": "resolveRef",
-    "as": "resolveRef"
   },
   {
     "from": "@vueuse/core",
