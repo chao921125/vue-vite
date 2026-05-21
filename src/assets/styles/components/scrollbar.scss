@@ -1,0 +1,49 @@
+/**
+ * 滚动条组件样式
+ * 提供更丰富的滚动条定制选项
+ */
+@use "../common/declare" as d;
+
+// 自定义滚动条 - 细
+.#{d.$prefix}-scrollbar-thin {
+  @include d.custom-scrollbar(4px, rgba(0, 0, 0, 0.2));
+}
+
+// 自定义滚动条 - 默认
+.#{d.$prefix}-scrollbar-default {
+  @include d.custom-scrollbar(6px, rgba(0, 0, 0, 0.2));
+}
+
+// 自定义滚动条 - 粗
+.#{d.$prefix}-scrollbar-thick {
+  @include d.custom-scrollbar(10px, rgba(0, 0, 0, 0.3));
+}
+
+// 自定义滚动条 - 彩色
+.#{d.$prefix}-scrollbar-colored {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #409eff, #66b1ff);
+    border-radius: 4px;
+    &:hover {
+      background: linear-gradient(to bottom, #66b1ff, #79bbff);
+    }
+  }
+}
+
+// 隐藏滚动条但保留功能
+.#{d.$prefix}-scrollbar-hidden {
+  overflow: auto;
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE and Edge
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Opera
+  }
+}

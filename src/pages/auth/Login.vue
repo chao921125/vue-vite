@@ -32,7 +32,7 @@ const onLogin = async (formEl: FormInstance | undefined) => {
       data.isLoading = true;
       const token = new Date().getTime();
 
-      // ✅ 使用加密存储 Token（安全）
+      // ✅ 使用加密存储 Token（安全
       secureStorage.setToken(String(token));
 
       // 同时存储到 Cookie（兼容旧逻辑）
@@ -89,246 +89,472 @@ const onToReg = () => {
 </script>
 
 <template>
-  <section class="body-pd login re-flex-center">
-    <div class="login-bg">
-      <div class="loader">
-        <div class="wrapper">
-          <div class="catContainer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 733 673"
-              class="catbody"
-            >
-              <path
-                fill="#212121"
-                d="M111.002 139.5C270.502 -24.5001 471.503 2.4997 621.002 139.5C770.501 276.5 768.504 627.5 621.002 649.5C473.5 671.5 246 687.5 111.002 649.5C-23.9964 611.5 -48.4982 303.5 111.002 139.5Z"
-              ></path>
-              <path fill="#212121" d="M184 9L270.603 159H97.3975L184 9Z"></path>
-              <path fill="#212121" d="M541 0L627.603 150H454.397L541 0Z"></path>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 158 564" class="tail">
-              <path
-                fill="#191919"
-                d="M5.97602 76.066C-11.1099 41.6747 12.9018 0 51.3036 0V0C71.5336 0 89.8636 12.2558 97.2565 31.0866C173.697 225.792 180.478 345.852 97.0691 536.666C89.7636 553.378 73.0672 564 54.8273 564V564C16.9427 564 -5.4224 521.149 13.0712 488.085C90.2225 350.15 87.9612 241.089 5.97602 76.066Z"
-              ></path>
-            </svg>
-            <div class="text">
-              <span class="bigzzz">Z</span>
-              <span class="zzz">Z</span>
-            </div>
+  <section class="login">
+    <div class="login-container">
+      <!-- 左侧区域 -->
+      <div class="login-left">
+        <div class="cat-scene">
+          <!-- 猫身体SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 733 673" class="cat-body">
+            <path
+              fill="#212121"
+              d="M111.002 139.5C270.502 -24.5001 471.503 2.4997 621.002 139.5C770.501 276.5 768.504 627.5 621.002 649.5C473.5 671.5 246 687.5 111.002 649.5C-23.9964 611.5 -48.4982 303.5 111.002 139.5Z"
+            ></path>
+            <path fill="#212121" d="M184 9L270.603 159H97.3975L184 9Z"></path>
+            <path fill="#212121" d="M541 0L627.603 150H454.397L541 0Z"></path>
+          </svg>
+
+          <!-- 猫尾巴SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 564" class="cat-tail">
+            <path
+              fill="#191919"
+              d="M5.97602 76.066C-11.1099 41.6747 12.9018 0 51.3036 0V0C71.5336 0 89.8636 12.2558 97.2565 31.0866C173.697 225.792 180.478 345.852 97.0691 536.666C89.7636 553.378 73.0672 564 54.8273 564V564C16.9427 564 -5.4224 521.149 13.0712 488.085C90.2225 350.15 87.9612 241.089 5.97602 76.066Z"
+            ></path>
+          </svg>
+
+          <!-- ZZZ文字 -->
+          <div class="zzz-container">
+            <span class="zzz-big">Z</span>
+            <span class="zzz-small">Z</span>
           </div>
-          <div class="wallContainer">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 500 126" class="wall">
-              <line stroke-width="6" stroke="#7C7C7C" y2="3" x2="450" y1="3" x1="50"></line>
-              <line stroke-width="6" stroke="#7C7C7C" y2="85" x2="400" y1="85" x1="100"></line>
-              <line stroke-width="6" stroke="#7C7C7C" y2="122" x2="375" y1="122" x1="125"></line>
-              <line stroke-width="6" stroke="#7C7C7C" y2="43" x2="500" y1="43"></line>
-              <line
-                stroke-width="6"
-                stroke="#7C7C7C"
-                y2="1.99391"
-                x2="115.5"
-                y1="43.0061"
-                x1="115.5"
-              ></line>
-              <line
-                stroke-width="6"
-                stroke="#7C7C7C"
-                y2="2.00002"
-                x2="189"
-                y1="43.0122"
-                x1="189"
-              ></line>
-              <line
-                stroke-width="6"
-                stroke="#7C7C7C"
-                y2="2.00612"
-                x2="262.5"
-                y1="43.0183"
-                x1="262.5"
-              ></line>
-              <line
-                stroke-width="6"
-                stroke="#7C7C7C"
-                y2="2.01222"
-                x2="336"
-                y1="43.0244"
-                x1="336"
-              ></line>
-              <line
-                stroke-width="6"
-                stroke="#7C7C7C"
-                y2="2.01833"
-                x2="409.5"
-                y1="43.0305"
-                x1="409.5"
-              ></line>
-              <line stroke-width="6" stroke="#7C7C7C" y2="43" x2="153" y1="84.0122" x1="153"></line>
-              <line stroke-width="6" stroke="#7C7C7C" y2="43" x2="228" y1="84.0122" x1="228"></line>
-              <line stroke-width="6" stroke="#7C7C7C" y2="43" x2="303" y1="84.0122" x1="303"></line>
-              <line stroke-width="6" stroke="#7C7C7C" y2="43" x2="378" y1="84.0122" x1="378"></line>
-              <line stroke-width="6" stroke="#7C7C7C" y2="84" x2="192" y1="125.012" x1="192"></line>
-              <line stroke-width="6" stroke="#7C7C7C" y2="84" x2="267" y1="125.012" x1="267"></line>
-              <line stroke-width="6" stroke="#7C7C7C" y2="84" x2="342" y1="125.012" x1="342"></line>
-            </svg>
-          </div>
+
+          <!-- 砖墙SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 126" class="brick-wall">
+            <line stroke-width="6" stroke="#7C7C7C" y2="3" x2="450" y1="3" x1="50"></line>
+            <line stroke-width="6" stroke="#7C7C7C" y2="85" x2="400" y1="85" x1="100"></line>
+            <line stroke-width="6" stroke="#7C7C7C" y2="122" x2="375" y1="122" x1="125"></line>
+            <line stroke-width="6" stroke="#7C7C7C" y2="43" x2="500" y1="43"></line>
+            <line
+              stroke-width="6"
+              stroke="#7C7C7C"
+              y2="1.99391"
+              x2="115.5"
+              y1="43.0061"
+              x1="115.5"
+            ></line>
+            <line
+              stroke-width="6"
+              stroke="#7C7C7C"
+              y2="2.00002"
+              x2="189"
+              y1="43.0122"
+              x1="189"
+            ></line>
+            <line
+              stroke-width="6"
+              stroke="#7C7C7C"
+              y2="2.00612"
+              x2="262.5"
+              y1="43.0183"
+              x1="262.5"
+            ></line>
+            <line
+              stroke-width="6"
+              stroke="#7C7C7C"
+              y2="2.01222"
+              x2="336"
+              y1="43.0244"
+              x1="336"
+            ></line>
+            <line
+              stroke-width="6"
+              stroke="#7C7C7C"
+              y2="2.01833"
+              x2="409.5"
+              y1="43.0305"
+              x1="409.5"
+            ></line>
+            <line stroke-width="6" stroke="#7C7C7C" y2="43" x2="153" y1="84.0122" x1="153"></line>
+            <line stroke-width="6" stroke="#7C7C7C" y2="43" x2="228" y1="84.0122" x1="228"></line>
+            <line stroke-width="6" stroke="#7C7C7C" y2="43" x2="303" y1="84.0122" x1="303"></line>
+            <line stroke-width="6" stroke="#7C7C7C" y2="43" x2="378" y1="84.0122" x1="378"></line>
+            <line stroke-width="6" stroke="#7C7C7C" y2="84" x2="192" y1="125.012" x1="192"></line>
+            <line stroke-width="6" stroke="#7C7C7C" y2="84" x2="267" y1="125.012" x1="267"></line>
+            <line stroke-width="6" stroke="#7C7C7C" y2="84" x2="342" y1="125.012" x1="342"></line>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 右侧表单区域 -->
+      <div class="login-right">
+        <div class="form-wrapper">
+          <!-- 标题 -->
+          <h1 class="form-title">CCNET</h1>
+
+          <el-form class="form" ref="formRef" :model="formData" :rules="formRules">
+            <el-form-item class="form-item" label="" prop="userName">
+              <el-input
+                v-model="formData.userName"
+                autofocus
+                @keyup.enter.native="onLogin(formRef)"
+                :disabled="data.isLoading"
+                class="form-in"
+                placeholder="请输入用户名"
+              />
+            </el-form-item>
+            <el-form-item class="form-item" label="" prop="password">
+              <el-input
+                v-model="formData.password"
+                @keyup.enter.native="onLogin(formRef)"
+                :disabled="data.isLoading"
+                class="form-in"
+                type="password"
+                placeholder="请输入密码"
+              />
+            </el-form-item>
+            <el-form-item class="form-item">
+              <div class="re-flex-between re-full-w">
+                <el-text class="re-cp txt" type="info" @click="onToReg">忘记密码</el-text>
+                <el-text class="re-cp txt" type="primary" @click="onToReg">注册</el-text>
+              </div>
+            </el-form-item>
+            <el-form-item class="form-item re-flex-center">
+              <el-button
+                class="re-full-w btn"
+                type="primary"
+                @click.native.prevent="onLogin(formRef)"
+                @keyup.enter.native="onLogin(formRef)"
+                :loading="data.isLoading"
+                >登录</el-button
+              >
+            </el-form-item>
+          </el-form>
         </div>
       </div>
     </div>
-    <el-form class="form" ref="formRef" :model="formData" :rules="formRules">
-      <h1 class="title re-tc re-full-w">CCNET</h1>
-      <el-form-item class="form-item" label="" prop="userName">
-        <el-input
-          v-model="formData.userName"
-          autofocus
-          @keyup.enter.native="onLogin(formRef)"
-          :disabled="data.isLoading"
-          class="form-in"
-          placeholder="请输入用户名"
-        />
-      </el-form-item>
-      <el-form-item class="form-item" label="" prop="password">
-        <el-input
-          v-model="formData.password"
-          @keyup.enter.native="onLogin(formRef)"
-          :disabled="data.isLoading"
-          class="form-in"
-          type="password"
-          placeholder="请输入密码"
-        />
-      </el-form-item>
-      <el-form-item class="form-item">
-        <div class="re-flex-between re-full-w">
-          <el-text class="re-cp txt" type="info" @click="onToReg">忘记密码</el-text>
-          <el-text class="re-cp txt" type="primary" @click="onToReg">注册</el-text>
-        </div>
-      </el-form-item>
-      <el-form-item class="form-item re-flex-center">
-        <el-button
-          class="re-full-w btn"
-          type="primary"
-          @click.native.prevent="onLogin(formRef)"
-          @keyup.enter.native="onLogin(formRef)"
-          :loading="data.isLoading"
-          >登录</el-button
-        >
-      </el-form-item>
-    </el-form>
   </section>
 </template>
 
 <style scoped lang="scss">
 .login {
   position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+  box-sizing: border-box;
 }
-.login-bg {
-  position: absolute;
-  left: 50%;
-  top: 25%;
-  transform: translate(-50%, -25%);
-  .loader {
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .wrapper {
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .catContainer {
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.login-container {
+  width: 70%;
+  background: #ffffff;
+  border-radius: 64px;
+  box-shadow: 0 80px 240px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.login-left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;
+  flex-shrink: 0;
+  min-height: 600px;
+  position: relative;
+  overflow: hidden;
+  padding: 234px 0;
+  margin: 0;
+
+  .cat-scene {
     position: relative;
-  }
-  .catbody {
-    width: 80px;
-  }
-  .tail {
-    position: absolute;
-    width: 17px;
-    top: 50%;
-    animation: tail 0.5s ease-in infinite alternate-reverse;
-    transform-origin: top;
-  }
-  @keyframes tail {
-    0% {
-      transform: rotateZ(60deg);
-    }
-    50% {
-      transform: rotateZ(0deg);
-    }
-    100% {
-      transform: rotateZ(-20deg);
-    }
-  }
-  .wall {
-    width: 300px;
-  }
-  .text {
+    width: 70%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    width: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // 猫身体 - 25rem = 25 * 78px = 1950px（根据项目rootValue: 78）
+  .cat-body {
+    width: 1950px;
+    max-width: 70%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  }
+
+  // 猫尾巴 - 下垂居中
+  .cat-tail {
     position: absolute;
-    margin: 0px 0px 100px 120px;
+    width: 12%;
+    right: 40%;
+    top: 55%;
+    z-index: 3;
+    animation: tailWag 0.8s ease-in-out infinite alternate;
+    transform-origin: top center;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   }
-  .zzz {
-    color: black;
-    font-weight: 700;
-    font-size: 15px;
-    animation: zzz 2s linear infinite;
-  }
-  .bigzzz {
-    color: black;
-    font-weight: 700;
-    font-size: 25px;
-    margin-left: 10px;
-    animation: zzz 2.3s linear infinite;
-  }
-  @keyframes zzz {
+
+  @keyframes tailWag {
     0% {
-      color: transparent;
-    }
-    50% {
-      color: black;
+      transform: rotate(15deg);
     }
     100% {
-      color: transparent;
+      transform: rotate(-10deg);
+    }
+  }
+
+  // ZZZ文字 - 在猫头上方
+  .zzz-container {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    .zzz-big {
+      font-size: 3.75rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      animation: zzzPulse 1.5s ease-in-out infinite;
+    }
+
+    .zzz-small {
+      font-size: 2.7rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      animation: zzzPulse 1.5s ease-in-out infinite 0.3s;
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes zzzPulse {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(0.95);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  // 砖墙 - 完全填充底部
+  .brick-wall {
+    width: 100%;
+    height: auto;
+    margin-top: -8%;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+}
+
+.login-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 180px;
+  background: #ffffff;
+  flex-shrink: 0;
+  min-height: 600px;
+}
+
+.form-wrapper {
+  width: 100%;
+}
+
+.form-title {
+  width: 100%;
+  font-size: 234px; /* 3rem × 78 */
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin: 0 0 100px 0;
+  letter-spacing: 8px;
+}
+
+.form {
+  width: 100%;
+
+  .form-item {
+    width: 100%;
+    padding: 47px 39px; /* 0.6rem 0.5rem × 78 */
+    margin-top: 80px;
+
+    :deep(.el-input__wrapper) {
+      height: 100%;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    :deep(.form-in input) {
+      font-size: 70px; /* 0.9rem × 78 */
+    }
+
+    :deep(.el-button) {
+      height: 156px !important; /* 2rem × 78 */
+      border-radius: 24px;
+      font-weight: 600;
+      letter-spacing: 8px;
+    }
+
+    :deep(.el-button > span) {
+      font-size: 62px !important; /* 0.8rem × 78 */
+    }
+  }
+
+  :deep(.txt.el-text) {
+    cursor: pointer;
+    user-select: none;
+    font-size: 62px !important; /* 0.8rem × 78 */
+  }
+}
+
+// 移动端适配（≤ 768px）
+@media screen and (max-width: 768px) {
+  .login {
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .login-container {
+    flex-direction: column;
+    width: 92%;
+    border-radius: 24px;
+  }
+
+  .login-left {
+    width: 100%;
+    min-height: 400px;
+    border-radius: 24px 24px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+    margin: 0;
+
+    .cat-scene {
+      height: 100%;
+    }
+
+    .zzz-container {
+      .zzz-big {
+        font-size: 2rem;
+      }
+      .zzz-small {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  .login-right {
+    width: 100%;
+    padding: 40px;
+  }
+
+  .form-wrapper {
+    max-width: 100%;
+  }
+
+  .title-box {
+    height: 50px;
+    margin-bottom: 30px;
+  }
+
+  .form {
+    width: 100%;
+    padding: 0;
+
+    .title {
+      font-size: 28px;
+    }
+
+    .form-item {
+      margin-top: 32px;
+
+      :deep(.el-input__wrapper) {
+        height: 60px;
+        font-size: 18px;
+      }
+
+      :deep(.el-button) {
+        height: 60px;
+        font-size: 20px;
+      }
+    }
+
+    .txt {
+      font-size: 18px;
     }
   }
 }
 
-.form {
-  margin-top: 300px;
-  width: 100%;
-  max-width: 30vw;
-  .form-item {
-    width: 100%;
-    margin-top: 20px;
+// 小屏幕手机适配（≤ 480px）
+@media screen and (max-width: 480px) {
+  .login-container {
+    width: 95%;
   }
-  .form-mt {
-    margin-top: 20px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .form {
-    margin-top: 600px;
-    max-width: 100%;
-    .form-item {
-      width: 100%;
-      margin-top: 60px;
+
+  .login-left {
+    min-height: 350px;
+    padding: 60px 0;
+    margin: 0;
+
+    .cat-scene {
+      height: 100%;
     }
-    .form-mt {
-      margin-top: 60px;
+
+    .zzz-container {
+      .zzz-big {
+        font-size: 1.6rem;
+      }
+      .zzz-small {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .login-right {
+    padding: 35px;
+  }
+
+  .title-box {
+    height: 44px;
+    margin-bottom: 28px;
+  }
+
+  .form {
+    padding: 0;
+
+    .title {
+      font-size: 26px;
+    }
+
+    .form-item {
+      margin-top: 28px;
+
+      :deep(.el-input__wrapper) {
+        height: 56px;
+        font-size: 16px;
+      }
+
+      :deep(.el-button) {
+        height: 56px;
+        font-size: 18px;
+      }
+    }
+
+    .txt {
+      font-size: 16px;
     }
   }
 }

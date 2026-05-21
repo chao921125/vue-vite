@@ -1,0 +1,678 @@
+/**
+ * Page Components - 页面组件样式类
+ * 可直接在页面中使用的预定义样式类
+ */
+
+@use "../common/declare" as d;
+
+// ============================================
+// 标题类 (Titles)
+// ============================================
+
+// 大号标题
+.title-large {
+  font-size: d.$font-size-4xl;    // 36px
+  font-weight: d.$font-weight-bold; // 700
+  line-height: d.$line-height-tight;
+  color: d.$text-primary;
+  margin: 0;
+}
+
+// 标准标题
+.title {
+  font-size: d.$font-size-2xl;    // 24px
+  font-weight: d.$font-weight-bold; // 700
+  line-height: d.$line-height-tight;
+  color: d.$text-primary;
+  margin: 0;
+}
+
+// 小号标题
+.title-small {
+  font-size: d.$font-size-xl;     // 20px
+  font-weight: d.$font-weight-semibold; // 600
+  line-height: d.$line-height-tight;
+  color: d.$text-primary;
+  margin: 0;
+}
+
+// 超小标题
+.title-xs {
+  font-size: d.$font-size-lg;     // 18px
+  font-weight: d.$font-weight-semibold; // 600
+  line-height: d.$line-height-tight;
+  color: d.$text-primary;
+  margin: 0;
+}
+
+// 粗体标题
+.title-bold {
+  font-weight: d.$font-weight-black; // 900
+}
+
+// 细体标题
+.title-thin {
+  font-weight: d.$font-weight-light; // 300
+}
+
+// 中等粗细标题
+.title-medium {
+  font-weight: d.$font-weight-medium; // 500
+}
+
+// ============================================
+// 文本类 (Text)
+// ============================================
+
+// 大号正文
+.text-large {
+  font-size: d.$font-size-md;     // 16px
+  font-weight: d.$font-weight-normal;
+  line-height: d.$line-height-normal;
+  color: d.$text-primary;
+}
+
+// 标准正文
+.text {
+  font-size: d.$font-size-base;   // 14px
+  font-weight: d.$font-weight-normal;
+  line-height: d.$line-height-normal;
+  color: d.$text-primary;
+}
+
+// 小号正文
+.text-small {
+  font-size: d.$font-size-sm;     // 12px
+  font-weight: d.$font-weight-normal;
+  line-height: d.$line-height-normal;
+  color: d.$text-default;
+}
+
+// 超小正文（辅助文字）
+.text-xs {
+  font-size: d.$font-size-xs;     // 10px
+  font-weight: d.$font-weight-normal;
+  line-height: d.$line-height-normal;
+  color: d.$text-placeholder;
+}
+
+// 粗体文本
+.text-bold {
+  font-weight: d.$font-weight-bold;
+}
+
+// 细体文本
+.text-thin {
+  font-weight: d.$font-weight-light;
+}
+
+// 主要文字颜色
+.text-primary {
+  color: d.$text-primary;
+}
+
+// 次要文字颜色
+.text-secondary {
+  color: d.$text-placeholder;
+}
+
+// 成功文字颜色
+.text-success {
+  color: d.$text-success;
+}
+
+// 错误文字颜色
+.text-error {
+  color: d.$text-error;
+}
+
+// 警告文字颜色
+.text-warning {
+  color: d.$text-waring;
+}
+
+// ============================================
+// 按钮类 (Buttons)
+// ============================================
+
+// 大号按钮
+.btn-large {
+  height: d.$btn-height-lg;           // 48px
+  font-size: d.$font-size-lg;         // 18px
+  padding: 0 d.$btn-padding-lg;
+  border-radius: d.$radius-base;
+  font-weight: d.$font-weight-medium;
+  cursor: pointer;
+  transition: d.$transition-all;
+  border: none;
+  outline: none;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+  
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+// 标准按钮
+.btn {
+  height: d.$btn-height-base;         // 40px
+  font-size: d.$font-size-base;       // 14px
+  padding: 0 d.$btn-padding-base;
+  border-radius: d.$radius-base;
+  font-weight: d.$font-weight-medium;
+  cursor: pointer;
+  transition: d.$transition-all;
+  border: none;
+  outline: none;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+  
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+// 小号按钮
+.btn-small {
+  height: d.$btn-height-sm;           // 32px
+  font-size: d.$font-size-sm;         // 12px
+  padding: 0 d.$btn-padding-sm;
+  border-radius: d.$radius-base;
+  font-weight: d.$font-weight-medium;
+  cursor: pointer;
+  transition: d.$transition-all;
+  border: none;
+  outline: none;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+  
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+// 大号圆角按钮
+.btn-round-large {
+  @extend .btn-large;
+  border-radius: d.$radius-lg;        // 12px
+}
+
+// 标准圆角按钮
+.btn-round {
+  @extend .btn;
+  border-radius: d.$radius-lg;        // 12px
+}
+
+// 小号圆角按钮
+.btn-round-small {
+  @extend .btn-small;
+  border-radius: d.$radius-lg;        // 12px
+}
+
+// 大号胶囊按钮
+.btn-pill-large {
+  @extend .btn-large;
+  border-radius: d.$radius-full;      // 完全圆角
+}
+
+// 标准胶囊按钮
+.btn-pill {
+  @extend .btn;
+  border-radius: d.$radius-full;      // 完全圆角
+}
+
+// 小号胶囊按钮
+.btn-pill-small {
+  @extend .btn-small;
+  border-radius: d.$radius-full;      // 完全圆角
+}
+
+// 按钮颜色变体
+.btn-primary {
+  background-color: d.$color-primary;
+  color: d.$color-white;
+  
+  &:hover {
+    background-color: darken(d.$color-primary, 10%);
+  }
+}
+
+.btn-success {
+  background-color: d.$btn-success;
+  color: d.$color-white;
+  
+  &:hover {
+    background-color: darken(d.$btn-success, 10%);
+  }
+}
+
+.btn-error {
+  background-color: d.$btn-error;
+  color: d.$color-white;
+  
+  &:hover {
+    background-color: darken(d.$btn-error, 10%);
+  }
+}
+
+.btn-warning {
+  background-color: d.$btn-waring;
+  color: d.$color-white;
+  
+  &:hover {
+    background-color: darken(d.$btn-waring, 10%);
+  }
+}
+
+.btn-default {
+  background-color: d.$btn-default;
+  color: d.$text-primary;
+  border: 1px solid #dcdfe6;
+  
+  &:hover {
+    border-color: d.$color-primary;
+    color: d.$color-primary;
+  }
+}
+
+// ============================================
+// 输入框类 (Inputs)
+// ============================================
+
+// 大号输入框
+.input-large {
+  height: d.$input-height-lg;         // 48px
+  font-size: d.$font-size-md;         // 16px
+  padding: d.$input-padding-lg;
+  border-radius: d.$radius-base;
+  border: 1px solid #dcdfe6;
+  transition: d.$transition-all;
+  outline: none;
+  
+  &:focus {
+    border-color: d.$color-primary;
+    box-shadow: 0 0 0 2px rgba(d.$color-primary, 0.1);
+  }
+  
+  &::placeholder {
+    color: d.$text-placeholder;
+  }
+}
+
+// 标准输入框
+.input {
+  height: d.$input-height-base;       // 40px
+  font-size: d.$font-size-base;       // 14px
+  padding: d.$input-padding-base;
+  border-radius: d.$radius-base;
+  border: 1px solid #dcdfe6;
+  transition: d.$transition-all;
+  outline: none;
+  
+  &:focus {
+    border-color: d.$color-primary;
+    box-shadow: 0 0 0 2px rgba(d.$color-primary, 0.1);
+  }
+  
+  &::placeholder {
+    color: d.$text-placeholder;
+  }
+}
+
+// 小号输入框
+.input-small {
+  height: d.$input-height-sm;         // 32px
+  font-size: d.$font-size-sm;         // 12px
+  padding: d.$input-padding-sm;
+  border-radius: d.$radius-base;
+  border: 1px solid #dcdfe6;
+  transition: d.$transition-all;
+  outline: none;
+  
+  &:focus {
+    border-color: d.$color-primary;
+    box-shadow: 0 0 0 2px rgba(d.$color-primary, 0.1);
+  }
+  
+  &::placeholder {
+    color: d.$text-placeholder;
+  }
+}
+
+// ============================================
+// 卡片类 (Cards)
+// ============================================
+
+.card {
+  @include d.card-base;
+  padding: d.$card-padding-base;
+}
+
+.card-small {
+  @include d.card-base;
+  padding: d.$card-padding-sm;
+}
+
+.card-large {
+  @include d.card-base;
+  padding: d.$card-padding-lg;
+}
+
+// ============================================
+// 间距类 (Spacing)
+// ============================================
+
+// 外边距
+.m-0 { margin: 0; }
+.m-1 { margin: d.$spacing-1; }
+.m-2 { margin: d.$spacing-2; }
+.m-3 { margin: d.$spacing-3; }
+.m-4 { margin: d.$spacing-4; }
+.m-5 { margin: d.$spacing-5; }
+.m-6 { margin: d.$spacing-6; }
+.m-8 { margin: d.$spacing-8; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: d.$spacing-1; }
+.mt-2 { margin-top: d.$spacing-2; }
+.mt-3 { margin-top: d.$spacing-3; }
+.mt-4 { margin-top: d.$spacing-4; }
+.mt-5 { margin-top: d.$spacing-5; }
+.mt-6 { margin-top: d.$spacing-6; }
+.mt-8 { margin-top: d.$spacing-8; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: d.$spacing-1; }
+.mb-2 { margin-bottom: d.$spacing-2; }
+.mb-3 { margin-bottom: d.$spacing-3; }
+.mb-4 { margin-bottom: d.$spacing-4; }
+.mb-5 { margin-bottom: d.$spacing-5; }
+.mb-6 { margin-bottom: d.$spacing-6; }
+.mb-8 { margin-bottom: d.$spacing-8; }
+
+.ml-0 { margin-left: 0; }
+.ml-1 { margin-left: d.$spacing-1; }
+.ml-2 { margin-left: d.$spacing-2; }
+.ml-3 { margin-left: d.$spacing-3; }
+.ml-4 { margin-left: d.$spacing-4; }
+.ml-5 { margin-left: d.$spacing-5; }
+.ml-6 { margin-left: d.$spacing-6; }
+.ml-8 { margin-left: d.$spacing-8; }
+
+.mr-0 { margin-right: 0; }
+.mr-1 { margin-right: d.$spacing-1; }
+.mr-2 { margin-right: d.$spacing-2; }
+.mr-3 { margin-right: d.$spacing-3; }
+.mr-4 { margin-right: d.$spacing-4; }
+.mr-5 { margin-right: d.$spacing-5; }
+.mr-6 { margin-right: d.$spacing-6; }
+.mr-8 { margin-right: d.$spacing-8; }
+
+// 内边距
+.p-0 { padding: 0; }
+.p-1 { padding: d.$spacing-1; }
+.p-2 { padding: d.$spacing-2; }
+.p-3 { padding: d.$spacing-3; }
+.p-4 { padding: d.$spacing-4; }
+.p-5 { padding: d.$spacing-5; }
+.p-6 { padding: d.$spacing-6; }
+.p-8 { padding: d.$spacing-8; }
+
+.pt-0 { padding-top: 0; }
+.pt-1 { padding-top: d.$spacing-1; }
+.pt-2 { padding-top: d.$spacing-2; }
+.pt-3 { padding-top: d.$spacing-3; }
+.pt-4 { padding-top: d.$spacing-4; }
+.pt-5 { padding-top: d.$spacing-5; }
+.pt-6 { padding-top: d.$spacing-6; }
+.pt-8 { padding-top: d.$spacing-8; }
+
+.pb-0 { padding-bottom: 0; }
+.pb-1 { padding-bottom: d.$spacing-1; }
+.pb-2 { padding-bottom: d.$spacing-2; }
+.pb-3 { padding-bottom: d.$spacing-3; }
+.pb-4 { padding-bottom: d.$spacing-4; }
+.pb-5 { padding-bottom: d.$spacing-5; }
+.pb-6 { padding-bottom: d.$spacing-6; }
+.pb-8 { padding-bottom: d.$spacing-8; }
+
+.pl-0 { padding-left: 0; }
+.pl-1 { padding-left: d.$spacing-1; }
+.pl-2 { padding-left: d.$spacing-2; }
+.pl-3 { padding-left: d.$spacing-3; }
+.pl-4 { padding-left: d.$spacing-4; }
+.pl-5 { padding-left: d.$spacing-5; }
+.pl-6 { padding-left: d.$spacing-6; }
+.pl-8 { padding-left: d.$spacing-8; }
+
+.pr-0 { padding-right: 0; }
+.pr-1 { padding-right: d.$spacing-1; }
+.pr-2 { padding-right: d.$spacing-2; }
+.pr-3 { padding-right: d.$spacing-3; }
+.pr-4 { padding-right: d.$spacing-4; }
+.pr-5 { padding-right: d.$spacing-5; }
+.pr-6 { padding-right: d.$spacing-6; }
+.pr-8 { padding-right: d.$spacing-8; }
+
+// ============================================
+// Flex 布局类
+// ============================================
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  @include d.flex-center;
+}
+
+.flex-between {
+  @include d.flex-between;
+}
+
+.flex-around {
+  @include d.flex-around;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+// ============================================
+// 文本对齐类
+// ============================================
+
+.text-center {
+  @include d.text-center;
+}
+
+.text-left {
+  @include d.text-left;
+}
+
+.text-right {
+  @include d.text-right;
+}
+
+// ============================================
+// 文本省略类
+// ============================================
+
+.text-ellipsis {
+  @include d.text-ellipsis;
+}
+
+.text-ellipsis-2 {
+  @include d.text-ellipsis-multi(2);
+}
+
+.text-ellipsis-3 {
+  @include d.text-ellipsis-multi(3);
+}
+
+// ============================================
+// 圆角类
+// ============================================
+
+.rounded-none {
+  border-radius: d.$radius-none;
+}
+
+.rounded-sm {
+  border-radius: d.$radius-sm;
+}
+
+.rounded {
+  border-radius: d.$radius-base;
+}
+
+.rounded-md {
+  border-radius: d.$radius-md;
+}
+
+.rounded-lg {
+  border-radius: d.$radius-lg;
+}
+
+.rounded-xl {
+  border-radius: d.$radius-xl;
+}
+
+.rounded-full {
+  border-radius: d.$radius-full;
+}
+
+// ============================================
+// 阴影类
+// ============================================
+
+.shadow-sm {
+  box-shadow: d.$shadow-sm;
+}
+
+.shadow {
+  box-shadow: d.$shadow-base;
+}
+
+.shadow-md {
+  box-shadow: d.$shadow-md;
+}
+
+.shadow-lg {
+  box-shadow: d.$shadow-lg;
+}
+
+.shadow-xl {
+  box-shadow: d.$shadow-xl;
+}
+
+// ============================================
+// 宽度类
+// ============================================
+
+.w-full {
+  width: 100%;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+// ============================================
+// 高度类
+// ============================================
+
+.h-full {
+  height: 100%;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+// ============================================
+// 显示类
+// ============================================
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
+
+// ============================================
+// 光标类
+// ============================================
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+// ============================================
+// 用户选择类
+// ============================================
+
+.select-none {
+  @include d.unable-select;
+}
+
+.select-text {
+  user-select: text;
+}
+
+.select-all {
+  user-select: all;
+}
+
+// ============================================
+// 过渡类
+// ============================================
+
+.transition {
+  transition: d.$transition-all;
+}
+
+.transition-fast {
+  transition: d.$transition-fast;
+}
+
+.transition-slow {
+  transition: d.$transition-slow;
+}

@@ -1,4 +1,4 @@
-@use "../common/root";
+@use "../common/declare";
 
 @mixin keyframes($animationName) {
   @keyframes #{$animationName} {
@@ -52,9 +52,6 @@
 
 .transition-w-1s {
   transition: width 1s;
-  -moz-transition: width 1s; /* Firefox 4 */
-  -webkit-transition: width 1s; /* Safari 和 Chrome */
-  -o-transition: width 1s; /* Opera */
 }
 
 // 毛玻璃效果
