@@ -673,7 +673,17 @@ $btn-icon-size-lg: 24px;
   --transition-base: #{$transition-base};
 
   // 组件
-  --input-height-base: #{$input-height-base};
-  --btn-height-base: #{$btn-height-base};
+  --input-height-xs: #{$input-height-xs};
+  --input-height-sm: #{$input-height-sm};
+  --input-height-md: #{$input-height-md};
+  --input-height-lg: #{$input-height-lg};
+  --input-height-xl: #{$input-height-xl};
+  
+  --btn-height-xs: #{$btn-height-xs};
+  --btn-height-sm: #{$btn-height-sm};
+  --btn-height-md: #{$btn-height-md};
+  --btn-height-lg: #{$btn-height-lg};
+  --btn-height-xl: #{$btn-height-xl};
+  
   --header-height: #{$header-height};
 }

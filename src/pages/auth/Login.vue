@@ -226,15 +226,17 @@ const onToReg = () => {
 </template>
 
 <style scoped lang="scss">
+@use "@/assets/styles/common/declare" as d;
+
 // 登录页统一样式变量（待迁移至 SCSS 设计规范）
-$login-title-size: 240px; // 标题字体大小
-$login-input-font-size: 70px; // 输入框字体大小
-$login-btn-height: 150px; // 登录按钮高度
-$login-btn-font-size: 70px; // 登录按钮字体大小
-$login-link-font-size: 70px; // 链接文字大小
-$login-item-gap: 80px; // 表单项间距
-$login-radius: 24px; // 输入框/按钮圆角
-$login-container-radius: 60px; // 容器圆角
+$login-title-size: d.$font-size-xl; // 标题字体大小 240px
+$login-input-font-size: d.$font-size-md; // 输入框字体大小 70px
+$login-btn-height: d.$btn-height-md; // 登录按钮高度 150px
+$login-btn-font-size: d.$font-size-md; // 登录按钮字体大小 70px
+$login-link-font-size: d.$font-size-md; // 链接文字大小 70px
+$login-item-gap: d.$spacing-20; // 表单项间距 80px
+$login-radius: d.$radius-lg; // 输入框/按钮圆角 24px
+$login-container-radius: d.$radius-xl; // 容器圆角 60px
 $login-form-padding: 180px; // 表单区域内边距
 
 .login {
@@ -438,144 +440,8 @@ $login-form-padding: 180px; // 表单区域内边距
 
 // 移动端适配（≤ 768px）
 @media screen and (max-width: 768px) {
-  .login {
-    padding: 0;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-  }
-
-  .login-container {
-    flex-direction: column;
-    width: 92%;
-    border-radius: 24px;
-  }
-
   .login-left {
-    width: 100%;
-    min-height: 400px;
-    border-radius: 24px 24px 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 0;
-    margin: 0;
-
-    .cat-scene {
-      height: 100%;
-    }
-
-    .zzz-container {
-      .zzz-big {
-        font-size: 2rem;
-      }
-      .zzz-small {
-        font-size: 1.4rem;
-      }
-    }
-  }
-
-  .login-right {
-    width: 100%;
-    padding: 40px;
-  }
-
-  .form-wrapper {
-    max-width: 100%;
-  }
-
-  .title-box {
-    height: 50px;
-    margin-bottom: 30px;
-  }
-
-  .form {
-    width: 100%;
-    padding: 0;
-
-    .title {
-      font-size: 28px;
-    }
-
-    .form-item {
-      margin-top: 32px;
-      padding: 90px 39px; /* 0.6rem 0.5rem × 78 */
-
-      :deep(.el-input__wrapper) {
-        height: 190px;
-        font-size: 18px;
-      }
-
-      :deep(.el-button) {
-        height: 60px;
-        font-size: 20px;
-      }
-    }
-
-    .txt {
-      font-size: 18px;
-    }
-  }
-}
-
-// 小屏幕手机适配（≤ 480px）
-@media screen and (max-width: 480px) {
-  .login-container {
-    width: 95%;
-  }
-
-  .login-left {
-    min-height: 350px;
-    padding: 60px 0;
-    margin: 0;
-
-    .cat-scene {
-      height: 100%;
-    }
-
-    .zzz-container {
-      .zzz-big {
-        font-size: 1.6rem;
-      }
-      .zzz-small {
-        font-size: 1.2rem;
-      }
-    }
-  }
-
-  .login-right {
-    padding: 35px;
-  }
-
-  .title-box {
-    height: 44px;
-    margin-bottom: 28px;
-  }
-
-  .form {
-    padding: 0;
-
-    .title {
-      font-size: 26px;
-    }
-
-    .form-item {
-      margin-top: 28px;
-
-      :deep(.el-input__wrapper) {
-        height: 56px;
-        font-size: 16px;
-      }
-
-      :deep(.el-button) {
-        height: 56px;
-        font-size: 18px;
-      }
-    }
-
-    .txt {
-      font-size: 16px;
-    }
+    display: none;
   }
 }
 </style>

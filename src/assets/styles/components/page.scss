@@ -191,9 +191,9 @@
 
 // 标准按钮
 .btn {
-  height: d.$btn-height-base;         // 150px
+  height: d.$btn-height-md;         // 150px
   font-size: d.$font-size-md;         // 70px
-  padding: 0 d.$btn-padding-base;
+  padding: 0 d.$btn-padding-md;
   border-radius: d.$radius-base;
   font-weight: d.$font-weight-medium;
   cursor: pointer;
@@ -341,9 +341,9 @@
 
 // 标准输入框
 .input {
-  height: d.$input-height-base;       // 150px
+  height: d.$input-height-md;       // 150px
   font-size: d.$font-size-md;         // 70px
-  padding: d.$input-padding-base;
+  padding: d.$input-padding-md;
   border-radius: d.$radius-base;
   border: 1px solid #dcdfe6;
   transition: d.$transition-all;
