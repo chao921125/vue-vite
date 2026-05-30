@@ -1,22 +1,20 @@
 <script setup lang="ts">
-
-
 const props = defineProps({
-	menus: {
-		type: Object,
-		// eslint-disable-next-line vue/require-valid-default-prop
-		default: () => [],
-	},
-	basePath: {
-		type: String,
-		default: "",
-	},
+  menus: {
+    type: Object,
+    // eslint-disable-next-line vue/require-valid-default-prop
+    default: () => [],
+  },
+  basePath: {
+    type: String,
+    default: "",
+  },
 });
 const menuList = computed(() => {
-	return props.menus || [];
+  return props.menus || [];
 });
 const resolvePath = (path: string) => {
-	return props.basePath + path;
+  return props.basePath + path;
 };
 </script>
 
@@ -52,4 +50,20 @@ const resolvePath = (path: string) => {
   </template>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@use "@/assets/styles/common/declare" as d;
+
+// 菜单项文字
+:deep(.el-menu-item span),
+:deep(.el-sub-menu__title span) {
+  font-size: d.$font-size-md; // 70px - 基准字体大小
+}
+
+// 移动端适配
+@media screen and (max-width: 768px) {
+  :deep(.el-menu-item span),
+  :deep(.el-sub-menu__title span) {
+    font-size: 14px;
+  }
+}
+</style>

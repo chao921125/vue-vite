@@ -1,35 +1,34 @@
 <script setup lang="ts">
-
 import { useRoute } from "vue-router";
 import { getStoreRefs, appStore } from "@/store";
 
 const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 const iframeHeight = computed(() => {
-	if (themeConfig.value.isTagsView) {
-		return "120px";
-	}
-	return "100px";
+  if (themeConfig.value.isTagsView) {
+    return "120px";
+  }
+  return "100px";
 });
 const iframeObj = reactive({
-	url: "",
-	loading: true,
+  url: "",
+  loading: true,
 });
 const route = useRoute();
 const initData = () => {
-	iframeObj.loading = true;
-	nextTick(() => {
-		iframeObj.url = String(route.meta.address) || "";
-		iframeObj.loading = false;
-	});
+  iframeObj.loading = true;
+  nextTick(() => {
+    iframeObj.url = String(route.meta.address) || "";
+    iframeObj.loading = false;
+  });
 };
 onMounted(() => {
-	initData();
+  initData();
 });
 watch(
-	() => route.path,
-	() => {
-		// initData();
-	},
+  () => route.path,
+  () => {
+    // initData();
+  },
 );
 </script>
 

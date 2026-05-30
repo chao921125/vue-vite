@@ -39,8 +39,8 @@ const onLogin = async (formEl: FormInstance | undefined) => {
       Storage.setCookie(Constants.keys.token, String(token));
 
       // ❌ 移除明文存储（不安全）
-      // Storage.setSessionStorage(Constants.keys.token, token);
-      // Storage.setLocalStorage(Constants.keys.token, token);
+      Storage.setSessionStorage(Constants.keys.token, token);
+      Storage.setLocalStorage(Constants.keys.token, token);
 
       Storage.setLocalStorage(Constants.keys.userInfo, token);
       // Storage.setCookie(Constants.keys.token, res.data.token);

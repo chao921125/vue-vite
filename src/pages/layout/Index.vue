@@ -11,39 +11,39 @@ import { useRoute } from "vue-router";
 // 修改项目设置
 const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 const state = reactive({
-	clientWidth: 0,
+  clientWidth: 0,
 });
 // 固定header
 const isFixedHeader = computed(() => {
-	return themeConfig.value.isFixedHeader;
+  return themeConfig.value.isFixedHeader;
 });
 //
 const setHeaderHeight = computed(() => {
-	const { isTagsView } = themeConfig.value;
-	if (isTagsView) return "84px";
-	else return "60px";
+  const { isTagsView } = themeConfig.value;
+  if (isTagsView) return "84px";
+  else return "60px";
 });
 // 开启展示 底部
 const isShowFooter = themeConfig.value.isFooter;
 // 动态修改菜单的宽高
 // eslint-disable-next-line vue/return-in-computed-property
 const styleCollapse = computed(() => {
-	const { isCollapse } = themeConfig.value;
-	if (isCollapse) return ["layout-aside-pc-64"];
-	else return ["layout-aside-pc-220"];
+  const { isCollapse } = themeConfig.value;
+  if (isCollapse) return ["layout-aside-pc-64"];
+  else return ["layout-aside-pc-220"];
 });
 // 切换路由之后，滚动到顶部
 const { proxy } = getCurrentInstance() as any;
 const route = useRoute();
 // 监听路由的变化
 watch(
-	() => route.path,
-	() => {
-		proxy.$refs.refScrollbarMain.wrapRef.scrollTop = 0;
-	},
+  () => route.path,
+  () => {
+    proxy.$refs.refScrollbarMain.wrapRef.scrollTop = 0;
+  },
 );
 onBeforeMount(() => {
-	state.clientWidth = document.body.clientWidth;
+  state.clientWidth = document.body.clientWidth;
 });
 </script>
 
@@ -79,4 +79,18 @@ onBeforeMount(() => {
   </el-container>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@use "@/assets/styles/common/declare" as d;
+
+// 主内容区字体
+.layout-main {
+  font-size: d.$font-size-md; // 70px - 基准字体大小
+}
+
+// 移动端适配
+@media screen and (max-width: 768px) {
+  .layout-main {
+    font-size: 14px;
+  }
+}
+</style>

@@ -4,7 +4,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  font-size: 100%;
+  font-size: d.$font-size-md; // 70px - 基准字体大小
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -41,7 +41,7 @@ body {
       justify-content: center;
       flex-shrink: 0;
       box-shadow: rgb(0 21 41 / 2%) 0 1px 4px;
-      font-size: 100%;
+      font-size: d.$font-size-md; // 70px - 基准字体大小
       cursor: pointer;
       animation: logoAnimation 0.3s ease-in-out;
       span {
@@ -155,6 +155,7 @@ body {
 // 分页组件 样式
 .page-box {
   margin-top: 20px;
+  font-size: d.$font-size-md; // 70px - 基准字体大小
 }
 
 // 边框渐变 not support radius 不支持曲度

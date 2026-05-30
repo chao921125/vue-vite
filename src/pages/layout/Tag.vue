@@ -144,6 +144,8 @@ onBeforeRouteUpdate((to) => {
 </template>
 
 <style scoped lang="scss">
+@use "@/assets/styles/common/declare" as d;
+
 .tags-space {
   width: 100%;
   height: 25px;
@@ -161,6 +163,26 @@ onBeforeRouteUpdate((to) => {
   }
   .tags-option {
     width: 50px;
+  }
+}
+
+// 标签字体
+:deep(.el-tag) {
+  font-size: d.$font-size-md; // 70px - 基准字体大小
+}
+
+// 更多按钮字体
+:deep(.el-button) {
+  font-size: d.$font-size-md; // 70px - 基准字体大小
+}
+
+// 移动端适配
+@media screen and (max-width: 768px) {
+  :deep(.el-tag) {
+    font-size: 14px;
+  }
+  :deep(.el-button) {
+    font-size: 14px;
   }
 }
 </style>

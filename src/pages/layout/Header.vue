@@ -314,8 +314,30 @@ onBeforeRouteUpdate((to) => {
 </template>
 
 <style scoped lang="scss">
+@use "@/assets/styles/common/declare" as d;
+
 .user-avatar {
   width: 40px;
   height: 40px;
+}
+
+// 面包屑导航字体
+:deep(.el-breadcrumb__inner) {
+  font-size: d.$font-size-md; // 70px - 基准字体大小
+}
+
+// 用户名
+.re-ml-10 {
+  font-size: d.$font-size-md; // 70px - 基准字体大小
+}
+
+// 移动端适配
+@media screen and (max-width: 768px) {
+  :deep(.el-breadcrumb__inner) {
+    font-size: 14px;
+  }
+  .re-ml-10 {
+    font-size: 14px;
+  }
 }
 </style>

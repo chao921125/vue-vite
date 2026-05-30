@@ -65,10 +65,20 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
+@use "@/assets/styles/common/declare" as d;
+
 h1 {
+  font-size: d.$font-size-md; // 70px - 基准字体大小
   line-height: 1.5;
 }
 .error {
   color: #ff0000;
+}
+
+// 移动端适配
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 14px;
+  }
 }
 </style>
