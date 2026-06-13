@@ -86,5 +86,12 @@
     "node": ">=14.0.0",
     "npm": ">=6.14.18",
     "yarn": ">=3.0.0"
-  }
+  },
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": "^22.17.0",
+			"onFail": "download"
+		}
+	}
 }
