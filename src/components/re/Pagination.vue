@@ -1,62 +1,61 @@
 <script setup lang="ts">
-
 const props = defineProps({
-	current: {
-		required: true,
-		type: Number,
-		default: 1,
-	},
-	limit: {
-		type: Number,
-		default: 10,
-	},
-	total: {
-		type: Number,
-		default: 0,
-	},
-	sizes: {
-		type: Array,
-		default: () => {
-			return [10, 20, 50, 100, 200];
-		},
-	},
-	autoScroll: {
-		type: Boolean,
-		default: true,
-	},
+  current: {
+    required: true,
+    type: Number,
+    default: 1,
+  },
+  limit: {
+    type: Number,
+    default: 10,
+  },
+  total: {
+    type: Number,
+    default: 0,
+  },
+  sizes: {
+    type: Array,
+    default: () => {
+      return [10, 20, 50, 100, 200];
+    },
+  },
+  autoScroll: {
+    type: Boolean,
+    default: true,
+  },
 });
 const emits = defineEmits(["changeSize", "changeCurrent", "pagination"]);
 
 const pageOption = reactive({
-	pageCurrent: props.current,
-	pageSize: props.limit,
-	pageTotal: props.total,
-	pageSizes: props.sizes,
-	pagerCount: 7,
-	small: false,
-	disabled: false,
-	background: false,
-	layout: "total, sizes, prev, pager, next, jumper",
+  pageCurrent: props.current,
+  pageSize: props.limit,
+  pageTotal: props.total,
+  pageSizes: props.sizes,
+  pagerCount: 7,
+  small: false,
+  disabled: false,
+  background: false,
+  layout: "total, sizes, prev, pager, next, jumper",
 });
 
 const pageChangeSize = (val: number) => {
-	emits("changeSize", val);
-	emits("pagination", { page: pageOption.pageSizes, limit: val });
-	if (props.autoScroll) {
-		scrollTo(0, 800);
-	}
+  emits("changeSize", val);
+  emits("pagination", { page: pageOption.pageSizes, limit: val });
+  if (props.autoScroll) {
+    scrollTo(0, 800);
+  }
 };
 const pageChangeCurrent = (val: number) => {
-	emits("changeCurrent", val);
-	emits("pagination", { page: val, limit: pageOption.pageCurrent });
-	if (props.autoScroll) {
-		scrollTo(0, 800);
-	}
+  emits("changeCurrent", val);
+  emits("pagination", { page: val, limit: pageOption.pageCurrent });
+  if (props.autoScroll) {
+    scrollTo(0, 800);
+  }
 };
 
 defineExpose({
-	pageChangeSize,
-	pageChangeCurrent,
+  pageChangeSize,
+  pageChangeCurrent,
 });
 </script>
 

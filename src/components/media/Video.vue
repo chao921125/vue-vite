@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const props = defineProps({
-	url: {
-		type: String,
-		default: "",
-	},
+  url: {
+    type: String,
+    default: "",
+  },
 });
 </script>
 
@@ -27,7 +27,7 @@ const props = defineProps({
 
 <style scoped lang="scss">
 .video {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 </style>

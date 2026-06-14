@@ -1,17 +1,17 @@
 <script setup lang="ts">
 const props = defineProps({
-	url: {
-		type: String,
-		default: "",
-	},
+  url: {
+    type: String,
+    default: "",
+  },
 });
 const router = useRouter();
 const goBack = () => {
-	if (props.url) {
-		router.push({ path: props.url });
-	} else {
-		router.back();
-	}
+  if (props.url) {
+    router.push({ path: props.url });
+  } else {
+    router.back();
+  }
 };
 </script>
 

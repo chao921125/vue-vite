@@ -224,9 +224,9 @@ declare module "mitt" {
 declare module "@vue/runtime-core" {
   interface ComponentCustomProperties {
     $mitt: ReturnType<typeof import("mitt").default<MittEvents>>;
-    $message: typeof import("element-plus")["ElMessage"];
-    $messageBox: typeof import("element-plus")["ElMessageBox"];
-    $notification: typeof import("element-plus")["ElNotification"];
+    $message: (typeof import("element-plus"))["ElMessage"];
+    $messageBox: (typeof import("element-plus"))["ElMessageBox"];
+    $notification: (typeof import("element-plus"))["ElNotification"];
   }
 }
 

@@ -1,95 +1,95 @@
 <script setup lang="ts">
 import type { UploadUserFile } from "element-plus";
 const props = defineProps({
-	isShowAlways: {
-		// 是否达到指定的数量隐藏上传图标
-		type: Boolean,
-		default: true,
-	},
-	isMultiple: {
-		type: Boolean,
-		default: false,
-	},
-	isAutoUpload: {
-		type: Boolean,
-		default: false,
-	},
-	isDisabled: {
-		type: Boolean,
-		default: false,
-	},
-	isShowFileList: {
-		type: Boolean,
-		default: true,
-	},
-	isDrag: {
-		type: Boolean,
-		default: false,
-	},
-	buttonText: {
-		type: String,
-		default: "Select File",
-	},
-	tipsText: {
-		type: String,
-		default: "",
-	},
-	uploadUrl: {
-		required: true,
-		type: String,
-		default: "https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15",
-	},
-	uploadHeader: {
-		type: Object,
-		default: () => {
-			return {};
-		},
-	},
-	uploadMethod: {
-		type: String,
-		default: "",
-	},
-	uploadData: {
-		type: [Object, Function],
-		default: () => {
-			return {};
-		},
-	},
-	fileStyle: {
-		// 1 Button 2 Add 3 Drop
-		type: Number,
-		default: 1,
-	},
-	fileList: {
-		required: true,
-		type: Array<UploadUserFile>,
-		default: () => {
-			return [];
-		},
-	},
-	fileLimit: {
-		type: Number,
-		default: 1,
-	},
-	fileAccept: {
-		type: String,
-		default: "",
-	},
-	fileListType: {
-		type: String,
-		default: "text",
-	},
-	fileName: {
-		type: String,
-		default: "",
-	},
+  isShowAlways: {
+    // 是否达到指定的数量隐藏上传图标
+    type: Boolean,
+    default: true,
+  },
+  isMultiple: {
+    type: Boolean,
+    default: false,
+  },
+  isAutoUpload: {
+    type: Boolean,
+    default: false,
+  },
+  isDisabled: {
+    type: Boolean,
+    default: false,
+  },
+  isShowFileList: {
+    type: Boolean,
+    default: true,
+  },
+  isDrag: {
+    type: Boolean,
+    default: false,
+  },
+  buttonText: {
+    type: String,
+    default: "Select File",
+  },
+  tipsText: {
+    type: String,
+    default: "",
+  },
+  uploadUrl: {
+    required: true,
+    type: String,
+    default: "https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15",
+  },
+  uploadHeader: {
+    type: Object,
+    default: () => {
+      return {};
+    },
+  },
+  uploadMethod: {
+    type: String,
+    default: "",
+  },
+  uploadData: {
+    type: [Object, Function],
+    default: () => {
+      return {};
+    },
+  },
+  fileStyle: {
+    // 1 Button 2 Add 3 Drop
+    type: Number,
+    default: 1,
+  },
+  fileList: {
+    required: true,
+    type: Array<UploadUserFile>,
+    default: () => {
+      return [];
+    },
+  },
+  fileLimit: {
+    type: Number,
+    default: 1,
+  },
+  fileAccept: {
+    type: String,
+    default: "",
+  },
+  fileListType: {
+    type: String,
+    default: "text",
+  },
+  fileName: {
+    type: String,
+    default: "",
+  },
 });
 const emits = defineEmits(["change"]);
 const changeClick = () => {
-	emits("change", true);
+  emits("change", true);
 };
 defineExpose({
-	changeClick,
+  changeClick,
 });
 </script>
 

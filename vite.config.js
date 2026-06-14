@@ -1,13 +1,13 @@
-// @see https://vitejs.dev/config/
+// @see https://viteplus.dev/config/
 import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import { format } from "date-fns";
 
 /**
- * 核心
+ * 核心 - 使用 Vite Plus
  */
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig, loadEnv } from "vite-plus";
 import vue from "@vitejs/plugin-vue";
 /**
  * 插件
@@ -362,11 +362,11 @@ export default defineConfig(({ command, mode }) => {
       hmr: true,
       forwardConsole: {
         unhandledErrors: true,
-        logLevels: ['warn', 'error'],
+        logLevels: ["warn", "error"],
       },
       // 开发环境安全头
       headers: {
-        'Content-Security-Policy': `
+        "Content-Security-Policy": `
           default-src 'self';
           script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:*;
           style-src 'self' 'unsafe-inline';
@@ -379,11 +379,13 @@ export default defineConfig(({ command, mode }) => {
           base-uri 'self';
           form-action 'self';
           frame-ancestors 'none';
-        `.replace(/\s+/g, ' ').trim(),
-        'X-Content-Type-Options': 'nosniff',
-        'X-Frame-Options': 'DENY',
-        'X-XSS-Protection': '1; mode=block',
-        'Referrer-Policy': 'strict-origin-when-cross-origin',
+        `
+          .replace(/\s+/g, " ")
+          .trim(),
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
       },
     },
     /**
@@ -406,41 +408,44 @@ export default defineConfig(({ command, mode }) => {
           chunkFileNames: isDeploy ? "assets/js/[name].js" : "assets/js/[name]-[hash].js",
           entryFileNames: isDeploy ? "assets/js/[name].js" : "assets/js/[name]-[hash].js",
           assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
-          // Vercel/Cloudflare 部署时的 publicPath
-          publicPath: isDeploy ? "/" : (envConfig.VITE_PUBLIC_PATH || "/"),
+        },
+        // 禁用无效注释检查（@vueuse/core 使用旧格式的 #__PURE__ 注释）
+        checks: {
+          invalidAnnotation: false,
         },
         // 代码分割策略：优化首屏加载
         manualChunks(id) {
           // Vue 核心库
-          if (id.includes('node_modules/vue') || 
-              id.includes('node_modules/vue-router') || 
-              id.includes('node_modules/pinia')) {
-            return 'vue-vendor';
+          if (
+            id.includes("node_modules/vue") ||
+            id.includes("node_modules/vue-router") ||
+            id.includes("node_modules/pinia")
+          ) {
+            return "vue-vendor";
           }
           // Element Plus UI 库
-          if (id.includes('node_modules/element-plus')) {
-            return 'element-plus';
+          if (id.includes("node_modules/element-plus")) {
+            return "element-plus";
           }
           // HTTP 请求库
-          if (id.includes('node_modules/axios')) {
-            return 'axios';
+          if (id.includes("node_modules/axios")) {
+            return "axios";
           }
           // 图表库
-          if (id.includes('node_modules/echarts')) {
-            return 'echarts';
+          if (id.includes("node_modules/echarts")) {
+            return "echarts";
           }
           // 工具库
-          if (id.includes('node_modules/date-fns') || 
-              id.includes('node_modules/lodash-es')) {
-            return 'utils';
+          if (id.includes("node_modules/date-fns") || id.includes("node_modules/lodash-es")) {
+            return "utils";
           }
         },
         // 路由懒加载优化：按页面分割代码
         plugins: [
           {
-            name: 'route-chunking',
-            enforce: 'post',
-          }
+            name: "route-chunking",
+            enforce: "post",
+          },
         ],
       },
       minify: true,
