@@ -1,0 +1,22 @@
+# Cloudflare Pages 构建配置
+# 更多配置请访问: https://developers.cloudflare.com/pages/platform/build-configuration
+
+[build]
+command = "pnpm build:prod"
+outputDirectory = "dist"
+
+[build.environment]
+NODE_VERSION = "20"
+
+[[headers]]
+for = "/assets/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/*"
+[headers.values]
+X-Content-Type-Options = "nosniff"
+X-Frame-Options = "DENY"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"

@@ -69,9 +69,6 @@ const onLogin = async (formEl: FormInstance | undefined) => {
 const onToLogin = () => {
   router.push({ path: "/login" });
 };
-const onToReg = () => {
-  router.push({ path: "/register" });
-};
 </script>
 
 <template>

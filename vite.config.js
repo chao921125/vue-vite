@@ -50,6 +50,11 @@ export default defineConfig(({ command, mode }) => {
   const envConfig = getEnvConfig(loadEnv(mode, import.meta.dirname, ""));
   const browserslistConfig = browserslist.loadConfig({ path: "." });
   const isBuild = command.includes("build");
+
+  // 检测部署平台
+  const isVercel = process.env.VERCEL === "1" || !!process.env.VERCEL_URL;
+  const isCloudflare = process.env.CF_PAGES === "true" || !!process.env.CF_REGION;
+  const isDeploy = isVercel || isCloudflare;
   // 是否为微前端子应用
   // const isMicroApp = !!env.VITE_MICRO_APP;
   /**
@@ -77,7 +82,7 @@ export default defineConfig(({ command, mode }) => {
      * =======================================================================
      */
     root: path.resolve(__dirname, ""), // "./public/index.html", // 入口，可以指定到public文件夹
-    base: isBuild ? envConfig.VITE_PUBLIC_PATH : "./", // 公共基础路径
+    base: isBuild ? (isDeploy ? "/" : envConfig.VITE_PUBLIC_PATH) : "./", // 公共基础路径，部署到云平台时使用根路径
     // mode: "development", // 指令覆盖构建模式 --mode
     define: {
       // 定义全局常量替换方式
@@ -397,9 +402,12 @@ export default defineConfig(({ command, mode }) => {
         },
         output: {
           dir: "dist",
-          chunkFileNames: "assets/js/[name]-[hash].js",
-          entryFileNames: "assets/js/[name]-[hash].js",
+          // 部署到云平台时使用无 hash 的文件名，便于缓存
+          chunkFileNames: isDeploy ? "assets/js/[name].js" : "assets/js/[name]-[hash].js",
+          entryFileNames: isDeploy ? "assets/js/[name].js" : "assets/js/[name]-[hash].js",
           assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+          // Vercel/Cloudflare 部署时的 publicPath
+          publicPath: isDeploy ? "/" : (envConfig.VITE_PUBLIC_PATH || "/"),
         },
         // 代码分割策略：优化首屏加载
         manualChunks(id) {

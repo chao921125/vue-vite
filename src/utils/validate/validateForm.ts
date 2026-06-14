@@ -43,4 +43,17 @@ export default {
       }
     }
   },
+
+  email: (rule: FormItemRule, value: any, callback: (error?: string) => void) => {
+    console.log(rule);
+    if (!value) {
+      callback("字段不能为空");
+    } else {
+      if (Reg.email.test(value)) {
+        callback();
+      } else {
+        callback("邮箱格式错误");
+      }
+    }
+  },
 };

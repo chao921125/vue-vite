@@ -1,0 +1,12 @@
+{
+  "master": {
+    "name": "vue-vite"
+  },
+  "routes": [
+    {
+      "pattern": "/*",
+      "include_origin": true
+    }
+  ],
+  "raw_query_string": false
+}
