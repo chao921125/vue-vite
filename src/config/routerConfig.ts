@@ -29,6 +29,8 @@ export default {
     "/401",
     "/404",
     "/500",
+    "/demo/font",
+    "/demo/scroll",
   ],
   routeEnum: {
     product: {},
