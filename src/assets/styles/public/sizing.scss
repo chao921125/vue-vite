@@ -1,0 +1,86 @@
+@use "../declare/variables" as d;
+
+// ============================================
+// 宽度类（Width）
+// ============================================
+
+// 固定像素宽度
+$size-all: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100,
+            120, 140, 150, 160, 180, 200, 220, 240, 250, 260, 280, 300, 320, 340, 350, 360, 380, 400, 420, 440, 450, 460, 480, 499;
+
+@each $size in $size-all {
+  .#{d.$prefix}-w-#{$size} { width: #{$size}px; }
+  .#{d.$prefix}-min-w-#{$size} { min-width: #{$size}px; }
+  .#{d.$prefix}-max-w-#{$size} { max-width: #{$size}px; }
+}
+
+// 百分比宽度
+$width-pcts: 10, 20, 25, 30, 33, 40, 50, 60, 66, 70, 75, 80, 90, 100;
+
+@each $pct in $width-pcts {
+  .#{d.$prefix}-w-#{$pct}p { width: #{$pct}%; }
+  .#{d.$prefix}-min-w-#{$pct}p { min-width: #{$pct}%; }
+  .#{d.$prefix}-max-w-#{$pct}p { max-width: #{$pct}%; }
+}
+
+// 特殊宽度
+.#{d.$prefix}-w-full { width: 100%; }
+.#{d.$prefix}-w-auto { width: auto; }
+.#{d.$prefix}-w-screen { width: 100vw; }
+.#{d.$prefix}-w-fit { width: fit-content; }
+.#{d.$prefix}-min-w-0 { min-width: 0; }
+.#{d.$prefix}-max-w-full { max-width: 100%; }
+
+// ============================================
+// 高度类（Height）
+// ============================================
+
+// 固定像素高度
+@each $size in $size-all {
+  .#{d.$prefix}-h-#{$size} { height: #{$size}px; }
+  .#{d.$prefix}-min-h-#{$size} { min-height: #{$size}px; }
+  .#{d.$prefix}-max-h-#{$size} { max-height: #{$size}px; }
+}
+
+// 百分比高度
+$height-pcts: 10, 20, 25, 30, 33, 40, 50, 60, 66, 70, 75, 80, 90, 100;
+
+@each $pct in $height-pcts {
+  .#{d.$prefix}-h-#{$pct}p { height: #{$pct}%; }
+  .#{d.$prefix}-min-h-#{$pct}p { min-height: #{$pct}%; }
+  .#{d.$prefix}-max-h-#{$pct}p { max-height: #{$pct}%; }
+}
+
+// 特殊高度
+.#{d.$prefix}-h-full { height: 100%; }
+.#{d.$prefix}-h-auto { height: auto; }
+.#{d.$prefix}-h-screen { height: 100vh; }
+.#{d.$prefix}-h-fit { height: fit-content; }
+.#{d.$prefix}-min-h-0 { min-height: 0; }
+.#{d.$prefix}-max-h-full { max-height: 100%; }
+
+// ============================================
+// 宽高同时设置
+// ============================================
+
+.#{d.$prefix}-wh-full {
+  width: 100%;
+  height: 100%;
+}
+
+.#{d.$prefix}-wh-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+// ============================================
+// 边框相关
+// ============================================
+
+.#{d.$prefix}-border-box {
+  box-sizing: border-box;
+}
+
+.#{d.$prefix}-content-box {
+  box-sizing: content-box;
+}

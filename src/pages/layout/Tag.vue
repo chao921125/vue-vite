@@ -144,7 +144,7 @@ onBeforeRouteUpdate((to) => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/styles/common/declare" as d;
+@use "@/assets/styles/declare" as d;
 
 .tags-space {
   width: 100%;

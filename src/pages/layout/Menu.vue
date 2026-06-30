@@ -100,7 +100,7 @@ onBeforeMount(() => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/styles/common/declare" as d;
+@use "@/assets/styles/declare" as d;
 
 // Logo 文字
 :deep(.el-link) {

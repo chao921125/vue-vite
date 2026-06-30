@@ -1,0 +1,384 @@
+@use "./variables" as *;
+
+// ============================================
+// 1. 布局工具 Mixins
+// ============================================
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@mixin flex-col {
+  flex-direction: column;
+}
+
+// ============================================
+// 2. 宽高填充 Mixins
+// ============================================
+
+@mixin wh-full {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin width-full {
+  width: 100%;
+}
+
+@mixin height-full {
+  height: 100%;
+}
+
+@mixin wh-fill {
+  width: 100vw;
+  height: 100vh;
+}
+
+@mixin width-fill {
+  width: 100vw;
+}
+
+@mixin height-fill {
+  height: 100vh;
+}
+
+// ============================================
+// 3. 绝对定位 Mixins
+// ============================================
+
+@mixin full {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// ============================================
+// 4. 文本对齐 Mixins
+// ============================================
+
+@mixin text-center {
+  text-align: center;
+}
+
+@mixin text-left {
+  text-align: left;
+}
+
+@mixin text-right {
+  text-align: right;
+}
+
+// ============================================
+// 5. 文本省略 Mixins
+// ============================================
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-ellipsis-multi($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// ============================================
+// 6. 清除浮动 Mixins
+// ============================================
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// ============================================
+// 7. 禁止选中 Mixins
+// ============================================
+
+@mixin unable-select {
+  user-select: none;
+}
+
+// ============================================
+// 8. 卡片基础样式 Mixins
+// ============================================
+
+@mixin card-base {
+  background: $color-white;
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+  transition: $transition-shadow;
+
+  &:hover {
+    box-shadow: $card-shadow-hover;
+  }
+}
+
+// ============================================
+// 9. 响应式 Mixins
+// ============================================
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' not found.";
+  }
+}
+
+// ============================================
+// 10. 安全区域（移动端）Mixins
+// ============================================
+
+@mixin safe-area-inset($property, $value) {
+  #{$property}: $value;
+  #{$property}: calc(#{$value} + env(safe-area-inset-top));
+}
+
+// ============================================
+// 11. 玻璃态效果 Mixins
+// ============================================
+
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+// ============================================
+// 12. 渐变背景 Mixins
+// ============================================
+
+@mixin gradient-bg($direction, $colors...) {
+  background: linear-gradient($direction, $colors...);
+}
+
+// ============================================
+// 13. 滚动条样式 Mixins
+// ============================================
+
+@mixin custom-scrollbar($width: 6px, $color: rgba(0, 0, 0, 0.2)) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color;
+    border-radius: $radius-full;
+    &:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+// ============================================
+// 14. Element Plus 组件自定义 Mixins
+// ============================================
+
+@mixin element-input-custom($size: 'md') {
+  :deep(.el-input__wrapper) {
+    @if $size == 'xs' {
+      height: $input-height-xs;
+      font-size: $font-size-xs;
+    } @else if $size == 'sm' {
+      height: $input-height-sm;
+      font-size: $font-size-sm;
+    } @else if $size == 'md' {
+      height: $input-height-md;
+      font-size: $font-size-md;
+    } @else if $size == 'lg' {
+      height: $input-height-lg;
+      font-size: $font-size-lg;
+    } @else if $size == 'xl' {
+      height: $input-height-xl;
+      font-size: $font-size-xl;
+    }
+
+    border-radius: $radius-base;
+    box-shadow: $shadow-sm;
+    transition: $transition-shadow;
+
+    &:hover {
+      box-shadow: $shadow-base;
+    }
+
+    &.is-focus {
+      box-shadow: 0 0 0 1px $color-primary inset;
+    }
+  }
+}
+
+@mixin element-button-custom($size: 'md', $radius: 'base') {
+  @if $size == 'xs' {
+    height: $btn-height-xs;
+    font-size: $font-size-xs;
+    padding: 0 $btn-padding-xs;
+  } @else if $size == 'sm' {
+    height: $btn-height-sm;
+    font-size: $font-size-sm;
+    padding: 0 $btn-padding-sm;
+  } @else if $size == 'md' {
+    height: $btn-height-md;
+    font-size: $font-size-md;
+    padding: 0 $btn-padding-md;
+  } @else if $size == 'lg' {
+    height: $btn-height-lg;
+    font-size: $font-size-lg;
+    padding: 0 $btn-padding-lg;
+  } @else if $size == 'xl' {
+    height: $btn-height-xl;
+    font-size: $font-size-xl;
+    padding: 0 $btn-padding-xl;
+  }
+
+  @if $radius == 'sm' {
+    border-radius: $btn-radius-sm;
+  } @else if $radius == 'base' {
+    border-radius: $btn-radius-base;
+  } @else if $radius == 'md' {
+    border-radius: $btn-radius-md;
+  } @else if $radius == 'lg' {
+    border-radius: $btn-radius-lg;
+  } @else if $radius == 'full' {
+    border-radius: $btn-radius-full;
+  }
+
+  font-weight: $font-weight-medium;
+  transition: $transition-all;
+}
+
+@mixin element-form-custom {
+  :deep(.el-form-item__label) {
+    font-size: $form-label-font-size;
+    font-weight: $form-label-font-weight;
+    color: $text-primary;
+  }
+
+  :deep(.el-form-item) {
+    margin-bottom: $form-item-gap;
+  }
+}
+
+@mixin element-dialog-custom($size: 'base') {
+  :deep(.el-dialog) {
+    @if $size == 'sm' {
+      width: $dialog-width-sm;
+    } @else if $size == 'base' {
+      width: $dialog-width-base;
+    } @else if $size == 'md' {
+      width: $dialog-width-md;
+    } @else if $size == 'lg' {
+      width: $dialog-width-lg;
+    } @else if $size == 'xl' {
+      width: $dialog-width-xl;
+    }
+
+    border-radius: $dialog-radius;
+  }
+
+  :deep(.el-dialog__header) {
+    padding: $dialog-padding-header;
+  }
+
+  :deep(.el-dialog__body) {
+    padding: $dialog-padding-body;
+  }
+
+  :deep(.el-dialog__footer) {
+    padding: $dialog-padding-footer;
+  }
+}
+
+// ============================================
+// 15. 导出 CSS 变量（用于 JS 访问）
+// ============================================
+
+@mixin css-variables {
+  :root {
+    // 颜色
+    --color-primary: #{$color-primary};
+    --color-success: #{$btn-success};
+    --color-warning: #{$btn-waring};
+    --color-danger: #{$btn-error};
+
+    // 文字
+    --color-text-primary: #{$text-primary};
+    --color-text-regular: #{$text-default};
+    --color-text-secondary: #{$text-placeholder};
+
+    // 间距
+    --spacing-xs: #{$spacing-1};
+    --spacing-sm: #{$spacing-2};
+    --spacing-base: #{$spacing-4};
+    --spacing-lg: #{$spacing-5};
+    --spacing-xl: #{$spacing-6};
+
+    // 圆角
+    --radius-sm: #{$radius-sm};
+    --radius-base: #{$radius-base};
+    --radius-lg: #{$radius-lg};
+
+    // 阴影
+    --shadow-sm: #{$shadow-sm};
+    --shadow-base: #{$shadow-base};
+    --shadow-lg: #{$shadow-lg};
+
+    // 过渡
+    --transition-base: #{$transition-base};
+
+    // 组件
+    --input-height-xs: #{$input-height-xs};
+    --input-height-sm: #{$input-height-sm};
+    --input-height-md: #{$input-height-md};
+    --input-height-lg: #{$input-height-lg};
+    --input-height-xl: #{$input-height-xl};
+
+    --btn-height-xs: #{$btn-height-xs};
+    --btn-height-sm: #{$btn-height-sm};
+    --btn-height-md: #{$btn-height-md};
+    --btn-height-lg: #{$btn-height-lg};
+    --btn-height-xl: #{$btn-height-xl};
+
+    --header-height: #{$header-height};
+  }
+}

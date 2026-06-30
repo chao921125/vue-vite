@@ -1,0 +1,67 @@
+@use "../declare/variables" as d;
+
+// ============================================
+// 间距类（Margin & Padding）
+// ============================================
+
+// 固定步长间距（1-10）
+$spacing-sizes: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 40, 50;
+
+@each $size in $spacing-sizes {
+  // Margin - 四边
+  .#{d.$prefix}-m-#{$size} { margin: #{$size}px; }
+
+  // Margin - 单边
+  .#{d.$prefix}-mt-#{$size} { margin-top: #{$size}px; }
+  .#{d.$prefix}-mb-#{$size} { margin-bottom: #{$size}px; }
+  .#{d.$prefix}-ml-#{$size} { margin-left: #{$size}px; }
+  .#{d.$prefix}-mr-#{$size} { margin-right: #{$size}px; }
+
+  // Margin - 水平/垂直
+  .#{d.$prefix}-mx-#{$size} { margin-left: #{$size}px; margin-right: #{$size}px; }
+  .#{d.$prefix}-my-#{$size} { margin-top: #{$size}px; margin-bottom: #{$size}px; }
+
+  // Padding - 四边
+  .#{d.$prefix}-p-#{$size} { padding: #{$size}px; }
+
+  // Padding - 单边
+  .#{d.$prefix}-pt-#{$size} { padding-top: #{$size}px; }
+  .#{d.$prefix}-pb-#{$size} { padding-bottom: #{$size}px; }
+  .#{d.$prefix}-pl-#{$size} { padding-left: #{$size}px; }
+  .#{d.$prefix}-pr-#{$size} { padding-right: #{$size}px; }
+
+  // Padding - 水平/垂直
+  .#{d.$prefix}-px-#{$size} { padding-left: #{$size}px; padding-right: #{$size}px; }
+  .#{d.$prefix}-py-#{$size} { padding-top: #{$size}px; padding-bottom: #{$size}px; }
+}
+
+// ============================================
+// 间距百分比
+// ============================================
+
+$spacing-pcts: 5, 10, 15, 20, 25, 30, 40, 50;
+
+@each $pct in $spacing-pcts {
+  .#{d.$prefix}-m-#{$pct}p { margin: #{$pct}%; }
+  .#{d.$prefix}-mt-#{$pct}p { margin-top: #{$pct}%; }
+  .#{d.$prefix}-mb-#{$pct}p { margin-bottom: #{$pct}%; }
+  .#{d.$prefix}-ml-#{$pct}p { margin-left: #{$pct}%; }
+  .#{d.$prefix}-mr-#{$pct}p { margin-right: #{$pct}%; }
+
+  .#{d.$prefix}-p-#{$pct}p { padding: #{$pct}%; }
+  .#{d.$prefix}-pt-#{$pct}p { padding-top: #{$pct}%; }
+  .#{d.$prefix}-pb-#{$pct}p { padding-bottom: #{$pct}%; }
+  .#{d.$prefix}-pl-#{$pct}p { padding-left: #{$pct}%; }
+  .#{d.$prefix}-pr-#{$pct}p { padding-right: #{$pct}%; }
+}
+
+// ============================================
+// 特殊间距值
+// ============================================
+
+.#{d.$prefix}-m-auto { margin: auto; }
+.#{d.$prefix}-mx-auto { margin-left: auto; margin-right: auto; }
+.#{d.$prefix}-mt-auto { margin-top: auto; }
+.#{d.$prefix}-mb-auto { margin-bottom: auto; }
+.#{d.$prefix}-ml-auto { margin-left: auto; }
+.#{d.$prefix}-mr-auto { margin-right: auto; }

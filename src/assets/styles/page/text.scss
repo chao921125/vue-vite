@@ -1,0 +1,97 @@
+@use "../declare/variables" as d;
+
+// ============================================
+// 文本组件类（Text）
+// ============================================
+
+// 超小文本（辅助文字）
+.text-xs {
+  font-size: d.$font-size-xs;
+  font-weight: d.$font-weight-normal;
+  line-height: d.$line-height-normal;
+  color: d.$text-placeholder;
+}
+
+// 小号文本
+.text-sm {
+  font-size: d.$font-size-sm;
+  font-weight: d.$font-weight-normal;
+  line-height: d.$line-height-normal;
+  color: d.$text-default;
+}
+
+// 默认文本（标准正文）
+.text-md {
+  font-size: d.$font-size-md;
+  font-weight: d.$font-weight-normal;
+  line-height: d.$line-height-normal;
+  color: d.$text-primary;
+}
+
+// 大号文本
+.text-lg {
+  font-size: d.$font-size-lg;
+  font-weight: d.$font-weight-normal;
+  line-height: d.$line-height-normal;
+  color: d.$text-primary;
+}
+
+// 超大文本
+.text-xl {
+  font-size: d.$font-size-xl;
+  font-weight: d.$font-weight-bold;
+  line-height: d.$line-height-tight;
+  color: d.$text-primary;
+}
+
+// ============================================
+// 文本粗细变体
+// ============================================
+
+.text-light {
+  font-weight: d.$font-weight-light;
+}
+
+.text-normal {
+  font-weight: d.$font-weight-normal;
+}
+
+.text-medium {
+  font-weight: d.$font-weight-medium;
+}
+
+.text-semibold {
+  font-weight: d.$font-weight-semibold;
+}
+
+.text-bold {
+  font-weight: d.$font-weight-bold;
+}
+
+.text-black {
+  font-weight: d.$font-weight-black;
+}
+
+// ============================================
+// 文本颜色变体
+// ============================================
+
+.text-primary {
+  color: d.$text-primary;
+}
+
+.text-secondary {
+  color: d.$text-placeholder;
+}
+
+.text-success {
+  color: d.$text-success;
+}
+
+.text-error {
+  color: d.$text-error;
+}
+
+.text-warning {
+  color: d.$text-waring;
+}

@@ -51,7 +51,7 @@ const resolvePath = (path: string) => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/styles/common/declare" as d;
+@use "@/assets/styles/declare" as d;
 
 // 菜单项文字
 :deep(.el-menu-item span),

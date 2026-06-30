@@ -1,0 +1,352 @@
+$prefix: re;
+
+// ============================================
+// 1. 颜色系统（Colors）
+// ============================================
+
+// 基础色值
+$color-primary: #409eff;
+$color-white: #ffffff;
+$color-white-ghost: #f8f8ff;
+$color-white-smoke: #f5f5f5;
+$color-black: #000000;
+$color-grey: #bebebe;
+$color-red: #ff0000;
+
+// 自定义特殊色值
+$color-re-re: #123123;
+
+// 文本颜色（统一使用 text- 前缀）
+$text-primary: #000;
+$text-default: #fff;
+$text-link: #5677fc;
+$text-success: #03c03c;
+$text-error: #e34234;
+$text-waring: #ff9933;
+$text-placeholder: #ccc;
+$text-prohibit: #8a8a8a;
+
+// 按钮颜色（复用文本颜色，避免重复）
+$btn-default: $color-white;
+$btn-success: $text-success;
+$btn-error: $text-error;
+$btn-waring: $text-waring;
+
+// 边框颜色（复用文本颜色）
+$border-error: $text-error;
+$border-waring: $text-waring;
+
+// 链接颜色
+$link-success: $text-success;
+
+// ============================================
+// 2. 字体系统（Typography）
+// ============================================
+
+// 字体大小阶梯（基于 1rem = 78px，设计稿 780px）
+$font-size-xs: 10px;
+$font-size-sm: 30px;
+$font-size-md: 70px;
+$font-size-lg: 120px;
+$font-size-xl: 240px;
+
+// 字体粗细
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// 行高
+$line-height-tight: 1.25;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+$line-height-loose: 2;
+
+// 字间距
+$letter-spacing-tight: -0.05em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.05em;
+$letter-spacing-wider: 0.1em;
+
+// ============================================
+// 3. 间距系统（Spacing）
+// ============================================
+
+// 间距阶梯（基于 4px 倍数）
+$spacing-0: 0;
+$spacing-1: 4px;
+$spacing-2: 8px;
+$spacing-3: 12px;
+$spacing-4: 16px;
+$spacing-5: 20px;
+$spacing-6: 24px;
+$spacing-8: 32px;
+$spacing-10: 40px;
+$spacing-12: 48px;
+$spacing-16: 64px;
+$spacing-20: 80px;
+$spacing-24: 96px;
+$spacing-32: 128px;
+
+// 间距数组（用于循环生成 class）
+$spacings: 0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128;
+
+// ============================================
+// 4. 圆角系统（Border Radius）
+// ============================================
+
+// 圆角大小（基于 780 设计稿）
+$radius-none: 0;
+$radius-sm: 2px;
+$radius-base: 4px;
+$radius-md: 8px;
+$radius-lg: 24px;
+$radius-xl: 60px;
+$radius-full: 9999px;
+
+// ============================================
+// 5. 阴影系统（Box Shadow）
+// ============================================
+
+// 阴影层级
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+$shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+// ============================================
+// 6. 过渡动画（Transitions）
+// ============================================
+
+// 过渡时间
+$transition-fast: 150ms;
+$transition-base: 200ms;
+$transition-slow: 300ms;
+$transition-slower: 500ms;
+
+// 过渡函数
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+$ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// 常用过渡组合
+$transition-all: all $transition-base $ease-in-out;
+$transition-transform: transform $transition-base $ease-in-out;
+$transition-opacity: opacity $transition-base $ease-in-out;
+$transition-shadow: box-shadow $transition-base $ease-in-out;
+
+// ============================================
+// 7. 断点系统（Breakpoints）
+// ============================================
+
+// 响应式断点
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// 断点 Map（用于循环）
+$breakpoints: (
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl
+);
+
+// ============================================
+// 8. 组件尺寸（Component Sizes）
+// ============================================
+
+// 输入框尺寸（基于 780 设计稿）
+$input-height-xs: 32px;
+$input-height-sm: 48px;
+$input-height-md: 150px;
+$input-height-lg: 200px;
+$input-height-xl: 280px;
+
+$input-padding-xs: 8px 12px;
+$input-padding-sm: 12px 16px;
+$input-padding-md: 30px 20px;
+$input-padding-lg: 40px 24px;
+$input-padding-xl: 50px 28px;
+
+// 按钮尺寸（基于 780 设计稿）
+$btn-height-xs: 32px;
+$btn-height-sm: 48px;
+$btn-height-md: 150px;
+$btn-height-lg: 200px;
+$btn-height-xl: 280px;
+
+$btn-padding-xs: 8px 16px;
+$btn-padding-sm: 12px 24px;
+$btn-padding-md: 16px 32px;
+$btn-padding-lg: 20px 40px;
+$btn-padding-xl: 24px 48px;
+
+// ============================================
+// 9. 容器宽度（Container）
+// ============================================
+
+// 容器最大宽度
+$container-sm: 640px;
+$container-md: 768px;
+$container-lg: 1024px;
+$container-xl: 1280px;
+$container-full: 100%;
+
+// ============================================
+// 10. 项目共有的宽高设定
+// ============================================
+
+$header-height: 60px;
+$menu-width: 200px;
+$menu-height: calc(100vh - 60px);
+$menu-collapse-width: 64px;
+$menu-item-height: 50px;
+
+// 定位的值，只需要从这里取值或者修改
+$z-index-max: 99999;
+$z-index-min: -1;
+$z-index-1: 1000;
+$z-index-2: 2000;
+$z-index-3: 3000;
+$z-index-4: 4000;
+$z-index-5: 5000;
+$z-index-6: 6000;
+$z-index-7: 7000;
+$z-index-8: 8000;
+$z-index-9: 9000;
+
+// ============================================
+// 11. 卡片组件规范（Cards）
+// ============================================
+
+// 卡片内边距
+$card-padding-sm: $spacing-3;
+$card-padding-base: $spacing-5;
+$card-padding-lg: $spacing-6;
+$card-padding-xl: $spacing-8;
+
+// 卡片圆角
+$card-radius: $radius-lg;
+
+// 卡片阴影
+$card-shadow: $shadow-base;
+$card-shadow-hover: $shadow-lg;
+
+// ============================================
+// 12. 标签组件规范（Tags/Badges）
+// ============================================
+
+// 标签尺寸
+$tag-height-xs: 20px;
+$tag-height-sm: 24px;
+$tag-height-base: 28px;
+$tag-height-lg: 32px;
+
+// 标签内边距
+$tag-padding-horizontal-xs: 6px;
+$tag-padding-horizontal-sm: 8px;
+$tag-padding-horizontal-base: 10px;
+$tag-padding-horizontal-lg: 12px;
+
+// 标签字体
+$tag-font-size-xs: $font-size-xs;
+$tag-font-size-sm: $font-size-sm;
+$tag-font-size-md: $font-size-md;
+$tag-font-size-lg: $font-size-lg;
+
+// ============================================
+// 13. 对话框/弹窗规范（Dialogs/Modals）
+// ============================================
+
+// 对话框尺寸
+$dialog-width-sm: 400px;
+$dialog-width-base: 500px;
+$dialog-width-md: 600px;
+$dialog-width-lg: 800px;
+$dialog-width-xl: 1000px;
+
+// 对话框内边距
+$dialog-padding-header: $spacing-6;
+$dialog-padding-body: $spacing-8;
+$dialog-padding-footer: $spacing-6;
+
+// 对话框圆角
+$dialog-radius: $radius-xl;
+
+// ============================================
+// 14. 列表组件规范（Lists）
+// ============================================
+
+// 列表项高度
+$list-item-height-sm: 40px;
+$list-item-height-base: 48px;
+$list-item-height-lg: 56px;
+$list-item-height-xl: 64px;
+
+// 列表项内边距
+$list-item-padding-sm: $spacing-3 $spacing-4;
+$list-item-padding-base: $spacing-4 $spacing-5;
+$list-item-padding-lg: $spacing-5 $spacing-6;
+
+// 列表项间距
+$list-item-gap: $spacing-2;
+
+// ============================================
+// 15. 表单组件规范（Forms）
+// ============================================
+
+// 表单项间距
+$form-item-gap: $spacing-5;
+
+// 表单项标签
+$form-label-width: 100px;
+$form-label-font-size: $font-size-sm;
+$form-label-font-weight: $font-weight-medium;
+
+// 表单项提示文字
+$form-help-font-size: $font-size-sm;
+$form-help-color: $text-placeholder;
+
+// 表单项错误文字
+$form-error-font-size: $font-size-sm;
+$form-error-color: $text-error;
+
+// ============================================
+// 16. 导航组件规范（Navigation）
+// ============================================
+
+// 导航栏高度
+$nav-height-sm: 40px;
+$nav-height-base: 50px;
+$nav-height-lg: 60px;
+
+// 导航项内边距
+$nav-item-padding-horizontal: $spacing-4;
+$nav-item-padding-vertical: $spacing-3;
+
+// 导航项字体
+$nav-item-font-size: $font-size-sm;
+$nav-item-font-weight: $font-weight-medium;
+
+// ============================================
+// 17. 按钮变体规范（Button Variants）
+// ============================================
+
+// 圆角按钮（长方形）
+$btn-radius-sm: $radius-sm;
+$btn-radius-base: $radius-base;
+$btn-radius-md: $radius-md;
+$btn-radius-lg: $radius-lg;
+$btn-radius-full: $radius-full;
+
+// 图标按钮尺寸
+$btn-icon-size-sm: 16px;
+$btn-icon-size-base: 20px;
+$btn-icon-size-lg: 24px;

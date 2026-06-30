@@ -1,0 +1,100 @@
+@use "../declare/variables" as d;
+
+// ============================================
+// 1. 文字颜色
+// ============================================
+
+// 系统颜色
+.#{d.$prefix}-text-primary { color: d.$text-primary; }
+.#{d.$prefix}-text-default { color: d.$text-default; }
+.#{d.$prefix}-text-success { color: d.$text-success; }
+.#{d.$prefix}-text-error { color: d.$text-error; }
+.#{d.$prefix}-text-warning { color: d.$text-waring; }
+.#{d.$prefix}-text-link { color: d.$text-link; }
+.#{d.$prefix}-text-placeholder { color: d.$text-placeholder; }
+.#{d.$prefix}-text-prohibit { color: d.$text-prohibit; }
+
+// 基础色
+.#{d.$prefix}-text-white { color: d.$color-white; }
+.#{d.$prefix}-text-black { color: d.$color-black; }
+.#{d.$prefix}-text-grey { color: d.$color-grey; }
+
+// 主题色变体
+.#{d.$prefix}-color-primary { color: d.$color-primary; }
+
+// ============================================
+// 2. 背景颜色
+// ============================================
+
+// 系统背景色
+.#{d.$prefix}-bg-primary { background-color: d.$color-primary; }
+.#{d.$prefix}-bg-success { background-color: d.$text-success; }
+.#{d.$prefix}-bg-error { background-color: d.$text-error; }
+.#{d.$prefix}-bg-warning { background-color: d.$text-waring; }
+.#{d.$prefix}-bg-white { background-color: d.$color-white; }
+.#{d.$prefix}-bg-black { background-color: d.$color-black; }
+.#{d.$prefix}-bg-white-ghost { background-color: d.$color-white-ghost; }
+.#{d.$prefix}-bg-white-smoke { background-color: d.$color-white-smoke; }
+.#{d.$prefix}-bg-grey { background-color: d.$color-grey; }
+.#{d.$prefix}-bg-transparent { background-color: transparent; }
+
+// 灰色背景
+$gray-levels: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900;
+
+@each $level in $gray-levels {
+  .#{d.$prefix}-bg-gray-#{$level} {
+    background-color: #{rgba(0, 0, 0, calc($level / 1000))};
+  }
+}
+
+// ============================================
+// 3. 背景图片/位置/尺寸
+// ============================================
+
+.#{d.$prefix}-bg-cover { background-size: cover; }
+.#{d.$prefix}-bg-contain { background-size: contain; }
+.#{d.$prefix}-bg-auto { background-size: auto; }
+
+.#{d.$prefix}-bg-center { background-position: center; }
+.#{d.$prefix}-bg-top { background-position: top; }
+.#{d.$prefix}-bg-bottom { background-position: bottom; }
+.#{d.$prefix}-bg-left { background-position: left; }
+.#{d.$prefix}-bg-right { background-position: right; }
+
+.#{d.$prefix}-bg-no-repeat { background-repeat: no-repeat; }
+.#{d.$prefix}-bg-repeat { background-repeat: repeat; }
+.#{d.$prefix}-bg-repeat-x { background-repeat: repeat-x; }
+.#{d.$prefix}-bg-repeat-y { background-repeat: repeat-y; }
+
+// ============================================
+// 4. 边框颜色
+// ============================================
+
+.#{d.$prefix}-border-primary { border-color: d.$color-primary; }
+.#{d.$prefix}-border-success { border-color: d.$text-success; }
+.#{d.$prefix}-border-error { border-color: d.$text-error; }
+.#{d.$prefix}-border-warning { border-color: d.$text-waring; }
+.#{d.$prefix}-border-white { border-color: d.$color-white; }
+.#{d.$prefix}-border-black { border-color: d.$color-black; }
+
+// ============================================
+// 5. 边框样式
+// ============================================
+
+.#{d.$prefix}-border { border: 1px solid #dcdfe6; }
+.#{d.$prefix}-border-0 { border: 0; }
+.#{d.$prefix}-border-t { border-top: 1px solid #dcdfe6; }
+.#{d.$prefix}-border-r { border-right: 1px solid #dcdfe6; }
+.#{d.$prefix}-border-b { border-bottom: 1px solid #dcdfe6; }
+.#{d.$prefix}-border-l { border-left: 1px solid #dcdfe6; }
+
+.#{d.$prefix}-border-dashed { border-style: dashed; }
+.#{d.$prefix}-border-dotted { border-style: dotted; }
+.#{d.$prefix}-border-solid { border-style: solid; }
+.#{d.$prefix}-border-none { border-style: none; }
+
+// 边框宽度
+.#{d.$prefix}-border-1 { border-width: 1px; }
+.#{d.$prefix}-border-2 { border-width: 2px; }
+.#{d.$prefix}-border-4 { border-width: 4px; }
+.#{d.$prefix}-border-8 { border-width: 8px; }

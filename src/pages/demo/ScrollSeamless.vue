@@ -110,7 +110,7 @@ const multiRowData = ref([
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/styles/common/declare" as d;
+@use "@/assets/styles/declare" as d;
 
 .scroll-seamless-demo {
   padding: 40px;

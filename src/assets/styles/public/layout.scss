@@ -1,0 +1,267 @@
+@use "../declare/variables" as d;
+
+// ============================================
+// 1. 元素展示隐藏
+// ============================================
+
+.#{d.$prefix}-show {
+  display: initial;
+}
+
+.#{d.$prefix}-hidden {
+  display: none !important;
+}
+
+// ============================================
+// 2. 可见性
+// ============================================
+
+.#{d.$prefix}-visible { visibility: visible; }
+.#{d.$prefix}-invisible { visibility: hidden; }
+
+// ============================================
+// 3. 显示类型
+// ============================================
+
+.#{d.$prefix}-block { display: block; }
+.#{d.$prefix}-inline-block { display: inline-block; }
+.#{d.$prefix}-inline { display: inline; }
+.#{d.$prefix}-table { display: table; }
+.#{d.$prefix}-table-cell { display: table-cell; }
+.#{d.$prefix}-none { display: none; }
+
+// ============================================
+// 4. 占位符
+// ============================================
+
+.#{d.$prefix}-place {
+  width: 1px;
+  height: 1px;
+}
+
+// ============================================
+// 5. Flex 布局
+// ============================================
+
+.#{d.$prefix}-flex {
+  display: flex;
+}
+
+.#{d.$prefix}-flex-auto {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.#{d.$prefix}-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.#{d.$prefix}-flex-ch {
+  display: flex;
+  justify-content: center;
+}
+
+.#{d.$prefix}-flex-cv {
+  display: flex;
+  align-items: center;
+}
+
+.#{d.$prefix}-flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.#{d.$prefix}-flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.#{d.$prefix}-flex-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.#{d.$prefix}-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.#{d.$prefix}-flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Flex 方向
+.#{d.$prefix}-flex-row { flex-direction: row; }
+.#{d.$prefix}-flex-row-reverse { flex-direction: row-reverse; }
+.#{d.$prefix}-flex-col-reverse { flex-direction: column-reverse; }
+
+// Flex wrap
+.#{d.$prefix}-flex-wrap { flex-wrap: wrap; }
+.#{d.$prefix}-flex-nowrap { flex-wrap: nowrap; }
+.#{d.$prefix}-flex-wrap-reverse { flex-wrap: wrap-reverse; }
+
+// Justify Content
+.#{d.$prefix}-justify-start { justify-content: flex-start; }
+.#{d.$prefix}-justify-end { justify-content: flex-end; }
+.#{d.$prefix}-justify-center { justify-content: center; }
+.#{d.$prefix}-justify-between { justify-content: space-between; }
+.#{d.$prefix}-justify-around { justify-content: space-around; }
+.#{d.$prefix}-justify-evenly { justify-content: space-evenly; }
+
+// Align Items
+.#{d.$prefix}-items-start { align-items: flex-start; }
+.#{d.$prefix}-items-end { align-items: flex-end; }
+.#{d.$prefix}-items-center { align-items: center; }
+.#{d.$prefix}-items-baseline { align-items: baseline; }
+.#{d.$prefix}-items-stretch { align-items: stretch; }
+
+// Align Content
+.#{d.$prefix}-content-start { align-content: flex-start; }
+.#{d.$prefix}-content-end { align-content: flex-end; }
+.#{d.$prefix}-content-center { align-content: center; }
+.#{d.$prefix}-content-between { align-content: space-between; }
+.#{d.$prefix}-content-around { align-content: space-around; }
+.#{d.$prefix}-content-stretch { align-content: stretch; }
+
+// Flex Grow/Shrink
+.#{d.$prefix}-flex-1 { flex: 1 1 0%; }
+.#{d.$prefix}-flex-initial { flex: 0 1 auto; }
+.#{d.$prefix}-flex-none { flex: none; }
+.#{d.$prefix}-grow-0 { flex-grow: 0; }
+.#{d.$prefix}-grow { flex-grow: 1; }
+.#{d.$prefix}-shrink-0 { flex-shrink: 0; }
+.#{d.$prefix}-shrink { flex-shrink: 1; }
+
+// ============================================
+// 6. Grid 布局
+// ============================================
+
+.#{d.$prefix}-grid { display: grid; }
+.#{d.$prefix}-inline-grid { display: inline-grid; }
+
+.#{d.$prefix}-grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.#{d.$prefix}-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.#{d.$prefix}-grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.#{d.$prefix}-grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.#{d.$prefix}-grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.#{d.$prefix}-grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.#{d.$prefix}-grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+.#{d.$prefix}-gap-1 { gap: #{d.$spacing-1}; }
+.#{d.$prefix}-gap-2 { gap: #{d.$spacing-2}; }
+.#{d.$prefix}-gap-3 { gap: #{d.$spacing-3}; }
+.#{d.$prefix}-gap-4 { gap: #{d.$spacing-4}; }
+.#{d.$prefix}-gap-6 { gap: #{d.$spacing-6}; }
+.#{d.$prefix}-gap-8 { gap: #{d.$spacing-8}; }
+
+// ============================================
+// 7. 浮动
+// ============================================
+
+.#{d.$prefix}-fl {
+  float: left;
+}
+
+.#{d.$prefix}-fr {
+  float: right;
+}
+
+.#{d.$prefix}-clearfix:before,
+.#{d.$prefix}-clearfix:after {
+  display: table;
+  content: "";
+}
+
+.#{d.$prefix}-clearfix:after {
+  clear: both;
+}
+
+// ============================================
+// 8. 位置定位
+// ============================================
+
+.#{d.$prefix}-relative { position: relative; }
+.#{d.$prefix}-absolute { position: absolute; }
+.#{d.$prefix}-fixed { position: fixed; }
+.#{d.$prefix}-sticky { position: sticky; }
+.#{d.$prefix}-static { position: static; }
+
+// 绝对定位快捷方式
+.#{d.$prefix}-pin-top { position: absolute; top: 0; left: 0; right: 0; }
+.#{d.$prefix}-pin-bottom { position: absolute; bottom: 0; left: 0; right: 0; }
+.#{d.$prefix}-pin-left { position: absolute; top: 0; bottom: 0; left: 0; }
+.#{d.$prefix}-pin-right { position: absolute; top: 0; bottom: 0; right: 0; }
+.#{d.$prefix}-pin-all { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+// 居中定位
+.#{d.$prefix}-center-xy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.#{d.$prefix}-center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.#{d.$prefix}-center-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// 固定定位
+.#{d.$prefix}-pf-t {
+  position: fixed;
+  top: 0;
+}
+
+.#{d.$prefix}-pf-b {
+  position: fixed;
+  bottom: 0;
+}
+
+.#{d.$prefix}-pf-l {
+  position: fixed;
+  left: 0;
+}
+
+.#{d.$prefix}-pf-r {
+  position: fixed;
+  right: 0;
+}
+
+// ============================================
+// 9. Z-Index
+// ============================================
+
+.#{d.$prefix}-zi-max {
+  z-index: 99999;
+}
+
+.#{d.$prefix}-zi-min {
+  z-index: -1;
+}
+
+$zindexs: (
+  0, 5, 9, 10, 15, 19, 20, 25, 29, 30, 35, 39, 40, 45, 49, 50,
+  55, 59, 60, 65, 69, 70, 75, 79, 80, 85, 89, 90, 95, 99, 100
+);
+
+@each $zindex in $zindexs {
+  .#{d.$prefix}-zi-#{$zindex} {
+    z-index: #{$zindex};
+  }
+}

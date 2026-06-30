@@ -1,0 +1,56 @@
+@use "../declare/variables" as d;
+
+// ============================================
+// 标题组件类（Titles）
+// ============================================
+
+// 大号标题
+.title-large {
+  font-size: d.$font-size-xl;
+  font-weight: d.$font-weight-bold;
+  line-height: d.$line-height-tight;
+  color: d.$text-primary;
+  margin: 0;
+}
+
+// 标准标题
+.title {
+  font-size: d.$font-size-lg;
+  font-weight: d.$font-weight-bold;
+  line-height: d.$line-height-tight;
+  color: d.$text-primary;
+  margin: 0;
+}
+
+// 小号标题
+.title-small {
+  font-size: d.$font-size-xl;
+  font-weight: d.$font-weight-semibold;
+  line-height: d.$line-height-tight;
+  color: d.$text-primary;
+  margin: 0;
+}
+
+// 超小标题
+.title-xs {
+  font-size: d.$font-size-lg;
+  font-weight: d.$font-weight-semibold;
+  line-height: d.$line-height-tight;
+  color: d.$text-primary;
+  margin: 0;
+}
+
+// 粗体标题
+.title-bold {
+  font-weight: d.$font-weight-black;
+}
+
+// 细体标题
+.title-thin {
+  font-weight: d.$font-weight-light;
+}
+
+// 中等粗细标题
+.title-medium {
+  font-weight: d.$font-weight-medium;
+}

@@ -80,7 +80,7 @@ onBeforeMount(() => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/styles/common/declare" as d;
+@use "@/assets/styles/declare" as d;
 
 // 主内容区字体
 .layout-main {

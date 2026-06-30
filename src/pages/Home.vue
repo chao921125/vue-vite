@@ -65,7 +65,7 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/styles/common/declare" as d;
+@use "@/assets/styles/declare" as d;
 
 h1 {
   font-size: d.$font-size-md; // 70px - 基准字体大小

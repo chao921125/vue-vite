@@ -1,0 +1,140 @@
+@use "../declare/variables" as d;
+
+// ============================================
+// 1. 字体大小
+// ============================================
+
+// 固定字号（1-40）
+$font-sizes: 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 36, 40, 48, 56, 64, 72, 80, 96, 120, 240;
+
+@each $size in $font-sizes {
+  .#{d.$prefix}-fs-#{$size} {
+    font-size: #{$size}px;
+    line-height: 1.5;
+  }
+}
+
+// 设计系统字号
+.#{d.$prefix}-fs-xs { font-size: d.$font-size-xs; }
+.#{d.$prefix}-fs-sm { font-size: d.$font-size-sm; }
+.#{d.$prefix}-fs-md { font-size: d.$font-size-md; }
+.#{d.$prefix}-fs-lg { font-size: d.$font-size-lg; }
+.#{d.$prefix}-fs-xl { font-size: d.$font-size-xl; }
+
+// ============================================
+// 2. 字体粗细
+// ============================================
+
+.#{d.$prefix}-fw-100 { font-weight: 100; }
+.#{d.$prefix}-fw-200 { font-weight: 200; }
+.#{d.$prefix}-fw-300 { font-weight: 300; }
+.#{d.$prefix}-fw-400 { font-weight: 400; }
+.#{d.$prefix}-fw-500 { font-weight: 500; }
+.#{d.$prefix}-fw-600 { font-weight: 600; }
+.#{d.$prefix}-fw-700 { font-weight: 700; }
+.#{d.$prefix}-fw-800 { font-weight: 800; }
+.#{d.$prefix}-fw-900 { font-weight: 900; }
+
+.#{d.$prefix}-fw-light { font-weight: d.$font-weight-light; }
+.#{d.$prefix}-fw-normal { font-weight: d.$font-weight-normal; }
+.#{d.$prefix}-fw-medium { font-weight: d.$font-weight-medium; }
+.#{d.$prefix}-fw-semibold { font-weight: d.$font-weight-semibold; }
+.#{d.$prefix}-fw-bold { font-weight: d.$font-weight-bold; }
+.#{d.$prefix}-fw-black { font-weight: d.$font-weight-black; }
+
+// ============================================
+// 3. 行高
+// ============================================
+
+.#{d.$prefix}-lh-1 { line-height: 1; }
+.#{d.$prefix}-lh-tight { line-height: d.$line-height-tight; }
+.#{d.$prefix}-lh-normal { line-height: d.$line-height-normal; }
+.#{d.$prefix}-lh-relaxed { line-height: d.$line-height-relaxed; }
+.#{d.$prefix}-lh-loose { line-height: d.$line-height-loose; }
+
+.#{d.$prefix}-lh-12 { line-height: 12px; }
+.#{d.$prefix}-lh-14 { line-height: 14px; }
+.#{d.$prefix}-lh-16 { line-height: 16px; }
+.#{d.$prefix}-lh-18 { line-height: 18px; }
+.#{d.$prefix}-lh-20 { line-height: 20px; }
+.#{d.$prefix}-lh-24 { line-height: 24px; }
+.#{d.$prefix}-lh-28 { line-height: 28px; }
+.#{d.$prefix}-lh-32 { line-height: 32px; }
+
+// ============================================
+// 4. 文本对齐
+// ============================================
+
+.#{d.$prefix}-text-left { text-align: left; }
+.#{d.$prefix}-text-center { text-align: center; }
+.#{d.$prefix}-text-right { text-align: right; }
+.#{d.$prefix}-text-justify { text-align: justify; }
+
+// ============================================
+// 5. 文本省略
+// ============================================
+
+.#{d.$prefix}-text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.#{d.$prefix}-text-ellipsis-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.#{d.$prefix}-text-ellipsis-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// ============================================
+// 6. 文本装饰
+// ============================================
+
+.#{d.$prefix}-text-underline { text-decoration: underline; }
+.#{d.$prefix}-text-line-through { text-decoration: line-through; }
+.#{d.$prefix}-text-no-underline { text-decoration: none; }
+
+// ============================================
+// 7. 字体样式
+// ============================================
+
+.#{d.$prefix}-italic { font-style: italic; }
+.#{d.$prefix}-not-italic { font-style: normal; }
+
+// ============================================
+// 8. 大小写转换
+// ============================================
+
+.#{d.$prefix}-uppercase { text-transform: uppercase; }
+.#{d.$prefix}-lowercase { text-transform: lowercase; }
+.#{d.$prefix}-capitalize { text-transform: capitalize; }
+.#{d.$prefix}-normal-case { text-transform: none; }
+
+// ============================================
+// 9. 字间距
+// ============================================
+
+.#{d.$prefix}-tracking-tight { letter-spacing: d.$letter-spacing-tight; }
+.#{d.$prefix}-tracking-normal { letter-spacing: d.$letter-spacing-normal; }
+.#{d.$prefix}-tracking-wide { letter-spacing: d.$letter-spacing-wide; }
+.#{d.$prefix}-tracking-wider { letter-spacing: d.$letter-spacing-wider; }
+
+// ============================================
+// 10. 单词间距 / 换行
+// ============================================
+
+.#{d.$prefix}-break-all { word-break: break-all; }
+.#{d.$prefix}-break-words { word-break: break-word; }
+.#{d.$prefix}-whitespace-nowrap { white-space: nowrap; }
+.#{d.$prefix}-whitespace-normal { white-space: normal; }
+.#{d.$prefix}-whitespace-pre { white-space: pre; }

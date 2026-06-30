@@ -1,0 +1,172 @@
+@use "../declare/variables" as d;
+
+// ============================================
+// 1. 过渡属性
+// ============================================
+
+.#{d.$prefix}-transition {
+  transition: d.$transition-all;
+}
+
+.#{d.$prefix}-transition-fast {
+  transition: all d.$transition-fast d.$ease-in-out;
+}
+
+.#{d.$prefix}-transition-slow {
+  transition: all d.$transition-slow d.$ease-in-out;
+}
+
+.#{d.$prefix}-transition-slower {
+  transition: all d.$transition-slower d.$ease-in-out;
+}
+
+.#{d.$prefix}-transition-none {
+  transition: none;
+}
+
+// 单独属性过渡
+.#{d.$prefix}-transition-opacity {
+  transition: opacity d.$transition-base d.$ease-in-out;
+}
+
+.#{d.$prefix}-transition-transform {
+  transition: transform d.$transition-base d.$ease-in-out;
+}
+
+.#{d.$prefix}-transition-shadow {
+  transition: box-shadow d.$transition-base d.$ease-in-out;
+}
+
+.#{d.$prefix}-transition-colors {
+  transition: background-color d.$transition-base d.$ease-in-out,
+              border-color d.$transition-base d.$ease-in-out,
+              color d.$transition-base d.$ease-in-out;
+}
+
+// ============================================
+// 2. 过渡函数
+// ============================================
+
+.#{d.$prefix}-ease-in {
+  transition-timing-function: d.$ease-in;
+}
+
+.#{d.$prefix}-ease-out {
+  transition-timing-function: d.$ease-out;
+}
+
+.#{d.$prefix}-ease-in-out {
+  transition-timing-function: d.$ease-in-out;
+}
+
+.#{d.$prefix}-ease-bounce {
+  transition-timing-function: d.$ease-bounce;
+}
+
+// ============================================
+// 3. 过渡时间
+// ============================================
+
+.#{d.$prefix}-duration-75 { transition-duration: 75ms; }
+.#{d.$prefix}-duration-100 { transition-duration: 100ms; }
+.#{d.$prefix}-duration-150 { transition-duration: 150ms; }
+.#{d.$prefix}-duration-200 { transition-duration: 200ms; }
+.#{d.$prefix}-duration-300 { transition-duration: 300ms; }
+.#{d.$prefix}-duration-500 { transition-duration: 500ms; }
+.#{d.$prefix}-duration-700 { transition-duration: 700ms; }
+.#{d.$prefix}-duration-1000 { transition-duration: 1000ms; }
+
+// ============================================
+// 4. 延迟
+// ============================================
+
+.#{d.$prefix}-delay-75 { transition-delay: 75ms; }
+.#{d.$prefix}-delay-100 { transition-delay: 100ms; }
+.#{d.$prefix}-delay-150 { transition-delay: 150ms; }
+.#{d.$prefix}-delay-200 { transition-delay: 200ms; }
+.#{d.$prefix}-delay-300 { transition-delay: 300ms; }
+.#{d.$prefix}-delay-500 { transition-delay: 500ms; }
+.#{d.$prefix}-delay-700 { transition-delay: 700ms; }
+.#{d.$prefix}-delay-1000 { transition-delay: 1000ms; }
+
+// ============================================
+// 5. 动画
+// ============================================
+
+// 旋转动画
+@keyframes #{d.$prefix}-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.#{d.$prefix}-animate-spin {
+  animation: #{d.$prefix}-spin 1s linear infinite;
+}
+
+// 脉冲动画
+@keyframes #{d.$prefix}-ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.#{d.$prefix}-animate-ping {
+  animation: #{d.$prefix}-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+// 呼吸动画
+@keyframes #{d.$prefix}-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.#{d.$prefix}-animate-pulse {
+  animation: #{d.$prefix}-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+// 弹跳动画
+@keyframes #{d.$prefix}-bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.#{d.$prefix}-animate-bounce {
+  animation: #{d.$prefix}-bounce 1s infinite;
+}
+
+// 淡入动画
+@keyframes #{d.$prefix}-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.#{d.$prefix}-animate-fade-in {
+  animation: #{d.$prefix}-fade-in d.$transition-base d.$ease-in-out;
+}
+
+// 滑入动画
+@keyframes #{d.$prefix}-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.#{d.$prefix}-animate-slide-up {
+  animation: #{d.$prefix}-slide-up d.$transition-base d.$ease-in-out;
+}

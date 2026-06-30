@@ -226,7 +226,7 @@ const onToReg = () => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/styles/common/declare" as d;
+@use "@/assets/styles/declare" as d;
 
 // 登录页统一样式变量（待迁移至 SCSS 设计规范）
 $login-title-size: d.$font-size-xl; // 标题字体大小 240px

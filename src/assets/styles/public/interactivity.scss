@@ -1,0 +1,97 @@
+@use "../declare/variables" as d;
+
+// ============================================
+// 1. 光标类型
+// ============================================
+
+.#{d.$prefix}-cursor-pointer { cursor: pointer; }
+.#{d.$prefix}-cursor-default { cursor: default; }
+.#{d.$prefix}-cursor-not-allowed { cursor: not-allowed; }
+.#{d.$prefix}-cursor-help { cursor: help; }
+.#{d.$prefix}-cursor-wait { cursor: wait; }
+.#{d.$prefix}-cursor-text { cursor: text; }
+.#{d.$prefix}-cursor-move { cursor: move; }
+.#{d.$prefix}-cursor-crosshair { cursor: crosshair; }
+.#{d.$prefix}-cursor-grab { cursor: grab; }
+.#{d.$prefix}-cursor-grabbing { cursor: grabbing; }
+.#{d.$prefix}-cursor-zoom-in { cursor: zoom-in; }
+.#{d.$prefix}-cursor-zoom-out { cursor: zoom-out; }
+
+// 简写 cp = cursor pointer
+.#{d.$prefix}-cp {
+  cursor: pointer;
+}
+
+// ============================================
+// 2. 用户选择
+// ============================================
+
+.#{d.$prefix}-select-none { user-select: none; }
+.#{d.$prefix}-select-text { user-select: text; }
+.#{d.$prefix}-select-all { user-select: all; }
+.#{d.$prefix}-select-auto { user-select: auto; }
+
+// 简写 us = user select
+.#{d.$prefix}-usn { user-select: none; }
+
+// ============================================
+// 3. 指针事件
+// ============================================
+
+.#{d.$prefix}-pointer-events-none { pointer-events: none; }
+.#{d.$prefix}-pointer-events-auto { pointer-events: auto; }
+
+// ============================================
+// 4. 大纲
+// ============================================
+
+.#{d.$prefix}-outline-none { outline: none; }
+.#{d.$prefix}-outline-0 { outline: 0; }
+
+// ============================================
+// 5. 可见性
+// ============================================
+
+.#{d.$prefix}-visible { visibility: visible; }
+.#{d.$prefix}-invisible { visibility: hidden; }
+.#{d.$prefix}-collapse { visibility: collapse; }
+
+// ============================================
+// 6. 缩放
+// ============================================
+
+$scale-levels: 50, 75, 90, 95, 100, 105, 110, 125, 150;
+
+@each $level in $scale-levels {
+  .#{d.$prefix}-scale-#{$level} {
+    transform: scale(calc($level / 100));
+  }
+}
+
+// ============================================
+// 7. 旋转
+// ============================================
+
+$rotate-degrees: 0, 45, 90, 135, 180, 225, 270, 315;
+
+@each $deg in $rotate-degrees {
+  .#{d.$prefix}-rotate-#{$deg} {
+    transform: rotate(#{$deg}deg);
+  }
+}
+
+// ============================================
+// 8. 鼠标悬停效果（交互）
+// ============================================
+
+.#{d.$prefix}-hover-opacity:hover {
+  opacity: 0.8;
+}
+
+.#{d.$prefix}-hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.#{d.$prefix}-hover-shadow:hover {
+  box-shadow: d.$shadow-lg;
+}

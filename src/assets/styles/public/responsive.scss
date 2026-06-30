@@ -1,0 +1,39 @@
+@use "../declare/variables" as d;
+
+// ============================================
+// 响应式显示/隐藏工具
+// ============================================
+
+// 移动端 (< 768px)
+@media (max-width: #{d.$breakpoint-md}) {
+  .#{d.$prefix}-hide-mobile { display: none !important; }
+  .#{d.$prefix}-show-mobile { display: block !important; }
+  .#{d.$prefix}-hide-mobile-flex { display: none !important; }
+  .#{d.$prefix}-show-mobile-flex { display: flex !important; }
+  .#{d.$prefix}-hide-mobile-inline { display: none !important; }
+  .#{d.$prefix}-show-mobile-inline { display: inline !important; }
+}
+
+// 平板端 (768px - 1024px)
+@media (min-width: #{d.$breakpoint-md}) and (max-width: #{d.$breakpoint-lg}) {
+  .#{d.$prefix}-hide-tablet { display: none !important; }
+  .#{d.$prefix}-show-tablet { display: block !important; }
+  .#{d.$prefix}-hide-tablet-flex { display: none !important; }
+  .#{d.$prefix}-show-tablet-flex { display: flex !important; }
+}
+
+// PC 端 (>= 768px)
+@media (min-width: #{d.$breakpoint-md}) {
+  .#{d.$prefix}-hide-desktop { display: none !important; }
+  .#{d.$prefix}-show-desktop { display: block !important; }
+  .#{d.$prefix}-hide-desktop-flex { display: none !important; }
+  .#{d.$prefix}-show-desktop-flex { display: flex !important; }
+}
+
+// 大屏桌面 (>= 1280px)
+@media (min-width: #{d.$breakpoint-xl}) {
+  .#{d.$prefix}-hide-large { display: none !important; }
+  .#{d.$prefix}-show-large { display: block !important; }
+  .#{d.$prefix}-hide-large-flex { display: none !important; }
+  .#{d.$prefix}-show-large-flex { display: flex !important; }
+}

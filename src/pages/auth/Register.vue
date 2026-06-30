@@ -146,7 +146,7 @@ const onToLogin = () => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/styles/common/declare" as d;
+@use "@/assets/styles/declare" as d;
 
 // 注册页统一样式变量（与登录页保持一致）
 $login-title-size: d.$font-size-xl; // 标题字体大小 240px

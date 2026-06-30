@@ -1,0 +1,21 @@
+@use "../declare/variables" as d;
+@use "../declare/mixins" as m;
+
+// ============================================
+// 卡片组件类（Cards）
+// ============================================
+
+.card {
+  @include m.card-base;
+  padding: d.$card-padding-base;
+}
+
+.card-small {
+  @include m.card-base;
+  padding: d.$card-padding-sm;
+}
+
+.card-large {
+  @include m.card-base;
+  padding: d.$card-padding-lg;
+}

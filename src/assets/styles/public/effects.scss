@@ -1,0 +1,77 @@
+@use "../declare/variables" as d;
+
+// ============================================
+// 1. 圆角
+// ============================================
+
+.#{d.$prefix}-rounded-none { border-radius: d.$radius-none; }
+.#{d.$prefix}-rounded-sm { border-radius: d.$radius-sm; }
+.#{d.$prefix}-rounded { border-radius: d.$radius-base; }
+.#{d.$prefix}-rounded-md { border-radius: d.$radius-md; }
+.#{d.$prefix}-rounded-lg { border-radius: d.$radius-lg; }
+.#{d.$prefix}-rounded-xl { border-radius: d.$radius-xl; }
+.#{d.$prefix}-rounded-full { border-radius: d.$radius-full; }
+
+// 单角圆角
+.#{d.$prefix}-rounded-t-sm { border-top-left-radius: d.$radius-sm; border-top-right-radius: d.$radius-sm; }
+.#{d.$prefix}-rounded-t { border-top-left-radius: d.$radius-base; border-top-right-radius: d.$radius-base; }
+.#{d.$prefix}-rounded-t-lg { border-top-left-radius: d.$radius-lg; border-top-right-radius: d.$radius-lg; }
+.#{d.$prefix}-rounded-t-full { border-top-left-radius: d.$radius-full; border-top-right-radius: d.$radius-full; }
+
+.#{d.$prefix}-rounded-b-sm { border-bottom-left-radius: d.$radius-sm; border-bottom-right-radius: d.$radius-sm; }
+.#{d.$prefix}-rounded-b { border-bottom-left-radius: d.$radius-base; border-bottom-right-radius: d.$radius-base; }
+.#{d.$prefix}-rounded-b-lg { border-bottom-left-radius: d.$radius-lg; border-bottom-right-radius: d.$radius-lg; }
+.#{d.$prefix}-rounded-b-full { border-bottom-left-radius: d.$radius-full; border-bottom-right-radius: d.$radius-full; }
+
+.#{d.$prefix}-rounded-l-sm { border-top-left-radius: d.$radius-sm; border-bottom-left-radius: d.$radius-sm; }
+.#{d.$prefix}-rounded-l { border-top-left-radius: d.$radius-base; border-bottom-left-radius: d.$radius-base; }
+.#{d.$prefix}-rounded-l-lg { border-top-left-radius: d.$radius-lg; border-bottom-left-radius: d.$radius-lg; }
+.#{d.$prefix}-rounded-l-full { border-top-left-radius: d.$radius-full; border-bottom-left-radius: d.$radius-full; }
+
+.#{d.$prefix}-rounded-r-sm { border-top-right-radius: d.$radius-sm; border-bottom-right-radius: d.$radius-sm; }
+.#{d.$prefix}-rounded-r { border-top-right-radius: d.$radius-base; border-bottom-right-radius: d.$radius-base; }
+.#{d.$prefix}-rounded-r-lg { border-top-right-radius: d.$radius-lg; border-bottom-right-radius: d.$radius-lg; }
+.#{d.$prefix}-rounded-r-full { border-top-right-radius: d.$radius-full; border-bottom-right-radius: d.$radius-full; }
+
+// ============================================
+// 2. 阴影
+// ============================================
+
+.#{d.$prefix}-shadow-sm { box-shadow: d.$shadow-sm; }
+.#{d.$prefix}-shadow { box-shadow: d.$shadow-base; }
+.#{d.$prefix}-shadow-md { box-shadow: d.$shadow-md; }
+.#{d.$prefix}-shadow-lg { box-shadow: d.$shadow-lg; }
+.#{d.$prefix}-shadow-xl { box-shadow: d.$shadow-xl; }
+.#{d.$prefix}-shadow-inner { box-shadow: d.$shadow-inner; }
+.#{d.$prefix}-shadow-none { box-shadow: none; }
+
+// ============================================
+// 3. 透明度
+// ============================================
+
+$opacity-levels: 0, 5, 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 95, 100;
+
+@each $level in $opacity-levels {
+  .#{d.$prefix}-opacity-#{$level} {
+    opacity: calc($level / 100);
+  }
+}
+
+// ============================================
+// 4. 溢出
+// ============================================
+
+.#{d.$prefix}-overflow-auto { overflow: auto; }
+.#{d.$prefix}-overflow-hidden { overflow: hidden; }
+.#{d.$prefix}-overflow-visible { overflow: visible; }
+.#{d.$prefix}-overflow-scroll { overflow: scroll; }
+
+.#{d.$prefix}-overflow-x-auto { overflow-x: auto; }
+.#{d.$prefix}-overflow-x-hidden { overflow-x: hidden; }
+.#{d.$prefix}-overflow-x-visible { overflow-x: visible; }
+.#{d.$prefix}-overflow-x-scroll { overflow-x: scroll; }
+
+.#{d.$prefix}-overflow-y-auto { overflow-y: auto; }
+.#{d.$prefix}-overflow-y-hidden { overflow-y: hidden; }
+.#{d.$prefix}-overflow-y-visible { overflow-y: visible; }
+.#{d.$prefix}-overflow-y-scroll { overflow-y: scroll; }

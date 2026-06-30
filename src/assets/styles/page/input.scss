@@ -1,0 +1,46 @@
+@use "../declare/variables" as d;
+
+// ============================================
+// 输入框组件类（Inputs）
+// ============================================
+
+// 基础输入框样式
+.input-base {
+  border-radius: d.$radius-base;
+  border: 1px solid #dcdfe6;
+  transition: d.$transition-all;
+  outline: none;
+
+  &:focus {
+    border-color: d.$color-primary;
+    box-shadow: 0 0 0 2px rgba(d.$color-primary, 0.1);
+  }
+
+  &::placeholder {
+    color: d.$text-placeholder;
+  }
+}
+
+// 大号输入框
+.input-large {
+  height: d.$input-height-lg;
+  font-size: d.$font-size-md;
+  padding: d.$input-padding-lg;
+  @extend .input-base;
+}
+
+// 标准输入框
+.input {
+  height: d.$input-height-md;
+  font-size: d.$font-size-md;
+  padding: d.$input-padding-md;
+  @extend .input-base;
+}
+
+// 小号输入框
+.input-small {
+  height: d.$input-height-sm;
+  font-size: d.$font-size-sm;
+  padding: d.$input-padding-sm;
+  @extend .input-base;
+}

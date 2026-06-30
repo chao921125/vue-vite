@@ -1,0 +1,141 @@
+@use "sass:color";
+@use "../declare/variables" as d;
+
+// ============================================
+// 按钮组件类（Buttons）
+// ============================================
+
+// 基础按钮样式
+.btn-base {
+  font-weight: d.$font-weight-medium;
+  cursor: pointer;
+  transition: d.$transition-all;
+  border: none;
+  outline: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+// 大号按钮
+.btn-large {
+  height: d.$btn-height-lg;
+  font-size: d.$font-size-lg;
+  padding: 0 d.$btn-padding-lg;
+  border-radius: d.$radius-base;
+  @extend .btn-base;
+}
+
+// 标准按钮
+.btn {
+  height: d.$btn-height-md;
+  font-size: d.$font-size-md;
+  padding: 0 d.$btn-padding-md;
+  border-radius: d.$radius-base;
+  @extend .btn-base;
+}
+
+// 小号按钮
+.btn-small {
+  height: d.$btn-height-sm;
+  font-size: d.$font-size-sm;
+  padding: 0 d.$btn-padding-sm;
+  border-radius: d.$radius-base;
+  @extend .btn-base;
+}
+
+// ============================================
+// 按钮形状变体
+// ============================================
+
+// 大号圆角按钮
+.btn-round-large {
+  @extend .btn-large;
+  border-radius: d.$radius-lg;
+}
+
+// 标准圆角按钮
+.btn-round {
+  @extend .btn;
+  border-radius: d.$radius-lg;
+}
+
+// 小号圆角按钮
+.btn-round-small {
+  @extend .btn-small;
+  border-radius: d.$radius-lg;
+}
+
+// 大号胶囊按钮
+.btn-pill-large {
+  @extend .btn-large;
+  border-radius: d.$radius-full;
+}
+
+// 标准胶囊按钮
+.btn-pill {
+  @extend .btn;
+  border-radius: d.$radius-full;
+}
+
+// 小号胶囊按钮
+.btn-pill-small {
+  @extend .btn-small;
+  border-radius: d.$radius-full;
+}
+
+// ============================================
+// 按钮颜色变体
+// ============================================
+
+.btn-primary {
+  background-color: d.$color-primary;
+  color: d.$color-white;
+
+  &:hover {
+    background-color: color.adjust(d.$color-primary, $lightness: -10%);
+  }
+}
+
+.btn-success {
+  background-color: d.$btn-success;
+  color: d.$color-white;
+
+  &:hover {
+    background-color: color.adjust(d.$btn-success, $lightness: -10%);
+  }
+}
+
+.btn-error {
+  background-color: d.$btn-error;
+  color: d.$color-white;
+
+  &:hover {
+    background-color: color.adjust(d.$btn-error, $lightness: -10%);
+  }
+}
+
+.btn-warning {
+  background-color: d.$btn-waring;
+  color: d.$color-white;
+
+  &:hover {
+    background-color: color.adjust(d.$btn-waring, $lightness: -10%);
+  }
+}
+
+.btn-default {
+  background-color: d.$btn-default;
+  color: d.$text-primary;
+  border: 1px solid #dcdfe6;
+
+  &:hover {
+    border-color: d.$color-primary;
+    color: d.$color-primary;
+  }
+}
