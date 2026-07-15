@@ -394,7 +394,7 @@ export default defineConfig(({ command, mode }) => {
      */
     build: {
       outDir: path.join(__dirname, "./dist"),
-      assetsDir: path.join(__dirname, "./assets"),
+      assetsDir: "assets",
       assetsInlineLimit: 5120, // 5KB
       cssCodeSplit: true,
       sourcemap: true,
@@ -448,7 +448,7 @@ export default defineConfig(({ command, mode }) => {
           },
         ],
       },
-      minify: true,
+      minify: "terser",
       terserOptions: {
         compress: {
           drop_console: isBuild,
