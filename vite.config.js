@@ -404,41 +404,64 @@ export default defineConfig(({ command, mode }) => {
         },
         output: {
           dir: "dist",
-          // 部署到云平台时使用无 hash 的文件名，便于缓存
           chunkFileNames: isDeploy ? "assets/js/[name].js" : "assets/js/[name]-[hash].js",
           entryFileNames: isDeploy ? "assets/js/[name].js" : "assets/js/[name]-[hash].js",
           assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+          codeSplitting: {
+            groups: [
+              {
+                name: "vue-vendor",
+                test: /[\\/]node_modules[\\/](vue|@vue|vue-router|pinia)[\\/]/,
+              },
+              {
+                name: "element-plus",
+                test: /[\\/]node_modules[\\/](element-plus|@element-plus)[\\/]/,
+              },
+              {
+                name: "echarts",
+                test: /[\\/]node_modules[\\/](echarts|echarts-gl|echarts-wordcloud|zrender)[\\/]/,
+              },
+              {
+                name: "vant",
+                test: /[\\/]node_modules[\\/]vant[\\/]/,
+              },
+              {
+                name: "vueuse",
+                test: /[\\/]node_modules[\\/]@vueuse[\\/]/,
+              },
+              {
+                name: "vue-i18n",
+                test: /[\\/]node_modules[\\/]vue-i18n[\\/]/,
+              },
+              {
+                name: "axios",
+                test: /[\\/]node_modules[\\/](axios|axios-mock-adapter)[\\/]/,
+              },
+              {
+                name: "utils",
+                test: /[\\/]node_modules[\\/](date-fns|lodash-es|js-cookie|mitt|qs|ua-parser-js|js-use-core)[\\/]/,
+              },
+              {
+                name: "nprogress",
+                test: /[\\/]node_modules[\\/]nprogress[\\/]/,
+              },
+              {
+                name: "animate",
+                test: /[\\/]node_modules[\\/]animate\.css[\\/]/,
+              },
+              {
+                name: "scroll-seamless",
+                test: /[\\/]node_modules[\\/]scroll-seamless[\\/]/,
+              },
+              {
+                name: "heic2any",
+                test: /[\\/]node_modules[\\/]heic2any[\\/]/,
+              },
+            ],
+          },
         },
-        // 禁用无效注释检查（@vueuse/core 使用旧格式的 #__PURE__ 注释）
         checks: {
           invalidAnnotation: false,
-        },
-        // 代码分割策略：优化首屏加载
-        manualChunks(id) {
-          // Vue 核心库
-          if (
-            id.includes("node_modules/vue") ||
-            id.includes("node_modules/vue-router") ||
-            id.includes("node_modules/pinia")
-          ) {
-            return "vue-vendor";
-          }
-          // Element Plus UI 库
-          if (id.includes("node_modules/element-plus")) {
-            return "element-plus";
-          }
-          // HTTP 请求库
-          if (id.includes("node_modules/axios")) {
-            return "axios";
-          }
-          // 图表库
-          if (id.includes("node_modules/echarts")) {
-            return "echarts";
-          }
-          // 工具库
-          if (id.includes("node_modules/date-fns") || id.includes("node_modules/lodash-es")) {
-            return "utils";
-          }
         },
         // 路由懒加载优化：按页面分割代码
         plugins: [

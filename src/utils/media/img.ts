@@ -1,5 +1,3 @@
-import heic2any from "heic2any";
-
 const utils = {
   blobToDataURL: (blob: Blob) => {
     return new Promise<string>((resolve, reject) => {
@@ -111,6 +109,7 @@ export const imgConvert = async (
     fileUrl: "",
   };
   if (file.type === "heic" || file.type === "image/heic") {
+    const { default: heic2any } = await import("heic2any");
     const blob = new Blob([file], { type: file.type });
     const reBlob = await heic2any({
       blob: blob,

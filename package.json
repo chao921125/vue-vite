@@ -83,7 +83,7 @@
     "vant": "^4.10.0",
     "vue": "^3.5.39",
     "vue-i18n": "^11.4.6",
-    "vue-router": "^5.1.0"
+    "vue-router": "^5.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.3",
@@ -95,7 +95,7 @@
     "@types/node": "^26.1.1",
     "@types/qs": "^6.15.1",
     "@vitejs/plugin-legacy": "^8.2.0",
-    "@vitejs/plugin-vue": "^6.0.7",
+    "@vitejs/plugin-vue": "^6.0.8",
     "@vue/compiler-sfc": "^3.5.39",
     "@vue/shared": "^3.5.39",
     "browserslist": "^4.28.6",
@@ -107,9 +107,9 @@
     "less-loader": "^12.3.3",
     "lint-staged": "^16.4.0",
     "oxfmt": "^0.45.0",
-    "oxlint": "^1.73.0",
+    "oxlint": "^1.74.0",
     "oxlint-tsgolint": "^0.20.0",
-    "postcss": "^8.5.18",
+    "postcss": "^8.5.19",
     "postcss-html": "^1.8.1",
     "postcss-preset-env": "^11.3.2",
     "postcss-px-convert": "^1.4.3",
