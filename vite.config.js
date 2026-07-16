@@ -22,9 +22,6 @@ import { ViteEjsPlugin } from "vite-plugin-ejs";
 import { VitePWA } from "vite-plugin-pwa";
 // gzip 压缩
 import { compression } from "vite-plugin-compression2";
-// 浏览器兼容
-import browserslist from "browserslist";
-import legacy from "@vitejs/plugin-legacy";
 // 自动导入模块
 import autoImport from "unplugin-auto-import/vite";
 import components from "unplugin-vue-components/vite";
@@ -48,7 +45,6 @@ export default defineConfig(({ command, mode }) => {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
   const envConfig = getEnvConfig(loadEnv(mode, import.meta.dirname, ""));
-  const browserslistConfig = browserslist.loadConfig({ path: "." });
   const isBuild = command.includes("build");
 
   // 检测部署平台
@@ -226,12 +222,9 @@ export default defineConfig(({ command, mode }) => {
             ],
           },
         }),
-      legacy({
-        renderLegacyChunks: false,
-        modernPolyfills: ["es.global-this"],
-        modernTargets: "defaults and supports es6-module",
+      lqip({
+        mode: "vue"
       }),
-      lqip(),
       isBuild && envConfig.VITE_BUILD_GZIP && compression(),
       autoImport({
         include: [

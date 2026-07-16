@@ -13,5 +13,4 @@ minimumReleaseAge: 0
 # 将这几个你信任的包设置为 true，pnpm 就不再拦截它们了
 allowBuilds:
   "@parcel/watcher": true
-  "core-js": true
   "sharp": true
