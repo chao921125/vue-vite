@@ -113,13 +113,8 @@ watch(
 
 <template>
   <el-config-provider :locale="config.i18n" :size="config.size" :button="config.buttonSpace">
-    <RouterView v-slot="{ Component }">
-      <!-- 根据 meta.isKeepAlive 决定是否缓存：不依赖组件 name 匹配，改用 v-if 控制 -->
-      <KeepAlive :max="10">
-        <component :is="Component" :key="route.name" v-if="route.meta.isKeepAlive" />
-      </KeepAlive>
-      <component :is="Component" :key="route.name" v-if="!route.meta.isKeepAlive" />
-    </RouterView>
+    <!-- 顶层 RouterView：只渲染 Layout/Login/Register 等顶层路由组件，不加 key 避免子路由切换时 Layout 被重建 -->
+    <RouterView />
   </el-config-provider>
 </template>
 

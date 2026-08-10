@@ -112,7 +112,21 @@ onUnmounted(() => {
         <Tags v-if="!state.isMobile"></Tags>
         <el-main class="layout-main">
           <el-card class="main-body">
-            <router-view></router-view>
+            <!-- 业务子页面在此切换：根据 meta.isKeepAlive 决定是否缓存，Layout 公共部分不受影响 -->
+            <router-view v-slot="{ Component, route: slotRoute }">
+              <KeepAlive :max="10">
+                <component
+                  :is="Component"
+                  :key="slotRoute.fullPath"
+                  v-if="slotRoute.meta.isKeepAlive"
+                />
+              </KeepAlive>
+              <component
+                :is="Component"
+                :key="slotRoute.fullPath"
+                v-if="!slotRoute.meta.isKeepAlive"
+              />
+            </router-view>
           </el-card>
         </el-main>
         <el-footer v-if="isShowFooter" class="re-flex-center">
