@@ -22,30 +22,6 @@ const config = reactive({
 const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 const route = useRoute();
 
-/**
- * 需要缓存的路由名称列表
- * 根据路由 meta.isKeepAlive 配置动态生成
- */
-const cachedRoutes = computed(() => {
-  const routerList = appStore.useRouterList.routerList;
-  if (!routerList || routerList.length === 0) return [];
-
-  // 递归收集所有需要缓存的路由名称
-  const collectKeepAliveRoutes = (routes: any[]): string[] => {
-    const names: string[] = [];
-    routes.forEach((route) => {
-      if (route.meta?.isKeepAlive && route.name) {
-        names.push(route.name);
-      }
-      if (route.children?.length) {
-        names.push(...collectKeepAliveRoutes(route.children));
-      }
-    });
-    return names;
-  };
-
-  return collectKeepAliveRoutes(routerList);
-});
 const initData = () => {
   Utils.setTitle?.();
   if (proxy) {
@@ -138,10 +114,11 @@ watch(
 <template>
   <el-config-provider :locale="config.i18n" :size="config.size" :button="config.buttonSpace">
     <RouterView v-slot="{ Component }">
-      <!-- 根据路由 meta.isKeepAlive 决定是否缓存 -->
-      <KeepAlive :include="cachedRoutes">
-        <component :is="Component" :key="route.name" />
+      <!-- 根据 meta.isKeepAlive 决定是否缓存：不依赖组件 name 匹配，改用 v-if 控制 -->
+      <KeepAlive :max="10">
+        <component :is="Component" :key="route.name" v-if="route.meta.isKeepAlive" />
       </KeepAlive>
+      <component :is="Component" :key="route.name" v-if="!route.meta.isKeepAlive" />
     </RouterView>
   </el-config-provider>
 </template>

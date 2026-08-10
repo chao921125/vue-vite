@@ -46,9 +46,14 @@ const initBreadcrumbList = (path: string) => {
   if (noBreadcrumbPaths.includes(path)) {
     return;
   }
-  // 根路径或白名单路径：只显示首页一项
-  if (RouterConfig.executeList.includes(path) || path === "/" || path === "/home") {
-    const home = menuList.value?.[0];
+  // 工作台/根路径：只显示工作台一项
+  const home = menuList.value?.[0];
+  const isHomePath =
+    RouterConfig.executeList.includes(path) ||
+    path === "/" ||
+    path === "/home" ||
+    (home && (path === "/" + home.path || path === "/" + home.path + "/"));
+  if (isHomePath) {
     if (home) {
       breadcrumbList.value.push({
         name: home.path,
@@ -58,16 +63,7 @@ const initBreadcrumbList = (path: string) => {
     }
     return;
   }
-  // 非根路径：先添加首页作为第一级面包屑
-  const home = menuList.value?.[0];
-  if (home) {
-    breadcrumbList.value.push({
-      name: home.path,
-      title: home.title,
-      path: "/" + home.path,
-    });
-  }
-  // 按路径段拆解，逐级生成占位项，标题由 setBreadcrumbList 回填
+  // 非工作台路径：仅展示当前所在菜单的层级路径（不再强制前置工作台）
   const pathArr = path.split("/").filter(Boolean);
   for (let i = 0; i < pathArr.length; i++) {
     breadcrumbList.value.push({
@@ -79,7 +75,7 @@ const initBreadcrumbList = (path: string) => {
   setBreadcrumbList(menuList.value);
   // 移除因路径段与菜单命名空间不匹配而留空的占位项
   breadcrumbList.value = breadcrumbList.value.filter((item) => item.title !== "");
-  // 按 path 去重，避免与首页项重复
+  // 按 path 去重
   const seen = new Set<string>();
   breadcrumbList.value = breadcrumbList.value.filter((item) => {
     if (seen.has(item.path)) return false;
@@ -239,13 +235,13 @@ onBeforeRouteUpdate((to) => {
           <Expand v-else-if="!isColl && !isMobile"></Expand>
           <Fold v-else></Fold>
         </el-icon>
-        <el-breadcrumb v-if="!isMobile" separator-icon="ArrowRight" class="re-ml-20">
+        <el-breadcrumb
+          v-if="!isMobile"
+          separator-icon="ArrowRight"
+          class="re-ml-20 breadcrumb-display"
+        >
           <transition-group name="breadcrumb">
-            <el-breadcrumb-item
-              v-for="(item, index) in breadcrumbList"
-              :key="index"
-              :to="{ path: item.path }"
-            >
+            <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="index">
               {{ $t(item.title) }}
             </el-breadcrumb-item>
           </transition-group>
@@ -379,6 +375,15 @@ onBeforeRouteUpdate((to) => {
 // 面包屑导航字体
 :deep(.el-breadcrumb__inner) {
   font-size: 0.14rem;
+}
+
+// 纯展示面包屑：去掉可点击指针与链接色
+:deep(.breadcrumb-display .el-breadcrumb__inner) {
+  cursor: default;
+  color: var(--el-text-color-primary);
+  &:hover {
+    color: var(--el-text-color-primary);
+  }
 }
 
 // 用户名

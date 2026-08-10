@@ -15,21 +15,11 @@ const state = reactive({ menuList: [] });
 const setMenu = () => {
   state.menuList = menuList.value || [];
 };
-// 设置菜单点击后的默认项
+// 设置菜单当前选中项：直接使用当前路由路径（去掉前导/），与 el-menu-item 的 index 保持一致
 const router = useRouter();
 const route = useRoute();
 const changeMenuKey = computed(() => {
-  let menuHierarchy = 2;
-  let path = route.path.replace("/", "");
-  let pathArray = path.split("/");
-  if (pathArray.length > menuHierarchy) {
-    let returnPath = "";
-    for (let i = 0; i < menuHierarchy; i++) {
-      returnPath += `/${pathArray[i]}`;
-    }
-    return returnPath.replace("/", "");
-  }
-  return path.toString();
+  return route.path.replace(/^\//, "");
 });
 // 点击路由跳转菜单
 const toRouter = (index: string) => {
