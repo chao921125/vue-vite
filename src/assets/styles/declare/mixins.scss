@@ -152,6 +152,7 @@
 // 9. 响应式 Mixins
 // ============================================
 
+// 断点查询：min-width 方式
 @mixin respond-to($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
     @media (min-width: map-get($breakpoints, $breakpoint)) {
@@ -162,13 +163,54 @@
   }
 }
 
+// PC 端专属样式 (>= 768px)
+@mixin pc {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+// 移动端专属样式 (< 768px)
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+// 平板端专属样式 (768px ~ 1023px)
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+// 大屏桌面专属样式 (>= 1280px)
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
 // ============================================
 // 10. 安全区域（移动端）Mixins
 // ============================================
 
+// 安全区域 inset
 @mixin safe-area-inset($property, $value) {
   #{$property}: $value;
   #{$property}: calc(#{$value} + env(safe-area-inset-top));
+}
+
+// 移动端底部安全区域
+@mixin safe-area-bottom($value: 0px) {
+  padding-bottom: $value;
+  padding-bottom: calc(#{$value} + env(safe-area-inset-bottom));
+}
+
+// 移动端顶部安全区域
+@mixin safe-area-top($value: 0px) {
+  padding-top: $value;
+  padding-top: calc(#{$value} + env(safe-area-inset-top));
 }
 
 // ============================================

@@ -16,11 +16,6 @@
 
 <style scoped lang="scss">
 .footer-body {
-  font-size: 70px;
-}
-@media screen and (max-width: 768px) {
-  .footer-body {
-    font-size: 16px;
-  }
+  font-size: 14px;
 }
 </style>

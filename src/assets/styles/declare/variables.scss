@@ -43,12 +43,12 @@ $link-success: $text-success;
 // 2. 字体系统（Typography）
 // ============================================
 
-// 字体大小阶梯（基于 1rem = 78px，设计稿 780px）
+// 字体大小阶梯
 $font-size-xs: 10px;
-$font-size-sm: 30px;
-$font-size-md: 70px;
-$font-size-lg: 120px;
-$font-size-xl: 240px;
+$font-size-sm: 12px;
+$font-size-md: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 20px;
 
 // 字体粗细
 $font-weight-light: 300;
@@ -97,13 +97,13 @@ $spacings: 0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128;
 // 4. 圆角系统（Border Radius）
 // ============================================
 
-// 圆角大小（基于 780 设计稿）
+// 圆角大小
 $radius-none: 0;
 $radius-sm: 2px;
 $radius-base: 4px;
 $radius-md: 8px;
-$radius-lg: 24px;
-$radius-xl: 60px;
+$radius-lg: 8px;
+$radius-xl: 12px;
 $radius-full: 9999px;
 
 // ============================================
@@ -159,34 +159,53 @@ $breakpoints: (
 );
 
 // ============================================
+// 7.5 响应式适配系统（Responsive Adaptation）
+// ============================================
+
+// postcss-px-convert 配置对应值
+$root-value: 100; // 100px = 1rem，与 postcss-px-convert rootValue 一致
+
+// 设计稿尺寸
+$design-width-pc: 1920px; // PC 端设计稿宽度
+$design-width-mobile: 375px; // 移动端设计稿宽度
+
+// PC 端 root font-size 范围（flexible.js 控制）
+$root-font-size-pc-min: 80px; // 最小 root font-size (小屏 PC)
+$root-font-size-pc-max: 120px; // 最大 root font-size (大屏 PC)
+$root-font-size-pc-base: 100px; // 基准 root font-size (1920px 屏)
+
+// 移动端 root font-size 基准（flexible.js: clientWidth / 3.75）
+$root-font-size-mobile-base: 100px; // 375px 屏 → 100px
+
+// ============================================
 // 8. 组件尺寸（Component Sizes）
 // ============================================
 
-// 输入框尺寸（基于 780 设计稿）
-$input-height-xs: 32px;
-$input-height-sm: 48px;
-$input-height-md: 150px;
-$input-height-lg: 200px;
-$input-height-xl: 280px;
+// 输入框尺寸
+$input-height-xs: 24px;
+$input-height-sm: 32px;
+$input-height-md: 36px;
+$input-height-lg: 40px;
+$input-height-xl: 48px;
 
-$input-padding-xs: 8px 12px;
-$input-padding-sm: 12px 16px;
-$input-padding-md: 30px 20px;
-$input-padding-lg: 40px 24px;
-$input-padding-xl: 50px 28px;
+$input-padding-xs: 4px 8px;
+$input-padding-sm: 8px 12px;
+$input-padding-md: 8px 12px;
+$input-padding-lg: 10px 16px;
+$input-padding-xl: 12px 20px;
 
-// 按钮尺寸（基于 780 设计稿）
-$btn-height-xs: 32px;
-$btn-height-sm: 48px;
-$btn-height-md: 150px;
-$btn-height-lg: 200px;
-$btn-height-xl: 280px;
+// 按钮尺寸
+$btn-height-xs: 24px;
+$btn-height-sm: 32px;
+$btn-height-md: 36px;
+$btn-height-lg: 40px;
+$btn-height-xl: 48px;
 
-$btn-padding-xs: 8px 16px;
-$btn-padding-sm: 12px 24px;
-$btn-padding-md: 16px 32px;
-$btn-padding-lg: 20px 40px;
-$btn-padding-xl: 24px 48px;
+$btn-padding-xs: 4px 8px;
+$btn-padding-sm: 8px 16px;
+$btn-padding-md: 8px 16px;
+$btn-padding-lg: 10px 20px;
+$btn-padding-xl: 12px 24px;
 
 // ============================================
 // 9. 容器宽度（Container）

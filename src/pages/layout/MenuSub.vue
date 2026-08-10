@@ -56,14 +56,6 @@ const resolvePath = (path: string) => {
 // 菜单项文字
 :deep(.el-menu-item span),
 :deep(.el-sub-menu__title span) {
-  font-size: d.$font-size-md; // 70px - 基准字体大小
-}
-
-// 移动端适配
-@media screen and (max-width: 768px) {
-  :deep(.el-menu-item span),
-  :deep(.el-sub-menu__title span) {
-    font-size: 14px;
-  }
+  font-size: d.$font-size-md; // 基准字体大小
 }
 </style>

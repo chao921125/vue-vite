@@ -144,8 +144,6 @@ onBeforeRouteUpdate((to) => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/styles/declare" as d;
-
 .tags-space {
   width: 100%;
   height: 25px;
@@ -153,11 +151,7 @@ onBeforeRouteUpdate((to) => {
 .tags-content {
   background-color: var(--el-bg-color);
   box-sizing: border-box;
-  //position: fixed;
-  //z-index: 99999;
-  //top: 60px;
   padding: 5px 20px;
-  //background-color: #fff;
   .tags-list {
     width: calc(100% - 70px);
   }
@@ -168,21 +162,11 @@ onBeforeRouteUpdate((to) => {
 
 // 标签字体
 :deep(.el-tag) {
-  font-size: d.$font-size-md; // 70px - 基准字体大小
+  font-size: 0.14rem;
 }
 
 // 更多按钮字体
 :deep(.el-button) {
-  font-size: d.$font-size-md; // 70px - 基准字体大小
-}
-
-// 移动端适配
-@media screen and (max-width: 768px) {
-  :deep(.el-tag) {
-    font-size: 14px;
-  }
-  :deep(.el-button) {
-    font-size: 14px;
-  }
+  font-size: 0.14rem;
 }
 </style>

@@ -100,27 +100,14 @@ onBeforeMount(() => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/styles/declare" as d;
-
 // Logo 文字
 :deep(.el-link) {
-  font-size: d.$font-size-md; // 70px - 基准字体大小
+  font-size: 0.14rem;
 }
 
 // 菜单项文字
 :deep(.el-menu-item),
 :deep(.el-sub-menu__title) {
-  font-size: d.$font-size-md; // 70px - 基准字体大小
-}
-
-// 移动端适配
-@media screen and (max-width: 768px) {
-  :deep(.el-link) {
-    font-size: 14px;
-  }
-  :deep(.el-menu-item),
-  :deep(.el-sub-menu__title) {
-    font-size: 14px;
-  }
+  font-size: 0.14rem;
 }
 </style>

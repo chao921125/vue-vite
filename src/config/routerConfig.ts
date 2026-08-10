@@ -6,7 +6,7 @@ export default {
   // 常用路由：PC端，如果是动态路由，请和配置的路由名称保持一致！！！
   routeLogin: "/login",
   routeRoot: "/",
-  routeHome: "/home",
+  routeHome: "/inv/dashboard",
   routeNoData: "/no-data",
   route403: "/403",
   route404: "/404",

@@ -149,15 +149,15 @@ const onToLogin = () => {
 @use "@/assets/styles/declare" as d;
 
 // 注册页统一样式变量（与登录页保持一致）
-$login-title-size: d.$font-size-xl; // 标题字体大小 240px
-$login-input-font-size: d.$font-size-md; // 输入框字体大小 70px
-$login-btn-height: d.$btn-height-md; // 注册按钮高度 150px
-$login-btn-font-size: d.$font-size-md; // 注册按钮字体大小 70px
-$login-link-font-size: d.$font-size-md; // 链接文字大小 70px
-$login-item-gap: d.$spacing-20; // 表单项间距 80px
-$login-radius: d.$radius-lg; // 输入框/按钮圆角 24px
-$login-container-radius: d.$radius-xl; // 容器圆角 60px
-$login-form-padding: 180px; // 表单区域内边距
+$login-title-size: d.$font-size-xl; // 标题字体大小
+$login-input-font-size: d.$font-size-md; // 输入框字体大小
+$login-btn-height: d.$btn-height-lg; // 注册按钮高度
+$login-btn-font-size: d.$font-size-md; // 注册按钮字体大小
+$login-link-font-size: d.$font-size-md; // 链接文字大小
+$login-item-gap: d.$spacing-5; // 表单项间距
+$login-radius: d.$radius-lg; // 输入框/按钮圆角
+$login-container-radius: d.$radius-xl; // 容器圆角
+$login-form-padding: 48px; // 表单区域内边距
 
 .login {
   position: relative;
@@ -173,11 +173,11 @@ $login-form-padding: 180px; // 表单区域内边距
 
 .login-container {
   width: 50%;
-  min-width: 2200px;
+  min-width: 320px;
   max-width: 800px;
   background: #ffffff;
   border-radius: $login-container-radius;
-  box-shadow: 0 80px 240px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
   align-items: stretch;
@@ -204,8 +204,8 @@ $login-form-padding: 180px; // 表单区域内边距
   font-weight: bold;
   color: #333;
   text-align: center;
-  margin: 0 0 40px 0;
-  letter-spacing: 8px;
+  margin: 0 0 16px 0;
+  letter-spacing: 4px;
 }
 
 .form-subtitle {
@@ -213,7 +213,7 @@ $login-form-padding: 180px; // 表单区域内边距
   font-size: $login-input-font-size;
   color: #666;
   text-align: center;
-  margin: 0 0 80px 0;
+  margin: 0 0 32px 0;
 }
 
 .form {
@@ -221,26 +221,26 @@ $login-form-padding: 180px; // 表单区域内边距
 
   .form-item {
     width: 100%;
-    padding: 47px 39px;
+    padding: 8px 0;
     margin-top: $login-item-gap;
 
     :deep(.el-input__wrapper) {
       height: 100%;
       border-radius: $login-radius;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     :deep(.form-in input) {
       font-size: $login-input-font-size;
       height: 100%;
-      padding: 30px 20px;
+      padding: 8px 12px;
     }
 
     :deep(.el-button) {
       height: $login-btn-height !important;
       border-radius: $login-radius;
       font-weight: 600;
-      letter-spacing: 8px;
+      letter-spacing: 4px;
     }
 
     :deep(.el-button > span) {
@@ -248,9 +248,9 @@ $login-form-padding: 180px; // 表单区域内边距
     }
 
     :deep(.el-form-item__error) {
-      font-size: 70px;
+      font-size: 12px;
       color: #e34234;
-      margin-top: 20px;
+      margin-top: 4px;
     }
   }
 

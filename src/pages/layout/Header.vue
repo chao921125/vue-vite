@@ -5,11 +5,15 @@ import Constants from "@/utils/constant/constants";
 import ThemeConfig from "@/config/themeConfig";
 import RouterConfig from "@/config/routerConfig";
 import { getStoreRefs, appStore } from "@/store";
-import { Sunny, Moon } from "@element-plus/icons-vue";
+import { Sunny, Moon, Fold, Expand } from "@element-plus/icons-vue";
 import Utils from "@/utils";
 
 import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
 import { useDark, useToggle } from "@vueuse/core";
+
+const emit = defineEmits<{
+  (e: "toggle-menu"): void;
+}>();
 
 const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
 // 折叠菜单 start
@@ -17,49 +21,87 @@ const isColl = computed(() => {
   let { isCollapse } = themeConfig.value;
   return !isCollapse;
 });
+const props = defineProps<{
+  isMobile?: boolean;
+}>();
 const changeCollapse = () => {
-  themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
-  setThemeConfig();
+  // 移动端：触发抽屉开关；PC端：折叠/展开菜单
+  if (props.isMobile) {
+    emit("toggle-menu");
+  } else {
+    themeConfig.value.isCollapse = !themeConfig.value.isCollapse;
+    setThemeConfig();
+  }
 };
 // 折叠菜单 end
 // 面包屑导航 start
 const route = useRoute();
 const { menuList } = getStoreRefs(appStore.useRouterList);
 const breadcrumbList = ref<any[]>([]);
+// 取路径的最后一段（兼容 "inv/system" 与 "users" 两种形式）
+const getLastSegment = (p: string) => (p || "").split("/").filter(Boolean).pop() || "";
 const initBreadcrumbList = (path: string) => {
-  if (RouterConfig.executeList.includes(path)) {
-    breadcrumbList.value.push({
-      name: menuList.value[0].path,
-      title: menuList.value[0].title,
-      path: "/" + menuList.value[0].path,
-    });
-    return false;
+  // 登录/注册等无授权页面：不展示面包屑
+  const noBreadcrumbPaths = ["/login", "/register", "/auth", "/no-data", "/403", "/404", "/500"];
+  if (noBreadcrumbPaths.includes(path)) {
+    return;
   }
-  let pathArr = path.split("/");
-  pathArr.shift();
+  // 根路径或白名单路径：只显示首页一项
+  if (RouterConfig.executeList.includes(path) || path === "/" || path === "/home") {
+    const home = menuList.value?.[0];
+    if (home) {
+      breadcrumbList.value.push({
+        name: home.path,
+        title: home.title,
+        path: "/" + home.path,
+      });
+    }
+    return;
+  }
+  // 非根路径：先添加首页作为第一级面包屑
+  const home = menuList.value?.[0];
+  if (home) {
+    breadcrumbList.value.push({
+      name: home.path,
+      title: home.title,
+      path: "/" + home.path,
+    });
+  }
+  // 按路径段拆解，逐级生成占位项，标题由 setBreadcrumbList 回填
+  const pathArr = path.split("/").filter(Boolean);
   for (let i = 0; i < pathArr.length; i++) {
     breadcrumbList.value.push({
       name: pathArr[i],
       title: "",
-      path: i === pathArr.length ? "/" + pathArr.slice(0, i + 1).join("/") : "",
+      path: "/" + pathArr.slice(0, i + 1).join("/"),
     });
   }
   setBreadcrumbList(menuList.value);
-  // 去掉包含首页的面包屑
-  // breadcrumbList.value.unshift({
-  // 	name: menuList.value[0].path,
-  // 	title: menuList.value[0].title,
-  // 	path: "/" + menuList.value[0].path,
-  // });
+  // 移除因路径段与菜单命名空间不匹配而留空的占位项
+  breadcrumbList.value = breadcrumbList.value.filter((item) => item.title !== "");
+  // 按 path 去重，避免与首页项重复
+  const seen = new Set<string>();
+  breadcrumbList.value = breadcrumbList.value.filter((item) => {
+    if (seen.has(item.path)) return false;
+    seen.add(item.path);
+    return true;
+  });
 };
 const setBreadcrumbList = (array: Array<any>) => {
+  if (!Array.isArray(array)) return;
   array.forEach((item) => {
+    if (!item || !item.path) return;
+    // 兼容 item.path 为 "users"（子项）与 "inv/system"（父项）两种形式
+    const lastSeg = getLastSegment(item.path);
     breadcrumbList.value.forEach((obj: any) => {
-      if (item.path === obj.name) {
+      if (lastSeg === obj.name) {
         obj.title = item.title;
-        if (item.children) setBreadcrumbList(item.children);
       }
     });
+    // 递归处理子菜单
+    if (Array.isArray(item.children) && item.children.length > 0) {
+      setBreadcrumbList(item.children);
+    }
   });
 };
 // 面包屑导航 end
@@ -189,14 +231,15 @@ onBeforeRouteUpdate((to) => {
 
 <template>
   <el-row :gutter="10" justify="space-between" class="re-h-full">
-    <!--		面包屑导航-->
+    <!--		面包屑导航（移动端隐藏）-->
     <el-col :xs="24" :sm="12">
       <div class="re-h-full re-flex-cv">
         <el-icon @click="changeCollapse" class="re-cp" :size="18">
-          <Fold v-if="isColl"></Fold>
-          <Expand v-else></Expand>
+          <Fold v-if="isColl && !isMobile"></Fold>
+          <Expand v-else-if="!isColl && !isMobile"></Expand>
+          <Fold v-else></Fold>
         </el-icon>
-        <el-breadcrumb separator-icon="ArrowRight" class="re-ml-20">
+        <el-breadcrumb v-if="!isMobile" separator-icon="ArrowRight" class="re-ml-20">
           <transition-group name="breadcrumb">
             <el-breadcrumb-item
               v-for="(item, index) in breadcrumbList"
@@ -212,7 +255,13 @@ onBeforeRouteUpdate((to) => {
     <!--		右侧快捷栏-->
     <el-col :xs="24" :sm="12">
       <div class="re-h-full re-flex-end">
-        <el-dropdown ref="dropdownComponents" trigger="hover" @command="changeSize">
+        <!-- 移动端隐藏：组件大小、语言切换 -->
+        <el-dropdown
+          v-if="!isMobile"
+          ref="dropdownComponents"
+          trigger="hover"
+          @command="changeSize"
+        >
           <i class="iconfont icon-zujian2 re-cp re-ml-10" @click="showDropdownComponents"></i>
           <template #dropdown>
             <el-dropdown-menu>
@@ -222,7 +271,7 @@ onBeforeRouteUpdate((to) => {
             </el-dropdown-menu>
           </template>
         </el-dropdown>
-        <el-dropdown ref="dropdownLanguage" trigger="hover" @command="changeI18n">
+        <el-dropdown v-if="!isMobile" ref="dropdownLanguage" trigger="hover" @command="changeI18n">
           <i class="iconfont icon-duoyuyan re-cp re-ml-10" @click="showDropdownLanguage"></i>
           <template #dropdown>
             <el-dropdown-menu>
@@ -235,7 +284,13 @@ onBeforeRouteUpdate((to) => {
         <el-tooltip effect="dark" content="设置" placement="bottom">
           <i class="iconfont icon-pifu re-cp re-ml-10" @click="isShowDrawer = true"></i>
         </el-tooltip>
-        <el-tooltip effect="dark" :content="isScreenFull ? '退出全屏' : '全屏'" placement="bottom">
+        <!-- 移动端隐藏：全屏按钮 -->
+        <el-tooltip
+          v-if="!isMobile"
+          effect="dark"
+          :content="isScreenFull ? '退出全屏' : '全屏'"
+          placement="bottom"
+        >
           <i
             v-if="isScreenFull"
             class="iconfont icon-fullscreen-exit re-cp re-ml-10"
@@ -243,7 +298,7 @@ onBeforeRouteUpdate((to) => {
           ></i>
           <i v-else class="iconfont icon-fullscreen re-cp re-ml-10" @click="changeScreenFull"></i>
         </el-tooltip>
-        <div class="re-ml-10">{{ userInfoName }}</div>
+        <div v-if="!isMobile" class="re-ml-10">{{ userInfoName }}</div>
         <el-dropdown ref="dropdownUser" trigger="hover">
           <el-avatar
             :src="userInfoAvatar"
@@ -323,21 +378,11 @@ onBeforeRouteUpdate((to) => {
 
 // 面包屑导航字体
 :deep(.el-breadcrumb__inner) {
-  font-size: d.$font-size-md; // 70px - 基准字体大小
+  font-size: 0.14rem;
 }
 
 // 用户名
 .re-ml-10 {
-  font-size: d.$font-size-md; // 70px - 基准字体大小
-}
-
-// 移动端适配
-@media screen and (max-width: 768px) {
-  :deep(.el-breadcrumb__inner) {
-    font-size: 14px;
-  }
-  .re-ml-10 {
-    font-size: 14px;
-  }
+  font-size: 0.14rem;
 }
 </style>

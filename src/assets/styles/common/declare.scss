@@ -40,12 +40,12 @@ $link-success: $text-success;
 
 // 2. 字体系统（Typography）
 
-// 字体大小阶梯（基于 1rem = 78px，设计稿 780px）
-$font-size-xs: 10px;      // 0.128rem - 辅助文字
-$font-size-sm: 30px;      // 0.154rem - 小字
-$font-size-md: 70px;      // 基准字体（登录页输入框/按钮/链接）
-$font-size-lg: 120px;     // 大字体
-$font-size-xl: 240px;     // 超大字体（登录页 CCNET 标题）
+// 字体大小阶梯
+$font-size-xs: 10px;      // 辅助文字
+$font-size-sm: 12px;      // 小字
+$font-size-md: 14px;      // 基准字体
+$font-size-lg: 16px;      // 大字体
+$font-size-xl: 20px;      // 超大字体
 
 // 字体粗细
 $font-weight-light: 300;
@@ -90,13 +90,13 @@ $spacings: 0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128;
 
 // 4. 圆角系统（Border Radius）
 
-// 圆角大小（基于 780 设计稿）
+// 圆角大小
 $radius-none: 0;
 $radius-sm: 2px;
 $radius-base: 4px;
 $radius-md: 8px;
-$radius-lg: 24px;      // 登录页圆角
-$radius-xl: 60px;      // 登录页容器圆角
+$radius-lg: 8px;       // 大圆角
+$radius-xl: 12px;      // 容器圆角
 $radius-full: 9999px;
 
 // 5. 阴影系统（Box Shadow）
@@ -147,31 +147,31 @@ $breakpoints: (
 
 // 8. 组件尺寸（Component Sizes）
 
-// 输入框尺寸（基于 780 设计稿）
-$input-height-xs: 32px;
-$input-height-sm: 48px;
-$input-height-md: 150px;   // 常规高度（登录页输入框）
-$input-height-lg: 200px;
-$input-height-xl: 280px;
+// 输入框尺寸
+$input-height-xs: 24px;
+$input-height-sm: 32px;
+$input-height-md: 36px;   // 常规高度
+$input-height-lg: 40px;
+$input-height-xl: 48px;
 
-$input-padding-xs: 8px 12px;
-$input-padding-sm: 12px 16px;
-$input-padding-md: 30px 20px;  // 登录页输入框内边距
-$input-padding-lg: 40px 24px;
-$input-padding-xl: 50px 28px;
+$input-padding-xs: 4px 8px;
+$input-padding-sm: 8px 12px;
+$input-padding-md: 8px 12px;  // 常规内边距
+$input-padding-lg: 10px 16px;
+$input-padding-xl: 12px 20px;
 
-// 按钮尺寸（基于 780 设计稿）
-$btn-height-xs: 32px;
-$btn-height-sm: 48px;
-$btn-height-md: 150px;   // 常规高度（登录页按钮）
-$btn-height-lg: 200px;
-$btn-height-xl: 280px;
+// 按钮尺寸
+$btn-height-xs: 24px;
+$btn-height-sm: 32px;
+$btn-height-md: 36px;   // 常规高度
+$btn-height-lg: 40px;
+$btn-height-xl: 48px;
 
-$btn-padding-xs: 8px 16px;
-$btn-padding-sm: 12px 24px;
-$btn-padding-md: 16px 32px;
-$btn-padding-lg: 20px 40px;
-$btn-padding-xl: 24px 48px;
+$btn-padding-xs: 4px 8px;
+$btn-padding-sm: 8px 16px;
+$btn-padding-md: 8px 16px;
+$btn-padding-lg: 10px 20px;
+$btn-padding-xl: 12px 24px;
 
 // 9. 容器宽度（Container）
 
@@ -391,7 +391,7 @@ $card-padding-lg: $spacing-6;    // 24px - 大卡片
 $card-padding-xl: $spacing-8;    // 32px - 超大卡片
 
 // 卡片圆角
-$card-radius: $radius-lg;        // 12px
+$card-radius: $radius-lg;        // 8px
 
 // 卡片阴影
 $card-shadow: $shadow-base;
@@ -416,8 +416,8 @@ $tag-padding-horizontal-lg: 12px;
 // 标签字体
 $tag-font-size-xs: $font-size-xs;  // 10px
 $tag-font-size-sm: $font-size-sm;  // 12px
-$tag-font-size-md: $font-size-md;  // 70px
-$tag-font-size-lg: $font-size-lg;  // 120px
+$tag-font-size-md: $font-size-md;  // 14px
+$tag-font-size-lg: $font-size-lg;  // 16px
 
 // ============================================
 // 14. 对话框/弹窗规范（Dialogs/Modals）
@@ -436,7 +436,7 @@ $dialog-padding-body: $spacing-8;     // 32px
 $dialog-padding-footer: $spacing-6;   // 24px
 
 // 对话框圆角
-$dialog-radius: $radius-xl;  // 16px
+$dialog-radius: $radius-xl;  // 12px
 
 // ============================================
 // 15. 列表组件规范（Lists）
@@ -501,7 +501,7 @@ $nav-item-font-weight: $font-weight-medium; // 500
 $btn-radius-sm: $radius-sm;      // 2px - 小圆角
 $btn-radius-base: $radius-base;  // 4px - 基础圆角
 $btn-radius-md: $radius-md;      // 8px - 中圆角
-$btn-radius-lg: $radius-lg;      // 12px - 大圆角（胶囊形）
+$btn-radius-lg: $radius-lg;      // 8px - 大圆角（胶囊形）
 $btn-radius-full: $radius-full;  // 9999px - 完全圆角（圆形）
 
 // 图标按钮尺寸

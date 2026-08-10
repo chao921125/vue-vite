@@ -18,3 +18,4 @@ export * from "./api";
 export * from "./data";
 export * from "./data-base";
 export * from "./demo";
+export * from "./inventory";
