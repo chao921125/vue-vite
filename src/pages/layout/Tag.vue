@@ -14,14 +14,17 @@ import type { TagViewItem } from "#/types";
 const router = useRouter();
 const route = useRoute();
 let tabs = ref<TagViewItem[]>([]);
-const tabValue = ref<string>("/home");
+// 主页（工作台）路径：取自统一配置，避免与 routerConfig 脱节
+const HOME_PATH = RouterConfig.routeHome;
+const tabValue = ref<string>(HOME_PATH);
 
 const addTab = (routeCurrent: RouteLocationNormalizedLoaded): TagViewItem[] | false => {
   if (routeCurrent.meta.isHide) {
     return false;
   }
   tabValue.value = routeCurrent.fullPath;
-  if (routeCurrent.fullPath === "/home") {
+  // 主页（工作台）由下方固定标签呈现，无需重复入栈
+  if (routeCurrent.fullPath === HOME_PATH) {
     return false;
   }
   let tags: TagViewItem[] = (Storage.getLocalStorage(Constants.keys.tags) as TagViewItem[]) || [];
@@ -37,7 +40,7 @@ const addTab = (routeCurrent: RouteLocationNormalizedLoaded): TagViewItem[] | fa
 };
 
 const removeTab = (name: string) => {
-  if (name === RouterConfig.routeHome) {
+  if (name === HOME_PATH) {
     return false;
   }
   let activeName = tabValue.value;
@@ -47,7 +50,7 @@ const removeTab = (name: string) => {
     tabs.value.splice(index, 1);
     if (name === activeName) {
       if (!tabs.value.length) {
-        activeName = RouterConfig.routeHome;
+        activeName = HOME_PATH;
       } else if (index === tabs.value.length) {
         activeName = tabs.value[index - 1].name;
       } else {
@@ -55,7 +58,7 @@ const removeTab = (name: string) => {
       }
     }
   } else {
-    activeName = RouterConfig.routeHome;
+    activeName = HOME_PATH;
   }
   tabValue.value = activeName;
   Storage.setLocalStorage(Constants.keys.tags, tabs.value);
@@ -80,7 +83,7 @@ const clickChange = (command: string | number | object) => {
     tabs.value.push(routeTemp);
   }
   if (command === "1" || command === 1) {
-    activeName = RouterConfig.routeHome;
+    activeName = HOME_PATH;
     tabs.value = [];
   }
   Storage.setLocalStorage(Constants.keys.tags, tabs.value);
@@ -97,7 +100,13 @@ onMounted(() => {
   // 		},
   // 	]);
   // }
-  tabs.value = Storage.getLocalStorage(Constants.keys.tags) || [];
+  // 过滤掉旧版本残留的主页（工作台）标签，避免与下方固定标签重复
+  const stored =
+    (Storage.getLocalStorage(Constants.keys.tags) as TagViewItem[] | null)?.filter(
+      (item) => item?.name !== HOME_PATH,
+    ) || [];
+  tabs.value = stored;
+  Storage.setLocalStorage(Constants.keys.tags, stored);
   tabValue.value = route.path;
 });
 onBeforeRouteUpdate((to) => {
@@ -107,13 +116,14 @@ onBeforeRouteUpdate((to) => {
 
 <template>
   <div class="re-flex-between tags-content">
-    <el-scrollbar class="tags-list">
+    <el-scrollbar class="tags-list re-el-scrollbar-hidden">
       <div class="re-flex">
         <el-tag
           :disable-transitions="false"
           class="re-cp re-mr-10"
-          @click="changeRouter('/home')"
-          :type="tabValue === '/home' ? 'primary' : 'info'"
+          @click="changeRouter(HOME_PATH)"
+          :type="tabValue === HOME_PATH ? 'primary' : 'info'"
+          :closable="false"
         >
           {{ $t("message.menu.home") }}
         </el-tag>

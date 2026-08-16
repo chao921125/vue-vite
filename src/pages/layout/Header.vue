@@ -38,7 +38,7 @@ const changeCollapse = () => {
 const route = useRoute();
 const { menuList } = getStoreRefs(appStore.useRouterList);
 const breadcrumbList = ref<any[]>([]);
-// 取路径的最后一段（兼容 "inv/system" 与 "users" 两种形式）
+// 取路径的最后一段（兼容 "system" 父项与 "users" 子项两种形式）
 const getLastSegment = (p: string) => (p || "").split("/").filter(Boolean).pop() || "";
 const initBreadcrumbList = (path: string) => {
   // 登录/注册等无授权页面：不展示面包屑
@@ -51,7 +51,7 @@ const initBreadcrumbList = (path: string) => {
   const isHomePath =
     RouterConfig.executeList.includes(path) ||
     path === "/" ||
-    path === "/home" ||
+    path === RouterConfig.routeHome ||
     (home && (path === "/" + home.path || path === "/" + home.path + "/"));
   if (isHomePath) {
     if (home) {
@@ -87,7 +87,7 @@ const setBreadcrumbList = (array: Array<any>) => {
   if (!Array.isArray(array)) return;
   array.forEach((item) => {
     if (!item || !item.path) return;
-    // 兼容 item.path 为 "users"（子项）与 "inv/system"（父项）两种形式
+    // 兼容 item.path 为 "system"（父项）与 "users"（子项）两种形式
     const lastSeg = getLastSegment(item.path);
     breadcrumbList.value.forEach((obj: any) => {
       if (lastSeg === obj.name) {

@@ -39,12 +39,32 @@
   }
 }
 
-// 隐藏滚动条但保留功能
+// 隐藏滚动条但保留功能（原生滚动容器）
 .#{d.$prefix}-scrollbar-hidden {
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+// 隐藏 Element Plus 的 el-scrollbar 滚动条（隐藏滑块/轨道，滚轮仍可滚动）
+.#{d.$prefix}-el-scrollbar-hidden {
+  .el-scrollbar__bar {
+    opacity: 0 !important;
+    pointer-events: none;
+    &.is-vertical,
+    &.is-horizontal {
+      display: none;
+    }
+  }
+  // 兼容：如果 el-scrollbar 没有 bar 而是用了原生滚动的兜底
+  .el-scrollbar__wrap {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

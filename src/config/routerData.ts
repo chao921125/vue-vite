@@ -27,7 +27,7 @@
 export default [
   {
     id: 1,
-    path: "inv/dashboard",
+    path: "dashboard",
     component: "inv/Dashboard",
     type: 1,
     title: "工作台",
@@ -47,7 +47,7 @@ export default [
   },
   {
     id: 10,
-    path: "inv/basic",
+    path: "basic",
     component: "layout/Index",
     type: 2,
     title: "基础资料",
@@ -148,7 +148,7 @@ export default [
   },
   {
     id: 20,
-    path: "inv/purchase",
+    path: "purchase",
     component: "layout/Index",
     type: 2,
     title: "采购管理",
@@ -209,7 +209,7 @@ export default [
   },
   {
     id: 30,
-    path: "inv/sales",
+    path: "sales",
     component: "layout/Index",
     type: 2,
     title: "销售管理",
@@ -270,7 +270,7 @@ export default [
   },
   {
     id: 40,
-    path: "inv/inventory",
+    path: "inventory",
     component: "layout/Index",
     type: 2,
     title: "库存管理",
@@ -351,7 +351,7 @@ export default [
   },
   {
     id: 50,
-    path: "inv/finance",
+    path: "finance",
     component: "layout/Index",
     type: 2,
     title: "资金管理",
@@ -452,7 +452,7 @@ export default [
   },
   {
     id: 60,
-    path: "inv/reports",
+    path: "reports",
     component: "layout/Index",
     type: 2,
     title: "报表分析",
@@ -513,7 +513,7 @@ export default [
   },
   {
     id: 70,
-    path: "inv/system",
+    path: "system",
     component: "layout/Index",
     type: 2,
     title: "系统管理",

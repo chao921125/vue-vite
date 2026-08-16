@@ -1,6 +1,6 @@
 export default {
   menu: {
-    home: "首页",
+    home: "工作台",
     system: "系统管理",
     systemUser: "用户管理",
     systemUserAdd: "用户新增",
@@ -63,7 +63,7 @@ export default {
     testIframe: "Iframe",
   },
   title: {
-    home: "首页",
+    home: "工作台",
     login: "登录",
     register: "注册",
     auth: "授权",

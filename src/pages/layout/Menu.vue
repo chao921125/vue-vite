@@ -73,7 +73,16 @@ onBeforeMount(() => {
       <i class="iconfont icon-shouye"></i>
     </el-link>
   </div>
-  <el-scrollbar>
+  <!--
+    滚动容器说明（替代 el-scrollbar 方案，避免自定义 bar 残留）：
+    - 外层 aside 已设置 overflow: hidden，不产生任何滚动
+    - 本 div 作为唯一滚动层：flex:1 占满剩余高度，min-height:0 允许压缩，overflow-y:auto 按需滚动
+    - .re-scrollbar-hidden：WebKit/Firefox/IE 三端隐藏原生滚动条
+    效果：
+      菜单高度 < 可视 → 无滚动 → 无任何条
+      菜单高度 > 可视 → 可滚动 → 原生条被 class 隐藏，滚轮/触摸板仍可滚动
+  -->
+  <div class="menu-scroll-wrap re-scrollbar-hidden">
     <el-menu
       class="menu-box"
       :default-active="changeMenuKey"
@@ -86,10 +95,20 @@ onBeforeMount(() => {
     >
       <MenuSub v-if="state.menuList && state.menuList.length" :menus="state.menuList"></MenuSub>
     </el-menu>
-  </el-scrollbar>
+  </div>
 </template>
 
 <style scoped lang="scss">
+// 菜单滚动层：配合外层 .layout-aside 的 flex 布局
+// 为什么不用 el-scrollbar：其内部自定义 bar 隐藏优先级复杂，易残留滚动条
+// 改用原生 overflow-y:auto + .re-scrollbar-hidden，行为完全可控
+.menu-scroll-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 // Logo 文字
 :deep(.el-link) {
   font-size: 0.14rem;

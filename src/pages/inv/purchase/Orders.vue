@@ -1,7 +1,7 @@
 <template>
   <PageContainer title="采购订单" description="管理采购订单全生命周期">
     <template #header>
-      <el-button type="primary" :icon="Plus" @click="$router.push('/inv/purchase/orders/create')"
+      <el-button type="primary" :icon="Plus" @click="$router.push('/purchase/orders/create')"
         >新建采购订单</el-button
       >
     </template>

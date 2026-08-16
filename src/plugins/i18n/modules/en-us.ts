@@ -1,6 +1,6 @@
 export default {
   menu: {
-    home: "Home",
+    home: "Dashboard",
     system: "Manage System",
     systemUser: "Manage User",
     systemUserAdd: "User Add",
@@ -63,7 +63,7 @@ export default {
     testIframe: "Iframe",
   },
   title: {
-    home: "home",
+    home: "Dashboard",
     login: "Login",
     register: "Register",
     auth: "Auth",

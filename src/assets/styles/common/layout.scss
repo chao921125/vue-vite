@@ -33,7 +33,14 @@ body {
     z-index: 1;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden !important;
+    // 横向/纵向都不允许 aside 自身产生原生滚动条，滚动全部交给内部 el-scrollbar
+    overflow: hidden !important;
+    // 兜底：WebKit/Firefox/IE 同时隐藏原生滚动条
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     .el-scrollbar__view {
       overflow: hidden;
     }
