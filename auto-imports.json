@@ -1008,6 +1008,11 @@
   },
   {
     "from": "@vueuse/core",
+    "name": "useElementOverflow",
+    "as": "useElementOverflow"
+  },
+  {
+    "from": "@vueuse/core",
     "name": "useElementSize",
     "as": "useElementSize"
   },
