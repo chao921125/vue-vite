@@ -718,11 +718,6 @@
   },
   {
     "from": "@vueuse/core",
-    "name": "templateRef",
-    "as": "templateRef"
-  },
-  {
-    "from": "@vueuse/core",
     "name": "toReactive",
     "as": "toReactive"
   },
@@ -1128,6 +1123,11 @@
   },
   {
     "from": "@vueuse/core",
+    "name": "useLiveAnnouncer",
+    "as": "useLiveAnnouncer"
+  },
+  {
+    "from": "@vueuse/core",
     "name": "useLocalStorage",
     "as": "useLocalStorage"
   },
@@ -1393,6 +1393,11 @@
   },
   {
     "from": "@vueuse/core",
+    "name": "useTemporalNow",
+    "as": "useTemporalNow"
+  },
+  {
+    "from": "@vueuse/core",
     "name": "useTextareaAutosize",
     "as": "useTextareaAutosize"
   },
@@ -1505,6 +1510,11 @@
     "from": "@vueuse/core",
     "name": "useWakeLock",
     "as": "useWakeLock"
+  },
+  {
+    "from": "@vueuse/core",
+    "name": "useWebMCP",
+    "as": "useWebMCP"
   },
   {
     "from": "@vueuse/core",
