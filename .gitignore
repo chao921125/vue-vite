@@ -42,3 +42,78 @@ lerna-debug.log*
 stats.html
 .eslintcache
 .stylelintcache
+
+
+# ---------- Claude Code (Anthropic) ----------
+# 会话/状态/缓存（个人数据，不入库）
+.claude.json
+.claude.json.backup
+.claude/settings.local.json
+.claude/history.jsonl
+.claude/todos/
+.claude/backups/
+.claude/cache/
+.claude/debug/
+.claude/file-history/
+.claude/paste-cache/
+.claude/session-env/
+.claude/shell-snapshots/
+.claude/statsig/
+.claude/telemetry/
+.claude/usage-data/
+.claude/ide/
+.claude/plans/
+.claude/tasks/
+.claude/teams/
+.claude/plugins/
+.claude/stats-cache.json
+.claude/mcp-needs-auth-cache.json
+.claude/security_warnings_*.json
+.claude/.credentials.json
+.claude/credentials.json
+
+# ---------- OpenAI Codex CLI ----------
+# 本地会话/状态（AGENTS.md 本身建议提交）
+.codex/
+.codex-*
+
+# ---------- Cursor ----------
+# 索引/缓存
+.cursor/cache/
+.cursor/indexes/
+.cursorindexes/
+# （.cursor/rules/、.cursorrules、.cursorignore、.cursorindexingignore 建议提交）
+
+# ---------- GitHub Copilot ----------
+# 本地追踪/中间产物
+.copilot/
+.copilot-tracking/
+.copilot-*
+# （.github/copilot-instructions.md、.github/instructions/ 建议提交）
+
+# ---------- Gemini CLI / Gemini Code Assist ----------
+# 本地缓存
+.gemini/cache/
+.gemini/tmp/
+
+# ---------- WorkBuddy ----------
+.workbuddy/
+
+# ---------- 其他 AI 工具 ----------
+# Trae / Qoder / CodeBuddy 等国产 AI IDE
+.trae/
+.qoder/
+.codebuddy/
+# Amazon Q Developer
+.amazonq/
+# Tabnine
+.tabnine/
+# Sourcegraph Cody
+.cody/
+# 通用的 AI 生成中间产物目录
+.ai-generated/
+.ai-cache/
+.sessions/
+.office-claw/
+.agent-cache/
+.agent_history/
