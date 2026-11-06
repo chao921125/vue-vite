@@ -134,27 +134,25 @@
 | [👍 Vue shadcn](https://www.shadcn-vue.com/) [👍 React shadcn](https://ui.shadcn.com/) |
 | [目录](#目录)                                                                              |
 
-| AI UI                                                                                                |
-|------------------------------------------------------------------------------------------------------|
+| AI UI                                                                                                  |
+|--------------------------------------------------------------------------------------------------------|
 | [assistant-ui](https://github.com/assistant-ui/assistant-ui) [官网](https://www.assistant-ui.com/)     |
 | [ChatUI](https://github.com/alibaba/ChatUI) [官网](https://chatui.io/)                                 |
-| [ant-design-x](https://github.com/ant-design/x) [官网](https://x.ant.design/index-cn)                  |
-| [ant-design-x-vue](https://github.com/wzc520pyfm/ant-design-x-vue)                                   |
+| [Ant Design X](https://github.com/ant-design/x) [官网](https://x.ant.design/index-cn)                  |
+| [Ant Design X vue](https://github.com/wzc520pyfm/ant-design-x-vue)                                     |
 | [element-plus-x](https://github.com/element-plus-x/Element-Plus-X) [官网](https://element-plus-x.com/) |
-| [tdesign](https://tdesign.tencent.com/chat/)                                                         |
+| [TDesign Chat](https://tdesign.tencent.com/chat/)                                                      |
 | [ai-elements-vue](https://github.com/vuepont/ai-elements-vue) [官网](https://www.ai-elements-vue.com/) |
-| [目录](#目录)                                                                                            |
+| [Lobe UI](https://github.com/lobehub/lobe-ui) [官网](https://ui.lobehub.com/)                          |
+| [Vercel AI SDK](https://github.com/vercel/ai) [官网](https://vercel.com/home)                          |
+| [shadcn/ui](https://github.com/shadcn-ui/ui) [官网](https://ui.shadcn.com/)                            |
+| [CopilotKit](https://github.com/CopilotKit/CopilotKit) [官网](https://docs.copilotkit.ai/)             |
+| [目录](#目录)                                                                                          |
 
 | AI 小程序 UI                                                |
 |----------------------------------------------------------|
 | [tdesign](https://tdesign.tencent.com/miniprogram-chat/) |
 | [目录](#目录)                                                |
-
-| AI Chat                                                |
-|--------------------------------------------------------|
-| [vercel ai](https://github.com/vercel/ai)              |
-| [CopilotKit](https://github.com/CopilotKit/CopilotKit) |
-| [目录](#目录)                                              |
 
 | VUE                                                                      |
 |--------------------------------------------------------------------------|
@@ -191,41 +189,33 @@
 | 移动端                                                           |
 |---------------------------------------------------------------|
 | [👍vant](https://vant-ui.github.io/vant/#/zh-CN)              |
-| [👍ionic-framework 官网 VRA](https://ionicframework.com/docs/)  |
 | [👍nutui @nutui/nutui@next 官网](https://nutui.jd.com/)         |
+| [👍ionic-framework 官网 VRA](https://ionicframework.com/docs/)  |
 | [Tencent](https://github.com/Tencent/weui/)                   |
-| [vux](https://vux.li/)                                        |
 | [varlet 官网](https://varlet-varletjs.vercel.app/#/en-US/index) |
+| [vux](https://vux.li/)                                        |
 | [onsen 官网](https://onsen.io/)                                 |
 | [wave 官网](https://antoniandre.github.io/wave-ui/)             |
 | [目录](#目录)                                                     |
 
-| 小程序 UI 仅支持 vue3                                                               |
-|-------------------------------------------------------------------------------|
-| [uni-ui uni-app x](https://github.com/dcloudio/uni-ui)                        |
-| [Cool uni-app x](https://github.com/cool-team-official/cool-unix)             |
-| [付费服务 Tui-Plus uni-app x](https://life.yundie.xyz/tuiplus/docs/index.html)    |
-| [Riceui uni-app x](https://gitee.com/riceui/rice-ui)                          |
-| [u-xui uni-app x](https://gitee.com/less_code/u-xui)                          |
-| [uview-ultra 不适配SASS 1.8+ uni-app x](https://uview-ultra.lingyun.net/)        |
-| [vant weapp](https://github.com/vant-ui/vant-weapp)                           |
-| [Cube UI](https://github.com/didi/cube-ui)                                    |
-| [wot-design uni-app](https://github.com/Moonofweisheng/wot-design-uni)        |
-| [nutui-uniapp uni-app](https://github.com/nutui-uniapp/nutui-uniapp)          |
-| [uview-plus uni-app 不适配SASS 1.8+](https://github.com/ijry/uview-plus)         |
+| 小程序 UI 仅支持 vue3                                                            |
+|----------------------------------------------------------------------------------|
+| [腾讯 tdesign 仅支持原生 小程序](https://github.com/Tencent/tdesign-miniprogram) |
+| [vant weapp](https://github.com/vant-ui/vant-weapp)                              |
+| [腾讯 weui-wxss](https://github.com/Tencent/weui-wxss)                           |
+| [腾讯 weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram)  |
+| [uni-ui uni-app x](https://github.com/dcloudio/uni-ui)                           |
+| [Riceui uni-app x](https://gitee.com/riceui/rice-ui)                             |
+| [Cool uni-app x](https://github.com/cool-team-official/cool-unix)                |
+| [u-xui uni-app x](https://gitee.com/less_code/u-xui)                             |
+| [付费 uview-ultra 不适配SASS 1.8+ uni-app x](https://uview-ultra.lingyun.net/)   |
+| [付费 uview-plus uni-app 不适配SASS 1.8+](https://github.com/ijry/uview-plus)    |
 | [uview-pro uni-app 不适配SASS 1.8+](https://github.com/anyup/uView-Pro)          |
-| [tuniaoui uni-app](https://github.com/chinabugotech/tuniaoui-rc-vue3-uniapp)  |
-| [sard uni-app](https://github.com/sutras/sard-uniapp)                         |
-| [腾讯 tdesign 仅支持原生 小程序](https://github.com/Tencent/tdesign-miniprogram)        |
-| [腾讯 weui-wxss](https://github.com/Tencent/weui-wxss)                          |
-| [腾讯 weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram) |
-| [付费 TM-UI uni-app x](https://ext.dcloud.net.cn/plugin?id=16369)               |
-| [付费 uxframe uni-app x](https://www.uxframe.cn/)                               |
-| [付费 limex uni-app x](https://limex.qcoon.cn/)                                 |
-| [付费 FirstUI uni-app x](https://github.com/FirstUI)                            |
-| [付费 graceui uni-app x](https://www.graceui.com/)                              |
-| [付费 turbo-ui uni-app x](https://turbo-ui.cn/)                                 |
-| [目录](#目录)                                                                     |
+| [wot-ui](https://github.com/wot-ui/wot-ui)  [wot-ui](https://wot-ui.cn/)         |
+| [sard uni-app](https://github.com/sutras/sard-uniapp)                            |
+| [nutui-uniapp uni-app](https://github.com/nutui-uniapp/nutui-uniapp)             |
+| [wot-design uni-app](https://github.com/Moonofweisheng/wot-design-uni)           |
+| [目录](#目录)                                                                    |
 
 | UI 单一组件                                                                |
 |------------------------------------------------------------------------|
@@ -293,10 +283,11 @@
 | [目录](#目录)                                                        |
 
 | 图表 小程序                                                                                  |
-|-----------------------------------------------------------------------------------------|
-| [uCharts](https://gitee.com/uCharts/uCharts) [uCharts 官网](https://www.ucharts.cn/v2/#/) |
-| [echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin)                      |
-| [目录](#目录)                                                                               |
+|----------------------------------------------------------------------------------------------|
+| [uCharts](https://gitee.com/uCharts/uCharts) [uCharts 官网](https://www.ucharts.cn/v2/#/)    |
+| [uni-echarts](https://github.com/xiaohe0601/uni-echarts)                                     |
+| [echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin)                           |
+| [目录](#目录)                                                                                |
 
 | 轮播图                                                                       |
 |---------------------------------------------------------------------------|
