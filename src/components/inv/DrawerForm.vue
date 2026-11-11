@@ -2,7 +2,7 @@
   <el-drawer
     v-model="visible"
     :title="title"
-    :size="size"
+    :size="drawerSize"
     :direction="direction"
     :before-close="handleClose"
     destroy-on-close
@@ -18,19 +18,20 @@
       <slot :form-data="formData" />
     </el-form>
     <template #footer>
-      <div style="text-align: right">
-        <el-button @click="handleClose">取消</el-button>
-        <el-button v-if="!readonly" type="primary" :loading="submitting" @click="handleSubmit"
-          >确定</el-button
-        >
+      <div class="drawer-form__footer">
+        <el-button @click="handleClose">{{ $t("message.inv.common.cancel") }}</el-button>
+        <el-button v-if="!readonly" type="primary" :loading="submitting" @click="handleSubmit">{{
+          $t("message.inv.common.confirm")
+        }}</el-button>
       </div>
     </template>
   </el-drawer>
 </template>
 
 <script setup lang="ts">
-import { ref, watch, reactive } from "vue";
+import { ref, watch, reactive, computed } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
+import { useResponsive } from "@/plugins/hooks/useResponsive";
 
 const props = withDefaults(
   defineProps<{
@@ -59,10 +60,16 @@ const emit = defineEmits<{
   submit: [data: Record<string, any>, done: () => void];
 }>();
 
+const { isMobile } = useResponsive();
+
 const visible = ref(props.modelValue);
 const formRef = ref<FormInstance>();
 const submitting = ref(false);
 const formData = reactive<Record<string, any>>({});
+
+// 移动端抽屉占满屏幕，标签置顶，避免窄屏下挤压输入区
+const drawerSize = computed(() => (isMobile.value ? "100%" : props.size));
+const labelPosition = computed(() => (isMobile.value ? "top" : props.labelPosition));
 
 watch(
   () => props.modelValue,
@@ -95,3 +102,9 @@ async function handleSubmit() {
   });
 }
 </script>
+
+<style scoped lang="scss">
+.drawer-form__footer {
+  text-align: right;
+}
+</style>

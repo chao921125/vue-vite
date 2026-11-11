@@ -5,14 +5,15 @@ import Footer from "./Footer.vue";
 import Tags from "./Tag.vue";
 import { getStoreRefs, appStore } from "@/store";
 import { ArrowUpBold } from "@element-plus/icons-vue";
+import { useResponsive } from "@/plugins/hooks/useResponsive";
 
 import { useRoute } from "vue-router";
 
 // 修改项目设置
 const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
+// 设备类型：统一使用 useResponsive，与组件层/样式层断点保持一致
+const { isMobile } = useResponsive();
 const state = reactive({
-  clientWidth: 0,
-  isMobile: false,
   mobileMenuOpen: false,
 });
 // 固定header
@@ -22,7 +23,7 @@ const isFixedHeader = computed(() => {
 //
 const setHeaderHeight = computed(() => {
   const { isTagsView } = themeConfig.value;
-  if (state.isMobile) return "50px";
+  if (isMobile.value) return "50px";
   if (isTagsView) return "84px";
   else return "60px";
 });
@@ -31,7 +32,7 @@ const isShowFooter = themeConfig.value.isFooter;
 // 动态修改菜单的宽高
 const styleCollapse = computed(() => {
   const { isCollapse } = themeConfig.value;
-  if (state.isMobile) return [];
+  if (isMobile.value) return [];
   if (isCollapse) return ["layout-aside-pc-64"];
   else return ["layout-aside-pc-220"];
 });
@@ -42,14 +43,6 @@ const toggleMobileMenu = () => {
 const closeMobileMenu = () => {
   state.mobileMenuOpen = false;
 };
-// 检测设备类型
-const checkDevice = () => {
-  state.clientWidth = document.body.clientWidth;
-  state.isMobile = state.clientWidth < 768;
-  if (!state.isMobile) {
-    state.mobileMenuOpen = false;
-  }
-};
 // 切换路由之后，滚动到顶部
 const { proxy } = getCurrentInstance() as any;
 const route = useRoute();
@@ -59,37 +52,28 @@ watch(
   () => {
     proxy.$refs.refScrollbarMain.wrapRef.scrollTop = 0;
     // 移动端路由切换后关闭抽屉
-    if (state.isMobile) {
+    if (isMobile.value) {
       state.mobileMenuOpen = false;
     }
   },
 );
-// 窗口大小变化时重新检测
-let resizeTimer: ReturnType<typeof setTimeout>;
-const handleResize = () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(checkDevice, 150);
-};
-onBeforeMount(() => {
-  checkDevice();
-});
-onMounted(() => {
-  window.addEventListener("resize", handleResize);
-});
-onUnmounted(() => {
-  window.removeEventListener("resize", handleResize);
+// 从移动端切回桌面端时关闭抽屉
+watch(isMobile, (val) => {
+  if (!val) {
+    state.mobileMenuOpen = false;
+  }
 });
 </script>
 
 <template>
   <el-container id="layout" class="layout-container">
     <!-- PC 端侧边栏 -->
-    <el-aside v-if="!state.isMobile" id="aside" class="aside" :class="styleCollapse">
+    <el-aside v-if="!isMobile" id="aside" class="aside" :class="styleCollapse">
       <Menu></Menu>
     </el-aside>
 
     <!-- 移动端侧边栏抽屉 -->
-    <template v-if="state.isMobile">
+    <template v-if="isMobile">
       <transition name="mobile-aside">
         <div v-show="state.mobileMenuOpen" class="layout-aside-mobile is-open">
           <Menu></Menu>
@@ -107,9 +91,9 @@ onUnmounted(() => {
     <el-container id="admin-body" :class="{ 'admin-main': !isFixedHeader }">
       <el-scrollbar ref="refScrollbarMain" :class="{ 'admin-main': isFixedHeader }">
         <el-header v-if="isFixedHeader" :height="setHeaderHeight" class="layout-header">
-          <Header :is-mobile="state.isMobile" @toggle-menu="toggleMobileMenu"></Header>
+          <Header :is-mobile="isMobile" @toggle-menu="toggleMobileMenu"></Header>
         </el-header>
-        <Tags v-if="!state.isMobile"></Tags>
+        <Tags v-if="!isMobile"></Tags>
         <el-main class="layout-main">
           <el-card class="main-body">
             <!-- 业务子页面在此切换：根据 meta.isKeepAlive 决定是否缓存，Layout 公共部分不受影响 -->

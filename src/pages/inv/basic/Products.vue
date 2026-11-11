@@ -1,7 +1,12 @@
 <template>
-  <PageContainer title="商品管理" description="管理商品基础资料、规格、价格信息">
+  <PageContainer
+    :title="$t('message.inv.basic.products.title')"
+    :description="$t('message.inv.basic.products.desc')"
+  >
     <template #header>
-      <el-button type="primary" :icon="Plus" @click="handleAdd">新增商品</el-button>
+      <el-button type="primary" :icon="Plus" @click="handleAdd">
+        {{ $t("message.inv.basic.products.actions.add") }}
+      </el-button>
     </template>
 
     <ProTable
@@ -13,32 +18,90 @@
       :action-width="220"
       @add="handleAdd"
     >
-      <el-table-column prop="productCode" label="商品编码" width="100" />
-      <el-table-column prop="productName" label="商品名称" min-width="180" show-overflow-tooltip />
-      <el-table-column prop="categoryName" label="分类" width="100" />
-      <el-table-column prop="brandName" label="品牌" width="100" />
-      <el-table-column prop="spec" label="规格" min-width="160" show-overflow-tooltip />
-      <el-table-column prop="unitName" label="单位" width="60" align="center" />
-      <el-table-column prop="purchasePrice" label="采购价" width="100" align="right">
+      <el-table-column
+        prop="productCode"
+        :label="$t('message.inv.basic.products.columns.productCode')"
+        width="100"
+      />
+      <el-table-column
+        prop="productName"
+        :label="$t('message.inv.basic.products.columns.productName')"
+        min-width="180"
+        show-overflow-tooltip
+      />
+      <el-table-column
+        prop="categoryName"
+        :label="$t('message.inv.basic.products.columns.category')"
+        width="100"
+      />
+      <el-table-column
+        prop="brandName"
+        :label="$t('message.inv.basic.products.columns.brand')"
+        width="100"
+      />
+      <el-table-column
+        prop="spec"
+        :label="$t('message.inv.basic.products.columns.spec')"
+        min-width="160"
+        show-overflow-tooltip
+      />
+      <el-table-column
+        prop="unitName"
+        :label="$t('message.inv.basic.products.columns.unit')"
+        width="60"
+        align="center"
+      />
+      <el-table-column
+        prop="purchasePrice"
+        :label="$t('message.inv.basic.products.columns.purchasePrice')"
+        width="100"
+        align="right"
+      >
         <template #default="{ row }"><AmountDisplay :value="row.purchasePrice" /></template>
       </el-table-column>
-      <el-table-column prop="salePrice" label="销售价" width="100" align="right">
+      <el-table-column
+        prop="salePrice"
+        :label="$t('message.inv.basic.products.columns.salePrice')"
+        width="100"
+        align="right"
+      >
         <template #default="{ row }"><AmountDisplay :value="row.salePrice" /></template>
       </el-table-column>
-      <el-table-column prop="taxRate" label="税率" width="70" align="center">
+      <el-table-column
+        prop="taxRate"
+        :label="$t('message.inv.basic.products.columns.taxRate')"
+        width="70"
+        align="center"
+      >
         <template #default="{ row }">{{ row.taxRate }}%</template>
       </el-table-column>
-      <el-table-column prop="status" label="状态" width="80" align="center">
+      <el-table-column
+        prop="status"
+        :label="$t('message.inv.basic.products.columns.status')"
+        width="80"
+        align="center"
+      >
         <template #default="{ row }"><StatusTag :status="row.status" /></template>
       </el-table-column>
       <template #action="{ row }">
-        <el-button text type="primary" size="small" @click="handleEdit(row)">编辑</el-button>
-        <el-button text type="warning" size="small" @click="handleToggleStatus(row)">
-          {{ row.status === "enabled" ? "停用" : "启用" }}
+        <el-button text type="primary" size="small" @click="handleEdit(row)">
+          {{ $t("message.inv.common.edit") }}
         </el-button>
-        <el-popconfirm title="确定删除该商品吗？" @confirm="handleDelete(row)">
+        <el-button text type="warning" size="small" @click="handleToggleStatus(row)">
+          {{
+            row.status === "enabled"
+              ? $t("message.inv.status.disabled")
+              : $t("message.inv.status.enabled")
+          }}
+        </el-button>
+        <el-popconfirm
+          :title="$t('message.inv.basic.products.messages.deleteConfirm')"
+          @confirm="handleDelete(row)"
+        >
           <template #reference>
-            <el-button text type="danger" size="small">删除</el-button>
+            <el-button text type="danger" size="small">{{
+              $t("message.inv.common.delete")
+            }}</el-button>
           </template>
         </el-popconfirm>
       </template>
@@ -47,37 +110,56 @@
     <!-- 新增/编辑抽屉 -->
     <DrawerForm
       v-model="drawerVisible"
-      :title="editingId ? '编辑商品' : '新增商品'"
+      :title="
+        editingId
+          ? $t('message.inv.basic.products.actions.editTitle')
+          : $t('message.inv.basic.products.actions.add')
+      "
       :data="editingData"
       :rules="formRules"
       size="600px"
       @submit="handleSubmit"
     >
       <el-row :gutter="16">
-        <el-col :span="12">
-          <el-form-item label="商品编码" prop="productCode">
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item
+            :label="$t('message.inv.basic.products.form.productCode.label')"
+            prop="productCode"
+          >
             <el-input
               v-model="editingData.productCode"
-              placeholder="请输入商品编码"
+              :placeholder="$t('message.inv.basic.products.form.productCode.placeholder')"
               :disabled="!!editingId"
             />
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="商品名称" prop="productName">
-            <el-input v-model="editingData.productName" placeholder="请输入商品名称" />
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item
+            :label="$t('message.inv.basic.products.form.productName.label')"
+            prop="productName"
+          >
+            <el-input
+              v-model="editingData.productName"
+              :placeholder="$t('message.inv.basic.products.form.productName.placeholder')"
+            />
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="条形码" prop="barcode">
-            <el-input v-model="editingData.barcode" placeholder="请输入条形码" />
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item :label="$t('message.inv.basic.products.form.barcode.label')" prop="barcode">
+            <el-input
+              v-model="editingData.barcode"
+              :placeholder="$t('message.inv.basic.products.form.barcode.placeholder')"
+            />
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="分类" prop="categoryId">
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item
+            :label="$t('message.inv.basic.products.form.category.label')"
+            prop="categoryId"
+          >
             <el-select
               v-model="editingData.categoryId"
-              placeholder="请选择分类"
+              :placeholder="$t('message.inv.basic.products.form.category.placeholder')"
               style="width: 100%"
             >
               <el-option
@@ -89,16 +171,19 @@
             </el-select>
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="品牌" prop="brandName">
-            <el-input v-model="editingData.brandName" placeholder="请输入品牌" />
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item :label="$t('message.inv.basic.products.form.brand.label')" prop="brandName">
+            <el-input
+              v-model="editingData.brandName"
+              :placeholder="$t('message.inv.basic.products.form.brand.placeholder')"
+            />
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="单位" prop="unitName">
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item :label="$t('message.inv.basic.products.form.unit.label')" prop="unitName">
             <el-select
               v-model="editingData.unitName"
-              placeholder="请选择单位"
+              :placeholder="$t('message.inv.basic.products.form.unit.placeholder')"
               style="width: 100%"
               filterable
               allow-create
@@ -107,18 +192,27 @@
             </el-select>
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="规格" prop="spec">
-            <el-input v-model="editingData.spec" placeholder="请输入规格" />
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item :label="$t('message.inv.basic.products.form.spec.label')" prop="spec">
+            <el-input
+              v-model="editingData.spec"
+              :placeholder="$t('message.inv.basic.products.form.spec.placeholder')"
+            />
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="型号" prop="model">
-            <el-input v-model="editingData.model" placeholder="请输入型号" />
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item :label="$t('message.inv.basic.products.form.model.label')" prop="model">
+            <el-input
+              v-model="editingData.model"
+              :placeholder="$t('message.inv.basic.products.form.model.placeholder')"
+            />
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="采购价" prop="purchasePrice">
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item
+            :label="$t('message.inv.basic.products.form.purchasePrice.label')"
+            prop="purchasePrice"
+          >
             <el-input-number
               v-model="editingData.purchasePrice"
               :min="0"
@@ -127,8 +221,11 @@
             />
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="销售价" prop="salePrice">
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item
+            :label="$t('message.inv.basic.products.form.salePrice.label')"
+            prop="salePrice"
+          >
             <el-input-number
               v-model="editingData.salePrice"
               :min="0"
@@ -137,8 +234,11 @@
             />
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="零售价" prop="retailPrice">
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item
+            :label="$t('message.inv.basic.products.form.retailPrice.label')"
+            prop="retailPrice"
+          >
             <el-input-number
               v-model="editingData.retailPrice"
               :min="0"
@@ -147,31 +247,37 @@
             />
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="税率" prop="taxRate">
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item :label="$t('message.inv.basic.products.form.taxRate.label')" prop="taxRate">
             <el-select v-model="editingData.taxRate" style="width: 100%">
               <el-option :value="0" label="0%" /><el-option :value="3" label="3%" />
               <el-option :value="13" label="13%" /><el-option :value="6" label="6%" />
             </el-select>
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="最低库存" prop="minStock">
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item
+            :label="$t('message.inv.basic.products.form.minStock.label')"
+            prop="minStock"
+          >
             <el-input-number v-model="editingData.minStock" :min="0" style="width: 100%" />
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="最高库存" prop="maxStock">
+        <el-col :span="12" :xs="24" :sm="12">
+          <el-form-item
+            :label="$t('message.inv.basic.products.form.maxStock.label')"
+            prop="maxStock"
+          >
             <el-input-number v-model="editingData.maxStock" :min="0" style="width: 100%" />
           </el-form-item>
         </el-col>
-        <el-col :span="24">
-          <el-form-item label="备注" prop="remark">
+        <el-col :span="24" :xs="24" :sm="24">
+          <el-form-item :label="$t('message.inv.basic.products.form.remark.label')" prop="remark">
             <el-input
               v-model="editingData.remark"
               type="textarea"
               :rows="2"
-              placeholder="请输入备注"
+              :placeholder="$t('message.inv.basic.products.form.remark.placeholder')"
             />
           </el-form-item>
         </el-col>
@@ -181,7 +287,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, computed, onMounted } from "vue";
+import { useI18n } from "vue-i18n";
 import { Plus } from "@element-plus/icons-vue";
 import { ElMessage } from "element-plus";
 import PageContainer from "@/components/inv/PageContainer.vue";
@@ -191,6 +298,8 @@ import AmountDisplay from "@/components/inv/AmountDisplay.vue";
 import DrawerForm from "@/components/inv/DrawerForm.vue";
 import { productApi, unitApi, brandApi } from "@/api/modules/inventory";
 
+const { t } = useI18n();
+
 const proTableRef = ref();
 const drawerVisible = ref(false);
 const editingId = ref<number | null>(null);
@@ -199,25 +308,64 @@ const categories = ref<any[]>([]);
 const units = ref<any[]>([]);
 const brands = ref<any[]>([]);
 
-const searchFields = [
-  { prop: "keyword", label: "关键词", type: "input" as const, placeholder: "商品编码/名称" },
+// 查询字段：computed 保证切换语言时 label/placeholder 同步刷新
+const searchFields = computed(() => [
+  {
+    prop: "keyword",
+    label: t("message.inv.basic.products.search.keyword.label"),
+    type: "input" as const,
+    placeholder: t("message.inv.basic.products.search.keyword.placeholder"),
+  },
   {
     prop: "status",
-    label: "状态",
+    label: t("message.inv.basic.products.search.status.label"),
     type: "select" as const,
     options: [
-      { label: "启用", value: "enabled" },
-      { label: "停用", value: "disabled" },
+      { label: t("message.inv.status.enabled"), value: "enabled" },
+      { label: t("message.inv.status.disabled"), value: "disabled" },
     ],
   },
-];
+]);
 
-const formRules = {
-  productCode: [{ required: true, message: "请输入商品编码", trigger: "blur" }],
-  productName: [{ required: true, message: "请输入商品名称", trigger: "blur" }],
-  purchasePrice: [{ required: true, message: "请输入采购价", trigger: "blur" }],
-  salePrice: [{ required: true, message: "请输入销售价", trigger: "blur" }],
-};
+// 校验规则：computed 保证切换语言时提示语同步刷新
+const formRules = computed(() => ({
+  productCode: [
+    {
+      required: true,
+      message: t("message.inv.common.inputPlaceholder", {
+        label: t("message.inv.basic.products.form.productCode.label"),
+      }),
+      trigger: "blur",
+    },
+  ],
+  productName: [
+    {
+      required: true,
+      message: t("message.inv.common.inputPlaceholder", {
+        label: t("message.inv.basic.products.form.productName.label"),
+      }),
+      trigger: "blur",
+    },
+  ],
+  purchasePrice: [
+    {
+      required: true,
+      message: t("message.inv.common.inputPlaceholder", {
+        label: t("message.inv.basic.products.form.purchasePrice.label"),
+      }),
+      trigger: "blur",
+    },
+  ],
+  salePrice: [
+    {
+      required: true,
+      message: t("message.inv.common.inputPlaceholder", {
+        label: t("message.inv.basic.products.form.salePrice.label"),
+      }),
+      trigger: "blur",
+    },
+  ],
+}));
 
 async function loadOptions() {
   const [catRes, unitRes] = await Promise.all([productApi.categoryTree(), unitApi.list()]);
@@ -258,10 +406,10 @@ async function handleSubmit(data: any, done: () => void) {
   try {
     if (editingId.value) {
       await productApi.update(editingId.value, data);
-      ElMessage.success("修改成功");
+      ElMessage.success(t("message.inv.common.success.update"));
     } else {
       await productApi.create(data);
-      ElMessage.success("新增成功");
+      ElMessage.success(t("message.inv.common.success.create"));
     }
     done();
     proTableRef.value?.refresh();
@@ -272,13 +420,13 @@ async function handleSubmit(data: any, done: () => void) {
 
 async function handleToggleStatus(row: any) {
   await productApi.toggleStatus(row.id);
-  ElMessage.success("操作成功");
+  ElMessage.success(t("message.inv.common.success.operate"));
   proTableRef.value?.refresh();
 }
 
 async function handleDelete(row: any) {
   await productApi.remove(row.id);
-  ElMessage.success("删除成功");
+  ElMessage.success(t("message.inv.common.success.delete"));
   proTableRef.value?.refresh();
 }
 

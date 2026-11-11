@@ -1,34 +1,58 @@
 <template>
-  <PageContainer title="销售分析" description="销售趋势、排行、毛利分析">
+  <PageContainer
+    :title="$t('message.inv.report.salesReport.title')"
+    :description="$t('message.inv.report.salesReport.desc')"
+  >
     <el-row :gutter="16" style="margin-bottom: 16px">
-      <el-col :span="14">
+      <el-col :span="14" :xs="24" :sm="24" :md="14">
         <el-card shadow="never">
-          <template #header><span>销售趋势分析</span></template>
-          <div ref="trendRef" style="height: 320px" />
+          <template #header>
+            <span>{{ $t("message.inv.report.salesReport.charts.trendTitle") }}</span>
+          </template>
+          <div ref="trendRef" class="chart-box" style="height: 320px" />
         </el-card>
       </el-col>
-      <el-col :span="10">
+      <el-col :span="10" :xs="24" :sm="24" :md="10">
         <el-card shadow="never">
-          <template #header><span>销售类别占比</span></template>
-          <div ref="pieRef" style="height: 320px" />
+          <template #header>
+            <span>{{ $t("message.inv.report.salesReport.charts.pieTitle") }}</span>
+          </template>
+          <div ref="pieRef" class="chart-box" style="height: 320px" />
         </el-card>
       </el-col>
     </el-row>
 
     <el-card shadow="never">
-      <template #header><span>商品销售排行</span></template>
+      <template #header>
+        <span>{{ $t("message.inv.report.salesReport.charts.rankingTitle") }}</span>
+      </template>
       <el-table :data="rankingData" border size="small">
-        <el-table-column label="排名" width="70" align="center">
+        <el-table-column
+          :label="$t('message.inv.report.salesReport.columns.rank')"
+          width="70"
+          align="center"
+        >
           <template #default="{ row }">
             <el-tag :type="row.rank <= 3 ? 'danger' : 'info'" size="small" round>{{
               row.rank
             }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="name" label="商品名称" min-width="200" show-overflow-tooltip />
-        <el-table-column prop="quantity" label="销售数量" width="100" align="right" sortable />
         <el-table-column
-          label="销售金额"
+          prop="name"
+          :label="$t('message.inv.report.salesReport.columns.productName')"
+          min-width="200"
+          show-overflow-tooltip
+        />
+        <el-table-column
+          prop="quantity"
+          :label="$t('message.inv.report.salesReport.columns.quantity')"
+          width="100"
+          align="right"
+          sortable
+        />
+        <el-table-column
+          :label="$t('message.inv.report.salesReport.columns.amount')"
           width="120"
           align="right"
           sortable
@@ -37,7 +61,7 @@
           <template #default="{ row }"><AmountDisplay :value="row.amount" /></template>
         </el-table-column>
         <el-table-column
-          label="毛利"
+          :label="$t('message.inv.report.salesReport.columns.profit')"
           width="120"
           align="right"
           sortable
@@ -47,7 +71,11 @@
             ><span style="color: #67c23a"><AmountDisplay :value="row.profit" /></span
           ></template>
         </el-table-column>
-        <el-table-column label="毛利率" width="100" align="right">
+        <el-table-column
+          :label="$t('message.inv.report.salesReport.columns.profitRate')"
+          width="100"
+          align="right"
+        >
           <template #default="{ row }">
             <el-progress :percentage="row.profitRate" :stroke-width="8" :text-inside="true" />
           </template>
@@ -58,16 +86,41 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount, nextTick, watch } from "vue";
+import { useI18n } from "vue-i18n";
 import * as echarts from "echarts";
 import PageContainer from "@/components/inv/PageContainer.vue";
 import AmountDisplay from "@/components/inv/AmountDisplay.vue";
 import { reportApi } from "@/api/modules/inventory";
 
+const { t, tm, locale } = useI18n();
+
 const trendRef = ref<HTMLElement>();
 const pieRef = ref<HTMLElement>();
 const rankingData = ref<any[]>([]);
 const trendData = ref<any[]>([]);
+
+let trendChart: echarts.ECharts | null = null;
+let pieChart: echarts.ECharts | null = null;
+
+/** 销售类别选项：value 为接口分类名，label 为展示文案，products 为该类别下的商品名称 */
+const categoryOptions = computed(() =>
+  Object.entries(
+    tm("message.inv.report.salesReport.options.category") as Record<
+      string,
+      { value: string; label: string; products: string[] }
+    >,
+  ).map(([code, item]) => ({ code, ...item })),
+);
+
+/** 金额刻度配置：scale 为换算基数，suffix 为刻度后缀 */
+const amountUnit = computed(() => {
+  const unit = tm("message.inv.report.salesReport.charts.unit") as {
+    scale?: number;
+    suffix?: string;
+  };
+  return { scale: unit.scale ?? 10000, suffix: unit.suffix ?? "" };
+});
 
 onMounted(async () => {
   const [trendRes, rankRes] = await Promise.all([reportApi.salesTrend(), reportApi.salesRanking()]);
@@ -77,30 +130,66 @@ onMounted(async () => {
   await nextTick();
   initTrendChart();
   initPieChart();
+  window.addEventListener("resize", handleResize);
 });
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", handleResize);
+  trendChart?.dispose();
+  pieChart?.dispose();
+  trendChart = null;
+  pieChart = null;
+});
+
+// 切换语言后重绘图表，保证图例、坐标轴与单位文案同步刷新
+watch(locale, async () => {
+  await nextTick();
+  initTrendChart();
+  initPieChart();
+});
+
+/** 窗口尺寸变化时同步图表尺寸 */
+function handleResize() {
+  trendChart?.resize();
+  pieChart?.resize();
+}
 
 function initTrendChart() {
   if (!trendRef.value) return;
+  trendChart?.dispose();
   const chart = echarts.init(trendRef.value);
+  trendChart = chart;
+  const unit = amountUnit.value;
+  const salesAmount = t("message.inv.report.salesReport.charts.legend.salesAmount");
+  const profit = t("message.inv.report.salesReport.charts.legend.profit");
+  const orderCount = t("message.inv.report.salesReport.charts.legend.orderCount");
   chart.setOption({
     tooltip: { trigger: "axis" },
-    legend: { data: ["销售额", "利润", "订单数"], bottom: 0 },
+    legend: { data: [salesAmount, profit, orderCount], bottom: 0 },
     grid: { left: 60, right: 60, top: 30, bottom: 40 },
     xAxis: { type: "category", data: trendData.value.map((i) => i.date) },
     yAxis: [
-      { type: "value", name: "金额", axisLabel: { formatter: (v: number) => v / 10000 + "万" } },
-      { type: "value", name: "订单数", position: "right" },
+      {
+        type: "value",
+        name: t("message.inv.report.salesReport.charts.axis.amount"),
+        axisLabel: { formatter: (v: number) => v / unit.scale + unit.suffix },
+      },
+      {
+        type: "value",
+        name: t("message.inv.report.salesReport.charts.axis.orderCount"),
+        position: "right",
+      },
     ],
     series: [
       {
-        name: "销售额",
+        name: salesAmount,
         type: "bar",
         data: trendData.value.map((i) => i.totalAmount),
         itemStyle: { color: "#409eff" },
         barWidth: 24,
       },
       {
-        name: "利润",
+        name: profit,
         type: "line",
         data: trendData.value.map((i) => i.totalProfit),
         smooth: true,
@@ -108,7 +197,7 @@ function initTrendChart() {
         lineStyle: { width: 3 },
       },
       {
-        name: "订单数",
+        name: orderCount,
         type: "line",
         yAxisIndex: 1,
         data: trendData.value.map((i) => i.orderCount),
@@ -117,31 +206,20 @@ function initTrendChart() {
       },
     ],
   });
-  window.addEventListener("resize", () => chart.resize());
 }
 
 function initPieChart() {
   if (!pieRef.value) return;
+  pieChart?.dispose();
   const chart = echarts.init(pieRef.value);
-  const categories = ["电子产品", "办公耗材", "办公家具"];
+  pieChart = chart;
   const colors = ["#409eff", "#67c23a", "#e6a23c"];
-  const data = categories.map((cat, i) => ({
-    name: cat,
+  const data = categoryOptions.value.map((cat, i) => ({
+    name: cat.label,
     value: rankingData.value
-      .filter((r) => {
-        if (cat === "电子产品")
-          return [
-            "笔记本电脑 Pro 15",
-            "27寸4K显示器",
-            "USB-C 扩展坞",
-            "机械键盘 K870",
-            "无线鼠标 M200",
-          ].includes(r.name);
-        if (cat === "办公耗材") return ["中性笔 0.5mm 黑色", "A4打印纸 80g"].includes(r.name);
-        return ["办公椅 人体工学"].includes(r.name);
-      })
+      .filter((r) => cat.products.includes(r.name))
       .reduce((s, r) => s + r.amount, 0),
-    itemStyle: { color: colors[i] },
+    itemStyle: { color: colors[i % colors.length] },
   }));
   chart.setOption({
     tooltip: { trigger: "item", formatter: "{b}: ¥{c} ({d}%)" },
@@ -156,6 +234,16 @@ function initPieChart() {
       },
     ],
   });
-  window.addEventListener("resize", () => chart.resize());
 }
 </script>
+
+<style scoped lang="scss">
+@use "@/assets/styles/declare" as d;
+
+// 窄屏下降低图表高度，避免图表在小屏幕上占据过多空间
+.chart-box {
+  @include d.mobile {
+    height: 240px !important;
+  }
+}
+</style>

@@ -10,6 +10,7 @@ import Utils from "@/utils";
 
 import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
 import { useDark, useToggle } from "@vueuse/core";
+import { useI18n } from "vue-i18n";
 
 const emit = defineEmits<{
   (e: "toggle-menu"): void;
@@ -117,10 +118,11 @@ const showDropdownLanguage = () => {
 };
 // i18n
 const i18ns = ThemeConfig.i18nKeys;
+// Composition API 模式下 locale 是 WritableComputedRef，必须写 .value 才能触发全局更新
+const { locale } = useI18n({ useScope: "global" });
 const changeI18n = (lang: string) => {
   themeConfig.value.globalI18n = lang;
-  // 内置
-  proxy.$i18n.locale = lang;
+  locale.value = lang;
   Storage.setLocalStorage(Constants.keys.i18nLocale, lang);
   setThemeConfig();
   proxy.$mitt.emit("getI18nConfig", lang);

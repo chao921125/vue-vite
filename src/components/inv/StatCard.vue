@@ -1,6 +1,7 @@
 <template>
   <el-row :gutter="16">
-    <el-col v-for="card in cards" :key="card.key" :span="span">
+    <!-- 移动端（xs < 768px）单列展示；PC 端沿用 span 原有布局 -->
+    <el-col v-for="card in cards" :key="card.key" :span="span" :xs="24">
       <div class="stat-card" :class="`stat-card--${card.color || 'blue'}`">
         <div class="stat-card__icon">
           <el-icon :size="28">

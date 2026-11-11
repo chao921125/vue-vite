@@ -16,8 +16,44 @@ export const elI18n = {
 import znCNLocale from "./modules/zh-cn";
 import enLocale from "./modules/en-us";
 
+// 进销存业务模块语言包（按业务域拆分，文件见 ./modules/inv/）
+import invCommonZhCN from "./modules/inv/common.zh-cn";
+import invCommonEnUS from "./modules/inv/common.en-us";
+import invBasicZhCN from "./modules/inv/basic.zh-cn";
+import invBasicEnUS from "./modules/inv/basic.en-us";
+import invTradeZhCN from "./modules/inv/trade.zh-cn";
+import invTradeEnUS from "./modules/inv/trade.en-us";
+import invStockZhCN from "./modules/inv/stock.zh-cn";
+import invStockEnUS from "./modules/inv/stock.en-us";
+import invReportZhCN from "./modules/inv/report.zh-cn";
+import invReportEnUS from "./modules/inv/report.en-us";
+import invDashboardZhCN from "./modules/inv/dashboard.zh-cn";
+import invDashboardEnUS from "./modules/inv/dashboard.en-us";
+import invMenuZhCN from "./modules/inv/menu.zh-cn";
+import invMenuEnUS from "./modules/inv/menu.en-us";
+
 // 读取 pinia 默认语言
 const { themeConfig } = getStoreRefs(appStore.useThemeConfig);
+
+/** 进销存模块语言包汇总 */
+const invZhCN = {
+  ...invCommonZhCN,
+  ...invBasicZhCN,
+  ...invTradeZhCN,
+  ...invStockZhCN,
+  ...invReportZhCN,
+  ...invDashboardZhCN,
+  ...invMenuZhCN,
+};
+const invEnUS = {
+  ...invCommonEnUS,
+  ...invBasicEnUS,
+  ...invTradeEnUS,
+  ...invStockEnUS,
+  ...invReportEnUS,
+  ...invDashboardEnUS,
+  ...invMenuEnUS,
+};
 
 // 导出语言国际化
 // https://vue-i18n.intlify.dev/guide/essentials/fallback.html#explicit-fallback-with-one-locale
@@ -34,12 +70,14 @@ export const i18n = createI18n({
     [zhCN.name]: {
       message: {
         ...znCNLocale,
+        inv: invZhCN,
       },
       ...zhCN,
     },
     [en.name]: {
       message: {
         ...enLocale,
+        inv: invEnUS,
       },
       ...en,
     },

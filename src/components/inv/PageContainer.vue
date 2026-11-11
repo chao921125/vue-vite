@@ -16,13 +16,19 @@
 </template>
 
 <script setup lang="ts">
+import { useResponsive } from "@/plugins/hooks/useResponsive";
+
 defineProps<{
   title?: string;
   description?: string;
 }>();
+
+const { isMobile } = useResponsive();
 </script>
 
 <style scoped lang="scss">
+@use "@/assets/styles/declare" as d;
+
 .page-container {
   .page-header {
     display: flex;
@@ -49,6 +55,19 @@ defineProps<{
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+  }
+
+  // 移动端：标题与操作区上下堆叠，操作按钮换行
+  @include d.mobile {
+    .page-header {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+
+      .page-header-right {
+        flex-wrap: wrap;
+      }
     }
   }
 }

@@ -267,5 +267,10 @@ $login-form-padding: 48px; // 表单区域内边距
     width: 90%;
     max-width: 100%;
   }
+
+  .login-right {
+    padding: 24px 20px;
+    min-height: auto;
+  }
 }
 </style>

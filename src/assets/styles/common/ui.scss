@@ -1,4 +1,4 @@
-@use "declare";
+@use "../declare" as d;
 
 // 菜单
 .el-menu,
@@ -9,4 +9,38 @@
 // 表格表头加粗
 .el-table .el-table__header .el-table__cell .cell {
   font-weight: bolder;
+}
+
+// ============================================
+// 移动端适配（< 768px，与 useResponsive 断点一致）
+// ============================================
+@include d.mobile {
+  // 抽屉占满屏幕（覆盖页面内 el-drawer 的 size 设置）
+  .el-drawer.rtl,
+  .el-drawer.ltr {
+    width: 100% !important;
+  }
+
+  // 消息框不超出屏幕
+  .el-message-box {
+    width: calc(100% - 30px) !important;
+    max-width: 100%;
+  }
+
+  // 表格容器允许横向滚动，避免固定列宽导致内容被裁切
+  .el-table {
+    font-size: 12px;
+  }
+
+  // 表单标签占满一行，避免窄屏下挤压输入区
+  .el-form--label-top .el-form-item__label {
+    padding-bottom: 4px;
+  }
+
+  // 分页器换行，避免超出屏幕
+  .el-pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 8px;
+  }
 }
