@@ -198,22 +198,22 @@
 | [wave 官网](https://antoniandre.github.io/wave-ui/)             |
 | [目录](#目录)                                                     |
 
-| 小程序 UI 仅支持 vue3 []()                                                                                                         |
-|------------------------------------------------------------------------------------------------------------------------------------|
-| [腾讯 tdesign](https://github.com/Tencent/tdesign-miniprogram) [官网](https://tdesign.tencent.com/miniprogram/overview)            |
-| [vant weapp](https://github.com/vant-ui/vant-weapp) [官网](https://vant.pro/vant-weapp/)                                           |
-| [腾讯 weui-wxss](https://github.com/Tencent/weui-wxss)                                                                             |
-| [腾讯 weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram)                                                    |
-| [uni-ui uni-app x](https://github.com/dcloudio/uni-ui) [官网](https://uniapp.dcloud.net.cn/component/uniui/uni-ui.html)            |
-| [Riceui uni-app x](https://gitee.com/riceui/rice-ui) [官网](https://riceui.cn/)                                                    |
-| [Cool uni-app x](https://github.com/cool-team-official/cool-unix) []()                                                             |
-| [wot-ui uni-app SASS 1.9+](https://github.com/wot-ui/wot-ui) [官网](https://wot-ui.cn/)                                            |
-| [nutui-uniapp uni-app](https://github.com/nutui-uniapp/nutui-uniapp) [官网](https://nutui-uniapp.pages.dev/)                       |
-| [sard uni-app](https://github.com/sutras/sard-uniapp) [官网](https://sard-uniapp.wzt.zone/)                                        |
-| [uview-pro uni-app SASS 1.8-](https://github.com/anyup/uView-Pro) [官网](https://uviewpro.cn/)                                     |
-| [付费 uview-plus uni-app SASS 1.8-](https://github.com/ijry/uview-plus) [官网](https://uview-plus.jiangruyi.com/)                  |
-| [付费 uview-ultra SASS 1.8- uni-app x](https://uview-ultra.lingyun.net/)                                                           |
-| [目录](#目录)                                                                                                                      |
+| 小程序 UI 仅支持 vue3 []()                                                                                                  |
+|-----------------------------------------------------------------------------------------------------------------------------|
+| [腾讯 tdesign](https://github.com/Tencent/tdesign-miniprogram) [官网](https://tdesign.tencent.com/miniprogram/overview)     |
+| [vant weapp](https://github.com/vant-ui/vant-weapp) [官网](https://vant.pro/vant-weapp/)                                    |
+| [腾讯 weui-wxss](https://github.com/Tencent/weui-wxss)                                                                      |
+| [腾讯 weui-miniprogram](https://github.com/wechat-miniprogram/weui-miniprogram)                                             |
+| [uni-ui uni-app x](https://github.com/dcloudio/uni-ui) [官网](https://uniapp.dcloud.net.cn/component/uniui/uni-ui.html)     |
+| [Riceui uni-app x](https://gitee.com/riceui/rice-ui) [官网](https://riceui.cn/)                                             |
+| [Cool uni-app x](https://github.com/cool-team-official/cool-unix) []()                                                      |
+| [wot-ui uni-app SASS 1.9+](https://github.com/wot-ui/wot-ui) [官网](https://wot-ui.cn/)                                     |
+| [nutui-uniapp uni-app](https://github.com/nutui-uniapp/nutui-uniapp) [官网](https://nutui-uniapp.pages.dev/)                |
+| [sard uni-app](https://github.com/sutras/sard-uniapp) [官网](https://sard-uniapp.wzt.zone/)                                 |
+| [uview-pro uni-app SASS 1.8-](https://github.com/anyup/uView-Pro) [官网](https://uviewpro.cn/)                              |
+| [付费 uview-plus uni-app SASS 1.8-](https://github.com/ijry/uview-plus) [官网](https://uview-plus.jiangruyi.com/)           |
+| [付费 uview-ultra SASS 1.8- uni-app x](https://uview-ultra.lingyun.net/)                                                    |
+| [目录](#目录)                                                                                                               |
 
 | UI 单一组件                                                                |
 |------------------------------------------------------------------------|
